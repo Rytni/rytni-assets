@@ -1,0 +1,18 @@
+{
+    "schema":  1,
+    "published_at":  "2026-07-27T20:21:29.8913180Z",
+    "current":  {
+                    "id":  "2.12.7-301de4fe9f21",
+                    "version":  "2.12.7",
+                    "file":  "releases/2.12.7-301de4fe9f21/app.html",
+                    "sha256":  "301de4fe9f2100b11bd7fd1e41d1a8d18d6b8dbecb8d00212cf8a2168960f211",
+                    "size":  498865
+                },
+    "previous":  {
+                     "id":  "2.12.7-bootstrap-301de4fe9f21",
+                     "version":  "2.12.7",
+                     "file":  "releases/2.12.7-bootstrap-301de4fe9f21/app.html",
+                     "sha256":  "301de4fe9f2100b11bd7fd1e41d1a8d18d6b8dbecb8d00212cf8a2168960f211",
+                     "size":  498865
+                 }
+}
