@@ -1,20 +1,20 @@
 {
     "schema":  1,
-    "published_at":  "2026-07-28T20:00:41.3470510Z",
+    "published_at":  "2026-07-28T20:05:37.5430446Z",
     "current":  {
-                    "id":  "2.13.12-7528f6c9c4e6",
-                    "version":  "2.13.12",
+                    "id":  "2.13.13-fa8bc2f52726",
+                    "version":  "2.13.13",
                     "loader_schema":  2,
-                    "file":  "releases/2.13.12-7528f6c9c4e6/app.html",
-                    "sha256":  "7528f6c9c4e6f0550dbfaac13d03fb9dd5d87454058338df43135ecf39aba9f5",
-                    "size":  598916
+                    "file":  "releases/2.13.13-fa8bc2f52726/app.html",
+                    "sha256":  "fa8bc2f52726b96876a52f02d4ffdbc7210b91b8cdf64ef6abb7b71576c74a7d",
+                    "size":  601139
                 },
     "previous":  {
-                     "id":  "2.13.11-cd6bfefa2d1c",
-                     "version":  "2.13.11",
+                     "id":  "2.13.12-7528f6c9c4e6",
+                     "version":  "2.13.12",
                      "loader_schema":  2,
-                     "file":  "releases/2.13.11-cd6bfefa2d1c/app.html",
-                     "sha256":  "cd6bfefa2d1c62c83e12e4b7ea92efdc096fb8c04cdf5e6a7e5ef3c6d2b1122b",
-                     "size":  596711
+                     "file":  "releases/2.13.12-7528f6c9c4e6/app.html",
+                     "sha256":  "7528f6c9c4e6f0550dbfaac13d03fb9dd5d87454058338df43135ecf39aba9f5",
+                     "size":  598916
                  }
 }
