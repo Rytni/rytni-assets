@@ -1,20 +1,20 @@
 {
     "schema":  1,
-    "published_at":  "2026-07-28T21:21:30.3536261Z",
+    "published_at":  "2026-07-28T21:34:16.7402040Z",
     "current":  {
-                    "id":  "2.13.14-375b37d7be30",
-                    "version":  "2.13.14",
+                    "id":  "2.13.15-b27b7d24825e",
+                    "version":  "2.13.15",
                     "loader_schema":  2,
-                    "file":  "releases/2.13.14-375b37d7be30/app.html",
-                    "sha256":  "375b37d7be30eceb3ad97c70d5f6a4b266d1dbaaed34e8018cfaae59348ee6d8",
-                    "size":  602368
+                    "file":  "releases/2.13.15-b27b7d24825e/app.html",
+                    "sha256":  "b27b7d24825e1e76c45aa28448e63e98f7768f0fae756d1733e14ee4eb35f55a",
+                    "size":  608939
                 },
     "previous":  {
-                     "id":  "2.13.14-55dfcaf2f946",
+                     "id":  "2.13.14-375b37d7be30",
                      "version":  "2.13.14",
                      "loader_schema":  2,
-                     "file":  "releases/2.13.14-55dfcaf2f946/app.html",
-                     "sha256":  "55dfcaf2f94613cccffa68c044fe5163a427d91d72a5c9e97fd5cf909499ce77",
+                     "file":  "releases/2.13.14-375b37d7be30/app.html",
+                     "sha256":  "375b37d7be30eceb3ad97c70d5f6a4b266d1dbaaed34e8018cfaae59348ee6d8",
                      "size":  602368
                  }
 }
