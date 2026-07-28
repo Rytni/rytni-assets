@@ -10,11 +10,11 @@
                     "size":  497241
                 },
     "previous":  {
-                     "id":  "2.13.0-647d3a30293d",
-                     "version":  "2.13.0",
+                     "id":  "2.12.8-94bd6a0b775a",
+                     "version":  "2.12.8",
                      "loader_schema":  2,
-                     "file":  "releases/2.13.0-647d3a30293d/app.html",
-                     "sha256":  "647d3a30293d58e10b4a361ac230c1d16d7e0f588a24a386b75849d49e6c3989",
-                     "size":  537977
+                     "file":  "releases/2.12.8-94bd6a0b775a/app.html",
+                     "sha256":  "94bd6a0b775acade1845b6a93ac347f377593f28f139fb72e7b3a0529d09f9a8",
+                     "size":  497224
                  }
 }
