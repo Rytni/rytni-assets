@@ -1,0 +1,51 @@
+{
+  "designResolution": [
+    1920,
+    1080
+  ],
+  "tileResolution": [
+    3840,
+    1080
+  ],
+  "horizontalSeamless": true,
+  "layers": [
+    {
+      "file": "01_world_base.webp",
+      "speed": 0.055,
+      "alpha": 1.0,
+      "role": "base world"
+    },
+    {
+      "file": "02_atmospheric_fog.png",
+      "speed": 0.09,
+      "alpha": 0.85,
+      "role": "atmosphere"
+    },
+    {
+      "file": "03_fireflies.png",
+      "speed": 0.135,
+      "alpha": 1.0,
+      "role": "particles"
+    },
+    {
+      "file": "04_near_decor.png",
+      "speed": 0.28,
+      "alpha": 1.0,
+      "role": "near decor"
+    },
+    {
+      "file": "05_foreground.png",
+      "speed": 0.48,
+      "alpha": 1.0,
+      "role": "foreground"
+    }
+  ],
+  "rendererRules": [
+    "Scale by viewportHeight / 1080 and preserve aspect ratio.",
+    "Use modulo 3840 for horizontal looping.",
+    "Draw enough copies to cover the viewport.",
+    "Do not blur the entire scene.",
+    "Keep player, obstacles and collectibles crisp.",
+    "Foreground must never obscure the gameplay gap."
+  ]
+}
