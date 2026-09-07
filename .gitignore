@@ -1,0 +1,7 @@
+# High-resolution Mushroom Fly working sources stay local and are not delivered to players.
+grib/mushroom-fly-v2/obstacles-src/
+grib/mushroom-fly-v2/obstacles/*.png
+grib/mushroom-fly-v2/player/*.png
+grib/mushroom-fly-v2/items/*.png
+grib/mushroom-fly-v2/ui/*.png
+grib/mushroom-fly-v2/qa-*.jpg

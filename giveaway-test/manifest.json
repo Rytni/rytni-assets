@@ -1,20 +1,20 @@
 {
-    "schema":  1,
-    "published_at":  "2026-09-06T20:51:46.2435456Z",
-    "current":  {
-                    "id":  "2.15.33-2bce5f0f907b",
-                    "version":  "2.15.33",
-                    "loader_schema":  2,
-                    "file":  "releases/2.15.33-2bce5f0f907b/app.html",
-                    "sha256":  "2bce5f0f907b9bbeeebcaee2b5ab6cf1cfc5d2ce015f1c3bd3539e4cc53dbf3a",
-                    "size":  981751
-                },
-    "previous":  {
-                     "id":  "2.15.33-59ea8de236ab",
-                     "version":  "2.15.33",
-                     "loader_schema":  2,
-                     "file":  "releases/2.15.33-59ea8de236ab/app.html",
-                     "sha256":  "59ea8de236ab637d2564e0df93b996977e81e3794069c9b052921c8e62257ede",
-                     "size":  981990
-                 }
+  "schema": 1,
+  "published_at": "2026-09-07T12:16:11.9879754Z",
+  "current": {
+    "id": "2.15.33-8c4e6a034e95",
+    "version": "2.15.33",
+    "loader_schema": 2,
+    "file": "releases/2.15.33-8c4e6a034e95/app.html",
+    "sha256": "8c4e6a034e959ff8add89176dc5fec46ad57a26865f8c118297ba04717a5b238",
+    "size": 998430
+  },
+  "previous": {
+    "id": "2.15.33-c2a6adf778d6",
+    "version": "2.15.33",
+    "loader_schema": 2,
+    "file": "releases/2.15.33-c2a6adf778d6/app.html",
+    "sha256": "c2a6adf778d6682bfefcbd53ffcc52a05180964b0d05bf472ae823ec1022bb85",
+    "size": 995900
+  }
 }
