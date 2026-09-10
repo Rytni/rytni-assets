@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mushroom Fly — individual icon QA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:24px;background:#11131a;color:#f9edcb;font:14px/1.4 system-ui}h1{font:700 28px Georgia;margin:0 0 8px}p{color:#ccc4b7;margin:8px 0 20px}main{display:grid;gap:12px;max-width:1320px;margin:auto}article{display:grid;grid-template-columns:130px repeat(4,minmax(0,1fr));gap:10px;align-items:center}h2{font-size:14px;margin:0}.sample{display:flex;gap:12px;align-items:end;justify-content:center;min-height:88px;padding:8px;border:1px solid #635032;border-radius:10px}.sample span{display:grid;gap:4px;justify-items:center;font-size:11px;color:#fff;text-shadow:0 1px 3px #000}.sample img{object-fit:contain;display:block}.wood{background:repeating-linear-gradient(3deg,#33190e,#402315 4px,#2d160d 8px)}.green{background:linear-gradient(#69c929,#277700)}.dark{background:#17191f}.check{background:conic-gradient(#888 25%,#ddd 0 50%,#888 0 75%,#ddd 0) 0 0/16px 16px}.head{font-weight:700;text-align:center}.pending{padding:12px;border:1px solid #a98446;color:#f3d494}@media(max-width:900px){article{grid-template-columns:100px 1fr 1fr}.head{display:none}}
+</style>
+<main><header><h1>Mushroom Fly · проверка новых иконок</h1><p>Отдельная генерация с нуля · прозрачный PNG · 20 / 24 / 32 / 40 / 48 CSS px. Оригиналы не взяты из референсного изображения.</p></header>
+<article class="head"><span>Иконка</span><span>Тёмное дерево</span><span>Зелёная кнопка</span><span>Тёмный фон</span><span>Шахматная сетка</span></article>
+<div id="gallery" style="display:contents"></div>
+<p>12 независимо созданных изображений. Размеры указаны в CSS px; проверяйте страницу при масштабе браузера 100%.</p></main>
+<script>
+for(const name of ['sound-on','sound-off','settings','fullscreen','exit-fullscreen','play','how-to-play','continue','restart','home','close','confirm']){
+ const row=document.createElement('article');row.innerHTML=`<h2>${name}</h2>`;
+ for(const bg of ['wood','green','dark','check']){const cell=document.createElement('div');cell.className=`sample ${bg}`;for(const size of [20,24,32,40,48])cell.innerHTML+=`<span><img src="../../grib/mushroom-fly-v2/ui/icons-recovery-v1/${name}.png" width="${size}" height="${size}" alt="${name}">${size}</span>`;row.append(cell)}document.querySelector('#gallery').append(row)
+}
+</script></html>
