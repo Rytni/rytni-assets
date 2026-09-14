@@ -1,0 +1,102 @@
+{
+  "mode": "built-in image_gen",
+  "status": "All assets generated separately; built-in image_gen. Integrated visual QA in progress.",
+  "assets": {
+    "head": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One isolated TOP-DOWN snake head sprite facing RIGHT, mushroom cap red with cream square spots, cream mushroom-stem neck extends to LEFT edge of creature, cute dark eye and tiny muzzle right. NO wings, no limbs, no body coil. Compact silhouette fits a 32x32 logical sprite enlarged nearest-neighbor to square image. TRUE TRANSPARENT background, centered object occupies 85% square. Single asset not sheet.",
+      "file": "head.png"
+    },
+    "title-background": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. Wide 16:9 title background, enchanted endless top-down-to-oblique forest path winding into a warm distant clearing. Rich mushroom trees at edges, tiny flowers and teal roots, amber spore lights, violet shadows. Center and right have calmer dark space for menu layout. Pixel-art scene conceived in pixels, NOT pixelated photograph. No characters, no text, no UI.",
+      "file": "title-background.png"
+    },
+    "ground-moss": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. Single seamless repeatable square TOP-DOWN ground texture tile of calm dark teal moss and earthy grass. Low contrast, sparse small pixel tufts, no focal point, uniform brightness edge to edge. Designed on 64x64 logical pixel grid enlarged sharply. No objects, rocks, trees, food, borders or text. It must tile seamlessly on all four edges. OPAQUE full bleed.",
+      "file": "ground-moss.png"
+    },
+    "ground-earth": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. Single seamless square top-down forest ground tile. Calm low-contrast dark teal earth with sparse moss flecks, slightly more brown earth than grass, edges all blend to #17372e moss. 64x64 deliberate pixel grid enlarged sharply. Full bleed opaque. No border, no scene, no focal objects or text.",
+      "file": "ground-earth.png"
+    },
+    "tail": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. Single isolated tapering TAIL sprite of a cream mushroom-stem snake, strict overhead top-down. Thick rounded connection at top center, narrows to a small curved tip at bottom center. Cream/ochre mushroom material, dark violet outline, subtle amber ridges. No face, no mushroom cap, no leaves, no limbs. 24x32 logical pixels enlarged square with transparent margins.",
+      "file": "tail.png"
+    },
+    "food": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One isolated valuable GOLDEN SPORE seed icon, large single luminous amber mushroom seed with cream heart and two tiny moss leaves. Bold readable silhouette, 24x24 pixel sprite enlarged. Truly transparent background. NOT a pile of tiny coins. No text.",
+      "file": "food.png"
+    },
+    "magnet": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One isolated mycelium magnet pickup/icon, horseshoe shape formed by two golden mushroom stems entwined in green mycelium, mint glowing tips. 32x32 pixel sprite enlarged. True transparent background, no text.",
+      "file": "magnet.png"
+    },
+    "drunk": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One isolated suspicious purple mushroom pickup/icon, tilted violet cap with orange spots, sleepy crossed eyes, tiny pink pixel bubbles. Clearly distinct harmful item, 32x32 pixel sprite enlarged. True transparent background, no text.",
+      "file": "drunk.png"
+    },
+    "rock": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One single top-down squat moss-covered forest boulder occupying a square cell, jagged teal slate and violet shadows with amber edge, two tiny red mushrooms on top. Collider silhouette nearly fills square, not huge surrounding plants. 32x32 pixels enlarged. True transparent background.",
+      "file": "rock.png"
+    },
+    "decor": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark. One isolated top-down decorative forest tuft: moss leaves with three tiny turquoise mushrooms, one amber flower and small gnarled root. Gentle dark colors not like food or rock obstacle. 32x32 pixel sprite enlarged. True transparent background. No text.",
+      "file": "decor.png"
+    },
+    "head-game": {
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nOne compact square gameplay HEAD only, facing DOWN toward bottom of image. Cute cream mushroom-stem snake face: red cap with ivory spots upper half, two black pixel eyes on round cream face lower half, tiny smile, no ears, no wings, no limbs, NO long neck, NO green snake. Overall silhouette roughly square. Strict pixel sprite, designed at 48x48 logical pixels enlarged nearest neighbor. Truly transparent background, entire object centered, margin 6%.",
+      "file": "head-game.png"
+    },
+    "body-game": {
+      "file": "body-game.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nOne compact rounded square cream mushroom-stem body segment. This is NOT a chain, NOT a long strip. Width equals height. Ivory core, golden left edge, warm tan right edge, two subtle horizontal mushroom-stem ribs. No face, no cap, no object around it. Fits with a cream snake neck. Pixel sprite designed at 24x24 logical pixels, enlarged square blocks. Truly transparent background, margin 6%."
+    },
+    "dpad-idle": {
+      "file": "dpad-idle.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nSingle fully symmetrical cross-shaped directional pad for fantasy Mushroom Snake mobile game. Four equal carved dark walnut wood arms UP DOWN LEFT RIGHT meeting in center small amber mushroom medallion. Each arm has a clear gold pixel arrow pointing outward. Symmetric layout occupies square, upper arm centered at (50%,20%), left (20%,50%), right(80%,50%), bottom(50%,80%). Moss only tiny corners. Idle unpressed state, ALL arms same brightness. Flat orthographic face-on, no perspective. Designed at96x96 logicalpixels enlarged. Transparent background. No text. This is ONE complete D-pad asset, NOT a sheet."
+    },
+    "frame-desktop": {
+      "file": "frame-desktop.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nOne wide landscape rectangular ornate game FRAME only for desktop Mushroom Snake, 16:9. Dark carved wood two pixel rails, golden pixel bevels, modest moss and tiny red mushrooms in four corners. Edges straight, corners squared stepped pixel silhouette, same thickness all sides 4% of height. Entire middle and outside transparent alpha. No opaque center, no scene. For nine-slice keep all corner art within outer 12% of width and height, edge center repeatable plain carved wood. Sharp consistent square pixels, no rounded smooth curves, no text."
+    },
+    "frame-mobile": {
+      "file": "frame-mobile.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nOne wide landscape rectangular compact game FRAME only for MOBILE Mushroom Snake, 16:9. Distinct lightweight narrow dark walnut pixel rails, amber inner bevel, tiny teal moss and red mushroom corner details. Corners squared with stair-step pixels. Thickness 2% of height; detail ONLY four corners confined to outer8%width/height, center edges clean straight strips suitable for nine-slice. Entire center and outside true alpha. No text, no scene. Mobile control space requires minimal unobtrusive frame. Consistent crisp pixel art."
+    },
+    "logo": {
+      "file": "logo.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nSingle game logo text EXACTLY \"MUSHROOM SNAKE\", two stacked lines MUSHROOM above SNAKE. Handcrafted pixel block fantasy lettering golden ivory highlights amber sides dark walnut shadow, modest red mushroom cap and moss accents. Letterforms crisp squared pixels, legible. Wide2:1 composition, truly transparent background. No backdrop, no other words."
+    },
+    "button": {
+      "file": "button.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nSingle blank carved dark walnut rectangular UI button with amber pixel bevel, no text, slim moss corners, transparent exterior, suitable nine-slice 20%."
+    },
+    "snake-card": {
+      "file": "snake-card.png",
+      "prompt": "Original production game asset for Mushroom Snake. Modern premium PIXEL ART drawn deliberately on a coarse pixel grid, sharp square clusters, no anti-aliasing, no smooth gradients, no painterly brushwork, no 3D render. Controlled palette: dark walnut #241914, deep teal #123a36, moss #537348, cream #efd7a0, amber #df9e42, vermilion #b84139, violet shadows. Warm upper-left amber pixel highlights. Consistent 32-bit fantasy RPG pixel craftsmanship. No watermark.\nLandscape 3:2 original Mushroom Snake key art. Cute cream-bodied red mushroom cap snake travels along top-down moss forest trail. Rich amber light teal shadows. No text, no wings."
+    },
+    "dpad-up": {
+      "file": "dpad-up.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target, the approved pixel-art D-pad. Create its pressed-up state. Change ONLY the UP arm: its wood face is depressed and glows muted moss green, its gold arrow becomes pale amber. All other three arrows, their arms, center mushroom medallion, geometry, outer silhouette, pixel grid, canvas dimensions and transparent background MUST remain exactly the same. Do not rotate, recenter, rescale or redesign. One entire D-pad image, not a sheet."
+    },
+    "dpad-right": {
+      "file": "dpad-right.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target, the approved pixel-art D-pad. Create its pressed-right state. Change ONLY the RIGHT arm: its wood face is depressed and glows muted moss green, its gold arrow becomes pale amber. All other three arrows, their arms, center mushroom medallion, geometry, outer silhouette, pixel grid, canvas dimensions and transparent background MUST remain exactly the same. Do not rotate, recenter, rescale or redesign. One entire D-pad image, not a sheet."
+    },
+    "dpad-down": {
+      "file": "dpad-down.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target, the approved pixel-art D-pad. Create its pressed-down state. Change ONLY the DOWN arm: its wood face is depressed and glows muted moss green, its gold arrow becomes pale amber. All other three arrows, their arms, center mushroom medallion, geometry, outer silhouette, pixel grid, canvas dimensions and transparent background MUST remain exactly the same. Do not rotate, recenter, rescale or redesign. One entire D-pad image, not a sheet.",
+      "alphaCorrection": "Use case: background-extraction. This is a pixel-art D-pad with bottom arrow depressed and green. Remove its black background to genuinely transparent PNG alpha. Keep the entire controller identical, same size, shape, colors and pixel details. NO black fill, no white background, no checkerboard pattern. Transparent outer negative space."
+    },
+    "dpad-left": {
+      "file": "dpad-left.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target, the approved pixel-art D-pad. Create its pressed-left state. Change ONLY the LEFT arm: its wood face is depressed and glows muted moss green, its gold arrow becomes pale amber. All other three arrows, their arms, center mushroom medallion, geometry, outer silhouette, pixel grid, canvas dimensions and transparent background MUST remain exactly the same. Do not rotate, recenter, rescale or redesign. One entire D-pad image, not a sheet.",
+      "alphaCorrection": "Use case: background-extraction. Remove the visible gray/white checkerboard background COMPLETELY and return this single pixel-art game asset on genuinely transparent PNG alpha. The checkerboard must NOT be painted into the image. Keep the asset exactly unchanged: same geometry, canvas size, colors, pixel clusters and pressed/green face. No background color, no checkerboard pattern, no shadows outside object."
+    },
+    "button-primary": {
+      "file": "button-primary.png",
+      "prompt": "Use case: precise-object-edit. This image is a blank pixel art game button. Change ONLY central dark wood face to deep rich moss green carved wood with a warm light-green upper highlight. Preserve golden edge, moss corners, geometry, true transparent exterior, canvas dimensions and deliberate pixel clusters exactly. No text, no added icons. A primary action variant, not a new design.",
+      "alphaCorrection": "Use case: background-extraction. Remove the visible gray/white checkerboard background COMPLETELY and return this single pixel-art game asset on genuinely transparent PNG alpha. The checkerboard must NOT be painted into the image. Keep the asset exactly unchanged: same geometry, canvas size, colors, pixel clusters and pressed/green face. No background color, no checkerboard pattern, no shadows outside object."
+    }
+  },
+  "pending": {}
+}

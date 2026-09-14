@@ -1,36 +1,45 @@
-# Mushroom Snake — TEST vertical slice
+# Mushroom Snake — classic grid rebuild (v2)
 
-## Architecture and rules
+**Release status:** TEST candidate. Production remains unchanged. The strict assembly gate requires the complete v2 runtime and art set before a TEST bundle can be built.
 
-`arcade/09_T123_ARCADE_HUB_SNAKE.html` contains the scoped Hub UI, game registry, Fly adapter consumer and isolated Snake engine/controller. The existing Fly source exposes only activate/deactivate/best and its AudioManager; its physics, collision, camera, rankings and art are unchanged. TEST build appends this block after Fly. Only one selected game owns an animation loop. AbortController removes Snake input listeners; leaving Arcade, closing progression or pagehide stops game/audio and returns to Hub.
+## Simulation and world
 
-Snake is training-only. Keyboard/WASD select direction; mouse points toward a target; touch uses a relative steering anchor. Mobile play requires landscape fullscreen (native with CSS fallback). Rotation/fullscreen exit pauses; resuming never advances hidden time. Menu/pause/results can scroll.
+Training only: no ranked RPC, attempts or database migrations. `arcade/snake-core.js` is a DOM-free deterministic 60 Hz simulation. Four cardinal directions, two-turn queue, no 180° reversal; the drunk effect adds a predictable six-tick turn delay. Movement advances whole grid cells; presentation interpolates the previous/current path independently of camera, aspect ratio and DPR. Pause clears accumulated time. Long browser stalls pause rather than silently changing speed.
 
-Fixed 1200×675 world, 1/60 s physics, uniform render scale; DPR/aspect ratio never change simulation. Head radius 17, world inset 20, segment spacing 19. Start with 10 segments, grow per food to a bounded 110-segment pool; subsequent food still scores. Self collision skips the first eight connected segments. Forest stones have radius 28 and 2.5 s warning. Spawn candidates exclude head, body and existing stones; failed placement retries later.
+Body uses an 8192-entry typed ring buffer and occupied-cell set. Initial length 8; food growth is committed on the next movement step, including magnet pickups. Vacating-tail moves are legal only without growth. Capacity is bounded at 8190; further food still scores. This cap is a practical pool limit, not infinite body storage.
 
-## Score and difficulty
+Infinite seeded world: 16×16-cell chunks, 5×5 simulation window. Coordinate-stable obstacle generation never changes under the snake. Two-cell-wide connected streets divide 2×2 obstacle islands; every unblocked island cell connects to a street. Radius 24 starts open; density rises gradually with distance. This guarantees terrain connectivity, not protection against the player's own tail trapping a route. Collision can recompute unloaded terrain from coordinates; the tail occupancy does not depend on chunk retention.
 
-Food: 20 + 5 × (combo − 1), combo capped at 10. Chain window decreases from 7 s toward 3.2 s. Survival: 2 points/s. Speed approaches 145 from 95 world units/s over 220 s; turning is capped at 2.65 rad/s. Stone cap grows gradually to 10; placement is checked, not based on screen pixels. No near-miss reward in Phase 1. Seeded randomness permits deterministic tests. Longer survival needs more balance testing; no claim of a mathematically guaranteed route through every future configuration.
+Renderer has a separate bounded visible-chunk cache and never writes to simulation chunks. Uniform scale expands visible world rather than stretching sprites. Camera follows the interpolated head; mobile places it to the right of the left-hand controls. Maximum visible width is 64 cells to bound rendering cost.
 
-## Effects
+## Competitive loop
 
-- **Mycelium Magnet — implemented:** 7 s, pulls only food within 160 units, not bad pickups; green-gold spores and distinct rising sound. Respawns after 15 s.
-- **Drunk Mushroom — implemented:** avoidable purple/orange pickup with warning ring; deterministic small sinusoidal heading sway for 4 s; steering remains responsive. Distinct wobbling sound, countdown; 18 s respawn.
-- **Ghost Cap — Phase 2:** short cyan transparency; bypass self/eligible stones, never world boundary; safe expiry grace while overlapping.
-- **Golden Harvest — Phase 2:** next limited pickups ×2, gold aura; explicit remaining count.
-- **Pocket Mycelium — Phase 2:** compress segment spacing, retain segment count/score; interpolate restoration, defer unsafe expansion, no expiry overlap death.
-- **Fairy Ring — Phase 2:** paired mushroom portals; validate destination against swept head/body/stone geometry, preserve a discontinuous trail across portal, cooldown to avoid ping-pong; spawn a safe bonus-spore trail.
-- **Hiccup — Phase 2:** small periodic forward pulses after visible/audio warning; swept collision and bounded impulse, never random teleport.
-- **Sticky Slime — Phase 2:** mild speed and turning reduction with green segment coating/countdown; restore smoothly. Test combinations before enabling stacking.
+1 food target initially, 2 after 90 seconds, 3 after 240 seconds. Bounded cardinal BFS selects a reachable nearby free location; failed placement retries. Food is worth 100 + 20 × (combo − 1), up to combo 10. Chain window gradually shortens from 12 to 6 seconds. Survival gives 1 point/second. Speed smoothly approaches 12 from 7.5 cells/second. No random free score or unverified near-miss reward.
 
-## Art, audio and performance
+Magnet: 7 seconds, pulls food within four Manhattan cells along available cardinal steps; never attracts debuffs. Drunk Mushroom: 4 seconds, six-tick delay for newly queued turns, visible violet state and timer, no random directions. Separate icons, progress chips and existing distinct audio clips.
 
-Eight separately generated original raster assets in `grib/mushroom-snake-v1`: two key arts, arena, wingless head, segment (tapered for tail in slice), spores, magnet, drunk mushroom. No screenshot crops or emoji art. Seven original pre-rendered PCM clips are reproducible with `node arcade/build-snake-audio.cjs`; playback uses existing Fly master/music/SFX buses and saved settings, not a second mixer.
+## Presentation, menus and lifecycle
 
-Typed ring-buffer trail and segment arrays, fixed food/stone/particle pools; background cached on resize. No realtime blur. Sprite cache built once; mobile DPR ≤1.5, desktop ≤2. Balanced default on touch; repeated slow windows reduce particles/quality without changing physics. `mf_perf=1` exposes FPS/frame time/CPU/DPR. Desktop emulation is not proof of Redmi Note 11 hardware performance; real-device testing remains required.
+`snake-controller.js` and `snake-ui.html` are isolated v2 presentation modules. `assemble-snake-v2.cjs` prepares them with the existing Hub registry/lifecycle without changing Fly or its card. Default assembly fails if required art is absent; incomplete mode is diagnostic-only.
 
-## Ranked backend — design only
+Intentional modern pixel art in `grib/mushroom-snake-v2`: four directional snake heads, five controlled body variants, tapered tail art, moss/earth tiles, teal shadows, amber food and violet hazards. No screenshot-derived assets. Source prompts are recorded in `prompts.json`. Desktop/mobile frames are separate required art rendered nine-slice with fixed corners. The main menu, buttons, D-pad states, HUD chips and all modal states use the same wood/moss/gold art language.
 
-Training best uses `rytni_mushroom_snake_training_best_v1` locally and never calls Fly score/attempt RPC. No fake seasonal ranking and no migration in this slice. Plan additive `game_id` (`mushroom_fly`, `mushroom_snake`) on sessions/results and leaderboard keys `(season_id, game_id, application_id)`, with server-side game/rules-version validation. Preserve/backfill old results as Fly; existing Fly RPC defaults stay compatible. Snake ranked RPC and separate seasonal top/personal rank require additive migration, RLS tests and replay/score validation before release.
+Ten data-driven biome definitions share one simulation and chunk system. Green Forest, Dark Cave and Winter World have production ground/obstacle art; the remaining seven definitions currently use explicit fallback assets and transition hooks. Distance zones blend over transition chunks rather than switching the simulation or teleporting the player.
 
-**Decision required before backend implementation:** shared Arcade attempts or per-game attempts. No new economy or production semantics are introduced now.
+States: main, how-to-play, settings, pause, result, mobile fullscreen prompt. Settings adapt the existing Fly audio mixer (music/SFX/master/mute) and real DPR quality. Result shows score, length, food, combo, bonuses, survival time and local v2 best (old free-movement scores are deliberately separate).
+
+Mobile accepts a fullscreen/orientation click, waits for landscape and a stable 180 ms viewport, then starts. The adapter follows Fly's proven request/lock retry and viewport-cover protocol; Fly's functions are private and tied to its model, so Fly is not refactored or modified. CSS fullscreen is only a fallback when the native API is absent, not when a native request is rejected. Exit/portrait pauses immediately. Four actual D-pad buttons on the left replace touch steering and swipes.
+
+One animation loop; AbortController and ResizeObserver cleanup; host close, Hub return and pagehide stop audio/RAF. No full-world allocation, realtime blur or particle bursts. DPR ≤1.5 mobile, ≤2 desktop, 1 in economy mode; quality never changes physics.
+
+## Verification status
+
+Core tests PASS: cardinal movement, reversal/queue, interpolation, growth, selective magnet, drunk delay, self collision, connected terrain, bounded streaming, biome progression and matching 30/60/144 FPS replays. Simulation/interpolation stress PASS at 100/250/500/1200 segments.
+
+Strict local release QA PASS on desktop and touch emulation with the real shared audio mixer: main/how/settings/pause/restart-confirm/result, keyboard and D-pad control, native fullscreen, orientation transitions, render/simulation independence, host-close cleanup, asset loading and browser console/network checks. Actual canvas rendering stress passes at 100/250/500/1200 segments with a bounded 25-chunk simulation window and eight visible render chunks. Redmi Note 11 hardware validation remains separate from emulation.
+
+## Phase 3 / ranked roadmap
+
+After approval: Ghost Cap (safe expiry), Golden Harvest (limited ×2 pickups), Pocket Mycelium (visual compression with grid-safe occupancy rules), Fairy Ring (validated destination and discontinuous trail); Hiccup (warned extra cardinal step), Sticky Slime (bounded turn commitment). Each needs original icon, timer, audio and combination tests.
+
+Ranked is a separate approved phase: additive game_id/session/leaderboard keys, server replay/rules validation and RLS tests. Decide shared versus per-game attempts first. No economy changes now.
