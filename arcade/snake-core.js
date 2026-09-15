@@ -17,8 +17,16 @@
   const key=(x,y)=>x+','+y,mod=(n,d)=>((n%d)+d)%d;
   function hash(x,y,seed){let n=Math.imul(x,374761393)^Math.imul(y,668265263)^seed;n=Math.imul(n^(n>>>13),1274126177);return (n^(n>>>16))>>>0;}
   class World{
-    constructor(seed){this.seed=seed>>>0;this.chunks=new Map();this.generated=0;}
+    constructor(seed,forestSlice=false){this.seed=seed>>>0;this.forestSlice=forestSlice;this.chunks=new Map();this.generated=0;}
     blocked(x,y){
+      if(this.forestSlice){
+        if(x>=-12&&x<=6&&Math.abs(y)<=2)return false;
+        // Isolated, coordinate-stable candidates with two cells of clearance.
+        // Local priority rejection removes lattice clusters and keeps routes connected.
+        const n=hash(x,y,this.seed);if(n/4294967296>.17)return false;
+        for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)if((dx||dy)&&hash(x+dx,y+dy,this.seed)<n)return false;
+        return true;
+      }
       // Permanent two-cell-wide connected streets separate every 2x2 obstacle island.
       // Generation is coordinate/seed based, never changes underneath the player/tail.
       if(Math.max(Math.abs(x),Math.abs(y))<24||mod(x,4)<2||mod(y,4)<2)return false;
@@ -31,9 +39,9 @@
     stream(x,y){const cx=Math.floor(x/CHUNK),cy=Math.floor(y/CHUNK);for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)this.chunk(cx+dx,cy+dy);for(const [k,c]of this.chunks)if(Math.abs(c.x-cx)>2||Math.abs(c.y-cy)>2)this.chunks.delete(k);}
   }
   class Engine{
-    constructor(seed=1){this.bx=new Int32Array(CAPACITY);this.by=new Int32Array(CAPACITY);this.rx=new Float32Array(CAPACITY);this.ry=new Float32Array(CAPACITY);this.items=Array.from({length:5},(_,i)=>({x:0,y:0,kind:i<3?'food':i===3?'magnet':'drunk',active:false,cool:0}));this.queue=[];this.occupied=new Set();this.events=[];this.searchX=new Int32Array(2401);this.searchY=new Int32Array(2401);this.seen=new Uint8Array(2401);this.reset(seed);}
+    constructor(seed=1,{forestSlice=false}={}){this.forestSlice=forestSlice;this.bx=new Int32Array(CAPACITY);this.by=new Int32Array(CAPACITY);this.rx=new Float32Array(CAPACITY);this.ry=new Float32Array(CAPACITY);this.items=Array.from({length:5},(_,i)=>({x:0,y:0,kind:i<3?'food':i===3?'magnet':'drunk',active:false,cool:0}));this.queue=[];this.occupied=new Set();this.events=[];this.searchX=new Int32Array(2401);this.searchY=new Int32Array(2401);this.seen=new Uint8Array(2401);this.reset(seed);}
     random(){this.seed=(Math.imul(1664525,this.seed)+1013904223)>>>0;return this.seed/4294967296;}
-    reset(seed=1,length=8){this.seed=seed>>>0;this.world=new World(seed);this.length=Math.max(2,Math.min(CAPACITY-2,length));this.head=0;this.x=0;this.y=0;this.direction=1;this.previousDirection=1;this.ticks=0;this.steps=0;this.phase=0;this.lastPeriod=8;this.moveTicks=0;this.points=0;this.growth=0;this.foodCount=0;this.combo=0;this.maxCombo=0;this.comboUntil=0;this.bonuses=0;this.magnet=0;this.drunk=0;this.alive=true;this.reason='';this.queue.length=0;this.events.length=0;this.occupied.clear();for(let i=0;i<=this.length;i++){const j=mod(-i,CAPACITY);this.bx[j]=-i;this.by[j]=0;if(i<this.length)this.occupied.add(key(-i,0));}for(let i=0;i<5;i++){const item=this.items[i];item.active=false;item.cool=i<3?0:i===3?360:720;}this.world.stream(0,0);this.place(this.items[0]);this.interpolate(1);}
+    reset(seed=1,length=8){this.seed=seed>>>0;this.world=new World(seed,this.forestSlice);this.length=Math.max(2,Math.min(CAPACITY-2,length));this.head=0;this.x=0;this.y=0;this.direction=1;this.previousDirection=1;this.ticks=0;this.steps=0;this.phase=0;this.lastPeriod=8;this.moveTicks=0;this.points=0;this.growth=0;this.foodCount=0;this.combo=0;this.maxCombo=0;this.comboUntil=0;this.bonuses=0;this.magnet=0;this.drunk=0;this.alive=true;this.reason='';this.queue.length=0;this.events.length=0;this.occupied.clear();for(let i=0;i<=this.length;i++){const j=mod(-i,CAPACITY);this.bx[j]=-i;this.by[j]=0;if(i<this.length)this.occupied.add(key(-i,0));}for(let i=0;i<5;i++){const item=this.items[i];item.active=false;item.cool=i<3?0:i===3?360:720;}this.world.stream(0,0);this.place(this.items[0]);this.interpolate(1);}
     scoreNow(){return Math.floor(this.points+this.ticks/60);}
     get time(){return this.ticks/60;}
     get speed(){return Math.min(12,7.5+4.5*(1-Math.exp(-this.time/300)));}
@@ -42,7 +50,7 @@
     place(item){
       // Bounded cardinal BFS: pickups spawn only on an actually reachable local route.
       const radius=24,size=49;this.seen.fill(0);let read=0,write=1,candidates=0,chosenX=0,chosenY=0;this.searchX[0]=this.x;this.searchY[0]=this.y;this.seen[radius*size+radius]=1;
-      while(read<write){const x=this.searchX[read],y=this.searchY[read++],distance=Math.abs(x-this.x)+Math.abs(y-this.y);if(distance>=4&&distance<=10&&this.free(x,y,item)){candidates++;if(this.random()<1/candidates){chosenX=x;chosenY=y;}}for(let d=0;d<4;d++){const nx=x+DX[d],ny=y+DY[d],lx=nx-this.x+radius,ly=ny-this.y+radius;if(lx<0||ly<0||lx>=size||ly>=size)continue;const j=ly*size+lx;if(this.seen[j]||this.world.blocked(nx,ny)||this.occupied.has(key(nx,ny)))continue;this.seen[j]=1;this.searchX[write]=nx;this.searchY[write++]=ny;}}
+      while(read<write){const x=this.searchX[read],y=this.searchY[read++],distance=Math.abs(x-this.x)+Math.abs(y-this.y);if(distance>=(this.forestSlice?2:4)&&distance<=(this.forestSlice?5:10)&&this.free(x,y,item)){candidates++;if(this.random()<1/candidates){chosenX=x;chosenY=y;}}for(let d=0;d<4;d++){const nx=x+DX[d],ny=y+DY[d],lx=nx-this.x+radius,ly=ny-this.y+radius;if(lx<0||ly<0||lx>=size||ly>=size)continue;const j=ly*size+lx;if(this.seen[j]||this.world.blocked(nx,ny)||this.occupied.has(key(nx,ny)))continue;this.seen[j]=1;this.searchX[write]=nx;this.searchY[write++]=ny;}}
       if(!candidates){item.active=false;item.cool=60;return false;}item.x=chosenX;item.y=chosenY;item.active=true;return true;
     }
     die(reason){this.alive=false;this.reason=reason;this.phase=1;this.events.push('death');}
@@ -60,8 +68,8 @@
       if(this.steps%8===0)this.world.stream(nx,ny);
     }
     tick(){if(!this.alive)return;this.ticks++;if(this.magnet>0)this.magnet--;if(this.drunk>0)this.drunk--;if(this.ticks>this.comboUntil)this.combo=0;
-      const foods=this.time<90?1:this.time<240?2:3;
-      for(let i=0;i<5;i++){const f=this.items[i];if(i<3&&i>=foods)continue;if(f.cool>0)f.cool--;if(!f.active&&f.cool===0)this.place(f);else if(f.active&&this.ticks%60===0&&Math.abs(f.x-this.x)+Math.abs(f.y-this.y)>15)this.place(f);
+      const foods=this.forestSlice?1:this.time<90?1:this.time<240?2:3;
+      for(let i=0;i<(this.forestSlice?3:5);i++){const f=this.items[i];if(i<3&&i>=foods)continue;if(f.cool>0)f.cool--;if(!f.active&&f.cool===0)this.place(f);else if(f.active&&this.ticks%60===0&&Math.abs(f.x-this.x)+Math.abs(f.y-this.y)>15)this.place(f);
         if(f.active&&f.kind==='food'&&this.magnet>0&&this.ticks%8===0&&Math.abs(f.x-this.x)+Math.abs(f.y-this.y)<=4){if(f.x===this.x&&f.y===this.y)this.collect(f);else{const dx=Math.sign(this.x-f.x),dy=Math.sign(this.y-f.y);let nx=f.x,ny=f.y;if(dx&&(!dy||this.ticks%16===0))nx+=dx;else ny+=dy;if(nx===this.x&&ny===this.y)this.collect(f);else if(this.free(nx,ny,f)){f.x=nx;f.y=ny;}}}}
       this.phase+=this.speed/60;if(this.phase>=1){this.phase-=1;this.move();}
     }

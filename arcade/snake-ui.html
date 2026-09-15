@@ -41,4 +41,23 @@
 #msSnake button{-webkit-tap-highlight-color:transparent}
 #msSnake .ms-btn,#msSnake .ms-btn.ms-primary{background:transparent}
 #msSnake .sp-widget,#msSnake .sp-rule,#msSnake .ms-results>div{background-clip:padding-box}
+/* Green Forest: reserve the frame outside the canvas instead of covering play. */
+#msSnake .ms-stage{--forest-edge:24px;--forest-corner:52px;--forest-cut:28px;background:#11241b}
+#msSnake .ms-stage.sp-touch{--forest-edge:18px;--forest-corner:36px;--forest-cut:18px}
+#msSnake .ms-stage:after{border:var(--forest-corner) solid transparent;border-image:url('https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/forest-frame-v1.png') 235 / var(--forest-corner) / 0 stretch}
+#msSnake .ms-canvas{inset:var(--forest-edge);width:calc(100% - 2 * var(--forest-edge));height:calc(100% - 2 * var(--forest-edge));clip-path:polygon(var(--forest-cut) 0,calc(100% - var(--forest-cut)) 0,100% var(--forest-cut),100% calc(100% - var(--forest-cut)),calc(100% - var(--forest-cut)) 100%,var(--forest-cut) 100%,0 calc(100% - var(--forest-cut)),0 var(--forest-cut))}
+#msSnake .ms-hud,#msSnake .sp-touch .ms-hud{left:max(var(--forest-edge),env(safe-area-inset-left));right:auto;top:max(var(--forest-edge),env(safe-area-inset-top));width:max-content;max-width:calc(100% - 2 * var(--forest-edge));padding:2px 5px;gap:10px;border:14px solid transparent;border-image:url('https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/forest-hud-v1.png') 200 320 fill / 14px / 0 stretch;align-items:center}
+#msSnake .ms-hud .sp-widget{border:0;border-left:1px solid #9f824b55;background:none;padding:0 3px 0 11px;min-height:35px;gap:5px}
+#msSnake .ms-hud .sp-widget img{display:none}
+#msSnake .ms-hud .sp-widget small{font-size:9px;color:#d3c58c}
+#msSnake .ms-hud .sp-widget b{font-size:20px;color:#fff0b8;text-shadow:1px 2px #17120b}
+#msSnake .ms-hud .ms-btn{border:0;background:none;min-height:35px;padding:0 4px;color:#f5d48c;font-size:12px}
+#msSnake .ms-hud .sp-effects{display:none}
+@media(max-height:500px) and (orientation:landscape){
+ #msSnake .ms-hud,#msSnake .sp-touch .ms-hud{gap:5px;border-width:10px;border-image-width:10px;padding:0 2px}
+ #msSnake .ms-hud .sp-widget{min-height:28px;padding-left:6px}
+ #msSnake .ms-hud .sp-widget b{font-size:16px}
+ #msSnake .ms-hud .sp-widget small{font-size:8px}
+ #msSnake .ms-hud .ms-btn{min-height:30px;font-size:10px}
+}
 </style>
