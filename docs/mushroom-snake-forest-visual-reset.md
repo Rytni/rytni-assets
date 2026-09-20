@@ -34,8 +34,8 @@ QA scripts currently use this machine's absolute screenshot directory: `C:/Users
 
 - Core and forest unit tests pass: deterministic replay at 30/60/144 FPS, cardinal topology, fixed elbow registration, one food/no bonuses, bounded 25 simulation chunks. All five obstacle families reject entry from four directions.
 - Edge through Playwright CLI: embedded 1366×768; fullscreen 1920×1080; touch/mobile 915×412 with DPR 2 (render cap 1.5); pause/resume; keyboard and D-pad queue input; resize; portrait 412×915; landscape return; fullscreen exit safe pause. No observed page/console errors, failed requests or HTTP errors in the local flow.
-- Screenshots: `forest-desktop.png`, `forest-fullscreen.png`, `forest-mobile.png`, `forest-pause.png`, `forest-portrait-pause.png`, `forest-long-1200.png`; four rotated corner fixtures in `character-turn-*.png`.
-- Warm-cache synchronous renderer p95 for 100/250/500/1200 segments: 0.4/0.4/0.4/0.6 ms; four render chunks, 25 simulation chunks. These are 120-call browser microbenchmarks, **not device FPS, GPU/compositing cost or sustained gameplay performance**. Screenshots/performance use deterministic frozen fixtures; interactive lifecycle/input paths are tested separately.
+- Density screenshots: `density-after-desktop-early.png`, `density-after-desktop-long-250.png`, `density-after-fullscreen.png`, `density-after-mobile.png`, and `density-after-boundary-{0,16,32,48}.png`. Earlier character/lifecycle screenshots remain available.
+- Warm-cache synchronous renderer p95 before/after for 100/250/500/1200 segments: `0.4/0.4/0.4/0.6 ms` → `0.3/0.3/0.5/0.5 ms`; four render chunks, 25 simulation chunks. These are 120-call browser microbenchmarks, **not device FPS, GPU/compositing cost or sustained gameplay performance**. Screenshots/performance use deterministic frozen fixtures; interactive lifecycle/input paths are tested separately.
 
 ## Art provenance and prompt specifications
 
@@ -56,7 +56,7 @@ Generated originals: `C:/Users/rytni/.codex/generated_images/01a08321-eab4-7933-
 
 ## Remaining acceptance work
 
-- The current forest is too sparse and ground repetition is still noticeable compared with the target. Needs another focused environment art/composition pass while retaining a quiet, readable central play area. Do not call the current checkpoint premium visual completion.
+- The density pass adds seam-safe soil/moss patches, rotated ground variants, clustered flowers/mushrooms/ferns/leaves/grass, small roots/stones, rare cached fireflies, obstacle mirroring/scale variants, and a dynamic decor-free reading zone around the head and food. It reuses approved atlases; no new bitmap assets were required. Final visual approval still gates release assembly.
 - Grid collision tests prove occupied-cell behavior, not pixel-exact silhouette collision. Art fits one cell; transparent corners are not separately collidable geometry.
 - Menus/help retain legacy content outside this gameplay-focused pass; old bonus explanations do not describe the forest-only slice. Review before eventual release without adding features.
 - Mobile checks are emulation only; physical mobile browser, sustained frame pacing and cold-start memory/loading acceptance remain unverified.

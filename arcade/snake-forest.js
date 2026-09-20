@@ -6,6 +6,16 @@
  const geometry=new URLSearchParams(location.search).has('snake_geometry');
  const BASE='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/';
  const {hash,CHUNK}=root.MushroomSnakeCore;
+ const clusterStrength=(x,y,seed,spacing=8)=>{
+  const gx=Math.floor(x/spacing),gy=Math.floor(y/spacing);let strength=0;
+  for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++){
+   const px=gx+ox,py=gy+oy,n=hash(px,py,seed^0x62f35a71);if((n&7)>3)continue;
+   const cx=px*spacing+1+((n>>>5)%Math.max(1,spacing-2)),cy=py*spacing+1+((n>>>12)%Math.max(1,spacing-2));
+   const radius=2.3+((n>>>20)&7)*.23,distance=Math.hypot(x-cx,y-cy);
+   strength=Math.max(strength,1-distance/radius);
+  }
+  return Math.max(0,strength);
+ };
  async function picture(name){const image=new Image();image.crossOrigin='anonymous';image.src=BASE+name+'.png';await image.decode();return image;}
  function frames(image,cols,rows){
   const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
@@ -42,28 +52,60 @@
     this.objectFrames=frames(this.objects,3,2);
    })();try{return await this.ready;}catch(e){this.ready=null;throw e;}
   },
-  object(c,index,x,y,size){
+  object(c,index,x,y,size,variant=0){
    const f=this.objectFrames[index],k=size/Math.max(f.w,f.h);
-   c.drawImage(this.objects,f.x,f.y,f.w,f.h,x-f.w*k/2,y-f.h*k/2,f.w*k,f.h*k);
+   c.save();c.translate(x,y);if(variant&1)c.scale(-1,1);
+   c.drawImage(this.objects,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
+  },
+  groundPatches(c,cx,cy,seed){
+   const spacing=10,left=cx*CHUNK,top=cy*CHUNK;
+   const gx0=Math.floor((left-6)/spacing),gx1=Math.floor((left+CHUNK+6)/spacing),gy0=Math.floor((top-6)/spacing),gy1=Math.floor((top+CHUNK+6)/spacing);
+   for(let gy=gy0;gy<=gy1;gy++)for(let gx=gx0;gx<=gx1;gx++){
+    const n=hash(gx,gy,seed^0x9e3779b9);if((n&3)>1)continue;
+    const wx=gx*spacing+2+((n>>>5)%6),wy=gy*spacing+2+((n>>>11)%6),px=(wx-left)*32,py=(wy-top)*32;
+    const rx=(2.2+((n>>>17)&7)*.3)*32,ry=(1.35+((n>>>22)&7)*.22)*32,angle=((n>>>27)&7)*Math.PI/8;
+    c.fillStyle=(n>>>30)&1?'#73512d16':'#284d321c';c.beginPath();c.ellipse(px,py,rx,ry,angle,0,Math.PI*2);c.fill();
+    c.fillStyle=(n>>>29)&1?'#9970440a':'#0a21170d';c.beginPath();c.ellipse(px+((n&15)-7)*2,py+(((n>>>4)&15)-7)*2,rx*.62,ry*.56,angle+.35,0,Math.PI*2);c.fill();
+   }
+  },
+  decorItem(c,type,x,y,size,n){
+   if(type<4){
+    const f=this.decorFrames[type],k=size/Math.max(f.w,f.h);c.save();c.translate(x,y);if(n&1)c.scale(-1,1);
+    c.globalAlpha=type===3?.72:.86;c.drawImage(this.decor,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();return;
+   }
+   if(type>5){
+    const f=this.objectFrames[type===6?4:0],small=8+((n>>>18)&7),k=small/Math.max(f.w,f.h);c.save();c.translate(x,y);if(n&1)c.scale(-1,1);
+    c.globalAlpha=.74;c.drawImage(this.objects,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();return;
+   }
+   c.save();c.translate(Math.round(x),Math.round(y));
+   if(type===4){
+    c.fillStyle='#2d5a35';c.fillRect(-1,-8,2,8);c.fillRect(-5,-5,2,5);c.fillRect(4,-7,2,7);c.fillStyle='#789753';c.fillRect(1,-5,2,5);c.fillStyle='#4b733d';c.fillRect(-3,-4,2,4);
+   }else{
+    c.fillStyle='#91633d';c.fillRect(-7,-2,6,3);c.fillStyle='#b7834e';c.fillRect(1,2,5,3);c.fillStyle='#76513a';c.fillRect(5,-5,4,2);
+   }
+   c.restore();
   },
   groundChunk(s,cx,cy){
-   const id='forest:'+s.engine.world.seed+':'+cx+','+cy;if(s.chunks.has(id))return s.chunks.get(id);
-   const canvas=document.createElement('canvas');canvas.width=canvas.height=CHUNK*32;
-   const c=canvas.getContext('2d');c.imageSmoothingEnabled=false;
+   const id='forest-density:'+s.engine.world.seed+':'+cx+','+cy;if(s.chunks.has(id))return s.chunks.get(id);
+   const floor=document.createElement('canvas'),decor=document.createElement('canvas');floor.width=floor.height=decor.width=decor.height=CHUNK*32;
+   const c=floor.getContext('2d');c.imageSmoothingEnabled=false;
    for(let y=0;y<CHUNK;y+=4)for(let x=0;x<CHUNK;x+=4){
-    c.drawImage(this.ground,x*32,y*32,128,128);
+    const n=hash(cx*CHUNK+x,cy*CHUNK+y,s.engine.world.seed^0xa511e9b3);c.save();c.translate(x*32+64,y*32+64);c.rotate(((n>>>3)&3)*Math.PI/2);c.scale(n&1?-1:1,n&2?-1:1);c.drawImage(this.ground,-64,-64,128,128);c.restore();
    }
-   c.fillStyle='#102d2680';c.fillRect(0,0,canvas.width,canvas.height);
+   c.fillStyle='#102d2674';c.fillRect(0,0,floor.width,floor.height);this.groundPatches(c,cx,cy,s.engine.world.seed);
+   const d=decor.getContext('2d'),ambient=[];d.imageSmoothingEnabled=false;
    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){
     const wx=cx*CHUNK+x,wy=cy*CHUNK+y,n=hash(wx,wy,s.engine.world.seed);
-    // Low contrast soil/leaf variation, with no tile-sized solid rectangles.
-    if(n%11===0){c.fillStyle='#66482a18';c.beginPath();c.ellipse(x*32+16,y*32+16,25,17,n%6,0,Math.PI*2);c.fill();}
-    if(n%19===0&&!s.engine.world.blocked(wx,wy)){
-     const type=n%4,f=this.decorFrames[type],size=type===3?17:24,k=size/Math.max(f.w,f.h);
-     c.globalAlpha=type===3?.7:.8;c.drawImage(this.decor,f.x,f.y,f.w,f.h,x*32+(32-f.w*k)/2,y*32+(32-f.h*k)/2,f.w*k,f.h*k);c.globalAlpha=1;
+    if((n&15)===0){c.fillStyle=(n&16)?'#b1844b22':'#d5b76618';c.fillRect(x*32+((n>>>8)%27),y*32+((n>>>13)%27),2+(n&1),2);}
+    if(s.engine.world.blocked(wx,wy))continue;
+    const field=clusterStrength(wx+.5,wy+.5,s.engine.world.seed),chance=.038+field*.68;
+    if(((n>>>8)&65535)/65535<chance){
+     const type=(n>>>24)&7,size=type<4?(type===3?16+((n>>>19)&3):20+((n>>>18)&7)):1;
+     const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);
+     if((n&63)===0)ambient.push(wx+.5+ox/32,wy+.5+oy/32,(n>>>16)/65535*Math.PI*2);
     }
    }
-   s.chunks.set(id,canvas);return canvas;
+   const entry={id,floor,decor,ambient};s.chunks.set(id,entry);return entry;
   },
   sprite(c,part){
    let cell=part.cell,flip=false;
@@ -92,15 +134,28 @@
    c.translate(sx-s.camera.x*scale,sy-s.camera.y*scale);c.scale(scale,scale);
    c.fillStyle='#233e32';c.fillRect(left,top,v.w/scale,v.h/scale);
    if(!geometry&&this.ground){
-    const visible=new Set();
+    const visible=this.visibleKeys||(this.visibleKeys=new Set());visible.clear();
     for(let cy=Math.floor(top/CHUNK);cy<=Math.floor(bottom/CHUNK);cy++)for(let cx=Math.floor(left/CHUNK);cx<=Math.floor(right/CHUNK);cx++){
-     visible.add('forest:'+e.world.seed+':'+cx+','+cy);c.drawImage(this.groundChunk(s,cx,cy),cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
+     const entry=this.groundChunk(s,cx,cy);visible.add(entry.id);c.drawImage(entry.floor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
     }
     for(const key of s.chunks.keys())if(!visible.has(key))s.chunks.delete(key);
+    // Cached decor remains non-colliding and is clipped away from the immediate
+    // reading zone. Structural obstacles are painted afterwards and stay visible.
+    c.save();c.beginPath();c.rect(left-1,top-1,right-left+2,bottom-top+2);c.arc(e.rx[0]+.5,e.ry[0]+.5,3.15,0,Math.PI*2);
+    for(const item of e.items)if(item.active&&item.kind==='food')c.arc(item.x+.5,item.y+.5,1.35,0,Math.PI*2);c.clip('evenodd');
+    const pulse=e.ticks*.025;
+    for(let cy=Math.floor(top/CHUNK);cy<=Math.floor(bottom/CHUNK);cy++)for(let cx=Math.floor(left/CHUNK);cx<=Math.floor(right/CHUNK);cx++){
+     const entry=this.groundChunk(s,cx,cy);c.drawImage(entry.decor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
+     for(let i=0;i<entry.ambient.length;i+=3){
+      const x=entry.ambient[i],y=entry.ambient[i+1]+Math.sin(pulse+entry.ambient[i+2])*.07,a=.38+Math.sin(pulse*1.3+entry.ambient[i+2])*.18;
+      c.globalAlpha=a;c.fillStyle='#e6ffb6';c.fillRect(x-.02,y-.02,.04,.04);c.globalAlpha=a*.45;c.fillStyle='#79dca6';c.fillRect(x-.05,y-.05,.1,.1);
+     }
+    }
+    c.globalAlpha=1;c.restore();
    }
    for(let y=Math.floor(top);y<bottom;y++)for(let x=Math.floor(left);x<right;x++){
     if(e.world.blocked(x,y)){
-     if(!geometry&&this.objects)this.object(c,hash(x,y,e.world.seed)%5,x+.5,y+.5,SCALE.obstacle);
+     const n=hash(x,y,e.world.seed);if(!geometry&&this.objects)this.object(c,n%5,x+.5,y+.5,SCALE.obstacle*(.9+((n>>>9)&7)*.012),n);
      else{c.fillStyle='#849180';c.fillRect(x+.03,y+.03,.94,.94);}
     }
    }
