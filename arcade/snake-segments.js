@@ -19,7 +19,8 @@
   if((towardHead+2)%4===towardTail){
    const vertical=towardHead%2===0;
    // Coordinate-stable variations: advancing the head cannot flicker the back.
-   const variant=((current.x*31+current.y*17)>>>0)%2;
+   const mixed=(Math.imul(current.x,0x45d9f3b)^Math.imul(current.y,0x119de1f3))>>>0;
+   const variant=(mixed>>>11)&1;
    return {name:'body-'+(vertical?'vertical':'horizontal')+'-'+variant,kind:'body',direction:towardHead,cell:4+(vertical?1:0)+variant*2};
   }
   const key=[towardHead,towardTail].sort().join(''),corner={'01':0,'12':1,'23':2,'03':3}[key];

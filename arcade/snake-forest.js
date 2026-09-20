@@ -47,15 +47,24 @@
      if(r<l)throw Error('Missing Snake atlas frame');this.frames.push({x:l,y:t,w:r-l+1,h:b-t+1});
     }
     this.atlas=image;
-    [this.ground,this.decor,this.objects]=await Promise.all([picture('forest-ground-v1'),picture('forest-decor-v1'),picture('forest-objects-v1')]);
+    [this.ground,this.decor,this.objects,this.food]=await Promise.all([picture('forest-ground-v1'),picture('forest-decor-v1'),picture('forest-objects-v1'),picture('forest-food-spore-v1')]);
     this.decorFrames=frames(this.decor,4,1);
     this.objectFrames=frames(this.objects,3,2);
+    this.foodFrame=frames(this.food,1,1)[0];
    })();try{return await this.ready;}catch(e){this.ready=null;throw e;}
+  },
+  contactShadow(c,x,y,size,wide=1,alpha=.28){
+   c.fillStyle=alpha>.3?'rgba(4,13,9,.32)':alpha<.27?'rgba(4,13,9,.25)':'rgba(4,13,9,.28)';c.beginPath();c.ellipse(x,y+size*.25,size*.38*wide,size*.13,0,0,Math.PI*2);c.fill();
   },
   object(c,index,x,y,size,variant=0){
    const f=this.objectFrames[index],k=size/Math.max(f.w,f.h);
+   this.contactShadow(c,x,y,size,index===4?1.25:index===2?1.12:1,index===3?.32:.26);
    c.save();c.translate(x,y);if(variant&1)c.scale(-1,1);
    c.drawImage(this.objects,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
+  },
+  foodSprite(c,x,y,size){
+   const f=this.foodFrame,k=size/Math.max(f.w,f.h);this.contactShadow(c,x,y,size,.82,.25);
+   c.drawImage(this.food,f.x,f.y,f.w,f.h,x-f.w*k/2,y-f.h*k/2,f.w*k,f.h*k);
   },
   groundPatches(c,cx,cy,seed){
    const spacing=10,left=cx*CHUNK,top=cy*CHUNK;
@@ -64,8 +73,10 @@
     const n=hash(gx,gy,seed^0x9e3779b9);if((n&3)>1)continue;
     const wx=gx*spacing+2+((n>>>5)%6),wy=gy*spacing+2+((n>>>11)%6),px=(wx-left)*32,py=(wy-top)*32;
     const rx=(2.2+((n>>>17)&7)*.3)*32,ry=(1.35+((n>>>22)&7)*.22)*32,angle=((n>>>27)&7)*Math.PI/8;
-    c.fillStyle=(n>>>30)&1?'#73512d16':'#284d321c';c.beginPath();c.ellipse(px,py,rx,ry,angle,0,Math.PI*2);c.fill();
-    c.fillStyle=(n>>>29)&1?'#9970440a':'#0a21170d';c.beginPath();c.ellipse(px+((n&15)-7)*2,py+(((n>>>4)&15)-7)*2,rx*.62,ry*.56,angle+.35,0,Math.PI*2);c.fill();
+    const type=(n>>>27)%5;
+    c.fillStyle=type===0?'#173a291e':type===1?'#78945416':type===2?'#8d603118':type===3?'#09251f20':'#4e673814';c.beginPath();c.ellipse(px,py,rx,ry,angle,0,Math.PI*2);c.fill();
+    c.fillStyle=type===2?'#b1844b0d':type===3?'#071a1812':'#c0b56a09';c.beginPath();c.ellipse(px+((n&15)-7)*2,py+(((n>>>4)&15)-7)*2,rx*.62,ry*.56,angle+.35,0,Math.PI*2);c.fill();
+    if(type===4)for(let i=0;i<4;i++){const q=hash(gx*7+i,gy*11-i,seed^0x3873a5d1);c.fillStyle=i&1?'#8d72bd3d':'#d9c27238';c.fillRect(px+((q&31)-15)*3,py+(((q>>>6)&31)-15)*2,2,2);}
    }
   },
   decorItem(c,type,x,y,size,n){
@@ -85,8 +96,16 @@
    }
    c.restore();
   },
+  obstacleDecor(c,index,x,y,n){
+   const side=n&1?-1:1,other=-side;
+   if(index===0){this.decorItem(c,2,x+side*10,y+8,11,n);this.decorItem(c,4,x+other*9,y+10,1,n>>>1);}
+   else if(index===1){this.decorItem(c,1,x+side*10,y+8,10,n);this.decorItem(c,2,x+other*9,y+9,10,n>>>2);}
+   else if(index===2){this.decorItem(c,0,x+side*10,y+9,9,n);this.decorItem(c,5,x+other*8,y+10,1,n>>>3);}
+   else if(index===3){this.decorItem(c,1,x+side*11,y+9,8,n);this.decorItem(c,0,x+other*10,y+10,8,n>>>4);}
+   else{this.decorItem(c,2,x+side*9,y+8,10,n);this.decorItem(c,4,x+other*10,y+10,1,n>>>5);}
+  },
   groundChunk(s,cx,cy){
-   const id='forest-density:'+s.engine.world.seed+':'+cx+','+cy;if(s.chunks.has(id))return s.chunks.get(id);
+   const id='forest-presentation:'+s.engine.world.seed+':'+cx+','+cy;if(s.chunks.has(id))return s.chunks.get(id);
    const floor=document.createElement('canvas'),decor=document.createElement('canvas');floor.width=floor.height=decor.width=decor.height=CHUNK*32;
    const c=floor.getContext('2d');c.imageSmoothingEnabled=false;
    for(let y=0;y<CHUNK;y+=4)for(let x=0;x<CHUNK;x+=4){
@@ -97,7 +116,7 @@
    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){
     const wx=cx*CHUNK+x,wy=cy*CHUNK+y,n=hash(wx,wy,s.engine.world.seed);
     if((n&15)===0){c.fillStyle=(n&16)?'#b1844b22':'#d5b76618';c.fillRect(x*32+((n>>>8)%27),y*32+((n>>>13)%27),2+(n&1),2);}
-    if(s.engine.world.blocked(wx,wy))continue;
+    if(s.engine.world.blocked(wx,wy)){this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);continue;}
     const field=clusterStrength(wx+.5,wy+.5,s.engine.world.seed),chance=.038+field*.68;
     if(((n>>>8)&65535)/65535<chance){
      const type=(n>>>24)&7,size=type<4?(type===3?16+((n>>>19)&3):20+((n>>>18)&7)):1;
@@ -107,21 +126,27 @@
    }
    const entry={id,floor,decor,ambient};s.chunks.set(id,entry);return entry;
   },
-  sprite(c,part){
+  sprite(c,part,size=0){
    let cell=part.cell,flip=false;
    // Atlas elbow 9 points left/down: mirror it for the right/down port pair.
    if(cell===9)flip=true;else if(cell===10)cell=9;
-   const f=this.frames[cell];if(flip)c.scale(-1,1);
+   const f=this.frames[cell];
    if(part.kind==='corner'){
     // Elbows extend into the two neighbouring cells. Register by the port
     // intersection, not the bounding-box centre (which shifts an L off-path).
     const [ax,ay]=cell===8?[.24,.76]:cell===9?[.73,.28]:[.75,.75];
-    const k=2/(f.w*Math.max(ax,1-ax)+f.h*Math.max(ay,1-ay));
+    const profile=size||1,k=profile*2/(f.w*Math.max(ax,1-ax)+f.h*Math.max(ay,1-ay));if(flip)c.scale(-1,1);
     c.drawImage(this.atlas,f.x,f.y,f.w,f.h,-f.w*ax*k,-f.h*ay*k,f.w*k,f.h*k);
    }else{
-    const size=part.kind==='head'?SCALE.head:part.kind==='tail'?1.4:1.55,k=size/Math.max(f.w,f.h);
+    const extent=size||(part.kind==='head'?SCALE.head:part.kind==='tail'?1.18:1.5),k=extent/Math.max(f.w,f.h);
     c.drawImage(this.atlas,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);
    }
+  },
+  segmentSize(index,length,part){
+   if(part.kind==='head')return SCALE.head;if(part.kind==='tail')return 1.18;if(part.kind==='corner')return 1;
+   let size=part.cell>=6?1.52:1.48;if(index===1)size=Math.min(size,1.4);else if(index===2)size=Math.min(size,1.46);
+   const tail=length-1-index;if(tail<=0)size=Math.min(size,1.19);else if(tail===1)size=Math.min(size,1.29);else if(tail===2)size=Math.min(size,1.37);else if(tail===3)size=Math.min(size,1.44);
+   return size;
   },
   fit(w,h){return Math.max(h/SCALE.rows,w/SCALE.columns);},
   paint(s){
@@ -160,13 +185,13 @@
     }
    }
    for(const f of e.items)if(f.active&&f.kind==='food'){
-    if(!geometry&&this.objects)this.object(c,5,f.x+.5,f.y+.5,SCALE.food);
+    if(!geometry&&this.food)this.foodSprite(c,f.x+.5,f.y+.5,SCALE.food);
     else{c.fillStyle='#ffcf64';c.beginPath();c.arc(f.x+.5,f.y+.5,SCALE.food/2,0,Math.PI*2);c.fill();}
    }
    const draw=(i,bodyOnly=false)=>{
     const p=bodyOnly?at(e,i):placement(e,i),x=p.x+.5,y=p.y+.5;if(x<left-2||x>right+2||y<top-2||y>bottom+2)return;
     const part=select(e,i,bodyOnly);c.save();c.translate(x,y);
-    if(!geometry&&this.atlas){this.sprite(c,part);c.restore();return;}
+    if(!geometry&&this.atlas){this.sprite(c,part,this.segmentSize(i,e.length,part));c.restore();return;}
     // Dev geometry only. No generated art is accepted implicitly by this preview.
     c.fillStyle=i===0?'#ffbd72':part.kind==='corner'?'#89c9ae':'#c9d69a';
     if(part.kind==='head'){c.beginPath();c.arc(0,0,SCALE.head/2,0,Math.PI*2);c.fill();}
@@ -181,6 +206,13 @@
    // Only the endpoints move along the path. Interior junctions remain on their
    // cardinal cells; translating elbows cuts the corner during interpolation.
    // Clip sprite coverage to the live path, without drawing any strip beneath it.
+   c.save();c.translate(0,.12);c.strokeStyle='#06120bb8';c.lineWidth=.6;c.lineJoin='round';c.lineCap='round';c.beginPath();
+   const cap=e.bx.length;let shadowOpen=false;
+   for(let i=0;i<e.length;i++){
+    const j=(e.head-i+cap)%cap,x=(i?e.bx[j]:e.rx[0])+.5,y=(i?e.by[j]:e.ry[0])+.5,inside=x>left-1&&x<right+1&&y>top-1&&y<bottom+1;
+    if(inside){if(shadowOpen)c.lineTo(x,y);else{c.moveTo(x,y);shadowOpen=true;}}else shadowOpen=false;
+   }
+   c.stroke();c.restore();
    c.save();c.beginPath();
    let previous={x:e.rx[0]+.5,y:e.ry[0]+.5};
    for(let i=1;i<=e.length;i++){
