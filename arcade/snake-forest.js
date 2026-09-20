@@ -143,9 +143,11 @@
    }
   },
   segmentSize(index,length,part){
-   if(part.kind==='head')return SCALE.head;if(part.kind==='tail')return 1.18;if(part.kind==='corner')return 1;
+   if(part.kind==='head')return SCALE.head;if(part.kind==='tail')return 1.18;
+   const tail=length-1-index;
+   if(part.kind==='corner')return tail===1?.9:tail===2?.95:tail===3?.98:1;
    let size=part.cell>=6?1.52:1.48;if(index===1)size=Math.min(size,1.4);else if(index===2)size=Math.min(size,1.46);
-   const tail=length-1-index;if(tail<=0)size=Math.min(size,1.19);else if(tail===1)size=Math.min(size,1.29);else if(tail===2)size=Math.min(size,1.37);else if(tail===3)size=Math.min(size,1.44);
+   if(tail===1)size=Math.min(size,1.29);else if(tail===2)size=Math.min(size,1.37);else if(tail===3)size=Math.min(size,1.44);
    return size;
   },
   fit(w,h){return Math.max(h/SCALE.rows,w/SCALE.columns);},
@@ -221,8 +223,10 @@
     c.rect(l,t,Math.abs(p.x-previous.x)+1,Math.abs(p.y-previous.y)+1);previous=p;
    }
    c.clip();
-   for(let i=e.length-1;i>0;i--)if(select(e,i,true).kind!=='corner')draw(i,true);
-   for(let i=e.length-1;i>0;i--)if(select(e,i,true).kind==='corner')draw(i,true);
+   // The terminal cell is exclusively the pointed tail sprite. Painting its
+   // bodyOnly fallback first creates a second full-width silhouette underneath.
+   for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind!=='corner')draw(i,true);
+   for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind==='corner')draw(i,true);
    c.restore();
    draw(e.length-1);draw(0);
   }

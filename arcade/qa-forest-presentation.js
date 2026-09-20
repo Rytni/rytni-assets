@@ -22,6 +22,7 @@ async page => {
  const serpent=(length,width=24)=>{const path=[],half=Math.floor(width/2);let x=half,y=0,dir=-1,run=0;while(path.length<length){path.push([x,y]);if(run===width-1){y++;dir=-dir;run=0;}else{x+=dir;run++;}}return path;};
  const fixtures={
   straight:[[3,0],[2,0],[1,0],[0,0],[-1,0],[-2,0],[-3,0],[-4,0]],
+  tailTurn:[[4,0],[3,0],[2,0],[1,0],[0,0],[0,1],[0,2],[-1,2]],
   fourTurns:[[2,0],[1,0],[1,1],[1,2],[0,2],[-1,2],[-1,1],[-1,0],[-2,0],[-3,0]],
   uShape:[[3,0],[2,0],[1,0],[0,0],[0,1],[0,2],[1,2],[2,2],[3,2]],
   sShape:[[3,0],[2,0],[1,0],[0,0],[0,1],[1,1],[2,1],[2,2],[1,2],[0,2],[-1,2]]
