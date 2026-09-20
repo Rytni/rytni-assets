@@ -5,7 +5,7 @@
  const SCALE={rows:12,columns:30,head:1.35,body:1.04,food:.9,obstacle:1};
  const geometry=new URLSearchParams(location.search).has('snake_geometry');
  const BASE='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/';
- const {hash,CHUNK}=root.MushroomSnakeCore;
+ const {hash,CHUNK,EFFECTS}=root.MushroomSnakeCore;
  const clusterStrength=(x,y,seed,spacing=8)=>{
   const gx=Math.floor(x/spacing),gy=Math.floor(y/spacing);let strength=0;
   for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++){
@@ -150,6 +150,27 @@
    if(tail===1)size=Math.min(size,1.29);else if(tail===2)size=Math.min(size,1.37);else if(tail===3)size=Math.min(size,1.44);
    return size;
   },
+  pickupSprite(c,image,x,y,bad,ticks){
+   const pulse=1+Math.sin(ticks*.12)*.035,size=1.08*pulse,k=size/Math.max(image.width,image.height);
+   c.save();c.translate(x,y);c.fillStyle=bad?'#4d132899':'#081b1499';c.beginPath();c.ellipse(0,.37,.38,.15,0,0,Math.PI*2);c.fill();
+   c.globalAlpha=.22+.1*Math.sin(ticks*.09);c.strokeStyle=bad?'#ff6a83':'#c9ff84';c.lineWidth=.055;c.beginPath();c.arc(0,0,.58,0,Math.PI*2);c.stroke();
+   c.globalAlpha=1;c.drawImage(image,-image.width*k/2,-image.height*k/2,image.width*k,image.height*k);c.restore();
+  },
+  portal(c,x,y,ticks){
+   const spin=ticks*.035;c.save();c.translate(x+.5,y+.5);c.strokeStyle='#d98bff';c.lineWidth=.09;c.beginPath();c.arc(0,0,.43,spin,spin+Math.PI*1.45);c.stroke();c.strokeStyle='#6940ca';c.lineWidth=.06;c.beginPath();c.arc(0,0,.31,-spin,-spin+Math.PI*1.25);c.stroke();c.fillStyle='#f4c5ff';for(let i=0;i<4;i++){const a=spin+i*Math.PI/2;c.fillRect(Math.cos(a)*.49-.035,Math.sin(a)*.49-.035,.07,.07);}c.restore();
+  },
+  effectAura(c,e){
+   const x=e.rx[0]+.5,y=e.ry[0]+.5,t=e.ticks*.08;c.save();
+   if(e.magnet>0){c.fillStyle='#8dff7a';for(let i=0;i<5;i++){const a=t+i*1.26;c.fillRect(x+Math.cos(a)*.75-.035,y+Math.sin(a)*.55-.035,.07,.07);}}
+   if(e.golden>0){c.fillStyle='#ffe774';for(let i=0;i<4;i++){const a=t*.7+i*1.57;c.fillRect(x+Math.cos(a)*.68-.055,y+Math.sin(a)*.5-.055,.11,.11);}}
+   if(e.ghost>0||e.ghostGrace){c.strokeStyle='#8cfaff';c.lineWidth=.055;c.globalAlpha=.7;c.beginPath();c.arc(x,y,.7+.04*Math.sin(t),0,Math.PI*2);c.stroke();c.globalAlpha=1;}
+   if(e.timeEffect>0){c.strokeStyle='#87a5ff';c.lineWidth=.06;c.beginPath();c.arc(x,y,.73,t,t+Math.PI*1.55);c.stroke();c.strokeStyle='#b484ff';c.beginPath();c.arc(x,y,.57,-t,-t+Math.PI);c.stroke();}
+   if(e.drunk>0){c.fillStyle='#ffdf66';for(let i=0;i<3;i++){const a=t+i*2.09,px=x+Math.cos(a)*.72,py=y-.65+Math.sin(a)*.18;c.fillRect(px-.1,py-.025,.2,.05);c.fillRect(px-.025,py-.1,.05,.2);}}
+   if(e.hiccupPulse>0){c.strokeStyle='#ff9cba';c.lineWidth=.07;c.globalAlpha=e.hiccupPulse/22;c.beginPath();c.arc(x,y,.55+(22-e.hiccupPulse)*.025,0,Math.PI*2);c.stroke();c.globalAlpha=1;}
+   if(e.slime>0){c.fillStyle='#78ce61aa';for(let i=2;i<Math.min(e.length,10);i+=2){const j=(e.head-i+e.bx.length)%e.bx.length;c.beginPath();c.ellipse(e.bx[j]+.5,e.by[j]+.68,.24,.1,0,0,Math.PI*2);c.fill();}}
+   if(e.fairy>0&&e.portalFlash>0){c.strokeStyle='#c168ff';c.lineWidth=.08;c.globalAlpha=e.portalFlash/30;c.beginPath();c.arc(x,y,.55+(30-e.portalFlash)*.025,0,Math.PI*2);c.stroke();}
+   c.restore();
+  },
   fit(w,h){return Math.max(h/SCALE.rows,w/SCALE.columns);},
   paint(s){
    const v=s.view,e=s.engine,c=s.ctx;if(!v)return;
@@ -187,12 +208,14 @@
     }
    }
    for(const f of e.items)if(f.active&&f.kind==='food'){
-    if(!geometry&&this.food)this.foodSprite(c,f.x+.5,f.y+.5,SCALE.food);
-    else{c.fillStyle='#ffcf64';c.beginPath();c.arc(f.x+.5,f.y+.5,SCALE.food/2,0,Math.PI*2);c.fill();}
+    const fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&this.food)this.foodSprite(c,fx,fy,SCALE.food);
+    else{c.fillStyle='#ffcf64';c.beginPath();c.arc(fx,fy,SCALE.food/2,0,Math.PI*2);c.fill();}
    }
+   for(const f of e.items)if(f.active&&f.kind!=='food'){const effect=EFFECTS[f.kind],image=effect&&s.assets[effect.asset],fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&image)this.pickupSprite(c,image,fx,fy,effect.bad,e.ticks);else{c.fillStyle=effect?.bad?'#ef5775':'#b8f173';c.fillRect(fx-.35,fy-.35,.7,.7);}}
+   if(e.fairy>0&&e.portals)for(const portal of e.portals)this.portal(c,portal.x,portal.y,e.ticks);
    const draw=(i,bodyOnly=false)=>{
     const p=bodyOnly?at(e,i):placement(e,i),x=p.x+.5,y=p.y+.5;if(x<left-2||x>right+2||y<top-2||y>bottom+2)return;
-    const part=select(e,i,bodyOnly);c.save();c.translate(x,y);
+    const part=select(e,i,bodyOnly);c.save();if(e.ghost>0||e.ghostGrace)c.globalAlpha=.62;c.translate(x,y);
     if(!geometry&&this.atlas){this.sprite(c,part,this.segmentSize(i,e.length,part));c.restore();return;}
     // Dev geometry only. No generated art is accepted implicitly by this preview.
     c.fillStyle=i===0?'#ffbd72':part.kind==='corner'?'#89c9ae':'#c9d69a';
@@ -228,7 +251,7 @@
    for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind!=='corner')draw(i,true);
    for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind==='corner')draw(i,true);
    c.restore();
-   draw(e.length-1);draw(0);
+   draw(e.length-1);draw(0);this.effectAura(c,e);
   }
  };
  root.MushroomSnakeForest=Forest;
