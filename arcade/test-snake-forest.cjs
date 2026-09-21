@@ -35,8 +35,7 @@ for(let a=0;a<4;a++)for(let b=0;b<4;b++)if(a!==b){
  assert(result.cell>=4&&result.cell<12);assert.equal(select(topology,2).direction,b);
 }
 for(let a=0;a<4;a++){topology.direction=a;assert.equal(select(topology,0).cell,a);}
-// Regression: translating an elbow with its interpolated segment opens a gap
-// between it and the perpendicular straight sprite at half a movement step.
+// Regression: translating an interior elbow opens a gap at its perpendicular port.
 assert.equal(typeof placement,'function','renderer must anchor interior elbows to the path');
 topology.bx[0]=1;topology.by[0]=0;
 topology.bx[CAPACITY-1]=0;topology.by[CAPACITY-1]=0;
@@ -46,7 +45,19 @@ for(const alpha of [0,.25,.5,.75,1]){
  topology.interpolate(alpha);
  assert.deepEqual(placement(topology,1),{x:0,y:0},'corner cannot drift off its cardinal junction');
  assert.deepEqual(placement(topology,0),{x:alpha,y:0},'head retains smooth interpolation');
- assert.deepEqual(placement(topology,2),{x:0,y:2-alpha},'tail retains smooth interpolation');
+}
+// A pointed terminal sprite has no body sprite beneath it. Its base must stay
+// adjacent to the fixed taper cell through every interpolation phase.
+for(const [dx,dy] of vectors){
+ topology.bx[0]=-dx;topology.by[0]=-dy;
+ topology.bx[CAPACITY-1]=0;topology.by[CAPACITY-1]=0;
+ topology.bx[CAPACITY-2]=dx;topology.by[CAPACITY-2]=dy;
+ topology.bx[CAPACITY-3]=dx*2;topology.by[CAPACITY-3]=dy*2;
+ for(const alpha of [0,.25,.5,.75,1]){
+  topology.interpolate(alpha);
+  const tail=placement(topology,2),distance=Math.hypot(tail.x,tail.y);
+  assert(distance>=.85&&distance<=1.1,'tail base must overlap the previous taper cell without a second body sprite');
+ }
 }
 function replay(fps){const s=new Engine(44,{forestSlice:true});let acc=0;for(let f=0;f<fps*12;f++){acc+=60/fps;while(acc>=1-1e-9){if(s.ticks===12)s.request(0);if(s.ticks===24)s.request(3);s.tick();acc-=1;}s.interpolate();}return s.digest();}
 assert.equal(replay(30),replay(60));assert.equal(replay(60),replay(144));

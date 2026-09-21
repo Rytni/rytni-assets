@@ -229,8 +229,8 @@
     }else{c.rotate(part.direction%2===0?Math.PI/2:0);c.fillRect(-.52,-.39,1.04,.78);}
     c.restore();
    };
-   // Only the endpoints move along the path. Interior junctions remain on their
-   // cardinal cells; translating elbows cuts the corner during interpolation.
+   // The head moves; interior junctions and terminal tip stay on their
+   // cardinal cells so no seam opens next to the fixed taper segment.
    // Clip sprite coverage to the live path, without drawing any strip beneath it.
    c.save();c.translate(0,.12);c.strokeStyle='#06120bb8';c.lineWidth=.6;c.lineJoin='round';c.lineCap='round';c.beginPath();
    const cap=e.bx.length;let shadowOpen=false;

@@ -8,7 +8,7 @@
   return {x:engine.bx[j],y:engine.by[j]};
  }
  function placement(engine,index){
-  return index===0||index===engine.length-1?{x:engine.rx[index],y:engine.ry[index]}:at(engine,index);
+  return index===0?{x:engine.rx[index],y:engine.ry[index]}:at(engine,index);
  }
  function select(engine,index,bodyOnly=false){
   const current=at(engine,index);
