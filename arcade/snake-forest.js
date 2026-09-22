@@ -51,7 +51,7 @@
     this.decorFrames=frames(this.decor,4,1);
     this.objectFrames=frames(this.objects,3,2);
     this.foodFrame=frames(this.food,1,1)[0];
-    this.biomeArt=await Promise.all(BIOMES.map(async b=>{if(!b.atlas)return null;const [groundImage,atlasImage]=await Promise.all([picture(b.ground),picture(b.atlas)]),ground=document.createElement('canvas'),atlas=document.createElement('canvas');ground.width=ground.height=416;atlas.width=384;atlas.height=256;for(const [target,image]of [[ground,groundImage],[atlas,atlasImage]]){const c=target.getContext('2d');c.imageSmoothingEnabled=false;c.drawImage(image,0,0,target.width,target.height);}return{ground,atlas,frames:frames(atlas,3,2),pattern:ground.getContext('2d').createPattern(ground,'repeat')};}));
+    this.biomeArt=await Promise.all(BIOMES.map(async b=>{if(!b.atlas)return null;const [groundImage,atlasImage]=await Promise.all([picture(b.ground),picture(b.atlas)]),ground=document.createElement('canvas'),atlas=document.createElement('canvas');ground.width=ground.height=416;atlas.width=384;atlas.height=256;for(const [target,image]of [[ground,groundImage],[atlas,atlasImage]]){const c=target.getContext('2d');c.imageSmoothingEnabled=false;c.drawImage(image,0,0,target.width,target.height);}if(b.id==='swamp'){const c=ground.getContext('2d');c.fillStyle='#10231b2b';c.fillRect(0,0,416,416);}return{ground,atlas,frames:frames(atlas,3,2),pattern:ground.getContext('2d').createPattern(ground,'repeat')};}));
    })();try{return await this.ready;}catch(e){this.ready=null;throw e;}
   },
   contactShadow(c,x,y,size,wide=1,alpha=.28){
@@ -67,8 +67,12 @@
    const f=this.foodFrame,k=size/Math.max(f.w,f.h);this.contactShadow(c,x,y,size,.82,.25);
    c.drawImage(this.food,f.x,f.y,f.w,f.h,x-f.w*k/2,y-f.h*k/2,f.w*k,f.h*k);
   },
-  biomeSprite(c,biome,index,x,y,size,variant=0){
-   const art=this.biomeArt[biome],f=art.frames[index],k=size/Math.max(f.w,f.h);c.save();c.translate(x,y);if(variant&1)c.scale(-1,1);c.drawImage(art.atlas,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
+  biomeSprite(c,biome,index,x,y,size,variant=0,alpha=1){
+   const art=this.biomeArt[biome],f=art.frames[index],k=size/Math.max(f.w,f.h);c.save();c.globalAlpha=alpha;c.translate(x,y);if(variant&1)c.scale(-1,1);c.drawImage(art.atlas,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
+  },
+  caveGlow(c,x,y){
+   c.fillStyle='#3a91a213';c.fillRect(Math.round(x)-17,Math.round(y)-15,34,28);
+   c.fillStyle='#62c6d319';c.fillRect(Math.round(x)-11,Math.round(y)-10,22,18);
   },
   groundPatches(c,cx,cy,seed){
    const spacing=10,left=cx*CHUNK,top=cy*CHUNK;
@@ -81,6 +85,39 @@
     c.fillStyle=type===0?'#173a291e':type===1?'#78945416':type===2?'#8d603118':type===3?'#09251f20':'#4e673814';c.beginPath();c.ellipse(px,py,rx,ry,angle,0,Math.PI*2);c.fill();
     c.fillStyle=type===2?'#b1844b0d':type===3?'#071a1812':'#c0b56a09';c.beginPath();c.ellipse(px+((n&15)-7)*2,py+(((n>>>4)&15)-7)*2,rx*.62,ry*.56,angle+.35,0,Math.PI*2);c.fill();
     if(type===4)for(let i=0;i<4;i++){const q=hash(gx*7+i,gy*11-i,seed^0x3873a5d1);c.fillStyle=i&1?'#8d72bd3d':'#d9c27238';c.fillRect(px+((q&31)-15)*3,py+(((q>>>6)&31)-15)*2,2,2);}
+   }
+  },
+  cavePatches(c,cx,cy,seed){
+   const spacing=7,left=cx*CHUNK,top=cy*CHUNK;
+   for(let gy=Math.floor((top-6)/spacing);gy<=Math.floor((top+CHUNK+6)/spacing);gy++)for(let gx=Math.floor((left-6)/spacing);gx<=Math.floor((left+CHUNK+6)/spacing);gx++){
+    const n=hash(gx,gy,seed^0x4679c31b);if((n&3)===3)continue;
+    const x=(gx*spacing+2+((n>>>5)%4)-left)*32,y=(gy*spacing+2+((n>>>11)%4)-top)*32;
+    const rx=(1.5+((n>>>18)&7)*.27)*32,ry=(1.05+((n>>>22)&7)*.2)*32,angle=((n>>>27)&7)*Math.PI/8,type=n>>>16&3;
+    c.fillStyle=['#09172267','#1b2b3a54','#0e1c2b70','#3a526040'][type];c.beginPath();c.ellipse(x,y,rx,ry,angle,0,Math.PI*2);c.fill();
+    c.fillStyle=type===3?'#5a7d7d21':'#0b1d2c28';c.beginPath();c.ellipse(x+((n&15)-8)*2,y+(((n>>>4)&15)-8)*2,rx*.57,ry*.48,angle+.3,0,Math.PI*2);c.fill();
+    if((n&7)>2)continue;
+    c.save();c.translate(Math.round(x),Math.round(y));c.rotate(angle);c.strokeStyle='#0b182045';c.lineWidth=2;c.beginPath();c.moveTo(-20,-8);c.lineTo(-7,-2);c.lineTo(5,-7);c.lineTo(18,0);c.stroke();
+    c.fillStyle='#78a8a075';c.fillRect(-8,-3,5,2);c.fillRect(9,-7,4,2);c.restore();
+   }
+  },
+  smallCompositions(d,world,cx,cy,seed){
+   const spacing=7,left=cx*CHUNK,top=cy*CHUNK;
+   for(let gy=Math.floor((top-2)/spacing);gy<=Math.floor((top+CHUNK+2)/spacing);gy++)for(let gx=Math.floor((left-2)/spacing);gx<=Math.floor((left+CHUNK+2)/spacing);gx++){
+    const n=hash(gx,gy,seed^0xa84f49c3);if((n&3)===3)continue;
+    const wx=gx*spacing+2+((n>>>5)%4),wy=gy*spacing+2+((n>>>11)%4),biome=world.biomeAt(wx,wy);
+    if(biome.mix>.15||biome.index===2||world.blocked(wx,wy))continue;
+    const px=(wx-left)*32+16,py=(wy-top)*32+16,count=biome.index===0?3+(n>>>17&3):2+(n>>>17&1);
+    for(let i=0;i<count;i++){
+     const q=hash(gx*11+i,gy*13-i,seed^0x16cc8d51),x=px+((q&31)-15)*1.55,y=py+(((q>>>7)&31)-15)*1.2;
+     if(biome.index===0){
+      const type=(q>>>18)%7;if(type<4)this.decorItem(d,type,x,y,8+((q>>>23)&7),q);
+      else this.decorItem(d,type===4?4:5,x,y,1,q);
+      if((q&15)===0){d.fillStyle='#b3ba6f66';d.fillRect(Math.round(x+4),Math.round(y-5),2,2);}
+     }else{
+      d.fillStyle=(q&1)?'#6796a65c':'#a5d0d366';d.fillRect(Math.round(x),Math.round(y),2+(q&3),2);
+      if((q&7)===0){d.fillStyle='#80c9d647';d.fillRect(Math.round(x+3),Math.round(y-4),2,4);}
+     }
+    }
    }
   },
   decorItem(c,type,x,y,size,n){
@@ -114,7 +151,7 @@
    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){const b=world.biomeAt(cx*CHUNK+x+.5,cy*CHUNK+y+.5),i=y*CHUNK+x;indices[i]=b.index;mixes[i]=b.mix;if(i===0)pure=b.index;if(b.mix>0||b.index!==pure)pure=-2;}
    const floor=document.createElement('canvas'),decor=document.createElement('canvas');floor.width=floor.height=decor.width=decor.height=CHUNK*32;
    const c=floor.getContext('2d');c.imageSmoothingEnabled=false;
-   if(pure>0){c.save();c.translate(-cx*CHUNK*32,-cy*CHUNK*32);c.fillStyle=this.biomeArt[pure].pattern;c.fillRect(cx*CHUNK*32,cy*CHUNK*32,floor.width,floor.height);c.restore();}
+   if(pure>0){c.save();c.translate(-cx*CHUNK*32,-cy*CHUNK*32);c.fillStyle=this.biomeArt[pure].pattern;c.fillRect(cx*CHUNK*32,cy*CHUNK*32,floor.width,floor.height);c.restore();if(pure===1)this.cavePatches(c,cx,cy,world.seed);}
    else{
    for(let y=0;y<CHUNK;y+=4)for(let x=0;x<CHUNK;x+=4){
     const n=hash(cx*CHUNK+x,cy*CHUNK+y,s.engine.world.seed^0xa511e9b3);c.save();c.translate(x*32+64,y*32+64);c.rotate(((n>>>3)&3)*Math.PI/2);c.scale(n&1?-1:1,n&2?-1:1);c.drawImage(this.ground,-64,-64,128,128);c.restore();
@@ -131,15 +168,45 @@
      c.globalAlpha=alpha;c.drawImage(ground,tx*ground.width/span,ty*ground.height/span,ground.width/span,ground.height/span,x*32,y*32,32,32);c.globalAlpha=1;
     }
     if((n&15)===0){c.fillStyle=(n&16)?'#b1844b22':'#d5b76618';c.fillRect(x*32+((n>>>8)%27),y*32+((n>>>13)%27),2+(n&1),2);}
-    if(s.engine.world.blocked(wx,wy)){if(!biome)this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);else this.biomeSprite(d,biome,3+n%3,x*32+9,y*32+23,12,n);continue;}
+    if(s.engine.world.blocked(wx,wy)){if(!biome)this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);else{if(biome===1)this.caveGlow(d,x*32+9,y*32+23);this.biomeSprite(d,biome,3+n%3,x*32+9,y*32+23,12,n,biome===2?.52:.72);}continue;}
     const field=clusterStrength(wx+.5,wy+.5,s.engine.world.seed),chance=.038+field*.68;
     if(((n>>>8)&65535)/65535<chance){
      const type=(n>>>24)&7,size=type<4?(type===3?16+((n>>>19)&3):20+((n>>>18)&7)):1;
-     const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;if(!biome)this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);else this.biomeSprite(d,biome,3+n%3,x*32+16+ox,y*32+16+oy,15+((n>>>18)&7),n);
+     const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;if(!biome)this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);else{if(biome===1&&(n&3)===0)this.caveGlow(d,x*32+16+ox,y*32+16+oy);this.biomeSprite(d,biome,3+n%3,x*32+16+ox,y*32+16+oy,15+((n>>>18)&7),n,biome===2?.5:.7);}
      if((n&63)===0)ambient.push(wx+.5+ox/32,wy+.5+oy/32,(n>>>16)/65535*Math.PI*2,biome);
     }
    }
+   this.smallCompositions(d,world,cx,cy,world.seed);
    const entry={id,floor,decor,ambient};s.chunks.set(id,entry);return entry;
+  },
+  prewarm(s,all=false){
+   if(geometry||!this.ground||!s.view)return;
+   const v=s.view,e=s.engine,scale=v.scale,sx=v.w*(s.mobile()?.58:.52),sy=v.h*.55,x=e.rx[0]+.5,y=e.ry[0]+.5;
+   const stamp=this.prewarmStamp||(this.prewarmStamp={}),cellX=Math.floor(x),cellY=Math.floor(y);
+   if(!all&&!stamp.pending&&stamp.x===cellX&&stamp.y===cellY&&stamp.dir===e.direction&&stamp.w===v.w&&stamp.h===v.h&&stamp.seed===e.world.seed)return;
+   const left=Math.floor((x-sx/scale)/CHUNK),right=Math.floor((x+(v.w-sx)/scale)/CHUNK),top=Math.floor((y-sy/scale)/CHUNK),bottom=Math.floor((y+(v.h-sy)/scale)/CHUNK);
+   const dx=root.MushroomSnakeCore.DX[e.direction],dy=root.MushroomSnakeCore.DY[e.direction];
+   const cx0=dx<0||dy?left-1:left,cx1=dx>0||dy?right+1:right,cy0=dy<0||dx?top-1:top,cy1=dy>0||dx?bottom+1:bottom;
+   const keep=this.prewarmKeys||(this.prewarmKeys=new Set());keep.clear();let built=0,pending=false;
+   const forwardX=dx<0?left-1:dx>0?right+1:left,forwardY=dy<0?top-1:dy>0?bottom+1:top;
+   if(dx)for(let cy=top-1;cy<=bottom+1;cy++){
+    const id='forest-presentation:'+e.world.seed+':'+forwardX+','+cy;
+    if(!s.chunks.has(id)){if(all||!built){this.groundChunk(s,forwardX,cy);built++;}else pending=true;}
+   }else for(let cx=left-1;cx<=right+1;cx++){
+    const id='forest-presentation:'+e.world.seed+':'+cx+','+forwardY;
+    if(!s.chunks.has(id)){if(all||!built){this.groundChunk(s,cx,forwardY);built++;}else pending=true;}
+   }
+   for(let cy=cy0;cy<=cy1;cy++)for(let cx=cx0;cx<=cx1;cx++){
+    const id='forest-presentation:'+e.world.seed+':'+cx+','+cy;keep.add(id);
+    if(!s.chunks.has(id)){if(all||!built){this.groundChunk(s,cx,cy);built++;}else pending=true;}
+   }
+   stamp.x=cellX;stamp.y=cellY;stamp.dir=e.direction;stamp.w=v.w;stamp.h=v.h;stamp.seed=e.world.seed;stamp.pending=pending;
+  },
+  prime(s){
+   if(geometry||!this.ground||!s.view)return;
+   const v=s.view,e=s.engine,scale=v.scale,sx=v.w*(s.mobile()?.58:.52),sy=v.h*.55,x=e.rx[0]+.5,y=e.ry[0]+.5;
+   for(let cy=Math.floor((y-sy/scale)/CHUNK);cy<=Math.floor((y+(v.h-sy)/scale)/CHUNK);cy++)for(let cx=Math.floor((x-sx/scale)/CHUNK);cx<=Math.floor((x+(v.w-sx)/scale)/CHUNK);cx++)this.groundChunk(s,cx,cy);
+   this.prewarm(s,true);
   },
   sprite(c,part,size=0){
    let cell=part.cell,flip=false;
@@ -203,7 +270,7 @@
     for(let cy=Math.floor(top/CHUNK);cy<=Math.floor(bottom/CHUNK);cy++)for(let cx=Math.floor(left/CHUNK);cx<=Math.floor(right/CHUNK);cx++){
      const entry=this.groundChunk(s,cx,cy);visible.add(entry.id);c.drawImage(entry.floor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
     }
-    for(const key of s.chunks.keys())if(!visible.has(key))s.chunks.delete(key);
+    for(const key of s.chunks.keys())if(!visible.has(key)&&!this.prewarmKeys?.has(key))s.chunks.delete(key);
     // Cached decor remains non-colliding and is clipped away from the immediate
     // reading zone. Structural obstacles are painted afterwards and stay visible.
     c.save();c.beginPath();c.rect(left-1,top-1,right-left+2,bottom-top+2);c.arc(e.rx[0]+.5,e.ry[0]+.5,3.15,0,Math.PI*2);
