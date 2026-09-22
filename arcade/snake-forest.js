@@ -16,6 +16,12 @@
   }
   return Math.max(0,strength);
  };
+ const transitionNoise=(x,y,scale,seed)=>{
+  const gx=Math.floor(x/scale),gy=Math.floor(y/scale),fx=x/scale-gx,fy=y/scale-gy;
+  const sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),sample=(dx,dy)=>hash(gx+dx,gy+dy,seed)/2147483648-1;
+  const a=sample(0,0)*(1-sx)+sample(1,0)*sx,b=sample(0,1)*(1-sx)+sample(1,1)*sx;
+  return a*(1-sy)+b*sy;
+ };
  async function picture(name){const image=new Image();image.crossOrigin='anonymous';image.src=BASE+name+'.png';await image.decode();return image;}
  function frames(image,cols,rows){
   const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
@@ -88,6 +94,14 @@
    }
   },
   cavePatches(c,cx,cy,seed){
+   const macro=23,macroLeft=cx*CHUNK,macroTop=cy*CHUNK;
+   for(let gy=Math.floor((macroTop-11)/macro);gy<=Math.floor((macroTop+CHUNK+11)/macro);gy++)for(let gx=Math.floor((macroLeft-11)/macro);gx<=Math.floor((macroLeft+CHUNK+11)/macro);gx++){
+    const n=hash(gx,gy,seed^0x51ad9c43);if((n&3)===3)continue;
+    const x=(gx*macro+5+((n>>>5)%13)-macroLeft)*32,y=(gy*macro+5+((n>>>11)%13)-macroTop)*32;
+    const rx=(5+((n>>>18)&7)*.48)*32,ry=(3.3+((n>>>22)&7)*.44)*32,angle=((n>>>27)&7)*Math.PI/8;
+    c.fillStyle=['#07172227','#41606a17','#0a1d2a20','#5b768012'][n>>>16&3];c.beginPath();c.ellipse(x,y,rx,ry,angle,0,Math.PI*2);c.fill();
+    c.fillStyle=(n&16)?'#61868a0e':'#081b2416';c.beginPath();c.ellipse(x+rx*.32,y-ry*.18,rx*.52,ry*.61,angle+.35,0,Math.PI*2);c.fill();
+   }
    const spacing=7,left=cx*CHUNK,top=cy*CHUNK;
    for(let gy=Math.floor((top-6)/spacing);gy<=Math.floor((top+CHUNK+6)/spacing);gy++)for(let gx=Math.floor((left-6)/spacing);gx<=Math.floor((left+CHUNK+6)/spacing);gx++){
     const n=hash(gx,gy,seed^0x4679c31b);if((n&3)===3)continue;
@@ -158,18 +172,38 @@
    }
    c.fillStyle='#102d2674';c.fillRect(0,0,floor.width,floor.height);this.groundPatches(c,cx,cy,s.engine.world.seed);
    }
+   if(pure<0){
+    const forest=document.createElement('canvas'),next=document.createElement('canvas'),mask=document.createElement('canvas');
+    forest.width=forest.height=next.width=next.height=CHUNK*32;mask.width=mask.height=CHUNK*4;
+    forest.getContext('2d').drawImage(floor,0,0);
+    const nc=next.getContext('2d');nc.imageSmoothingEnabled=false;
+    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){
+     const wx=cx*CHUNK+x,wy=cy*CHUNK+y,index=indices[y*CHUNK+x],following=(index+1)%BIOMES.length;
+     for(const [layer,target] of [[index,c],[following,nc]]){
+      if(!layer){if(target===nc)target.drawImage(forest,x*32,y*32,32,32,x*32,y*32,32,32);continue;}
+      const ground=this.biomeArt[layer].ground,span=13,tx=((wx%span)+span)%span,ty=((wy%span)+span)%span;
+      target.drawImage(ground,tx*32,ty*32,32,32,x*32,y*32,32,32);
+     }
+    }
+    const mc=mask.getContext('2d'),pixels=mc.createImageData(mask.width,mask.height),seed=world.seed;
+    for(let py=0;py<mask.height;py++)for(let px=0;px<mask.width;px++){
+     const wx=cx*CHUNK+(px+.5)/4,wy=cy*CHUNK+(py+.5)/4,b=world.biomeAt(wx,wy),edge=Math.min(1,b.mix*10,(1-b.mix)*10);
+     const variation=(transitionNoise(wx,wy,6,seed^0x319a71)*.3+transitionNoise(wx,wy,17,seed^0x7c13b5)*.14)*edge;
+     const t=Math.max(0,Math.min(1,(b.mix+variation-.26)/.48)),alpha=t*t*(3-2*t),i=(py*mask.width+px)*4;
+     pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=255;pixels.data[i+3]=Math.round(alpha*255);
+    }
+    mc.putImageData(pixels,0,0);nc.globalCompositeOperation='destination-in';nc.imageSmoothingEnabled=true;nc.drawImage(mask,0,0,next.width,next.height);nc.globalCompositeOperation='source-over';c.drawImage(next,0,0);
+   }
    const d=decor.getContext('2d'),ambient=[];d.imageSmoothingEnabled=false;
    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){
     const wx=cx*CHUNK+x,wy=cy*CHUNK+y,n=hash(wx,wy,s.engine.world.seed),index=indices[y*CHUNK+x],next=(index+1)%BIOMES.length,mix=mixes[y*CHUNK+x],biome=pure>=0?pure:world.biomeIndex(wx,wy);
-    // Blend ground per world cell, not per chunk; source UVs remain global.
-    if(pure<0)for(const layer of [index,next])if(layer&&this.biomeArt[layer]){
-     const alpha=layer===index?(next?1:1-mix):mix;if(alpha<=0)continue;
-     const ground=this.biomeArt[layer].ground,span=13,tx=((wx%span)+span)%span,ty=((wy%span)+span)%span;
-     c.globalAlpha=alpha;c.drawImage(ground,tx*ground.width/span,ty*ground.height/span,ground.width/span,ground.height/span,x*32,y*32,32,32);c.globalAlpha=1;
-    }
     if((n&15)===0){c.fillStyle=(n&16)?'#b1844b22':'#d5b76618';c.fillRect(x*32+((n>>>8)%27),y*32+((n>>>13)%27),2+(n&1),2);}
     if(s.engine.world.blocked(wx,wy)){if(!biome)this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);else{if(biome===1)this.caveGlow(d,x*32+9,y*32+23);this.biomeSprite(d,biome,3+n%3,x*32+9,y*32+23,12,n,biome===2?.52:.72);}continue;}
     const field=clusterStrength(wx+.5,wy+.5,s.engine.world.seed),chance=.038+field*.68;
+    if(pure<0&&mix>.08&&mix<.92&&field>.22&&((n>>>17)&15)===0){
+     const palette=index===0?['#86a76a55','#6b9da252']:index===1?['#6a9ba852','#758d6555']:['#9ba27650','#ae915c50'];
+     for(let i=0;i<3;i++){c.fillStyle=palette[i&1];c.fillRect(x*32+5+((n>>>(i*5))&15),y*32+5+((n>>>(i*4+8))&15),2+(i&1),2);}
+    }
     if(((n>>>8)&65535)/65535<chance){
      const type=(n>>>24)&7,size=type<4?(type===3?16+((n>>>19)&3):20+((n>>>18)&7)):1;
      const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;if(!biome)this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);else{if(biome===1&&(n&3)===0)this.caveGlow(d,x*32+16+ox,y*32+16+oy);this.biomeSprite(d,biome,3+n%3,x*32+16+ox,y*32+16+oy,15+((n>>>18)&7),n,biome===2?.5:.7);}
