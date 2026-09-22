@@ -24,6 +24,8 @@ Magnet: 7 seconds, pulls food within four Manhattan cells along available cardin
 
 Intentional modern pixel art in `grib/mushroom-snake-v2`: four directional snake heads, five controlled body variants, tapered tail art, moss/earth tiles, teal shadows, amber food and violet hazards. No screenshot-derived assets. Source prompts are recorded in `prompts.json`. Desktop/mobile frames are separate required art rendered nine-slice with fixed corners. The main menu, buttons, D-pad states, HUD chips and all modal states use the same wood/moss/gold art language.
 
+UI LOCK: modal screens share the frame → bevel → textured surface → content safe-area shell. Preserve this architecture unless a separate task explicitly changes it.
+
 Ten data-driven biome definitions share one simulation and chunk system. Green Forest, Dark Cave and Winter World have production ground/obstacle art; the remaining seven definitions currently use explicit fallback assets and transition hooks. Distance zones blend over transition chunks rather than switching the simulation or teleporting the player.
 
 States: main, how-to-play, settings, pause, result, mobile fullscreen prompt. Settings adapt the existing Fly audio mixer (music/SFX/master/mute) and real DPR quality. Result shows score, length, food, combo, bonuses, survival time and local v2 best (old free-movement scores are deliberately separate).
