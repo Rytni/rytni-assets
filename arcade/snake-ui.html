@@ -74,6 +74,17 @@
 #msSnake .sp-close{min-width:52px;width:52px;box-shadow:0 3px 0 #120c08,0 0 0 1px #e1ad50}
 #msSnake .sp-close .sp-icon{width:34px;height:34px;flex-basis:34px;filter:drop-shadow(0 2px 0 #120b07)}
 
+/* One structural modal shell: fixed-corner 9-slice, recessed surface, safe content area. */
+#msSnake .ms-panel:not(.sp-title-panel){--sp-modal-frame:32px;display:grid;grid-template-rows:minmax(0,1fr);width:min(820px,100%);max-height:100%;padding:0;border:0;background:none;box-shadow:none;overflow:hidden;isolation:isolate}
+#msSnake .ms-panel:not(.sp-title-panel):before{content:'';position:absolute;z-index:0;inset:0;clip-path:polygon(var(--sp-modal-frame) 0,calc(100% - var(--sp-modal-frame)) 0,100% var(--sp-modal-frame),100% calc(100% - var(--sp-modal-frame)),calc(100% - var(--sp-modal-frame)) 100%,var(--sp-modal-frame) 100%,0 calc(100% - var(--sp-modal-frame)),0 var(--sp-modal-frame));background:repeating-linear-gradient(4deg,#51332218 0 2px,#160e0b14 2px 7px,#6341260d 7px 9px),linear-gradient(180deg,#352219 0,#281a15 13%,#201613 62%,#281b15 100%);box-shadow:inset 0 0 0 2px #100a07,inset 0 0 0 4px #8e6738,inset 0 9px 18px #090604b8,inset 0 -7px 12px #6d452018}
+#msSnake .ms-panel:not(.sp-title-panel):after{content:'';position:absolute;z-index:2;inset:0;pointer-events:none;border:var(--sp-modal-frame) solid transparent;border-image:var(--sp-frame) 200 / var(--sp-modal-frame) / 0 stretch;image-rendering:pixelated}
+#msSnake .ms-panel-surface{position:relative;z-index:1;min-width:0;min-height:0;max-height:100%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:44px 50px 38px;scrollbar-width:thin;scrollbar-color:#c49b58 #241914}
+#msSnake .ms-panel-surface .sp-close{right:35px;top:33px;min-width:52px;width:52px;height:52px;padding:4px;border:3px solid #c38b3d;border-image:none;background:linear-gradient(145deg,#55311d,#2b1a14 62%,#1b110e);box-shadow:inset 0 0 0 2px #160d09,inset 0 0 0 4px #754722,0 3px 0 #100a07;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)}
+#msSnake .ms-panel-surface .sp-close:hover{filter:none}#msSnake .ms-panel-surface .sp-close:hover .sp-icon,#msSnake .ms-panel-surface .sp-close:focus-visible .sp-icon{filter:brightness(1.14) drop-shadow(0 2px 0 #120b07)}#msSnake .ms-panel-surface .sp-close:focus-visible{outline:0}#msSnake .ms-panel-surface .sp-close:active{transform:translateY(2px)}
+#msSnake .sp-gate .ms-actions{bottom:-38px;background:linear-gradient(transparent,#281b15 24%)}
+@container(max-width:620px){#msSnake .ms-panel:not(.sp-title-panel){--sp-modal-frame:30px}#msSnake .ms-panel-surface{padding:40px 30px 32px}#msSnake .ms-panel-surface .sp-close{right:26px;top:27px}}
+@media(max-height:500px) and (orientation:landscape){#msSnake .ms-panel:not(.sp-title-panel){--sp-modal-frame:28px}#msSnake .ms-panel-surface{padding:31px 38px 27px}#msSnake .ms-panel-surface .sp-close{right:26px;top:22px}#msSnake .sp-gate .ms-actions{bottom:-27px}}
+
 #msSnake .sp-controls section,#msSnake .sp-how-rules li,#msSnake .sp-setting-card{
  position:relative;isolation:isolate;box-shadow:inset 0 0 0 1px rgba(245,205,116,.2),0 4px 0 rgba(8,12,9,.58),0 8px 18px rgba(0,0,0,.2)
 }
