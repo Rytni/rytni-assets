@@ -5,7 +5,7 @@
  const SCALE={rows:12,columns:30,head:1.35,body:1.04,food:.9,obstacle:1};
  const geometry=new URLSearchParams(location.search).has('snake_geometry');
  const BASE='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/';
- const {hash,CHUNK,EFFECTS}=root.MushroomSnakeCore;
+ const {hash,CHUNK,EFFECTS,BIOMES}=root.MushroomSnakeCore;
  const clusterStrength=(x,y,seed,spacing=8)=>{
   const gx=Math.floor(x/spacing),gy=Math.floor(y/spacing);let strength=0;
   for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++){
@@ -51,6 +51,7 @@
     this.decorFrames=frames(this.decor,4,1);
     this.objectFrames=frames(this.objects,3,2);
     this.foodFrame=frames(this.food,1,1)[0];
+    this.biomeArt=await Promise.all(BIOMES.map(async b=>{if(!b.atlas)return null;const [groundImage,atlasImage]=await Promise.all([picture(b.ground),picture(b.atlas)]),ground=document.createElement('canvas'),atlas=document.createElement('canvas');ground.width=ground.height=416;atlas.width=384;atlas.height=256;for(const [target,image]of [[ground,groundImage],[atlas,atlasImage]]){const c=target.getContext('2d');c.imageSmoothingEnabled=false;c.drawImage(image,0,0,target.width,target.height);}return{ground,atlas,frames:frames(atlas,3,2),pattern:ground.getContext('2d').createPattern(ground,'repeat')};}));
    })();try{return await this.ready;}catch(e){this.ready=null;throw e;}
   },
   contactShadow(c,x,y,size,wide=1,alpha=.28){
@@ -65,6 +66,9 @@
   foodSprite(c,x,y,size){
    const f=this.foodFrame,k=size/Math.max(f.w,f.h);this.contactShadow(c,x,y,size,.82,.25);
    c.drawImage(this.food,f.x,f.y,f.w,f.h,x-f.w*k/2,y-f.h*k/2,f.w*k,f.h*k);
+  },
+  biomeSprite(c,biome,index,x,y,size,variant=0){
+   const art=this.biomeArt[biome],f=art.frames[index],k=size/Math.max(f.w,f.h);c.save();c.translate(x,y);if(variant&1)c.scale(-1,1);c.drawImage(art.atlas,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
   },
   groundPatches(c,cx,cy,seed){
    const spacing=10,left=cx*CHUNK,top=cy*CHUNK;
@@ -106,22 +110,33 @@
   },
   groundChunk(s,cx,cy){
    const id='forest-presentation:'+s.engine.world.seed+':'+cx+','+cy;if(s.chunks.has(id))return s.chunks.get(id);
+   const world=s.engine.world,indices=new Uint8Array(CHUNK*CHUNK),mixes=new Float32Array(CHUNK*CHUNK);let pure=-1;
+   for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){const b=world.biomeAt(cx*CHUNK+x+.5,cy*CHUNK+y+.5),i=y*CHUNK+x;indices[i]=b.index;mixes[i]=b.mix;if(i===0)pure=b.index;if(b.mix>0||b.index!==pure)pure=-2;}
    const floor=document.createElement('canvas'),decor=document.createElement('canvas');floor.width=floor.height=decor.width=decor.height=CHUNK*32;
    const c=floor.getContext('2d');c.imageSmoothingEnabled=false;
+   if(pure>0){c.save();c.translate(-cx*CHUNK*32,-cy*CHUNK*32);c.fillStyle=this.biomeArt[pure].pattern;c.fillRect(cx*CHUNK*32,cy*CHUNK*32,floor.width,floor.height);c.restore();}
+   else{
    for(let y=0;y<CHUNK;y+=4)for(let x=0;x<CHUNK;x+=4){
     const n=hash(cx*CHUNK+x,cy*CHUNK+y,s.engine.world.seed^0xa511e9b3);c.save();c.translate(x*32+64,y*32+64);c.rotate(((n>>>3)&3)*Math.PI/2);c.scale(n&1?-1:1,n&2?-1:1);c.drawImage(this.ground,-64,-64,128,128);c.restore();
    }
    c.fillStyle='#102d2674';c.fillRect(0,0,floor.width,floor.height);this.groundPatches(c,cx,cy,s.engine.world.seed);
+   }
    const d=decor.getContext('2d'),ambient=[];d.imageSmoothingEnabled=false;
    for(let y=0;y<CHUNK;y++)for(let x=0;x<CHUNK;x++){
-    const wx=cx*CHUNK+x,wy=cy*CHUNK+y,n=hash(wx,wy,s.engine.world.seed);
+    const wx=cx*CHUNK+x,wy=cy*CHUNK+y,n=hash(wx,wy,s.engine.world.seed),index=indices[y*CHUNK+x],next=(index+1)%BIOMES.length,mix=mixes[y*CHUNK+x],biome=pure>=0?pure:world.biomeIndex(wx,wy);
+    // Blend ground per world cell, not per chunk; source UVs remain global.
+    if(pure<0)for(const layer of [index,next])if(layer&&this.biomeArt[layer]){
+     const alpha=layer===index?(next?1:1-mix):mix;if(alpha<=0)continue;
+     const ground=this.biomeArt[layer].ground,span=13,tx=((wx%span)+span)%span,ty=((wy%span)+span)%span;
+     c.globalAlpha=alpha;c.drawImage(ground,tx*ground.width/span,ty*ground.height/span,ground.width/span,ground.height/span,x*32,y*32,32,32);c.globalAlpha=1;
+    }
     if((n&15)===0){c.fillStyle=(n&16)?'#b1844b22':'#d5b76618';c.fillRect(x*32+((n>>>8)%27),y*32+((n>>>13)%27),2+(n&1),2);}
-    if(s.engine.world.blocked(wx,wy)){this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);continue;}
+    if(s.engine.world.blocked(wx,wy)){if(!biome)this.obstacleDecor(d,n%5,x*32+16,y*32+16,n);else this.biomeSprite(d,biome,3+n%3,x*32+9,y*32+23,12,n);continue;}
     const field=clusterStrength(wx+.5,wy+.5,s.engine.world.seed),chance=.038+field*.68;
     if(((n>>>8)&65535)/65535<chance){
      const type=(n>>>24)&7,size=type<4?(type===3?16+((n>>>19)&3):20+((n>>>18)&7)):1;
-     const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);
-     if((n&63)===0)ambient.push(wx+.5+ox/32,wy+.5+oy/32,(n>>>16)/65535*Math.PI*2);
+     const ox=((n>>>4)&15)-7.5,oy=((n>>>12)&15)-7.5;if(!biome)this.decorItem(d,type,x*32+16+ox,y*32+16+oy,size,n);else this.biomeSprite(d,biome,3+n%3,x*32+16+ox,y*32+16+oy,15+((n>>>18)&7),n);
+     if((n&63)===0)ambient.push(wx+.5+ox/32,wy+.5+oy/32,(n>>>16)/65535*Math.PI*2,biome);
     }
    }
    const entry={id,floor,decor,ambient};s.chunks.set(id,entry);return entry;
@@ -163,6 +178,7 @@
   },
   effectAura(c,e,assets){
    const x=e.rx[0]+.5,y=e.ry[0]+.5,limit=Math.min(e.length,96),step=Math.max(2,Math.ceil(limit/12)),phase=e.ticks*.045;
+   if(e.comboFlash>0){const a=Math.min(1,e.comboFlash/30);this.vfx(c,assets['vfx-golden-v1'],x-.65,y-.7,.38,a);this.vfx(c,assets['vfx-golden-v1'],x+.65,y-.5,.28,a,.4,true);}
    if(e.magnet>0){const art=assets['vfx-magnet-v1'];for(let i=1;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.08,.66,.68+(i%3)*.08,phase+i*.7,i%2>0);if(e.magnetPull>0){const fx=e.magnetPullX+.5,fy=e.magnetPullY+.5;for(let i=1;i<6;i++){const p=i/6,side=((i+e.ticks)&1)?.1:-.1;this.vfx(c,art,fx+(x-fx)*p+side,fy+(y-fy)*p-side,.36+i*.025,.56+i*.07,phase+i*.3,i%2>0);}}}
    if(e.golden>0){const art=assets['vfx-golden-v1'],offset=(e.ticks>>3)%step;for(let i=offset;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.08,.64,.74+(i%3)*.07,phase*.55+i*.42,i%2>0);}
    if(e.ghost>0||e.ghostGrace){const art=assets['vfx-ghost-v1'],warning=e.ghost>0&&e.ghost<=60&&((e.ticks>>2)&1);for(let i=1;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.14,.52,warning?.96:.68,-phase+i*.58,i%2>0);for(let i=1;i<Math.min(e.length,5);i++){const j=(e.head-i+e.bx.length)%e.bx.length;this.vfx(c,art,e.bx[j]+.5,e.by[j]+.5,.68-i*.06,.34-i*.035,-phase-i*.35,i%2>0);}}
@@ -195,22 +211,24 @@
     const pulse=e.ticks*.025;
     for(let cy=Math.floor(top/CHUNK);cy<=Math.floor(bottom/CHUNK);cy++)for(let cx=Math.floor(left/CHUNK);cx<=Math.floor(right/CHUNK);cx++){
      const entry=this.groundChunk(s,cx,cy);c.drawImage(entry.decor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
-     for(let i=0;i<entry.ambient.length;i+=3){
+     for(let i=0;i<entry.ambient.length;i+=4){
       const x=entry.ambient[i],y=entry.ambient[i+1]+Math.sin(pulse+entry.ambient[i+2])*.07,a=.38+Math.sin(pulse*1.3+entry.ambient[i+2])*.18;
-      c.globalAlpha=a;c.fillStyle='#e6ffb6';c.fillRect(x-.02,y-.02,.04,.04);c.globalAlpha=a*.45;c.fillStyle='#79dca6';c.fillRect(x-.05,y-.05,.1,.1);
+      c.globalAlpha=a;c.fillStyle=BIOMES[entry.ambient[i+3]].palette[1];c.fillRect(x-.02,y-.02,.04,.04);c.globalAlpha=a*.45;c.fillRect(x-.05,y-.05,.1,.1);
      }
     }
     c.globalAlpha=1;c.restore();
    }
    for(let y=Math.floor(top);y<bottom;y++)for(let x=Math.floor(left);x<right;x++){
     if(e.world.blocked(x,y)){
-     const n=hash(x,y,e.world.seed);if(!geometry&&this.objects)this.object(c,n%5,x+.5,y+.5,SCALE.obstacle*(.9+((n>>>9)&7)*.012),n);
+     const n=hash(x,y,e.world.seed),biome=e.world.biomeIndex(x,y);if(!geometry&&biome&&this.biomeArt?.[biome])this.biomeSprite(c,biome,n%3,x+.5,y+.5,SCALE.obstacle,n);
+     else if(!geometry&&this.objects)this.object(c,n%5,x+.5,y+.5,SCALE.obstacle*(.9+((n>>>9)&7)*.012),n);
      else{c.fillStyle='#849180';c.fillRect(x+.03,y+.03,.94,.94);}
     }
    }
-   for(const f of e.items)if(f.active&&f.kind==='food'){
+   for(const f of e.items)if(f.active&&f.kind==='food'&&f.x>=left-2&&f.x<=right+2&&f.y>=top-2&&f.y<=bottom+2){
     const fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&this.food)this.foodSprite(c,fx,fy,SCALE.food);
     else{c.fillStyle='#ffcf64';c.beginPath();c.arc(fx,fy,SCALE.food/2,0,Math.PI*2);c.fill();}
+    if(f.eventFood)this.vfx(c,s.assets['vfx-fairy-v1'],fx-.36,fy-.35,.3,.7);
    }
    for(const f of e.items)if(f.active&&f.kind!=='food'){const effect=EFFECTS[f.kind],image=effect&&s.assets[effect.asset],particle=s.assets['vfx-'+f.kind+'-v1'],fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&image)this.pickupSprite(c,image,particle,fx,fy,e.ticks);else{c.fillStyle=effect?.bad?'#ef5775':'#b8f173';c.fillRect(fx-.35,fy-.35,.7,.7);}}
    if(e.fairy>0&&e.portals)for(let i=0;i<e.portals.length;i++){const portal=e.portals[i],image=s.assets[i?'portal-fairy-exit-v1':'portal-fairy-entry-v1'];this.portal(c,image,s.assets['vfx-fairy-v1'],portal.x,portal.y,e.ticks,i);}

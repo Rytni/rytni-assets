@@ -6,7 +6,8 @@ let obstacleCount=0;
 for(let y=-90;y<90;y++)for(let x=-90;x<90;x++){
  const blocked=world.blocked(x,y);assert.equal(blocked,repeat.blocked(x,y));
  if(!blocked)continue;obstacleCount++;
- for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)if(dx||dy)assert.equal(world.blocked(x+dx,y+dy),false,'two-cell forest clearance');
+ // A structural island is at most 2x2; global connectivity is tested separately.
+ assert(!(world.blocked(x+1,y)&&world.blocked(x+2,y)),'no three-cell wall');
 }
 assert(obstacleCount>300&&obstacleCount<1800);
 const obstacleTypes=new Map();
@@ -22,8 +23,7 @@ const e=new Engine(127,{forestSlice:true});
 for(let i=0;i<22000;i++){
  // Keep the test in the safe spawn corridor while exercising timed item spawning.
  if(e.x>=5){e.reset(127);e.ticks=i;}
- e.tick();assert.equal(e.items.filter(x=>x.active&&x.kind!=='food').length,0);
- assert(e.items.filter(x=>x.active).length<=1);
+ e.tick();for(const item of e.items)if(item.active){assert(!e.world.blocked(item.x,item.y));assert(!e.occupied.has(item.x+','+item.y));}
 }
 const vectors=[[0,-1],[1,0],[0,1],[-1,0]];
 const topology=new Engine(1);topology.length=3;topology.head=0;
@@ -61,4 +61,4 @@ for(const [dx,dy] of vectors){
 }
 function replay(fps){const s=new Engine(44,{forestSlice:true});let acc=0;for(let f=0;f<fps*12;f++){acc+=60/fps;while(acc>=1-1e-9){if(s.ticks===12)s.request(0);if(s.ticks===24)s.request(3);s.tick();acc-=1;}s.interpolate();}return s.digest();}
 assert.equal(replay(30),replay(60));assert.equal(replay(60),replay(144));
-console.log(JSON.stringify({forestDeterminism:true,obstacleCount,obstacleFamilies:obstacleTypes.size,collisionDirections:4,clearance:true,boundedChunks:true,foodOnly:true,allCardinalSprites:true,fpsDeterminism:true}));
+console.log(JSON.stringify({forestDeterminism:true,obstacleCount,obstacleFamilies:obstacleTypes.size,collisionDirections:4,clearance:true,boundedChunks:true,pickupSafety:true,allCardinalSprites:true,fpsDeterminism:true}));

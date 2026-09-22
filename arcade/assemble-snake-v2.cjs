@@ -5,7 +5,8 @@ const assets=['head','ground-calm','ground-calm-earth','food','magnet','drunk','
 const effectAudio=['magnet','golden','ghost','ghost-warning','fairy','time','drunk','hiccup','hiccup-warning','hiccup-1','hiccup-2','hiccup-3','slime'];
 function assemble({allowIncomplete=false}={}){
  const forestAssets=['forest-snake-atlas-v1','forest-ground-v1','forest-decor-v1','forest-objects-v1','forest-food-spore-v1','forest-frame-v1','forest-hud-v1'];
- const missing=[...assets,...forestAssets].filter(n=>!fs.existsSync(path.join(__dirname,'../grib/mushroom-snake-v2',n+'.png')));
+ const biomeAssets=require('./snake-rules.js').BIOMES.flatMap(b=>b.atlas?[b.ground,b.atlas]:[]);
+ const missing=[...assets,...forestAssets,...biomeAssets].filter(n=>!fs.existsSync(path.join(__dirname,'../grib/mushroom-snake-v2',n+'.png')));
  if(missing.length&&!allowIncomplete)throw Error('Snake v2 is NOT publishable. Missing art: '+missing.join(', '));
  const missingAudio=effectAudio.filter(n=>!fs.existsSync(path.join(__dirname,'../grib/mushroom-snake-v2/audio',n+'.wav')));
  if(missingAudio.length&&!allowIncomplete)throw Error('Snake v2 is NOT publishable. Missing effect audio: '+missingAudio.join(', '));
@@ -15,7 +16,7 @@ function assemble({allowIncomplete=false}={}){
  hub=hub.slice(0,start)+'  const Snake=window.RytniMushroomSnake;\n'+hub.slice(end);
  hub=hub.replace('engine:SnakeEngine','engine:window.MushroomSnakeCore.Engine');
  hub=hub.replace('BASE+g.art',"(id==='snake'?'https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/':BASE)+g.art");
- return ['snake-core.js','snake-segments.js','snake-forest.js','snake-controller.js'].map(n=>'<script>\n'+fs.readFileSync(path.join(__dirname,n),'utf8')+'\n</script>').join('\n')+'\n'+hub+'\n'+fs.readFileSync(path.join(__dirname,'snake-ui.html'),'utf8');
+ return ['snake-rules.js','snake-world.js','snake-core.js','snake-segments.js','snake-forest.js','snake-controller.js'].map(n=>'<script>\n'+fs.readFileSync(path.join(__dirname,n),'utf8')+'\n</script>').join('\n')+'\n'+hub+'\n'+fs.readFileSync(path.join(__dirname,'snake-ui.html'),'utf8');
 }
 module.exports={assemble,assets};
 if(require.main===module){const bundle=assemble();if(process.argv.includes('--bundle'))process.stdout.write(bundle);else console.log('Snake v2 asset gate PASS');}
