@@ -8,7 +8,10 @@
   return {x:engine.bx[j],y:engine.by[j]};
  }
  function placement(engine,index){
-  return index===0?{x:engine.rx[index],y:engine.ry[index]}:at(engine,index);
+  const x=engine.rx[index],y=engine.ry[index];
+  if(index!==engine.length-1)return {x,y};
+  const dx=engine.rx[index-1]-x,dy=engine.ry[index-1]-y;
+  return Math.abs(dx)+Math.abs(dy)<=1.1?{x:x+dx*.72,y:y+dy*.72}:{x,y};
  }
  function select(engine,index,bodyOnly=false){
   const current=at(engine,index);

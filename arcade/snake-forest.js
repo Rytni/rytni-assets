@@ -5,7 +5,7 @@
  const SCALE={rows:12,columns:30,head:1.35,body:1.04,food:.9,obstacle:1};
  const geometry=new URLSearchParams(location.search).has('snake_geometry');
  const BASE='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/';
- const {hash,CHUNK,EFFECTS,BIOMES}=root.MushroomSnakeCore;
+ const {hash,CHUNK,EFFECTS,BIOMES,DX,DY}=root.MushroomSnakeCore;
  const clusterStrength=(x,y,seed,spacing=8)=>{
   const gx=Math.floor(x/spacing),gy=Math.floor(y/spacing);let strength=0;
   for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++){
@@ -69,9 +69,11 @@
    c.save();c.translate(x,y);if(variant&1)c.scale(-1,1);
    c.drawImage(this.objects,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
   },
-  foodSprite(c,x,y,size){
-   const f=this.foodFrame,k=size/Math.max(f.w,f.h);this.contactShadow(c,x,y,size,.82,.25);
-   c.drawImage(this.food,f.x,f.y,f.w,f.h,x-f.w*k/2,y-f.h*k/2,f.w*k,f.h*k);
+  foodSprite(c,x,y,size,ticks){
+   const f=this.foodFrame,k=size/Math.max(f.w,f.h),bob=Math.sin(ticks*.075)*.055;
+   this.contactShadow(c,x,y,size,.82,.25);this.pickupBase(c,x,y,'#ffe2a0',ticks,false);
+   c.drawImage(this.food,f.x,f.y,f.w,f.h,x-f.w*k/2,y+bob-f.h*k/2,f.w*k,f.h*k);
+   this.spark(c,x-.43,y-.4+bob,'#fff3bd',.055,.65);this.pixel(c,x+.42,y-.23+bob,'#ffe299',.075,.72);
   },
   biomeSprite(c,biome,index,x,y,size,variant=0,alpha=1){
    const art=this.biomeArt[biome],f=art.frames[index],k=size/Math.max(f.w,f.h);c.save();c.globalAlpha=alpha;c.translate(x,y);if(variant&1)c.scale(-1,1);c.drawImage(art.atlas,f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k/2,f.w*k,f.h*k);c.restore();
@@ -266,28 +268,40 @@
    if(tail===1)size=Math.min(size,1.29);else if(tail===2)size=Math.min(size,1.37);else if(tail===3)size=Math.min(size,1.44);
    return size;
   },
-  vfx(c,image,x,y,size,alpha=1,angle=0,mirror=false){
-   if(!image)return;const k=size/Math.max(image.width,image.height);c.save();c.translate(x,y);c.rotate(angle);if(mirror)c.scale(-1,1);c.globalAlpha*=alpha;c.drawImage(image,-image.width*k/2,-image.height*k/2,image.width*k,image.height*k);c.restore();
+  pixel(c,x,y,color,size=.075,alpha=1){
+   c.save();c.globalAlpha*=alpha;c.fillStyle=color;c.fillRect(Math.round(x*32)/32,Math.round(y*32)/32,size,size);c.restore();
   },
-  pickupSprite(c,image,particle,x,y,ticks){
-   const size=1.08,k=size/Math.max(image.width,image.height),phase=(ticks>>3)&7;c.save();c.translate(x,y);c.drawImage(image,-image.width*k/2,-image.height*k/2,image.width*k,image.height*k);c.restore();
-   this.vfx(c,particle,x-.42+phase*.012,y-.43,.24,.74,-.35);this.vfx(c,particle,x+.43-phase*.01,y+.18,.18,.5,.48,true);
+  spark(c,x,y,color,size=.075,alpha=1){
+   c.save();c.globalAlpha*=alpha;c.fillStyle=color;c.fillRect(x-size/2,y-size*1.7,size,size*3.4);c.fillRect(x-size*1.7,y-size/2,size*3.4,size);c.restore();
   },
-  portal(c,image,particle,x,y,ticks,index){
-   const cx=x+.5,cy=y+.5;if(image)this.vfx(c,image,cx,cy,1.36,1,0,index===1);const phase=((ticks>>2)+index*3)&7;
-   this.vfx(c,particle,cx-.46+phase*.018,cy-.46,.22,.65,-.42,index===1);this.vfx(c,particle,cx+.43-phase*.014,cy+.3,.17,.48,.62,index===0);
+  pickupBase(c,x,y,color,ticks,warning){
+   const pulse=warning?.25+.1*Math.sin(ticks*.17):.24+.06*Math.sin(ticks*.08);
+   c.save();c.globalAlpha*=pulse;c.fillStyle=color;c.fillRect(x-.51,y+.32,1.02,.13);c.fillRect(x-.34,y+.23,.68,.09);c.restore();
+   if(warning){this.pixel(c,x-.5,y-.4,'#e95cbb',.105,.75);this.pixel(c,x+.44,y-.4,'#e95cbb',.105,.75);}
+   else{this.spark(c,x-.48,y-.31,color,.055,.6);this.pixel(c,x+.46,y-.24,color,.075,.66);}
   },
-  effectAura(c,e,assets){
-   const x=e.rx[0]+.5,y=e.ry[0]+.5,limit=Math.min(e.length,96),step=Math.max(2,Math.ceil(limit/12)),phase=e.ticks*.045;
-   if(e.comboFlash>0){const a=Math.min(1,e.comboFlash/30);this.vfx(c,assets['vfx-golden-v1'],x-.65,y-.7,.38,a);this.vfx(c,assets['vfx-golden-v1'],x+.65,y-.5,.28,a,.4,true);}
-   if(e.magnet>0){const art=assets['vfx-magnet-v1'];for(let i=1;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.08,.66,.68+(i%3)*.08,phase+i*.7,i%2>0);if(e.magnetPull>0){const fx=e.magnetPullX+.5,fy=e.magnetPullY+.5;for(let i=1;i<6;i++){const p=i/6,side=((i+e.ticks)&1)?.1:-.1;this.vfx(c,art,fx+(x-fx)*p+side,fy+(y-fy)*p-side,.36+i*.025,.56+i*.07,phase+i*.3,i%2>0);}}}
-   if(e.golden>0){const art=assets['vfx-golden-v1'],offset=(e.ticks>>3)%step;for(let i=offset;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.08,.64,.74+(i%3)*.07,phase*.55+i*.42,i%2>0);}
-   if(e.ghost>0||e.ghostGrace){const art=assets['vfx-ghost-v1'],warning=e.ghost>0&&e.ghost<=60&&((e.ticks>>2)&1);for(let i=1;i<limit;i+=step)this.vfx(c,art,e.rx[i]+.5,e.ry[i]+.14,.52,warning?.96:.68,-phase+i*.58,i%2>0);for(let i=1;i<Math.min(e.length,5);i++){const j=(e.head-i+e.bx.length)%e.bx.length;this.vfx(c,art,e.bx[j]+.5,e.by[j]+.5,.68-i*.06,.34-i*.035,-phase-i*.35,i%2>0);}}
-   if(e.timeEffect>0){const art=assets['vfx-time-v1'];for(let i=0;i<3;i++)this.vfx(c,art,x+Math.cos(phase+i*2.1)*(.68+i*.1),y+Math.sin(phase+i*2.1)*(.58+i*.08),.62-i*.055,.76-i*.1,phase+i*.8,i%2>0);const dir=e.direction===0?'up':e.direction===1?'right':e.direction===2?'down':'left',head=assets['snake-head-'+dir];for(let i=1;i<Math.min(e.length,4);i++){const j=(e.head-i+e.bx.length)%e.bx.length;this.vfx(c,head,e.bx[j]+.5,e.by[j]+.5,.8-i*.08,.18-i*.035);}}
-   if(e.drunk>0){const art=assets['vfx-drunk-v1'],sway=Math.sin(phase*1.7)*.16;this.vfx(c,art,x-.54+sway,y-.66,.62,.92,phase);this.vfx(c,art,x+.58+sway,y-.38,.43,.64,-phase*.8,true);}
-   if(e.hiccupPulse>0){const art=assets['vfx-hiccup-v1'],p=1-e.hiccupPulse/22;this.vfx(c,art,x+.42+p*.34,y-.35-p*.36,.58+p*.3,.42+e.hiccupPulse/28,-.22);}
-   if(e.slime>0){const art=assets['vfx-slime-v1'];for(let i=2;i<Math.min(e.length,14);i+=2){const j=(e.head-i+e.bx.length)%e.bx.length;this.vfx(c,art,e.bx[j]+.5,e.by[j]+.78,.72-(i%4)*.035,.74-i*.016,(i&2)?.2:-.18,i%4===0);}}
-   if(e.fairy>0&&e.portalFlash>0){const art=assets['vfx-fairy-v1'],alpha=e.portalFlash/30;for(let side=0;side<2;side++){const tx=(side?e.portalToX:e.portalFromX)+.5,ty=(side?e.portalToY:e.portalFromY)+.5;for(let i=0;i<3;i++){const a=phase+i*2.1+side,d=.25+(30-e.portalFlash)/30*(.5+i*.12);this.vfx(c,art,tx+Math.cos(a)*d,ty+Math.sin(a)*d,.38-i*.035,alpha*(.86-i*.12),a,side===1);}}}
+  pickupSprite(c,image,x,y,ticks,warning){
+   const size=1.08,k=size/Math.max(image.width,image.height),bob=Math.sin(ticks*.065)*.065,color=warning?'#dc5baf':'#a5e36c';
+   this.contactShadow(c,x,y,size,.87,.22);this.pickupBase(c,x,y,color,ticks,warning);
+   c.drawImage(image,x-image.width*k/2,y+bob-image.height*k/2,image.width*k,image.height*k);
+   if(warning){this.pixel(c,x-.43,y-.53+bob,'#ff819f',.08,.7);this.pixel(c,x+.4,y-.49+bob,'#9e65d9',.08,.7);}
+   else{this.spark(c,x-.42,y-.49+bob,'#e8f4a3',.075,.72);this.pixel(c,x+.43,y-.4+bob,'#b5ed7a',.08,.68);}
+  },
+  portal(c,image,x,y,index){
+   if(!image)return;const size=1.36,k=size/Math.max(image.width,image.height),cx=x+.5,cy=y+.5;
+   c.save();c.translate(cx,cy);if(index)c.scale(-1,1);c.drawImage(image,-image.width*k/2,-image.height*k/2,image.width*k,image.height*k);c.restore();
+  },
+  effectAura(c,e){
+   const x=e.rx[0]+.5,y=e.ry[0]+.5,limit=Math.min(e.length,96),step=Math.max(3,Math.ceil(limit/10)),phase=e.ticks*.065;
+   if(e.comboFlash>0){const a=Math.min(1,e.comboFlash/30);this.spark(c,x-.55,y-.6,'#ffe49b',.12,a);this.spark(c,x+.5,y-.4,'#fff3c5',.08,a*.8);}
+   if(e.magnet>0){for(let i=2;i<limit;i+=step){const px=e.rx[i]+.5,py=e.ry[i]+.76;this.pixel(c,px-.16,py,'#7ddf79',.075,.72);this.pixel(c,px+.08,py-.06,'#b2e98b',.06,.56);c.save();c.globalAlpha*=.36;c.fillStyle='#6ec56c';c.fillRect(px-.12,py-.02,.22,.035);c.restore();}if(e.magnetPull>0){const fx=e.magnetPullX+.5,fy=e.magnetPullY+.5;for(let i=1;i<4;i++){const p=i/4;this.pixel(c,fx+(x-fx)*p,fy+(y-fy)*p,'#a4e989',.07,.68);}}}
+   if(e.golden>0){this.spark(c,x-.52,y-.5,'#ffe292',.11,.88);this.spark(c,x+.48,y-.7,'#fff1bb',.07,.72);for(let i=4;i<limit;i+=step*2)this.spark(c,e.rx[i]+.5,e.ry[i]+.04,'#ffd569',.07,.58);}
+   if(e.ghost>0||e.ghostGrace){const a=e.ghost>0&&e.ghost<=60?.83:.55;for(let i=2;i<limit;i+=step){const px=e.rx[i]+.5,py=e.ry[i]+.1;this.pixel(c,px-.42,py,'#92e4e8',.075,a);this.pixel(c,px-.34,py-.13,'#b9eff1',.055,a*.7);}this.pixel(c,x+.43,y-.39,'#a8e8f5',.085,a);}
+   if(e.timeEffect>0){const dx=-DX[e.direction],dy=-DY[e.direction];for(let i=0;i<3;i++){const px=x+dx*(.35+i*.22)+Math.sin(phase+i)*.08,py=y+dy*(.35+i*.22)-.34;this.pixel(c,px,py,'#aa9be9',.08-i*.012,.7-i*.13);this.pixel(c,px+dx*.13,py+dy*.13,'#87bbf0',.045,.38);}}
+   if(e.drunk>0){this.pixel(c,x-.5+Math.sin(phase)*.1,y-.65,'#d678bd',.09,.65);this.pixel(c,x+.48,y-.45,'#a777d5',.065,.5);}
+   if(e.hiccupPulse>0){const p=1-e.hiccupPulse/22,a=e.hiccupPulse/22;for(let i=0;i<3;i++)this.pixel(c,x+.37+p*(.15+i*.1),y-.3-p*(.14+i*.08),'#d8e8cb',.12-i*.025,a*(.7-i*.12));}
+   if(e.slime>0)for(let i=3;i<Math.min(e.length,18);i+=3){const px=e.rx[i]+.5,py=e.ry[i]+.79;this.pixel(c,px-.11,py,'#7fc66a',.11,.55);this.pixel(c,px+.1,py+.04,'#a6d977',.065,.46);}
+   if(e.fairy>0&&e.portalFlash>0){const a=e.portalFlash/30;for(let side=0;side<2;side++){const tx=(side?e.portalToX:e.portalFromX)+.5,ty=(side?e.portalToY:e.portalFromY)+.5;for(let i=0;i<5;i++){const angle=i*1.26+phase*.3,d=.2+(1-a)*(.4+i*.08);this.pixel(c,tx+Math.cos(angle)*d,ty+Math.sin(angle)*d,'#c3a1f1',.09-i*.008,a*(.8-i*.09));}}}
   },
   fit(w,h){return Math.max(h/SCALE.rows,w/SCALE.columns);},
   paint(s){
@@ -305,10 +319,7 @@
      const entry=this.groundChunk(s,cx,cy);visible.add(entry.id);c.drawImage(entry.floor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
     }
     for(const key of s.chunks.keys())if(!visible.has(key)&&!this.prewarmKeys?.has(key))s.chunks.delete(key);
-    // Cached decor remains non-colliding and is clipped away from the immediate
-    // reading zone. Structural obstacles are painted afterwards and stay visible.
-    c.save();c.beginPath();c.rect(left-1,top-1,right-left+2,bottom-top+2);c.arc(e.rx[0]+.5,e.ry[0]+.5,3.15,0,Math.PI*2);
-    for(const item of e.items)if(item.active&&item.kind==='food')c.arc(item.x+.5,item.y+.5,1.35,0,Math.PI*2);c.clip('evenodd');
+    // Chunk decor is spatially stable: never mask it around moving actors.
     const pulse=e.ticks*.025;
     for(let cy=Math.floor(top/CHUNK);cy<=Math.floor(bottom/CHUNK);cy++)for(let cx=Math.floor(left/CHUNK);cx<=Math.floor(right/CHUNK);cx++){
      const entry=this.groundChunk(s,cx,cy);c.drawImage(entry.decor,cx*CHUNK,cy*CHUNK,CHUNK,CHUNK);
@@ -317,7 +328,7 @@
       c.globalAlpha=a;c.fillStyle=BIOMES[entry.ambient[i+3]].palette[1];c.fillRect(x-.02,y-.02,.04,.04);c.globalAlpha=a*.45;c.fillRect(x-.05,y-.05,.1,.1);
      }
     }
-    c.globalAlpha=1;c.restore();
+    c.globalAlpha=1;
    }
    for(let y=Math.floor(top);y<bottom;y++)for(let x=Math.floor(left);x<right;x++){
     if(e.world.blocked(x,y)){
@@ -327,12 +338,12 @@
     }
    }
    for(const f of e.items)if(f.active&&f.kind==='food'&&f.x>=left-2&&f.x<=right+2&&f.y>=top-2&&f.y<=bottom+2){
-    const fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&this.food)this.foodSprite(c,fx,fy,SCALE.food);
+    const fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&this.food)this.foodSprite(c,fx,fy,SCALE.food,e.ticks);
     else{c.fillStyle='#ffcf64';c.beginPath();c.arc(fx,fy,SCALE.food/2,0,Math.PI*2);c.fill();}
-    if(f.eventFood)this.vfx(c,s.assets['vfx-fairy-v1'],fx-.36,fy-.35,.3,.7);
+    if(f.eventFood)this.spark(c,fx-.4,fy-.44,'#f4d8a0',.07,.7);
    }
-   for(const f of e.items)if(f.active&&f.kind!=='food'){const effect=EFFECTS[f.kind],image=effect&&s.assets[effect.asset],particle=s.assets['vfx-'+f.kind+'-v1'],fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&image)this.pickupSprite(c,image,particle,fx,fy,e.ticks);else{c.fillStyle=effect?.bad?'#ef5775':'#b8f173';c.fillRect(fx-.35,fy-.35,.7,.7);}}
-   if(e.fairy>0&&e.portals)for(let i=0;i<e.portals.length;i++){const portal=e.portals[i],image=s.assets[i?'portal-fairy-exit-v1':'portal-fairy-entry-v1'];this.portal(c,image,s.assets['vfx-fairy-v1'],portal.x,portal.y,e.ticks,i);}
+   for(const f of e.items)if(f.active&&f.kind!=='food'){const effect=EFFECTS[f.kind],image=effect&&s.assets[effect.asset],fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&image)this.pickupSprite(c,image,fx,fy,e.ticks,effect.bad);else{c.fillStyle=effect?.bad?'#ef5775':'#b8f173';c.fillRect(fx-.35,fy-.35,.7,.7);}}
+   if(e.fairy>0&&e.portals)for(let i=0;i<e.portals.length;i++){const portal=e.portals[i],image=s.assets[i?'portal-fairy-exit-v1':'portal-fairy-entry-v1'];this.portal(c,image,portal.x,portal.y,i);}
    const draw=(i,bodyOnly=false)=>{
     const p=bodyOnly?at(e,i):placement(e,i),x=p.x+.5,y=p.y+.5;if(x<left-2||x>right+2||y<top-2||y>bottom+2)return;
     const part=select(e,i,bodyOnly);c.save();if(e.ghost>0||e.ghostGrace)c.globalAlpha=.62;c.translate(x,y);
@@ -354,16 +365,18 @@
    c.save();c.translate(0,.12);c.strokeStyle='#06120bb8';c.lineWidth=.6;c.lineJoin='round';c.lineCap='round';c.beginPath();
    const cap=e.bx.length;let shadowOpen=false;
    for(let i=0;i<e.length;i++){
-    const j=(e.head-i+cap)%cap,x=(i?e.bx[j]:e.rx[0])+.5,y=(i?e.by[j]:e.ry[0])+.5,inside=x>left-1&&x<right+1&&y>top-1&&y<bottom+1;
-    if(inside){if(shadowOpen)c.lineTo(x,y);else{c.moveTo(x,y);shadowOpen=true;}}else shadowOpen=false;
+    const j=(e.head-i+cap)%cap,x=e.rx[i]+.5,y=e.ry[i]+.5,inside=x>left-1&&x<right+1&&y>top-1&&y<bottom+1;
+    if(inside){if(shadowOpen&&i&&Math.abs(e.bx[j]-e.bx[(j+1)%cap])+Math.abs(e.by[j]-e.by[(j+1)%cap])===1)c.lineTo(x,y);else{c.moveTo(x,y);shadowOpen=true;}}else shadowOpen=false;
    }
    c.stroke();c.restore();
    c.save();c.beginPath();
-   let previous={x:e.rx[0]+.5,y:e.ry[0]+.5};
-   for(let i=1;i<=e.length;i++){
-    const p=i===e.length?{x:e.rx[e.length-1]+.5,y:e.ry[e.length-1]+.5}:(()=>{const a=at(e,i);return{x:a.x+.5,y:a.y+.5};})();
-    const l=Math.min(p.x,previous.x)-.5,t=Math.min(p.y,previous.y)-.5;
-    c.rect(l,t,Math.abs(p.x-previous.x)+1,Math.abs(p.y-previous.y)+1);previous=p;
+   for(let i=0;i<e.length;i++){
+    const x=e.rx[i]+.5,y=e.ry[i]+.5;
+    c.rect(x-.53,y-.53,1.06,1.06);
+    if(i&&Math.abs(e.bx[(e.head-i+cap)%cap]-e.bx[(e.head-i+1+cap)%cap])+Math.abs(e.by[(e.head-i+cap)%cap]-e.by[(e.head-i+1+cap)%cap])===1){
+     const px=e.rx[i-1]+.5,py=e.ry[i-1]+.5;
+     c.rect(Math.min(x,px)-.53,Math.min(y,py)-.53,Math.abs(x-px)+1.06,Math.abs(y-py)+1.06);
+    }
    }
    c.clip();
    // The terminal cell is exclusively the pointed tail sprite. Painting its
@@ -371,7 +384,7 @@
    for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind!=='corner')draw(i,true);
    for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind==='corner')draw(i,true);
    c.restore();
-   draw(e.length-1);draw(0);this.effectAura(c,e,s.assets);
+   draw(e.length-1);draw(0);this.effectAura(c,e);
   }
  };
  root.MushroomSnakeForest=Forest;
