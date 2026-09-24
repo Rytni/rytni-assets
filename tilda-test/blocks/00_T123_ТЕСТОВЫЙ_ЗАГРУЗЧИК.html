@@ -1,0 +1,337 @@
+<div id="rytni-app-loader" role="status" aria-live="polite">
+  <style>
+    #rytni-app-loader{position:fixed;z-index:2147483000;inset:0;display:grid;overflow:hidden;place-items:center;padding:24px;color:#f7f8ff;background:radial-gradient(circle at 50% 38%,rgba(95,54,205,.28),transparent 27%),radial-gradient(circle at 18% 20%,rgba(33,207,237,.11),transparent 26%),radial-gradient(circle at 82% 74%,rgba(221,55,255,.1),transparent 24%),#030617;font:700 16px/1.5 Manrope,Inter,Arial,sans-serif;text-align:center;isolation:isolate;transition:opacity .42s ease,visibility .42s ease}
+    #rytni-app-loader::before{content:"";position:absolute;z-index:-2;inset:-30%;background:conic-gradient(from 70deg at 50% 50%,transparent 0 15%,rgba(79,50,215,.12) 23%,transparent 31% 56%,rgba(16,205,228,.08) 65%,transparent 73%);animation:rytniNebulaTurn 22s linear infinite}
+    #rytni-app-loader::after{content:"";position:absolute;z-index:-1;inset:0;opacity:.42;background-image:radial-gradient(circle,#6ceaff 0 1px,transparent 1.5px),radial-gradient(circle,#b56bff 0 1px,transparent 1.5px);background-position:0 0,35px 48px;background-size:86px 86px,112px 112px;mask-image:linear-gradient(to bottom,transparent,#000 18% 84%,transparent);animation:rytniStarsDrift 18s linear infinite}
+    #rytni-app-loader.is-ready{opacity:0;visibility:hidden;pointer-events:none}
+    #rytni-app-loader .rytni-loader-scene{position:relative;display:grid;width:min(430px,100%);justify-items:center}
+    #rytni-app-loader .rytni-loader-core{position:relative;width:176px;height:176px;margin-bottom:25px}
+    #rytni-app-loader .rytni-loader-orbit{position:absolute;border:1px solid rgba(107,222,255,.5);border-radius:50%;box-shadow:0 0 20px rgba(64,202,255,.18),inset 0 0 18px rgba(119,68,255,.13);animation:rytniOrbit 5.5s linear infinite}
+    #rytni-app-loader .rytni-loader-orbit::before{content:"";position:absolute;top:50%;left:-4px;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#63edff;box-shadow:0 0 13px #47ddff}
+    #rytni-app-loader .rytni-loader-orbit-one{inset:7px;transform:rotate(23deg)}
+    #rytni-app-loader .rytni-loader-orbit-two{inset:20px;border-color:rgba(205,91,255,.54);animation-duration:4.2s;animation-direction:reverse}
+    #rytni-app-loader .rytni-loader-orbit-two::before{right:-4px;left:auto;background:#d267ff;box-shadow:0 0 14px #c150ff}
+    #rytni-app-loader .rytni-loader-logo{position:absolute;inset:18px;display:grid;place-items:center;filter:drop-shadow(0 18px 24px rgba(0,0,0,.42));animation:rytniLogoFloat 2.8s ease-in-out infinite}
+    #rytni-app-loader .rytni-loader-logo img{display:block;width:100%;height:100%;object-fit:contain}
+    #rytni-app-loader .rytni-loader-kicker{margin:0 0 7px;color:#69eaff;font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    #rytni-app-loader .rytni-loader-title{margin:0;color:#fff;font-size:clamp(22px,5.5vw,34px);font-weight:900;line-height:1.12;text-shadow:0 0 24px rgba(126,85,255,.35)}
+    #rytni-app-loader .rytni-loader-status{margin:10px 0 0;color:#aab5d8;font-size:14px;font-weight:600}
+    #rytni-app-loader .rytni-loader-track{position:relative;width:min(270px,78vw);height:6px;margin-top:22px;overflow:hidden;border:1px solid rgba(117,139,212,.28);border-radius:999px;background:rgba(12,18,52,.8);box-shadow:inset 0 1px 4px rgba(0,0,0,.4)}
+    #rytni-app-loader .rytni-loader-track i{position:absolute;inset:0 auto 0 -42%;width:42%;border-radius:inherit;background:linear-gradient(90deg,transparent,#b94dff 20%,#42dcff 82%,transparent);box-shadow:0 0 16px rgba(69,222,255,.7);animation:rytniTrack 1.45s ease-in-out infinite}
+    #rytni-app-loader .rytni-loader-particles{position:absolute;inset:0;pointer-events:none}
+    #rytni-app-loader .rytni-loader-particles i{position:absolute;left:var(--x);bottom:-20px;width:var(--s);height:var(--s);border-radius:50%;opacity:0;background:var(--c);box-shadow:0 0 12px var(--c);animation:rytniParticle var(--d) linear var(--delay) infinite}
+    #rytni-app-loader .rytni-loader-error{display:grid;width:min(430px,100%);gap:16px;justify-items:center;padding:28px;border:1px solid rgba(128,108,255,.38);border-radius:24px;background:rgba(9,14,43,.92);box-shadow:0 24px 70px rgba(0,0,0,.45)}
+    #rytni-app-loader button{min-height:46px;padding:0 22px;border:1px solid #7767ff;border-radius:14px;color:#fff;background:linear-gradient(135deg,#30276f,#512681);box-shadow:0 12px 28px rgba(50,26,105,.3);font-family:inherit;font-size:14px;font-weight:800;line-height:1.2;cursor:pointer}
+    @keyframes rytniNebulaTurn{to{transform:rotate(360deg)}}
+    @keyframes rytniStarsDrift{to{background-position:86px 86px,147px 160px}}
+    @keyframes rytniOrbit{to{transform:rotate(383deg)}}
+    @keyframes rytniLogoFloat{50%{transform:translateY(-5px) scale(1.035) rotate(2deg);filter:drop-shadow(0 22px 28px rgba(0,0,0,.46))}}
+    @keyframes rytniTrack{0%{left:-44%}100%{left:102%}}
+    @keyframes rytniParticle{0%{opacity:0;transform:translate3d(0,0,0) scale(.5)}15%{opacity:.65}85%{opacity:.35}100%{opacity:0;transform:translate3d(var(--drift),-105vh,0) scale(1.25)}}
+    @media(max-width:560px){#rytni-app-loader{padding:20px}#rytni-app-loader .rytni-loader-core{width:148px;height:148px;margin-bottom:21px}#rytni-app-loader .rytni-loader-logo{inset:16px}#rytni-app-loader .rytni-loader-status{max-width:290px;font-size:14px}}
+    @media(prefers-reduced-motion:reduce){#rytni-app-loader::before,#rytni-app-loader::after,#rytni-app-loader .rytni-loader-orbit,#rytni-app-loader .rytni-loader-logo,#rytni-app-loader .rytni-loader-particles i{animation:none}#rytni-app-loader .rytni-loader-track i{animation-duration:3s}}
+  </style>
+  <div class="rytni-loader-particles" aria-hidden="true">
+    <i style="--x:8%;--s:3px;--c:#5deaff;--d:8s;--delay:-2s;--drift:25px"></i>
+    <i style="--x:20%;--s:5px;--c:#b960ff;--d:11s;--delay:-8s;--drift:-35px"></i>
+    <i style="--x:34%;--s:3px;--c:#58dfff;--d:9s;--delay:-5s;--drift:42px"></i>
+    <i style="--x:52%;--s:4px;--c:#d35bff;--d:12s;--delay:-3s;--drift:-30px"></i>
+    <i style="--x:67%;--s:3px;--c:#52efff;--d:9.5s;--delay:-7s;--drift:38px"></i>
+    <i style="--x:81%;--s:5px;--c:#9969ff;--d:10s;--delay:-4s;--drift:-42px"></i>
+    <i style="--x:93%;--s:3px;--c:#5fe4ff;--d:8.5s;--delay:-6s;--drift:20px"></i>
+  </div>
+  <div class="rytni-loader-scene">
+    <div class="rytni-loader-core" aria-hidden="true">
+      <span class="rytni-loader-orbit rytni-loader-orbit-one"></span>
+      <span class="rytni-loader-orbit rytni-loader-orbit-two"></span>
+      <span class="rytni-loader-logo"><img src="https://storage-1090.s3hoster.by/rytnistatictest/loader/rytni-loader-emblem-v3.webp" onerror="this.onerror=null;this.src='https://rytni.github.io/rytni-assets/loader/rytni-loader-emblem-v3.webp'" alt="" width="384" height="384" decoding="sync" fetchpriority="high"></span>
+    </div>
+    <p class="rytni-loader-kicker">Rytni подари · тест</p>
+    <strong class="rytni-loader-title">Открываем тестовый портал</strong>
+    <div class="rytni-loader-track" aria-hidden="true"><i></i></div>
+    <p class="rytni-loader-status" id="rytniLoaderStatus">Проверяем актуальную версию…</p>
+  </div>
+</div>
+<script>
+(() => {
+  "use strict";
+  if (window.__RYTNI_TEST_EXTERNAL_LOADER_STARTED__) return;
+  window.__RYTNI_TEST_EXTERNAL_LOADER_STARTED__ = true;
+
+  const HOST_ID = "rytni-app-loader";
+  const STORAGE_KEY = "rytni_test_external_release_fallback";
+  const LAST_GOOD_KEY = "rytni_test_external_last_good";
+  const CACHE_NAME = "rytni-test-releases-v1";
+  const FALLBACK_MAX_AGE = 5 * 60 * 1000;
+  const NETWORK_TIMEOUT = 4500;
+  const SCRIPT_TIMEOUT = 5000;
+  const BASES = [
+    "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/",
+    "https://rytni.github.io/rytni-assets/giveaway-test/",
+    "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/"
+  ];
+  const SCRIPT_MIRRORS = {
+    "https://cdn.jsdelivr.net/npm/lucide@1.23.0/dist/umd/lucide.min.js": "https://storage-1090.s3hoster.by/rytnistatictest/vendor/lucide-1.23.0.min.js",
+    "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js": "https://storage-1090.s3hoster.by/rytnistatictest/vendor/canvas-confetti-1.9.3.min.js"
+  };
+  const ASSET_BASES = {
+    s3: "https://storage-1090.s3hoster.by/rytnistatictest/",
+    github: "https://rytni.github.io/rytni-assets/"
+  };
+  const host = document.getElementById(HOST_ID);
+  if (host && host.parentElement !== document.body) document.body.appendChild(host);
+  let scriptsStarted = false;
+
+  function loaderError(message) {
+    const target = document.getElementById(HOST_ID);
+    if (!target) return;
+    target.setAttribute("role", "alert");
+    target.classList.remove("is-ready");
+    target.innerHTML = `<div class="rytni-loader-error"><strong>${message}</strong><button type="button">Повторить загрузку</button></div>`;
+    target.querySelector("button")?.addEventListener("click", () => location.reload());
+  }
+
+  function loaderStatus(message) {
+    const status = document.getElementById("rytniLoaderStatus");
+    if (status) status.textContent = message;
+  }
+
+  function clearFallback() {
+    try { sessionStorage.removeItem(STORAGE_KEY); }
+    catch (error) {}
+  }
+
+  function readFallback() {
+    try {
+      const fallback = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "null");
+      const createdAt = Number(fallback?.created_at || 0);
+      if (createdAt && (!Number.isFinite(createdAt) || Date.now() - createdAt > FALLBACK_MAX_AGE)) {
+        clearFallback();
+        return null;
+      }
+      return fallback;
+    }
+    catch (error) { return null; }
+  }
+
+  function rememberFallback(current, previous) {
+    if (!current?.id || !previous?.id) return;
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+        failed_current: current.id,
+        fallback_id: previous.id,
+        created_at: Date.now()
+      }));
+    } catch (error) {}
+  }
+
+  function fetchFrom(base, path, noStore, controller) {
+    const separator = path.includes("?") ? "&" : "?";
+    const url = `${base}${path}${noStore ? `${separator}t=${Date.now()}` : ""}`;
+    const timer = window.setTimeout(() => controller.abort(), NETWORK_TIMEOUT);
+    return fetch(url, {
+      cache: noStore ? "no-store" : "default",
+      signal: controller.signal
+    }).then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.text();
+    }).then(text => ({ text, base, url })).finally(() => window.clearTimeout(timer));
+  }
+
+  async function fetchText(path, noStore = false, preferredBase = "") {
+    const bases = preferredBase
+      ? [preferredBase, ...BASES.filter(base => base !== preferredBase)]
+      : [...BASES];
+    const controllers = bases.map(() => new AbortController());
+    return new Promise((resolve, reject) => {
+      let failures = 0;
+      let lastError = null;
+      bases.forEach((base, index) => {
+        fetchFrom(base, path, noStore, controllers[index]).then(result => {
+          controllers.forEach((controller, other) => { if (other !== index) controller.abort(); });
+          resolve(result);
+        }).catch(error => {
+          failures += 1;
+          lastError = error;
+          if (failures === bases.length) reject(lastError || new Error("Файл релиза недоступен"));
+        });
+      });
+    });
+  }
+
+  async function sha256(text) {
+    if (!window.crypto?.subtle || typeof TextEncoder === "undefined") return "";
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+    return [...new Uint8Array(digest)].map(value => value.toString(16).padStart(2, "0")).join("");
+  }
+
+  function cacheRequest(id) {
+    return new Request(`${location.origin}${location.pathname}?rytni_cached_release=${encodeURIComponent(id)}`);
+  }
+
+  async function rememberLastGood(release, html, sourceBase) {
+    if (!release?.id || !window.caches) return;
+    try {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.put(cacheRequest(release.id), new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8" } }));
+      localStorage.setItem(LAST_GOOD_KEY, JSON.stringify({ release, source_base: sourceBase, saved_at: Date.now() }));
+    } catch (error) {}
+  }
+
+  async function readLastGood() {
+    if (!window.caches) return null;
+    try {
+      const saved = JSON.parse(localStorage.getItem(LAST_GOOD_KEY) || "null");
+      if (!saved?.release?.id) return null;
+      const response = await (await caches.open(CACHE_NAME)).match(cacheRequest(saved.release.id));
+      if (!response) return null;
+      const html = await response.text();
+      const actualHash = await sha256(html);
+      if (saved.release.sha256 && actualHash && actualHash !== saved.release.sha256) return null;
+      return { release: saved.release, html, sourceBase: saved.source_base || "" };
+    } catch (error) { return null; }
+  }
+
+  function loadExternalScript(source, src) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      [...source.attributes].forEach(attribute => {
+        if (!["src", "integrity", "crossorigin"].includes(attribute.name.toLowerCase())) {
+          script.setAttribute(attribute.name, attribute.value);
+        }
+      });
+      script.src = src;
+      const timer = window.setTimeout(() => {
+        script.remove();
+        reject(new Error(`Тайм-аут скрипта: ${src}`));
+      }, SCRIPT_TIMEOUT);
+      script.onload = () => { window.clearTimeout(timer); resolve(); };
+      script.onerror = () => { window.clearTimeout(timer); script.remove(); reject(new Error(`Не загружен скрипт: ${src}`)); };
+      document.body.appendChild(script);
+    });
+  }
+
+  async function executeScript(source) {
+    scriptsStarted = true;
+    if (source.src) {
+      const candidates = SCRIPT_MIRRORS[source.src]
+        ? [SCRIPT_MIRRORS[source.src], source.src]
+        : [source.src];
+      let lastError = null;
+      for (const src of candidates) {
+        try { await loadExternalScript(source, src); return; }
+        catch (error) { lastError = error; }
+      }
+      throw lastError || new Error(`Не загружен скрипт: ${source.src}`);
+      return;
+    }
+    const script = document.createElement("script");
+    [...source.attributes].forEach(attribute => script.setAttribute(attribute.name, attribute.value));
+    script.textContent = source.textContent;
+    document.body.appendChild(script);
+  }
+
+  function rewriteAssetUrls(html, sourceBase) {
+    const target = sourceBase.includes("storage-1090.s3hoster.by") ? ASSET_BASES.s3 : ASSET_BASES.github;
+    return html
+      .split("https://rytni.github.io/rytni-assets/").join(target)
+      .split("https://raw.githubusercontent.com/Rytni/rytni-assets/main/").join(target);
+  }
+
+  async function mount(release, preferredBase = "", cachedHtml = "") {
+    if (!release?.file) throw new Error("В манифесте отсутствует файл релиза");
+    const result = cachedHtml ? { text: cachedHtml, base: preferredBase || "cache" } : await fetchText(release.file, false, preferredBase);
+    const rawHtml = result.text;
+    const actualHash = await sha256(rawHtml);
+    if (release.sha256 && actualHash && actualHash !== release.sha256) {
+      throw new Error("Контрольная сумма релиза не совпала");
+    }
+    const html = rewriteAssetUrls(rawHtml, result.base);
+
+    const template = document.createElement("template");
+    template.innerHTML = html;
+    const scripts = [...template.content.querySelectorAll("script")];
+    scripts.forEach(script => script.remove());
+    loaderStatus("Запускаем личную комнату и награды…");
+    host.before(template.content);
+    window.__RYTNI_DEFER_BOOTSTRAP__ = true;
+
+    let bootError = null;
+    const captureBootError = event => {
+      bootError = event.error || new Error(event.message || "Ошибка запуска");
+    };
+    window.addEventListener("error", captureBootError);
+    try {
+      for (const script of scripts) await executeScript(script);
+      window.__RYTNI_DEFER_BOOTSTRAP__ = false;
+      if (typeof window.__RYTNI_RUN_BOOTSTRAP__ === "function") {
+        const runBootstrap = window.__RYTNI_RUN_BOOTSTRAP__;
+        window.__RYTNI_RUN_BOOTSTRAP__ = null;
+        await runBootstrap();
+      }
+    } finally {
+      window.__RYTNI_DEFER_BOOTSTRAP__ = false;
+      window.removeEventListener("error", captureBootError);
+    }
+    if (bootError) throw bootError;
+    if (!document.getElementById("rytni-event-page")) throw new Error("Основной блок события не создан");
+    if (release.version && window.RYTNI_RELEASE !== release.version) throw new Error("Версия приложения не совпала с манифестом");
+    if (!cachedHtml) await rememberLastGood(release, rawHtml, result.base);
+    host.classList.add("is-ready");
+    window.setTimeout(() => host.remove(), 450);
+  }
+
+  async function start() {
+    let manifest;
+    let manifestBase = "";
+    try {
+      const result = await fetchText("manifest.json", true);
+      manifest = JSON.parse(result.text);
+      manifestBase = result.base;
+    } catch (error) {
+      const cached = await readLastGood();
+      if (cached) {
+        loaderStatus("Открываем последнюю сохранённую версию…");
+        try { await mount(cached.release, cached.sourceBase, cached.html); return; }
+        catch (cacheError) {}
+      }
+      loaderError("Не удалось получить актуальную версию. Проверьте интернет и повторите.");
+      return;
+    }
+
+    const fallback = readFallback();
+    const usePrevious = fallback &&
+      fallback.failed_current === manifest.current?.id &&
+      fallback.fallback_id === manifest.previous?.id;
+    // Резервный релиз разрешён только для одного аварийного запуска.
+    // Следующая загрузка снова обязана проверить актуальную сборку.
+    if (usePrevious) clearFallback();
+    const selected = usePrevious ? manifest.previous : manifest.current;
+    loaderStatus(usePrevious ? "Восстанавливаем стабильную версию…" : "Загружаем игровую комнату…");
+
+    try {
+      await mount(selected, manifestBase);
+      if (!usePrevious) {
+        clearFallback();
+      }
+    } catch (error) {
+      console.error("[Rytni loader]", error);
+      if (!usePrevious && manifest.previous?.id) {
+        rememberFallback(manifest.current, manifest.previous);
+        if (scriptsStarted) {
+          location.reload();
+          return;
+        }
+        try {
+          await mount(manifest.previous, manifestBase);
+          return;
+        } catch (fallbackError) {}
+      }
+      loaderError("Событие временно не загрузилось. Нажмите кнопку, чтобы попробовать ещё раз.");
+    }
+  }
+
+  const previewAllowed = ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
+  if (!previewAllowed || new URLSearchParams(location.search).get("loader_preview") !== "1") start();
+})();
+</script>

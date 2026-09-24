@@ -1,0 +1,2328 @@
+<script src="https://cdn.jsdelivr.net/npm/lucide@1.23.0/dist/umd/lucide.min.js" integrity="sha384-ouAVEJVCMsf8Svzn+BwqbaBhxBEA0xgeVBhHnxmWd+Wqyv18yhWCQwGegFD/OHLq" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" integrity="sha384-sPwMflxqfAN+Q5mvlkLmHiX3PORGbZSXHiSGPTXT9VHCD/AB+b+r+vJWsqprv+7k" crossorigin="anonymous"></script>
+<script>
+window.RYTNI_RELEASE = "2.15.33";
+document.documentElement.dataset.rytniRelease = window.RYTNI_RELEASE;
+const SUPABASE_DIRECT_URL = "https://ltqnskxlqsddxdyazbss.supabase.co";
+const SUPABASE_FALLBACK_URL = "https://api.rytni.lol";
+const SUPABASE_URL = SUPABASE_DIRECT_URL;
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx0cW5za3hscXNkZHhkeWF6YnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3OTcwMTIsImV4cCI6MjA5NzM3MzAxMn0.LwF_8E4x-1L3EbyiR3TDaQ7EqbI3OyxywoapLiOq0BU";
+let endDate = new Date("2026-06-30T23:59:59+03:00").getTime();
+let startDate = Number.NaN;
+let seasonSettingsLoaded = false;
+let seasonState = "active";
+let winnersTarget = 15;
+let applicationsOpen = true;
+let seasonFormEnabled = true;
+let activeSeason = null;
+let authSession = null;
+let authEmail = "";
+let authOtpCooldownTimer = 0;
+let authOtpRequestInFlight = false;
+let pendingClaimLookup = "";
+let applicationClaimMode = false;
+let registrationIntent = false;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersLowPowerMode = prefersReducedMotion
+  || window.matchMedia("(pointer: coarse)").matches
+  || (Number(navigator.hardwareConcurrency || 8) <= 4)
+  || (Number(navigator.deviceMemory || 8) <= 4);
+document.documentElement.classList.toggle("rytni-low-power",prefersLowPowerMode);
+const AUTH_SESSION_KEY = "rytni_giveaway_auth_session_v1";
+const AUTH_REFRESH_LOCK = "rytni_giveaway_auth_refresh_v1";
+const AUTH_OTP_PENDING_KEY = "rytni_giveaway_auth_otp_pending_v1";
+const AUTH_OTP_RESEND_SECONDS = 60;
+const SOUND_MUTED_KEY = "rytni_giveaway_sound_muted_v1";
+const APPLICATION_DRAFT_KEY = "rytni_giveaway_application_draft_v211";
+const SPONSOR_CHEST_URL = "https://t.me/astra_net_bot?start=ryt";
+const BANNED_APPLICATION_MESSAGE = "Эта заявка заблокирована организатором. Создание и привязка новых заявок для связанных данных недоступны.";
+let authRefreshInFlight = null;
+let soundMuted = localStorage.getItem(SOUND_MUTED_KEY) === "1";
+const EGRESS_DIAGNOSTICS = localStorage.getItem("rytni_egress_diagnostics") === "1";
+const PUBLIC_CACHE_TTL = 60000;
+const SEASON_FALLBACK_KEY = "rytni_giveaway_season_fallback_v1";
+const SEASON_FALLBACK_MAX_AGE = 14 * 86400000;
+const SEASON_RETRY_DELAYS = [2500,7000,15000,30000,60000];
+const requestInFlight = new Map();
+let publicRequestCount = 0;
+let seasonRetryTimer = 0;
+let seasonRetryAttempt = 0;
+let seasonRequestInFlight = null;
+const PAGE_IDLE_CONNECTION_MS = 10 * 60000;
+let lastPageActivityAt = Date.now();
+let pageWasBackgrounded = document.hidden;
+const SUPABASE_ROUTE_KEY = "rytni_supabase_route_v1";
+const SUPABASE_ROUTE_TTL = 5 * 60000;
+let supabaseActiveOrigin = SUPABASE_DIRECT_URL;
+let supabaseRouteCheckedAt = 0;
+let supabaseRouteProbe = null;
+
+function rememberSupabaseOrigin(origin){
+  supabaseActiveOrigin=origin;
+  supabaseRouteCheckedAt=Date.now();
+  try{sessionStorage.setItem(SUPABASE_ROUTE_KEY,JSON.stringify({origin,checkedAt:supabaseRouteCheckedAt}));}catch(error){}
+}
+function restoreSupabaseOrigin(){
+  try{
+    const saved=JSON.parse(sessionStorage.getItem(SUPABASE_ROUTE_KEY)||"null");
+    if([SUPABASE_DIRECT_URL,SUPABASE_FALLBACK_URL].includes(saved?.origin)&&Date.now()-Number(saved?.checkedAt||0)<SUPABASE_ROUTE_TTL){
+      supabaseActiveOrigin=saved.origin;supabaseRouteCheckedAt=Number(saved.checkedAt);return true;
+    }
+  }catch(error){}
+  return false;
+}
+restoreSupabaseOrigin();
+async function probeSupabaseOrigin(origin){
+  const controller=new AbortController();
+  const timeoutId=window.setTimeout(()=>controller.abort(),1200);
+  const path=origin===SUPABASE_FALLBACK_URL?"/health":"/auth/v1/health";
+  try{const response=await fetch(`${origin}${path}`,{method:"GET",cache:"no-store",signal:controller.signal});return response.status>0&&response.status<500;}
+  catch(error){return false;}
+  finally{window.clearTimeout(timeoutId);}
+}
+async function selectSupabaseOrigin(force=false){
+  if(!force&&Date.now()-supabaseRouteCheckedAt<SUPABASE_ROUTE_TTL)return supabaseActiveOrigin;
+  if(supabaseRouteProbe)return supabaseRouteProbe;
+  supabaseRouteProbe=(async()=>{
+    if(await probeSupabaseOrigin(SUPABASE_DIRECT_URL)){rememberSupabaseOrigin(SUPABASE_DIRECT_URL);return SUPABASE_DIRECT_URL;}
+    if(await probeSupabaseOrigin(SUPABASE_FALLBACK_URL)){rememberSupabaseOrigin(SUPABASE_FALLBACK_URL);return SUPABASE_FALLBACK_URL;}
+    rememberSupabaseOrigin(SUPABASE_DIRECT_URL);return SUPABASE_DIRECT_URL;
+  })().finally(()=>{supabaseRouteProbe=null;});
+  return supabaseRouteProbe;
+}
+async function supabaseFetch(path,options={},safeRetry=false){
+  const origin=await selectSupabaseOrigin();
+  const alternate=origin===SUPABASE_DIRECT_URL?SUPABASE_FALLBACK_URL:SUPABASE_DIRECT_URL;
+  try{
+    const response=await fetch(`${origin}${path}`,options);
+    if(safeRetry&&origin!==alternate&&[500,502,503,504].includes(response.status)&&!options?.signal?.aborted){
+      rememberSupabaseOrigin(alternate);
+      return fetch(`${alternate}${path}`,options);
+    }
+    return response;
+  }
+  catch(error){
+    if(safeRetry&&error?.name!=="AbortError"&&!options?.signal?.aborted){rememberSupabaseOrigin(alternate);return fetch(`${alternate}${path}`,options);}
+    if(origin===SUPABASE_DIRECT_URL)rememberSupabaseOrigin(SUPABASE_FALLBACK_URL);
+    throw error;
+  }
+}
+
+function egressDiagnostic(name,{rows=0,elapsed=0,cache=false,size=0}={}){
+  if(!EGRESS_DIAGNOSTICS)return;
+  console.info("[Rytni Egress]",{request:++publicRequestCount,name,rows,elapsed_ms:Math.round(elapsed),cache,response_bytes:size});
+}
+function readSessionCache(key,ttl){
+  try{const item=JSON.parse(sessionStorage.getItem(key)||"null");if(item&&Date.now()-item.savedAt<ttl)return item.value;}catch(error){}
+  return null;
+}
+function writeSessionCache(key,value){
+  try{sessionStorage.setItem(key,JSON.stringify({savedAt:Date.now(),value}));}catch(error){}
+}
+async function cachedRpc(cacheName,rpcName,body={},timeoutMs=5000,ttl=PUBLIC_CACHE_TTL,force=false,authMode="auto"){
+  const key=`rytni_rpc:${cacheName}:${activeSeason?.id||"active"}`;
+  if(!force){const cached=readSessionCache(key,ttl);if(cached){egressDiagnostic(rpcName,{rows:Array.isArray(cached)?cached.length:1,cache:true,size:JSON.stringify(cached).length});return cached;}}
+  if(requestInFlight.has(key))return requestInFlight.get(key);
+  const started=performance.now();
+  const pending=callSupabaseRpc(rpcName,body,timeoutMs,false,authMode,true).then(result=>{
+    const encoded=JSON.stringify(result);writeSessionCache(key,result);
+    egressDiagnostic(rpcName,{rows:Array.isArray(result)?result.length:Array.isArray(result?.items)?result.items.length:1,elapsed:performance.now()-started,size:encoded.length});
+    return result;
+  }).finally(()=>requestInFlight.delete(key));
+  requestInFlight.set(key,pending);return pending;
+}
+
+function getClientToken(){
+  const storageKey = `rytni_giveaway_client_token:${activeSeason?.id || "legacy"}`;
+  let token = localStorage.getItem(storageKey);
+  if(!token){
+    token = window.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    localStorage.setItem(storageKey, token);
+  }
+  return token;
+}
+
+function saveAuthSession(session){
+  authSession = session?.access_token ? session : null;
+  if(authSession){
+    authSession.expires_at = Number(authSession.expires_at || Math.floor(Date.now()/1000) + Number(authSession.expires_in || 3600));
+    localStorage.setItem(AUTH_SESSION_KEY,JSON.stringify(authSession));
+  }else localStorage.removeItem(AUTH_SESSION_KEY);
+  renderAuthState();
+}
+function readAuthSession(){try{return JSON.parse(localStorage.getItem(AUTH_SESSION_KEY)||"null");}catch(error){return null;}}
+async function authRequest(path,body,token=""){
+  const controller=new AbortController(),timeoutId=window.setTimeout(()=>controller.abort(),7000);
+  try{
+    const response=await supabaseFetch(`/auth/v1/${path}`,{method:"POST",headers:{"Content-Type":"application/json","apikey":SUPABASE_ANON_KEY,"Authorization":`Bearer ${token||SUPABASE_ANON_KEY}`},body:JSON.stringify(body||{}),cache:"no-store",signal:controller.signal});
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok){const error=new Error(result.msg||result.message||result.error_description||"AUTH_FAILED");error.status=response.status;error.code=result.error_code||result.code||"";throw error;}
+    return result;
+  }catch(error){if(error?.name==="AbortError"){const timeoutError=new Error("AUTH_TIMEOUT");timeoutError.kind="timeout";throw timeoutError;}throw error;}
+  finally{window.clearTimeout(timeoutId);}
+}
+async function restoreAuthSession(){
+  const stored=readAuthSession();
+  if(!stored?.access_token){saveAuthSession(null);return null;}
+  authSession=stored; return ensureAuthSession();
+}
+async function ensureAuthSession(){
+  if(!authSession)return null;
+  if(Number(authSession.expires_at||0)>Math.floor(Date.now()/1000)+60){renderAuthState();return authSession;}
+  if(!authSession.refresh_token){saveAuthSession(null);return null;}
+  if(authRefreshInFlight)return authRefreshInFlight;
+  const refreshLocked=async()=>{
+    const stored=readAuthSession();
+    if(stored?.access_token&&Number(stored.expires_at||0)>Math.floor(Date.now()/1000)+60){authSession=stored;renderAuthState();return stored;}
+    const candidate=stored?.refresh_token?stored:authSession;
+    if(!candidate?.refresh_token){saveAuthSession(null);return null;}
+    try{
+      const refreshed=await authRequest("token?grant_type=refresh_token",{refresh_token:candidate.refresh_token});
+      saveAuthSession(refreshed);return refreshed;
+    }catch(error){
+      const latest=readAuthSession();
+      if(latest?.access_token&&latest.refresh_token!==candidate.refresh_token){
+        authSession=latest;
+        if(Number(latest.expires_at||0)>Math.floor(Date.now()/1000)+60){renderAuthState();return latest;}
+        try{const recovered=await authRequest("token?grant_type=refresh_token",{refresh_token:latest.refresh_token});saveAuthSession(recovered);return recovered;}catch(retryError){error=retryError;}
+      }
+      if(error?.code==="refresh_token_not_found"||error?.code==="refresh_token_already_used"){saveAuthSession(null);}
+      else renderAuthState();
+      return null;
+    }
+  };
+  const refreshTask=()=>navigator.locks?.request?navigator.locks.request(AUTH_REFRESH_LOCK,refreshLocked):refreshLocked();
+  authRefreshInFlight=refreshTask().finally(()=>{authRefreshInFlight=null;});
+  return authRefreshInFlight;
+}
+window.addEventListener("storage",event=>{if(event.key!==AUTH_SESSION_KEY)return;const next=readAuthSession();authSession=next?.access_token?next:null;renderAuthState();});
+function showAuthStatus(message,error=false){const status=document.getElementById("authStatus");if(!status)return;status.className="form-status "+(error?"err":"ok");status.textContent=message||"";}
+function renderAuthState(){
+  const state=document.getElementById("authState"),panel=document.getElementById("authPanel");
+  if(state)state.hidden=true;
+  if(panel)panel.hidden=Boolean(authSession);
+  document.getElementById("profileLogoutBtn")?.toggleAttribute("hidden",!authSession);
+  const notice=document.getElementById("formAuthNotice");if(notice)notice.hidden=Boolean(authSession);
+  syncApplicationFormAccess();
+  syncHeroPrimaryAction();
+}
+function syncApplicationFormAccess(){
+  const form=document.getElementById("giveawayForm");if(!form)return;
+  const locked=!applicationsOpen||!authSession;
+  form.dataset.registrationLocked=String(locked);
+  form.removeAttribute("aria-disabled");
+  form.querySelectorAll("input,select,textarea,button").forEach(control=>{
+    if(control.id==="website"||control.matches("[data-open-application-tool]")){
+      if(control.matches("[data-open-application-tool]"))control.disabled=false;
+      return;
+    }
+    control.disabled=locked;
+  });
+  const authStep=document.getElementById("registrationStepAuth"),formStep=document.getElementById("registrationStepForm");
+  authStep?.classList.toggle("is-current",!authSession);authStep?.classList.toggle("is-complete",Boolean(authSession));
+  formStep?.classList.toggle("is-current",Boolean(authSession));
+  updateRegistrationCompletion();
+}
+function syncHeroPrimaryAction(){
+  const action=document.getElementById("heroPrimaryAction");if(!action)return;
+  if(currentApplication?.id){
+    action.textContent="Продолжить прокачку";
+    action.href="#";
+    action.dataset.openApplicationTool="";
+    action.dataset.toolMode="boost";
+    action.onclick=event=>{event.preventDefault();openApplicationTool("boost");};
+  }else if(authSession){
+    action.textContent="Создать заявку";
+    action.href="#participationCard";
+    delete action.dataset.openApplicationTool;
+    delete action.dataset.toolMode;
+    action.onclick=null;
+  }else{
+    action.textContent="Подтвердить email";
+    action.href="#participationCard";
+    delete action.dataset.openApplicationTool;
+    delete action.dataset.toolMode;
+    action.onclick=event=>{event.preventDefault();registrationIntent=true;showRegistrationAuthDialog();};
+  }
+}
+function updateRegistrationCompletion(){
+  const title=document.getElementById("registrationCompletionTitle"),copy=document.getElementById("registrationCompletionText"),fill=document.getElementById("registrationCompletionFill");
+  if(!title||!copy||!fill)return;
+  const checks=[
+    Boolean(String(document.getElementById("name")?.value||"").trim()),
+    Boolean(String(document.getElementById("steamid")?.value||"").trim()),
+    Boolean(document.getElementById("region")?.value),
+    Boolean(String(document.getElementById("tiktok")?.value||"").trim()),
+    Boolean(document.getElementById("minskAvailability")?.value),
+    Boolean(document.getElementById("ageGroup")?.value),
+    Boolean(normalizeGames(document.getElementById("games")?.value||"")),
+    Boolean(document.getElementById("subscribed")?.checked)
+  ];
+  const completed=checks.filter(Boolean).length,total=checks.length;
+  fill.style.width=`${Math.round((completed+(authSession?1:0))/(total+1)*100)}%`;
+  if(!authSession){title.textContent="Сначала подтвердите email";copy.textContent="После входа останется заполнить восемь обязательных пунктов.";return;}
+  const left=total-completed;
+  if(left<=0){title.textContent="Заявка готова к отправке";copy.textContent="Проверьте данные и нажмите «Участвовать в событии».";}
+  else{title.textContent=`Осталось заполнить: ${left}`;copy.textContent="Заполненные данные сохраняются в черновике на этом устройстве.";}
+}
+function safeConfigText(value,fallback="",maxLength=160){
+  const textValue=String(value??"").replace(/[\u0000-\u001F\u007F]/g," ").trim();
+  return (textValue||fallback).slice(0,maxLength);
+}
+function safeLucideIcon(value,fallback="circle"){
+  const icon=String(value||"").trim().toLowerCase();
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(icon)&&icon.length<=48?icon:fallback;
+}
+function safeHttpsUrl(value,fallback=""){
+  const raw=String(value??"").trim();
+  if(!raw)return fallback;
+  try{const url=new URL(raw,location.href);return url.protocol==="https:"?url.toString():fallback;}catch(_error){return fallback;}
+}
+function appendLucideIcon(parent,name,fallback="circle"){
+  const icon=document.createElement("i");icon.dataset.lucide=safeLucideIcon(name,fallback);parent.appendChild(icon);return icon;
+}
+function setSafeAvatar(img,url,name){
+  if(!img)return;
+  const fallback=getAvatar(name||"player"),source=safeHttpsUrl(url,"")||fallback;
+  const inlineFallback=`data:image/svg+xml;charset=UTF-8,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3cff"/><stop offset="1" stop-color="#24104a"/></linearGradient></defs><rect width="96" height="96" rx="22" fill="url(#g)"/><text x="48" y="61" text-anchor="middle" font-size="42" fill="white">✦</text></svg>')}`;
+  img.referrerPolicy="no-referrer";
+  img.loading="eager";
+  img.decoding="async";
+  img.hidden=false;
+  img.onerror=()=>{
+    if(img.src!==fallback){img.src=fallback;return;}
+    img.onerror=null;
+    img.src=inlineFallback;
+  };
+  img.src=source;
+}
+function normalizeAuthEmail(value){return String(value||"").trim().toLowerCase();}
+function readPendingOtp(){try{const state=JSON.parse(sessionStorage.getItem(AUTH_OTP_PENDING_KEY)||"null");return state&&typeof state.email==="string"&&Number.isFinite(Number(state.sentAt))?state:null;}catch(error){return null;}}
+function rememberPendingOtp(email,sentAt=Date.now()){const state={email:normalizeAuthEmail(email),sentAt:Number(sentAt)||Date.now()};try{sessionStorage.setItem(AUTH_OTP_PENDING_KEY,JSON.stringify(state));}catch(error){}return state;}
+function clearPendingOtp(){window.clearTimeout(authOtpCooldownTimer);authOtpCooldownTimer=0;try{sessionStorage.removeItem(AUTH_OTP_PENDING_KEY);}catch(error){}}
+function pendingOtpSeconds(){const state=readPendingOtp();if(!state||state.email!==authEmail)return 0;return Math.max(0,Math.ceil((state.sentAt+AUTH_OTP_RESEND_SECONDS*1000-Date.now())/1000));}
+function renderOtpResendState(){
+  window.clearTimeout(authOtpCooldownTimer);authOtpCooldownTimer=0;
+  const button=document.getElementById("resendOtpBtn");if(!button)return;
+  const label=button.querySelector("span"),seconds=pendingOtpSeconds();
+  button.disabled=authOtpRequestInFlight||seconds>0;
+  if(label)label.textContent=authOtpRequestInFlight?"Отправляем…":seconds>0?`Отправить снова через ${seconds} с`:"Отправить код ещё раз";
+  if(seconds>0)authOtpCooldownTimer=window.setTimeout(renderOtpResendState,1000);
+}
+function authOtpErrorMessage(error,phase="send"){
+  const status=Number(error?.status||0),code=String(error?.code||"").toLowerCase();
+  if(status===429||code.includes("rate_limit"))return phase==="verify"?"Слишком много попыток. Подождите минуту и затем введите код из самого нового письма.":"Код уже запрошен. Подождите минуту перед повторной отправкой.";
+  if(phase==="verify"&&(status===400||status===403||status===422||code.includes("otp")))return "Код не подошёл или устарел. Используйте 6 цифр из самого нового письма либо запросите новый код после таймера.";
+  if(phase==="send"&&(status===400||status===422))return "Не удалось принять этот адрес. Проверьте email и исправьте опечатку.";
+  if(status>=500)return "Сервис подтверждения временно недоступен. Подождите немного и повторите попытку.";
+  if(!navigator.onLine||error?.name==="TypeError")return "Нет соединения с сервером. Проверьте интернет и повторите попытку.";
+  return phase==="verify"?"Не удалось проверить код. Повторите попытку или запросите новый код после таймера.":"Не удалось отправить письмо. Проверьте соединение и повторите попытку позже.";
+}
+function showOtpVerify(message=""){
+  const emailForm=document.getElementById("emailLoginForm"),otpForm=document.getElementById("otpVerifyForm"),destination=document.getElementById("authOtpEmail");
+  if(emailForm)emailForm.hidden=true;if(otpForm)otpForm.hidden=false;if(destination)destination.textContent=authEmail;
+  renderOtpResendState();showAuthStatus(message||`Письмо отправлено на ${authEmail}. Введите код из самого нового письма.`);
+  window.setTimeout(()=>document.getElementById("authOtp")?.focus(),40);
+}
+function restorePendingOtpView(){
+  const state=readPendingOtp();if(!state||Date.now()-Number(state.sentAt)>10*60*1000)return false;
+  authEmail=normalizeAuthEmail(state.email);const emailInput=document.getElementById("authEmail");if(emailInput)emailInput.value=authEmail;
+  showOtpVerify("Введите код из самого нового письма. Если письмо не пришло, дождитесь окончания таймера и отправьте код ещё раз.");return true;
+}
+function changeAuthEmail(){
+  clearPendingOtp();
+  const emailForm=document.getElementById("emailLoginForm"),otpForm=document.getElementById("otpVerifyForm"),emailInput=document.getElementById("authEmail"),otpInput=document.getElementById("authOtp");
+  if(otpForm)otpForm.hidden=true;if(emailForm)emailForm.hidden=false;if(emailInput)emailInput.value=authEmail;if(otpInput)otpInput.value="";
+  showAuthStatus("Проверьте адрес и запросите код для нужного email.");window.setTimeout(()=>{emailInput?.focus();emailInput?.select();},40);
+}
+async function sendAuthOtp(isResend=false){
+  if(authOtpRequestInFlight)return;
+  const emailInput=document.getElementById("authEmail"),sendButton=document.getElementById("sendOtpBtn");
+  const nextEmail=isResend?authEmail:normalizeAuthEmail(emailInput?.value);
+  if(!/^\S+@\S+\.\S+$/.test(nextEmail)){showAuthStatus("Введите корректный email.",true);emailInput?.focus();return;}
+  authEmail=nextEmail;if(emailInput)emailInput.value=authEmail;
+  const remaining=pendingOtpSeconds();if(isResend&&remaining>0){showAuthStatus(`Новый код можно запросить через ${remaining} с.`,true);renderOtpResendState();return;}
+  authOtpRequestInFlight=true;if(sendButton)sendButton.disabled=true;renderOtpResendState();
+  try{
+    await authRequest("otp",{email:authEmail,create_user:true});recordFunnelEvent("otp_sent");rememberPendingOtp(authEmail);
+    const otpInput=document.getElementById("authOtp");if(otpInput)otpInput.value="";
+    showOtpVerify(isResend?"Новый код отправлен. Предыдущий код больше не используйте.":"");
+  }catch(error){
+    const rateLimited=Number(error?.status||0)===429||String(error?.code||"").toLowerCase().includes("rate_limit");
+    if(rateLimited&&!readPendingOtp())rememberPendingOtp(authEmail);
+    if(isResend||rateLimited)showOtpVerify(authOtpErrorMessage(error,"send"));else showAuthStatus(authOtpErrorMessage(error,"send"),true);
+  }finally{authOtpRequestInFlight=false;if(sendButton)sendButton.disabled=false;renderOtpResendState();}
+}
+function resetAuthPanel(){
+  const panel=document.getElementById("authPanel"),home=document.getElementById("authPanelHome"),choice=document.getElementById("authChoice");
+  if(panel&&home){home.after(panel);panel.classList.remove("is-embedded");}
+  if(choice)choice.hidden=false;
+  document.getElementById("emailLoginForm").hidden=true;document.getElementById("otpVerifyForm").hidden=true;
+}
+function showEmailLogin(embedded=false){
+  const panel=document.getElementById("authPanel"),choice=document.getElementById("authChoice"),stack=document.getElementById("roomActionStack");
+  if(embedded&&stack){stack.appendChild(panel);panel.classList.add("is-embedded");if(choice)choice.hidden=true;}else resetAuthPanel();
+  if(!embedded&&document.querySelector("#applicationPopup .application-popup")?.classList.contains("is-auth-compact")&&choice)choice.hidden=true;
+  panel.hidden=false;document.getElementById("emailLoginForm").hidden=false;
+  document.getElementById("otpVerifyForm").hidden=true;document.getElementById("applicationSearchForm").hidden=true;
+  if(!restorePendingOtpView()){showAuthStatus("");window.setTimeout(()=>document.getElementById("authEmail")?.focus(),40);}
+}
+function showRegistrationAuthDialog(){
+  registrationIntent=true;
+  resetAuthPanel();
+  const panel=document.getElementById("authPanel"),choice=document.getElementById("authChoice"),host=document.getElementById("registrationAuthHost");
+  if(host&&panel){host.appendChild(panel);panel.classList.add("is-embedded");}
+  if(choice)choice.hidden=true;
+  if(panel)panel.hidden=false;
+  document.getElementById("emailLoginForm").hidden=false;
+  document.getElementById("otpVerifyForm").hidden=true;
+  if(!restorePendingOtpView())showAuthStatus("");
+  showPopup("registrationAuthPopup");
+  recordFunnelEvent("email_prompt_opened");
+  if(document.getElementById("otpVerifyForm")?.hidden)window.setTimeout(()=>document.getElementById("authEmail")?.focus(),60);
+}
+function applyApplicationGatewayMode(mode="card"){
+  const isBoost=mode==="boost";
+  const gatewayMode=isBoost
+    ? {
+        kicker:"Игровое испытание",
+        art:"https://rytni.github.io/rytni-assets/ui-v213/boost-core-mobile.webp",
+        badge:"https://rytni.github.io/rytni-assets/ui-v213/quiz-rune-mobile.webp",
+        tagOne:"Вопрос по играм",
+        tagTwo:"Очки за ответ",
+        noticeTitle:"Готовы усилить заявку?",
+        noticeCopy:"Войдите по email — мы откроем вашу заявку и подготовим персональное игровое испытание."
+      }
+    : {
+        kicker:"Приватное пространство",
+        art:"https://rytni.github.io/rytni-assets/ui-v213/room-portal-mobile.webp",
+        badge:"https://rytni.github.io/rytni-assets/ui-v213/room-key-mobile.webp",
+        tagOne:"Только ваши данные",
+        tagTwo:"Награды и история",
+        noticeTitle:"Ваш прогресс защищён",
+        noticeCopy:"Войдите по email — откроются только ваши очки, награды, сундуки и история активности."
+      };
+  document.getElementById("applicationPopupKicker").textContent=gatewayMode.kicker;
+  document.getElementById("applicationGatewayArt").src=gatewayMode.art;
+  document.getElementById("applicationGatewayBadgeArt").src=gatewayMode.badge;
+  document.getElementById("applicationGatewayTagOne").textContent=gatewayMode.tagOne;
+  document.getElementById("applicationGatewayTagTwo").textContent=gatewayMode.tagTwo;
+  document.getElementById("authVideoNoticeArt").src=gatewayMode.badge;
+  document.getElementById("authVideoNoticeTitle").textContent=gatewayMode.noticeTitle;
+  document.getElementById("authVideoNoticeCopy").textContent=gatewayMode.noticeCopy;
+}
+function showCompactAuthDialog(message="Вы вышли из аккаунта. Заявка и аккаунт сохранены."){
+  const shell=document.querySelector("#applicationPopup .application-popup"),title=document.getElementById("applicationPopupTitle"),lead=document.getElementById("applicationPopupLead"),close=document.getElementById("applicationSearchClose");
+  shell?.classList.remove("is-searching","is-unlinked-state","is-mode-boost");shell?.classList.add("is-auth-compact","is-mode-room");resetAuthPanel();
+  applyApplicationGatewayMode("card");
+  document.getElementById("applicationGateway").hidden=false;
+  if(title){title.hidden=false;title.textContent="Войти снова";}
+  if(lead){lead.hidden=false;lead.textContent="Выберите удобный способ, чтобы открыть личную комнату.";}
+  if(close)close.hidden=false;
+  document.getElementById("authPanel").hidden=false;document.getElementById("applicationSearchForm").hidden=true;document.getElementById("applicationSearchStatus").hidden=true;
+  showAuthStatus(message);showPopup("applicationPopup");
+}
+let authSuccessToastTimer=0;
+function showAuthSuccessToast(title="Вход выполнен",message="Ваша заявка успешно открыта"){
+  const toast=document.getElementById("authSuccessToast");if(!toast)return;
+  const heading=toast.querySelector(".auth-success-toast-copy strong"),copy=toast.querySelector(".auth-success-toast-copy span");
+  if(heading)heading.textContent=title;if(copy)copy.textContent=message;
+  window.clearTimeout(authSuccessToastTimer);toast.hidden=false;requestAnimationFrame(()=>toast.classList.add("is-visible"));
+  authSuccessToastTimer=window.setTimeout(()=>{toast.classList.remove("is-visible");window.setTimeout(()=>{toast.hidden=true;},260);},3600);
+}
+async function signOutAccount(){
+  try{if(authSession?.access_token)await authRequest("logout",{},authSession.access_token);}catch(error){}
+  saveAuthSession(null);currentApplication=null;syncParticipationVisibility();document.getElementById("applicationProfile").hidden=true;
+  document.getElementById("seasonApplicationNote").hidden=true;document.getElementById("unlinkedEmailState").hidden=true;showCompactAuthDialog();
+}
+
+function text(selector,value){
+  const el = document.querySelector(selector);
+  if(el) el.textContent = value;
+}
+let audioContext = null;
+let audioUnlocked = false;
+const UI_SOUND_FILES = {
+  boostClick:"https://rytni.github.io/rytni-assets/nazhatie.mp3",
+  timeout:"https://rytni.github.io/rytni-assets/time.mp3",
+  success:"https://rytni.github.io/rytni-assets/powerUp5.ogg",
+  chest:"https://rytni.github.io/rytni-assets/sunduk.ogg",
+  wrong:"https://rytni.github.io/rytni-assets/error.ogg",
+  formError:"https://rytni.github.io/rytni-assets/error.ogg",
+  formWin:"https://rytni.github.io/rytni-assets/Win.mp3",
+  skill:"https://rytni.github.io/rytni-assets/scill.mp3",
+  home:"https://rytni.github.io/rytni-assets/home.mp3"
+};
+const MUSHROOM_SOUND_FILES = Array.from({length:8},(_,index) => `https://rytni.github.io/rytni-assets/grib/g${index + 1}.ogg`);
+const mushroomAudio = new Audio();
+mushroomAudio.preload = "none";
+mushroomAudio.volume = 0.62;
+const uiSoundPlayers = Object.fromEntries(Object.entries(UI_SOUND_FILES).map(([type,src]) => {
+  const player = new Audio(src);
+  player.preload = "auto";
+  player.volume = type === "chest" ? 0.62 : 0.5;
+  return [type,player];
+}));
+function playSynthSound(type){
+  if(soundMuted) return;
+  try{
+    audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioContext.currentTime;
+    const master = audioContext.createGain();
+    master.gain.setValueAtTime(0.0001,now);
+    master.gain.exponentialRampToValueAtTime(type === "wrong" ? 0.035 : 0.055,now + 0.015);
+    master.gain.exponentialRampToValueAtTime(0.0001,now + (type === "chest" ? 0.55 : 0.34));
+    master.connect(audioContext.destination);
+    const notes = type === "chest"
+      ? [392,523.25,659.25,783.99]
+      : type === "wrong"
+        ? [220,174.61]
+        : [523.25,659.25,783.99];
+    notes.forEach((frequency,index) => {
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = type === "chest" ? "triangle" : "sine";
+      oscillator.frequency.setValueAtTime(frequency,now + index * 0.07);
+      gain.gain.setValueAtTime(0.0001,now + index * 0.07);
+      gain.gain.exponentialRampToValueAtTime(0.34,now + index * 0.07 + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.0001,now + index * 0.07 + 0.16);
+      oscillator.connect(gain);
+      gain.connect(master);
+      oscillator.start(now + index * 0.07);
+      oscillator.stop(now + index * 0.07 + 0.18);
+    });
+  }catch(error){}
+}
+function playUiSound(type){
+  if(soundMuted) return;
+  const player = uiSoundPlayers[type] || uiSoundPlayers.success;
+  if(!player){
+    playSynthSound(type);
+    return;
+  }
+  try{
+    player.pause();
+    player.currentTime = 0;
+    const playback = player.play();
+    if(playback && typeof playback.catch === "function") playback.catch(() => playSynthSound(type));
+  }catch(error){
+    playSynthSound(type);
+  }
+}
+function playRandomMushroomSound(){
+  if(soundMuted) return;
+  const next = MUSHROOM_SOUND_FILES[Math.floor(Math.random() * MUSHROOM_SOUND_FILES.length)];
+  try{
+    mushroomAudio.pause();
+    mushroomAudio.src = next;
+    mushroomAudio.currentTime = 0;
+    mushroomAudio.play().catch(() => playSynthSound("success"));
+  }catch(error){}
+}
+function unlockSiteAudio(){
+  if(soundMuted) return;
+  try{
+    audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+    if(audioContext.state === "suspended") audioContext.resume().catch(() => {});
+  }catch(error){}
+  if(audioUnlocked)return;
+  audioUnlocked=true;
+  Object.values(uiSoundPlayers).forEach(player => {
+    player.load();
+    player.muted = true;
+    const unlock = player.play();
+    if(unlock && typeof unlock.then === "function"){
+      unlock.then(() => {
+        player.pause();
+        player.currentTime = 0;
+        player.muted = false;
+      }).catch(() => { player.muted = false; });
+    }else{
+      player.muted = false;
+    }
+  });
+}
+document.addEventListener("pointerdown",unlockSiteAudio,{passive:true});
+function renderSoundToggle(){
+  const button=document.getElementById("soundToggleBtn");
+  if(!button)return;
+  button.setAttribute("aria-pressed",String(soundMuted));
+  button.setAttribute("aria-label",soundMuted?"Включить звук":"Отключить звук");
+  button.title=soundMuted?"Включить звук":"Отключить звук";
+  button.innerHTML=`<i data-lucide="${soundMuted?"volume-x":"volume-2"}" aria-hidden="true"></i>`;
+  if(window.lucide)window.lucide.createIcons();
+}
+function setSoundMuted(muted){
+  soundMuted=Boolean(muted);
+  localStorage.setItem(SOUND_MUTED_KEY,soundMuted?"1":"0");
+  if(soundMuted){
+    mushroomAudio.pause();
+    Object.values(uiSoundPlayers).forEach(player=>player.pause());
+    if(luckyCouponAudio)luckyCouponAudio.pause();
+  }else{
+    mushroomAudio.muted=false;
+    Object.values(uiSoundPlayers).forEach(player=>player.muted=false);
+    if(luckyCouponAudio)luckyCouponAudio.muted=false;
+    unlockSiteAudio();
+  }
+  renderSoundToggle();
+}
+document.getElementById("soundToggleBtn")?.addEventListener("click",()=>setSoundMuted(!soundMuted));
+renderSoundToggle();
+let activePopup=null;
+let popupReturnFocus=null;
+let popupLayers=[];
+function popupFocusable(popup){
+  return [...popup.querySelectorAll('button:not([disabled]):not([hidden]),a[href]:not([hidden]),input:not([disabled]):not([hidden]),textarea:not([disabled]):not([hidden]),select:not([disabled]):not([hidden]),[tabindex]:not([tabindex="-1"]):not([hidden])')]
+    .filter(item=>item.offsetWidth||item.offsetHeight||item.getClientRects().length);
+}
+function isPopupVisible(popup){
+  return Boolean(popup&&popup.style.display!=="none"&&popup.getAttribute("aria-hidden")!=="true");
+}
+function focusPopup(popup){
+  window.setTimeout(()=>{
+    const target=popupFocusable(popup)[0]||popup.querySelector(".popup");
+    if(target){
+      if(!target.hasAttribute("tabindex"))target.setAttribute("tabindex","-1");
+      target.focus({preventScroll:true});
+    }
+  },20);
+}
+function showPopup(id){
+  const popup=document.getElementById(id);
+  if(!popup)return;
+  popupLayers=popupLayers.filter(layer=>layer!==popup&&isPopupVisible(layer));
+  if(!popupLayers.length&&!isPopupVisible(activePopup))popupReturnFocus=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  popupLayers.push(popup);
+  activePopup=popup;popup.style.display="flex";popup.setAttribute("aria-hidden","false");
+  document.body.classList.add("popup-open");
+  if(popup.id==="applicationPopup"&&typeof window.__RYTNI_RESUME_PROGRESSION__==="function"){
+    window.__RYTNI_RESUME_PROGRESSION__();
+  }
+  focusPopup(popup);
+}
+function closePopupLayer(popup=activePopup){
+  if(!popup)return;
+  if(popup.id==="applicationPopup"){
+    try{document.getElementById("ttqPlayer")?.contentWindow?.postMessage({type:"pause","x-tiktok-player":true},"https://www.tiktok.com");}catch(error){}
+    if(typeof window.__RYTNI_STOP_PROGRESSION__==="function")window.__RYTNI_STOP_PROGRESSION__();
+  }
+  popup.style.display="none";
+  popup.setAttribute("aria-hidden","true");
+  popupLayers=popupLayers.filter(layer=>layer!==popup&&isPopupVisible(layer));
+  activePopup=popupLayers[popupLayers.length-1]||[...document.querySelectorAll(".popup-overlay")].reverse().find(isPopupVisible)||null;
+  if(activePopup){
+    if(!popupLayers.includes(activePopup))popupLayers.push(activePopup);
+    document.body.classList.add("popup-open");
+    focusPopup(activePopup);
+    return;
+  }
+  document.body.classList.remove("popup-open");
+  const target=popupReturnFocus;popupReturnFocus=null;
+  if(target&&document.contains(target))target.focus({preventScroll:true});
+}
+function closePopups(){
+  document.querySelectorAll(".popup-overlay").forEach(popup=>{popup.style.display="none";popup.setAttribute("aria-hidden","true");});
+  if(typeof window.__RYTNI_STOP_PROGRESSION__==="function")window.__RYTNI_STOP_PROGRESSION__();
+  document.body.classList.remove("popup-open");activePopup=null;popupLayers=[];
+  const target=popupReturnFocus;popupReturnFocus=null;if(target&&document.contains(target))target.focus({preventScroll:true});
+}
+document.addEventListener("click",event=>{
+  const origin=event.target instanceof Element?event.target:null;
+  const button=origin?.closest("[data-close-popup]");
+  if(!button)return;
+  const popup=button.closest(".popup-overlay");
+  if(!popup)return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  closePopupLayer(popup);
+},true);
+document.querySelectorAll(".popup-overlay").forEach(popup=>{popup.setAttribute("aria-hidden","true");popup.addEventListener("pointerdown",event=>{if(event.target===popup)closePopupLayer(popup);});});
+function openRulesPopup(event){
+  event?.preventDefault();
+  const popup=document.getElementById("rulesPopup");
+  if(!popup)return;
+  const content=popup.querySelector(".rules-popup");
+  if(content)content.scrollTop=0;
+  showPopup("rulesPopup");
+}
+document.getElementById("openRulesPopup")?.addEventListener("click",openRulesPopup);
+document.getElementById("rulesSummaryOpenBtn")?.addEventListener("click",openRulesPopup);
+document.addEventListener("keydown",event=>{
+  if(!activePopup)return;
+  if(event.key==="Escape"){
+    if(activePopup.id==="applicationPopup"&&window.RytniArcadeHub?.ownsFullscreenEscape?.(event))return;
+    event.preventDefault();
+    if(window.__RYTNI_ARCADE_DIAG__?.host)window.__RYTNI_ARCADE_DIAG__.host.popupCloses++;
+    closePopupLayer(activePopup);return;
+  }
+  if(event.key!=="Tab")return;
+  const items=popupFocusable(activePopup);if(!items.length){event.preventDefault();return;}
+  const first=items[0],last=items[items.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+});
+document.getElementById("mushroomSoundBtn")?.addEventListener("click", playRandomMushroomSound);
+const mobileNavToggle=document.getElementById("mobileNavToggle");
+const mobileNavLinks=document.getElementById("mobileNavLinks");
+function setMobileNavOpen(open){
+  if(!mobileNavToggle||!mobileNavLinks)return;
+  const next=Boolean(open);
+  mobileNavToggle.setAttribute("aria-expanded",String(next));
+  mobileNavToggle.setAttribute("aria-label",next?"Закрыть меню":"Открыть меню");
+  mobileNavLinks.classList.toggle("is-open",next);
+  const icon=mobileNavToggle.querySelector("[data-lucide]");
+  if(icon)icon.setAttribute("data-lucide",next?"x":"menu");
+  if(window.lucide?.createIcons)window.lucide.createIcons();
+}
+mobileNavToggle?.addEventListener("click",event=>{
+  event.stopPropagation();
+  setMobileNavOpen(mobileNavToggle.getAttribute("aria-expanded")!=="true");
+});
+mobileNavLinks?.addEventListener("click",event=>{if(event.target.closest("a"))setMobileNavOpen(false);});
+document.addEventListener("pointerdown",event=>{
+  if(mobileNavToggle?.getAttribute("aria-expanded")==="true"&&!event.target.closest(".top-nav"))setMobileNavOpen(false);
+});
+window.addEventListener("resize",()=>{if(window.innerWidth>760)setMobileNavOpen(false);});
+document.getElementById("claimLevelUpBtn")?.addEventListener("click",()=>closePopupLayer(document.getElementById("levelUpPopup")));
+const playerProgressDrawer=document.getElementById("playerProgressDrawer");
+if(playerProgressDrawer){
+  let savedDrawerState="";
+  try{savedDrawerState=sessionStorage.getItem("rytni_progress_drawer")||"";}catch(error){}
+  playerProgressDrawer.open=savedDrawerState?savedDrawerState==="open":window.matchMedia("(min-width:761px)").matches;
+  playerProgressDrawer.addEventListener("toggle",()=>{
+    try{sessionStorage.setItem("rytni_progress_drawer",playerProgressDrawer.open?"open":"closed");}catch(error){}
+  });
+}
+function setApplicationSearchVisible(visible){
+  document.querySelector("#applicationPopup .application-popup")?.classList.toggle("is-searching",visible);
+  const gateway=document.getElementById("applicationGateway");
+  if(gateway)gateway.hidden=!visible;
+  ["applicationPopupTitle","applicationPopupLead","applicationSearchForm","applicationSearchStatus","applicationSearchClose"].forEach(id => {
+    const element = document.getElementById(id);
+    if(element) element.hidden = !visible;
+  });
+}
+function syncParticipationVisibility(){
+  const registered=Boolean(authSession&&currentApplication&&(currentApplication.success!==false));
+  const card=document.getElementById("participationCard"),mobileBoost=document.getElementById("registeredMobileBoost");
+  if(card)card.hidden=registered;
+  if(mobileBoost)mobileBoost.hidden=!registered;
+}
+function hideUnlinkedEmailState(){
+  const state=document.getElementById("unlinkedEmailState"),shell=document.querySelector("#applicationPopup .application-popup");
+  if(state)state.hidden=true;
+  shell?.classList.remove("is-unlinked-state");
+}
+function hideBannedApplicationState(){
+  const popup=document.getElementById("applicationPopup"),state=document.getElementById("bannedApplicationState"),shell=popup?.querySelector(".application-popup");
+  if(state)state.hidden=true;
+  shell?.classList.remove("is-banned-state");
+  if(popup)popup.setAttribute("aria-labelledby","applicationPopupTitle");
+}
+function showBannedApplicationState(reason=""){
+  const popup=document.getElementById("applicationPopup"),shell=popup?.querySelector(".application-popup"),state=document.getElementById("bannedApplicationState"),close=document.getElementById("applicationSearchClose"),reasonElement=document.getElementById("bannedApplicationReason");
+  if(!popup||!shell||!state)return;
+  const publicReason=String(reason||"").trim().slice(0,1200);
+  hideUnlinkedEmailState();
+  shell.classList.remove("is-searching","is-auth-compact");
+  shell.classList.add("is-banned-state");
+  setApplicationSearchVisible(false);
+  ["authPanel","applicationSearchForm","applicationSearchStatus","applicationProfile","applicationEditForm","seasonApplicationNote","unlinkedEmailState"].forEach(id=>{const element=document.getElementById(id);if(element)element.hidden=true;});
+  state.hidden=false;
+  if(reasonElement)reasonElement.textContent=publicReason||"Загружаем причину…";
+  if(close)close.hidden=false;
+  popup.setAttribute("aria-labelledby","bannedApplicationTitle");
+  refreshRankIcons();
+  showPopup("applicationPopup");
+  if(!publicReason&&authSession){
+    callSupabaseRpc("get_my_ban_notice",{},6000).then(notice=>{
+      if(state.hidden||!reasonElement)return;
+      const loadedReason=String(notice?.ban_reason||"").trim().slice(0,1200);
+      reasonElement.textContent=loadedReason||"Причина блокировки не указана.";
+    }).catch(()=>{if(!state.hidden&&reasonElement)reasonElement.textContent="Не удалось загрузить причину. Обновите страницу и попробуйте снова.";});
+  }else if(!publicReason&&reasonElement){
+    reasonElement.textContent="Войдите по подтверждённому email, чтобы увидеть причину блокировки.";
+  }
+}
+function showUnlinkedEmailState(){
+  const shell=document.querySelector("#applicationPopup .application-popup"),state=document.getElementById("unlinkedEmailState"),close=document.getElementById("applicationSearchClose"),address=document.getElementById("unlinkedEmailAddress");
+  hideBannedApplicationState();
+  shell?.classList.remove("is-searching","is-auth-compact");shell?.classList.add("is-unlinked-state");
+  resetAuthPanel();setApplicationSearchVisible(false);
+  document.getElementById("authPanel").hidden=true;document.getElementById("applicationProfile").hidden=true;document.getElementById("seasonApplicationNote").hidden=true;
+  if(address)address.textContent=String(authSession?.user?.email||authEmail||"").trim();
+  if(state)state.hidden=false;
+  if(close)close.hidden=false;
+  refreshRankIcons();showPopup("applicationPopup");
+}
+function applicationClaimErrorMessage(status){
+  const messages={
+    already_registered:"Эта заявка уже привязана к другому подтверждённому аккаунту.",
+    already_has_application:"К вашему email уже привязана другая заявка текущего сезона. Откройте «Мою заявку».",
+    not_found:"Заявка не найдена. Проверьте Steam-код дружбы или точную ссылку TikTok.",
+    ambiguous_lookup:"Найдено несколько совпадений по TikTok. Для безопасной привязки используйте Steam-код дружбы.",
+    invalid_lookup:"Введите корректный Steam-код дружбы или ссылку на профиль TikTok.",
+    email_not_confirmed:"Сначала подтвердите email шестизначным кодом.",
+    not_authenticated:"Сессия входа закончилась. Войдите по email ещё раз."
+  };
+  return messages[String(status||"")]||"Не удалось привязать заявку. Проверьте данные и повторите.";
+}
+function openExistingApplicationClaim(){
+  applicationClaimMode=true;
+  hideUnlinkedEmailState();
+  hideBannedApplicationState();
+  const shell=document.querySelector("#applicationPopup .application-popup");
+  shell?.classList.remove("is-auth-compact");
+  setApplicationSearchVisible(true);
+  document.getElementById("applicationPopupTitle").textContent="Привязать существующую заявку";
+  document.getElementById("applicationPopupLead").textContent="Введите Steam-код или ссылку TikTok, которые были указаны в прежней заявке. После проверки она сразу привяжется к вашему email.";
+  document.getElementById("applicationSearchBtn").textContent="Привязать заявку";
+  document.getElementById("applicationSearchStatus").textContent="";
+  document.getElementById("authPanel").hidden=true;
+  document.getElementById("applicationSearchForm").hidden=false;
+  window.setTimeout(()=>document.getElementById("applicationSteamId")?.focus(),40);
+}
+async function openApplicationTool(mode="card"){
+    applicationToolMode = mode === "boost" ? "boost" : "card";
+    applicationClaimMode = false;
+    hideBannedApplicationState();
+    const applicationShell=document.querySelector("#applicationPopup .application-popup");
+    applicationShell?.classList.remove("is-auth-compact","is-unlinked-state","is-mode-boost","is-mode-room");
+    applicationShell?.classList.add(applicationToolMode==="boost"?"is-mode-boost":"is-mode-room");
+    playUiSound(applicationToolMode === "boost" ? "skill" : "home");
+    setupRoomLayout();
+    resetAuthPanel();
+    setApplicationSearchVisible(!authSession);
+    document.getElementById("applicationPopupTitle").textContent = applicationToolMode === "boost" ? "Прокачка заявки" : "Моя заявка";
+    document.getElementById("applicationPopupLead").textContent = applicationToolMode === "boost"
+      ? "Откройте свою заявку, получите игровой вопрос и заработайте очки за верный ответ."
+      : "Войдите по email, чтобы проверить карточку участника, изменить данные или подготовить публикацию для TikTok.";
+    applyApplicationGatewayMode(applicationToolMode);
+    document.getElementById("applicationSearchBtn").textContent = applicationToolMode === "boost" ? "Продолжить" : "Открыть";
+    document.getElementById("applicationSearchStatus").textContent = "";
+    document.getElementById("quizZone").hidden = true;
+    document.getElementById("applicationCardHost").textContent = "";
+    document.getElementById("tiktokRoomSection").hidden = true;
+    document.getElementById("tiktokRoomSection").open = false;
+    const boostButton = ensureStartBoostButton();
+    boostButton.hidden = true;
+    document.querySelector(".profile-actions")?.appendChild(boostButton);
+    document.getElementById("boostCooldown").textContent = "";
+    document.getElementById("boostCooldown").hidden = true;
+    document.getElementById("applicationBoostPanel").hidden = true;
+    document.getElementById("applicationProfile").hidden = true;
+    document.getElementById("applicationEditForm").hidden = true;
+    document.getElementById("seasonApplicationNote").hidden = true;
+    document.getElementById("unlinkedEmailState").hidden = true;
+    renderAuthState();
+    showPopup("applicationPopup");
+    if(authSession){
+      try{
+        const mine=await callSupabaseRpc("get_my_active_application",{},7000);
+        if(mine?.success){renderApplicationProfile(mine);progressionStatus(document.getElementById("applicationSearchStatus"),"Ваша заявка открыта.");setApplicationSearchVisible(false);return;}
+        if(mine?.status==="banned"){currentApplication=null;showBannedApplicationState(mine?.ban_reason);return;}
+        showUnlinkedEmailState();return;
+      }catch(error){progressionStatus(document.getElementById("applicationSearchStatus"),"Не удалось проверить аккаунт. Повторите позже.",true);}
+    }else{
+      document.getElementById("authPanel").hidden=false;
+      document.getElementById("applicationSearchForm").hidden=true;
+    }
+}
+document.querySelectorAll("[data-open-application-tool]").forEach(button => {
+  button.addEventListener("click", () => openApplicationTool(button.dataset.toolMode));
+});
+document.getElementById("showEmailLoginBtn")?.addEventListener("click",()=>showEmailLogin(false));
+document.getElementById("showLegacySearchBtn")?.addEventListener("click",()=>{document.querySelector("#applicationPopup .application-popup")?.classList.remove("is-auth-compact");resetAuthPanel();setApplicationSearchVisible(true);document.getElementById("applicationPopupTitle").textContent="Найти заявку";document.getElementById("applicationPopupLead").textContent="Введите Steam-код или TikTok-ссылку.";document.getElementById("authPanel").hidden=true;document.getElementById("emailLoginForm").hidden=true;document.getElementById("otpVerifyForm").hidden=true;document.getElementById("applicationSearchForm").hidden=false;window.setTimeout(()=>document.getElementById("applicationSteamId")?.focus(),40);});
+document.getElementById("formLoginBtn")?.addEventListener("click",showRegistrationAuthDialog);
+document.getElementById("logoutBtn")?.addEventListener("click",signOutAccount);
+document.getElementById("profileLogoutBtn")?.addEventListener("click",signOutAccount);
+document.getElementById("goToApplicationFormBtn")?.addEventListener("click",()=>{registrationIntent=true;closePopups();document.getElementById("giveawayForm")?.scrollIntoView({behavior:"smooth",block:"start"});window.setTimeout(()=>document.getElementById("name")?.focus(),450);});
+document.getElementById("linkExistingApplicationBtn")?.addEventListener("click",openExistingApplicationClaim);
+document.getElementById("startNewApplicationBtn")?.addEventListener("click",()=>{registrationIntent=true;hideUnlinkedEmailState();closePopups();document.getElementById("participationCard")?.scrollIntoView({behavior:"smooth",block:"start"});window.setTimeout(()=>document.getElementById("name")?.focus(),450);});
+document.getElementById("unlinkedEmailSignOutBtn")?.addEventListener("click",signOutAccount);
+document.getElementById("emailLoginForm")?.addEventListener("submit",async event=>{event.preventDefault();await sendAuthOtp(false);});
+document.getElementById("resendOtpBtn")?.addEventListener("click",async()=>{await sendAuthOtp(true);});
+document.getElementById("changeAuthEmailBtn")?.addEventListener("click",changeAuthEmail);
+document.getElementById("authOtp")?.addEventListener("input",event=>{event.target.value=String(event.target.value||"").replace(/\D/g,"").slice(0,6);});
+document.getElementById("otpVerifyForm")?.addEventListener("submit",async event=>{
+  event.preventDefault();
+  const button=document.getElementById("verifyOtpBtn");
+  const token=String(document.getElementById("authOtp").value||"").replace(/\D/g,"");
+  if(!/^\d{6}$/.test(token)){showAuthStatus("Введите шестизначный код.",true);return;}
+  button.disabled=true;
+  try{
+    saveAuthSession(await authRequest("verify",{email:authEmail,token,type:"email"}));clearPendingOtp();
+    recordFunnelEvent("email_verified");
+    document.getElementById("otpVerifyForm").hidden=true;
+    if(pendingClaimLookup){
+      const claimLookup=pendingClaimLookup;
+      const claimed=await callSupabaseRpc("claim_active_application",{p_lookup:claimLookup},7000);
+      pendingClaimLookup="";
+      if(claimed?.success){renderApplicationProfile(claimed);showAuthStatus("Email успешно привязан. Теперь заявка будет открываться автоматически.");return;}
+      if(claimed?.status==="banned"){registrationIntent=false;currentApplication=null;showBannedApplicationState(claimed?.ban_reason);return;}
+      openExistingApplicationClaim();
+      document.getElementById("applicationSteamId").value=claimLookup;
+      progressionStatus(document.getElementById("applicationSearchStatus"),applicationClaimErrorMessage(claimed?.status),true);
+      return;
+    }
+    const mine=await callSupabaseRpc("get_my_active_application",{},7000);
+    if(mine?.success){registrationIntent=false;renderApplicationProfile(mine);showAuthStatus("Вход выполнен. Ваша заявка открыта.");}
+    else if(mine?.status==="banned"){registrationIntent=false;currentApplication=null;showBannedApplicationState(mine?.ban_reason);}
+    else if(registrationIntent){
+      registrationIntent=false;closePopups();restoreApplicationDraft();
+      document.getElementById("participationCard")?.scrollIntoView({behavior:"smooth",block:"start"});
+      const formStatus=document.getElementById("formStatus");
+      if(formStatus){formStatus.className="form-status ok";formStatus.textContent="Email подтверждён. Теперь заполните и отправьте заявку.";}
+      window.setTimeout(()=>document.getElementById("name")?.focus(),450);
+    }else{showUnlinkedEmailState();}
+  }catch(error){showAuthStatus(authOtpErrorMessage(error,"verify"),true);}
+  finally{button.disabled=false;}
+});
+document.getElementById("claimEmailBtn")?.addEventListener("click",async()=>{
+  pendingClaimLookup=String(currentApplication?.steamid||currentApplication?.tiktok||document.getElementById("applicationSteamId").value||"").trim();
+  if(authSession){
+    try{
+      const result=await callSupabaseRpc("claim_active_application",{p_lookup:pendingClaimLookup},7000);
+      if(result?.success){pendingClaimLookup="";renderApplicationProfile(result);showAuthStatus("Email успешно привязан. Теперь заявка будет открываться автоматически.");return;}
+      if(result?.status==="banned"){pendingClaimLookup="";currentApplication=null;showBannedApplicationState(result?.ban_reason);return;}
+      progressionStatus(document.getElementById("applicationSearchStatus"),applicationClaimErrorMessage(result?.status),true);
+    }catch(error){showEmailLogin(true);showAuthStatus("Не удалось привязать заявку. Повторите позже.",true);}
+    return;
+  }
+  showEmailLogin(true);
+});
+function setFormAvailability(enabled,message){
+  applicationsOpen = Boolean(enabled);
+  const form = document.getElementById("giveawayForm");
+  const stateBox = document.getElementById("formState");
+  if(form) syncApplicationFormAccess();
+  if(stateBox){
+    stateBox.hidden = applicationsOpen;
+    stateBox.textContent = applicationsOpen ? "" : (message || "Приём заявок сейчас закрыт.");
+  }
+  document.querySelectorAll('a[href="#giveawayForm"],a[href="#participationCard"]').forEach(link => {
+    link.hidden = !applicationsOpen;
+  });
+  if(stickyCta) stickyCta.hidden = !applicationsOpen;
+  if(!applicationsOpen)document.body.classList.remove("has-rytni-sticky-cta");
+}
+
+function applySeasonState(settings){
+  seasonState = settings.season_state || "active";
+  seasonFormEnabled = settings.form_enabled !== false;
+  winnersTarget = Math.max(1, Number(settings.winners_target || 15));
+  const visibleCount=Number(document.getElementById("participantCount")?.textContent.replace(/\D/g,"")||0);if(visibleCount)renderChanceRank(visibleCount);
+  const badge = document.getElementById("seasonStateBadge");
+  const notStarted = seasonSettingsLoaded && Number.isFinite(startDate) && startDate > Date.now();
+  const effectiveState = seasonState === "active" && notStarted ? "upcoming" : seasonState;
+  const labels = {upcoming:"Сезон скоро начнётся",active:"Сезон активен",finished:"Сезон завершён"};
+  if(badge){
+    badge.dataset.state = effectiveState;
+    badge.textContent = labels[effectiveState] || labels.active;
+  }
+  const announcement = document.getElementById("announcementBanner");
+  if(announcement){
+    announcement.textContent = settings.announcement || "";
+    announcement.hidden = !settings.announcement;
+  }
+  const ended = seasonSettingsLoaded && Number.isFinite(endDate) && endDate <= Date.now();
+  const enabled = seasonFormEnabled && effectiveState === "active" && !ended;
+  const message = effectiveState === "upcoming"
+    ? "Приём заявок ещё не начался."
+    : "Сезон завершён. Новые заявки больше не принимаются.";
+  setFormAvailability(enabled,message);
+}
+
+const stickyCta = document.querySelector(".sticky-cta");
+const formCard = document.getElementById("participationCard");
+if(stickyCta && formCard){
+  const updateStickyCta = () => {
+    const rect = formCard.getBoundingClientRect();
+    const hero = document.querySelector("#rytni-event-page .hero");
+    const heroRect = hero?.getBoundingClientRect();
+    const formIsNear = rect.top < window.innerHeight - 90 && rect.bottom > 120;
+    const heroIsActive = !heroRect || heroRect.bottom > 96;
+    const shouldHide = formIsNear || !heroIsActive;
+    stickyCta.classList.toggle("is-hidden", shouldHide);
+    document.body.classList.toggle("has-rytni-sticky-cta",!shouldHide&&!stickyCta.hidden);
+  };
+  updateStickyCta();
+  window.addEventListener("scroll", updateStickyCta, {passive:true});
+  window.addEventListener("resize", updateStickyCta);
+}
+
+function updateTimer(){
+  const now = Date.now();
+  const left = endDate - now;
+  const timer = document.getElementById("timer");
+  const finished = document.getElementById("seasonFinished");
+  const badge = document.getElementById("seasonStateBadge");
+  if(Number.isFinite(startDate) && startDate > now){
+    if(badge){badge.dataset.state="upcoming";badge.textContent="Сезон скоро начнётся";}
+    setFormAvailability(false,"Приём заявок ещё не начался.");
+  }else if(seasonState === "active" && left > 0 && badge?.dataset.state === "upcoming"){
+    badge.dataset.state="active";
+    badge.textContent="Сезон активен";
+    setFormAvailability(seasonFormEnabled,seasonFormEnabled?"":"Приём заявок сейчас закрыт.");
+  }
+  if(left <= 0){
+    if(!seasonSettingsLoaded) return;
+    if(timer) timer.hidden = true;
+    if(finished) finished.hidden = false;
+    if(badge){ badge.dataset.state = "finished"; badge.textContent = "Сезон завершён"; }
+    setFormAvailability(false,"Сезон завершён. Новые заявки больше не принимаются.");
+    return;
+  }
+  if(timer) timer.hidden = false;
+  if(finished) finished.hidden = true;
+  updateCountdownDigit("d",Math.floor(left / 86400000));
+  updateCountdownDigit("h",Math.floor((left % 86400000) / 3600000));
+  updateCountdownDigit("m",Math.floor((left % 3600000) / 60000));
+  updateCountdownDigit("s",Math.floor((left % 60000) / 1000));
+}
+function updateCountdownDigit(id,value){
+  const digit = document.getElementById(id);
+  if(!digit) return;
+  const formatted = String(Math.max(0,value)).padStart(2,"0");
+  if(digit.dataset.value === formatted) return;
+  digit.dataset.value = formatted;
+  digit.textContent = formatted;
+}
+let countdownTimer = 0;
+function stopCountdownTimer(){
+  window.clearInterval(countdownTimer);
+  countdownTimer = 0;
+}
+function startCountdownTimer(){
+  if(countdownTimer || document.hidden) return;
+  updateTimer();
+  countdownTimer = window.setInterval(updateTimer,1000);
+}
+startCountdownTimer();
+
+function getAvatar(name){
+  let hash=2166136261;
+  for(const char of String(name||"player"))hash=Math.imul(hash^char.codePointAt(0),16777619);
+  const number=String(((hash>>>0)%24)+1).padStart(2,"0");
+  return `https://rytni.github.io/rytni-assets/avatars/faces/face-${number}.png`;
+}
+function appendText(parent,className,value){
+  const el = document.createElement("div");
+  el.className = className;
+  el.textContent = value;
+  parent.appendChild(el);
+  return el;
+}
+function renderParticipants(participants){
+  const list = document.getElementById("participantsList");
+  list.textContent = "";
+  (participants || []).slice(0,8).forEach(player => {
+    const item = document.createElement("div");
+    item.className = "participant";
+    const img = document.createElement("img");
+    img.className = "participant-avatar";
+    img.alt = "";
+    setSafeAvatar(img,"",player.name);
+    const info = document.createElement("div");
+    info.className = "participant-info";
+    appendText(info,"pname",player.name || "Участник");
+    appendText(info,"pregion","Регион: " + (player.region || "не указан"));
+    const fullGame = String(player.game || "игра не указана");
+    const game = fullGame.length > 42 ? fullGame.slice(0,42) + "..." : fullGame;
+    const gameElement=appendText(info,"pgame",game);
+    gameElement.title=fullGame;
+    if(fullGame.length>42){
+      gameElement.tabIndex=0;
+      gameElement.setAttribute("role","button");
+      gameElement.setAttribute("aria-expanded","false");
+      gameElement.setAttribute("aria-label","Показать полное название игр");
+      const toggleGame=()=>{const expanded=gameElement.classList.toggle("is-expanded");gameElement.textContent=expanded?fullGame:game;gameElement.setAttribute("aria-expanded",String(expanded));gameElement.setAttribute("aria-label",expanded?"Свернуть список игр":"Показать полное название игр");};
+      gameElement.addEventListener("click",toggleGame);
+      gameElement.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();toggleGame();}});
+    }
+    item.append(img,info);
+    list.appendChild(item);
+  });
+  if(!list.children.length){
+    const empty = document.createElement("div");
+    empty.className = "hint";
+    empty.textContent = "Участники пока не загрузились.";
+    list.appendChild(empty);
+  }
+}
+function renderRecentWishes(wishes){
+  const track = document.getElementById("wishesTrack");
+  if(!track) return;
+  track.textContent = "";
+  (wishes || []).slice(0,18).forEach(wish => {
+    const pill = document.createElement("span");
+    pill.className = "wish-pill";
+    pill.textContent = wish;
+    track.appendChild(pill);
+  });
+  if(!track.children.length){
+    const pill = document.createElement("span");
+    pill.className = "wish-pill";
+    pill.textContent = "Список желаемых игр появится после новых заявок";
+    track.appendChild(pill);
+  }
+}
+function renderTopGames(games){
+  const list = document.getElementById("topGamesList");
+  list.textContent = "";
+  const mergedGames = new Map();
+  (games || []).forEach(game => {
+    const rawName = String((game && game.name) || "").trim();
+    if(!rawName) return;
+    const key = rawName
+      .toLowerCase()
+      .replace(/\s+/g," ")
+      .replace(/[.,!?:;"'`~]+$/g,"");
+    const current = mergedGames.get(key);
+    if(current){
+      current.count += Number(game.count || 0);
+      if(rawName.length > current.name.length) current.name = rawName;
+      return;
+    }
+    mergedGames.set(key,{
+      name: rawName,
+      count: Number(game.count || 0)
+    });
+  });
+  [...mergedGames.values()]
+    .sort((a,b) => b.count - a.count || a.name.localeCompare(b.name))
+    .slice(0,10)
+    .forEach((game,index) => {
+      const badge = document.createElement("span");
+      const placeClass = index === 0 ? " place-1" : index === 1 ? " place-2" : index === 2 ? " place-3" : "";
+      badge.className = (index < 3 ? "game-badge podium" : "game-badge") + placeClass;
+      const rank = document.createElement("span");
+      const name = document.createElement("span");
+      const count = document.createElement("span");
+      const rankClass = index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : "leader";
+      rank.className = "game-rank " + rankClass;
+      name.className = "game-name";
+      count.className = "game-count";
+      rank.textContent = index < 3 ? String(index + 1) : "\u2605";
+      name.textContent = game.name;
+      count.textContent = game.count;
+      badge.append(rank,name,count);
+      list.appendChild(badge);
+  });
+  if(!list.children.length) list.textContent = "\u0414\u0430\u043d\u043d\u044b\u0445 \u043f\u043e\u043a\u0430 \u043d\u0435\u0442";
+}
+function renderWinnerCard(game,name,statusMode){
+  const root = document.getElementById("lastWinner");
+  if(!root) return;
+  const personLabel = statusMode ? "\u0421\u0442\u0430\u0442\u0443\u0441" : "\u041f\u043e\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u044c";
+  root.textContent = "";
+  const line = document.createElement("div");
+  line.className = "winner-line";
+  [["game","🎮","Игра",game],["winner","👤",personLabel,name]].forEach(([extra,icon,label,value]) => {
+    const item = document.createElement("div");
+    item.className = `winner-item ${extra}`.trim();
+    appendText(item,"winner-icon",icon);
+    const copy = document.createElement("div");
+    copy.className = "winner-copy";
+    appendText(copy,"winner-label",label);
+    appendText(copy,"winner-value",value);
+    item.appendChild(copy);
+    line.appendChild(item);
+  });
+root.appendChild(line);
+}
+const RANK_NOTES = {
+  common:[
+    "Лут рядом, босс ещё спит",
+    "Катка лёгкая, удача в пати",
+    "Сундук открыт, ключ почти лишний",
+    "NPC шепчет: жми кнопку сейчас",
+    "Шанс жирный, как крит мечом"
+  ],
+  uncommon:[
+    "Мобы пришли, но без брони",
+    "Сервер ожил, катка ещё добрая",
+    "Лут охраняют два сонных моба",
+    "Босс заметил, но не злится",
+    "Шанс качается, как новый персонаж"
+  ],
+  rare:[
+    "Сервер заполнен, но пинг нормальный",
+    "Редкий дроп уже моргает рядом",
+    "Конкуренты пришли в красивых скинах",
+    "Катка серьёзная, но победа рядом",
+    "Шанс редкий, как честный трейд"
+  ],
+  epic:[
+    "Босс вошёл во вторую фазу",
+    "Эпик близко, держи инвентарь открытым",
+    "Победа фармится на высокой сложности",
+    "Катка потная, но без тильта",
+    "Скриншот победы уже прогружается тихо"
+  ],
+  legendary:[
+    "Легенды начинают именно такую катку",
+    "Финальный босс смотрит очень нервно",
+    "Дроп легендарный, шанс почти стелс",
+    "Удача ушла в хардкорный режим",
+    "Победа будет громче финальной ульты"
+  ],
+  mythic:[
+    "Мифический шанс, сохраняйся перед кликом",
+    "Удача требует секретный читкод сегодня",
+    "Босс сам не верит шансу",
+    "Дроп уровня древнего игрового мифа",
+    "Победа откроет секретную концовку сезона"
+  ]
+};
+function rankNote(key,count){
+  const notes = RANK_NOTES[key] || [];
+  if(!notes.length) return "";
+  const index = Math.abs(Number(count) || 0) % notes.length;
+  return notes[index];
+}
+function getChanceRank(count){
+  if(!count){
+    return {
+      name:"Сезон стартовал",
+      className:"waiting",
+      note:"Станьте одним из первых участников нового сезона.",
+      fill:0
+    };
+  }
+  const fill=Math.min(100,Math.max(12,count));
+  const name=count<25?"Собираем команду":count<100?"Сообщество растёт":"Сезон в разгаре";
+  return {name,className:count<25?"rare":count<100?"epic":"legendary",note:`Уже ${count.toLocaleString("ru-RU")} игроков прокачивают заявки, открывают сундуки и идут к подаркам. Сделайте следующий ход.`,fill};
+}
+function renderChanceRank(count){
+  const rank = getChanceRank(count);
+  const box = document.getElementById("chanceBox");
+  const fill = document.getElementById("chanceFill");
+  if(box){
+    box.textContent = "";
+    box.className = "chance-rank-wrap";
+    const badge = document.createElement("span");
+    badge.className = "chance-rank " + rank.className;
+    badge.textContent = rank.name;
+    const note = document.createElement("span");
+    note.className = "chance-rank-note";
+    note.textContent = rank.note;
+    box.append(badge,note);
+  }
+  if(fill) fill.style.width = rank.fill + "%";
+}
+function renderData(data){
+  const count = Number(data.count || 0);
+  text("#participantCount", String(count));
+  renderChanceRank(count);
+  const winnersTotal = Number(data.winnersCount);
+  text("#winnerCount", String(Number.isFinite(winnersTotal) ? winnersTotal : (data.winners || []).length));
+  if(data.winners && data.winners.length){
+    text("#winnerTitle","Последний победитель");
+    renderWinnerCard(data.winners[0].game || "\u041f\u0440\u0438\u0437", data.winners[0].name || "\u043f\u043e\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u044c", false);
+  }else{
+    text("#winnerTitle","Победителей пока нет");
+    renderWinnerCard("\u041f\u043e\u0431\u0435\u0434\u0438\u0442\u0435\u043b\u0435\u0439 \u043f\u043e\u043a\u0430 \u043d\u0435\u0442", count ? `\u0423\u0436\u0435 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u0435\u0442 ${count} \u0447\u0435\u043b\u043e\u0432\u0435\u043a` : "\u0421\u0442\u0430\u043d\u044c\u0442\u0435 \u043e\u0434\u043d\u0438\u043c \u0438\u0437 \u043f\u0435\u0440\u0432\u044b\u0445 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432", true);
+  }
+  renderTopGames(data.topGames);
+  renderParticipants(data.participants);
+  renderRecentWishes(data.recentWishes);
+}
+const ACTIVE_SEASON_STORAGE_KEY = "rytni_giveaway_active_season";
+function cacheKey(){return `rytni_cache_v3:${activeSeason?.id||"legacy"}`;}
+
+function supabaseHeaders(useAuth=true){
+  const token=useAuth&&authSession?.access_token?authSession.access_token:SUPABASE_ANON_KEY;
+  return {
+    "Content-Type":"application/json",
+    "apikey": SUPABASE_ANON_KEY,
+    "Authorization": `Bearer ${token}`
+  };
+}
+
+async function loadGameConfig(providedConfig=null){
+  try{
+    let config=providedConfig;
+    if(!config){
+      const cached=readSessionCache("rytni_game_config",300000);
+      if(cached)config=cached;
+    }
+    if(!config){
+      const response = await supabaseFetch(`/rest/v1/giveaway_game_config?select=id,ranks,achievements,season_rewards,chest_tiers,boost_cooldown_hours,chest_cooldown_hours&id=eq.1`, {
+        headers:supabaseHeaders(), cache:"no-store"
+      },true);
+      if(!response.ok) return;
+      const rows = await response.json();
+      config = rows && rows[0];
+      if(config)writeSessionCache("rytni_game_config",config);
+    }
+    if(!config) return;
+    if(Array.isArray(config.ranks) && config.ranks.length){
+      PROGRESSION_RANKS.splice(0,PROGRESSION_RANKS.length,...config.ranks.map(item => ({
+        level:Math.max(1,Math.min(999,Number(item.level) || 1)), name:safeConfigText(item.name,"Ранг",80), icon:safeLucideIcon(item.icon,"shield")
+      })));
+      PROGRESSION_RANKS.forEach((rank,index) => {
+        const assetIndex = Math.min(RANK_ICON_ASSETS.length - 1,Math.floor(index * RANK_ICON_ASSETS.length / PROGRESSION_RANKS.length));
+        rank.asset = RANK_ICON_ASSETS[assetIndex];
+      });
+    }
+    if(Array.isArray(config.achievements) && config.achievements.length){
+      const defaults = new Map(PROGRESSION_ACHIEVEMENTS.map(item => [item.id,item]));
+      PROGRESSION_ACHIEVEMENTS.splice(0,PROGRESSION_ACHIEVEMENTS.length,...config.achievements.map(item => {
+        const fallback = defaults.get(item.id) || {};
+        const field=safeConfigText(item.field,"",48);
+        return {id:safeConfigText(item.id||`achievement-${field}-${item.target}`,"achievement",80),name:safeConfigText(item.name,fallback.name||"Достижение",100),
+          description:safeConfigText(item.description,fallback.description||"",240),icon:safeLucideIcon(item.icon,fallback.icon||"medal"),
+          test:profile => Number(profile?.[field] || 0) >= Number(item.target || 0)};
+      }));
+    }
+    if(Array.isArray(config.season_rewards) && config.season_rewards.length){
+      const defaults = new Map(SEASON_REWARDS.map(item => [Number(item.points),item]));
+      SEASON_REWARDS.splice(0,SEASON_REWARDS.length,...config.season_rewards.map(item => ({
+        points:Math.max(0,Math.min(100000000,Number(item.points) || 0)),name:safeConfigText(item.name,"Награда",100),
+        icon:safeLucideIcon(item.icon,defaults.get(Number(item.points))?.icon || "gift")
+      })));
+    }
+    if(config.chest_tiers && typeof config.chest_tiers === "object"){
+      Object.entries(config.chest_tiers).forEach(([rawKey,value]) => {
+        const key=safeConfigText(rawKey,"",24).toLowerCase();
+        if(!/^[a-z0-9_-]+$/.test(key)||!value||typeof value!=="object")return;
+        const fallback=CHEST_TIERS[key]||CHEST_TIERS.common;
+        CHEST_TIERS[key]={...fallback,name:safeConfigText(value.name,fallback.name,100),icon:safeLucideIcon(value.icon,fallback.icon),asset:safeHttpsUrl(value.asset,fallback.asset)};
+      });
+    }
+    const boostHours=Math.max(1,Math.min(168,Number(config.boost_cooldown_hours)||12));
+    const boostHoursLabel=boostHours%10===1&&boostHours%100!==11?"час":boostHours%10>=2&&boostHours%10<=4&&!(boostHours%100>=12&&boostHours%100<=14)?"часа":"часов";
+    const boostCooldownRule=document.getElementById("boostCooldownRuleValue");
+    if(boostCooldownRule)boostCooldownRule.textContent=`${boostHours} ${boostHoursLabel}`;
+    window.RYTNI_GAME_CONFIG = config;
+    window.dispatchEvent(new CustomEvent("rytni:game-config",{detail:config}));
+  }catch(_error){}
+}
+
+function readSeasonFallback(){
+  try{const saved=JSON.parse(localStorage.getItem(SEASON_FALLBACK_KEY)||"null");if(saved?.value?.success&&Date.now()-Number(saved.savedAt||0)<SEASON_FALLBACK_MAX_AGE)return saved.value;}catch(error){}return null;
+}
+function writeSeasonFallback(value){try{localStorage.setItem(SEASON_FALLBACK_KEY,JSON.stringify({savedAt:Date.now(),value}));}catch(error){}}
+function seasonDiagnosticCode(error){
+  const kind=String(error?.kind||error?.name||"connection").toUpperCase().replace(/[^A-Z0-9]+/g,"_").slice(0,12)||"CONNECTION";
+  return `RYT-SEASON-${kind}-${String(Date.now()).slice(-6)}`;
+}
+function renderSeasonConnectionNotice(mode="",code=""){
+  const notice=document.getElementById("seasonConnectionNotice"),title=document.getElementById("seasonConnectionTitle"),copy=document.getElementById("seasonConnectionText"),codeEl=document.getElementById("seasonConnectionCode"),button=document.getElementById("seasonConnectionRetryBtn"),buttonText=button?.querySelector("span");if(!notice)return;
+  if(!mode){notice.hidden=true;notice.removeAttribute("data-mode");return;}
+  notice.hidden=false;notice.dataset.mode=mode;
+  if(mode==="idle"){
+    title.textContent="Обновление данных приостановлено";
+    copy.textContent="Страница долго оставалась без активности, поэтому фоновая связь была остановлена. Перезагрузите страницу, чтобы получить актуальные данные.";
+    if(buttonText)buttonText.textContent="Перезагрузить страницу";
+  }else if(mode==="cached"){
+    title.textContent="Показаны последние сохранённые данные";
+    copy.textContent="Соединение с сервером нестабильно. Сайт восстановит актуальные данные автоматически.";
+    if(buttonText)buttonText.textContent="Повторить";
+  }else{
+    title.textContent="Не удалось загрузить данные сезона";
+    copy.textContent="Проверьте интернет, VPN или блокировщик. Повторим подключение автоматически.";
+    if(buttonText)buttonText.textContent="Повторить";
+  }
+  codeEl.textContent=code?`Код: ${code}`:"";
+  refreshRankIcons();
+}
+function scheduleSeasonRetry(){
+  window.clearTimeout(seasonRetryTimer);
+  const delay=SEASON_RETRY_DELAYS[Math.min(seasonRetryAttempt,SEASON_RETRY_DELAYS.length-1)];seasonRetryAttempt+=1;
+  seasonRetryTimer=window.setTimeout(()=>loadSeasonSettings(true),delay);
+}
+function applySeasonSettingsResult(result,{cached=false,idle=false}={}){
+    if(!result?.success)return null;
+    const previous=localStorage.getItem(ACTIVE_SEASON_STORAGE_KEY);activeSeason=result;
+    if(previous&&previous!==result.id){Object.keys(localStorage).filter(key=>key.startsWith("rytni_cache_v3:")||key.startsWith("rytni_giveaway_client_token:")).forEach(key=>localStorage.removeItem(key));currentApplication=null;}
+    localStorage.setItem(ACTIVE_SEASON_STORAGE_KEY,result.id);
+    const settings={...result,season_title:result.name,season_state:result.status,end_at:result.ends_at,start_at:result.starts_at};
+    if(settings.season_title) text("#seasonTitle", settings.season_title);
+    text("#seasonCountdownTitle","До завершения осталось");
+    const configuredEnd = new Date(settings.end_at).getTime();
+    if(Number.isFinite(configuredEnd)){
+      endDate = configuredEnd;
+      seasonSettingsLoaded = true;
+      const formattedEnd = new Date(configuredEnd).toLocaleString("ru-RU", {
+        day:"numeric", month:"long", year:"numeric", hour:"2-digit", minute:"2-digit"
+      });
+      text("#ruleEndDate", `Розыгрыш идёт до ${formattedEnd}.`);
+    }
+    const configuredStart = new Date(settings.start_at).getTime();
+    startDate = Number.isFinite(configuredStart) ? configuredStart : Number.NaN;
+    applySeasonState(settings);
+    updateTimer();
+    if(cached)renderSeasonConnectionNotice(idle?"idle":"cached");else{seasonRetryAttempt=0;window.clearTimeout(seasonRetryTimer);renderSeasonConnectionNotice();writeSeasonFallback(result);pageWasBackgrounded=false;lastPageActivityAt=Date.now();}
+    return settings;
+}
+async function loadSeasonSettings(force=false){
+  if(seasonRequestInFlight&&!force)return seasonRequestInFlight;
+  const request=(async()=>{
+  try{
+    const result=await cachedRpc("active-season","get_active_giveaway_season",{},7000,120000,force,"anonymous");
+    if(!result?.success)throw new Error("BAD_SEASON_PAYLOAD");
+    return applySeasonSettingsResult(result);
+  }catch(error){
+    const fallback=readSeasonFallback();
+    const idle=pageWasBackgrounded||Date.now()-lastPageActivityAt>=PAGE_IDLE_CONNECTION_MS;
+    if(fallback)applySeasonSettingsResult(fallback,{cached:true,idle});
+    else{
+      text("#seasonTitle","Данные сезона недоступны");text("#seasonCountdownTitle","Не удалось обновить расписание");
+      const badge=document.getElementById("seasonStateBadge");if(badge){badge.dataset.state="loading";badge.textContent="Нет подключения";}
+      setFormAvailability(false,"Не удалось проверить состояние сезона. Нажмите «Повторить» выше.");
+      renderSeasonConnectionNotice("error",seasonDiagnosticCode(error));
+    }
+    scheduleSeasonRetry();
+    return null;
+  }
+  })();
+  seasonRequestInFlight=request;
+  try{return await request;}finally{if(seasonRequestInFlight===request)seasonRequestInFlight=null;}
+}
+
+function renderWinnerArchive(rows){
+  const card = document.getElementById("archiveCard");
+  const root = document.getElementById("winnerArchive");
+  if(!card || !root) return;
+  root.textContent = "";
+  const groups = new Map();
+  (rows || []).forEach(row => {
+    const rawTitle = String(row.season_title || "Прошлый сезон").trim() || "Прошлый сезон";
+    const seasonTitles = {
+      "до завершения первого сезона":"Победители 1-го сезона",
+      "первый сезон":"Победители 1-го сезона",
+      "до завершения второго сезона":"Победители 2-го сезона",
+      "второй сезон":"Победители 2-го сезона",
+      "до завершения третьего сезона":"Победители 3-го сезона",
+      "третий сезон":"Победители 3-го сезона",
+      "до завершения четвертого сезона":"Победители 4-го сезона",
+      "четвёртый сезон":"Победители 4-го сезона",
+      "четвертый сезон":"Победители 4-го сезона",
+      "до завершения пятого сезона":"Победители 5-го сезона",
+      "пятый сезон":"Победители 5-го сезона"
+    };
+    const title = seasonTitles[rawTitle.toLocaleLowerCase("ru-RU")] || rawTitle;
+    if(!groups.has(title)) groups.set(title,[]);
+    groups.get(title).push(row);
+  });
+  [...groups.entries()].forEach(([seasonTitle,winners],groupIndex) => {
+    const season = document.createElement("section");
+    season.className = "winner-archive-season";
+    season.setAttribute("role","listitem");
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "winner-archive-season-head";
+    const titleWrap = document.createElement("div");
+    titleWrap.className = "winner-archive-season-title";
+    const marker = document.createElement("span");
+    marker.className = "winner-archive-season-marker";
+    marker.setAttribute("aria-hidden","true");
+    marker.textContent = "✦";
+    titleWrap.appendChild(marker);
+    appendText(titleWrap,"winner-archive-season-name",seasonTitle);
+    header.appendChild(titleWrap);
+    const count = winners.length;
+    const expanded = groupIndex === 0;
+    const word = count % 10 === 1 && count % 100 !== 11 ? "победитель" :
+      (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14) ? "победителя" : "победителей");
+    const headerMeta = document.createElement("span");
+    headerMeta.className = "winner-archive-season-meta";
+    appendText(headerMeta,"winner-archive-season-count",`${count} ${word}`);
+    const action = document.createElement("span");
+    action.className = "winner-archive-season-action";
+    const actionLabel = document.createElement("span");
+    actionLabel.className = "winner-archive-season-action-label";
+    actionLabel.textContent = expanded?"Свернуть":"Развернуть";
+    action.appendChild(actionLabel);
+    const actionIcon = document.createElement("span");
+    actionIcon.className = "winner-archive-season-chevron";
+    actionIcon.setAttribute("aria-hidden","true");
+    const actionSvg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    actionSvg.setAttribute("viewBox","0 0 24 24");
+    actionSvg.setAttribute("focusable","false");
+    const actionPath = document.createElementNS("http://www.w3.org/2000/svg","path");
+    actionPath.setAttribute("d","M7 9.5 12 14l5-4.5");
+    actionSvg.appendChild(actionPath);actionIcon.appendChild(actionSvg);action.appendChild(actionIcon);headerMeta.appendChild(action);
+    header.appendChild(headerMeta);
+    season.appendChild(header);
+    const grid = document.createElement("div");
+    grid.className = "winner-archive-grid";
+    const gridId = `winnerArchiveSeason${groupIndex + 1}`;
+    grid.id = gridId;
+    grid.hidden = !expanded;
+    header.setAttribute("aria-controls",gridId);
+    header.setAttribute("aria-expanded",String(expanded));
+    header.setAttribute("aria-label",`${seasonTitle}. ${count} ${word}. ${expanded ? "Скрыть" : "Показать"} победителей`);
+    season.classList.toggle("is-open",expanded);
+    winners.forEach((row,index) => {
+      const item = document.createElement("article");
+      item.className = "winner-archive-winner";
+      const number = document.createElement("span");
+      number.className = "winner-archive-number";
+      number.setAttribute("aria-hidden","true");
+      number.textContent = String(index + 1).padStart(2,"0");
+      item.appendChild(number);
+      const copy = document.createElement("div");
+      copy.className = "winner-archive-copy";
+      appendText(copy,"winner-archive-name",row.name || "Победитель");
+      appendText(copy,"winner-archive-game",row.game || "Подарок выбран");
+      const parsedDate = row.won_at ? new Date(row.won_at) : null;
+      const date = parsedDate && Number.isFinite(parsedDate.getTime()) ? parsedDate.toLocaleDateString("ru-RU",{
+        day:"numeric",month:"long",year:"numeric"
+      }) : "";
+      if(date) appendText(copy,"winner-archive-meta",`Победа · ${date}`);
+      item.appendChild(copy);
+      const trophy = document.createElement("span");
+      trophy.className = "winner-archive-trophy";
+      trophy.setAttribute("aria-hidden","true");
+      trophy.textContent = "✦";
+      item.appendChild(trophy);
+      grid.appendChild(item);
+    });
+    header.addEventListener("click",() => {
+      const nextExpanded = header.getAttribute("aria-expanded") !== "true";
+      header.setAttribute("aria-expanded",String(nextExpanded));
+      header.setAttribute("aria-label",`${seasonTitle}. ${count} ${word}. ${nextExpanded ? "Скрыть" : "Показать"} победителей`);
+      actionLabel.textContent = nextExpanded ? "Свернуть" : "Развернуть";
+      grid.hidden = !nextExpanded;
+      season.classList.toggle("is-open",nextExpanded);
+    });
+    season.appendChild(grid);
+    root.appendChild(season);
+  });
+  card.hidden = !root.children.length;
+}
+
+async function loadWinnerArchive(providedRows=null){
+  try{
+    if(Array.isArray(providedRows)){writeSessionCache("rytni_winner_archive",providedRows);renderWinnerArchive(providedRows);return;}
+    const cached=readSessionCache("rytni_winner_archive",120000);
+    if(cached){renderWinnerArchive(cached);return;}
+    const query = "select=season_title,name,game,won_at&order=won_at.desc.nullslast,archived_at.desc&limit=20";
+    const response = await supabaseFetch(`/rest/v1/giveaway_winner_archive?${query}`, {
+      headers:supabaseHeaders(),
+      cache:"no-store"
+    },true);
+    if(!response.ok) return;
+    const rows=await response.json();writeSessionCache("rytni_winner_archive",rows);renderWinnerArchive(rows);
+  }catch(error){}
+}
+
+const READ_ONLY_RPC_NAMES=new Set([
+  "get_active_giveaway_season","get_public_stats","get_public_giveaway_summary","get_my_ban_notice",
+  "get_my_active_application","get_giveaway_tiktok_hub_v28","get_my_lucky_coupons","get_my_top10_status",
+  "get_my_telegram_settings_v2180","find_giveaway_application"
+]);
+async function callSupabaseRpc(name, body, timeoutMs, requireAuth=false,authMode="auto",safeRetry=false){
+  const verifiedSession=authMode==="anonymous"?null:await ensureAuthSession();
+  if(requireAuth&&!verifiedSession?.access_token){
+    const authError=new Error(`RPC_${name.toUpperCase()}_AUTH_REQUIRED`);
+    authError.name="RytniRpcError";
+    authError.kind="auth";
+    authError.httpStatus=401;
+    authError.rpc=name;
+    throw authError;
+  }
+  const timeout = Math.max(1000,Number(timeoutMs) || 9000);
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), timeout);
+
+  try{
+    const response = await supabaseFetch(`/rest/v1/rpc/${name}`, {
+      method:"POST",
+      headers:supabaseHeaders(),
+      body:JSON.stringify(body || {}),
+      signal:controller.signal,
+      cache:"no-store"
+    },safeRetry||READ_ONLY_RPC_NAMES.has(name));
+
+    if(!response.ok){
+      let payload = null;
+      try{ payload = await response.json(); }catch(error){}
+      const rpcError = new Error(payload?.message || `RPC_${name.toUpperCase()}_FAILED`);
+      rpcError.name = "RytniRpcError";
+      rpcError.kind = response.status === 401 || response.status === 403 ? "auth" : response.status >= 500 ? "server" : "http";
+      rpcError.httpStatus = response.status;
+      rpcError.code = payload?.code || "";
+      rpcError.rpc = name;
+      throw rpcError;
+    }
+
+    return await response.json();
+  }catch(error){
+    if(error?.name === "AbortError"){
+      const timeoutError = new Error(`RPC_${name.toUpperCase()}_TIMEOUT`);
+      timeoutError.name = "RytniRpcError";
+      timeoutError.kind = "timeout";
+      timeoutError.rpc = name;
+      timeoutError.timeoutMs = timeout;
+      throw timeoutError;
+    }
+    if(error instanceof TypeError && !error.kind){
+      const networkError = new Error(`RPC_${name.toUpperCase()}_NETWORK`);
+      networkError.name = "RytniRpcError";
+      networkError.kind = "network";
+      networkError.rpc = name;
+      throw networkError;
+    }
+    throw error;
+  }finally{
+    window.clearTimeout(timeoutId);
+  }
+}
+
+function supportTicketAuthenticatedEmail(){
+  return normalizeAuthEmail(authSession?.user?.email||authEmail||"");
+}
+function supportTicketEscape(value){
+  return String(value??"").replace(/[&<>"']/g,character=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[character]);
+}
+function supportTicketApplicationSummary(){
+  if(!currentApplication?.success)return null;
+  return {
+    id:String(currentApplication.id||currentApplication.application?.id||""),
+    name:String(currentApplication.name||currentApplication.application?.name||""),
+    steamid:String(currentApplication.steamid||currentApplication.application?.steamid||""),
+    tiktok:String(currentApplication.tiktok||currentApplication.application?.tiktok||"")
+  };
+}
+function readClientDiagnostics(){
+  try{return JSON.parse(sessionStorage.getItem("rytni_client_diagnostics")||"[]");}catch(error){return [];}
+}
+function rememberClientDiagnostic(entry){
+  try{
+    const items=readClientDiagnostics();
+    items.push({...entry,at:new Date().toISOString()});
+    sessionStorage.setItem("rytni_client_diagnostics",JSON.stringify(items.slice(-12)));
+  }catch(error){}
+}
+function technicalDeliveryContext(){
+  let resources=[];
+  try{resources=performance.getEntriesByType("resource").map(entry=>String(entry.name||""));}catch(error){}
+  let navigation=null;
+  try{
+    const entry=performance.getEntriesByType("navigation")[0];
+    if(entry)navigation={dom_ms:Math.round(entry.domContentLoadedEventEnd||0),load_ms:Math.round(entry.loadEventEnd||0),transfer_size:Number(entry.transferSize)||0};
+  }catch(error){}
+  const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  return {
+    delivery:{
+      s3:resources.filter(url=>url.includes("storage-1090.s3hoster.by")).length,
+      github_pages:resources.filter(url=>url.includes("rytni.github.io/rytni-assets")).length,
+      github_raw:resources.filter(url=>url.includes("raw.githubusercontent.com")).length,
+      supabase:resources.filter(url=>url.includes("ltqnskxlqsddxdyazbss.supabase.co")).length
+    },
+    navigation,
+    connection:connection?{effective_type:String(connection.effectiveType||""),downlink:Number(connection.downlink)||0,rtt:Number(connection.rtt)||0,save_data:Boolean(connection.saveData)}:null,
+    recent_errors:readClientDiagnostics()
+  };
+}
+function renderSupportTicketIdentity(){
+  const identity=document.getElementById("supportTicketIdentity");
+  const anonymous=document.getElementById("supportTicketAnonymousFields");
+  if(!identity||!anonymous)return;
+  const email=supportTicketAuthenticatedEmail(),application=supportTicketApplicationSummary();
+  const authenticated=Boolean(authSession?.access_token&&email);
+  anonymous.hidden=authenticated;
+  if(authenticated){
+    const parts=[email];
+    if(application?.name)parts.push(application.name);
+    if(application?.steamid)parts.push(`Steam ${application.steamid}`);
+    identity.innerHTML=`<strong>Данные участника будут прикреплены автоматически</strong><span>${parts.map(supportTicketEscape).join(" · ")}</span><small>Категория, описание, версия страницы и технические параметры устройства попадут в закрытую очередь Rytni.</small>`;
+  }else{
+    identity.innerHTML="<strong>Вы не вошли по email</strong><span>Укажите данные ниже, иначе мы не сможем найти и проверить ваш случай.</span>";
+  }
+}
+function syncSupportTicketRequirements(){
+  const authenticated=Boolean(authSession?.access_token&&supportTicketAuthenticatedEmail());
+  const category=document.getElementById("supportTicketCategory")?.value||"";
+  const email=document.getElementById("supportTicketEmail");
+  const lookup=document.getElementById("supportTicketLookup");
+  const marker=document.getElementById("supportTicketLookupRequired");
+  const lookupRequired=!authenticated&&category!=="email_confirmation";
+  if(email)email.required=!authenticated;
+  if(lookup)lookup.required=lookupRequired;
+  if(marker)marker.hidden=!lookupRequired;
+}
+async function openSupportTicket(){
+  renderSupportTicketIdentity();syncSupportTicketRequirements();
+  showPopup("supportTicketPopup");
+  window.setTimeout(()=>document.getElementById("supportTicketCategory")?.focus(),80);
+  if(authSession?.access_token&&!currentApplication?.success){
+    try{const mine=await callSupabaseRpc("get_my_active_application",{},5000);if(mine?.success){currentApplication=mine;renderSupportTicketIdentity();}}catch(error){}
+  }
+}
+window.__RYTNI_OPEN_SUPPORT__=openSupportTicket;
+document.getElementById("supportTicketCategory")?.addEventListener("change",syncSupportTicketRequirements);
+document.getElementById("supportTicketForm")?.addEventListener("submit",async event=>{
+  event.preventDefault();
+  const form=event.currentTarget,status=document.getElementById("supportTicketStatus"),submit=document.getElementById("supportTicketSubmit");
+  if(document.getElementById("supportTicketWebsite")?.value)return;
+  renderSupportTicketIdentity();syncSupportTicketRequirements();
+  if(!form.reportValidity())return;
+  const authenticated=Boolean(authSession?.access_token&&supportTicketAuthenticatedEmail());
+  const category=document.getElementById("supportTicketCategory").value;
+  const email=authenticated?supportTicketAuthenticatedEmail():normalizeAuthEmail(document.getElementById("supportTicketEmail").value);
+  const lookup=authenticated?"":document.getElementById("supportTicketLookup").value.trim();
+  const description=document.getElementById("supportTicketDescription").value.trim();
+  const steps=document.getElementById("supportTicketSteps").value.trim();
+  if(!authenticated&&category!=="email_confirmation"&&!lookup){status.textContent="Укажите Steam-код дружбы или TikTok, чтобы найти заявку.";status.className="support-ticket-status is-error";return;}
+  if(description.length<20){status.textContent="Опишите проблему подробнее — не менее 20 символов.";status.className="support-ticket-status is-error";return;}
+  submit.disabled=true;status.textContent="Отправляем обращение…";status.className="support-ticket-status";
+  try{
+    const result=await callSupabaseRpc("submit_giveaway_support_ticket_v2192",{
+      p_category:category,p_description:description,p_reproduction_steps:steps,
+      p_contact_email:email,p_lookup_value:lookup,p_client_token:getClientToken(),
+      p_technical_context:{
+        page_url:location.href.slice(0,500),release:window.RYTNI_RELEASE||"unknown",
+        user_agent:navigator.userAgent.slice(0,500),language:navigator.language||"",
+        viewport:`${window.innerWidth}x${window.innerHeight}`,online:navigator.onLine,
+        timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||"",season_id:activeSeason?.id||null,
+        diagnostics:technicalDeliveryContext()
+      }
+    },10000,false,authenticated?"auto":"anonymous");
+    if(!result?.success){
+      const messages={invalid_email:"Проверьте адрес email.",invalid_description:"Опишите проблему подробнее.",invalid_details:"Проверьте введённые данные.",rate_limited:"Слишком много обращений. Попробуйте через час."};
+      throw new Error(messages[result?.status]||"Не удалось сохранить обращение.");
+    }
+    form.dataset.sent="true";
+    form.reset();status.textContent="";status.className="support-ticket-status";
+    syncSupportTicketRequirements();
+    closePopupLayer(document.getElementById("supportTicketPopup"));
+    showAuthSuccessToast("Обращение отправлено","Спасибо! Мы получили описание проблемы и данные для проверки.");
+  }catch(error){
+    status.textContent=error?.message||"Не удалось отправить. Проверьте интернет и попробуйте ещё раз.";status.className="support-ticket-status is-error";
+  }finally{submit.disabled=false;}
+});
+
+function recordFunnelEvent(eventName){
+  const allowed=new Set(["page_view","email_prompt_opened","otp_sent","email_verified","application_created","profile_opened","first_action"]);
+  const event=String(eventName||"").trim();
+  if(!allowed.has(event))return;
+  try{
+    supabaseFetch(`/rest/v1/rpc/record_giveaway_funnel_event`,{
+      method:"POST",
+      headers:supabaseHeaders(),
+      body:JSON.stringify({p_event:event,p_release:window.RYTNI_RELEASE||"unknown",p_session:getClientToken()}),
+      keepalive:true,
+      cache:"no-store"
+    }).catch(()=>{});
+  }catch(_error){}
+}
+recordFunnelEvent("page_view");
+
+function reportRpcError(scope,error){
+  rememberClientDiagnostic({type:"rpc",scope:String(scope||"").slice(0,80),rpc:String(error?.rpc||"unknown").slice(0,100),kind:String(error?.kind||error?.name||"unknown").slice(0,40),status:Number(error?.httpStatus)||0,code:String(error?.code||"").slice(0,80)});
+  console.warn("[Rytni RPC]",{
+    scope,
+    rpc:error?.rpc || "unknown",
+    kind:error?.kind || error?.name || "unknown",
+    status:Number(error?.httpStatus) || 0,
+    code:String(error?.code || "").slice(0,80)
+  });
+}
+
+window.addEventListener("error",event=>{
+  rememberClientDiagnostic({type:"javascript",scope:String(event?.filename||"page").split("/").pop().slice(0,80),kind:"error",status:0,code:String(event?.message||"unknown").slice(0,120)});
+});
+window.addEventListener("unhandledrejection",event=>{
+  const reason=event?.reason;
+  rememberClientDiagnostic({type:"javascript",scope:"promise",kind:String(reason?.name||"rejection").slice(0,40),status:0,code:String(reason?.code||reason?.message||"unknown").slice(0,120)});
+});
+
+function rpcUserMessage(error,action="выполнить действие"){
+  if(error?.kind === "timeout") return `Сервер отвечает дольше обычного. Не удалось ${action}. Подождите несколько секунд и повторите.`;
+  if(error?.kind === "network") return `Нет устойчивого соединения с сервером. Не удалось ${action}. Проверьте интернет и повторите.`;
+  if(error?.kind === "auth") return `Сессия закончилась. Войдите по email снова, чтобы ${action}.`;
+  if(error?.httpStatus === 404 || error?.code === "PGRST202") return `Сервис временно обновляется. Не удалось ${action}. Попробуйте немного позже.`;
+  if(error?.kind === "server") return `Сервер временно недоступен. Не удалось ${action}. Попробуйте немного позже.`;
+  return `Не удалось ${action}. Обновите страницу и повторите.`;
+}
+
+function renderCachedData(){
+  const cached = localStorage.getItem(cacheKey());
+  if(!cached) return false;
+  try{
+    renderData(JSON.parse(cached));
+    return true;
+  }catch(error){
+    return false;
+  }
+}
+
+async function loadData(force=false){
+  try{
+    const data = await cachedRpc("public-stats","get_public_stats",{},6500,PUBLIC_CACHE_TTL,force,"anonymous");
+    if(!data || data.success !== true || data.status !== "success") {
+      throw new Error(data && data.error ? data.error : "BAD_PAYLOAD");
+    }
+    localStorage.setItem(cacheKey(), JSON.stringify(data));
+    renderData(data);
+    return data;
+  }catch(error){
+    const cached = localStorage.getItem(cacheKey());
+    if(cached){
+      try{ renderData(JSON.parse(cached)); }catch(e){}
+    }
+    return null;
+  }
+}
+async function loadPublicSummary(force=false){
+  try{
+    const summary=await cachedRpc("public-summary","get_public_giveaway_summary",{},8000,PUBLIC_CACHE_TTL,force,"anonymous");
+    if(!summary?.success)return null;
+    if(summary.stats?.success){localStorage.setItem(cacheKey(),JSON.stringify(summary.stats));renderData(summary.stats);}
+    if(summary.gameConfig)await loadGameConfig(summary.gameConfig);
+    if(Array.isArray(summary.winnerArchive))loadWinnerArchive(summary.winnerArchive);
+    if(Array.isArray(summary.boostFeed))loadBoostFeed(summary.boostFeed);
+    return summary;
+  }catch(error){return null;}
+}
+async function bootstrapGiveaway(){
+  const publicBootstrap=(async()=>{await loadSeasonSettings();renderCachedData();const summary=await loadPublicSummary();if(!summary){await loadData();window.setTimeout(loadGameConfig,0);loadWinnerArchive();loadBoostFeed();}})();
+  await restoreAuthSession();
+  if(authSession){try{const mine=await callSupabaseRpc("get_my_active_application",{},5000);if(mine?.success){currentApplication=mine;syncParticipationVisibility();document.querySelectorAll('[data-tool-mode="card"]').forEach(item=>item.textContent="Моя заявка");}}catch(error){}}
+  await publicBootstrap;renderAuthState();
+}
+if(window.__RYTNI_DEFER_BOOTSTRAP__){
+  window.__RYTNI_RUN_BOOTSTRAP__=()=>bootstrapGiveaway();
+}else if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded",bootstrapGiveaway,{once:true});
+}else{
+  bootstrapGiveaway();
+}
+document.addEventListener("visibilitychange",()=>{
+  document.documentElement.classList.toggle("rytni-page-hidden",document.hidden);
+  if(document.hidden){
+    pageWasBackgrounded=true;
+    stopCountdownTimer();
+    if(typeof window.__RYTNI_STOP_PROGRESSION__==="function")window.__RYTNI_STOP_PROGRESSION__();
+    return;
+  }
+  startCountdownTimer();
+  if(typeof window.__RYTNI_RESUME_PROGRESSION__==="function")window.__RYTNI_RESUME_PROGRESSION__();
+  loadSeasonSettings();
+  loadPublicSummary();
+});
+["pointerdown","keydown","touchstart"].forEach(type=>document.addEventListener(type,()=>{lastPageActivityAt=Date.now();},{passive:true}));
+document.getElementById("seasonConnectionRetryBtn")?.addEventListener("click",async event=>{
+  const button=event.currentTarget;button.disabled=true;button.querySelector("span").textContent="Подключаемся…";
+  if(button.closest("#seasonConnectionNotice")?.dataset.mode==="idle"){
+    button.querySelector("span").textContent="Перезагружаем…";
+    window.location.reload();
+    return;
+  }
+  try{await loadSeasonSettings(true);await loadPublicSummary(true);}finally{button.disabled=false;button.querySelector("span").textContent="Повторить";refreshRankIcons();}
+});
+window.addEventListener("online",()=>{loadSeasonSettings(true);loadPublicSummary(true);});
+
+function normalizeText(value){
+  return String(value || "").trim().replace(/\s+/g," ");
+}
+
+function normalizeSteam(value){
+  const raw=normalizeText(value);
+  if(/^\d{6,20}$/.test(raw))return raw;
+  try{
+    const candidate=/^https?:\/\//i.test(raw)?raw:`https://${raw}`;
+    const url=new URL(candidate);
+    if(url.hostname.replace(/^www\./,"").toLowerCase()!=="steamcommunity.com")return "";
+    const match=url.pathname.match(/^\/profiles\/(\d{15,20})\/?$/i);
+    return match?match[1]:"";
+  }catch(error){return "";}
+}
+function normalizeSteamFriendCode(value){
+  const raw=String(value||"").trim();
+  return /^\d{6,10}$/.test(raw)?raw:"";
+}
+function validateSteamField(showEmpty=false){
+  const input=document.getElementById("steamid"),hint=document.getElementById("steamidHint");if(!input||!hint)return;
+  const raw=String(input.value||"").trim(),normalized=normalizeSteamFriendCode(raw);
+  input.classList.toggle("is-valid",Boolean(normalized));
+  input.classList.toggle("is-invalid",Boolean(raw&&!normalized));
+  if(normalized){hint.textContent=`Steam-код дружбы: ${normalized}`;hint.classList.add("is-valid");hint.classList.remove("is-invalid");}
+  else if(raw||showEmpty){hint.textContent="Введите только Steam-код дружбы из 6–10 цифр, без ссылки, SteamID64 и пробелов.";hint.classList.add("is-invalid");hint.classList.remove("is-valid");}
+  else{hint.textContent="Введите только код дружбы из 6–10 цифр. Ссылки и SteamID64 не принимаются.";hint.classList.remove("is-valid","is-invalid");}
+}
+
+const REGION_ALIASES={ru:"Россия",rus:"Россия",russia:"Россия","рф":"Россия","россия":"Россия",ua:"Украина",ukr:"Украина",ukraine:"Украина","украина":"Украина","україна":"Украина","укр":"Украина",by:"Беларусь",blr:"Беларусь",belarus:"Беларусь","беларусь":"Беларусь","белоруссия":"Беларусь",kz:"Казахстан",kaz:"Казахстан",kazakhstan:"Казахстан","казахстан":"Казахстан",pl:"Польша",poland:"Польша","польша":"Польша"};
+const STEAM_REGION_FALLBACK_NAMES={BY:"Беларусь",UA:"Украина",KZ:"Казахстан",RU:"Россия",PL:"Польша",US:"США",GB:"Великобритания",DE:"Германия",FR:"Франция",IT:"Италия",ES:"Испания",TR:"Турция",GE:"Грузия",AM:"Армения",AZ:"Азербайджан",UZ:"Узбекистан",KG:"Кыргызстан",MD:"Молдова",LT:"Литва",LV:"Латвия",EE:"Эстония"};
+const STEAM_REGION_CODES="BL,BQ,CU,CW,MF,SS,SX,AU,AT,AZ,AX,AL,DZ,AS,AI,AO,AD,AQ,AG,AR,AM,AW,AF,BS,BD,BB,BH,BY,BZ,BE,BJ,CI,BM,BG,BO,BA,BW,BR,IO,BN,BF,BI,BT,VU,VA,HU,VE,VG,VI,UM,TL,VN,GA,HT,GY,GM,GH,GP,GT,GN,GW,DE,GI,HN,HK,GD,GL,GR,GE,GU,DK,CD,JE,DJ,DM,DO,EG,ZM,EH,ZW,IL,IN,ID,JO,IQ,IR,IE,IS,ES,IT,YE,CV,KZ,KY,KH,CM,CA,QA,KE,CY,KI,CN,CO,KM,XK,CR,KW,KG,LA,LV,LS,LR,LB,LY,LT,LI,LU,MU,MR,MG,YT,MO,MW,MY,ML,MV,MT,MP,MA,MQ,MH,MX,MZ,MC,MN,MS,MM,NA,NR,NP,NE,NG,NL,NI,NU,NZ,NC,NO,NF,TZ,AE,OM,BV,GG,CC,IM,CX,SH,HM,CK,PN,TC,WF,SJ,PK,PW,PA,PG,PY,PE,PL,PT,PR,CG,KR,MD,MK,RE,RU,RW,RO,US,SV,WS,SM,ST,SA,SC,PM,SN,VC,KN,LC,RS,SG,SY,SK,SI,GB,SB,SO,SD,SR,SL,TJ,TH,TW,PS,TG,TK,TO,TT,TV,TN,TM,TR,UG,UZ,UA,UY,FO,FM,FJ,PH,FI,FK,FR,GF,PF,HR,CF,TD,ME,CZ,CL,CH,SE,LK,EC,GQ,ER,SZ,EE,ET,ZA,GS,TF,JM,JP".split(",");
+const STEAM_REGION_NAMES=new Set();
+const STEAM_REGION_CODES_BY_NAME=new Map();
+function steamRegionDisplayName(code,displayNames){
+  let name="";
+  try{name=displayNames?.of(code)||"";}catch(error){}
+  const normalized=String(name||"").trim();
+  return normalized&&normalized.toUpperCase()!==code?normalized:(STEAM_REGION_FALLBACK_NAMES[code]||code);
+}
+function indexSteamRegionOptions(input=document.getElementById("region")){
+  STEAM_REGION_NAMES.clear();STEAM_REGION_CODES_BY_NAME.clear();
+  if(!input)return 0;
+  [...input.options].forEach(option=>{
+    const name=String(option.value||"").trim(),code=String(option.dataset.regionCode||"").trim().toUpperCase();
+    if(!name||!/^[A-Z]{2}$/.test(code))return;
+    STEAM_REGION_NAMES.add(name);STEAM_REGION_CODES_BY_NAME.set(name,code);
+  });
+  return STEAM_REGION_NAMES.size;
+}
+function buildEmergencySteamRegions(input=document.getElementById("region")){
+  if(!input)return 0;
+  const current=input.value,priorityCodes=["BY","UA","KZ","RU"],prioritySet=new Set(priorityCodes);
+  const fragment=document.createDocumentFragment();
+  const orderedCodes=[...priorityCodes,...STEAM_REGION_CODES.filter(code=>!prioritySet.has(code))];
+  orderedCodes.forEach(code=>{
+    const name=STEAM_REGION_FALLBACK_NAMES[code]||code,option=document.createElement("option");
+    option.value=name;option.dataset.regionCode=code;option.textContent=`${prioritySet.has(code)?"★ ":""}${name} (${code})`;fragment.appendChild(option);
+  });
+  input.querySelectorAll("optgroup, option:not(:first-child)").forEach(option=>option.remove());input.appendChild(fragment);
+  indexSteamRegionOptions(input);if(current&&STEAM_REGION_NAMES.has(current))input.value=current;
+  input.dataset.regionsSource="emergency";return input.options.length;
+}
+function populateSteamRegions(){
+  const input=document.getElementById("region");if(!input)return;
+  if(input.options.length<200)buildEmergencySteamRegions(input);else indexSteamRegionOptions(input);
+  const current=input.value,currentCode=String(input.selectedOptions?.[0]?.dataset.regionCode||"");
+  try{
+    let displayNames=null;
+    try{displayNames=new Intl.DisplayNames(["ru"],{type:"region"});}catch(error){}
+    const regions=STEAM_REGION_CODES.map(code=>({code,name:steamRegionDisplayName(code,displayNames)}));
+    try{regions.sort((left,right)=>left.name.localeCompare(right.name,"ru"));}catch(error){regions.sort((left,right)=>left.name<right.name?-1:left.name>right.name?1:0);}
+    const priorityCodes=["BY","UA","KZ","RU"],prioritySet=new Set(priorityCodes);
+    const orderedRegions=[...priorityCodes.map(code=>regions.find(item=>item.code===code)).filter(Boolean),...regions.filter(item=>!prioritySet.has(item.code))];
+    if(orderedRegions.length<200)throw new Error("REGION_LIST_INCOMPLETE");
+    const fragment=document.createDocumentFragment();
+    orderedRegions.forEach(item=>{const option=document.createElement("option"),popular=prioritySet.has(item.code);option.value=item.name;option.dataset.regionCode=item.code;option.textContent=`${popular?"★ ":""}${item.name} (${item.code})`;fragment.appendChild(option);});
+    input.querySelectorAll("optgroup, option:not(:first-child)").forEach(option=>option.remove());input.appendChild(fragment);indexSteamRegionOptions(input);
+    if(current&&STEAM_REGION_NAMES.has(current))input.value=current;
+    else if(currentCode){const restored=[...input.options].find(option=>option.dataset.regionCode===currentCode);if(restored)input.value=restored.value;}
+    input.dataset.regionsSource="localized";return true;
+  }catch(error){
+    if(input.options.length<200)buildEmergencySteamRegions(input);else indexSteamRegionOptions(input);
+    input.dataset.regionsSource="static";return false;
+  }
+}
+function ensureSteamRegionsAvailable(){const input=document.getElementById("region");if(!input)return false;if(input.options.length<200)buildEmergencySteamRegions(input);else indexSteamRegionOptions(input);return input.options.length>200&&STEAM_REGION_NAMES.size>200;}
+const GAME_ALIASES={gta5:"Grand Theft Auto V",gtav:"Grand Theft Auto V","гта5":"Grand Theft Auto V",rdr2:"Red Dead Redemption 2",reddeadredemption2:"Red Dead Redemption 2",eldenring:"Elden Ring",cyberpunk2077:"Cyberpunk 2077","киберпанк2077":"Cyberpunk 2077",readyornot:"Ready or Not",scrapmechanic:"Scrap Mechanic",goatsimulator3:"Goat Simulator 3",forzahorizon5:"Forza Horizon 5",fh5:"Forza Horizon 5",forzahorizon6:"Forza Horizon 6",fh6:"Forza Horizon 6",subnautica2:"Subnautica 2",helldivers2:"Helldivers 2",counterstrike2:"Counter-Strike 2",cs2:"Counter-Strike 2",baldursgate3:"Baldur's Gate 3",bg3:"Baldur's Gate 3",witcher3:"The Witcher 3: Wild Hunt","ведьмак3":"The Witcher 3: Wild Hunt",rust:"Rust",cuphead:"Cuphead",deltarune:"Deltarune",mewgenics:"Mewgenics",teardown:"Teardown"};
+function normalizationKey(value){return normalizeText(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu,"");}
+function normalizeRegion(value){const clean=normalizeText(value);return REGION_ALIASES[normalizationKey(clean)]||clean;}
+function serializeSteamRegion(value){const name=normalizeRegion(value),code=STEAM_REGION_CODES_BY_NAME.get(name)||"";return code?`${code}|${name}`:"";}
+function normalizeGames(value){
+  const seen=new Set();return String(value||"").split(/[,;\n]+/).map(normalizeText).filter(Boolean).map(item=>GAME_ALIASES[normalizationKey(item)]||item).filter(item=>{const key=item.toLowerCase();if(seen.has(key))return false;seen.add(key);return true;}).slice(0,4).join(", ");
+}
+
+function saveApplicationDraft(){
+  try{const draft={name:document.getElementById("name")?.value||"",steamid:document.getElementById("steamid")?.value||"",region:document.getElementById("region")?.value||"",tiktok:document.getElementById("tiktok")?.value||"",minskAvailability:document.getElementById("minskAvailability")?.value||"",ageGroup:document.getElementById("ageGroup")?.value||"",games:document.getElementById("games")?.value||"",subscribed:Boolean(document.getElementById("subscribed")?.checked)};localStorage.setItem(APPLICATION_DRAFT_KEY,JSON.stringify(draft));}catch(error){}
+}
+function restoreApplicationDraft(){
+  try{const draft=JSON.parse(localStorage.getItem(APPLICATION_DRAFT_KEY)||"null");if(!draft)return;["name","steamid","region","tiktok","minskAvailability","ageGroup","games"].forEach(id=>{const input=document.getElementById(id);if(input&&!input.value&&typeof draft[id]==="string")input.value=draft[id];});if(draft.subscribed)document.getElementById("subscribed").checked=true;renderGameChips();}catch(error){}
+}
+function clearApplicationDraft(){try{localStorage.removeItem(APPLICATION_DRAFT_KEY);}catch(error){}}
+
+function normalizeTikTok(value){
+  let textValue = normalizeText(value);
+  if(/^tiktok\.com\//i.test(textValue) || /^(www|m|vm|vt)\.tiktok\.com\//i.test(textValue)){
+    textValue = "https://" + textValue;
+  }
+
+  try{
+    const url = new URL(textValue);
+    const host = url.hostname.replace(/^(www|m|vm|vt)\./,"").toLowerCase();
+    const match = url.pathname.match(/^\/(@[\w.-]+)\/?$/i);
+
+    if(host === "tiktok.com" && match){
+      return "https://www.tiktok.com/" + match[1].toLowerCase();
+    }
+
+    if(host === "tiktok.com"){
+      return "https://www.tiktok.com" + url.pathname.replace(/\/+$/,"").toLowerCase();
+    }
+  }catch(error){}
+
+  return textValue.toLowerCase().replace(/\/+$/,"");
+}
+
+function isTikTokUrl(value){
+  try{
+    let textValue = normalizeText(value);
+    if(/^tiktok\.com\//i.test(textValue) || /^(www|m|vm|vt)\.tiktok\.com\//i.test(textValue)){
+      textValue = "https://" + textValue;
+    }
+    const url = new URL(textValue);
+    const host = url.hostname.replace(/^(www|m|vm|vt)\./,"").toLowerCase();
+    return (url.protocol === "https:" || url.protocol === "http:") && host === "tiktok.com";
+  }catch(error){
+    return false;
+  }
+}
+
+function validateApplication(data){
+  if(data.name.length < 2 || data.name.length > 25 || /[<>\u0000-\u001f]/.test(data.name)) return "Укажите имя длиной от 2 до 25 символов без служебных знаков.";
+  if(!/^\d{6,10}$/.test(data.steamid)) return "Введите только Steam-код дружбы из 6–10 цифр.";
+  if(data.region.length < 2 || data.region.length > 80 || /[<>\u0000-\u001f]/.test(data.region) || !STEAM_REGION_NAMES.has(data.region)) return "Выберите регион магазина Steam из списка.";
+  const games=data.games.split(/,\s*/).filter(Boolean);if(data.games.length < 2 || data.games.length > 120 || games.length<1 || games.length>4) return "Укажите от 1 до 4 игр через запятую (не более 120 символов).";
+  if(!data.tiktok) return "Укажите аккаунт TikTok — для новой заявки это обязательное поле.";
+  if(data.tiktok.length < 2 || data.tiktok.length>120) return "Проверьте ник или ссылку на профиль TikTok.";
+  if(!["minsk_resident","can_visit","cannot_visit"].includes(data.minskAvailability)) return "Укажите, можете ли вы приехать в Минск.";
+  if(!["under_18","18_plus","25_plus","35_plus"].includes(data.ageGroup)) return "Выберите возрастную группу.";
+  if(data.subscribed !== "Да") return "Подтвердите подписку и принятие правил участия.";
+  return "";
+}
+
+function hasMatchingParticipant(participants, data){
+  const name = normalizeText(data.name).toLowerCase();
+  const region = normalizeText(data.region).toLowerCase();
+  const game = normalizeText(data.games).toLowerCase();
+
+  return (participants || []).some(item => {
+    return normalizeText(item.name).toLowerCase() === name &&
+      normalizeText(item.region).toLowerCase() === region &&
+      normalizeText(item.game).toLowerCase() === game;
+  });
+}
+
+async function submitApplication(data){
+  return await callSupabaseRpc("create_my_season_application_v21515", {
+    p_name: data.name,
+    p_steamid: data.steamid,
+    p_region: serializeSteamRegion(data.region),
+    p_games: data.games,
+    p_tiktok: data.tiktok,
+    p_minsk_availability: data.minskAvailability,
+    p_age_group: data.ageGroup,
+    p_subscribed: data.subscribed === "Да",
+    p_likes: true,p_honeypot:data.website||""
+  },15000,true);
+}
+
+const PARTICIPANT_CARD_TEMPLATE_URL = "https://rytni.github.io/rytni-assets/legacy/participant-card-template.webp";
+let participantCardTemplatePromise = null;
+
+function createParticipantCardFallback(){
+  const canvas=document.createElement("canvas");
+  canvas.width=450;canvas.height=799;
+  const context=canvas.getContext("2d");
+  const background=context.createLinearGradient(0,0,450,799);
+  background.addColorStop(0,"#111b49");background.addColorStop(.52,"#341957");background.addColorStop(1,"#071a2c");
+  context.fillStyle=background;context.fillRect(0,0,450,799);
+  const glow=context.createRadialGradient(330,130,10,330,130,260);
+  glow.addColorStop(0,"rgba(99,232,255,.42)");glow.addColorStop(1,"rgba(99,232,255,0)");
+  context.fillStyle=glow;context.fillRect(0,0,450,520);
+  context.strokeStyle="rgba(111,236,255,.5)";context.lineWidth=3;context.strokeRect(18,18,414,763);
+  context.fillStyle="#73f0e3";context.font='900 26px "Arial Black",Arial,sans-serif';context.textAlign="center";context.fillText("RYTNI ПОДАРИ",225,72);
+  context.fillStyle="rgba(255,255,255,.72)";context.font='700 14px Arial,sans-serif';context.fillText("КАРТОЧКА УЧАСТНИКА",225,101);
+  return canvas;
+}
+
+function firstDesiredGame(games){
+  return String(games || "")
+    .split(/[,;|\n]+/)
+    .map(value => normalizeText(value))
+    .filter(Boolean)[0] || "Игра мечты";
+}
+
+function loadParticipantCardTemplate(){
+  if(!participantCardTemplatePromise){
+    participantCardTemplatePromise = new Promise((resolve,reject) => {
+      const image = new Image();
+      image.crossOrigin = "anonymous";
+      image.onload = () => resolve(image);
+      image.onerror = () => {
+        console.warn("[Rytni card] Внешний шаблон недоступен, используется встроенный резервный фон.");
+        resolve(createParticipantCardFallback());
+      };
+      image.src = PARTICIPANT_CARD_TEMPLATE_URL;
+    });
+  }
+  return participantCardTemplatePromise;
+}
+
+function warmUpParticipantCard(){
+  loadParticipantCardTemplate().catch(() => {});
+}
+
+const giveawayForm = document.getElementById("giveawayForm");
+ensureSteamRegionsAvailable();
+populateSteamRegions();
+restoreApplicationDraft();
+giveawayForm.addEventListener("input",saveApplicationDraft);
+giveawayForm.addEventListener("change",saveApplicationDraft);
+giveawayForm.addEventListener("input",updateRegistrationCompletion);
+giveawayForm.addEventListener("change",updateRegistrationCompletion);
+document.getElementById("region")?.addEventListener("change",saveApplicationDraft);
+document.getElementById("region")?.addEventListener("pointerdown",ensureSteamRegionsAvailable);
+document.getElementById("region")?.addEventListener("focus",ensureSteamRegionsAvailable);
+window.addEventListener("pageshow",ensureSteamRegionsAvailable);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)ensureSteamRegionsAvailable();});
+function renderGameChips(){
+  const host=document.getElementById("gameChipsPreview");if(!host)return;
+  host.textContent="";
+  normalizeGames(document.getElementById("games")?.value||"").split(/,\s*/).filter(Boolean).forEach(game=>{
+    const chip=document.createElement("span");chip.className="game-chip";chip.textContent=game;host.appendChild(chip);
+  });
+}
+document.getElementById("games")?.addEventListener("input",renderGameChips);
+document.getElementById("steamid")?.addEventListener("input",()=>validateSteamField(false));
+document.getElementById("steamid")?.addEventListener("blur",()=>validateSteamField(true));
+document.getElementById("games")?.addEventListener("blur",event=>{event.currentTarget.value=normalizeGames(event.currentTarget.value);renderGameChips();saveApplicationDraft();});
+updateRegistrationCompletion();
+giveawayForm.addEventListener("focusin", warmUpParticipantCard, {once:true});
+if("requestIdleCallback" in window){
+  requestIdleCallback(warmUpParticipantCard, {timeout:1500});
+}else{
+  window.setTimeout(warmUpParticipantCard, 300);
+}
+
+function fitCanvasText(context,text,maxWidth,maxFontSize,minFontSize){
+  let value = normalizeText(text).toUpperCase();
+  let fontSize = maxFontSize;
+  const setFont = () => {
+    context.font = `900 ${fontSize}px "Arial Black",Arial,sans-serif`;
+  };
+  setFont();
+
+  while(fontSize > minFontSize && context.measureText(value).width > maxWidth){
+    fontSize -= 2;
+    setFont();
+  }
+
+  if(context.measureText(value).width > maxWidth){
+    while(value.length > 2 && context.measureText(value + "…").width > maxWidth){
+      value = value.slice(0,-1);
+    }
+    value += "…";
+  }
+  return value;
+}
+
+async function drawParticipantCard(canvas,count,game,stats={}){
+  const template = await loadParticipantCardTemplate();
+  const context = canvas.getContext("2d");
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.drawImage(template,0,0,canvas.width,canvas.height);
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.fillStyle = "#2b1708";
+  context.strokeStyle = "rgba(255,244,214,.7)";
+  context.lineWidth = 1;
+  context.shadowColor = "rgba(83,42,11,.2)";
+  context.shadowBlur = 1;
+  context.shadowOffsetY = 1;
+
+  context.font = '900 11px "Arial Black",Arial,sans-serif';
+  context.fillText("ИГРОК",145,55);
+  context.fillText("НОМЕР",345,55);
+  const fittedName = fitCanvasText(context,stats.name || "ИГРОК",220,31,18);
+  context.strokeText(fittedName,145,87);
+  context.fillText(fittedName,145,87);
+  const participantNumber = count ? `№ ${count}` : "—";
+  const fittedNumber = fitCanvasText(context,participantNumber,105,27,17);
+  context.strokeText(fittedNumber,345,87);
+  context.fillText(fittedNumber,345,87);
+
+  const points = Math.max(0,Number(stats.points) || 0);
+  const fittedPoints = fitCanvasText(context,`${points.toLocaleString("ru-RU")} ОЧКОВ`,330,25,16);
+  context.strokeText(fittedPoints,225,128);
+  context.fillText(fittedPoints,225,128);
+
+  const level = Math.max(1,Number(stats.level) || 1);
+  const streak = Math.max(0,Number(stats.question_combo_current ?? stats.correct_streak) || 0);
+  const rank = normalizeText(stats.rank_name || "Новобранец");
+
+  context.shadowColor = "rgba(0,0,0,.7)";
+  context.shadowBlur = 3;
+  context.fillStyle = "#facc15";
+  context.strokeStyle = "rgba(0,0,0,.55)";
+  context.font = '900 9px "Arial Black",Arial,sans-serif';
+  [[104,"УРОВЕНЬ"],[225,"РАНГ"],[345,"ВЕРНЫХ"]].forEach(([x,label]) => context.fillText(label,x,608));
+  context.fillStyle = "#fff7d6";
+  const fittedLevel = fitCanvasText(context,String(level),82,20,14);
+  context.strokeText(fittedLevel,104,631); context.fillText(fittedLevel,104,631);
+  const rankWords = rank.toUpperCase().split(/\s+/).filter(Boolean);
+  if(rankWords.length > 1){
+    let splitAt = 1;
+    let bestDifference = Infinity;
+    for(let index=1;index<rankWords.length;index+=1){
+      const difference = Math.abs(rankWords.slice(0,index).join(" ").length - rankWords.slice(index).join(" ").length);
+      if(difference < bestDifference){ bestDifference = difference; splitAt = index; }
+    }
+    const rankLineOne = fitCanvasText(context,rankWords.slice(0,splitAt).join(" "),100,11,7);
+    const rankLineTwo = fitCanvasText(context,rankWords.slice(splitAt).join(" "),100,11,7);
+    context.strokeText(rankLineOne,225,625); context.fillText(rankLineOne,225,625);
+    context.strokeText(rankLineTwo,225,638); context.fillText(rankLineTwo,225,638);
+  }else{
+    const fittedRank = fitCanvasText(context,rank,100,17,9);
+    context.strokeText(fittedRank,225,631); context.fillText(fittedRank,225,631);
+  }
+  const fittedStreak = fitCanvasText(context,String(streak),82,20,14);
+  context.strokeText(fittedStreak,345,631); context.fillText(fittedStreak,345,631);
+
+  context.shadowColor = "rgba(83,42,11,.2)";
+  context.shadowBlur = 1;
+  context.fillStyle = "#2b1708";
+  context.strokeStyle = "rgba(255,244,214,.7)";
+  context.font = '900 11px "Arial Black",Arial,sans-serif';
+  context.fillText("ЖЕЛАЕМАЯ ИГРА",225,697);
+  const fittedGame = fitCanvasText(context,game,340,31,17);
+  context.strokeText(fittedGame,225,742);
+  context.fillText(fittedGame,225,742);
+  canvas.dataset.ready = "true";
+}
+
+function canvasToPngBlob(canvas){
+  return new Promise((resolve,reject) => {
+    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("CARD_EXPORT_FAILED")),"image/png",1);
+  });
+}
+
+function participantCardFileName(count){
+  return `rytni-podari-${count || "participant"}.png`;
+}
+
+function downloadBlob(blob,fileName){
+  const link = document.createElement("a");
+  const objectUrl = URL.createObjectURL(blob);
+  link.href = objectUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(objectUrl),1000);
+}
+
+async function saveParticipantCard(blob,count,hint){
+  downloadBlob(blob,participantCardFileName(count));
+  hint.textContent = "Карточка сохранена — можно загружать её в TikTok";
+}
+
+async function shareTikTokParticipation(blob,name,count,game,hint,stats={}){
+  const fileName = participantCardFileName(count);
+  const caption = `${name} участвует в RYTNI ПОДАРИ: ${stats.points || 0} очков, уровень ${stats.level || 1}, ${stats.correct_streak || 0} верных ответов подряд. Хочу получить ${game}! @rytni.tv #Rytniподари`;
+
+  if(navigator.share && window.File){
+    const file = new File([blob],fileName,{type:"image/png"});
+    const shareData = {files:[file]};
+    let canShareFile = true;
+    if(navigator.canShare){
+      try{ canShareFile = navigator.canShare({files:[file]}); }catch(error){ canShareFile = false; }
+    }
+
+    if(canShareFile){
+      try{
+        await navigator.share(shareData);
+        hint.textContent = "Готово. Если ещё не отправили — выберите TikTok в меню смартфона";
+        return;
+      }catch(error){
+        if(error && error.name === "AbortError") return;
+      }
+    }
+  }
+
+  downloadBlob(blob,fileName);
+  try{ await navigator.clipboard.writeText(caption); }catch(error){}
+  hint.textContent = navigator.share
+    ? "Браузер не смог передать PNG. Карточка сохранена — выберите её в приложении TikTok"
+    : "Карточка сохранена, а подпись скопирована. Выберите PNG в приложении TikTok";
+}
+
+function renderSuccessCard(name,count,games,target=document.getElementById("playerCard"),celebrate=true,stats={}){
+  const playerCard = target || document.getElementById("playerCard");
+  playerCard.textContent = "";
+  const firstGame = firstDesiredGame(games);
+  const shareCard = document.createElement("section");
+  shareCard.className = "tiktok-share-card";
+
+  const shareHead = document.createElement("div");
+  shareHead.className = "tiktok-share-head";
+  const shareIcon = document.createElement("span");
+  shareIcon.className = "tiktok-share-icon";
+  shareIcon.setAttribute("aria-hidden","true");
+  shareIcon.textContent = "♪";
+  const shareHeading = document.createElement("div");
+  const shareKicker = document.createElement("div");
+  shareKicker.className = "tiktok-share-kicker";
+  shareKicker.textContent = "Готово к публикации";
+  const shareTitle = document.createElement("h4");
+  shareTitle.className = "tiktok-share-title";
+  const cardStats = {name,points:0,level:1,rank_name:"Новобранец",correct_streak:0,...stats};
+  shareTitle.textContent = `${Number(cardStats.points || 0).toLocaleString("ru-RU")} очков`;
+  shareHeading.append(shareKicker,shareTitle);
+  shareHead.append(shareIcon,shareHeading);
+
+  const shareText = document.createElement("p");
+  shareText.className = "tiktok-share-text";
+  shareText.textContent = "Поделись карточкой в TikTok и отметь Rytni — пусть твой выбор увидят.";
+  const canvas = document.createElement("canvas");
+  canvas.className = "participant-card-preview";
+  canvas.width = 450;
+  canvas.height = 799;
+  canvas.setAttribute("role","img");
+  canvas.setAttribute("aria-label",`Карточка участника №${count || ""}, желаемая игра: ${firstGame}`);
+  const shareTags = document.createElement("div");
+  shareTags.className = "tiktok-share-tags";
+  ["@rytni.tv","#Rytniподари",`Верных подряд: ${cardStats.correct_streak || 0}`].forEach(value => {
+    const tag = document.createElement("span");
+    tag.textContent = value;
+    shareTags.appendChild(tag);
+  });
+  const actions = document.createElement("div");
+  actions.className = "participant-card-actions";
+  const saveButton = document.createElement("button");
+  saveButton.type = "button";
+  saveButton.className = "participant-save-btn";
+  saveButton.innerHTML = '<i data-lucide="save"></i><span>Сохранить карточку</span>';
+  saveButton.disabled = true;
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "tiktok-share-btn";
+  shareButton.innerHTML = '<i data-lucide="share"></i><span>Открыть меню «Поделиться»</span><i data-lucide="chevron-right"></i>';
+  shareButton.disabled = true;
+  const shareHint = document.createElement("div");
+  shareHint.className = "tiktok-share-hint";
+  shareHint.setAttribute("aria-live","polite");
+  shareHint.textContent = "Создаём персональную карточку…";
+  const cardReady = drawParticipantCard(canvas,count,firstGame,cardStats)
+    .then(() => canvasToPngBlob(canvas))
+    .then(blob => {
+      saveButton.disabled = false;
+      shareButton.disabled = false;
+      shareHint.textContent = "Карточка готова — откроется системное меню смартфона";
+      return blob;
+    })
+    .catch(() => {
+      shareHint.textContent = "Не удалось загрузить шаблон карточки. Проверьте интернет";
+      return false;
+    });
+  saveButton.addEventListener("click", async () => {
+    try{
+      const blob = await cardReady;
+      if(blob) await saveParticipantCard(blob,count,shareHint);
+    }catch(error){}
+  });
+  shareButton.addEventListener("click", async () => {
+    try{
+      const blob = await cardReady;
+      if(blob) await shareTikTokParticipation(blob,name,count,firstGame,shareHint,cardStats);
+    }catch(error){}
+  });
+  actions.append(shareButton,saveButton);
+
+  shareCard.append(shareHead,shareText,canvas,shareTags,actions,shareHint);
+  playerCard.append(shareCard);
+  refreshRankIcons();
+  if(celebrate && window.confetti && !prefersReducedMotion){
+    confetti({particleCount:120,spread:90,origin:{y:.62}});
+  }
+}
+
+let lastFormErrorSoundAt = 0;
+function playFormErrorSound(){
+  const now = Date.now();
+  if(now - lastFormErrorSoundAt < 500) return;
+  lastFormErrorSoundAt = now;
+  playUiSound("formError");
+}
+</script>

@@ -1,0 +1,1221 @@
+
+
+<div id="rytni-event-page">
+<nav class="top-nav" aria-label="Главная навигация">
+  <button class="nav-brand" id="mushroomSoundBtn" type="button" aria-label="Послушать гриб">
+    <img src="https://rytni.github.io/rytni-assets/mushroom-mobile.webp" alt="" decoding="async">
+    <span>RYTNI <b>ПОДАРИ</b></span>
+  </button>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="mobileNavLinks" aria-label="Открыть меню">
+    <i data-lucide="menu" aria-hidden="true"></i>
+  </button>
+  <div class="nav-links" id="mobileNavLinks">
+    <a href="/">Главная</a>
+    <a href="https://www.tiktok.com/@rytni.tv">Игровой Rytni</a>
+    <a href="https://www.tiktok.com/@rytni.blic">Rytni.exe</a>
+    <button class="sound-toggle-btn" type="button" id="soundToggleBtn" aria-pressed="false" aria-label="Отключить звук" title="Отключить звук"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+    <a href="/donat" class="donate">Донат</a>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="avatar" aria-hidden="true"></div>
+    <div>
+      <div class="eyebrow">Официальное событие RYTNI</div>
+      <div class="season-state-badge" id="seasonStateBadge" data-state="loading">Подключаемся…</div>
+      <h1 id="page-title">RYTNI ПОДАРИ</h1>
+      <p class="lead">Заполните заявку, выберите желанные игры в Steam и набирайте очки за активность. Ваш баланс и история начислений видны только вам и организатору.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#participationCard" id="heroPrimaryAction">Участвовать</a>
+        <button class="ghost-btn" type="button" data-open-application-tool data-tool-mode="card">Моя заявка</button>
+        <button class="ghost-btn" type="button" id="openRulesPopup">Правила</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="announcement-banner" id="announcementBanner" hidden></div>
+  <div class="season-connection-notice" id="seasonConnectionNotice" role="status" aria-live="polite" hidden>
+    <span class="season-connection-icon" aria-hidden="true"><i data-lucide="wifi-off"></i></span>
+    <span class="season-connection-copy"><strong id="seasonConnectionTitle">Не удалось обновить данные сезона</strong><small id="seasonConnectionText">Проверяем соединение и повторим попытку автоматически.</small><em id="seasonConnectionCode"></em></span>
+    <button class="season-connection-retry" type="button" id="seasonConnectionRetryBtn"><i data-lucide="refresh-cw" aria-hidden="true"></i><span>Повторить</span></button>
+  </div>
+
+  <section class="grid" aria-label="Информация о розыгрыше">
+    <div class="card">
+      <div class="card-inner winner-box">
+        <div class="trophy" aria-hidden="true"><img src="https://rytni.github.io/rytni-assets/Winer.webp" alt=""></div>
+        <div class="winner-meta">
+          <p class="small-title" id="winnerTitle">Последний победитель</p>
+          <div class="winner-count"><span aria-hidden="true">&#127942;</span> &#1042;&#1089;&#1077;&#1075;&#1086; &#1087;&#1086;&#1073;&#1077;&#1076;&#1080;&#1090;&#1077;&#1083;&#1077;&#1081; <strong id="winnerCount">0</strong></div>
+          <div id="lastWinner">&#1055;&#1086;&#1073;&#1077;&#1076;&#1080;&#1090;&#1077;&#1083;&#1077;&#1081; &#1087;&#1086;&#1082;&#1072; &#1085;&#1077;&#1090;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <p class="small-title rytni-countdown-season" id="seasonTitle">Загружаем данные сезона</p>
+        <h2 class="rytni-countdown-title" id="seasonCountdownTitle">Проверяем расписание</h2>
+        <div class="rytni-countdown-grid" id="timer" aria-live="polite" aria-label="Обратный отсчёт до завершения сезона">
+          <div class="rytni-countdown-unit" data-unit="days">
+            <span class="rytni-countdown-flip"><b class="rytni-countdown-value" id="d">—</b></span>
+            <small>ДНЕЙ</small>
+          </div>
+          <span class="rytni-countdown-divider" aria-hidden="true"><i></i><i></i></span>
+          <div class="rytni-countdown-unit" data-unit="hours">
+            <span class="rytni-countdown-flip"><b class="rytni-countdown-value" id="h">—</b></span>
+            <small>ЧАСОВ</small>
+          </div>
+          <span class="rytni-countdown-divider" aria-hidden="true"><i></i><i></i></span>
+          <div class="rytni-countdown-unit" data-unit="minutes">
+            <span class="rytni-countdown-flip"><b class="rytni-countdown-value" id="m">—</b></span>
+            <small>МИНУТ</small>
+          </div>
+          <span class="rytni-countdown-divider" aria-hidden="true"><i></i><i></i></span>
+          <div class="rytni-countdown-unit" data-unit="seconds">
+            <span class="rytni-countdown-flip"><b class="rytni-countdown-value" id="s">—</b></span>
+            <small>СЕКУНД</small>
+          </div>
+        </div>
+        <div class="season-finished" id="seasonFinished" hidden>Сезон завершен</div>
+        <div class="boost-entry timer-boost-entry">
+          <button class="gold-boost-btn" type="button" data-open-application-tool data-tool-mode="boost">Прокачка заявки</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card span-2" id="participationCard">
+      <div class="card-inner">
+        <h2 class="section-title">Участие в событии</h2>
+        <div class="form-state" id="formState" hidden></div>
+        <div class="registration-steps" aria-label="Этапы регистрации">
+          <span class="registration-step is-current" id="registrationStepAuth"><b>1</b> Подтвердить email</span>
+          <span class="registration-step" id="registrationStepForm"><b>2</b> Заполнить заявку</span>
+        </div>
+        <div class="registration-benefits" aria-label="Преимущества аккаунта">
+          <span><img src="https://rytni.github.io/rytni-assets/ui-v212/email-core-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Без пароля</b><small>Только одноразовый код</small></span>
+          <span><img src="https://rytni.github.io/rytni-assets/ui-v212/private-shield-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Приватно</b><small>Чужие очки не показываются</small></span>
+          <span><img src="https://rytni.github.io/rytni-assets/ui-v212/progress-compass-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"><b>Всё сохранено</b><small>Прогресс доступен на любом устройстве</small></span>
+        </div>
+        <div class="season-application-note email-confirm-card" id="formAuthNotice">
+          <div class="email-confirm-copy"><strong>Подтвердите email перед заполнением заявки</strong><span>Мы отправим шестизначный одноразовый код — пароль создавать не нужно.</span></div>
+          <button class="email-confirm-btn" type="button" id="formLoginBtn"><i data-lucide="mail-check" aria-hidden="true"></i><span>Подтвердить email</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          <small class="email-confirm-reason"><i data-lucide="shield-check" aria-hidden="true"></i><span>Email нужен, чтобы защитить заявку, сохранить ваш прогресс и автоматически открывать личную комнату на любом устройстве.</span></small>
+        </div>
+        <form id="giveawayForm">
+          <div class="registration-completion" id="registrationCompletion" role="status" aria-live="polite">
+            <span><i data-lucide="clipboard-check" aria-hidden="true"></i><strong id="registrationCompletionTitle">Сначала подтвердите email</strong></span>
+            <small id="registrationCompletionText">После входа останется заполнить восемь обязательных пунктов.</small>
+            <span class="registration-completion-track" aria-hidden="true"><i id="registrationCompletionFill"></i></span>
+          </div>
+          <div class="honeypot-field" aria-hidden="true" inert>
+            <label for="website">Ваш сайт</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-grid">
+            <div class="group">
+              <label class="title" for="name">Ваше имя</label>
+              <input id="name" name="name" type="text" maxlength="25" autocomplete="name" required>
+            </div>
+            <div class="group">
+              <label class="title" for="steamid">Steam-код дружбы</label>
+              <input id="steamid" name="steamid" type="text" minlength="6" maxlength="10" inputmode="numeric" pattern="[0-9]{6,10}" autocomplete="off" aria-describedby="steamidHint" placeholder="Например: 76840084" required>
+              <div class="hint" id="steamidHint">Введите только код дружбы из 6–10 цифр. Ссылки и SteamID64 не принимаются.</div>
+            </div>
+            <div class="group">
+              <label class="title" for="region">Регион Steam</label>
+              <select id="region" name="region" autocomplete="country-name" aria-describedby="regionHint" required>
+                <option value="" selected disabled>Выберите регион Steam</option>
+                <option value="Беларусь" data-region-code="BY">&#9733; Беларусь (BY)</option>
+                <option value="Украина" data-region-code="UA">&#9733; Украина (UA)</option>
+                <option value="Казахстан" data-region-code="KZ">&#9733; Казахстан (KZ)</option>
+                <option value="Россия" data-region-code="RU">&#9733; Россия (RU)</option>
+                <option value="Австралия" data-region-code="AU">Австралия (AU)</option>
+                <option value="Австрия" data-region-code="AT">Австрия (AT)</option>
+                <option value="Азербайджан" data-region-code="AZ">Азербайджан (AZ)</option>
+                <option value="Аландские о-ва" data-region-code="AX">Аландские о-ва (AX)</option>
+                <option value="Албания" data-region-code="AL">Албания (AL)</option>
+                <option value="Алжир" data-region-code="DZ">Алжир (DZ)</option>
+                <option value="Американское Самоа" data-region-code="AS">Американское Самоа (AS)</option>
+                <option value="Ангилья" data-region-code="AI">Ангилья (AI)</option>
+                <option value="Ангола" data-region-code="AO">Ангола (AO)</option>
+                <option value="Андорра" data-region-code="AD">Андорра (AD)</option>
+                <option value="Антарктида" data-region-code="AQ">Антарктида (AQ)</option>
+                <option value="Антигуа и Барбуда" data-region-code="AG">Антигуа и Барбуда (AG)</option>
+                <option value="Аргентина" data-region-code="AR">Аргентина (AR)</option>
+                <option value="Армения" data-region-code="AM">Армения (AM)</option>
+                <option value="Аруба" data-region-code="AW">Аруба (AW)</option>
+                <option value="Афганистан" data-region-code="AF">Афганистан (AF)</option>
+                <option value="Багамы" data-region-code="BS">Багамы (BS)</option>
+                <option value="Бангладеш" data-region-code="BD">Бангладеш (BD)</option>
+                <option value="Барбадос" data-region-code="BB">Барбадос (BB)</option>
+                <option value="Бахрейн" data-region-code="BH">Бахрейн (BH)</option>
+                <option value="Белиз" data-region-code="BZ">Белиз (BZ)</option>
+                <option value="Бельгия" data-region-code="BE">Бельгия (BE)</option>
+                <option value="Бенин" data-region-code="BJ">Бенин (BJ)</option>
+                <option value="Бермудские о-ва" data-region-code="BM">Бермудские о-ва (BM)</option>
+                <option value="Болгария" data-region-code="BG">Болгария (BG)</option>
+                <option value="Боливия" data-region-code="BO">Боливия (BO)</option>
+                <option value="Бонэйр, Синт-Эстатиус и Саба" data-region-code="BQ">Бонэйр, Синт-Эстатиус и Саба (BQ)</option>
+                <option value="Босния и Герцеговина" data-region-code="BA">Босния и Герцеговина (BA)</option>
+                <option value="Ботсвана" data-region-code="BW">Ботсвана (BW)</option>
+                <option value="Бразилия" data-region-code="BR">Бразилия (BR)</option>
+                <option value="Британская территория в Индийском океане" data-region-code="IO">Британская территория в Индийском океане (IO)</option>
+                <option value="Бруней" data-region-code="BN">Бруней (BN)</option>
+                <option value="Буркина-Фасо" data-region-code="BF">Буркина-Фасо (BF)</option>
+                <option value="Бурунди" data-region-code="BI">Бурунди (BI)</option>
+                <option value="Бутан" data-region-code="BT">Бутан (BT)</option>
+                <option value="Вануату" data-region-code="VU">Вануату (VU)</option>
+                <option value="Ватикан" data-region-code="VA">Ватикан (VA)</option>
+                <option value="Великобритания" data-region-code="GB">Великобритания (GB)</option>
+                <option value="Венгрия" data-region-code="HU">Венгрия (HU)</option>
+                <option value="Венесуэла" data-region-code="VE">Венесуэла (VE)</option>
+                <option value="Виргинские о-ва (Великобритания)" data-region-code="VG">Виргинские о-ва (Великобритания) (VG)</option>
+                <option value="Виргинские о-ва (США)" data-region-code="VI">Виргинские о-ва (США) (VI)</option>
+                <option value="Внешние малые о-ва (США)" data-region-code="UM">Внешние малые о-ва (США) (UM)</option>
+                <option value="Восточный Тимор" data-region-code="TL">Восточный Тимор (TL)</option>
+                <option value="Вьетнам" data-region-code="VN">Вьетнам (VN)</option>
+                <option value="Габон" data-region-code="GA">Габон (GA)</option>
+                <option value="Гаити" data-region-code="HT">Гаити (HT)</option>
+                <option value="Гайана" data-region-code="GY">Гайана (GY)</option>
+                <option value="Гамбия" data-region-code="GM">Гамбия (GM)</option>
+                <option value="Гана" data-region-code="GH">Гана (GH)</option>
+                <option value="Гваделупа" data-region-code="GP">Гваделупа (GP)</option>
+                <option value="Гватемала" data-region-code="GT">Гватемала (GT)</option>
+                <option value="Гвинея" data-region-code="GN">Гвинея (GN)</option>
+                <option value="Гвинея-Бисау" data-region-code="GW">Гвинея-Бисау (GW)</option>
+                <option value="Германия" data-region-code="DE">Германия (DE)</option>
+                <option value="Гернси" data-region-code="GG">Гернси (GG)</option>
+                <option value="Гибралтар" data-region-code="GI">Гибралтар (GI)</option>
+                <option value="Гондурас" data-region-code="HN">Гондурас (HN)</option>
+                <option value="Гонконг (САР)" data-region-code="HK">Гонконг (САР) (HK)</option>
+                <option value="Гренада" data-region-code="GD">Гренада (GD)</option>
+                <option value="Гренландия" data-region-code="GL">Гренландия (GL)</option>
+                <option value="Греция" data-region-code="GR">Греция (GR)</option>
+                <option value="Грузия" data-region-code="GE">Грузия (GE)</option>
+                <option value="Гуам" data-region-code="GU">Гуам (GU)</option>
+                <option value="Дания" data-region-code="DK">Дания (DK)</option>
+                <option value="Джерси" data-region-code="JE">Джерси (JE)</option>
+                <option value="Джибути" data-region-code="DJ">Джибути (DJ)</option>
+                <option value="Доминика" data-region-code="DM">Доминика (DM)</option>
+                <option value="Доминиканская Республика" data-region-code="DO">Доминиканская Республика (DO)</option>
+                <option value="Египет" data-region-code="EG">Египет (EG)</option>
+                <option value="Замбия" data-region-code="ZM">Замбия (ZM)</option>
+                <option value="Западная Сахара" data-region-code="EH">Западная Сахара (EH)</option>
+                <option value="Зимбабве" data-region-code="ZW">Зимбабве (ZW)</option>
+                <option value="Израиль" data-region-code="IL">Израиль (IL)</option>
+                <option value="Индия" data-region-code="IN">Индия (IN)</option>
+                <option value="Индонезия" data-region-code="ID">Индонезия (ID)</option>
+                <option value="Иордания" data-region-code="JO">Иордания (JO)</option>
+                <option value="Ирак" data-region-code="IQ">Ирак (IQ)</option>
+                <option value="Иран" data-region-code="IR">Иран (IR)</option>
+                <option value="Ирландия" data-region-code="IE">Ирландия (IE)</option>
+                <option value="Исландия" data-region-code="IS">Исландия (IS)</option>
+                <option value="Испания" data-region-code="ES">Испания (ES)</option>
+                <option value="Италия" data-region-code="IT">Италия (IT)</option>
+                <option value="Йемен" data-region-code="YE">Йемен (YE)</option>
+                <option value="Кабо-Верде" data-region-code="CV">Кабо-Верде (CV)</option>
+                <option value="Камбоджа" data-region-code="KH">Камбоджа (KH)</option>
+                <option value="Камерун" data-region-code="CM">Камерун (CM)</option>
+                <option value="Канада" data-region-code="CA">Канада (CA)</option>
+                <option value="Катар" data-region-code="QA">Катар (QA)</option>
+                <option value="Кения" data-region-code="KE">Кения (KE)</option>
+                <option value="Кипр" data-region-code="CY">Кипр (CY)</option>
+                <option value="Киргизия" data-region-code="KG">Киргизия (KG)</option>
+                <option value="Кирибати" data-region-code="KI">Кирибати (KI)</option>
+                <option value="Китай" data-region-code="CN">Китай (CN)</option>
+                <option value="Кокосовые о-ва" data-region-code="CC">Кокосовые о-ва (CC)</option>
+                <option value="Колумбия" data-region-code="CO">Колумбия (CO)</option>
+                <option value="Коморы" data-region-code="KM">Коморы (KM)</option>
+                <option value="Конго - Браззавиль" data-region-code="CG">Конго - Браззавиль (CG)</option>
+                <option value="Конго - Киншаса" data-region-code="CD">Конго - Киншаса (CD)</option>
+                <option value="Косово" data-region-code="XK">Косово (XK)</option>
+                <option value="Коста-Рика" data-region-code="CR">Коста-Рика (CR)</option>
+                <option value="Кот-д’Ивуар" data-region-code="CI">Кот-д’Ивуар (CI)</option>
+                <option value="Куба" data-region-code="CU">Куба (CU)</option>
+                <option value="Кувейт" data-region-code="KW">Кувейт (KW)</option>
+                <option value="Кюрасао" data-region-code="CW">Кюрасао (CW)</option>
+                <option value="Лаос" data-region-code="LA">Лаос (LA)</option>
+                <option value="Латвия" data-region-code="LV">Латвия (LV)</option>
+                <option value="Лесото" data-region-code="LS">Лесото (LS)</option>
+                <option value="Либерия" data-region-code="LR">Либерия (LR)</option>
+                <option value="Ливан" data-region-code="LB">Ливан (LB)</option>
+                <option value="Ливия" data-region-code="LY">Ливия (LY)</option>
+                <option value="Литва" data-region-code="LT">Литва (LT)</option>
+                <option value="Лихтенштейн" data-region-code="LI">Лихтенштейн (LI)</option>
+                <option value="Люксембург" data-region-code="LU">Люксембург (LU)</option>
+                <option value="Маврикий" data-region-code="MU">Маврикий (MU)</option>
+                <option value="Мавритания" data-region-code="MR">Мавритания (MR)</option>
+                <option value="Мадагаскар" data-region-code="MG">Мадагаскар (MG)</option>
+                <option value="Майотта" data-region-code="YT">Майотта (YT)</option>
+                <option value="Макао (САР)" data-region-code="MO">Макао (САР) (MO)</option>
+                <option value="Малави" data-region-code="MW">Малави (MW)</option>
+                <option value="Малайзия" data-region-code="MY">Малайзия (MY)</option>
+                <option value="Мали" data-region-code="ML">Мали (ML)</option>
+                <option value="Мальдивы" data-region-code="MV">Мальдивы (MV)</option>
+                <option value="Мальта" data-region-code="MT">Мальта (MT)</option>
+                <option value="Марокко" data-region-code="MA">Марокко (MA)</option>
+                <option value="Мартиника" data-region-code="MQ">Мартиника (MQ)</option>
+                <option value="Маршалловы о-ва" data-region-code="MH">Маршалловы о-ва (MH)</option>
+                <option value="Мексика" data-region-code="MX">Мексика (MX)</option>
+                <option value="Мозамбик" data-region-code="MZ">Мозамбик (MZ)</option>
+                <option value="Молдова" data-region-code="MD">Молдова (MD)</option>
+                <option value="Монако" data-region-code="MC">Монако (MC)</option>
+                <option value="Монголия" data-region-code="MN">Монголия (MN)</option>
+                <option value="Монтсеррат" data-region-code="MS">Монтсеррат (MS)</option>
+                <option value="Мьянма (Бирма)" data-region-code="MM">Мьянма (Бирма) (MM)</option>
+                <option value="Намибия" data-region-code="NA">Намибия (NA)</option>
+                <option value="Науру" data-region-code="NR">Науру (NR)</option>
+                <option value="Непал" data-region-code="NP">Непал (NP)</option>
+                <option value="Нигер" data-region-code="NE">Нигер (NE)</option>
+                <option value="Нигерия" data-region-code="NG">Нигерия (NG)</option>
+                <option value="Нидерланды" data-region-code="NL">Нидерланды (NL)</option>
+                <option value="Никарагуа" data-region-code="NI">Никарагуа (NI)</option>
+                <option value="Ниуэ" data-region-code="NU">Ниуэ (NU)</option>
+                <option value="Новая Зеландия" data-region-code="NZ">Новая Зеландия (NZ)</option>
+                <option value="Новая Каледония" data-region-code="NC">Новая Каледония (NC)</option>
+                <option value="Норвегия" data-region-code="NO">Норвегия (NO)</option>
+                <option value="о-в Буве" data-region-code="BV">о-в Буве (BV)</option>
+                <option value="о-в Мэн" data-region-code="IM">о-в Мэн (IM)</option>
+                <option value="о-в Норфолк" data-region-code="NF">о-в Норфолк (NF)</option>
+                <option value="о-в Рождества" data-region-code="CX">о-в Рождества (CX)</option>
+                <option value="о-в Св. Елены" data-region-code="SH">о-в Св. Елены (SH)</option>
+                <option value="о-ва Кайман" data-region-code="KY">о-ва Кайман (KY)</option>
+                <option value="о-ва Кука" data-region-code="CK">о-ва Кука (CK)</option>
+                <option value="о-ва Питкэрн" data-region-code="PN">о-ва Питкэрн (PN)</option>
+                <option value="о-ва Херд и Макдональд" data-region-code="HM">о-ва Херд и Макдональд (HM)</option>
+                <option value="ОАЭ" data-region-code="AE">ОАЭ (AE)</option>
+                <option value="Оман" data-region-code="OM">Оман (OM)</option>
+                <option value="Пакистан" data-region-code="PK">Пакистан (PK)</option>
+                <option value="Палау" data-region-code="PW">Палау (PW)</option>
+                <option value="Палестинские территории" data-region-code="PS">Палестинские территории (PS)</option>
+                <option value="Панама" data-region-code="PA">Панама (PA)</option>
+                <option value="Папуа — Новая Гвинея" data-region-code="PG">Папуа — Новая Гвинея (PG)</option>
+                <option value="Парагвай" data-region-code="PY">Парагвай (PY)</option>
+                <option value="Перу" data-region-code="PE">Перу (PE)</option>
+                <option value="Польша" data-region-code="PL">Польша (PL)</option>
+                <option value="Португалия" data-region-code="PT">Португалия (PT)</option>
+                <option value="Пуэрто-Рико" data-region-code="PR">Пуэрто-Рико (PR)</option>
+                <option value="Республика Корея" data-region-code="KR">Республика Корея (KR)</option>
+                <option value="Реюньон" data-region-code="RE">Реюньон (RE)</option>
+                <option value="Руанда" data-region-code="RW">Руанда (RW)</option>
+                <option value="Румыния" data-region-code="RO">Румыния (RO)</option>
+                <option value="Сальвадор" data-region-code="SV">Сальвадор (SV)</option>
+                <option value="Самоа" data-region-code="WS">Самоа (WS)</option>
+                <option value="Сан-Марино" data-region-code="SM">Сан-Марино (SM)</option>
+                <option value="Сан-Томе и Принсипи" data-region-code="ST">Сан-Томе и Принсипи (ST)</option>
+                <option value="Саудовская Аравия" data-region-code="SA">Саудовская Аравия (SA)</option>
+                <option value="Северная Македония" data-region-code="MK">Северная Македония (MK)</option>
+                <option value="Северные Марианские о-ва" data-region-code="MP">Северные Марианские о-ва (MP)</option>
+                <option value="Сейшельские о-ва" data-region-code="SC">Сейшельские о-ва (SC)</option>
+                <option value="Сен-Бартелеми" data-region-code="BL">Сен-Бартелеми (BL)</option>
+                <option value="Сен-Мартен" data-region-code="MF">Сен-Мартен (MF)</option>
+                <option value="Сен-Пьер и Микелон" data-region-code="PM">Сен-Пьер и Микелон (PM)</option>
+                <option value="Сенегал" data-region-code="SN">Сенегал (SN)</option>
+                <option value="Сент-Винсент и Гренадины" data-region-code="VC">Сент-Винсент и Гренадины (VC)</option>
+                <option value="Сент-Китс и Невис" data-region-code="KN">Сент-Китс и Невис (KN)</option>
+                <option value="Сент-Люсия" data-region-code="LC">Сент-Люсия (LC)</option>
+                <option value="Сербия" data-region-code="RS">Сербия (RS)</option>
+                <option value="Сингапур" data-region-code="SG">Сингапур (SG)</option>
+                <option value="Синт-Мартен" data-region-code="SX">Синт-Мартен (SX)</option>
+                <option value="Сирия" data-region-code="SY">Сирия (SY)</option>
+                <option value="Словакия" data-region-code="SK">Словакия (SK)</option>
+                <option value="Словения" data-region-code="SI">Словения (SI)</option>
+                <option value="Соединенные Штаты" data-region-code="US">Соединенные Штаты (US)</option>
+                <option value="Соломоновы о-ва" data-region-code="SB">Соломоновы о-ва (SB)</option>
+                <option value="Сомали" data-region-code="SO">Сомали (SO)</option>
+                <option value="Судан" data-region-code="SD">Судан (SD)</option>
+                <option value="Суринам" data-region-code="SR">Суринам (SR)</option>
+                <option value="Сьерра-Леоне" data-region-code="SL">Сьерра-Леоне (SL)</option>
+                <option value="Таджикистан" data-region-code="TJ">Таджикистан (TJ)</option>
+                <option value="Таиланд" data-region-code="TH">Таиланд (TH)</option>
+                <option value="Тайвань" data-region-code="TW">Тайвань (TW)</option>
+                <option value="Танзания" data-region-code="TZ">Танзания (TZ)</option>
+                <option value="Тёркс и Кайкос" data-region-code="TC">Тёркс и Кайкос (TC)</option>
+                <option value="Того" data-region-code="TG">Того (TG)</option>
+                <option value="Токелау" data-region-code="TK">Токелау (TK)</option>
+                <option value="Тонга" data-region-code="TO">Тонга (TO)</option>
+                <option value="Тринидад и Тобаго" data-region-code="TT">Тринидад и Тобаго (TT)</option>
+                <option value="Тувалу" data-region-code="TV">Тувалу (TV)</option>
+                <option value="Тунис" data-region-code="TN">Тунис (TN)</option>
+                <option value="Туркменистан" data-region-code="TM">Туркменистан (TM)</option>
+                <option value="Турция" data-region-code="TR">Турция (TR)</option>
+                <option value="Уганда" data-region-code="UG">Уганда (UG)</option>
+                <option value="Узбекистан" data-region-code="UZ">Узбекистан (UZ)</option>
+                <option value="Уоллис и Футуна" data-region-code="WF">Уоллис и Футуна (WF)</option>
+                <option value="Уругвай" data-region-code="UY">Уругвай (UY)</option>
+                <option value="Фарерские о-ва" data-region-code="FO">Фарерские о-ва (FO)</option>
+                <option value="Федеративные Штаты Микронезии" data-region-code="FM">Федеративные Штаты Микронезии (FM)</option>
+                <option value="Фиджи" data-region-code="FJ">Фиджи (FJ)</option>
+                <option value="Филиппины" data-region-code="PH">Филиппины (PH)</option>
+                <option value="Финляндия" data-region-code="FI">Финляндия (FI)</option>
+                <option value="Фолклендские о-ва" data-region-code="FK">Фолклендские о-ва (FK)</option>
+                <option value="Франция" data-region-code="FR">Франция (FR)</option>
+                <option value="Французская Гвиана" data-region-code="GF">Французская Гвиана (GF)</option>
+                <option value="Французская Полинезия" data-region-code="PF">Французская Полинезия (PF)</option>
+                <option value="Французские Южные территории" data-region-code="TF">Французские Южные территории (TF)</option>
+                <option value="Хорватия" data-region-code="HR">Хорватия (HR)</option>
+                <option value="Центрально-Африканская Республика" data-region-code="CF">Центрально-Африканская Республика (CF)</option>
+                <option value="Чад" data-region-code="TD">Чад (TD)</option>
+                <option value="Черногория" data-region-code="ME">Черногория (ME)</option>
+                <option value="Чехия" data-region-code="CZ">Чехия (CZ)</option>
+                <option value="Чили" data-region-code="CL">Чили (CL)</option>
+                <option value="Швейцария" data-region-code="CH">Швейцария (CH)</option>
+                <option value="Швеция" data-region-code="SE">Швеция (SE)</option>
+                <option value="Шпицберген и Ян-Майен" data-region-code="SJ">Шпицберген и Ян-Майен (SJ)</option>
+                <option value="Шри-Ланка" data-region-code="LK">Шри-Ланка (LK)</option>
+                <option value="Эквадор" data-region-code="EC">Эквадор (EC)</option>
+                <option value="Экваториальная Гвинея" data-region-code="GQ">Экваториальная Гвинея (GQ)</option>
+                <option value="Эритрея" data-region-code="ER">Эритрея (ER)</option>
+                <option value="Эсватини" data-region-code="SZ">Эсватини (SZ)</option>
+                <option value="Эстония" data-region-code="EE">Эстония (EE)</option>
+                <option value="Эфиопия" data-region-code="ET">Эфиопия (ET)</option>
+                <option value="Южная Георгия и Южные Сандвичевы о-ва" data-region-code="GS">Южная Георгия и Южные Сандвичевы о-ва (GS)</option>
+                <option value="Южно-Африканская Республика" data-region-code="ZA">Южно-Африканская Республика (ZA)</option>
+                <option value="Южный Судан" data-region-code="SS">Южный Судан (SS)</option>
+                <option value="Ямайка" data-region-code="JM">Ямайка (JM)</option>
+                <option value="Япония" data-region-code="JP">Япония (JP)</option>
+              </select>
+              <div class="hint" id="regionHint">Выберите страну или территорию, которая указана в настройках магазина Steam. Это нужно для проверки доступности подарка.</div>
+            </div>
+            <div class="group">
+              <label class="title" for="tiktok">Аккаунт TikTok <span class="optional-label">обязательно</span></label>
+              <input id="tiktok" name="tiktok" type="text" minlength="2" maxlength="120" placeholder="@username или ссылка на профиль TikTok" autocomplete="off" aria-describedby="tiktokHint" required>
+              <div class="hint" id="tiktokHint">Укажите ваш TikTok — он нужен для проверки участия и выполнения TikTok-заданий.</div>
+            </div>
+            <div class="group">
+              <label class="title" for="minskAvailability">Проживаете ли вы в Минске?</label>
+              <select id="minskAvailability" name="minsk_availability" aria-describedby="minskAvailabilityHint" required>
+                <option value="" selected disabled>Выберите вариант ответа</option>
+                <option value="minsk_resident">Да, я из Минска.</option>
+                <option value="can_visit">Нет, но легко могу приехать.</option>
+                <option value="cannot_visit">Я из другой страны или не имею возможности приехать в Минск.</option>
+              </select>
+              <div class="hint" id="minskAvailabilityHint">Ответ поможет организатору учитывать возможность личного вручения подарка.</div>
+            </div>
+            <div class="group">
+              <label class="title" for="ageGroup">Сколько вам лет?</label>
+              <select id="ageGroup" name="age_group" aria-describedby="ageGroupHint" required>
+                <option value="" selected disabled>Выберите возрастную группу</option>
+                <option value="under_18">Мне меньше 18</option>
+                <option value="18_plus">18+</option>
+                <option value="25_plus">25+</option>
+                <option value="35_plus">35+</option>
+              </select>
+              <div class="hint" id="ageGroupHint">Указывается только возрастная группа, без точной даты рождения.</div>
+            </div>
+            <div class="group full">
+              <label class="title" for="games">Какие игры хотели бы получить</label>
+              <textarea id="games" name="games" maxlength="120" placeholder="Например: Cyberpunk 2077, Ready or Not, Elden Ring" aria-describedby="gamesHint" required></textarea>
+              <div class="game-chips-preview" id="gameChipsPreview" aria-live="polite"></div>
+              <div class="hint" id="gamesHint">Укажите от 1 до 4 игр через запятую. Частые сокращения, регистр и лишние пробелы исправятся автоматически.</div>
+            </div>
+          </div>
+
+          <label class="check" for="subscribed">
+            <input id="subscribed" type="checkbox" required>
+            <span>Я подписан на Rytni, принимаю правила события и согласен на обработку данных заявки</span>
+          </label>
+          <small class="registration-privacy-note"><img src="https://rytni.github.io/rytni-assets/ui-v212/private-shield-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">Другие участники не увидят ваш Steam-код, email или количество очков.</small>
+
+          <button type="submit" class="btn energy-btn" id="submitBtn">Участвовать в событии</button>
+          <div class="boost-entry form-boost-entry">
+            <button class="gold-boost-btn" type="button" data-open-application-tool data-tool-mode="boost">Прокачка заявки</button>
+          </div>
+          <div id="formStatus" class="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="card span-2 registered-mobile-boost" id="registeredMobileBoost" hidden>
+      <div class="card-inner">
+        <button class="gold-boost-btn" type="button" data-open-application-tool data-tool-mode="boost">Прокачка заявки</button>
+      </div>
+    </div>
+
+    <div class="card span-2 rules-card" id="rules">
+      <div class="card-inner">
+        <div class="rules-head">
+          <h2 class="section-title">Коротко о правилах</h2>
+        </div>
+        <div class="trust-list">
+          <div class="trust-item"><span class="trust-icon">01</span><span><strong>Итоги сезона</strong><span id="ruleEndDate">Дата завершения указана в таймере.</span></span></div>
+          <div class="trust-item"><span class="trust-icon">02</span><span><strong>Очки всегда учитываются</strong>Организатор всегда учитывает количество ваших очков при выборе победителей, но очки других участников остаются скрыты.</span></div>
+          <div class="trust-item"><span class="trust-icon">03</span><span><strong>Приз через Steam</strong>Подарок отправляется как Steam Gift с учетом региона.</span></div>
+          <div class="trust-item"><span class="trust-icon">04</span><span><strong>Данные бережно</strong>Заявка нужна только для участия и связи с победителем.</span></div>
+          <div class="trust-item"><span class="trust-icon">05</span><span><strong>Приватный прогресс</strong>Каждый участник видит только собственные очки и собственную историю начислений.</span></div>
+        </div>
+        <button class="rules-summary-open" type="button" id="rulesSummaryOpenBtn"><i data-lucide="book-open" aria-hidden="true"></i>Открыть подробные правила</button>
+      </div>
+    </div>
+
+    <div class="card top-games-card">
+      <div class="card-inner">
+        <div class="top-games-head">
+          <h2 class="section-title">Популярные игры</h2>
+          <span class="rating-pill">топ сезона</span>
+        </div>
+        <div id="topGamesList" class="top-games-list">Данные загружаются...</div>
+      </div>
+    </div>
+
+    <div class="card participants-card">
+      <div class="card-inner">
+        <div class="participants-head">
+          <h2 class="section-title">Последние участники</h2>
+          <span id="participantCount" class="participant-count">0</span>
+        </div>
+        <div class="chance-panel" aria-label="Активность сообщества">
+          <div id="chanceBox" class="hint">Загружаем активность сообщества.</div>
+          <div class="progress" aria-hidden="true"><div id="chanceFill" class="progressfill"></div></div>
+        </div>
+        <div id="participantsList" class="participants-list" style="margin-top:14px"></div>
+      </div>
+    </div>
+
+    <div class="card span-2 winner-archive-card" id="archiveCard" hidden>
+      <div class="card-inner winner-archive-inner">
+        <div class="winner-archive-head">
+          <span class="winner-archive-emblem" aria-hidden="true">✦</span>
+          <div class="winner-archive-heading">
+            <span class="winner-archive-eyebrow">Летопись события</span>
+            <h2 class="section-title">Зал славы Rytni</h2>
+            <p>Победители прошлых сезонов и подарки, которые они выбрали.</p>
+          </div>
+          <span class="winner-archive-badge">Архив события</span>
+        </div>
+        <div id="winnerArchive" class="winner-archive-seasons" role="list" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-cta">
+  <a class="btn" href="#participationCard">Участвовать</a>
+</div>
+
+<div class="popup-overlay rules-popup-overlay" id="rulesPopup" role="dialog" aria-modal="true" aria-labelledby="rulesPopupTitle" aria-describedby="rulesPopupLead" aria-hidden="true">
+  <div class="rules-popup">
+    <button class="rules-popup-close" type="button" data-close-popup aria-label="Закрыть правила"><i data-lucide="x" aria-hidden="true"></i></button>
+
+    <header class="rules-popup-hero">
+      <span class="rules-popup-emblem" aria-hidden="true"><i data-lucide="scroll-text"></i></span>
+      <div>
+        <span class="rules-popup-kicker">RYTNI ПОДАРИ · ПРАВИЛА СОБЫТИЯ</span>
+        <h2 id="rulesPopupTitle">Как всё устроено</h2>
+        <p id="rulesPopupLead">Здесь собраны основные правила, значение очков и принципы, по которым Rytni лично выбирает получателей подарков.</p>
+      </div>
+    </header>
+
+    <nav class="rules-popup-nav" aria-label="Разделы правил">
+      <a href="#rulesEvent"><i data-lucide="list-checks" aria-hidden="true"></i><span>Правила</span></a>
+      <a href="#rulesPoints"><i data-lucide="coins" aria-hidden="true"></i><span>Очки</span></a>
+      <a href="#rulesEmail"><i data-lucide="mail-check" aria-hidden="true"></i><span>Email</span></a>
+      <a href="#rulesTelegram"><i data-lucide="send" aria-hidden="true"></i><span>Telegram</span></a>
+      <a href="#rulesSelection"><i data-lucide="user-check" aria-hidden="true"></i><span>Выбор</span></a>
+      <a href="#rulesMission"><i data-lucide="heart-handshake" aria-hidden="true"></i><span>О проекте</span></a>
+    </nav>
+
+    <div class="rules-popup-content">
+      <section class="rules-section" id="rulesEvent">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-violet" aria-hidden="true"><i data-lucide="list-checks"></i></span>
+          <div><small>01 · ОСНОВА</small><h3>Правила участия</h3></div>
+        </div>
+        <div class="rules-numbered-list">
+          <article><b>1</b><div><strong>Одна честная заявка</strong><p>Указывайте корректные данные, действующий Steam-код дружбы, настоящий регион магазина Steam и игры, которые действительно хотите получить.</p></div></article>
+          <article><b>2</b><div><strong>Подарок должен быть доступен</strong><p>Игра отправляется через Steam с учётом региональных ограничений, цены и возможности оформить подарок в регион участника.</p></div></article>
+          <article><b>3</b><div><strong>Будьте на связи</strong><p>Если Rytni выбрал вашу заявку, необходимо ответить и предоставить возможность отправить подарок. Недостоверные или недоступные контакты могут привести к отмене выбора.</p></div></article>
+          <article><b>4</b><div><strong>Без накруток и обхода правил</strong><p>Повторные аккаунты, автоматизация, подмена данных, попытки получить чужую заявку или искусственно накрутить активность могут привести к блокировке.</p></div></article>
+          <article><b>5</b><div><strong>Участие добровольное</strong><p>Событие бесплатное. Отправляя заявку и продолжая прокачку, участник принимает эти правила и самостоятельно решает, участвовать ему или нет.</p></div></article>
+        </div>
+      </section>
+
+      <section class="rules-section" id="rulesPoints">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-cyan" aria-hidden="true"><i data-lucide="coins"></i></span>
+          <div><small>02 · ПРОГРЕСС</small><h3>Для чего нужны очки</h3></div>
+        </div>
+        <div class="rules-highlight">
+          <i data-lucide="activity" aria-hidden="true"></i>
+          <p><strong>Очки показывают активность участника и развитие его заявки.</strong> Rytni видит этот прогресс и учитывает его при выборе. Балансы других участников остаются скрытыми.</p>
+        </div>
+        <div class="rules-guarantee">
+          <span class="rules-guarantee-icon" aria-hidden="true"><i data-lucide="crown"></i></span>
+          <div>
+            <small>ЛИЧНЫЙ ВЫБОР RYTNI</small>
+            <strong>Активность и прогресс учитываются при выборе</strong>
+            <p>По окончании сезона владелец лично выбирает победителей. Очки и активность учитываются, но сами по себе не гарантируют подарок.</p>
+          </div>
+        </div>
+        <p class="rules-copy">До завершения сезона конкретная сумма очков не означает автоматического попадания в число лидеров: итог определяется по финальному балансу. Для остальных участников очки остаются важным показателем активности, который Rytni учитывает при личном выборе.</p>
+        <h4>Как копить очки</h4>
+        <div class="rules-method-grid">
+          <article><span><i data-lucide="package-open" aria-hidden="true"></i></span><div><strong>Открывать сундук дня</strong><p>Возвращайтесь после окончания времени восстановления и продолжайте серию сундуков.</p></div></article>
+          <article><span><i data-lucide="badge-plus" aria-hidden="true"></i></span><div><strong>Забирать награды партнёров</strong><p>Когда сундук спонсора включён, его условия и награда отображаются во вкладке «Сундуки».</p></div></article>
+          <article><span><i data-lucide="badge-help" aria-hidden="true"></i></span><div><strong>Отвечать на игровые вопросы</strong><p>Верные ответы подряд продолжают текущую серию. Неверный ответ обнуляет её, а лучший результат сохраняется.</p></div></article>
+          <article><span><i data-lucide="play-square" aria-hidden="true"></i></span><div><strong>Смотреть ролики в прокачке</strong><p>Просматривайте доступные задания до необходимого прогресса, чтобы просмотр был засчитан.</p></div></article>
+        </div>
+      </section>
+
+      <section class="rules-section" id="rulesEmail">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-blue" aria-hidden="true"><i data-lucide="mail-check"></i></span>
+          <div><small>03 · ЗАЩИТА</small><h3>Зачем привязывать email</h3></div>
+        </div>
+        <div class="rules-email-grid">
+          <article><i data-lucide="shield-check" aria-hidden="true"></i><strong>Защита заявки</strong><p>Подтверждённый адрес не позволяет другому человеку открыть и использовать вашу заявку.</p></article>
+          <article><i data-lucide="refresh-cw" aria-hidden="true"></i><strong>Доступ на любом устройстве</strong><p>После входа по одноразовому коду открываются ваша карточка, очки, купоны и прогресс.</p></article>
+          <article><i data-lucide="link" aria-hidden="true"></i><strong>Связь со старой заявкой</strong><p>Если заявка была создана раньше без email, её можно привязать по Steam-коду или указанной ссылке TikTok.</p></article>
+        </div>
+        <p class="rules-note"><i data-lucide="key-round" aria-hidden="true"></i><span>Пароль создавать не требуется: вход подтверждается шестизначным одноразовым кодом.</span></p>
+      </section>
+
+      <section class="rules-section" id="rulesTelegram">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-telegram" aria-hidden="true"><i data-lucide="send"></i></span>
+          <div><small>04 · УВЕДОМЛЕНИЯ</small><h3>Зачем подключать Telegram</h3></div>
+        </div>
+        <div class="rules-email-grid rules-telegram-grid">
+          <article><i data-lucide="bell-ring" aria-hidden="true"></i><strong>Не пропускайте активности</strong><p>Бот напомнит о доступном сундуке и игровом вопросе, а также сообщит, когда появятся новые ролики для просмотра.</p></article>
+          <article><i data-lucide="trophy" aria-hidden="true"></i><strong>Сообщение о победе</strong><p>Если Rytni выберет вашу заявку, бот поздравит вас и напомнит проверить входящий запрос от Rytni в Steam.</p></article>
+          <article><i data-lucide="sliders-horizontal" aria-hidden="true"></i><strong>Управление кнопками</strong><p>В меню бота можно отдельно включать и выключать каждый тип уведомлений, временно приостанавливать сообщения и проверять подключение. Команды запоминать не нужно.</p></article>
+        </div>
+        <p class="rules-note rules-telegram-note"><i data-lucide="sparkles" aria-hidden="true"></i><span><b>Секретные личные задания:</b> эта функция добровольная и по умолчанию выключена. После включения бот дважды за полную календарную неделю присылает ограниченное по времени личное задание. Чтобы забрать награду, нажмите кнопку в сообщении в течение 10 минут. Если не успеть, задание завершится, а награда станет недоступна. При включении функции в середине недели до её окончания заданий может прийти меньше.</span></p>
+        <p class="rules-note rules-telegram-note"><i data-lucide="moon" aria-hidden="true"></i><span><b>Тихие часы:</b> укажите своё местное время, начало и окончание сна. Ночью сообщения останутся в очереди, а после пробуждения придут постепенно, без утренней пачки.</span></p>
+        <p class="rules-note rules-telegram-note"><i data-lucide="shield-check" aria-hidden="true"></i><span>Подключение добровольное и не влияет на количество очков или шанс выбора. Бот не читает ваши переписки: он использует привязку только для выбранных уведомлений проекта.</span></p>
+        <p class="rules-note"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i><span><b>Как подключить:</b> подтвердите email, откройте «Моя заявка», нажмите «Подключить» в строке Telegram и затем Start в боте. Настройки открываются кнопкой «Настроить», а полностью отвязать аккаунт можно значком выхода в строке Telegram.</span></p>
+      </section>
+
+      <section class="rules-section" id="rulesSelection">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-gold" aria-hidden="true"><i data-lucide="user-check"></i></span>
+          <div><small>05 · РЕШЕНИЕ</small><h3>Как выбираются победители</h3></div>
+        </div>
+        <div class="rules-warning is-soft">
+          <i data-lucide="medal" aria-hidden="true"></i>
+          <p><b>Гарантированные места по прокачке.</b> Участники, занявшие 1-е, 2-е и 3-е места в рейтинге прокачки к завершению сезона, гарантированно становятся победителями. Гарантированных мест может быть больше — это зависит от условий конкретного сезона, возможностей Rytni и количества участников, которых Rytni уже выбрал победителями. Число дополнительных гарантированных мест заранее не фиксируется.</p>
+        </div>
+        <div class="rules-selection-card">
+          <div class="rules-selection-badge"><i data-lucide="eye" aria-hidden="true"></i><span>ЛИЧНЫЙ ВЫБОР RYTNI</span></div>
+          <p>Остальных получателей подарков Rytni лично выбирает из общего списка участников. Это не полностью случайная раздача: перед решением он смотрит на поведение и реальную активность участника.</p>
+          <ul>
+            <li><i data-lucide="trending-up" aria-hidden="true"></i><span>как регулярно участник прокачивает свою заявку и сколько очков набирает;</span></li>
+            <li><i data-lucide="play-circle" aria-hidden="true"></i><span>смотрит ли ролики Rytni и выполняет ли видеозадания;</span></li>
+            <li><i data-lucide="heart" aria-hidden="true"></i><span>поддерживает ли публикации лайками;</span></li>
+            <li><i data-lucide="message-circle" aria-hidden="true"></i><span>оставляет ли осмысленные комментарии по теме ролика, а не однотипный спам;</span></li>
+            <li><i data-lucide="users" aria-hidden="true"></i><span>является ли живым участником сообщества, а не аккаунтом, созданным только ради подарка.</span></li>
+          </ul>
+        </div>
+        <div class="rules-warning is-soft">
+          <i data-lucide="info" aria-hidden="true"></i>
+          <p>Портал автоматически фиксирует только действия внутри события: вопросы, сундуки и подтверждённые просмотры. Лайки и содержательные комментарии Rytni оценивает вручную на своих каналах. Активные заявки, как правило, имеют заметно более высокий шанс, но ни отдельный лайк, ни комментарий, ни конкретная сумма очков сами по себе не гарантируют получение игры.</p>
+        </div>
+        <div class="rules-warning">
+          <i data-lucide="triangle-alert" aria-hidden="true"></i>
+          <p>Многие участники уже попадали в предварительный выбор, но в итоге не получали игру: при проверке выяснялось, что они совсем не проявляли активности на каналах Rytni — не смотрели ролики, не поддерживали публикации и не участвовали в жизни сообщества.</p>
+        </div>
+      </section>
+
+      <section class="rules-section rules-mission" id="rulesMission">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-pink" aria-hidden="true"><i data-lucide="heart-handshake"></i></span>
+          <div><small>06 · СМЫСЛ</small><h3>Зачем создан «Rytni Подари»</h3></div>
+        </div>
+        <p class="rules-mission-lead">Проект создан на личные средства Rytni не просто ради раздачи игр, а чтобы порадовать людей из сообщества — особенно тех, кто не может позволить себе желанную игру.</p>
+        <div class="rules-boundary">
+          <i data-lucide="shield-alert" aria-hidden="true"></i>
+          <div>
+            <strong>Важно уважать границы</strong>
+            <p>Rytni не обязан лично вам что-либо дарить. «Rytni Подари» — добровольное бесплатное событие, а участие в нём не создаёт обязательств перед конкретным человеком.</p>
+          </div>
+        </div>
+        <div class="rules-boundary is-danger">
+          <i data-lucide="message-square-warning" aria-hidden="true"></i>
+          <div>
+            <strong>Просьбы и давление не увеличивают шанс</strong>
+            <p>Попрошайничество, требования и попытки выпрашивать игру в личных сообщениях не помогут получить подарок. Навязчивое поведение, спам, давление или оскорбления могут привести к блокировке заявки.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="rules-popup-footer">
+      <p><i data-lucide="sparkles" aria-hidden="true"></i><span>Участвуйте честно, поддерживайте сообщество и выбирайте игры, которые действительно принесут вам радость.</span></p>
+      <button class="rules-accept-btn" type="button" data-close-popup><i data-lucide="check-circle-2" aria-hidden="true"></i>Понятно, принимаю</button>
+    </footer>
+  </div>
+</div>
+
+<div class="popup-overlay telegram-disconnect-overlay" id="telegramDisconnectPopup" role="dialog" aria-modal="true" aria-labelledby="telegramDisconnectTitle" aria-describedby="telegramDisconnectText" aria-hidden="true">
+  <div class="popup telegram-disconnect-popup">
+    <span class="telegram-disconnect-icon" aria-hidden="true"><i data-lucide="unlink"></i></span>
+    <h3 id="telegramDisconnectTitle">Отключить Telegram?</h3>
+    <p id="telegramDisconnectText">Напоминания перестанут приходить. Позже можно подключить этот или другой Telegram-аккаунт.</p>
+    <div class="telegram-disconnect-actions">
+      <button class="telegram-disconnect-cancel" type="button" data-close-popup>Оставить подключённым</button>
+      <button class="telegram-disconnect-confirm" type="button" id="telegramDisconnectConfirmBtn"><i data-lucide="log-out" aria-hidden="true"></i><span>Отключить</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="popup-overlay" id="successPopup" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="popup">
+    <h3 id="successTitle">Заявка отправлена</h3>
+    <p>Она передана на обработку. Ниже можно посмотреть, какие игры чаще всего хотят получить другие участники сезона.</p>
+    <div class="wishes-strip">
+      <div id="wishesTrack" class="wishes-track"></div>
+    </div>
+    <div id="playerCard"></div>
+    <button class="popup-btn" type="button" data-close-popup>Закрыть</button>
+  </div>
+</div>
+
+<div class="popup-overlay" id="duplicatePopup" role="dialog" aria-modal="true" aria-labelledby="duplicateTitle">
+  <div class="popup">
+    <h3 id="duplicateTitle">Вы уже участвуете</h3>
+    <p>Ваша заявка уже была зарегистрирована!</p>
+    <button class="popup-btn" type="button" data-close-popup>Понятно</button>
+  </div>
+</div>
+
+<div class="popup-overlay" id="errorPopup" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
+  <div class="popup">
+    <h3 id="errorTitle">Не удалось отправить</h3>
+    <p>Проверьте интернет и попробуйте еще раз через несколько секунд.</p>
+    <button class="popup-btn" type="button" data-close-popup>Понятно</button>
+  </div>
+</div>
+
+<div class="popup-overlay registration-auth-overlay" id="registrationAuthPopup" role="dialog" aria-modal="true" aria-labelledby="registrationAuthTitle" aria-hidden="true">
+  <div class="popup registration-auth-popup">
+    <button class="application-search-close" type="button" data-close-popup aria-label="Закрыть окно"><span class="application-search-close-mark" aria-hidden="true">&times;</span></button>
+    <img class="registration-auth-art" src="https://rytni.github.io/rytni-assets/ui-v212/email-core-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <span class="registration-auth-kicker">Шаг 1 из 2</span>
+    <h3 id="registrationAuthTitle">Подтвердите email</h3>
+    <p>Введите email — мы отправим одноразовый шестизначный код. Пароль создавать не нужно.</p>
+    <div id="registrationAuthHost"></div>
+    <small class="registration-auth-security"><img src="https://rytni.github.io/rytni-assets/ui-v212/private-shield-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">Это защищает заявку и сохраняет ваш личный прогресс.</small>
+  </div>
+</div>
+
+<div class="popup-overlay" id="applicationPopup" role="dialog" aria-modal="true" aria-labelledby="applicationPopupTitle">
+  <div class="popup application-popup">
+    <button class="application-search-close" type="button" id="applicationSearchClose" data-close-popup aria-label="Закрыть окно"><span class="application-search-close-mark" aria-hidden="true">&times;</span></button>
+    <header class="application-gateway" id="applicationGateway">
+      <div class="application-gateway-visual" aria-hidden="true">
+        <span class="application-gateway-aura"></span>
+        <span class="application-gateway-ring"></span>
+        <img class="application-gateway-art" id="applicationGatewayArt" src="https://rytni.github.io/rytni-assets/ui-v213/room-portal-mobile.webp" alt="" loading="lazy" decoding="async">
+        <span class="application-gateway-badge"><img id="applicationGatewayBadgeArt" src="https://rytni.github.io/rytni-assets/ui-v213/room-key-mobile.webp" alt="" loading="lazy" decoding="async"></span>
+      </div>
+      <div class="application-gateway-copy">
+        <span class="application-gateway-kicker" id="applicationPopupKicker">Приватное пространство</span>
+        <h3 id="applicationPopupTitle">Моя заявка</h3>
+        <p id="applicationPopupLead">Войдите по email, чтобы открыть собственный прогресс и награды.</p>
+        <div class="application-gateway-tags" aria-label="Возможности">
+          <span><i data-lucide="shield-check"></i><b id="applicationGatewayTagOne">Только ваши данные</b></span>
+          <span><i data-lucide="sparkles"></i><b id="applicationGatewayTagTwo">Награды и история</b></span>
+        </div>
+      </div>
+    </header>
+    <div class="auth-state" id="authState" hidden><span id="authStateText"></span><button class="auth-link" type="button" id="logoutBtn">Выйти из аккаунта</button></div>
+    <div id="authPanelHome"></div>
+    <div class="auth-panel" id="authPanel">
+      <div class="auth-choice" id="authChoice"><button class="auth-mode-btn" type="button" id="showEmailLoginBtn"><i data-lucide="mail"></i><span>Войти по email</span></button></div>
+      <div class="auth-video-notice" id="authVideoNotice"><span class="auth-video-notice-icon"><img id="authVideoNoticeArt" src="https://rytni.github.io/rytni-assets/ui-v213/room-key-mobile.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></span><span><strong id="authVideoNoticeTitle">Ваш прогресс защищён</strong><small id="authVideoNoticeCopy">Войдите по email — откроются только ваши очки, награды, сундуки и история активности.</small></span></div>
+      <form class="auth-form" id="emailLoginForm" hidden><label class="auth-field" for="authEmail"><span class="sr-only">Email для входа</span><i data-lucide="at-sign" aria-hidden="true"></i><input id="authEmail" type="email" maxlength="160" autocomplete="email" placeholder="Ваш email" aria-describedby="authEmailHint" required></label><button class="btn auth-submit-btn" type="submit" id="sendOtpBtn">Получить код</button><small class="auth-inline-hint" id="authEmailHint">Мы отправим одноразовый код. Пароль создавать не нужно.</small></form>
+      <form class="auth-form auth-otp-form" id="otpVerifyForm" hidden><div class="auth-otp-destination"><span>Код отправлен на</span><strong id="authOtpEmail"></strong></div><label class="auth-field" for="authOtp"><span class="sr-only">Шестизначный код из письма</span><i data-lucide="key-round" aria-hidden="true"></i><input id="authOtp" type="text" maxlength="6" inputmode="numeric" autocomplete="one-time-code" enterkeyhint="done" placeholder="6-значный код" aria-describedby="authOtpHint" required></label><button class="btn auth-submit-btn" type="submit" id="verifyOtpBtn">Подтвердить</button><div class="auth-otp-actions"><button class="auth-secondary-btn" type="button" id="resendOtpBtn" disabled><i data-lucide="rotate-cw" aria-hidden="true"></i><span>Отправить код ещё раз</span></button><button class="auth-secondary-btn" type="button" id="changeAuthEmailBtn"><i data-lucide="pencil" aria-hidden="true"></i><span>Изменить email</span></button></div><small class="auth-inline-hint" id="authOtpHint">Введите код из самого нового письма. Проверьте папки «Спам» и «Промоакции».</small></form>
+      <div class="form-status" id="authStatus" aria-live="polite"></div>
+    </div>
+    <form class="application-search" id="applicationSearchForm" hidden>
+      <label class="sr-only" for="applicationSteamId">Steam-код или ссылка TikTok</label><input id="applicationSteamId" type="text" maxlength="120" autocomplete="off" placeholder="Steam-код или ссылка TikTok" required>
+      <button class="btn" type="submit" id="applicationSearchBtn">Найти заявку</button>
+    </form>
+    <div class="form-status" id="applicationSearchStatus" aria-live="polite"></div>
+    <section class="banned-application-state" id="bannedApplicationState" aria-labelledby="bannedApplicationTitle" hidden>
+      <span class="banned-application-icon" aria-hidden="true"><i data-lucide="shield-x"></i></span>
+      <span class="banned-application-kicker">Доступ ограничен</span>
+      <h3 id="bannedApplicationTitle">Заявка заблокирована</h3>
+      <p>Организатор заблокировал эту заявку. Открытие личной комнаты, прокачка и повторная регистрация со связанными данными недоступны.</p>
+      <div class="banned-application-reason"><span>Причина блокировки</span><strong id="bannedApplicationReason" aria-live="polite">Загружаем причину…</strong></div>
+      <div class="banned-application-note"><i data-lucide="info"></i><span>Если вы считаете блокировку ошибочной, свяжитесь с Rytni. Служебные заметки организатора остаются приватными.</span></div>
+      <button class="banned-application-close" type="button" data-close-popup><i data-lucide="x"></i><span>Закрыть</span></button>
+    </section>
+    <div class="season-application-note" id="seasonApplicationNote" hidden>В этом сезоне у вас пока нет заявки. Заполните форму, чтобы принять участие. <button class="auth-link" type="button" id="goToApplicationFormBtn">Подать заявку на текущий сезон</button></div>
+    <section class="unlinked-email-state" id="unlinkedEmailState" aria-labelledby="unlinkedEmailTitle" hidden>
+      <span class="unlinked-email-icon" aria-hidden="true"><i data-lucide="mail-question"></i></span>
+      <span class="unlinked-email-kicker">Email подтверждён</span>
+      <h3 id="unlinkedEmailTitle">К этому email не привязана заявка</h3>
+      <span class="unlinked-email-address" id="unlinkedEmailAddress"></span>
+      <p class="unlinked-email-copy"><strong>Если вы уже участвовали</strong>, привяжите прежнюю заявку по Steam-коду или ссылке TikTok, которые указывали при регистрации. Если заявки ещё не было — создайте новую.</p>
+      <div class="unlinked-email-actions">
+        <button class="unlinked-action is-primary" type="button" id="linkExistingApplicationBtn"><i data-lucide="link-2"></i><span>Привязать существующую</span></button>
+        <button class="unlinked-action" type="button" id="startNewApplicationBtn"><i data-lucide="file-plus-2"></i><span>Подать новую заявку</span></button>
+      </div>
+      <button class="unlinked-signout" type="button" id="unlinkedEmailSignOutBtn"><i data-lucide="log-out"></i><span>Выйти из этого аккаунта</span></button>
+    </section>
+    <div class="application-profile" id="applicationProfile" hidden>
+      <div class="profile-heading" id="profileHeading">
+        <div>
+          <h3 class="profile-name" id="profileName"></h3>
+          <p class="profile-game" id="profileGame"></p>
+        </div>
+      </div>
+      <div class="application-boost-panel" id="applicationBoostPanel" hidden>
+        <button class="application-room-close" type="button" data-close-popup aria-label="Закрыть личную комнату"><i data-lucide="x"></i></button>
+        <div class="boost-panel-head">
+          <div class="boost-rank-icon" aria-hidden="true">
+            <img class="boost-logo-image" src="https://rytni.github.io/rytni-assets/Logo.webp" alt="" loading="lazy" decoding="async">
+          </div>
+          <div>
+            <h4 class="boost-panel-title" id="profileRoomTitle">Прокачка заявки</h4>
+            <p class="boost-panel-sub" id="profileRoomSub">Ответьте на игровой вопрос и поднимите уровень.</p>
+          </div>
+        </div>
+        <div class="room-action-stack" id="roomActionStack">
+          <button class="profile-email-link" type="button" id="claimEmailBtn" hidden><i data-lucide="mail-plus"></i><span>Привязать email</span></button>
+        </div>
+        <div class="gamer-profile-card player-pass" id="gamerProfileCard">
+          <div class="player-pass-glow" aria-hidden="true"></div>
+          <div class="gamer-avatar" aria-label="Аватар участника">
+            <img id="profileAvatar" alt="Аватар участника" width="74" height="74" hidden>
+            <i data-lucide="gamepad-2"></i>
+          </div>
+          <div class="player-pass-identity">
+            <div class="player-pass-eyebrow">
+              <span class="gamer-kicker">Игрок сезона</span>
+              <span class="player-number" id="profileParticipantNumber">№ —</span>
+            </div>
+            <div class="gamer-name-row">
+              <h3 class="gamer-name" id="boostProfileName">Участник</h3>
+              <span class="gamer-verified" title="Участник события"><i data-lucide="badge-check"></i></span>
+            </div>
+            <div class="gamer-game">
+              <i data-lucide="gamepad-2"></i>
+              <span><small>Желаемая игра</small><strong id="boostProfileGame">Не указана</strong></span>
+            </div>
+            <div class="profile-card-actions">
+              <button class="profile-logout-btn" type="button" id="profileLogoutBtn" hidden><i data-lucide="log-out" aria-hidden="true"></i><span>Выйти из аккаунта</span></button>
+              <button class="profile-coupons-btn" type="button" id="profileCouponsBtn" hidden><i data-lucide="ticket" aria-hidden="true"></i><span>Мои купоны</span><b class="profile-coupon-count" id="profileCouponCount">0</b></button>
+              <button class="sponsor-chest-btn" type="button" id="sponsorChestBtn"><img src="https://rytni.github.io/rytni-assets/chest/astra_chest_icon.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"><span><b>Сундук от спонсора</b><small id="sponsorChestHint">+100 очков · раз в сутки</small></span><i data-lucide="external-link" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <div class="rank-medallion" aria-label="Уровень участника">
+            <span class="rank-medallion-visual">
+              <span class="rank-medallion-icon" id="profileRankIcon"><i data-lucide="shield"></i></span>
+              <span class="rank-mini-badge" aria-hidden="true"><i data-lucide="badge-check"></i></span>
+              <strong id="profileLevelBig">1</strong>
+            </span>
+            <span class="rank-level-copy"><small>До следующего уровня</small><b id="profileLevelPointsHint">ещё 150 очков</b></span>
+          </div>
+          <div class="player-pass-meta" aria-label="Данные участника">
+            <span class="player-meta-item">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <span><small>Регион</small><strong id="profileRegion">Не указан</strong></span>
+            </span>
+            <span class="player-meta-item player-meta-static" id="profileSteamLink">
+              <svg class="steam-brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+              <span><small>Steam</small><strong id="profileSteamValue">Не указан</strong></span>
+            </span>
+            <a class="player-meta-item player-meta-link" id="profileTikTokLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Открыть TikTok">
+              <i data-lucide="music-2" aria-hidden="true"></i>
+              <span><small>TikTok</small><strong id="profileTikTokValue">Не указан</strong></span>
+              <i data-lucide="external-link" aria-hidden="true"></i>
+            </a>
+            <div class="player-meta-item player-meta-telegram" id="profileTelegramMeta">
+              <i data-lucide="send" aria-hidden="true"></i>
+              <span><small>Telegram</small><strong id="profileTelegramValue">Не подключён</strong><em id="profileTelegramHint">Напоминания выключены</em></span>
+              <div class="player-meta-telegram-actions">
+                <button class="profile-telegram-btn" type="button" id="profileTelegramBtn"><span id="profileTelegramTitle">Подключить</span><i data-lucide="link-2" aria-hidden="true"></i></button>
+                <button class="profile-telegram-disconnect" type="button" id="profileTelegramDisconnectBtn" aria-label="Отключить Telegram и привязать другой аккаунт" title="Отключить Telegram" hidden><i data-lucide="log-out" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          <button class="profile-bonus-code-btn" type="button" id="profileBonusCodeBtn" hidden>
+            <span class="bonus-code-trigger-art" aria-hidden="true"><i data-lucide="ticket-check"></i></span>
+            <span class="bonus-code-trigger-copy"><small><i data-lucide="sparkles" aria-hidden="true"></i>Секретная награда</small><b>Есть бонус-код?</b><em>Активируйте его и узнайте, что скрывается внутри</em></span>
+            <span class="bonus-code-trigger-action">Активировать<i data-lucide="arrow-right" aria-hidden="true"></i></span>
+          </button>
+          </div>
+          <div class="gamer-rank-footer">
+            <div class="gamer-rank-meta">
+              <span class="rarity-badge rarity-common" id="profileRarity">Обычный</span>
+              <span class="gamer-rank-name"><span id="profileRankInlineIcon"><i data-lucide="shield"></i></span><span id="profileRank">Новобранец</span></span>
+            </div>
+            <div class="rank-progress" aria-hidden="true"><span id="profileRankProgress"></span></div>
+            <div class="cooldown-text" id="profileRankHint"></div>
+            <div class="gamer-score-line">
+              <div class="gamer-score"><i data-lucide="coins"></i><strong id="profilePoints">0</strong><small>очков</small></div>
+              <div class="gamer-score"><i data-lucide="flame"></i><strong id="profileStreak">0</strong><small>верных ответов подряд</small></div>
+              <div class="gamer-score gamer-score-top10 is-checking" id="profileTopTenCard"><i data-lucide="trophy" aria-hidden="true"></i><strong id="profilePointsPosition">Проверяем</strong><small id="profilePointsPositionHint">вашу позицию в топ‑10</small></div>
+            </div>
+          </div>
+          <div class="application-edit-spot" id="applicationEditSpot">
+            <button class="application-edit-btn" type="button" id="openApplicationEditBtn"><i data-lucide="pencil"></i>Редактировать заявку</button>
+            <span class="application-edit-note" id="applicationEditNote">Доступно 3 раза</span>
+          </div>
+          <div class="streak-quest">
+            <div class="streak-quest-head">
+              <span class="streak-quest-title"><i data-lucide="route"></i>Серия верных ответов</span>
+              <span class="streak-quest-bonus" id="streakBonusLabel">До бонуса +200</span>
+            </div>
+            <div class="streak-track" id="streakTrack" aria-label="Прогресс серии верных ответов"></div>
+          </div>
+          <details class="room-section">
+            <summary>
+              <span class="room-section-title"><i data-lucide="map"></i>Путь игрока</span>
+              <span class="room-section-note" id="rankJourneyNote">15 игровых рангов</span>
+            </summary>
+            <div class="room-section-body">
+              <div class="rank-journey">
+                <div class="rank-journey-scroll" id="rankJourneyScroll" aria-label="Карта игровых рангов">
+                  <div class="rank-journey-track" id="rankJourneyTrack"></div>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="room-section">
+            <summary>
+              <span class="room-section-title"><i data-lucide="badge-check"></i>Достижения</span>
+              <span class="room-section-note" id="achievementCount">0 из 6</span>
+            </summary>
+            <div class="room-section-body">
+              <div class="achievement-vault">
+                <div class="achievement-grid" id="achievementGrid"></div>
+              </div>
+            </div>
+          </details>
+          <div class="daily-chest">
+            <div class="progression-section-head">
+              <span class="progression-section-title"><i data-lucide="gift"></i>Сундук дня</span>
+              <span class="progression-section-note" id="dailyChestCount">0 открыто</span>
+            </div>
+            <div class="daily-chest-card">
+              <span class="daily-chest-icon"><i data-lucide="package-open"></i></span>
+              <div class="daily-chest-copy">
+                <strong class="daily-chest-title" id="dailyChestTitle">Ежедневный лут ждёт</strong>
+                <p class="daily-chest-text" id="dailyChestText">Откройте сундук и получите очки для сезонных наград.</p>
+              </div>
+              <button class="daily-chest-btn" type="button" id="openDailyChestBtn">Открыть</button>
+              <div class="daily-chest-loot" id="dailyChestLoot" data-tier="common">
+                <span class="daily-chest-loot-icon" id="dailyChestLootIcon"><i data-lucide="package-open"></i></span>
+                <span class="daily-chest-loot-copy">
+                  <strong id="dailyChestLootTitle">Последний лут появится здесь</strong>
+                  <small id="dailyChestLootText">Откройте сундук дня и увидите награду.</small>
+                </span>
+              </div>
+            </div>
+            <div class="daily-streak-chain" id="dailyStreakChain" aria-label="Серия ежедневных сундуков"></div>
+          </div>
+          <div class="daily-quests">
+            <div class="progression-section-head">
+              <span class="progression-section-title"><i data-lucide="list-checks"></i>Задания дня</span>
+              <span class="progression-section-note" id="dailyQuestCount">0 из 3</span>
+            </div>
+            <div class="daily-quest-grid" id="dailyQuestGrid"></div>
+          </div>
+          <section class="weekly-contract-zone" id="weeklyContractZone" hidden>
+            <div class="weekly-contract-glow" aria-hidden="true"></div>
+            <img class="weekly-contract-archive-art" src="https://rytni.github.io/rytni-assets/ui-v216/weekly-contract-archive.webp" alt="" loading="lazy" decoding="async">
+            <div class="weekly-contract-copy">
+              <span class="weekly-contract-kicker"><i data-lucide="sparkles"></i>Архив Подарочного Созвездия</span>
+              <h4 id="weeklyContractTitle">Личный контракт недели</h4>
+              <p id="weeklyContractStory">Архив открыл три пути на шесть дней. Один день недели можно пропустить.</p>
+              <div class="weekly-contract-progress" id="weeklyContractProgress" hidden>
+                <span><b id="weeklyContractProgressLabel">0 из 1</b><em id="weeklyContractDeadline">до понедельника</em></span>
+                <i><b id="weeklyContractProgressBar"></b></i>
+              </div>
+            </div>
+            <div class="weekly-contract-action">
+              <span class="weekly-contract-reward" id="weeklyContractReward"><i data-lucide="coins"></i>Награда скрыта</span>
+              <button class="weekly-contract-button" type="button" id="weeklyContractButton"><span>Выбрать контракт</span><i data-lucide="arrow-right"></i></button>
+            </div>
+            <p class="weekly-contract-status" id="weeklyContractStatus" role="status" aria-live="polite"></p>
+          </section>
+          <details class="room-section" open>
+            <summary>
+              <span class="room-section-title"><i data-lucide="scroll-text"></i>Журнал лута</span>
+              <span class="room-section-note" id="activityLogCount">0 событий</span>
+            </summary>
+            <div class="room-section-body">
+              <div class="activity-log">
+                <div class="activity-log-list" id="activityLogList"></div>
+              </div>
+            </div>
+          </details>
+          <details class="room-section">
+            <summary>
+              <span class="room-section-title"><i data-lucide="flag"></i>Награды сезона</span>
+              <span class="room-section-note" id="seasonRewardNote">Копите очки</span>
+            </summary>
+            <div class="room-section-body">
+              <div class="season-pass">
+                <div class="season-pass-track" id="seasonRewardTrack"></div>
+                <div class="season-pass-progress" aria-hidden="true"><span id="seasonRewardProgress"></span></div>
+              </div>
+            </div>
+          </details>
+        </div>
+        <details class="player-progress-drawer" id="playerProgressDrawer" open>
+          <summary>
+            <span class="player-progress-drawer-icon"><i data-lucide="trophy"></i></span>
+            <span><strong>Прогресс и награды</strong><small>Верные ответы, ранги и достижения</small></span>
+            <i data-lucide="chevron-down" class="player-progress-chevron"></i>
+          </summary>
+          <div class="player-progress-drawer-body" id="playerProgressDrawerBody">
+            <div class="player-progress-summary" id="playerProgressSummary"></div>
+            <div class="player-progress-all" id="playerProgressAll" hidden>
+              <div class="player-progress-all-body" id="playerProgressAllBody"></div>
+            </div>
+          </div>
+        </details>
+        <form class="application-edit-panel" id="applicationEditForm" hidden>
+          <div class="application-edit-head">
+            <span class="application-edit-head-icon"><i data-lucide="file-pen-line"></i></span>
+            <span class="application-edit-head-copy">
+              <strong>Изменить заявку</strong>
+              <small>Проверьте данные перед сохранением</small>
+            </span>
+            <span class="application-edit-once" id="applicationEditLimitBadge"><i data-lucide="shield-check"></i>Осталось редактирований: 3 из 3</span>
+          </div>
+          <label>
+            <span><i data-lucide="gamepad-2"></i>Код дружбы Steam</span>
+            <input id="editSteamId" type="text" maxlength="20" inputmode="numeric" autocomplete="off" required>
+          </label>
+          <label>
+            <span><i data-lucide="sparkles"></i>Желаемые игры</span>
+            <textarea id="editGames" maxlength="120" rows="3" required></textarea>
+          </label>
+          <label>
+            <span><i data-lucide="music-2"></i>TikTok</span>
+            <input id="editTikTok" type="text" maxlength="160" autocomplete="url" placeholder="@имя или ссылка на профиль (необязательно)">
+          </label>
+          <input id="editApplicationTrap" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-status application-edit-status" id="applicationEditStatus" role="status" aria-live="polite"></div>
+          <div class="application-edit-actions">
+            <button class="btn" type="submit" id="saveApplicationEditBtn"><i data-lucide="save"></i>Сохранить изменения</button>
+            <button class="ghost-btn" type="button" id="cancelApplicationEditBtn"><i data-lucide="x"></i>Отмена</button>
+          </div>
+        </form>
+        <div class="profile-actions">
+          <button class="ghost-btn boost-button" type="button" id="startBoostBtn">Прокачать заявку</button>
+        </div>
+        <div class="boost-rules" id="boostRules">
+          <div class="boost-rule"><span class="boost-rule-icon is-violet"><i data-lucide="chart-no-axes-combined"></i></span><span><b>+1 уровень</b>за правильный ответ</span></div>
+          <div class="boost-rule"><span class="boost-rule-icon is-purple"><i data-lucide="clock-3"></i></span><span><b id="boostCooldownRuleValue">12 часов</b>между успешными прокачками</span></div>
+          <div class="boost-rule"><span class="boost-rule-icon is-cyan"><i data-lucide="zap"></i></span><span><b id="boostAttemptsRuleValue">3 попытки</b><span id="boostLockRuleValue">потом пауза 15 минут</span></span></div>
+          <div class="boost-rule"><span class="boost-rule-icon is-gold"><i data-lucide="star"></i></span><span><b>Копи очки</b>открывай новые игровые ранги</span></div>
+        </div>
+      </div>
+      <details class="room-section tiktok-room-section" id="tiktokRoomSection" hidden>
+        <summary>
+          <span class="room-section-title"><i data-lucide="share-2"></i>Поделиться в TikTok</span>
+          <span class="room-section-note share-card-ready-badge" id="shareCardReadyBadge" style="color:#170b00!important;-webkit-text-fill-color:#170b00!important;opacity:1!important;text-shadow:none!important">карточка готова</span>
+        </summary>
+        <div class="room-section-body">
+          <div class="profile-card-host" id="applicationCardHost"></div>
+        </div>
+      </details>
+      <div class="quiz-zone" id="quizZone" hidden>
+        <div class="small-title">Игровой вопрос</div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <form class="quiz-answer-row" id="quizAnswerForm">
+          <label class="sr-only" for="quizAnswer">Ответ на игровой вопрос</label><input id="quizAnswer" type="text" maxlength="80" autocomplete="off" placeholder="Введите ответ" required>
+          <button class="btn" type="submit" id="quizAnswerBtn">Ответить</button>
+        </form>
+        <button class="request-question-btn" type="button" id="requestNewQuestionBtn" hidden><i data-lucide="refresh-cw"></i>Запросить новый вопрос</button>
+        <button class="question-report-btn" type="button" id="questionReportBtn" hidden><i data-lucide="flag"></i>Сообщить о неточности</button>
+        <form class="question-report-form" id="questionReportForm" hidden>
+          <label for="questionReportReason">Что не так с вопросом?</label>
+          <select id="questionReportReason" required>
+            <option value="wrong_answer">Ответ указан неверно</option>
+            <option value="unclear">Вопрос сформулирован непонятно</option>
+            <option value="translation">Ошибка языка или перевода</option>
+            <option value="lore">Факт не подтверждается лором</option>
+            <option value="duplicate">Вопрос повторяется</option>
+            <option value="other">Другая проблема</option>
+          </select>
+          <textarea id="questionReportComment" maxlength="500" rows="3" placeholder="Коротко поясните проблему (необязательно)"></textarea>
+          <div class="question-report-actions"><button class="btn" type="submit">Отправить</button><button class="ghost-btn" type="button" id="questionReportCancelBtn">Отмена</button></div>
+        </form>
+        <div class="form-status" id="quizStatus" aria-live="polite"></div>
+      </div>
+      <div class="next-activity-card" id="boostCooldown" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<div class="auth-success-toast" id="authSuccessToast" role="status" aria-live="polite" hidden>
+  <span class="auth-success-toast-icon"><i data-lucide="circle-check-big" aria-hidden="true"></i></span>
+  <span class="auth-success-toast-copy"><strong>Вход выполнен</strong><span>Ваша заявка успешно открыта</span></span>
+</div>
+
+<div class="popup-overlay levelup-overlay" id="levelUpPopup" role="dialog" aria-modal="true" aria-labelledby="levelUpTitle">
+  <div class="popup levelup-popup">
+    <span class="levelup-kicker"><i data-lucide="sparkles"></i>Прокачка успешна</span>
+    <span class="levelup-rank-icon" id="levelUpRankIcon"><i data-lucide="shield"></i></span>
+    <h3 class="levelup-title" id="levelUpTitle">Новый уровень</h3>
+    <p class="levelup-rank-name" id="levelUpRankName">Новобранец</p>
+    <div class="levelup-reward-line">
+      <span class="levelup-reward"><i data-lucide="arrow-up"></i><span id="levelUpLevel">Уровень 2</span></span>
+      <span class="levelup-reward"><i data-lucide="coins"></i><span id="levelUpPoints">+150 очков</span></span>
+    </div>
+    <p class="levelup-unlocks" id="levelUpUnlocks"></p>
+    <button class="btn" type="button" id="claimLevelUpBtn">Забрать награду</button>
+  </div>
+</div>
+
+<div class="popup-overlay weekly-contract-overlay" id="weeklyContractPopup" role="dialog" aria-modal="true" aria-labelledby="weeklyContractPopupTitle" aria-hidden="true">
+  <div class="popup weekly-contract-popup">
+    <button class="weekly-contract-close" type="button" data-close-popup aria-label="Закрыть">×</button>
+    <span class="weekly-contract-popup-kicker"><i data-lucide="scroll-text"></i>Личное поручение Архива</span>
+    <h3 id="weeklyContractPopupTitle">Выберите свой путь</h3>
+    <p class="weekly-contract-popup-lead">Выберите один контракт на всю неделю. В простом и среднем пути нужен прогресс в 6 разных дней, а в сложном — 20 сундуков спонсора из 28 возможных. Уже совершённые за неделю действия тоже учитываются.</p>
+    <div class="weekly-contract-choice-grid" id="weeklyContractChoiceGrid"></div>
+    <p class="weekly-contract-popup-note"><i data-lucide="shield-check"></i>Простой и средний контракт считают один успешный день. Сложный — каждое успешное открытие сундука спонсора.</p>
+  </div>
+</div>
+
+<div class="popup-overlay lucky-coupon-overlay" id="luckyCouponPopup" role="dialog" aria-modal="true" aria-labelledby="luckyCouponTitle">
+  <div class="popup lucky-coupon-popup">
+    <button class="lucky-coupon-close" type="button" data-close-popup aria-label="Закрыть">×</button>
+    <span class="lucky-balloon lucky-balloon-one" aria-hidden="true"></span>
+    <span class="lucky-balloon lucky-balloon-two" aria-hidden="true"></span>
+    <span class="lucky-balloon lucky-balloon-three" aria-hidden="true"></span>
+    <span class="lucky-coupon-kicker"><i data-lucide="party-popper" aria-hidden="true"></i>Редкая награда</span>
+    <h3 id="luckyCouponTitle">Счастливый купон!</h3>
+    <p class="lucky-coupon-lead" id="luckyCouponLead">В сундуке оказался настоящий ключ на игру. Он уже закреплён за вами.</p>
+    <div class="lucky-coupon-card" id="luckyCouponCard">
+      <img id="luckyCouponImage" src="https://rytni.github.io/rytni-assets/coupon_optimized.webp" alt="Игровой купон" loading="lazy" decoding="async">
+      <strong class="lucky-coupon-game" id="luckyCouponGame"></strong>
+      <strong class="lucky-coupon-key" id="luckyCouponKey"></strong>
+    </div>
+    <button class="lucky-copy-btn" type="button" id="copyLuckyCouponKey"><i data-lucide="copy" aria-hidden="true"></i><span>Скопировать ключ</span></button>
+    <p class="lucky-coupon-hint">Скопируйте ключ и сохраните его в надёжном месте.</p>
+    <button class="btn lucky-coupon-done" type="button" data-close-popup>Забрать подарок</button>
+  </div>
+</div>
+
+<div class="popup-overlay lucky-coupon-overlay" id="couponWalletPopup" role="dialog" aria-modal="true" aria-labelledby="couponWalletTitle">
+  <div class="popup coupon-wallet-popup">
+    <button class="lucky-coupon-close" type="button" data-close-popup aria-label="Закрыть">×</button>
+    <div class="coupon-wallet-head">
+      <span class="coupon-wallet-kicker"><i data-lucide="ticket-check" aria-hidden="true"></i>Ваши награды</span>
+      <h3 id="couponWalletTitle">Мои купоны</h3>
+      <p>Все выпавшие игровые ключи хранятся здесь и доступны после входа по email.</p>
+    </div>
+    <div class="coupon-wallet-list" id="couponWalletList"></div>
+  </div>
+</div>
+
+<div class="popup-overlay bonus-code-overlay" id="bonusCodePopup" role="dialog" aria-modal="true" aria-labelledby="bonusCodeTitle">
+  <div class="popup bonus-code-popup">
+    <button class="lucky-coupon-close" type="button" data-close-popup aria-label="Закрыть">×</button>
+    <div class="bonus-code-visual" aria-hidden="true">
+      <span class="bonus-code-orbit orbit-one"></span><span class="bonus-code-orbit orbit-two"></span>
+      <span class="bonus-code-core"><i data-lucide="ticket-check"></i></span>
+    </div>
+    <span class="bonus-code-kicker"><i data-lucide="sparkles" aria-hidden="true"></i>Секретная награда</span>
+    <h3 id="bonusCodeTitle">Активировать бонус-код</h3>
+    <p class="bonus-code-lead">Введите код от Rytni. Пробелы и дефисы можно ставить как удобно.</p>
+    <form class="bonus-code-form" id="bonusCodeForm" novalidate>
+      <label for="bonusCodeInput"><i data-lucide="key-round" aria-hidden="true"></i>Введите код награды</label>
+      <div class="bonus-code-input-row">
+        <span class="bonus-code-input-emblem" aria-hidden="true"><i data-lucide="key-round"></i></span>
+        <span class="bonus-code-input-control"><small>Бонус-код Rytni</small><input id="bonusCodeInput" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="54" placeholder="XXXX-XXXX-XXXX"></span>
+        <button class="bonus-code-paste" type="button" id="bonusCodePasteBtn" aria-label="Вставить бонус-код из буфера обмена" title="Вставить код"><i data-lucide="clipboard-paste" aria-hidden="true"></i><span>Вставить</span></button>
+      </div>
+      <p class="bonus-code-status" id="bonusCodeStatus" aria-live="polite"></p>
+      <button class="btn bonus-code-submit" type="submit" id="bonusCodeSubmit"><i data-lucide="sparkles" aria-hidden="true"></i><span>Получить награду</span></button>
+    </form>
+    <div class="bonus-code-result" id="bonusCodeResult" hidden>
+      <span class="bonus-code-result-icon"><i data-lucide="badge-check" aria-hidden="true"></i></span>
+      <span><small>Код активирован</small><strong id="bonusCodeReward"></strong></span>
+    </div>
+    <p class="bonus-code-footnote"><i data-lucide="shield-check" aria-hidden="true"></i>Награда закрепляется только за вашей подтверждённой заявкой.</p>
+  </div>
+</div>
+
+<button class="bug-report-launcher" type="button" id="supportTicketLauncher" aria-label="Сообщить об ошибке">
+  <i data-lucide="bug" aria-hidden="true"></i>
+  <span>Сообщить об ошибке</span>
+</button>
+
+<div class="popup-overlay support-ticket-overlay" id="supportTicketPopup" role="dialog" aria-modal="true" aria-labelledby="supportTicketTitle">
+  <div class="popup support-ticket-popup">
+    <button class="lucky-coupon-close" type="button" data-close-popup aria-label="Закрыть">×</button>
+    <div class="support-ticket-head">
+      <span class="support-ticket-icon"><i data-lucide="life-buoy" aria-hidden="true"></i></span>
+      <div>
+        <span class="support-ticket-kicker">Центр помощи Rytni</span>
+        <h3 id="supportTicketTitle">Сообщить о проблеме</h3>
+        <p>Прикрепим данные, по которым можно проверить именно ваш случай. Пароль, код из письма и платёжные данные здесь никогда не нужны.</p>
+      </div>
+    </div>
+    <form class="support-ticket-form" id="supportTicketForm" novalidate>
+      <div class="support-ticket-identity" id="supportTicketIdentity" aria-live="polite"></div>
+      <div class="support-ticket-anonymous" id="supportTicketAnonymousFields">
+        <label class="support-ticket-field">
+          <span>Email, с которым возникла проблема <b>*</b></span>
+          <input type="email" id="supportTicketEmail" maxlength="160" autocomplete="email" placeholder="name@example.com">
+        </label>
+        <label class="support-ticket-field" id="supportTicketLookupField">
+          <span>Steam-код дружбы или TikTok <b id="supportTicketLookupRequired">*</b></span>
+          <input type="text" id="supportTicketLookup" maxlength="160" autocomplete="off" placeholder="Например: 76840084 или @nickname">
+          <small>Поможет найти заявку. Для проблемы с подтверждением email достаточно адреса выше.</small>
+        </label>
+      </div>
+      <label class="support-ticket-field">
+        <span>Что не работает? <b>*</b></span>
+        <select id="supportTicketCategory" required>
+          <option value="">Выберите раздел</option>
+          <option value="email_confirmation">Не приходит письмо или код подтверждения</option>
+          <option value="application">Создание, поиск или изменение заявки</option>
+          <option value="points">Не начислились или изменились очки</option>
+          <option value="video">Просмотр ролика TikTok</option>
+          <option value="chest">Сундук или награда</option>
+          <option value="question">Игровой вопрос</option>
+          <option value="telegram">Telegram-бот</option>
+          <option value="site">Страница не загружается или отображается неверно</option>
+          <option value="other">Другая проблема</option>
+        </select>
+      </label>
+      <label class="support-ticket-field">
+        <span>Опишите проблему <b>*</b></span>
+        <textarea id="supportTicketDescription" minlength="20" maxlength="2000" rows="5" required placeholder="Что вы ожидали, что произошло и какое сообщение увидели? Не менее 20 символов."></textarea>
+      </label>
+      <label class="support-ticket-field">
+        <span>Как повторить проблему</span>
+        <textarea id="supportTicketSteps" maxlength="1500" rows="3" placeholder="Например: открыл «Моя заявка» → ввёл email → нажал «Получить код»."></textarea>
+      </label>
+      <label class="support-ticket-trap" aria-hidden="true">Ваш сайт<input type="text" id="supportTicketWebsite" tabindex="-1" autocomplete="off"></label>
+      <p class="support-ticket-status" id="supportTicketStatus" aria-live="polite"></p>
+      <div class="support-ticket-actions">
+        <button class="btn" type="submit" id="supportTicketSubmit"><i data-lucide="send" aria-hidden="true"></i>Отправить обращение</button>
+        <button class="ghost-btn" type="button" data-close-popup>Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+<audio
+  id="bugReportSound"
+  preload="none"
+  src="https://rytni.github.io/rytni-assets/digital-ui-access-denied-alert-vadi-sound-1-1-00-01.mp3"
+></audio>
+<script>
+(() => {
+  const button = document.getElementById("supportTicketLauncher");
+  const sound = document.getElementById("bugReportSound");
+  if (!button || !sound || button.dataset.soundReady === "true") return;
+  button.dataset.soundReady = "true";
+  button.addEventListener("click", () => {
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
+    if(typeof window.__RYTNI_OPEN_SUPPORT__==="function")window.__RYTNI_OPEN_SUPPORT__();
+  });
+})();
+</script>
+
+<!-- End isolated event page -->
+</div>

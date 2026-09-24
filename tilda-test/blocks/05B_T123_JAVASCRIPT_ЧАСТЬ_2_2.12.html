@@ -1,0 +1,1902 @@
+<script>
+document.getElementById("giveawayForm").addEventListener("invalid",playFormErrorSound,true);
+
+document.getElementById("giveawayForm").addEventListener("submit", async function(event){
+  event.preventDefault();
+  const button = document.getElementById("submitBtn");
+  const status = document.getElementById("formStatus");
+  if(!authSession){registrationIntent=true;saveApplicationDraft();status.className="form-status err";status.textContent="Сначала подтвердите email шестизначным кодом.";showRegistrationAuthDialog();return;}
+  if(!applicationsOpen){
+    playFormErrorSound();
+    status.className = "form-status err";
+    status.textContent = "Приём заявок сейчас закрыт.";
+    return;
+  }
+  button.disabled = true;
+  button.textContent = "Отправка...";
+  status.className = "form-status";
+  status.textContent = "Проверяем заявку и отправляем данные.";
+
+  const data = {
+    name: normalizeText(document.getElementById("name").value),
+    steamid: normalizeSteamFriendCode(document.getElementById("steamid").value),
+    region: normalizeRegion(document.getElementById("region").value),
+    games: normalizeGames(document.getElementById("games").value),
+    tiktok: normalizeTikTok(document.getElementById("tiktok").value),
+    minskAvailability: document.getElementById("minskAvailability").value,
+    ageGroup: document.getElementById("ageGroup").value,
+    subscribed: document.getElementById("subscribed").checked ? "Да" : "Нет",
+    likes: "Да",
+    website: document.getElementById("website").value
+  };
+
+  const validationError = validateApplication(data);
+
+  if(validationError){
+    playFormErrorSound();
+    status.className = "form-status err";
+    status.textContent = validationError;
+    button.disabled = false;
+    button.textContent = "Участвовать в событии";
+    return;
+  }
+
+  try{
+    const result = await submitApplication(data);
+
+    if(result.status === "banned"){
+      status.className = "form-status err";
+      status.textContent = BANNED_APPLICATION_MESSAGE;
+      currentApplication = null;
+      showBannedApplicationState(result?.ban_reason);
+      return;
+    }
+
+    if(result.status === "already_registered"){
+      try{
+        const mine=await callSupabaseRpc("get_my_active_application",{},10000);
+        if(mine?.success){
+          currentApplication=mine;
+          clearApplicationDraft();
+          registrationIntent=false;
+          applicationClaimMode=false;
+          syncParticipationVisibility();
+          renderApplicationProfile(mine);
+          status.className="form-status ok";
+          status.textContent="Заявка уже была создана с этого подтверждённого email. Открыта ваша существующая заявка.";
+          return;
+        }
+      }catch(recoveryError){
+        reportRpcError("application_duplicate_recovery",recoveryError);
+      }
+      showPopup("duplicatePopup");
+      status.className = "form-status err";
+      status.textContent = result.error || "К этому подтверждённому email уже привязана заявка текущего сезона. Откройте «Мою заявку» или войдите заново.";
+      return;
+    }
+
+    if(result.status === "steam_taken"){
+      status.className = "form-status err";
+      status.textContent = "Этот Steam-код уже используется в заявке текущего сезона. Проверьте код или привяжите существующую заявку через «Мою заявку».";
+      return;
+    }
+
+    if(result.status === "tiktok_taken"){
+      status.className = "form-status err";
+      status.textContent = "Этот TikTok уже указан в другой заявке текущего сезона. Проверьте ссылку или обратитесь к организатору.";
+      return;
+    }
+
+    if(["duplicate","duplicate_in_season"].includes(result.status)){
+      status.className = "form-status err";
+      status.textContent = result.error || "В заявке совпали данные с существующей записью. Проверьте Steam-код и TikTok.";
+      return;
+    }
+
+    if(result.status === "validation_error"){
+      status.className = "form-status err";
+      status.textContent = result.error || "Проверьте данные в форме.";
+      return;
+    }
+
+    const serverValidationMessages={invalid_name:"Проверьте имя: от 2 до 25 символов.",invalid_steam:"Введите только Steam-код дружбы из 6–10 цифр.",invalid_region:"Выберите страну магазина Steam из подсказок.",invalid_games:"Укажите от 1 до 4 игр через запятую.",tiktok_required:"Укажите аккаунт TikTok — для новой заявки это обязательное поле.",invalid_tiktok:"Проверьте ник или ссылку на профиль TikTok.",invalid_minsk_availability:"Укажите, можете ли вы приехать в Минск.",invalid_age_group:"Выберите возрастную группу.",invalid_email:"Не удалось подтвердить email. Выйдите из аккаунта и войдите снова.",not_authenticated:"Сессия входа закончилась. Войдите по email ещё раз.",consent_required:"Подтвердите подписку и принятие правил."};
+    if(serverValidationMessages[result.status]){
+      status.className="form-status err";
+      status.textContent=serverValidationMessages[result.status];
+      return;
+    }
+
+    if(["season_closed","form_closed"].includes(result.status)){
+      setFormAvailability(false,result.error || "Приём заявок сейчас закрыт.");
+      status.className = "form-status err";
+      status.textContent = result.error || "Приём заявок сейчас закрыт.";
+      return;
+    }
+
+    if(result.status === "rate_limited" || result.status === "rejected"){
+      status.className = "form-status err";
+      status.textContent = result.error || "Слишком много попыток. Повторите позже.";
+      return;
+    }
+
+    if(!result.success || !["success","created"].includes(result.status)){
+      throw new Error(result.error || "SUBMISSION_FAILED");
+    }
+
+    const currentCount = Number(result.participant_count || result.count || document.getElementById("participantCount").textContent.replace(/\D/g,"")) || 0;
+    text("#participantCount", String(currentCount));
+    status.className = "form-status ok";
+    status.textContent = result.message || "Заявка успешно записана.";
+    document.getElementById("successTitle").textContent = "Заявка отправлена";
+    document.querySelector("#successPopup .popup > p").textContent = "Она передана на обработку. Сохраните карточку участника и поделитесь ей в TikTok.";
+    playUiSound("formWin");
+    showPopup("successPopup");
+    renderSuccessCard(data.name,currentCount,data.games);
+    currentApplication=result;recordFunnelEvent("application_created");syncParticipationVisibility();document.querySelectorAll('[data-tool-mode="card"]').forEach(item=>item.textContent="Моя заявка");clearApplicationDraft();registrationIntent=false;
+    this.reset();
+    window.setTimeout(loadData, 600);
+  }catch(error){
+    reportRpcError("application_submit",error);
+    const userMessage=rpcUserMessage(error,"отправить заявку");
+    status.className = "form-status err";
+    status.textContent = userMessage;
+    if(error?.kind === "auth"){
+      saveApplicationDraft();
+      saveAuthSession(null);
+      registrationIntent=true;
+      showRegistrationAuthDialog();
+      showAuthStatus("Сессия подтверждения закончилась. Запросите новый код — заполненные данные сохранены.",true);
+      return;
+    }
+    const popupCopy=document.querySelector("#errorPopup .popup > p");
+    if(popupCopy)popupCopy.textContent=userMessage;
+    showPopup("errorPopup");
+  }finally{
+    if(status.classList.contains("err")) playFormErrorSound();
+    button.disabled = !applicationsOpen;
+    button.textContent = "Участвовать в событии";
+  }
+});
+
+const PROGRESSION_RANKS = [
+  {level:1,name:"Новобранец",icon:"shield"},
+  {level:2,name:"Искатель лута",icon:"package-search"},
+  {level:3,name:"Ученик чекпоинта",icon:"map-pin-check"},
+  {level:4,name:"Гриндер",icon:"repeat-2"},
+  {level:5,name:"Охотник за ачивками",icon:"medal"},
+  {level:7,name:"Ветеран каток",icon:"swords"},
+  {level:9,name:"Мастер комбо",icon:"sparkles"},
+  {level:12,name:"Хранитель сохранения",icon:"save"},
+  {level:15,name:"Покоритель боссов",icon:"skull"},
+  {level:19,name:"Чемпион рейда",icon:"crown"},
+  {level:24,name:"Герой сервера",icon:"gamepad-2"},
+  {level:30,name:"Легенда сезона",icon:"trophy"},
+  {level:37,name:"Титан сезона",icon:"mountain"},
+  {level:44,name:"Мифический игрок",icon:"gem"},
+  {level:50,name:"Властелин лута",icon:"orbit"}
+];
+const RANK_ICON_ASSETS = [
+  "https://rytni.github.io/rytni-assets/Rang/1.png",
+  "https://rytni.github.io/rytni-assets/Rang/2.png",
+  "https://rytni.github.io/rytni-assets/Rang/3.png",
+  "https://rytni.github.io/rytni-assets/Rang/4.png",
+  "https://rytni.github.io/rytni-assets/Rang/5.png",
+  "https://rytni.github.io/rytni-assets/Rang/6.png",
+  "https://rytni.github.io/rytni-assets/Rang/7.png",
+  "https://rytni.github.io/rytni-assets/Rang/8.png"
+];
+PROGRESSION_RANKS.forEach((rank,index) => {
+  const assetIndex = Math.min(RANK_ICON_ASSETS.length - 1,Math.floor(index * RANK_ICON_ASSETS.length / PROGRESSION_RANKS.length));
+  rank.asset = RANK_ICON_ASSETS[assetIndex];
+});
+const PROGRESSION_ACHIEVEMENTS = [
+  {id:"first",name:"Первый лут",description:"Дайте первый правильный ответ",icon:"package-check",test:profile => Number(profile.boost_count) >= 1},
+  {id:"combo3",name:"Комбо x3",description:"Дайте 3 верных ответа подряд",icon:"flame",test:profile => Number(profile.best_correct_streak ?? profile.correct_streak) >= 3},
+  {id:"combo10",name:"Без промаха",description:"Дайте 10 верных ответов подряд",icon:"crosshair",test:profile => Number(profile.best_correct_streak ?? profile.correct_streak) >= 10},
+  {id:"points1k",name:"Банк лута",description:"Накопите 1 000 очков",icon:"coins",test:profile => Number(profile.points) >= 1000},
+  {id:"chest1",name:"Сундук дня",description:"Откройте первый ежедневный сундук",icon:"gift",test:profile => Number(profile.daily_chest_count) >= 1},
+  {id:"chest7",name:"Лутер недели",description:"Откройте 7 ежедневных сундуков",icon:"package-open",test:profile => Number(profile.daily_chest_count) >= 7},
+  {id:"boss",name:"Босс повержен",description:"Достигните 15 уровня",icon:"skull",test:profile => Number(profile.level) >= 15},
+  {id:"legend",name:"Легенда",description:"Достигните 30 уровня",icon:"trophy",test:profile => Number(profile.level) >= 30}
+];
+const SEASON_REWARDS = [
+  {points:0,name:"Старт",icon:"play"},
+  {points:500,name:"Бронза",icon:"shield"},
+  {points:1000,name:"Лут",icon:"package"},
+  {points:2000,name:"Скин",icon:"palette"},
+  {points:3500,name:"Редкий",icon:"gem"},
+  {points:5500,name:"Комбо",icon:"flame"},
+  {points:8000,name:"Эпик",icon:"sparkles"},
+  {points:11000,name:"Легенда",icon:"crown"},
+  {points:15000,name:"Финал",icon:"trophy"}
+];
+const CHEST_TIERS = {
+  common:{name:"Обычный сундук",icon:"package-open",asset:"https://rytni.github.io/rytni-assets/chest/Common.webp?v=20260727",assetFallback:"https://raw.githubusercontent.com/Rytni/rytni-assets/main/chest/Common.webp?v=20260727"},
+  rare:{name:"Необычный сундук",icon:"gem",asset:"https://rytni.github.io/rytni-assets/chest/Uncommon.webp?v=20260727",assetFallback:"https://raw.githubusercontent.com/Rytni/rytni-assets/main/chest/Uncommon.webp?v=20260727"},
+  uncommon:{name:"Необычный сундук",icon:"gem",asset:"https://rytni.github.io/rytni-assets/chest/Uncommon.webp?v=20260727",assetFallback:"https://raw.githubusercontent.com/Rytni/rytni-assets/main/chest/Uncommon.webp?v=20260727"},
+  epic:{name:"Эпический сундук",icon:"sparkles",asset:"https://rytni.github.io/rytni-assets/chest/Epic.webp?v=20260727",assetFallback:"https://raw.githubusercontent.com/Rytni/rytni-assets/main/chest/Epic.webp?v=20260727"},
+  legendary:{name:"Легендарный сундук",icon:"crown",asset:"https://rytni.github.io/rytni-assets/chest/Legendary.webp?v=20260727",assetFallback:"https://raw.githubusercontent.com/Rytni/rytni-assets/main/chest/Legendary.webp?v=20260727"}
+};
+const DAILY_CHAIN_LENGTH = 7;
+let currentApplication = null;
+let activeChallengeId = "";
+let lastReportableChallengeId = "";
+let progressionTimer = 0;
+function stopProgressionTimer(){
+  window.clearInterval(progressionTimer);
+  progressionTimer = 0;
+}
+function progressionRuntimeIsActive(){
+  const popup = document.getElementById("applicationPopup");
+  return applicationToolMode === "boost"
+    && !document.hidden
+    && popup
+    && popup.getAttribute("aria-hidden") !== "true"
+    && popup.style.display !== "none";
+}
+function resumeProgressionTimer(){
+  stopProgressionTimer();
+  if(!progressionRuntimeIsActive()) return;
+  updateBoostAvailability();
+  progressionTimer = window.setInterval(()=>{
+    if(!progressionRuntimeIsActive()){
+      stopProgressionTimer();
+      return;
+    }
+    updateBoostAvailability();
+  },30000);
+}
+window.__RYTNI_STOP_PROGRESSION__ = stopProgressionTimer;
+window.__RYTNI_RESUME_PROGRESSION__ = resumeProgressionTimer;
+let applicationToolMode = "card";
+let topTenStatusRequestKey = "";
+
+function progressionStatus(element,message,error=false){
+  element.className = "form-status " + (error ? "err" : "ok");
+  element.textContent = message;
+}
+
+let luckyCouponAudio = null;
+let currentLuckyCouponKey = "";
+function playLuckyCouponSound(url){
+  if(soundMuted) return;
+  const source = /^https:\/\//i.test(String(url || ""))
+    ? String(url)
+    : "https://rytni.github.io/rytni-assets/sounds/new-level.mp3";
+  try{
+    if(luckyCouponAudio) luckyCouponAudio.pause();
+    luckyCouponAudio = new Audio(source);
+    luckyCouponAudio.preload = "none";
+    luckyCouponAudio.volume = .72;
+    luckyCouponAudio.play().catch(() => playUiSound("success"));
+  }catch(error){
+    playUiSound("success");
+  }
+}
+function launchLuckyCouponCelebration(){
+  if(!window.confetti || prefersReducedMotion) return;
+  const colors = ["#48e7ff","#7c5cff","#d45cff","#ff4fc8","#ffd45f","#ffffff"];
+  confetti({particleCount:120,spread:94,startVelocity:48,origin:{y:.67},colors});
+  window.setTimeout(() => confetti({particleCount:70,angle:60,spread:62,origin:{x:0,y:.58},colors}),220);
+  window.setTimeout(() => confetti({particleCount:70,angle:120,spread:62,origin:{x:1,y:.58},colors}),360);
+}
+function showLuckyCoupon(coupon,pointsAwarded=0){
+  if(!coupon || !coupon.key) return false;
+  currentLuckyCouponKey = String(coupon.key);
+  document.getElementById("luckyCouponGame").textContent = String(coupon.game || "Игра");
+  document.getElementById("luckyCouponKey").textContent = currentLuckyCouponKey;
+  document.getElementById("luckyCouponLead").textContent = `В сундуке оказался настоящий ключ на игру${Number(pointsAwarded) > 0 ? ` и +${Number(pointsAwarded)} очков` : ""}. Он уже закреплён за вами.`;
+  const image = document.getElementById("luckyCouponImage");
+  image.src = /^https:\/\//i.test(String(coupon.asset_url || ""))
+    ? String(coupon.asset_url)
+    : "https://rytni.github.io/rytni-assets/coupon_optimized.webp";
+  const copyButton = document.getElementById("copyLuckyCouponKey");
+  copyButton.classList.remove("is-copied");
+  copyButton.querySelector("span").textContent = "Скопировать ключ";
+  playLuckyCouponSound(coupon.sound_url);
+  refreshRankIcons();
+  showPopup("luckyCouponPopup");
+  launchLuckyCouponCelebration();
+  if(currentApplication){
+    currentApplication.coupon_count = Math.max(1,Number(currentApplication.coupon_count) || 0);
+    updateCouponWalletButton(currentApplication);
+  }
+  return true;
+}
+document.getElementById("copyLuckyCouponKey")?.addEventListener("click",async event => {
+  if(!currentLuckyCouponKey) return;
+  const button = event.currentTarget;
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(currentLuckyCouponKey);
+    }else{
+      const helper = document.createElement("textarea");
+      helper.value = currentLuckyCouponKey;
+      helper.style.position = "fixed";
+      helper.style.opacity = "0";
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand("copy");
+      helper.remove();
+    }
+    button.classList.add("is-copied");
+    button.querySelector("span").textContent = "Ключ скопирован";
+  }catch(error){
+    button.querySelector("span").textContent = "Выделите ключ вручную";
+  }
+});
+
+function updateCouponWalletButton(profile=currentApplication){
+  const button=document.getElementById("profileCouponsBtn");
+  const badge=document.getElementById("profileCouponCount");
+  if(!button||!badge)return;
+  const count=Math.max(0,Number(profile&&profile.coupon_count)||0);
+  badge.textContent=String(count);
+  button.hidden=applicationToolMode!=="card";
+}
+async function copyCouponWalletKey(key,button){
+  try{
+    if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(key);
+    else{const helper=document.createElement("textarea");helper.value=key;helper.style.position="fixed";helper.style.opacity="0";document.body.appendChild(helper);helper.select();document.execCommand("copy");helper.remove();}
+    button.innerHTML='<i data-lucide="check"></i>';
+    refreshRankIcons();
+    window.setTimeout(()=>{button.innerHTML='<i data-lucide="copy"></i>';refreshRankIcons();},1600);
+  }catch(error){button.title="Скопируйте ключ вручную";}
+}
+function renderCouponWallet(items){
+  const list=document.getElementById("couponWalletList");
+  list.replaceChildren();
+  if(!items.length){const empty=document.createElement("div");empty.className="coupon-wallet-empty";empty.innerHTML='<i data-lucide="ticket"></i><div>Сохранённых купонов пока нет.</div>';list.appendChild(empty);refreshRankIcons();return;}
+  items.forEach(coupon=>{
+    const card=document.createElement("article");card.className="coupon-wallet-item";
+    const top=document.createElement("div");top.className="coupon-wallet-item-top";
+    const game=document.createElement("strong");game.className="coupon-wallet-game";game.textContent=String(coupon.game||"Игра");
+    const date=document.createElement("span");date.className="coupon-wallet-date";
+    try{date.textContent=coupon.received_at?new Date(coupon.received_at).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"}):"";}catch(error){date.textContent="";}
+    top.append(game,date);
+    const row=document.createElement("div");row.className="coupon-wallet-key-row";
+    const key=document.createElement("code");key.className="coupon-wallet-key";key.textContent=String(coupon.key||"");
+    const copy=document.createElement("button");copy.type="button";copy.className="coupon-wallet-copy";copy.title="Скопировать ключ";copy.innerHTML='<i data-lucide="copy"></i>';copy.addEventListener("click",()=>copyCouponWalletKey(String(coupon.key||""),copy));
+    row.append(key,copy);card.append(top,row);list.appendChild(card);
+  });
+  refreshRankIcons();
+}
+document.getElementById("profileCouponsBtn")?.addEventListener("click",async event=>{
+  const button=event.currentTarget;button.disabled=true;
+  const list=document.getElementById("couponWalletList");list.innerHTML='<div class="coupon-wallet-empty">Загружаем купоны…</div>';
+  showPopup("couponWalletPopup");
+  try{
+    const result=await callSupabaseRpc("get_my_lucky_coupons",{},7000);
+    if(!result||!result.success)throw new Error("coupons_unavailable");
+    const items=Array.isArray(result.items)?result.items:[];
+    if(currentApplication){currentApplication.coupon_count=items.length;updateCouponWalletButton(currentApplication);}
+    renderCouponWallet(items);
+  }catch(error){list.innerHTML='<div class="coupon-wallet-empty">Не удалось загрузить купоны. Войдите по email и убедитесь, что SQL кошелька выполнен.</div>';}
+  finally{button.disabled=false;}
+});
+
+function formatRemaining(target){
+  const milliseconds = new Date(target).getTime() - Date.now();
+  if(!Number.isFinite(milliseconds) || milliseconds <= 0) return "";
+  const totalMinutes = Math.ceil(milliseconds / 60000);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return [hours ? `${hours} ч` : "", minutes ? `${minutes} мин` : ""].filter(Boolean).join(" ");
+}
+
+function rankRarity(level){
+  const value = Number(level) || 1;
+  if(value >= 44) return {name:"Мифический", className:"rarity-mythic", accent:"#e11d48"};
+  if(value >= 30) return {name:"Легендарный", className:"rarity-legendary", accent:"#f97316"};
+  if(value >= 15) return {name:"Эпический", className:"rarity-epic", accent:"#a855f7"};
+  if(value >= 7) return {name:"Редкий", className:"rarity-rare", accent:"#3b82f6"};
+  if(value >= 3) return {name:"Необычный", className:"rarity-uncommon", accent:"#22c55e"};
+  return {name:"Обычный", className:"rarity-common", accent:"#64748b"};
+}
+
+function rankEmblemSvg(rank,rarity,size="large"){
+  if(rank && rank.asset){
+    const sizeClass = size === "small" ? " small" : "";
+    return `<img class="rank-emblem-art${sizeClass}" src="${rank.asset}" alt="" aria-hidden="true" loading="eager">`;
+  }
+  const accent = (rarity && rarity.accent) || "#38bdf8";
+  const icon = rank && rank.icon ? rank.icon : "shield";
+  const symbol = icon === "crown" || icon === "trophy" ? "M26 16l5 8 8-12 5 12 5-8-2 24H28l-2-24z" :
+    icon === "gem" || icon === "orbit" ? "M36 12l18 14-18 34-18-34 18-14zm0 0l8 14h10M36 12l-8 14H18m10 0l8 34 8-34" :
+    icon === "swords" || icon === "skull" ? "M24 18l30 30m0-30L24 48m5-35l30 30m-30 0l30-30" :
+    "M36 10l22 10v15c0 15-9 24-22 29-13-5-22-14-22-29V20l22-10z";
+  const mark = icon === "package-search" ? "M28 30h16v16H28zM24 26l12-7 12 7-12 7-12-7zM44 46l8 8" :
+    icon === "repeat-2" ? "M25 26h19l-5-5m8 25H28l5 5" :
+    icon === "map-pin-check" ? "M36 18c8 0 14 6 14 14 0 10-14 24-14 24S22 42 22 32c0-8 6-14 14-14zm-6 14l4 4 8-9" :
+    icon === "flame" || icon === "sparkles" ? "M36 16c7 9-3 12 4 20 3-5 8-6 9-12 7 9 5 24-8 30-11 5-24-1-25-14-1-10 8-15 20-24z" :
+    "M36 16l5 13 14 1-11 9 4 14-12-8-12 8 4-14-11-9 14-1 5-13z";
+  if(size !== "small"){
+    return `<svg class="rank-emblem-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M60 4 108 32v56l-48 28L12 88V32z" fill="#7c3aed" opacity=".38"/>
+      <path d="M60 10 101 35v50l-41 25-41-25V35z" fill="#a855f7"/>
+      <path d="M60 20 92 39v42l-32 19-32-19V39z" fill="#1b1132" opacity=".94"/>
+      <path d="M60 20 92 39 60 50 28 39z" fill="#fff" opacity=".14"/>
+      <path d="M60 10 101 35v50l-41 25-41-25V35z" fill="none" stroke="#d9a7ff" stroke-width="3" opacity=".78"/>
+    </svg>`;
+  }
+  return `<svg class="rank-emblem-svg small" viewBox="0 0 72 72" aria-hidden="true">
+    <path d="M36 5l27 15v31L36 67 9 51V20L36 5z" fill="${accent}" opacity=".86"/>
+    <path d="M36 11l21 12v25L36 61 15 48V23z" fill="#091426" opacity=".88" stroke="#8dffd9" stroke-width="2"/>
+    <path d="${symbol}" fill="none" stroke="rgba(255,255,255,.38)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="${mark}" fill="none" stroke="#e8fff8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+function levelHexSvg(){
+  return `<svg class="rank-emblem-svg" viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M60 4 108 32v56l-48 28L12 88V32z" fill="#6d28d9" opacity=".44"/>
+    <path d="M60 10 101 35v50l-41 25-41-25V35z" fill="#a855f7"/>
+    <path d="M60 20 92 39v42l-32 19-32-19V39z" fill="#17102f"/>
+    <path d="M60 20 92 39 60 50 28 39z" fill="#fff" opacity=".14"/>
+    <path d="M60 10 101 35v50l-41 25-41-25V35z" fill="none" stroke="#dda7ff" stroke-width="3"/>
+  </svg>`;
+}
+
+function chestFallbackSvg(tier="common"){
+  const colors = {
+    common:["#ffbf3f","#ff7a1a","#fff0a6"],
+    rare:["#27d5ff","#1769ff","#bdf7ff"],
+    epic:["#d65cff","#7137ff","#f1c4ff"],
+    legendary:["#ffd34d","#ff7a18","#fff4b0"]
+  }[tier] || ["#ffbf3f","#ff7a1a","#fff0a6"];
+  return `<svg class="chest-emblem-svg chest-${tier}" viewBox="0 0 96 96" aria-hidden="true">
+    <path d="M16 38h64v39a9 9 0 0 1-9 9H25a9 9 0 0 1-9-9z" fill="${colors[1]}" opacity=".92"/>
+    <path d="M18 48h60v28a7 7 0 0 1-7 7H25a7 7 0 0 1-7-7z" fill="${colors[0]}"/>
+    <path d="M21 24h54l9 17H12z" fill="${colors[0]}"/>
+    <path d="M25 27h46l5 9H20z" fill="${colors[2]}" opacity=".82"/>
+    <path d="M16 47h64M48 39v46" fill="none" stroke="#5b2d10" stroke-width="6" opacity=".8"/>
+    <rect x="38" y="43" width="20" height="22" rx="5" fill="#14101f" stroke="${colors[2]}" stroke-width="3"/>
+    <path d="M45 51h6v8h-6z" fill="${colors[2]}"/>
+    <path d="M22 24h52l9 17v36a9 9 0 0 1-9 9H22a9 9 0 0 1-9-9V41z" fill="none" stroke="${colors[2]}" stroke-width="3" stroke-linejoin="round" opacity=".75"/>
+  </svg>`;
+}
+
+function chestEmblemSvg(tier="common"){
+  const normalizedTier = tier==="uncommon" ? "rare" : (["common","rare","epic","legendary"].includes(tier) ? tier : "common");
+  const tierInfo = CHEST_TIERS[normalizedTier] || CHEST_TIERS.common;
+  if(tierInfo.asset){
+    const fallbackAsset=tierInfo.assetFallback||"";
+    return `<img class="chest-emblem-art chest-${normalizedTier}" src="${tierInfo.asset}" data-chest-tier="${normalizedTier}" data-chest-fallback-src="${fallbackAsset}" alt="" aria-hidden="true" loading="eager" decoding="async" referrerpolicy="no-referrer">`;
+  }
+  return chestFallbackSvg(normalizedTier);
+}
+
+document.addEventListener("error",event=>{
+  const image=event.target;
+  if(!image||image.tagName!=="IMG"||!image.classList.contains("chest-emblem-art"))return;
+  const fallbackSrc=image.dataset.chestFallbackSrc||"";
+  if(fallbackSrc&&image.dataset.chestFallbackTried!=="true"&&image.src!==fallbackSrc){
+    image.dataset.chestFallbackTried="true";
+    image.src=fallbackSrc;
+    return;
+  }
+  const tier=image.dataset.chestTier||"common";
+  const template=document.createElement("template");
+  template.innerHTML=chestFallbackSvg(tier).trim();
+  const fallback=template.content.firstElementChild;
+  if(fallback)image.replaceWith(fallback);
+},true);
+
+function refreshRankIcons(){
+  if(window.lucide && typeof window.lucide.createIcons === "function") window.lucide.createIcons();
+}
+
+function renderStreakPath(streakValue,nextBonusAtValue,bonusPointsValue){
+  const streak = Math.max(0,Number(streakValue) || 0);
+  const nextBonusAt = Math.max(3,Number(nextBonusAtValue) || (streak < 3 ? 3 : streak < 10 ? 10 : (Math.floor(streak / 10) + 1) * 10));
+  const bonusPoints = Math.max(0,Number(bonusPointsValue) || (nextBonusAt === 3 ? 200 : 500));
+  const previousMilestone = nextBonusAt === 3 ? 0 : nextBonusAt === 10 ? 3 : nextBonusAt - 10;
+  const cellsCount = Math.max(1,nextBonusAt - previousMilestone);
+  const progress = Math.max(0,Math.min(streak - previousMilestone,cellsCount));
+  const playerCell = progress > 0 ? progress - 1 : 0;
+  const track = document.getElementById("streakTrack");
+  track.textContent = "";
+  track.style.setProperty("--streak-cells",String(cellsCount));
+  for(let index=0;index<cellsCount;index+=1){
+    const cell = document.createElement("span");
+    cell.className = "streak-cell";
+    if(index < progress) cell.classList.add("is-complete");
+    if(index === cellsCount - 1) cell.classList.add("is-bonus");
+    if(index === playerCell){
+      const player = document.createElement("span");
+      player.className = "streak-player";
+      const avatar = document.getElementById("profileAvatar");
+      if(avatar&&avatar.src){const image=document.createElement("img");image.alt="";setSafeAvatar(image,avatar.src,"player");player.appendChild(image);}else appendLucideIcon(player,"gamepad-2");
+      cell.appendChild(player);
+    }
+    const label = document.createElement("span");
+    label.className = "streak-cell-label";
+    label.textContent = index === cellsCount - 1 ? `+${bonusPoints}` : String(previousMilestone + index + 1);
+    cell.appendChild(label);
+    track.appendChild(cell);
+  }
+  document.getElementById("streakBonusLabel").textContent = `Верный ответ ${nextBonusAt}: бонус +${bonusPoints}`;
+}
+
+function progressionRankAt(levelValue){
+  const level = Math.max(1,Number(levelValue) || 1);
+  let current = PROGRESSION_RANKS[0];
+  PROGRESSION_RANKS.forEach(rank => { if(level >= rank.level) current = rank; });
+  return current;
+}
+
+function renderRankJourney(levelValue){
+  const level = Math.max(1,Number(levelValue) || 1);
+  const track = document.getElementById("rankJourneyTrack");
+  const viewport = document.getElementById("rankJourneyScroll");
+  track.textContent = "";
+  let currentNode = null;
+  PROGRESSION_RANKS.forEach((rank,index) => {
+    const nextRank = PROGRESSION_RANKS[index + 1];
+    const isCurrent = level >= rank.level && (!nextRank || level < nextRank.level);
+    const node = document.createElement("div");
+    node.className = "journey-node";
+    if(level >= rank.level) node.classList.add("is-complete");
+    if(isCurrent){
+      node.classList.add("is-current");
+      currentNode = node;
+    }
+    node.title = `${rank.name} — с ${rank.level} уровня`;
+    const icon=document.createElement("span");icon.className="journey-node-icon";icon.innerHTML=rankEmblemSvg(rank,rankRarity(rank.level),"small");
+    const levelLabel=document.createElement("span");levelLabel.className="journey-node-level";levelLabel.textContent=`ур. ${rank.level}`;
+    const name=document.createElement("span");name.className="journey-node-name";name.textContent=rank.name;
+    node.append(icon,levelLabel,name);
+    track.appendChild(node);
+  });
+  const currentRank = progressionRankAt(level);
+  const nextRank = PROGRESSION_RANKS.find(rank => rank.level > level);
+  document.getElementById("rankJourneyNote").textContent = nextRank ? `Далее: ${nextRank.name}` : "Все ранги открыты";
+  refreshRankIcons();
+  window.requestAnimationFrame(() => {
+    if(!currentNode) return;
+    viewport.scrollLeft = Math.max(0,currentNode.offsetLeft - (viewport.clientWidth - currentNode.offsetWidth) / 2);
+  });
+}
+
+function unlockedAchievements(profile){
+  return PROGRESSION_ACHIEVEMENTS.filter(item => item.test(profile || {}));
+}
+
+function renderAchievements(profile){
+  const grid = document.getElementById("achievementGrid");
+  const unlocked = unlockedAchievements(profile);
+  grid.textContent = "";
+  PROGRESSION_ACHIEVEMENTS.forEach(item => {
+    const earned = item.test(profile || {});
+    const badge = document.createElement("div");
+    badge.className = `achievement-badge${earned ? " is-unlocked" : ""}`;
+    badge.title = earned ? `${item.name}: получено` : item.description;
+    badge.setAttribute("aria-label",badge.title);
+    const icon=document.createElement("span");icon.className="achievement-badge-icon";appendLucideIcon(icon,earned?item.icon:"lock-keyhole");
+    const name=document.createElement("strong");name.textContent=item.name;badge.append(icon,name);
+    grid.appendChild(badge);
+  });
+  document.getElementById("achievementCount").textContent = `${unlocked.length} из ${PROGRESSION_ACHIEVEMENTS.length}`;
+  refreshRankIcons();
+}
+
+function renderDailyChest(profile){
+  const count = Math.max(0,Number(profile.daily_chest_count) || 0);
+  const streak = Math.max(0,Number(profile.daily_chest_streak) || (count ? ((count - 1) % DAILY_CHAIN_LENGTH) + 1 : 0));
+  const cycles = Math.max(0,Number(profile.daily_chest_cycles) || Math.floor(count / DAILY_CHAIN_LENGTH));
+  const remaining = formatRemaining(profile.next_daily_chest_at);
+  const canOpen = profile.can_daily_chest || !remaining;
+  const button = document.getElementById("openDailyChestBtn");
+  const chestIcon = document.querySelector(".daily-chest-icon");
+  if(chestIcon) chestIcon.innerHTML = chestEmblemSvg("common");
+  document.getElementById("dailyChestCount").textContent = `${count} открыто`;
+  document.getElementById("dailyChestTitle").textContent = canOpen ? "Сундук готов" : "Сундук восстанавливается";
+  document.getElementById("dailyChestText").textContent = canOpen
+    ? "Откройте лут. 3-й сундук цепочки всегда редкий, а 7-й — эпический."
+    : `Следующий сундук через ${remaining}. Вернитесь и заберите лут.`;
+  button.disabled = !canOpen;
+  button.textContent = canOpen ? "Открыть" : "Ждать";
+  if(canOpen) currentApplication.can_daily_chest = true;
+  renderDailyChestLoot(profile);
+  renderDailyChestChain(streak,canOpen,cycles);
+}
+
+function renderDailyChestLoot(profile){
+  const loot = document.getElementById("dailyChestLoot");
+  if(!loot) return;
+  const lastChest = profile.last_chest && typeof profile.last_chest === "object" ? profile.last_chest : {};
+  const tierKey = lastChest.tier || profile.chest_tier || "";
+  const points = Number(lastChest.points || profile.points_awarded || 0);
+  if(!tierKey && !points){
+    loot.classList.remove("is-visible");
+    return;
+  }
+  const tier = CHEST_TIERS[tierKey] || CHEST_TIERS.common;
+  loot.dataset.tier = tierKey || "common";
+  loot.classList.add("is-visible");
+  document.getElementById("dailyChestLootIcon").innerHTML = chestEmblemSvg(tierKey || "common");
+  document.getElementById("dailyChestLootTitle").textContent = tier.name;
+  document.getElementById("dailyChestLootText").textContent = `Выпало +${points || 0} очков. Продолжайте цепочку сундуков.`;
+}
+
+function renderDailyChestChain(streak,canOpen,cycles=0){
+  const chain = document.getElementById("dailyStreakChain");
+  if(!chain) return;
+  const progress = Math.max(0,Math.min(Number(streak) || 0,DAILY_CHAIN_LENGTH));
+  const current = canOpen ? Math.min(progress + 1,DAILY_CHAIN_LENGTH) : progress;
+  chain.textContent = "";
+  for(let day=1;day<=DAILY_CHAIN_LENGTH;day+=1){
+    const cell = document.createElement("span");
+    cell.className = "daily-streak-day";
+    if(day <= progress) cell.classList.add("is-done");
+    if(day === current) cell.classList.add("is-current");
+    if(day === 3) cell.classList.add("is-mid-bonus");
+    if(day === DAILY_CHAIN_LENGTH) cell.classList.add("is-bonus");
+    const icon = day <= progress ? "check" : day === DAILY_CHAIN_LENGTH ? "crown" : day === 3 ? "sparkles" : "gift";
+    cell.title = day === DAILY_CHAIN_LENGTH
+      ? "7-й сундук: гарантированно эпический. Затем начнётся новая цепочка"
+      : day === 3
+        ? "3-й сундук: гарантированно редкий"
+        : `Сундук ${day}`;
+    cell.innerHTML = `<i data-lucide="${icon}"></i><span>${day}</span>`;
+    chain.appendChild(cell);
+  }
+  refreshRankIcons();
+}
+
+function renderDailyQuests(profile){
+  const grid = document.getElementById("dailyQuestGrid");
+  const countLabel = document.getElementById("dailyQuestCount");
+  if(!grid || !countLabel) return;
+  const tasks = Array.isArray(profile.daily_tasks) && profile.daily_tasks.length ? profile.daily_tasks : [
+    {id:"daily_chest",title:"Открыть сундук дня",text:"Заберите лут и получите очки.",icon:"package-open",reward:"награда по редкости",completed:false},
+    {id:"daily_question",title:"Ответить на вопрос",text:"Верный ответ поднимет заявку.",icon:"circle-help",reward:"+150 очков",completed:false},
+    {id:"streak_keep",title:"Продолжить серию",text:"Дайте ещё один верный ответ подряд.",icon:"flame",reward:"+200 очков",completed:false}
+  ];
+  const completed = tasks.filter(task => task.completed).length;
+  countLabel.textContent = `${completed} из ${tasks.length}`;
+  grid.textContent = "";
+  tasks.forEach(task => {
+    const card = document.createElement("div");
+    card.className = `daily-quest${task.completed ? " is-done" : ""}`;
+    const progressText = Number.isFinite(Number(task.progress)) && Number.isFinite(Number(task.target))
+      ? ` · ${task.progress}/${task.target}`
+      : "";
+    const icon=document.createElement("span");icon.className="daily-quest-icon";appendLucideIcon(icon,task.completed?"check":task.icon,"target");
+    const title=document.createElement("strong");title.textContent=safeConfigText(task.title,"Задание",120);
+    const description=document.createElement("p");description.textContent=safeConfigText(task.text,"",300);
+    const reward=document.createElement("span");reward.className="daily-quest-reward";reward.textContent=task.completed?"готово":`${safeConfigText(task.reward,"очки",80)}${progressText}`;
+    card.append(icon,title,description,reward);
+    grid.appendChild(card);
+  });
+  refreshRankIcons();
+}
+
+function renderPersonalActivity(profile){
+  const list = document.getElementById("activityLogList");
+  const count = document.getElementById("activityLogCount");
+  if(!list || !count) return;
+  const items = Array.isArray(profile.points_history) && profile.points_history.length ? profile.points_history : (Array.isArray(profile.personal_activity) ? profile.personal_activity : []);
+  count.textContent = `${items.length} событий`;
+  list.textContent = "";
+  if(!items.length){
+    const empty = document.createElement("p");
+    empty.className = "activity-log-empty";
+    empty.textContent = "Пока пусто. Первое начисление очков появится здесь.";
+    list.appendChild(empty);
+    return;
+  }
+  items.slice(0,8).forEach(item => {
+    const row = document.createElement("div");
+    row.className = "activity-log-item";
+    const icon=document.createElement("span");icon.className="activity-log-icon";appendLucideIcon(icon,item.icon,"sparkles");
+    const main=document.createElement("span");main.className="activity-log-main";
+    const title=document.createElement("strong");title.className="activity-log-title";title.textContent=`${safeConfigText(item.title,"Активность",120)} · ${relativeActivityTime(item.at)}`;
+    const detail=document.createElement("small");detail.className="activity-log-text";detail.textContent=safeConfigText(item.meta||item.text,"",240);main.append(title,detail);
+    const delta=Number(item.points)||0;
+    const points=document.createElement("span");points.className="activity-log-points";points.textContent=`${delta>=0?"+":""}${delta}`;
+    points.classList.toggle("is-negative",delta<0);
+    row.append(icon,main,points);
+    list.appendChild(row);
+  });
+  refreshRankIcons();
+}
+
+function renderSeasonRewards(profile){
+  const points = Math.max(0,Number(profile.points) || 0);
+  const track = document.getElementById("seasonRewardTrack");
+  track.textContent = "";
+  let currentIndex = 0;
+  SEASON_REWARDS.forEach((reward,index) => {
+    if(points >= reward.points) currentIndex = index;
+  });
+  SEASON_REWARDS.forEach((reward,index) => {
+    const item = document.createElement("div");
+    const unlocked = points >= reward.points;
+    item.className = `season-reward${unlocked ? " is-unlocked" : ""}${index === currentIndex ? " is-current" : ""}`;
+    item.title = `${reward.name}: ${reward.points.toLocaleString("ru-RU")} очков`;
+    const icon=document.createElement("span");icon.className="season-reward-icon";appendLucideIcon(icon,unlocked?reward.icon:"lock");
+    const name=document.createElement("strong");name.textContent=reward.name;
+    const pointsLabel=document.createElement("small");pointsLabel.textContent=`${reward.points.toLocaleString("ru-RU")} очк.`;item.append(icon,name,pointsLabel);
+    track.appendChild(item);
+  });
+  const nextReward = SEASON_REWARDS.find(reward => reward.points > points);
+  const lastReward = SEASON_REWARDS[SEASON_REWARDS.length - 1];
+  document.getElementById("seasonRewardNote").textContent = nextReward
+    ? `До «${nextReward.name}» ${Math.max(0,nextReward.points - points).toLocaleString("ru-RU")} очк.`
+    : "Все награды открыты";
+  document.getElementById("seasonRewardProgress").style.width = `${Math.max(0,Math.min((points / lastReward.points) * 100,100))}%`;
+  refreshRankIcons();
+  window.requestAnimationFrame(() => {
+    const current = track.children[currentIndex];
+    if(current) track.scrollLeft = Math.max(0,current.offsetLeft - (track.clientWidth - current.offsetWidth) / 2);
+  });
+}
+
+function ensureStartBoostButton(){
+  let button = document.getElementById("startBoostBtn");
+  if(!button){
+    button = document.createElement("button");
+    button.className = "ghost-btn boost-button";
+    button.type = "button";
+    button.id = "startBoostBtn";
+  }
+  return button;
+}
+
+function appendIfExists(parent,element){
+  if(parent && element && element.parentElement !== parent) parent.appendChild(element);
+}
+
+function setupRoomLayout(){
+  const boostPanel = document.getElementById("applicationBoostPanel");
+  const gamerCard = document.getElementById("gamerProfileCard");
+  const progressDrawer = document.getElementById("playerProgressDrawer");
+  const progressDrawerBody = document.getElementById("playerProgressAllBody");
+  if(!boostPanel || !gamerCard) return;
+  const achievementSection = document.getElementById("achievementCount")?.closest(".room-section");
+  const rankSection = document.getElementById("rankJourneyNote")?.closest(".room-section");
+  const activitySection = document.getElementById("activityLogCount")?.closest(".room-section");
+  const seasonSection = document.getElementById("seasonRewardNote")?.closest(".room-section");
+  if(rankSection) rankSection.classList.add("hud-rank-section");
+  if(activitySection) activitySection.classList.add("hud-activity-section");
+  if(seasonSection) seasonSection.classList.add("hud-season-section");
+
+  appendIfExists(document.getElementById("roomActionStack")||boostPanel,document.getElementById("boostCooldown"));
+  appendIfExists(boostPanel,gamerCard);
+  const weeklyContractZone=document.getElementById("weeklyContractZone");
+  if(weeklyContractZone && weeklyContractZone.parentElement!==boostPanel){
+    boostPanel.insertBefore(weeklyContractZone,gamerCard?.nextElementSibling||null);
+  }
+  appendIfExists(boostPanel,document.querySelector(".daily-chest"));
+  appendIfExists(boostPanel,progressDrawer);
+  appendIfExists(boostPanel,document.getElementById("quizZone"));
+  appendIfExists(boostPanel,document.getElementById("applicationEditForm"));
+  appendIfExists(boostPanel,document.getElementById("tiktokRoomSection"));
+  appendIfExists(boostPanel,document.querySelector(".profile-actions"));
+  appendIfExists(boostPanel,document.getElementById("boostRules"));
+
+  appendIfExists(progressDrawerBody,document.querySelector(".streak-quest"));
+  appendIfExists(progressDrawerBody,rankSection);
+  appendIfExists(progressDrawerBody,achievementSection);
+  appendIfExists(progressDrawerBody,document.querySelector(".daily-quests"));
+  appendIfExists(progressDrawerBody,seasonSection);
+  appendIfExists(progressDrawerBody,activitySection);
+  if(achievementSection) achievementSection.hidden = false;
+  if(seasonSection) seasonSection.open = false;
+  if(activitySection) activitySection.open = false;
+}
+
+function renderProgressSummary(profile){
+  const host = document.getElementById("playerProgressSummary");
+  if(!host) return;
+  const nextTarget = (value,milestones,step) => milestones.find(target => target > value) || (Math.floor(value / step) + 1) * step;
+  const boosts = Math.max(0,Number(profile.boost_count) || 0);
+  const streak = Math.max(0,Number(profile.question_combo_current ?? profile.correct_streak) || 0);
+  const chests = Math.max(0,Number(profile.daily_chest_count) || 0);
+  const boostTarget = nextTarget(boosts,[5,10,25,50,100],50);
+  const streakTarget = nextTarget(streak,[3,5,10,20,30,50,100],50);
+  const chestTarget = nextTarget(chests,[3,7,10,20,30,50,100],50);
+  const items = [
+    {
+      icon:"crosshair",
+      tone:"violet",
+      title:"Первые шаги",
+      text:`Ответьте на ${boostTarget} вопросов`,
+      value:boosts,
+      target:boostTarget
+    },
+    {
+      icon:"award",
+      tone:"gold",
+      title:"Серия верных ответов",
+      text:`Дайте ${streakTarget} верных ответов подряд`,
+      value:streak,
+      target:streakTarget
+    },
+    {
+      icon:"archive",
+      tone:"pink",
+      title:"Коллекционер",
+      text:`Откройте ${chestTarget} сундуков`,
+      value:chests,
+      target:chestTarget
+    }
+  ];
+  host.textContent = "";
+  items.forEach(item => {
+    const progress = Math.max(0,Math.min((item.value / item.target) * 100,100));
+    const card = document.createElement("div");
+    card.className = `player-progress-item is-${item.tone}`;
+    card.innerHTML = `
+      <span class="player-progress-item-icon"><i data-lucide="${item.icon}"></i></span>
+      <span class="player-progress-item-copy"><strong>${item.title}</strong><small>${item.text}</small><span class="player-progress-mini"><i style="width:${progress}%"></i></span></span>
+      <b>${item.value} / ${item.target}</b>
+    `;
+    host.appendChild(card);
+  });
+  refreshRankIcons();
+}
+
+function updateProfileLink(linkId,valueId,value,href,emptyLabel){
+  const link = document.getElementById(linkId);
+  const valueNode = document.getElementById(valueId);
+  if(!link || !valueNode) return;
+  const hasValue = Boolean(value && href);
+  valueNode.textContent = value || emptyLabel;
+  link.classList.toggle("is-unavailable",!hasValue);
+  link.setAttribute("aria-disabled",hasValue ? "false" : "true");
+  if(hasValue){
+    link.href = href;
+    link.tabIndex = 0;
+  }else{
+    link.removeAttribute("href");
+    link.tabIndex = -1;
+  }
+}
+
+function normalizeApplicationLookup(value){
+  const raw = normalizeText(value);
+  const steamid = normalizeSteam(raw);
+  if(/^\d{6,20}$/.test(steamid)) return steamid;
+  return normalizeTikTok(raw);
+}
+
+function applicationLookupIsValid(value){
+  const lookup = normalizeApplicationLookup(value);
+  return /^\d{6,20}$/.test(lookup) || isTikTokUrl(lookup);
+}
+
+function setApplicationEditVisible(visible){
+  const form = document.getElementById("applicationEditForm");
+  if(!form) return;
+  if(visible && currentApplication){
+    document.getElementById("editSteamId").value = currentApplication.steamid || "";
+    document.getElementById("editGames").value = currentApplication.games || "";
+    document.getElementById("editTikTok").value = currentApplication.tiktok || "";
+    document.getElementById("editApplicationTrap").value = "";
+    const editStatus=document.getElementById("applicationEditStatus");
+    if(editStatus){editStatus.className="form-status application-edit-status";editStatus.textContent="";}
+  }
+  form.hidden = !visible;
+}
+
+function updateApplicationEditState(profile){
+  const button = document.getElementById("openApplicationEditBtn");
+  const note = document.getElementById("applicationEditNote");
+  const badge = document.getElementById("applicationEditLimitBadge");
+  if(!button || !note) return;
+  const limit=Math.max(1,Number(profile&&profile.application_edit_limit)||3);
+  const used=Math.max(0,Number(profile&&profile.application_edit_count)||0);
+  const remaining=Math.max(0,Number.isFinite(Number(profile&&profile.application_edits_remaining))?Number(profile.application_edits_remaining):limit-used);
+  const canEdit = applicationToolMode === "card" && remaining>0 && Boolean(profile && profile.can_edit_application);
+  button.hidden = applicationToolMode !== "card";
+  note.hidden = applicationToolMode !== "card";
+  button.disabled = !canEdit;
+  button.innerHTML = canEdit
+    ? '<i data-lucide="pencil"></i>Редактировать заявку'
+    : '<i data-lucide="lock"></i>Лимит редактирований исчерпан';
+  note.textContent = canEdit ? `Осталось редактирований: ${remaining} из ${limit}` : `Использовано ${limit} из ${limit}`;
+  if(badge) badge.innerHTML = `<i data-lucide="${canEdit?"shield-check":"lock"}"></i>${canEdit?`Осталось редактирований: ${remaining} из ${limit}`:"Лимит редактирований исчерпан"}`;
+  if(!canEdit) setApplicationEditVisible(false);
+  refreshRankIcons();
+}
+
+function showLevelUpReward(previousProfile,nextProfile,result){
+  const previousRank = progressionRankAt(previousProfile && previousProfile.level);
+  const nextRank = progressionRankAt(nextProfile.level);
+  const newAchievements = PROGRESSION_ACHIEVEMENTS.filter(item => item.test(nextProfile) && !item.test(previousProfile || {}));
+  const rankUnlocked = previousRank.name !== nextRank.name;
+  const rewardPopup = document.querySelector("#levelUpPopup .levelup-popup");
+  rewardPopup.dataset.rewardType = rankUnlocked ? "rank" : "level";
+  delete rewardPopup.dataset.chestTier;
+  document.querySelector("#levelUpPopup .levelup-kicker").innerHTML = '<i data-lucide="sparkles"></i>Прокачка успешна';
+  document.getElementById("levelUpRankIcon").innerHTML = rankEmblemSvg(nextRank,rankRarity(nextProfile.level));
+  document.getElementById("levelUpTitle").textContent = rankUnlocked ? "Новый ранг открыт!" : `Уровень ${nextProfile.level}!`;
+  document.getElementById("levelUpRankName").textContent = nextRank.name;
+  document.getElementById("levelUpLevel").textContent = `Уровень ${nextProfile.level}`;
+  document.getElementById("levelUpPoints").textContent = `+${Number(result.points_awarded) || 150} очков`;
+  const unlocks = [];
+  if(rankUnlocked) unlocks.push(`Открыт ранг «${nextRank.name}»`);
+  if(newAchievements.length) unlocks.push(`Новые достижения: ${newAchievements.map(item => item.name).join(", ")}`);
+  if(Number(result.bonus_points) > 0) unlocks.push(`Бонус серии: +${result.bonus_points} очков`);
+  document.getElementById("levelUpUnlocks").textContent = unlocks.join(" · ");
+  refreshRankIcons();
+  showPopup("levelUpPopup");
+}
+
+function updateBoostAvailability(){
+  if(!currentApplication) return;
+  updateSponsorChestButton(currentApplication);
+  const button = ensureStartBoostButton();
+  const cooldown = document.getElementById("boostCooldown");
+  if(applicationToolMode === "card"){
+    cooldown.hidden = true;
+    button.hidden = true;
+    document.querySelector(".profile-actions")?.appendChild(button);
+    return;
+  }
+  if(activeChallengeId){
+    cooldown.hidden = true;
+    button.hidden = true;
+    document.querySelector(".profile-actions")?.appendChild(button);
+    return;
+  }
+  cooldown.hidden = false;
+  const remaining = formatRemaining(currentApplication.next_boost_at);
+  const canBoost = (currentApplication.can_boost || !remaining) && !activeChallengeId;
+  cooldown.className = "next-activity-card " + (canBoost ? "is-ready" : "is-waiting");
+  cooldown.innerHTML = canBoost
+    ? '<span class="next-activity-icon"><i data-lucide="zap"></i></span><span><b class="next-activity-kicker">Следующая активность</b><strong class="next-activity-title">Вопрос уже доступен</strong><small class="next-activity-text">Ответьте верно и продолжайте серию без паузы.</small></span>'
+    : `<span class="next-activity-icon"><i data-lucide="timer"></i></span><span><b class="next-activity-kicker">Следующая активность</b><strong class="next-activity-title">Следующий вопрос через ${remaining}</strong><small class="next-activity-text">Вернитесь вовремя и сохраните серию.</small></span>`;
+  if(button){
+    button.disabled = !canBoost;
+    const retryButtonVisible = !document.getElementById("requestNewQuestionBtn").hidden;
+    button.hidden = !canBoost || retryButtonVisible;
+    button.innerHTML = '<span>Прокачать заявку</span><i data-lucide="chevron-right" aria-hidden="true"></i>';
+    button.classList.toggle("boost-ready",canBoost);
+    button.classList.remove("boost-locked");
+    cooldown.appendChild(button);
+  }
+  refreshRankIcons();
+  if(canBoost) currentApplication.can_boost = true;
+  window.dispatchEvent(new CustomEvent("rytni:progression-tick",{
+    detail:{profile:currentApplication}
+  }));
+}
+
+function applyTopTenStatus(inTopTen,available=true){
+  const card=document.getElementById("profileTopTenCard");
+  const value=document.getElementById("profilePointsPosition");
+  const hint=document.getElementById("profilePointsPositionHint");
+  if(!card||!value||!hint)return;
+  card.classList.remove("is-checking","is-top-ten","is-outside-top-ten");
+  if(!available){
+    card.classList.add("is-checking");
+    value.textContent="Прокачивайтесь";
+    hint.textContent="статус топ‑10 обновится позже";
+    return;
+  }
+  card.classList.add(inTopTen?"is-top-ten":"is-outside-top-ten");
+  value.textContent=inTopTen?"Вы в топ‑10":"Пока не в топ‑10";
+  hint.textContent=inTopTen?"Возможно, подарок достанется именно вам":"Поднажмите, чтобы войти";
+}
+
+async function renderTopTenStatus(profile){
+  const card=document.getElementById("profileTopTenCard");
+  const value=document.getElementById("profilePointsPosition");
+  const hint=document.getElementById("profilePointsPositionHint");
+  if(!card||!value||!hint)return;
+  if(typeof profile?.in_top_10==="boolean"){
+    applyTopTenStatus(profile.in_top_10);
+    return;
+  }
+  card.classList.remove("is-top-ten","is-outside-top-ten");
+  card.classList.add("is-checking");
+  value.textContent="Проверяем";
+  hint.textContent="вашу позицию в топ‑10";
+  const requestKey=`${profile?.id||"unknown"}:${Number(profile?.points)||0}`;
+  topTenStatusRequestKey=requestKey;
+  try{
+    const result=await callSupabaseRpc("get_my_top10_status",{},7000);
+    if(topTenStatusRequestKey!==requestKey)return;
+    if(result?.success){
+      profile.in_top_10=Boolean(result.in_top_10);
+      if(result.top_10_position)profile.top_10_position=Number(result.top_10_position);
+      applyTopTenStatus(profile.in_top_10);
+      return;
+    }
+    applyTopTenStatus(false,false);
+  }catch(error){
+    if(topTenStatusRequestKey===requestKey)applyTopTenStatus(false,false);
+  }
+}
+
+let telegramConnectionState=null;
+function renderTelegramConnection(state){
+  telegramConnectionState=state||null;
+  const meta=document.getElementById("profileTelegramMeta");
+  const button=document.getElementById("profileTelegramBtn");
+  const disconnect=document.getElementById("profileTelegramDisconnectBtn");
+  const title=document.getElementById("profileTelegramTitle");
+  const hint=document.getElementById("profileTelegramHint");
+  const value=document.getElementById("profileTelegramValue");
+  if(!button||!title||!hint||!value)return;
+  const connected=Boolean(state?.connected);
+  const username=String(state?.telegram_username||"").trim().replace(/^@+/,"");
+  meta?.classList.toggle("is-connected",connected);
+  button.classList.toggle("is-connected",connected);
+  button.disabled=false;
+  button.setAttribute("aria-label",connected?"Открыть настройки Telegram-уведомлений":"Подключить Telegram-уведомления");
+  title.textContent=connected?"Настроить":"Подключить";
+  value.textContent=connected?(username?`@${username}`:"Подключён"):"Не подключён";
+  hint.textContent=connected
+    ?(state.active===false?"Уведомления приостановлены":"Уведомления включены")
+    :"Напоминания выключены";
+  if(disconnect)disconnect.hidden=!connected;
+  refreshRankIcons();
+}
+async function refreshTelegramConnection(){
+  if(!authSession?.access_token){renderTelegramConnection(null);return;}
+  try{
+    const state=await callSupabaseRpc("get_my_telegram_settings_v2180",{},6000,true);
+    renderTelegramConnection(state?.success?state:null);
+  }catch(error){
+    renderTelegramConnection(null);
+  }
+}
+async function openTelegramConnection(){
+  const button=document.getElementById("profileTelegramBtn");
+  if(!button||button.disabled)return;
+  button.disabled=true;
+  const hint=document.getElementById("profileTelegramHint");
+  if(hint)hint.textContent="Создаём безопасную ссылку…";
+  try{
+    if(telegramConnectionState?.connected){
+      location.href="https://t.me/Rytni_Give_BOT?start=settings";
+      return;
+    }
+    const result=await callSupabaseRpc("create_my_telegram_link_v2180",{},7000,true);
+    if(!result?.success||!result?.bot_url)throw new Error("TELEGRAM_LINK_FAILED");
+    location.href=result.bot_url;
+  }catch(error){
+    button.disabled=false;
+    if(hint)hint.textContent=error?.kind==="auth"?"Сначала войдите по подтверждённому email":"Не удалось подключить. Попробуйте позже";
+  }
+}
+document.getElementById("profileTelegramBtn")?.addEventListener("click",openTelegramConnection);
+document.getElementById("profileTelegramDisconnectBtn")?.addEventListener("click",()=>{
+  if(!telegramConnectionState?.connected)return;
+  const text=document.getElementById("telegramDisconnectText");
+  if(text)text.textContent="Напоминания перестанут приходить. Позже можно подключить этот или другой Telegram-аккаунт.";
+  showPopup("telegramDisconnectPopup");
+});
+document.getElementById("telegramDisconnectConfirmBtn")?.addEventListener("click",async()=>{
+  const confirmButton=document.getElementById("telegramDisconnectConfirmBtn");
+  const text=document.getElementById("telegramDisconnectText");
+  if(!confirmButton||confirmButton.disabled)return;
+  confirmButton.disabled=true;
+  if(text)text.textContent="Отключаем Telegram и останавливаем уведомления…";
+  try{
+    const result=await callSupabaseRpc("disconnect_my_telegram_v2180",{},7000,true);
+    if(!result?.success)throw new Error("TELEGRAM_DISCONNECT_FAILED");
+    renderTelegramConnection(null);
+    closePopupLayer(document.getElementById("telegramDisconnectPopup"));
+  }catch(error){
+    if(text)text.textContent=error?.kind==="auth"?"Сессия завершилась. Войдите по email и повторите попытку.":"Не удалось отключить Telegram. Проверьте интернет и попробуйте ещё раз.";
+  }finally{
+    confirmButton.disabled=false;
+  }
+});
+
+/* 2.15.28: личные контракты недели. Прогресс всегда приходит с сервера. */
+let weeklyContractState=null;
+let weeklyContractLoadKey=0;
+let weeklyContractSelectionCandidate="";
+const WEEKLY_CONTRACT_ASSETS={
+  "weekly-contract-archive.webp":"https://rytni.github.io/rytni-assets/ui-v216/weekly-contract-archive.webp",
+  "weekly-contract-guardian.webp":"https://rytni.github.io/rytni-assets/ui-v216/weekly-contract-guardian.webp",
+  "weekly-contract-archivist.webp":"https://rytni.github.io/rytni-assets/ui-v216/weekly-contract-archivist.webp",
+  "weekly-contract-navigator.webp":"https://rytni.github.io/rytni-assets/ui-v216/weekly-contract-navigator.webp"
+};
+function weeklyContractAssetUrl(file){return WEEKLY_CONTRACT_ASSETS[file]||WEEKLY_CONTRACT_ASSETS["weekly-contract-archive.webp"];}
+function weeklyContractByType(type){return Array.isArray(weeklyContractState?.contracts)?weeklyContractState.contracts.find(item=>item.type===type):null;}
+function weeklyContractTimeLabel(value){
+  const seconds=Math.max(0,Number(value)||0),days=Math.floor(seconds/86400),hours=Math.floor((seconds%86400)/3600);
+  if(days>0)return `${days} д. ${hours} ч.`;
+  const minutes=Math.max(1,Math.ceil(seconds/60));return hours>0?`${hours} ч. ${Math.ceil((seconds%3600)/60)} мин.`:`${minutes} мин.`;
+}
+function renderWeeklyContractChoices(){
+  const grid=document.getElementById("weeklyContractChoiceGrid");if(!grid)return;
+  grid.textContent="";
+  (weeklyContractState?.contracts||[]).forEach(item=>{
+    const card=document.createElement("button");card.type="button";card.className="weekly-contract-choice";card.dataset.contractType=item.type;
+    const progress=Math.min(Math.max(Number(item.progress)||0,0),Math.max(Number(item.target)||1,1));
+    card.innerHTML=`<img src="${weeklyContractAssetUrl(item.asset)}" alt="" loading="eager" decoding="async"><small>${safeConfigText(item.kicker,"Личный контракт",70)}</small><strong>${safeConfigText(item.title,"Контракт",70)}</strong><p>${safeConfigText(item.story,"",240)}</p><span class="weekly-contract-choice-task"><i data-lucide="target"></i>${safeConfigText(item.task,"Выполните поручение",120)}</span><span class="weekly-contract-choice-foot"><span>+${Number(item.reward)||0} очков</span><b>${progress}/${Number(item.target)||1}</b></span>`;
+    card.addEventListener("click",async()=>{
+      if(card.disabled)return;
+      if(weeklyContractSelectionCandidate!==item.type){
+        weeklyContractSelectionCandidate=item.type;
+        grid.querySelectorAll(".weekly-contract-choice").forEach(node=>node.classList.toggle("is-candidate",node===card));
+        card.querySelector(".weekly-contract-choice-foot span").textContent="Нажмите ещё раз — принять";
+        return;
+      }
+      grid.querySelectorAll("button").forEach(node=>node.disabled=true);
+      try{
+        const result=await callSupabaseRpc("select_my_weekly_contract_v21528",{p_participant_id:currentApplication.id,p_contract_type:item.type},8000,true,"authenticated",true);
+        if(!result?.success)throw new Error(String(result?.status||"CONTRACT_SELECT_FAILED"));
+        weeklyContractState=result;weeklyContractSelectionCandidate="";closePopupLayer(document.getElementById("weeklyContractPopup"));renderWeeklyContract();playUiSound("success");
+      }catch(error){
+        grid.querySelectorAll("button").forEach(node=>node.disabled=false);
+        const status=document.getElementById("weeklyContractStatus");if(status)status.textContent="Не удалось принять контракт. Обновите страницу и попробуйте ещё раз.";
+      }
+    });
+    grid.appendChild(card);
+  });
+  refreshRankIcons();
+}
+function renderWeeklyContract(){
+  const zone=document.getElementById("weeklyContractZone");if(!zone)return;
+  if(!weeklyContractState?.success||weeklyContractState.available===false){zone.hidden=true;return;}
+  zone.hidden=false;zone.classList.toggle("is-complete",Boolean(weeklyContractState.completed));zone.classList.toggle("is-claimed",Boolean(weeklyContractState.claimed));
+  const title=document.getElementById("weeklyContractTitle"),story=document.getElementById("weeklyContractStory"),reward=document.getElementById("weeklyContractReward"),button=document.getElementById("weeklyContractButton"),progress=document.getElementById("weeklyContractProgress"),status=document.getElementById("weeklyContractStatus"),art=zone.querySelector(".weekly-contract-archive-art");
+  const selected=weeklyContractByType(weeklyContractState.selected_type);
+  if(status)status.textContent="";
+  if(!selected){
+    title.textContent="Личный контракт недели";story.textContent="Архив открыл три пути на шесть дней. Один день недели можно пропустить.";reward.innerHTML='<i data-lucide="coins"></i>250 / 400 / 600 очков';button.disabled=false;button.innerHTML='<span>Выбрать контракт</span><i data-lucide="arrow-right"></i>';progress.hidden=true;if(art)art.src=weeklyContractAssetUrl("weekly-contract-archive.webp");
+  }else{
+    const value=Math.max(0,Number(weeklyContractState.selected_progress)||0),target=Math.max(1,Number(weeklyContractState.selected_target)||1),percent=Math.min(value/target*100,100);
+    title.textContent=selected.title;story.textContent=selected.story;reward.innerHTML=`<i data-lucide="coins"></i>+${Number(weeklyContractState.selected_reward)||0} очков`;progress.hidden=false;document.getElementById("weeklyContractProgressLabel").textContent=`${Math.min(value,target)} из ${target}`;document.getElementById("weeklyContractDeadline").textContent=`Осталось ${weeklyContractTimeLabel(weeklyContractState.seconds_remaining)}`;document.getElementById("weeklyContractProgressBar").style.width=`${percent}%`;if(art)art.src=weeklyContractAssetUrl(selected.asset);
+    if(weeklyContractState.claimed){button.disabled=true;button.innerHTML='<span>Награда получена</span><i data-lucide="badge-check"></i>';}
+    else if(weeklyContractState.completed){button.disabled=false;button.innerHTML='<span>Забрать награду</span><i data-lucide="gift"></i>';}
+    else{button.disabled=false;button.innerHTML='<span>Обновить прогресс</span><i data-lucide="refresh-cw"></i>';}
+  }
+  refreshRankIcons();
+}
+async function loadWeeklyContract(profile=currentApplication){
+  const zone=document.getElementById("weeklyContractZone"),key=++weeklyContractLoadKey;
+  if(!profile?.id||!authSession?.access_token){if(zone)zone.hidden=true;return;}
+  try{
+    const state=await callSupabaseRpc("get_my_weekly_contract_v21528",{p_participant_id:profile.id},7000,true,"authenticated",true);
+    if(key!==weeklyContractLoadKey)return;weeklyContractState=state;renderWeeklyContract();
+  }catch(error){if(key===weeklyContractLoadKey&&zone)zone.hidden=true;}
+}
+document.getElementById("weeklyContractButton")?.addEventListener("click",async()=>{
+  if(!weeklyContractState?.selected_type){weeklyContractSelectionCandidate="";renderWeeklyContractChoices();showPopup("weeklyContractPopup");return;}
+  if(!weeklyContractState.completed){await loadWeeklyContract();return;}
+  if(weeklyContractState.claimed)return;
+  const button=document.getElementById("weeklyContractButton");button.disabled=true;button.innerHTML='<span>Проверяем…</span><i data-lucide="loader-circle"></i>';refreshRankIcons();
+  try{
+    const result=await callSupabaseRpc("claim_my_weekly_contract_v21528",{p_participant_id:currentApplication.id},8000,true,"authenticated",true);
+    if(!result?.success)throw new Error(String(result?.status||"CONTRACT_CLAIM_FAILED"));
+    weeklyContractState.claimed=true;weeklyContractState.claimed_at=new Date().toISOString();weeklyContractState.points_awarded=result.points_awarded;renderWeeklyContract();playUiSound("success");launchLuckyCouponCelebration();if(typeof showToast==="function")showToast(`Контракт выполнен: +${Number(result.points_awarded)||0} очков!`,"success");
+    try{const refreshed=await callSupabaseRpc("get_my_active_application",{},6000,true,"authenticated",true);if(refreshed?.success){currentApplication=refreshed;renderApplicationProfile(refreshed);}}catch(error){}
+  }catch(error){button.disabled=false;renderWeeklyContract();const status=document.getElementById("weeklyContractStatus");if(status)status.textContent="Награда пока недоступна. Обновите прогресс и повторите попытку.";}
+});
+
+function renderApplicationProfile(profile){
+  currentApplication = profile;
+  syncHeroPrimaryAction();
+  updateCouponWalletButton(profile);
+  updateSponsorChestButton(profile);
+  syncParticipationVisibility();
+  hideUnlinkedEmailState();
+  const applicationShell=document.querySelector("#applicationPopup .application-popup");
+  applicationShell?.classList.remove("is-auth-compact","is-unlinked-state","is-mode-boost","is-mode-room");
+  applicationShell?.classList.add(applicationToolMode==="boost"?"is-mode-boost":"is-mode-room");
+  const roomPanel=document.getElementById("applicationBoostPanel");
+  roomPanel?.classList.toggle("is-boost-room",applicationToolMode==="boost");
+  roomPanel?.classList.toggle("is-private-room",applicationToolMode!=="boost");
+  const roomArt=roomPanel?.querySelector(".boost-logo-image");
+  if(roomArt)roomArt.src=applicationToolMode==="boost"
+    ?"https://rytni.github.io/rytni-assets/ui-v213/boost-core-mobile.webp"
+    :"https://rytni.github.io/rytni-assets/ui-v213/room-portal-mobile.webp";
+  document.querySelectorAll('[data-tool-mode="card"]').forEach(item=>item.textContent="Моя заявка");
+  setApplicationSearchVisible(false);
+  document.getElementById("authPanel").hidden=true;
+  document.getElementById("authState").hidden=true;
+  document.getElementById("claimEmailBtn").hidden=Boolean(profile.email_linked||profile.user_id);
+  refreshTelegramConnection();
+  activeChallengeId = "";
+  setupRoomLayout();
+  if(profile.steamid) document.getElementById("applicationSteamId").value = profile.steamid;
+  document.getElementById("applicationProfile").hidden = false;
+  document.getElementById("quizZone").hidden = true;
+  setQuestionRetryVisible(false);
+  const participantName = profile.name || "Участник";
+  const desiredGame = firstDesiredGame(profile.games);
+  document.getElementById("profileName").textContent = participantName;
+  document.getElementById("profileGame").textContent = desiredGame;
+  document.getElementById("boostProfileName").textContent = participantName;
+  document.getElementById("boostProfileGame").textContent = desiredGame;
+  document.getElementById("profileParticipantNumber").textContent = profile.participant_number
+    ? `№ ${profile.participant_number}${profile.test_mode ? " · TEST" : ""}`
+    : (profile.test_mode ? "TEST" : "№ —");
+  document.getElementById("profileRegion").textContent = profile.region || profile.steam_region || "Не указан";
+  const steamCode = String(profile.steamid || "").trim();
+  document.getElementById("profileSteamValue").textContent = steamCode || "Не указан";
+  const tikTokUrl = profile.tiktok ? normalizeTikTok(profile.tiktok) : "";
+  let tikTokLabel = tikTokUrl;
+  try{
+    if(tikTokUrl) tikTokLabel = new URL(tikTokUrl).pathname.replace(/^\//,"") || "Открыть профиль";
+  }catch(error){}
+  updateProfileLink(
+    "profileTikTokLink",
+    "profileTikTokValue",
+    tikTokLabel,
+    tikTokUrl && isTikTokUrl(tikTokUrl) ? tikTokUrl : "",
+    "Не указан"
+  );
+  const profileAvatar = document.getElementById("profileAvatar");
+  setSafeAvatar(profileAvatar,"",participantName);
+  profileAvatar.alt = `Аватар ${participantName}`;
+  document.getElementById("profileLevelBig").textContent = String(profile.level || 1);
+  const rarity = rankRarity(profile.level);
+  const rarityBadge = document.getElementById("profileRarity");
+  rarityBadge.textContent = rarity.name;
+  rarityBadge.className = `rarity-badge ${rarity.className}`;
+  document.getElementById("gamerProfileCard").style.setProperty("--rank-accent",rarity.accent);
+  document.getElementById("profileRank").textContent = profile.rank_name;
+
+  const level = Number(profile.level) || 1;
+  let currentIndex = 0;
+  PROGRESSION_RANKS.forEach((item,index) => { if(level >= item.level) currentIndex = index; });
+  const currentRank = PROGRESSION_RANKS[currentIndex];
+  const nextRank = PROGRESSION_RANKS[currentIndex + 1];
+  const points = Math.max(0,Number(profile.points) || 0);
+  const streak = Math.max(0,Number(profile.question_combo_current ?? profile.correct_streak) || 0);
+  document.getElementById("profilePoints").textContent = points.toLocaleString("ru-RU");
+  document.getElementById("profileStreak").textContent = String(streak);
+  renderTopTenStatus(profile);
+  document.getElementById("profileLevelPointsHint").innerHTML = `нужен <em>верный ответ</em>`;
+  renderStreakPath(streak,profile.next_streak_bonus_at,profile.next_streak_bonus_points);
+  renderRankJourney(level);
+  renderAchievements(profile);
+  renderDailyChest(profile);
+  renderDailyQuests(profile);
+  loadWeeklyContract(profile);
+  renderPersonalActivity(profile);
+  renderSeasonRewards(profile);
+  renderProgressSummary(profile);
+  document.getElementById("profileRankIcon").innerHTML = levelHexSvg();
+  document.getElementById("profileRankInlineIcon").innerHTML = rankEmblemSvg(currentRank,rarity,"small");
+  refreshRankIcons();
+  const progress = nextRank ? ((level - currentRank.level) / (nextRank.level - currentRank.level)) * 100 : 100;
+  const levelRingProgress = Number.isFinite(Number(profile.level_progress_percent))
+    ? Number(profile.level_progress_percent)
+    : 68;
+  document.querySelector(".rank-medallion")?.style.setProperty("--level-progress",`${Math.max(0,Math.min(levelRingProgress,100))}%`);
+  document.getElementById("profileRankProgress").style.width = `${Math.max(0,Math.min(progress,100))}%`;
+  document.getElementById("profileRankHint").textContent = nextRank
+    ? `До «${nextRank.name}» осталось ${nextRank.level - level} ур.`
+    : "Максимальный ранг открыт.";
+  updateApplicationEditState(profile);
+  const cardHost = document.getElementById("applicationCardHost");
+  const tiktokSection = document.getElementById("tiktokRoomSection");
+  document.getElementById("applicationBoostPanel").hidden = false;
+  document.getElementById("profileHeading").hidden = true;
+  document.getElementById("profileRoomTitle").textContent = applicationToolMode === "boost" ? "Прокачка заявки" : "Моя заявка";
+  document.getElementById("profileRoomSub").textContent = applicationToolMode === "boost"
+    ? "Ответьте на игровой вопрос и поднимите уровень."
+    : "Проверьте карточку участника, измените данные заявки или поделитесь ею в TikTok.";
+  document.getElementById("boostRules").hidden = applicationToolMode !== "boost";
+  cardHost.textContent = "";
+  tiktokSection.hidden = applicationToolMode !== "card";
+  tiktokSection.open = false;
+  if(applicationToolMode === "card"){
+    recordFunnelEvent("profile_opened");
+    renderSuccessCard(profile.name,profile.participant_number,profile.games,cardHost,false,profile);
+  }
+  if(applicationToolMode === "boost") resumeProgressionTimer();
+  else stopProgressionTimer();
+}
+
+async function findApplication(lookup){
+  return await callSupabaseRpc("find_giveaway_application", {p_steamid:lookup},7000);
+}
+
+document.getElementById("applicationSearchForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const input = document.getElementById("applicationSteamId");
+  const button = document.getElementById("applicationSearchBtn");
+  const status = document.getElementById("applicationSearchStatus");
+  const lookup = normalizeApplicationLookup(input.value);
+  if(!applicationLookupIsValid(input.value)){
+    progressionStatus(status,"Введите Steam-код дружбы или ссылку на TikTok.",true);
+    return;
+  }
+  button.disabled = true;
+  button.textContent = "Ищем...";
+  status.className = "form-status";
+  status.textContent = "Проверяем список участников.";
+  try{
+    if(applicationClaimMode&&authSession){
+      button.textContent="Привязываем...";
+      const claimed=await callSupabaseRpc("claim_active_application",{p_lookup:lookup},7000);
+      if(!claimed||!claimed.success){
+        if(claimed?.status==="banned"){
+          currentApplication=null;
+          showBannedApplicationState(claimed?.ban_reason);
+          return;
+        }
+        progressionStatus(status,applicationClaimErrorMessage(claimed?.status),true);
+        return;
+      }
+      applicationClaimMode=false;
+      pendingClaimLookup="";
+      input.value=claimed.steamid||lookup;
+      renderApplicationProfile(claimed);
+      showAuthSuccessToast("Заявка привязана","Теперь она будет автоматически открываться после входа по email");
+      return;
+    }
+    const result = await findApplication(lookup);
+    if(!result || !result.success){
+      currentApplication = null;
+      document.getElementById("applicationProfile").hidden = true;
+      if(result?.status==="banned"){
+        showBannedApplicationState(result?.ban_reason);
+        return;
+      }
+      progressionStatus(status,result?.status==="banned"?BANNED_APPLICATION_MESSAGE:result?.status==="email_login_required"?"Эта заявка уже привязана к email. Войдите по email, чтобы открыть карточку.":"Заявка с таким Steam-кодом или TikTok не найдена.",true);
+      return;
+    }
+    input.value = result.steamid || lookup;
+    renderApplicationProfile(result);
+    progressionStatus(status,applicationToolMode === "boost" ? "Заявка найдена. Можно прокачивать." : "Ваша заявка открыта.");
+    setApplicationSearchVisible(false);
+  }catch(error){
+    progressionStatus(status,"Не удалось проверить заявку. Повторите немного позже.",true);
+  }finally{
+    button.disabled = false;
+    button.textContent = applicationClaimMode ? "Привязать заявку" : (applicationToolMode === "boost" ? "Продолжить" : "Открыть");
+  }
+});
+
+document.getElementById("openApplicationEditBtn").addEventListener("click", () => {
+  if(!currentApplication || !currentApplication.can_edit_application) return;
+  setApplicationEditVisible(true);
+  document.getElementById("editGames").focus();
+});
+
+document.getElementById("cancelApplicationEditBtn").addEventListener("click", () => {
+  setApplicationEditVisible(false);
+});
+
+document.getElementById("applicationEditForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if(!currentApplication) return;
+  const status = document.getElementById("applicationEditStatus");
+  const pageStatus = document.getElementById("applicationSearchStatus");
+  const button = document.getElementById("saveApplicationEditBtn");
+  const newSteamId = normalizeSteamFriendCode(document.getElementById("editSteamId").value);
+  const newGames = normalizeGames(document.getElementById("editGames").value);
+  const newTikTok = normalizeTikTok(document.getElementById("editTikTok").value);
+
+  if(!/^\d{6,10}$/.test(newSteamId)){
+    progressionStatus(status,"Введите только Steam-код дружбы из 6–10 цифр.",true);
+    return;
+  }
+  const gameCount=newGames.split(/,\s*/).filter(Boolean).length;
+  if(newGames.length < 2 || newGames.length > 120 || gameCount<1 || gameCount>4){
+    progressionStatus(status,"Укажите от 1 до 4 игр через запятую, не более 120 символов.",true);
+    return;
+  }
+  button.disabled = true;
+  button.innerHTML = '<i data-lucide="loader-circle"></i>Сохраняем...';
+  progressionStatus(status,"Сохраняем изменения...");
+  refreshRankIcons();
+  try{
+    const result = await callSupabaseRpc("update_my_active_application_once_v21515", {
+      p_participant_id:currentApplication.id,
+      p_new_steamid:newSteamId,
+      p_new_games:newGames,
+      p_new_tiktok:newTikTok,
+      p_honeypot:document.getElementById("editApplicationTrap").value
+    },12000);
+    if(!result || !result.success){
+      const messages = {
+        edit_used:"Лимит из трёх редактирований уже использован.",
+        invalid_steam:"Проверьте Steam-код дружбы.",
+        invalid_games:"Проверьте список желаемых игр.",
+        invalid_tiktok:"Проверьте ссылку TikTok.",
+        steam_taken:"Такой Steam-код уже указан в другой заявке.",
+        tiktok_taken:"Такая TikTok-ссылка уже указана в другой заявке.",
+        not_found:"Заявка не найдена. Откройте личную комнату заново.",
+        forbidden:"Сессия больше не имеет доступа к заявке. Выйдите и войдите по email снова.",
+        not_authenticated:"Сессия закончилась. Войдите по email снова.",
+        rejected:"Защитная проверка не пройдена. Обновите страницу и повторите.",
+        banned:BANNED_APPLICATION_MESSAGE
+      };
+      if(result?.status==="banned"){
+        currentApplication=null;
+        showBannedApplicationState(result?.ban_reason);
+        return;
+      }
+      progressionStatus(status,messages[result && result.status] || "Не удалось сохранить изменения.",true);
+      return;
+    }
+    document.getElementById("applicationSteamId").value = result.steamid || newSteamId;
+    setApplicationEditVisible(false);
+    renderApplicationProfile(result);
+    progressionStatus(pageStatus,`Заявка обновлена. Осталось редактирований: ${Math.max(0,Number(result.application_edits_remaining)||0)}.`);
+  }catch(error){
+    reportRpcError("application_edit",error);
+    progressionStatus(status,rpcUserMessage(error,"сохранить изменения"),true);
+  }finally{
+    button.disabled = false;
+    button.innerHTML = '<i data-lucide="save"></i>Сохранить изменения';
+    refreshRankIcons();
+  }
+});
+
+function updateSponsorChestButton(profile=currentApplication){
+  const button=document.getElementById("sponsorChestBtn"),hint=document.getElementById("sponsorChestHint");
+  if(!button||!hint)return;
+  const enabled=profile?.sponsor_chest_enabled!==false;
+  button.hidden=!enabled;if(!enabled)return;
+  const rewardValue=Number(profile?.sponsor_chest_points),cooldownValue=Number(profile?.sponsor_chest_cooldown_minutes);
+  const reward=Number.isFinite(rewardValue)?Math.max(0,rewardValue):100,cooldown=Number.isFinite(cooldownValue)?Math.max(1,cooldownValue):1440;
+  const remaining=formatRemaining(profile&&profile.next_sponsor_chest_at);
+  const ready=Boolean(profile&&profile.can_sponsor_chest)||!remaining;
+  button.dataset.ready=String(ready);
+  button.disabled=!ready;
+  const cooldownLabel=cooldown%1440===0?`раз в ${cooldown/1440===1?"сутки":`${cooldown/1440} сут.`}`:cooldown%60===0?`раз в ${cooldown/60} ч.`:`раз в ${cooldown} мин.`;
+  hint.textContent=ready?`+${reward} очков · ${cooldownLabel}`:`Снова через ${remaining}`;
+}
+
+document.getElementById("sponsorChestBtn")?.addEventListener("click",async event=>{
+  if(!currentApplication)return;
+  const rewardValue=Number(currentApplication.sponsor_chest_points);
+  const configuredReward=Number.isFinite(rewardValue)?Math.max(0,rewardValue):100;
+  /* Open an internal waiting tab first. Opening Telegram before the RPC can suspend
+     mobile in-app browsers and abort the points request. */
+  const sponsorTab=window.open("about:blank","_blank");
+  if(sponsorTab){
+    try{
+      sponsorTab.document.title="Сундук от спонсора";
+      sponsorTab.document.body.innerHTML=`<main style="min-height:100vh;display:grid;place-items:center;margin:0;padding:24px;box-sizing:border-box;color:#eef8ff;background:#071022;font:700 18px/1.45 system-ui;text-align:center"><div><div style="font-size:42px;margin-bottom:14px">🎁</div>Начисляем +${configuredReward} очков…</div></main>`;
+    }catch(error){}
+  }
+  const button=event.currentTarget,status=document.getElementById("applicationSearchStatus");
+  button.disabled=true;let sponsorClaimSucceeded=false;
+  try{
+    const result=await callSupabaseRpc("claim_sponsor_chest_v27",{p_participant_id:currentApplication.id,p_client_token:getClientToken()},7000);
+    if(result?.status==="disabled"){currentApplication.sponsor_chest_enabled=false;updateSponsorChestButton(currentApplication);progressionStatus(status,"Сундук спонсора сейчас отключён организатором.",true);return;}
+    if(result?.status==="cooldown"){
+      currentApplication.can_sponsor_chest=false;currentApplication.next_sponsor_chest_at=result.next_sponsor_chest_at;updateSponsorChestButton(currentApplication);
+      progressionStatus(status,`Сундук спонсора уже забран. Снова через ${formatRemaining(result.next_sponsor_chest_at)}.`,true);return;
+    }
+    if(!result?.success)throw new Error(result?.status||"sponsor_failed");
+    sponsorClaimSucceeded=true;recordFunnelEvent("first_action");const awardedValue=Number(result.points_awarded),awarded=Number.isFinite(awardedValue)?Math.max(0,awardedValue):configuredReward;currentApplication.points=result.points;currentApplication.can_sponsor_chest=Boolean(currentApplication.test_mode);currentApplication.next_sponsor_chest_at=result.next_sponsor_chest_at;
+    document.getElementById("profilePoints").textContent=Number(result.points||0).toLocaleString("ru-RU");delete currentApplication.in_top_10;renderTopTenStatus(currentApplication);updateSponsorChestButton(currentApplication);renderSeasonRewards(currentApplication);renderAchievements(currentApplication);playUiSound("chest");
+    progressionStatus(status,`Сундук спонсора открыт: +${awarded} очков.`);
+    showAuthSuccessToast(`+${awarded} очков начислено`,`Теперь у вас ${Number(result.points||0).toLocaleString("ru-RU")} очков`);
+  }catch(error){progressionStatus(status,"Очки не начислены. Обновите страницу и повторите.",true)}
+  finally{
+    updateSponsorChestButton(currentApplication);
+    if(sponsorClaimSucceeded){if(sponsorTab&&!sponsorTab.closed){try{sponsorTab.opener=null;sponsorTab.location.replace(SPONSOR_CHEST_URL);}catch(error){}}else{const link=document.createElement("a");link.href=SPONSOR_CHEST_URL;link.target="_blank";link.rel="noopener noreferrer";link.click();}}
+    else if(sponsorTab&&!sponsorTab.closed)sponsorTab.close();
+  }
+});
+
+document.getElementById("openDailyChestBtn").addEventListener("click", async event => {
+  if(!currentApplication) return;
+  const button = event.currentTarget;
+  const status = document.getElementById("applicationSearchStatus");
+  const steamid = normalizeSteam(currentApplication.steamid || document.getElementById("applicationSteamId").value);
+  button.disabled = true;
+  button.textContent = "Открываем...";
+  try{
+    const chestRpc = currentApplication.test_mode ? "claim_giveaway_test_chest_v25" : "claim_giveaway_daily_chest_v2";
+    const result = await callSupabaseRpc(chestRpc, {
+      p_participant_id:currentApplication.id,
+      p_client_token:getClientToken()
+    },7000);
+    if(result.status === "cooldown"){
+      currentApplication.next_daily_chest_at = result.next_daily_chest_at;
+      currentApplication.can_daily_chest = false;
+      renderDailyChest(currentApplication);
+      progressionStatus(status,`Сундук уже открыт. Следующий через ${formatRemaining(result.next_daily_chest_at)}.`,true);
+      return;
+    }
+    if(!result.success || result.status !== "claimed"){
+      progressionStatus(status,"Не удалось открыть сундук. Попробуйте немного позже.",true);
+      renderDailyChest(currentApplication);
+      return;
+    }
+    const tier = CHEST_TIERS[result.chest_tier] || CHEST_TIERS.common;
+    recordFunnelEvent("first_action");
+    currentApplication.points = result.points;
+    currentApplication.daily_chest_count = result.daily_chest_count;
+    currentApplication.daily_chest_streak = result.daily_chest_streak;
+    currentApplication.daily_chest_cycles = result.daily_chest_cycles;
+    currentApplication.best_daily_chest_streak = result.best_daily_chest_streak;
+    currentApplication.last_chest = result.last_chest || {tier:result.chest_tier,points:result.points_awarded,streak_after:result.daily_chest_streak};
+    currentApplication.last_daily_chest_at = result.last_daily_chest_at;
+    currentApplication.next_daily_chest_at = result.next_daily_chest_at;
+    currentApplication.test_mode = Boolean(result.test_mode || currentApplication.test_mode);
+    currentApplication.can_daily_chest = Boolean(currentApplication.test_mode);
+    document.getElementById("profilePoints").textContent = Number(result.points || 0).toLocaleString("ru-RU");
+    renderDailyChest(currentApplication);
+    renderSeasonRewards(currentApplication);
+    renderAchievements(currentApplication);
+    renderDailyQuests(currentApplication);
+    try{
+      const refreshed = await findApplication(steamid);
+      if(refreshed && refreshed.success) renderApplicationProfile(refreshed);
+    }catch(refreshError){}
+    document.getElementById("levelUpRankIcon").innerHTML = chestEmblemSvg(result.chest_tier || "common");
+    const chestPopup = document.querySelector("#levelUpPopup .levelup-popup");
+    chestPopup.dataset.rewardType = "chest";
+    chestPopup.dataset.chestTier = result.chest_tier || "common";
+    document.querySelector("#levelUpPopup .levelup-kicker").innerHTML = '<i data-lucide="gift"></i>Награда из сундука';
+    document.getElementById("levelUpTitle").textContent = "Сундук открыт!";
+    document.getElementById("levelUpRankName").textContent = tier.name;
+    document.getElementById("levelUpLevel").textContent = "Лут дня";
+    document.getElementById("levelUpPoints").textContent = `+${Number(result.points_awarded) || 0} очков`;
+    const chestBonuses = [
+      Number(result.day_bonus) > 0 ? `бонус дня +${result.day_bonus}` : "",
+      Number(result.cycle_bonus) > 0 ? `бонус круга +${result.cycle_bonus}` : ""
+    ].filter(Boolean).join(" · ");
+    document.getElementById("levelUpUnlocks").textContent = `Очки добавлены к сезонным наградам${chestBonuses ? `: ${chestBonuses}` : ""}. Следующий сундук будет доступен через 12 часов.`;
+    refreshRankIcons();
+    const luckyCouponShown = showLuckyCoupon(result.lucky_coupon, result.points_awarded);
+    if(luckyCouponShown){
+      progressionStatus(status,`Счастливый купон! Выпал ключ на игру «${result.lucky_coupon.game}» и +${result.points_awarded} очков.`);
+    }else{
+      playUiSound("chest");
+      showPopup("levelUpPopup");
+      progressionStatus(status,`Сундук открыт: +${result.points_awarded} очков.`);
+      if(window.confetti && !prefersReducedMotion){
+        confetti({particleCount:70,spread:62,origin:{y:.72},colors:["#facc15","#fb923c","#22c55e","#38bdf8"]});
+      }
+    }
+  }catch(error){
+    reportRpcError("daily_chest",error);
+    progressionStatus(status,rpcUserMessage(error,"открыть сундук"),true);
+  }finally{
+    renderDailyChest(currentApplication);
+  }
+});
+
+function setQuestionRetryVisible(visible){
+  const answerForm = document.getElementById("quizAnswerForm");
+  const retryButton = document.getElementById("requestNewQuestionBtn");
+  answerForm.hidden = visible;
+  retryButton.hidden = !visible;
+  refreshRankIcons();
+}
+
+function showQuizLockout(message){
+  document.getElementById("quizQuestion").textContent = "";
+  document.getElementById("quizAnswerForm").hidden = true;
+  document.getElementById("requestNewQuestionBtn").hidden = true;
+  const status = document.getElementById("quizStatus");
+  status.textContent = message;
+  status.className = "form-status err is-lockout";
+  playUiSound("timeout");
+}
+
+async function handleStartBoostClick(button){
+  if(!currentApplication) return;
+  if(button.dataset.loading === "true") return;
+  playUiSound("boostClick");
+  const quizZone = document.getElementById("quizZone");
+  const status = document.getElementById("quizStatus");
+  button.dataset.loading = "true";
+  button.disabled = true;
+  button.textContent = "Загружаем вопрос...";
+  setQuestionRetryVisible(false);
+  try{
+    const startRpc = currentApplication.test_mode ? "start_giveaway_test_boost_v25" : "start_giveaway_boost_v2";
+    const result = await callSupabaseRpc(startRpc, {
+      p_participant_id:currentApplication.id,
+      p_client_token:getClientToken(),
+      p_honeypot:""
+    },7000);
+    if(result.status === "cooldown"){
+      currentApplication.next_boost_at = result.next_boost_at;
+      currentApplication.can_boost = false;
+      updateBoostAvailability();
+      return;
+    }
+    if(result.status === "wrong_cooldown"){
+      currentApplication.next_boost_at = result.retry_after;
+      currentApplication.can_boost = false;
+      updateBoostAvailability();
+      showQuizLockout("3 неверных ответа. Прокачка заблокирована на 15 минут.");
+      quizZone.hidden = false;
+      return;
+    }
+    if(["season_closed","form_closed"].includes(result.status)){
+      progressionStatus(status,"Сезон завершён, прокачка заявок остановлена.",true);
+      quizZone.hidden = false;
+      return;
+    }
+    if(result.status === "progression_blocked"){
+      progressionStatus(status,result.reason || "Прокачка временно заблокирована организатором.",true);
+      quizZone.hidden = false;
+      return;
+    }
+    if(!result.success || result.status !== "question"){
+      progressionStatus(status,result.status === "rate_limited" ? "Слишком много попыток с этого устройства." : "Не удалось получить вопрос.",true);
+      quizZone.hidden = false;
+      return;
+    }
+    activeChallengeId = result.challenge_id;
+    lastReportableChallengeId = result.challenge_id;
+    document.getElementById("quizQuestion").textContent = result.question;
+    document.getElementById("quizAnswer").value = "";
+    status.textContent = "";
+    status.className = "form-status";
+    quizZone.hidden = false;
+    document.getElementById("questionReportBtn").hidden = false;
+    document.getElementById("questionReportForm").hidden = true;
+    setQuestionRetryVisible(false);
+    document.getElementById("quizAnswer").focus();
+  }catch(error){
+    const message = String(error && error.message ? error.message : "");
+    const needsSqlPatch = message.includes("digest(") || message.includes("function digest");
+    progressionStatus(status,needsSqlPatch ? "Нужно обновить SQL прокачки в Supabase и повторить." : "Не удалось получить вопрос. Повторите позже.",true);
+    quizZone.hidden = false;
+  }finally{
+    delete button.dataset.loading;
+    button.disabled = false;
+    if(button.id === "requestNewQuestionBtn") button.innerHTML = '<i data-lucide="refresh-cw"></i>Запросить новый вопрос';
+    updateBoostAvailability();
+  }
+}
+
+document.getElementById("applicationPopup").addEventListener("click", event => {
+  const button = event.target && event.target.closest ? event.target.closest("#startBoostBtn") : null;
+  if(button) handleStartBoostClick(button);
+});
+document.getElementById("requestNewQuestionBtn").addEventListener("click", event => handleStartBoostClick(event.currentTarget));
+
+document.getElementById("quizAnswerForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  if(!currentApplication || !activeChallengeId) return;
+  const button = document.getElementById("quizAnswerBtn");
+  const status = document.getElementById("quizStatus");
+  const steamid = normalizeSteam(currentApplication.steamid || document.getElementById("applicationSteamId").value);
+  const answer = normalizeText(document.getElementById("quizAnswer").value);
+  const previousProfile = {...currentApplication};
+  button.disabled = true;
+  button.textContent = "Проверяем...";
+  try{
+    const answerRpc = currentApplication.test_mode ? "answer_giveaway_test_boost_v25" : "answer_giveaway_boost_v21516";
+    const result = await callSupabaseRpc(answerRpc, {
+      p_participant_id:currentApplication.id,
+      p_challenge_id:activeChallengeId,
+      p_answer:answer,
+      p_client_token:getClientToken()
+    },7000);
+    activeChallengeId = "";
+    if(result.status === "wrong"){
+      playUiSound("wrong");
+      currentApplication.correct_streak = 0;
+      currentApplication.question_combo_current = 0;
+      renderStreakPath(0,currentApplication.next_streak_bonus_at,currentApplication.next_streak_bonus_points);
+      const left = Number(result.attempts_left);
+      progressionStatus(status,Number.isFinite(left) && left > 0
+        ? `Ответ неверный — текущая серия обнулена, лучший результат сохранён. Осталось попыток: ${left}.`
+        : "Ответ неверный — текущая серия обнулена. Лучший результат сохранён.",true);
+      setQuestionRetryVisible(Number.isFinite(left) && left > 0);
+      updateBoostAvailability();
+      return;
+    }
+    if(result.status === "wrong_cooldown"){
+      currentApplication.correct_streak = 0;
+      currentApplication.question_combo_current = 0;
+      renderStreakPath(0,currentApplication.next_streak_bonus_at,currentApplication.next_streak_bonus_points);
+      currentApplication.next_boost_at = result.retry_after;
+      currentApplication.can_boost = false;
+      updateBoostAvailability();
+      showQuizLockout("Текущая серия обнулена, лучший результат сохранён. Новая попытка — через 15 минут.");
+      return;
+    }
+    if(result.status === "expired"){
+      progressionStatus(status,"Время вопроса истекло. Запросите новый.",true);
+      setQuestionRetryVisible(true);
+      updateBoostAvailability();
+      return;
+    }
+    if(!result.success || result.status !== "upgraded"){
+      progressionStatus(status,"Повысить уровень не удалось. Обновите заявку и повторите позже.",true);
+      return;
+    }
+    playUiSound("success");
+    const bonusText = Number(result.bonus_points) > 0 ? ` Бонус серии: +${result.bonus_points} очков!` : "";
+    recordFunnelEvent("first_action");
+    progressionStatus(status,`Верно! +${result.points_awarded || 150} очков, уровень ${result.level}.${bonusText}`);
+    let refreshed = null;
+    try{
+      refreshed = await findApplication(steamid);
+    }catch(refreshError){}
+    let rewardProfile = {
+      ...previousProfile,
+      level:result.level,
+      rank_name:result.rank_name,
+      points:result.points,
+      correct_streak:result.correct_streak,
+      question_combo_current:result.correct_streak,
+      best_correct_streak:result.best_correct_streak,
+      boost_count:(Number(previousProfile.boost_count) || 0) + 1
+    };
+    if(refreshed && refreshed.success){
+      rewardProfile = refreshed;
+      renderApplicationProfile(refreshed);
+    }
+    showLevelUpReward(previousProfile,rewardProfile,result);
+    loadBoostFeed();
+    if(window.confetti && !prefersReducedMotion){
+      confetti({particleCount:90,spread:70,origin:{y:.7}});
+    }
+  }catch(error){
+    progressionStatus(status,"Не удалось проверить ответ. Повторите позже.",true);
+  }finally{
+    button.disabled = false;
+    button.textContent = "Ответить";
+  }
+});
+
+function relativeActivityTime(value){
+  const minutes = Math.max(0,Math.floor((Date.now() - new Date(value).getTime()) / 60000));
+  if(minutes < 1) return "только что";
+  if(minutes < 60) return `${minutes} мин назад`;
+  const hours = Math.floor(minutes / 60);
+  if(hours < 24) return `${hours} ч назад`;
+  return new Date(value).toLocaleDateString("ru-RU",{day:"numeric",month:"short"});
+}
+
+document.getElementById("questionReportBtn")?.addEventListener("click",()=>{
+  const form=document.getElementById("questionReportForm");if(form)form.hidden=false;
+});
+document.getElementById("questionReportCancelBtn")?.addEventListener("click",()=>{
+  const form=document.getElementById("questionReportForm");if(form)form.hidden=true;
+});
+document.getElementById("questionReportForm")?.addEventListener("submit",async event=>{
+  event.preventDefault();
+  const form=event.currentTarget,status=document.getElementById("quizStatus"),submit=form.querySelector('button[type="submit"]');
+  if(!lastReportableChallengeId){progressionStatus(status,"Сначала получите игровой вопрос.",true);return;}
+  submit.disabled=true;submit.textContent="Отправляем…";
+  try{
+    const result=await callSupabaseRpc("report_giveaway_question",{
+      p_challenge_id:lastReportableChallengeId,
+      p_reason:document.getElementById("questionReportReason").value,
+      p_comment:String(document.getElementById("questionReportComment").value||"").trim()
+    },7000);
+    if(!result?.success)throw new Error(result?.code||"REPORT_FAILED");
+    form.hidden=true;document.getElementById("questionReportBtn").hidden=true;
+    progressionStatus(status,"Спасибо. Вопрос отправлен на проверку — ваш текущий результат не изменён.");
+  }catch(error){
+    progressionStatus(status,"Не удалось отправить сообщение. Обновите страницу и попробуйте ещё раз.",true);
+  }finally{submit.disabled=false;submit.textContent="Отправить";}
+});
+
+async function loadBoostFeed(providedItems=null){
+  const list = document.getElementById("activityFeedList");
+  if(!list) return;
+  try{
+    const result = providedItems ? {items:providedItems} : await cachedRpc("boost-feed","get_giveaway_boost_feed",{},6500,120000,false,"anonymous");
+    const items = result && Array.isArray(result.items) ? result.items : [];
+    list.textContent = "";
+    if(!items.length){
+      const empty = document.createElement("div");
+      empty.className = "hint";
+      empty.textContent = "Пока никто не повысил уровень.";
+      list.appendChild(empty);
+      return;
+    }
+    items.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "activity-item";
+      const level = document.createElement("div");
+      level.className = "activity-level";
+      level.textContent = String(item.level || 1);
+      const details = document.createElement("div");
+      const name = document.createElement("div");
+      name.className = "activity-name";
+      name.textContent = item.name || "Участник";
+      const rank = document.createElement("div");
+      rank.className = "activity-rank";
+      rank.textContent = `${item.rank_name} · ${relativeActivityTime(item.boosted_at)}`;
+      details.append(name,rank);
+      row.append(level,details);
+      list.appendChild(row);
+    });
+  }catch(error){}
+}
+
+/* 2.15.18: бонус-коды — точные статусы, защищённая активация и обновление карточки. */
+function bonusCodeErrorMessage(result){
+  const status=String(result?.status||"");
+  const date=value=>{try{return new Date(value).toLocaleString("ru-RU",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"});}catch(error){return "указанного времени";}};
+  const messages={
+    invalid_format:"Проверьте код: нужно от 6 до 40 букв или цифр.",
+    not_found:"Такого бонус-кода нет. Проверьте символы и попробуйте ещё раз.",
+    disabled:"Этот бонус-код отключён организатором.",
+    expired:"Срок действия этого бонус-кода закончился.",
+    global_limit:"Все доступные активации этого бонус-кода уже использованы.",
+    participant_limit:"Вы уже использовали этот бонус-код максимальное количество раз.",
+    coupon_unavailable:"Ключи для этой награды временно закончились. Код не потрачен — сообщите Rytni.",
+    daily_chest_already_ready:"Ежедневный сундук уже доступен. Сначала откройте его, затем код можно активировать.",
+    question_already_ready:"Игровой вопрос уже доступен. Сначала ответьте на него, затем код можно активировать.",
+    sponsor_chest_already_ready:"Спонсорский сундук уже доступен. Сначала откройте его, затем код можно активировать.",
+    too_many_attempts:"Слишком много неверных попыток. Новую можно сделать через 15 минут.",
+    emergency_stopped:"Выдача бонус-кодов временно приостановлена организатором. Попробуйте немного позже.",
+    progression_blocked:"Прокачка этой заявки временно ограничена организатором.",
+    participant_not_found:"Активная заявка не найдена. Откройте «Моя заявка» и войдите по email.",
+    forbidden:"Сессия входа устарела. Выйдите из аккаунта и войдите по email ещё раз."
+  };
+  if(status==="not_started")return `Код ещё не активен. Начало: ${date(result.starts_at)}.`;
+  return messages[status]||"Не удалось проверить код. Соединение не потеряно — попробуйте ещё раз немного позже.";
+}
+function resetBonusCodePopup(){
+  const form=document.getElementById("bonusCodeForm"),result=document.getElementById("bonusCodeResult"),status=document.getElementById("bonusCodeStatus"),button=document.getElementById("bonusCodeSubmit");
+  if(form)form.hidden=false;if(result)result.hidden=true;if(status){status.textContent="";status.className="bonus-code-status";}if(button){button.disabled=false;button.querySelector("span").textContent="Получить награду";}document.querySelector(".bonus-code-input-row")?.classList.remove("has-value");
+}
+function recordBonusCodeEvent(eventName,code){
+  const value=String(code||"").trim();if(!value)return;
+  callSupabaseRpc("record_bonus_code_event_v21521",{p_event:eventName,p_code:value,p_source:window.rytniBonusCodeSource||"site",p_release:window.RYTNI_RELEASE||"unknown",p_session:getClientToken()},7000,false,"anonymous").catch(()=>{});
+}
+function openBonusCodePopup(prefilledCode=""){
+  resetBonusCodePopup();const input=document.getElementById("bonusCodeInput");if(input){input.value=String(prefilledCode||"").toUpperCase().replace(/[^A-Z0-9\- ]/g,"").slice(0,54);input.dispatchEvent(new Event("input",{bubbles:true}));}showPopup("bonusCodePopup");recordBonusCodeEvent("modal_opened",input?.value);window.setTimeout(()=>input?.focus(),50);
+}
+document.getElementById("profileBonusCodeBtn")?.addEventListener("click",()=>{
+  if(!currentApplication?.id){if(typeof showToast==="function")showToast("Сначала войдите по email и откройте свою заявку.","warning");return;}
+  openBonusCodePopup();
+});
+document.getElementById("bonusCodeInput")?.addEventListener("input",event=>{
+  const input=event.currentTarget;input.value=input.value.toUpperCase().replace(/[^A-Z0-9\- ]/g,"");input.closest(".bonus-code-input-row")?.classList.toggle("has-value",Boolean(input.value.trim()));
+});
+document.getElementById("bonusCodePasteBtn")?.addEventListener("click",async()=>{
+  const input=document.getElementById("bonusCodeInput"),status=document.getElementById("bonusCodeStatus");
+  if(!input)return;
+  try{
+    const value=await navigator.clipboard.readText();
+    input.value=String(value||"").toUpperCase().replace(/[^A-Z0-9\- ]/g,"").slice(0,54);
+    input.dispatchEvent(new Event("input",{bubbles:true}));input.focus();
+    if(status){status.textContent=input.value?"Код вставлен — можно получать награду.":"В буфере обмена нет бонус-кода.";status.className=`bonus-code-status ${input.value?"is-waiting":"is-error"}`;}
+  }catch(error){input.focus();if(status){status.textContent="Браузер не разрешил вставку. Нажмите и удерживайте поле, затем выберите «Вставить».";status.className="bonus-code-status is-error";}}
+});
+document.getElementById("bonusCodeForm")?.addEventListener("submit",async event=>{
+  event.preventDefault();
+  const input=document.getElementById("bonusCodeInput"),status=document.getElementById("bonusCodeStatus"),button=document.getElementById("bonusCodeSubmit"),form=event.currentTarget,resultBox=document.getElementById("bonusCodeResult");
+  const value=String(input?.value||"").trim();
+  if(value.replace(/[^A-Z0-9]/gi,"").length<6){status.textContent="Введите полный бонус-код.";status.className="bonus-code-status is-error";input?.focus();return;}
+  if(!currentApplication?.id){status.textContent="Активная заявка не найдена. Войдите по email ещё раз.";status.className="bonus-code-status is-error";return;}
+  button.disabled=true;button.querySelector("span").textContent="Проверяем…";status.textContent="Защищённо проверяем код и резервируем награду…";status.className="bonus-code-status is-waiting";
+  try{
+    const response=await callSupabaseRpc("redeem_giveaway_bonus_code_v21521",{p_participant_id:currentApplication.id,p_code:value,p_source:window.rytniBonusCodeSource||"site",p_release:window.RYTNI_RELEASE||"unknown",p_session:getClientToken()},10000,true,"authenticated");
+    if(!response?.success){status.textContent=bonusCodeErrorMessage(response);status.className="bonus-code-status is-error";return;}
+    form.hidden=true;resultBox.hidden=false;document.getElementById("bonusCodeReward").textContent=String(response.reward_summary||"Награда получена");
+    playUiSound("success");launchLuckyCouponCelebration();
+    try{const refreshed=await callSupabaseRpc("get_my_active_application",{},6000,true,"authenticated",true);if(refreshed?.success){currentApplication=refreshed;renderApplicationProfile(refreshed);}}catch(error){}
+    if(response.reward_type==="coupon"&&response.key){
+      window.setTimeout(()=>{closePopupLayer(document.getElementById("bonusCodePopup"));showLuckyCoupon({game:response.game,key:response.key},0);},650);
+    }
+  }catch(error){status.textContent=rpcUserMessage(error,"активировать бонус-код");status.className="bonus-code-status is-error";}
+  finally{button.disabled=false;button.querySelector("span").textContent="Получить награду";}
+});
+
+const originalUpdateCouponWalletButton=updateCouponWalletButton;
+updateCouponWalletButton=function(profile=currentApplication){
+  originalUpdateCouponWalletButton(profile);
+  const bonusButton=document.getElementById("profileBonusCodeBtn");
+  if(bonusButton)bonusButton.hidden=applicationToolMode!=="card"||!profile?.id;
+  if(applicationToolMode==="card"&&profile?.id&&window.rytniPendingBonusCode&&!window.rytniBonusCodeOpened){window.rytniBonusCodeOpened=true;const code=window.rytniPendingBonusCode;window.setTimeout(()=>openBonusCodePopup(code),120);}
+};
+
+(function initBonusCodeDeepLink(){
+  try{
+    const url=new URL(location.href),raw=String(url.searchParams.get("bonus")||"").toUpperCase().replace(/[^A-Z0-9\- ]/g,"").slice(0,54);
+    const source=String(url.searchParams.get("source")||"direct").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,32)||"direct";
+    if(!raw)return;
+    window.rytniPendingBonusCode=raw;window.rytniBonusCodeSource=source;recordBonusCodeEvent("deep_link_opened",raw);
+    url.searchParams.delete("bonus");url.searchParams.delete("source");history.replaceState(history.state,"",url.toString());
+    window.setTimeout(()=>{if(typeof openApplicationTool==="function")openApplicationTool("card");},700);
+  }catch(error){}
+})();
+
+</script>

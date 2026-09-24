@@ -1,0 +1,1985 @@
+
+
+<style>
+/* RYTNI event page: isolated public-page visual layer */
+#rytni-event-page{
+  --event-bg:#030518;
+  --event-bg-soft:#080b25;
+  --event-panel:rgba(8,12,39,.84);
+  --event-panel-strong:rgba(10,13,44,.94);
+  --event-line:rgba(139,77,255,.36);
+  --event-line-soft:rgba(119,145,255,.2);
+  --event-text:#fff;
+  --event-muted:#aeb2cc;
+  --event-dim:#747995;
+  --event-purple:#8d42ff;
+  --event-pink:#cf43ff;
+  --event-blue:#5268ff;
+  --event-cyan:#24c8ff;
+  --event-gold:#ffbd2f;
+  --event-radius:18px;
+  --event-shadow:0 26px 70px rgba(0,0,0,.38);
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow-x:clip;
+  color:var(--event-text);
+  background:
+    linear-gradient(180deg,rgba(3,5,24,.08),rgba(3,5,24,.42) 38%,rgba(2,4,18,.74)),
+    url("https://rytni.github.io/rytni-assets/background-1920.webp") center top/cover fixed no-repeat,
+    var(--event-bg);
+  color-scheme:dark;
+  font-family:Manrope,Onest,system-ui,sans-serif;
+}
+#rytni-event-page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 11%,rgba(112,49,255,.16),transparent 32%),
+    linear-gradient(90deg,rgba(1,3,16,.28),transparent 18% 82%,rgba(1,3,16,.28));
+}
+#rytni-event-page>.page,
+#rytni-event-page>.top-nav,
+#rytni-event-page>.announcement-banner,
+#rytni-event-page>.sticky-cta{position:relative;z-index:2}
+#rytni-event-page>.page{z-index:1}
+
+/* Navigation */
+#rytni-event-page .top-nav{
+  position:fixed!important;
+  z-index:1000!important;
+  top:14px;
+  left:50%;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  width:min(1180px,calc(100% - 28px));
+  max-width:none;
+  padding:9px 12px;
+  transform:translateX(-50%);
+  overflow:visible;
+  border:1px solid rgba(139,77,255,.26);
+  border-radius:16px;
+  background:rgba(4,7,27,.78);
+  box-shadow:0 18px 46px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+  pointer-events:auto;
+}
+#rytni-event-page .top-nav a{pointer-events:auto}
+#rytni-event-page .top-nav .nav-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-right:auto;
+  padding:3px 10px 3px 3px;
+  color:#fff;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+#rytni-event-page .top-nav .nav-brand img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(201,67,255,.62));
+}
+#rytni-event-page .top-nav .nav-brand span{display:grid;font:800 16px/1 Manrope,sans-serif;letter-spacing:0}
+#rytni-event-page .top-nav .nav-brand b{margin-top:3px;color:#d86cff;font:inherit}
+#rytni-event-page .top-nav a{
+  min-height:44px;
+  padding:13px 18px;
+  border-radius:11px;
+  color:#c5c7da;
+  font-size:14px;
+  font-weight:750;
+  text-shadow:none;
+  transition:color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+#rytni-event-page .top-nav a:hover,
+#rytni-event-page .top-nav a:focus-visible{
+  color:#fff;
+  background:rgba(132,60,255,.14);
+  box-shadow:0 0 22px rgba(139,65,255,.16);
+  transform:translateY(-1px);
+}
+#rytni-event-page .top-nav .donate{
+  margin-left:18px;
+  color:#241400;
+  background:linear-gradient(135deg,#ffd557,#ff9d16);
+  box-shadow:0 0 24px rgba(255,181,27,.34),inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+/* Main and hero */
+#rytni-event-page .page{width:min(1180px,100%);padding:108px 18px 88px}
+#rytni-event-page .hero{
+  grid-template-columns:minmax(260px,370px) minmax(0,1fr);
+  gap:46px;
+  min-height:390px;
+  padding:24px 20px 12px;
+}
+#rytni-event-page .avatar{
+  width:min(100%,350px);
+  justify-self:center;
+  border-radius:50%;
+  background:url("https://rytni.github.io/rytni-assets/logo2.webp") center/contain no-repeat;
+  box-shadow:none;
+  filter:drop-shadow(0 0 12px rgba(224,71,255,.6)) drop-shadow(0 0 34px rgba(90,69,255,.46));
+  animation:eventLogoFloat 6s ease-in-out infinite alternate;
+}
+#rytni-event-page .eyebrow{
+  border-color:rgba(190,94,255,.46);
+  color:#e2d7ff;
+  background:rgba(46,19,92,.46);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 18px rgba(151,65,255,.12);
+  font-size:13px;
+}
+#rytni-event-page .eyebrow::before{content:"◆";color:#c44cff;text-shadow:0 0 12px #c44cff}
+#rytni-event-page .season-state-badge{
+  border-color:rgba(49,219,170,.3);
+  color:#6ce4bd;
+  background:rgba(12,65,59,.4);
+}
+#rytni-event-page h1{
+  margin:16px 0 13px;
+  color:#fff;
+  background:linear-gradient(180deg,#fff 4%,#eef0ff 42%,#bb40ff 62%,#772df0 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 8px 18px rgba(133,47,255,.2));
+  font-family:Unbounded,Manrope,sans-serif;
+  font-size:clamp(40px,5.2vw,68px);
+  font-weight:800;
+}
+#rytni-event-page .lead{max-width:680px;color:#b7bad0;font-size:16px;line-height:1.65}
+#rytni-event-page .hero-actions{margin-top:22px}
+
+/* Shared public controls */
+#rytni-event-page :is(.hero,.grid,.sticky-cta) :is(.btn,.ghost-btn,.gold-boost-btn){
+  min-height:50px;
+  border-radius:12px;
+  color:#fff;
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+}
+#rytni-event-page :is(.hero,.grid,.sticky-cta) .btn,
+#rytni-event-page .energy-btn{
+  border:1px solid rgba(127,98,255,.66);
+  background:linear-gradient(115deg,#3e38ee,#7338ff 54%,#ae2dff);
+  box-shadow:0 12px 30px rgba(94,48,240,.3),0 0 22px rgba(112,55,255,.16),inset 0 1px 0 rgba(255,255,255,.18);
+}
+#rytni-event-page :is(.hero,.grid) .ghost-btn{
+  border:1px solid rgba(147,95,255,.4);
+  color:#e7ddff;
+  background:rgba(22,17,62,.62);
+}
+#rytni-event-page :is(.hero,.grid,.sticky-cta) :is(.btn,.ghost-btn,.gold-boost-btn):hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+}
+#rytni-event-page .gold-boost-btn{
+  width:100%;
+  border:1px solid rgba(131,83,255,.66);
+  color:#fff;
+  background:linear-gradient(105deg,#382af5,#772eff 56%,#bb28ee);
+  box-shadow:0 12px 26px rgba(85,39,224,.32),0 0 22px rgba(153,47,255,.2);
+}
+#rytni-event-page .announcement-banner{
+  border:1px solid rgba(177,79,255,.42);
+  color:#f2ecff;
+  background:rgba(11,14,48,.9);
+}
+
+/* Public content panels */
+#rytni-event-page .grid{gap:18px;margin-top:18px}
+#rytni-event-page .card{
+  overflow:hidden;
+  border:1px solid var(--event-line);
+  border-radius:var(--event-radius);
+  color:var(--event-text);
+  background:
+    linear-gradient(145deg,rgba(13,18,57,.9),rgba(7,10,36,.88)),
+    var(--event-panel);
+  box-shadow:var(--event-shadow),inset 0 1px 0 rgba(255,255,255,.055);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  animation:eventRise .55s ease both;
+}
+#rytni-event-page .card:nth-child(2){animation-delay:.05s}
+#rytni-event-page .card:nth-child(3){animation-delay:.1s}
+#rytni-event-page .card-inner{padding:24px}
+#rytni-event-page .section-title{
+  color:#ce82ff;
+  font-family:Manrope,Onest,sans-serif;
+  font-size:22px;
+  font-weight:800;
+  text-shadow:0 0 18px rgba(190,61,255,.24);
+}
+#rytni-event-page .small-title{color:#bd79ff;font-family:Manrope,sans-serif;font-size:14px;text-align:center}
+
+/* Winner */
+#rytni-event-page .winner-box{min-height:236px}
+#rytni-event-page .grid>.card:first-child{overflow:visible}
+#rytni-event-page .grid>.card:first-child .card-inner{overflow:visible}
+#rytni-event-page .trophy{
+  width:116px;
+  overflow:visible;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+#rytni-event-page .trophy img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(255,188,40,.5))}
+#rytni-event-page .winner-count{
+  border-color:rgba(178,99,255,.3);
+  color:#c9b8e8;
+  background:rgba(42,22,88,.48);
+}
+#rytni-event-page .winner-count strong{color:#d67aff}
+#rytni-event-page .winner-item{
+  border-color:rgba(118,104,218,.22);
+  color:#fff;
+  background:rgba(4,8,29,.48);
+}
+#rytni-event-page .winner-item.game{border-color:rgba(144,86,255,.28);background:rgba(11,10,41,.66)}
+#rytni-event-page .winner-icon{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:11px;
+  color:transparent;
+  background:center/contain no-repeat;
+  font-size:0;
+  box-shadow:0 0 16px rgba(143,64,255,.2);
+}
+#rytni-event-page .winner-item.game .winner-icon{background-image:url("https://rytni.github.io/rytni-assets/Games.webp")}
+#rytni-event-page .winner-item.winner .winner-icon{background-image:url("https://rytni.github.io/rytni-assets/Name.webp")}
+#rytni-event-page .winner-label{color:#747995}
+#rytni-event-page .winner-value{color:#f7f5ff;font-size:15px}
+
+/* Isolated game HUD countdown */
+#rytni-event-page .season-connection-notice{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;margin:0 0 16px;padding:13px 14px;border:1px solid rgba(255,183,71,.38);border-radius:16px;color:#fff;background:linear-gradient(135deg,rgba(75,43,18,.86),rgba(29,18,51,.9));box-shadow:0 12px 30px rgba(3,6,22,.24)}
+#rytni-event-page .season-connection-notice[hidden]{display:none!important}
+#rytni-event-page .season-connection-notice[data-mode="cached"]{border-color:rgba(93,199,255,.34);background:linear-gradient(135deg,rgba(12,50,73,.86),rgba(28,20,66,.9))}
+#rytni-event-page .season-connection-notice[data-mode="idle"]{border-color:rgba(93,199,255,.28);background:linear-gradient(135deg,rgba(12,43,68,.78),rgba(28,20,66,.84))}
+#rytni-event-page .season-connection-icon{display:grid;width:40px;height:40px;place-items:center;border:1px solid rgba(255,255,255,.14);border-radius:13px;color:#ffd06b;background:rgba(255,255,255,.07)}
+#rytni-event-page .season-connection-notice[data-mode="cached"] .season-connection-icon{color:#72dcff}
+#rytni-event-page .season-connection-notice[data-mode="idle"] .season-connection-icon{color:#72dcff}
+#rytni-event-page .season-connection-icon svg{width:20px;height:20px}
+#rytni-event-page .season-connection-copy{display:grid;min-width:0;gap:2px}
+#rytni-event-page .season-connection-copy strong{font-size:14px;line-height:1.35}
+#rytni-event-page .season-connection-copy small{color:#c3cbe0;font-size:13px;line-height:1.45}
+#rytni-event-page .season-connection-copy em{color:#8f9abb;font-size:12px;font-style:normal;letter-spacing:.06em}
+#rytni-event-page .season-connection-retry{display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:7px;padding:0 13px;border:1px solid rgba(153,124,255,.48);border-radius:11px;color:#fff;background:linear-gradient(135deg,rgba(77,55,176,.92),rgba(137,51,194,.92));font:800 14px/1 Manrope,system-ui,sans-serif;cursor:pointer}
+#rytni-event-page .season-connection-retry:hover{filter:brightness(1.1)}
+#rytni-event-page .season-connection-retry:disabled{cursor:wait;opacity:.65}
+#rytni-event-page .season-connection-retry svg{width:15px;height:15px}
+#rytni-event-page .rytni-countdown-season{margin-bottom:5px;color:#9e78ff;font-size:13px;letter-spacing:0;text-align:center}
+#rytni-event-page .rytni-countdown-title{
+  margin:0 0 clamp(10px,1.4vw,16px);
+  color:#f7f5ff;
+  font-family:Unbounded,Manrope,system-ui,sans-serif;
+  font-size:clamp(15px,1.5vw,20px);
+  line-height:1.2;
+  letter-spacing:0;
+  text-align:center;
+}
+#rytni-event-page .rytni-countdown-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr) 12px) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(3px,.6vw,8px);
+  width:100%;
+  min-width:0;
+}
+#rytni-event-page .rytni-countdown-unit{
+  position:relative;
+  min-width:0;
+  padding:clamp(7px,1vw,11px) clamp(3px,.6vw,8px) clamp(8px,1vw,10px);
+  overflow:hidden;
+  border:1px solid rgba(120,143,255,.36);
+  border-radius:clamp(11px,1.1vw,15px);
+  background:linear-gradient(160deg,rgba(18,27,69,.78),rgba(4,8,31,.68));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),inset 0 -12px 24px rgba(0,0,0,.13),0 0 20px rgba(70,89,255,.09);
+  -webkit-backdrop-filter:blur(14px) saturate(135%);
+  backdrop-filter:blur(14px) saturate(135%);
+  text-align:center;
+  animation:rytniCountdownBreathe 4.8s ease-in-out infinite;
+}
+#rytni-event-page .rytni-countdown-unit:nth-of-type(2n){animation-delay:-2.4s}
+#rytni-event-page .rytni-countdown-unit::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(75,220,255,.08),transparent 34%,rgba(169,66,255,.09));
+}
+#rytni-event-page .rytni-countdown-flip{
+  position:relative;
+  display:grid;
+  place-items:center;
+  height:clamp(34px,4vw,50px);
+  perspective:280px;
+  transform-style:preserve-3d;
+}
+#rytni-event-page .rytni-countdown-flip::before,
+#rytni-event-page .rytni-countdown-flip::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:50%;
+  width:6px;
+  height:1px;
+  background:rgba(153,174,255,.46);
+  box-shadow:0 0 8px rgba(85,142,255,.38);
+}
+#rytni-event-page .rytni-countdown-flip::before{left:-2px}
+#rytni-event-page .rytni-countdown-flip::after{right:-2px}
+#rytni-event-page .rytni-countdown-value{
+  display:block;
+  position:relative;
+  z-index:1;
+  color:#fff;
+  font-family:Unbounded,Manrope,system-ui,sans-serif;
+  font-size:clamp(21px,2.7vw,35px);
+  font-variant-numeric:tabular-nums;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:0;
+  text-shadow:0 2px 0 rgba(78,65,158,.58),0 0 16px rgba(109,123,255,.4);
+  transform-origin:50% 50%;
+}
+#rytni-event-page .rytni-countdown-flip::selection{background:transparent}
+#rytni-event-page .rytni-countdown-unit.is-flipping .rytni-countdown-value{animation:rytniCountdownFlip .4s cubic-bezier(.2,.7,.25,1)}
+#rytni-event-page .rytni-countdown-unit small{
+  display:block;
+  position:relative;
+  z-index:1;
+  margin-top:4px;
+  color:#8f98bb;
+  font-size:clamp(12px,.9vw,13px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:.02em;
+}
+#rytni-event-page .rytni-countdown-divider{display:grid;place-items:center;gap:6px}
+#rytni-event-page .rytni-countdown-divider i{width:4px;height:4px;border-radius:50%;background:#7f76ff;box-shadow:0 0 8px #795cff}
+@keyframes rytniCountdownFlip{
+  0%{opacity:.72;transform:rotateX(0)}
+  46%{opacity:.22;transform:rotateX(-82deg) translateY(2px)}
+  54%{opacity:.22;transform:rotateX(78deg) translateY(-2px)}
+  100%{opacity:1;transform:rotateX(0)}
+}
+@keyframes rytniCountdownBreathe{
+  0%,100%{transform:scale(1);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 18px rgba(70,89,255,.08)}
+  50%{transform:scale(1.012);box-shadow:inset 0 1px 0 rgba(255,255,255,.11),0 0 24px rgba(117,65,255,.16)}
+}
+#rytni-event-page .season-finished{border-color:rgba(192,70,255,.35);color:#efc9ff;background:rgba(71,22,90,.46)}
+@media(max-width:620px){#rytni-event-page .season-connection-notice{grid-template-columns:36px minmax(0,1fr);gap:10px}#rytni-event-page .season-connection-icon{width:36px;height:36px}#rytni-event-page .season-connection-retry{grid-column:1/-1;width:100%}}
+
+/* Entry form */
+#rytni-event-page #giveawayForm{gap:15px}
+#rytni-event-page #giveawayForm .title{color:#e7e5f1;font-size:14px}
+#rytni-event-page #giveawayForm :is(input[type=text],input[type=url],select,textarea){
+  min-height:52px;
+  border:1px solid rgba(99,102,196,.38);
+  border-radius:11px;
+  color:#fff;
+  background:rgba(3,7,29,.68);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+#rytni-event-page #giveawayForm select{width:100%;padding:0 44px 0 15px;appearance:none;-webkit-appearance:none;cursor:pointer;background-color:rgba(3,7,29,.86);background-image:linear-gradient(45deg,transparent 50%,#ae8bff 50%),linear-gradient(135deg,#ae8bff 50%,transparent 50%);background-position:calc(100% - 20px) 22px,calc(100% - 14px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+#rytni-event-page #giveawayForm select:invalid{color:#747995}
+#rytni-event-page #giveawayForm select option{color:#f6f3ff;background:#0c1030}
+#rytni-event-page #giveawayForm :is(input,textarea)::placeholder{color:#696f8d}
+#rytni-event-page #giveawayForm :is(input,select,textarea):focus{
+  border-color:#9147ff;
+  box-shadow:0 0 0 3px rgba(139,66,255,.14),inset 0 0 18px rgba(91,55,190,.08);
+}
+#rytni-event-page #giveawayForm textarea{min-height:126px}
+#rytni-event-page #giveawayForm .hint{color:#747995}
+#rytni-event-page #giveawayForm .check{
+  border-color:rgba(106,99,181,.24);
+  color:#deddea;
+  background:rgba(4,8,29,.46);
+}
+#rytni-event-page #giveawayForm .check input{accent-color:#8d42ff}
+#rytni-event-page #giveawayForm .form-status.ok{color:#55dfb7}
+#rytni-event-page #giveawayForm .form-status.err{color:#ff6f91}
+#rytni-event-page .email-confirm-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:13px 18px;padding:17px 18px;border:1px solid rgba(132,91,255,.52);border-radius:18px;background:radial-gradient(circle at 8% 0,rgba(141,66,255,.22),transparent 42%),linear-gradient(145deg,rgba(18,17,58,.92),rgba(9,15,43,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 16px 36px rgba(0,0,0,.18)}
+#rytni-event-page .email-confirm-copy{display:grid;gap:5px;min-width:0}
+#rytni-event-page .email-confirm-copy strong{color:#fff;font:900 16px/1.25 Onest,Manrope,sans-serif}
+#rytni-event-page .email-confirm-copy span{color:#b6bdd5;font-size:14px;line-height:1.5}
+#rytni-event-page .email-confirm-btn{display:flex;align-items:center;justify-content:center;gap:10px;min-width:235px;min-height:54px;padding:12px 17px;border:1px solid rgba(133,238,255,.72);border-radius:15px;color:#06101e;background:linear-gradient(135deg,#79f2ff,#a68aff 58%,#e17aff);box-shadow:0 12px 30px rgba(100,83,255,.3),0 0 28px rgba(76,222,255,.14),inset 0 1px 0 rgba(255,255,255,.68);font:950 14px/1 Onest,Manrope,sans-serif;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+#rytni-event-page .email-confirm-btn:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 16px 38px rgba(100,83,255,.4),0 0 34px rgba(76,222,255,.2)}
+#rytni-event-page .email-confirm-btn:focus-visible{outline:3px solid rgba(119,238,255,.35);outline-offset:3px}
+#rytni-event-page .email-confirm-btn svg{width:19px;height:19px}
+#rytni-event-page .email-confirm-btn svg:last-child{width:17px;height:17px}
+#rytni-event-page .email-confirm-reason{grid-column:1/-1;display:flex;align-items:flex-start;gap:8px;padding-top:11px;border-top:1px solid rgba(150,137,255,.2);color:#94a7c8;font-size:13px;line-height:1.5}
+#rytni-event-page .email-confirm-reason svg{flex:0 0 16px;width:16px;height:16px;margin-top:1px;color:#66e7c2}
+
+/* Rules */
+#rytni-event-page .rules-card{
+  min-height:360px;
+  background:
+    linear-gradient(90deg,rgba(9,10,42,.96),rgba(12,9,46,.78) 64%,rgba(12,7,42,.5)),
+    url("https://rytni.github.io/rytni-assets/background-1920.webp") right center/cover no-repeat;
+}
+#rytni-event-page .rules-card::before{height:1px;background:linear-gradient(90deg,transparent,#ad4cff,#5d5dff,transparent)}
+#rytni-event-page .trust-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#rytni-event-page .trust-list::before{display:none}
+#rytni-event-page .trust-item{
+  min-height:164px;
+  border-color:rgba(143,79,255,.4);
+  border-radius:15px;
+  color:#aeb2cc;
+  background:linear-gradient(145deg,rgba(31,17,73,.78),rgba(8,9,36,.8));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+#rytni-event-page .trust-item:hover{transform:translateY(-4px);border-color:#a64dff;box-shadow:0 14px 34px rgba(80,33,174,.22)}
+#rytni-event-page .trust-icon{
+  width:36px;
+  height:36px;
+  border-color:rgba(191,93,255,.48);
+  color:#c87aff;
+  background:rgba(111,43,183,.22);
+  box-shadow:0 0 16px rgba(164,65,255,.18);
+}
+#rytni-event-page .trust-item strong{color:#fff;font-family:Manrope,sans-serif;font-size:14px}
+
+/* Popular games */
+#rytni-event-page .top-games-card,
+#rytni-event-page .participants-card{
+  border-color:var(--event-line);
+  background:linear-gradient(145deg,rgba(13,13,52,.94),rgba(7,9,35,.9));
+}
+#rytni-event-page :is(.top-games-card,.participants-card)::before{background:linear-gradient(90deg,transparent,#9d43ff,#3f73ff,transparent)}
+#rytni-event-page .rating-pill,
+#rytni-event-page .participant-count{
+  border:1px solid rgba(157,76,255,.34);
+  color:#c997ff;
+  background:rgba(73,30,139,.24);
+}
+#rytni-event-page .top-games-list{gap:8px;min-height:0}
+#rytni-event-page .game-badge{
+  padding:8px 10px;
+  border-color:rgba(102,91,180,.28);
+  border-radius:11px;
+  color:#a989ff;
+  background:rgba(8,8,34,.72);
+  box-shadow:none;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+#rytni-event-page .game-badge:hover{transform:translateX(3px);border-color:rgba(159,78,255,.55);background:rgba(29,17,72,.78);box-shadow:none}
+#rytni-event-page .game-badge.podium{background:rgba(10,10,39,.84)}
+#rytni-event-page .game-badge.place-1{border-color:rgba(255,184,33,.72);background:linear-gradient(90deg,rgba(93,53,7,.64),rgba(15,11,35,.8));box-shadow:0 0 20px rgba(255,176,25,.13)}
+#rytni-event-page .game-badge.place-2{border-color:rgba(101,140,255,.64);background:linear-gradient(90deg,rgba(26,48,110,.6),rgba(12,11,39,.82))}
+#rytni-event-page .game-badge.place-3{border-color:rgba(239,91,28,.62);background:linear-gradient(90deg,rgba(101,35,9,.58),rgba(16,10,36,.82))}
+#rytni-event-page .game-rank{
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:8px;
+  color:transparent;
+  background:center/contain no-repeat;
+  box-shadow:none;
+  font-size:0;
+}
+#rytni-event-page .game-rank.gold{background-image:url("https://rytni.github.io/rytni-assets/1.webp")}
+#rytni-event-page .game-rank.silver{background-image:url("https://rytni.github.io/rytni-assets/2.webp")}
+#rytni-event-page .game-rank.bronze{background-image:url("https://rytni.github.io/rytni-assets/3.webp")}
+#rytni-event-page .game-rank.leader{background-image:url("https://rytni.github.io/rytni-assets/4.webp")}
+#rytni-event-page .game-name{color:#a889ff}
+#rytni-event-page .place-1 .game-name{color:#ffd35a}
+#rytni-event-page .place-2 .game-name{color:#8eacff}
+#rytni-event-page .place-3 .game-name{color:#ff8d58}
+#rytni-event-page .game-count{border:1px solid rgba(133,104,215,.26);color:#f1edff;background:rgba(4,5,24,.58)}
+
+/* Participants */
+#rytni-event-page .chance-panel{
+  border-color:rgba(143,73,255,.34);
+  background:rgba(7,7,32,.68);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+#rytni-event-page .chance-rank-note{color:#aeb2cc}
+#rytni-event-page .chance-rank{border-color:rgba(255,255,255,.1);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+#rytni-event-page .chance-rank.common{color:#cbd5ff;background:rgba(61,67,132,.38)}
+#rytni-event-page .chance-rank.uncommon{color:#78edbb;background:rgba(16,104,78,.34)}
+#rytni-event-page .chance-rank.rare{color:#78bdff;background:rgba(21,75,145,.38)}
+#rytni-event-page .chance-rank.epic{color:#d58aff;background:rgba(104,39,154,.4)}
+#rytni-event-page .chance-rank.legendary{color:#ffd35a;background:rgba(125,77,8,.42)}
+#rytni-event-page .chance-rank.mythic{color:#ff7ca3;background:rgba(145,26,73,.42)}
+#rytni-event-page .chance-rank.waiting{color:#aeb2cc;background:rgba(70,75,107,.34)}
+#rytni-event-page .progress{background:rgba(77,71,133,.28)}
+#rytni-event-page .progressfill{background:linear-gradient(90deg,#c53fff,#7353ff,#3d86ff);box-shadow:0 0 12px rgba(117,68,255,.4)}
+#rytni-event-page .participants-list{gap:8px}
+#rytni-event-page .participant{
+  padding:9px 10px;
+  border-color:rgba(103,85,177,.28);
+  border-radius:11px;
+  color:#fff;
+  background:rgba(7,8,34,.72);
+  box-shadow:none;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+#rytni-event-page .participant:hover{transform:translateX(3px);border-color:rgba(155,76,255,.52);background:rgba(27,16,68,.76)}
+#rytni-event-page .participant-avatar{border-color:rgba(165,88,255,.42);background:#30144d;box-shadow:0 0 14px rgba(137,56,255,.18)}
+#rytni-event-page .pregion{color:#9297b2}
+#rytni-event-page .pgame{color:#9b79ff}
+#rytni-event-page .archive-list{color:#fff}
+
+/* Existing system popups remain functional and match the event palette. */
+#rytni-event-page .popup-overlay{z-index:2000}
+#rytni-event-page .popup:not(.application-popup):not(.levelup-popup){
+  border:1px solid rgba(139,77,255,.4);
+  color:#fff;
+  background:linear-gradient(145deg,rgba(14,17,55,.98),rgba(5,8,30,.98));
+  box-shadow:0 30px 90px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.07);
+}
+#rytni-event-page .popup:not(.application-popup):not(.levelup-popup)>p{color:#aeb2cc}
+#rytni-event-page .popup:not(.application-popup):not(.levelup-popup) .popup-btn{
+  color:#fff;
+  background:linear-gradient(115deg,#4338ef,#7b36ff,#b832f1);
+}
+
+/* Successful application popup */
+#rytni-event-page #successPopup{
+  z-index:2100;
+  padding:14px;
+  background:rgba(1,3,16,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+#rytni-event-page #successPopup .popup{
+  width:min(1000px,calc(100vw - 28px));
+  padding:28px;
+  border:1px solid rgba(159,75,255,.5);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 80% 0,rgba(183,48,255,.2),transparent 35%),
+    linear-gradient(145deg,rgba(10,14,48,.99),rgba(4,7,27,.99));
+  box-shadow:0 38px 110px rgba(0,0,0,.68),inset 0 1px 0 rgba(255,255,255,.08);
+}
+#rytni-event-page #successPopup .popup>h3{
+  margin:0;
+  color:#fff;
+  font-family:Unbounded,Manrope,sans-serif;
+  font-size:28px;
+}
+#rytni-event-page #successPopup .popup>p{margin-top:8px;color:#aeb2cc}
+#rytni-event-page #successPopup .wishes-strip{
+  margin-top:18px;
+  border:1px solid rgba(126,94,221,.32);
+  background:rgba(3,7,29,.74);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+#rytni-event-page #successPopup .wish-pill{
+  border:1px solid rgba(149,88,255,.32);
+  color:#cdb7ff;
+  background:rgba(46,24,100,.52);
+}
+#rytni-event-page #successPopup .tiktok-share-card{
+  grid-template-columns:minmax(230px,300px) minmax(0,1fr);
+  gap:0 26px;
+  padding:22px;
+  border:1px solid rgba(109,104,255,.44);
+  border-radius:21px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 82% 8%,rgba(209,52,255,.18),transparent 35%),
+    linear-gradient(145deg,rgba(13,19,58,.97),rgba(4,10,35,.97));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 24px 54px rgba(0,0,0,.3);
+}
+#rytni-event-page #successPopup .tiktok-share-card::before{background:linear-gradient(90deg,#24d9ef,#8350ff 52%,#ff3fa9)}
+#rytni-event-page #successPopup .participant-card-preview{
+  border:2px solid rgba(181,85,255,.7);
+  border-radius:18px;
+  box-shadow:0 0 0 3px rgba(36,200,255,.15),0 22px 50px rgba(0,0,0,.42);
+}
+#rytni-event-page #successPopup .tiktok-share-icon{background:#050817;box-shadow:-3px 3px 0 #24d9ef,3px -3px 0 #ff3fa9}
+#rytni-event-page #successPopup .tiktok-share-kicker{color:#f25bcc}
+#rytni-event-page #successPopup .tiktok-share-title{color:#9e8dff}
+#rytni-event-page #successPopup .tiktok-share-text{color:#aeb2cc}
+#rytni-event-page #successPopup .tiktok-share-tags span{
+  border:1px solid rgba(127,113,206,.3);
+  color:#e9e3ff;
+  background:rgba(28,29,67,.72);
+}
+#rytni-event-page #successPopup :is(.tiktok-share-btn,.participant-save-btn){
+  min-height:56px;
+  border-radius:14px;
+  color:#fff;
+  box-shadow:none;
+}
+#rytni-event-page #successPopup .tiktok-share-btn{
+  border:1px solid rgba(229,65,255,.64);
+  background:linear-gradient(105deg,#171331,#4320a5 50%,#b02edb);
+  box-shadow:0 12px 28px rgba(105,38,205,.25);
+}
+#rytni-event-page #successPopup .participant-save-btn{
+  border:1px solid rgba(83,113,255,.58);
+  background:linear-gradient(115deg,#172451,#27369b);
+}
+#rytni-event-page #successPopup .tiktok-share-hint{color:#7f8caf}
+#rytni-event-page #successPopup>.popup>.popup-btn{min-width:160px;margin-top:18px}
+
+/* Sticky mobile action */
+#rytni-event-page .sticky-cta{background:linear-gradient(180deg,transparent,rgba(3,5,24,.94) 36%)}
+
+@keyframes eventLogoFloat{from{transform:translateY(-3px)}to{transform:translateY(6px)}}
+@keyframes eventRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+@media (max-width:1024px){
+  #rytni-event-page .page{width:min(960px,100%)}
+  #rytni-event-page .hero{grid-template-columns:280px minmax(0,1fr);gap:28px}
+  #rytni-event-page .trust-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (max-width:760px){
+  #rytni-event-page{
+    background:
+      linear-gradient(180deg,rgba(3,5,24,.06),rgba(3,5,24,.56) 68%,#030518),
+      url("https://rytni.github.io/rytni-assets/background-1920.webp") center top/auto 100vh no-repeat,
+      #030518;
+  }
+  #rytni-event-page::before{position:absolute}
+  #rytni-event-page .top-nav{
+    top:7px;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:4px;
+    width:calc(100% - 14px);
+    padding:7px;
+    border-radius:14px;
+  }
+  #rytni-event-page .top-nav .nav-brand{width:100%;justify-content:center;margin:0;padding:1px}
+  #rytni-event-page .top-nav .nav-brand img{width:48px;height:48px}
+  #rytni-event-page .top-nav .nav-brand span{font-size:14px}
+  #rytni-event-page .top-nav a{min-height:34px;padding:9px 10px;font-size:13px}
+  #rytni-event-page .top-nav .donate{margin-left:0}
+  #rytni-event-page .page{padding:126px 10px 88px}
+  #rytni-event-page .hero{grid-template-columns:1fr;gap:10px;min-height:0;padding:12px 6px 8px;text-align:center}
+  #rytni-event-page .avatar{width:min(230px,68vw)}
+  #rytni-event-page .hero>div:last-child{display:grid;justify-items:center}
+  #rytni-event-page h1{font-size:clamp(31px,10vw,46px);white-space:normal}
+  #rytni-event-page .lead{font-size:14px}
+  #rytni-event-page .hero-actions{justify-content:center;width:100%}
+  #rytni-event-page .hero-actions :is(.btn,.ghost-btn){flex:1 1 140px;justify-content:center}
+  #rytni-event-page .grid{grid-template-columns:1fr;gap:12px}
+  #rytni-event-page .span-2{grid-column:1}
+  #rytni-event-page .card-inner{padding:17px}
+  #rytni-event-page .section-title{font-size:19px}
+  #rytni-event-page .winner-box{min-height:0;align-items:center}
+  #rytni-event-page .trophy{width:82px}
+  #rytni-event-page .form-grid{grid-template-columns:1fr}
+  #rytni-event-page .group.full{grid-column:1}
+  #rytni-event-page .trust-list{grid-template-columns:1fr}
+  #rytni-event-page .trust-item{min-height:0}
+  #rytni-event-page .rules-card{min-height:0;background:linear-gradient(145deg,rgba(13,13,52,.94),rgba(7,9,35,.92))}
+  #rytni-event-page .top-games-list{min-height:0}
+  #rytni-event-page #successPopup .popup{width:calc(100vw - 16px);padding:18px 12px;border-radius:20px}
+  #rytni-event-page #successPopup .popup>h3{font-size:22px}
+  #rytni-event-page #successPopup .tiktok-share-card{display:flex;padding:14px;gap:13px}
+  #rytni-event-page #successPopup .participant-card-preview{width:min(100%,260px);order:1}
+  #rytni-event-page #successPopup .tiktok-share-head{order:2}
+  #rytni-event-page #successPopup .tiktok-share-text{order:3}
+  #rytni-event-page #successPopup .tiktok-share-tags{order:4}
+  #rytni-event-page #successPopup .participant-card-actions{order:5}
+  #rytni-event-page #successPopup .tiktok-share-hint{order:6}
+}
+
+@media (max-width:390px){
+  #rytni-event-page .top-nav a{padding:8px 7px;font-size:12px}
+  #rytni-event-page .rytni-countdown-grid{grid-template-columns:repeat(3,minmax(0,1fr) 6px) minmax(0,1fr);gap:2px}
+  #rytni-event-page .rytni-countdown-unit{padding-inline:2px}
+  #rytni-event-page .rytni-countdown-divider{gap:4px}
+  #rytni-event-page .rytni-countdown-divider i{width:3px;height:3px}
+  #rytni-event-page .winner-box{align-items:flex-start}
+  #rytni-event-page .trophy{width:68px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #rytni-event-page .avatar,
+  #rytni-event-page .card{animation:none}
+  #rytni-event-page *{scroll-behavior:auto!important}
+  #rytni-event-page .rytni-countdown-unit,
+  #rytni-event-page .rytni-countdown-unit.is-flipping .rytni-countdown-value{animation:none!important}
+}
+#rytni-event-page .auth-panel{display:grid;gap:14px;margin:16px 0;padding:18px;border:1px solid rgba(90,184,255,.3);border-radius:22px;background:radial-gradient(circle at 20% 0,rgba(109,68,255,.18),transparent 42%),linear-gradient(145deg,rgba(7,16,43,.96),rgba(5,10,29,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 46px rgba(0,0,0,.2);backdrop-filter:blur(18px)}
+#rytni-event-page .auth-panel[hidden]{display:none}
+#rytni-event-page .auth-choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#rytni-event-page .auth-choice[hidden]{display:none}
+#rytni-event-page .auth-choice .auth-mode-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:54px;padding:12px 16px;border:1px solid rgba(113,143,255,.34);border-radius:16px;color:#eef5ff;background:linear-gradient(145deg,rgba(26,40,82,.94),rgba(13,24,56,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.16);font-weight:900;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+#rytni-event-page .auth-choice .auth-mode-btn:hover{transform:translateY(-2px);border-color:rgba(84,220,255,.7);box-shadow:0 14px 30px rgba(40,111,255,.2),0 0 22px rgba(68,205,255,.1)}
+#rytni-event-page .auth-choice .auth-mode-btn svg{width:19px;height:19px;color:#4de4ff}
+#rytni-event-page .auth-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:stretch}
+#rytni-event-page .auth-form[hidden]{display:none}
+#rytni-event-page .auth-field{position:relative;display:flex;align-items:center;min-width:0}
+#rytni-event-page .auth-field>svg{position:absolute;left:15px;width:19px;height:19px;color:#8798bf;pointer-events:none;transition:color .2s ease}
+#rytni-event-page .auth-field input{width:100%;min-width:0;min-height:54px;padding:13px 16px 13px 46px;border:1px solid rgba(107,137,196,.4);border-radius:15px;color:#fff;background:rgba(3,9,27,.84);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);outline:0;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+#rytni-event-page .auth-field input::placeholder{color:#74809b}
+#rytni-event-page .auth-field:focus-within>svg{color:#43e8ff}
+#rytni-event-page .auth-field input:focus{border-color:#48d9ff;background:rgba(5,14,38,.98);box-shadow:0 0 0 4px rgba(47,200,255,.12),0 0 24px rgba(88,79,255,.12)}
+#rytni-event-page .auth-form .auth-submit-btn{min-height:54px;padding:0 22px;border-radius:15px;white-space:nowrap}
+#rytni-event-page .auth-otp-destination{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid rgba(102,128,188,.24);border-radius:14px;background:rgba(4,11,30,.56);color:#8794af;font-size:14px}
+#rytni-event-page .auth-otp-destination strong{min-width:0;overflow-wrap:anywhere;color:#dce9ff;font-size:14px;text-align:right}
+#rytni-event-page .auth-otp-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+#rytni-event-page .auth-secondary-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 13px;border:1px solid rgba(108,137,199,.34);border-radius:13px;color:#b9c8e7;background:rgba(8,17,40,.72);font:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease,transform .2s ease,opacity .2s ease}
+#rytni-event-page .auth-secondary-btn>svg{width:15px;height:15px;color:#8d73ff}
+#rytni-event-page .auth-secondary-btn:hover:not(:disabled){border-color:rgba(128,104,255,.68);color:#fff;background:rgba(72,47,151,.24);transform:translateY(-1px)}
+#rytni-event-page .auth-secondary-btn:focus-visible{outline:2px solid #58d8ff;outline-offset:2px}
+#rytni-event-page .auth-secondary-btn:disabled{opacity:.58;cursor:not-allowed}
+#rytni-event-page .auth-state{display:none!important}
+#rytni-event-page .auth-state[hidden],#rytni-event-page .quick-access[hidden],#rytni-event-page .season-application-note[hidden]{display:none}
+#rytni-event-page .auth-link{border:0;background:transparent;color:#b97cff;text-decoration:underline;cursor:pointer;font:inherit;font-weight:800;padding:4px}
+#rytni-event-page .season-application-note{margin:10px 0;padding:13px;border:1px solid rgba(255,182,46,.36);border-radius:14px;background:rgba(117,68,5,.2);color:#ffe2a2;font-weight:750}
+#rytni-event-page #applicationPopup .application-popup.is-banned-state{position:relative;width:min(570px,calc(100vw - 24px));max-height:calc(100dvh - 20px);padding:0;overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+#rytni-event-page #applicationPopup .application-popup.is-banned-state .application-search-close{z-index:3;top:15px;right:15px;width:44px;height:44px;border-color:rgba(255,104,143,.45);background:rgba(61,17,49,.88);box-shadow:0 10px 28px rgba(0,0,0,.3)}
+#rytni-event-page .banned-application-state{position:relative;display:grid;justify-items:center;width:100%;padding:34px 30px 27px;overflow:hidden;border:1px solid rgba(255,91,135,.48);border-radius:27px;color:#f9f7ff;text-align:center;background:radial-gradient(circle at 50% -12%,rgba(255,74,133,.25),transparent 46%),radial-gradient(circle at 100% 100%,rgba(123,61,255,.18),transparent 42%),linear-gradient(145deg,rgba(38,10,34,.99),rgba(8,10,31,.99));box-shadow:0 30px 85px rgba(0,0,0,.56),0 0 42px rgba(255,60,128,.13),inset 0 1px 0 rgba(255,255,255,.09);backdrop-filter:blur(24px) saturate(140%)}
+#rytni-event-page .banned-application-state[hidden]{display:none}
+#rytni-event-page .banned-application-state::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.045) 45%,transparent 70%);transform:translateX(-72%);animation:bannedStateShine 5.8s ease-in-out infinite}
+@keyframes bannedStateShine{0%,65%,100%{transform:translateX(-72%)}80%{transform:translateX(72%)}}
+#rytni-event-page .banned-application-icon{position:relative;display:grid;width:72px;height:72px;margin-bottom:16px;place-items:center;border:1px solid rgba(255,107,149,.58);border-radius:23px;color:#ff8bab;background:linear-gradient(145deg,rgba(178,36,90,.48),rgba(91,35,151,.42));box-shadow:0 16px 38px rgba(117,15,65,.32),0 0 28px rgba(255,74,132,.14),inset 0 1px 0 rgba(255,255,255,.15)}
+#rytni-event-page .banned-application-icon svg{width:34px;height:34px}
+#rytni-event-page .banned-application-kicker{position:relative;margin-bottom:8px;color:#ff8cab;font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}
+#rytni-event-page .banned-application-state h3{position:relative;margin:0;color:#fff;font:850 clamp(24px,4vw,31px)/1.15 Onest,Manrope,sans-serif;letter-spacing:-.025em}
+#rytni-event-page .banned-application-state>p{position:relative;max-width:470px;margin:13px 0 0;color:#c3bed2;font-size:14px;line-height:1.62}
+#rytni-event-page .banned-application-reason{position:relative;display:grid;width:100%;gap:7px;margin-top:20px;padding:15px 16px;border:1px solid rgba(255,111,151,.4);border-radius:16px;text-align:left;background:linear-gradient(135deg,rgba(103,21,61,.38),rgba(48,24,91,.34));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+#rytni-event-page .banned-application-reason>span{color:#ff91b0;font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+#rytni-event-page .banned-application-reason>strong{overflow-wrap:anywhere;color:#fff2f6;font-size:14px;font-weight:800;line-height:1.5;white-space:pre-wrap}
+#rytni-event-page .banned-application-note{position:relative;display:flex;align-items:flex-start;gap:10px;width:100%;margin-top:20px;padding:13px 14px;border:1px solid rgba(144,119,255,.25);border-radius:15px;color:#aaa5c0;text-align:left;background:rgba(12,14,42,.58);font-size:13px;line-height:1.5}
+#rytni-event-page .banned-application-note svg{flex:0 0 18px;width:18px;height:18px;color:#a986ff}
+#rytni-event-page .banned-application-close{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:160px;min-height:48px;margin-top:19px;padding:10px 20px;border:1px solid rgba(255,102,143,.48);border-radius:15px;color:#fff;background:linear-gradient(135deg,rgba(177,37,91,.9),rgba(104,43,169,.92));box-shadow:0 13px 30px rgba(104,24,76,.27),inset 0 1px 0 rgba(255,255,255,.13);font:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+#rytni-event-page .banned-application-close svg{width:17px;height:17px}
+#rytni-event-page .banned-application-close:hover{transform:translateY(-2px);border-color:#ff9fbc;box-shadow:0 17px 36px rgba(125,25,89,.35),0 0 23px rgba(255,73,133,.12)}
+#rytni-event-page .unlinked-email-state{position:relative;display:grid;justify-items:center;width:min(590px,100%);margin:18px auto 0;padding:30px 28px 26px;overflow:hidden;border:1px solid rgba(114,102,255,.42);border-radius:26px;color:#f7f9ff;text-align:center;background:radial-gradient(circle at 50% -18%,rgba(108,79,255,.34),transparent 48%),radial-gradient(circle at 100% 100%,rgba(40,201,240,.13),transparent 42%),linear-gradient(145deg,rgba(12,18,51,.98),rgba(5,10,30,.98));box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 38px rgba(93,74,255,.13),inset 0 1px 0 rgba(255,255,255,.09);backdrop-filter:blur(24px) saturate(140%)}
+#rytni-event-page .unlinked-email-state[hidden]{display:none}
+#rytni-event-page #applicationPopup .application-popup.is-unlinked-state{position:relative;width:min(650px,calc(100vw - 24px));max-height:calc(100dvh - 20px);padding:0;overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+#rytni-event-page #applicationPopup .application-popup.is-unlinked-state .application-search-close{z-index:3;top:15px;right:15px;width:44px;height:44px;border-color:rgba(137,117,255,.46);background:rgba(21,22,63,.86);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+#rytni-event-page .unlinked-email-state::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.045) 45%,transparent 68%);transform:translateX(-70%);animation:unlinkedStateShine 5.5s ease-in-out infinite}
+@keyframes unlinkedStateShine{0%,62%,100%{transform:translateX(-72%)}78%{transform:translateX(72%)}}
+#rytni-event-page .unlinked-email-icon{position:relative;display:grid;width:68px;height:68px;margin-bottom:16px;place-items:center;border:1px solid rgba(104,229,255,.48);border-radius:22px;color:#6eeaff;background:linear-gradient(145deg,rgba(48,116,235,.42),rgba(106,51,211,.38));box-shadow:0 14px 34px rgba(45,77,213,.28),0 0 28px rgba(62,218,255,.13),inset 0 1px 0 rgba(255,255,255,.14)}
+#rytni-event-page .unlinked-email-icon svg{width:31px;height:31px}
+#rytni-event-page .unlinked-email-kicker{margin-bottom:8px;color:#68e7ff;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+#rytni-event-page .unlinked-email-state h3{position:relative;margin:0;color:#fff;font:850 clamp(22px,3vw,29px)/1.15 Onest,Manrope,sans-serif;letter-spacing:-.025em}
+#rytni-event-page .unlinked-email-address{max-width:100%;margin-top:9px;padding:7px 12px;overflow:hidden;border:1px solid rgba(119,137,255,.25);border-radius:999px;color:#c8d4ff;background:rgba(13,23,60,.68);font-size:13px;font-weight:800;text-overflow:ellipsis;white-space:nowrap}
+#rytni-event-page .unlinked-email-copy{max-width:480px;margin:13px 0 0;color:#aab4d2;font-size:14px;line-height:1.6}
+#rytni-event-page .unlinked-email-copy strong{color:#f4f7ff}
+#rytni-event-page .unlinked-email-actions{position:relative;display:grid;grid-template-columns:1fr 1fr;width:100%;gap:11px;margin-top:22px}
+#rytni-event-page .unlinked-action{display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:11px 15px;border:1px solid rgba(115,137,255,.36);border-radius:16px;color:#f8fbff;background:linear-gradient(145deg,rgba(27,43,89,.96),rgba(15,27,65,.98));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 26px rgba(0,0,0,.18);font:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+#rytni-event-page .unlinked-action svg{width:18px;height:18px;color:#65e9ff}
+#rytni-event-page .unlinked-action.is-primary{border-color:rgba(88,214,255,.52);background:linear-gradient(135deg,#277ddd,#7048e8);box-shadow:0 14px 32px rgba(67,82,229,.28),inset 0 1px 0 rgba(255,255,255,.16)}
+#rytni-event-page .unlinked-action:hover{transform:translateY(-2px);border-color:rgba(91,232,255,.78);box-shadow:0 17px 36px rgba(42,83,220,.28),0 0 23px rgba(68,213,255,.1)}
+#rytni-event-page .unlinked-action:active{transform:translateY(0) scale(.98)}
+#rytni-event-page .unlinked-signout{position:relative;display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:7px 10px;border:0;color:#9ca8c8;background:transparent;font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:color .2s ease,transform .2s ease}
+#rytni-event-page .unlinked-signout svg{width:15px;height:15px;color:#ff8ca0}
+#rytni-event-page .unlinked-signout:hover{color:#ffdbe2;transform:translateY(-1px)}
+#rytni-event-page .profile-logout-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:max-content;min-height:38px;margin-top:14px;padding:8px 13px 8px 11px;border:1px solid rgba(248,113,113,.3);border-radius:13px;color:#ffd9df;background:linear-gradient(135deg,rgba(108,31,58,.5),rgba(71,25,48,.34));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 22px rgba(42,8,24,.16);font:inherit;font-size:13px;font-weight:850;letter-spacing:.01em;cursor:pointer;transition:transform .2s ease,border-color .2s ease,color .2s ease,background .2s ease,box-shadow .2s ease}
+#rytni-event-page .profile-logout-btn svg{width:16px;height:16px;color:#ff91a3;transition:transform .2s ease,color .2s ease}
+#rytni-event-page .profile-logout-btn:hover{transform:translateY(-2px);border-color:rgba(255,116,139,.7);color:#fff;background:linear-gradient(135deg,rgba(139,35,70,.68),rgba(84,27,57,.52));box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 12px 28px rgba(89,16,47,.28),0 0 20px rgba(255,77,120,.1)}
+#rytni-event-page .profile-logout-btn:hover svg{color:#ffb0bd;transform:translateX(2px)}
+#rytni-event-page .profile-logout-btn:active{transform:translateY(0) scale(.97)}
+#rytni-event-page .profile-logout-btn:focus-visible{outline:2px solid rgba(255,116,139,.82);outline-offset:3px}
+#rytni-event-page .profile-logout-btn[hidden]{display:none}
+#rytni-event-page .profile-card-actions{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:14px}
+#rytni-event-page .profile-card-actions .profile-logout-btn{margin-top:0}
+#rytni-event-page .profile-coupons-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:max-content;min-height:38px;padding:8px 13px;border:1px solid rgba(83,221,255,.38);border-radius:13px;color:#dffbff;background:linear-gradient(135deg,rgba(25,101,157,.55),rgba(82,43,151,.46));box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 8px 24px rgba(32,38,117,.2);font:inherit;font-size:13px;font-weight:900;cursor:pointer;transition:.2s ease}
+#rytni-event-page .profile-coupons-btn svg{width:16px;height:16px;color:#63eaff}.profile-coupon-count{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;color:#07111e;background:linear-gradient(135deg,#4cf0ed,#72b5ff);font-size:12px;font-weight:950}
+#rytni-event-page .profile-coupons-btn:hover{transform:translateY(-2px);border-color:#68eaff;box-shadow:0 12px 28px rgba(55,93,205,.28),0 0 22px rgba(57,220,255,.13)}
+#rytni-event-page .profile-coupons-btn[hidden]{display:none}
+#rytni-event-page .player-meta-telegram{position:relative;background:transparent}
+#rytni-event-page .player-meta-telegram.is-connected{background:transparent}
+#rytni-event-page .player-meta-telegram>svg:first-child,#rytni-event-page .player-meta-telegram.is-connected>svg:first-child{color:#eff8ff!important;filter:none}
+#rytni-event-page .player-meta-telegram span{overflow:hidden}
+#rytni-event-page #profileTelegramHint{display:none!important}
+#rytni-event-page .player-meta-telegram-actions{display:flex;align-items:center;justify-content:flex-end;gap:6px;min-width:0}
+#rytni-event-page .profile-telegram-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:6px 9px;border:1px solid rgba(120,139,180,.28);border-radius:10px;color:#dfe7f8;background:rgba(18,29,57,.52);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);font:inherit;font-size:12px;font-weight:900;white-space:nowrap;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}
+#rytni-event-page .profile-telegram-btn svg{flex:0 0 14px;width:14px;height:14px}
+#rytni-event-page .profile-telegram-btn.is-connected{border-color:rgba(120,139,180,.28);color:#dfe7f8;background:rgba(18,29,57,.52);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+#rytni-event-page .profile-telegram-btn:hover{transform:translateY(-1px);border-color:rgba(103,217,255,.62);color:#fff;background:rgba(35,55,96,.72);box-shadow:0 8px 18px rgba(19,45,98,.22)}
+#rytni-event-page .profile-telegram-btn:disabled{opacity:.62;cursor:wait;transform:none}
+#rytni-event-page .profile-telegram-disconnect{display:grid;flex:0 0 34px;width:34px;height:34px;padding:0;place-items:center;border:1px solid rgba(255,107,135,.24);border-radius:10px;color:#e68b9d;background:rgba(88,28,48,.16);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease}
+#rytni-event-page .profile-telegram-disconnect[hidden]{display:none}
+#rytni-event-page .profile-telegram-disconnect svg{width:16px;height:16px}
+#rytni-event-page .profile-telegram-disconnect:hover{transform:translateY(-1px);border-color:#ff8ca3;color:#ffadbc;background:rgba(130,35,62,.3)}
+#rytni-event-page .sponsor-chest-btn{display:inline-flex;align-items:center;gap:11px;min-width:260px;min-height:66px;padding:6px 14px 6px 7px;border:1px solid rgba(249,199,79,.58);border-radius:15px;color:#fff;background:linear-gradient(125deg,rgba(96,52,8,.9),rgba(105,49,112,.82) 56%,rgba(33,96,142,.82));box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 10px 28px rgba(99,54,12,.24),0 0 22px rgba(249,199,79,.12);font:inherit;text-align:left;cursor:pointer;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,filter .22s ease}
+#rytni-event-page .sponsor-chest-btn img{flex:0 0 54px;width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 0 13px rgba(255,200,73,.68))}#rytni-event-page .sponsor-chest-btn>span{display:grid;flex:1;gap:4px;min-width:0}#rytni-event-page .sponsor-chest-btn b{font-size:14px;font-weight:950;line-height:1.15;letter-spacing:.005em}#rytni-event-page .sponsor-chest-btn small{color:#ffe2a0;font-size:13px;font-weight:800;line-height:1.25}#rytni-event-page .sponsor-chest-btn>svg{flex:0 0 18px;width:18px;height:18px;color:#75e8ff}
+#rytni-event-page .sponsor-chest-btn:hover{transform:translateY(-3px) scale(1.015);border-color:#ffd66b;filter:brightness(1.08);box-shadow:0 15px 34px rgba(108,57,16,.3),0 0 28px rgba(249,199,79,.2)}#rytni-event-page .sponsor-chest-btn:disabled{opacity:.64;cursor:wait;transform:none;filter:saturate(.7)}
+#rytni-event-page .room-action-stack{grid-area:action;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:10px;margin-right:48px}
+#rytni-event-page .room-action-stack .next-activity-card{margin-right:0}
+#rytni-event-page .profile-email-link{display:flex;align-items:center;gap:11px;align-self:flex-end;min-height:48px;padding:9px 15px;border:1px solid rgba(65,224,255,.42);border-radius:15px;color:#f5fbff;background:linear-gradient(135deg,rgba(42,91,214,.9),rgba(114,45,220,.9));box-shadow:0 10px 28px rgba(58,79,224,.24),inset 0 1px 0 rgba(255,255,255,.14);font:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+#rytni-event-page .profile-email-link:hover{transform:translateY(-2px);border-color:#59edff;box-shadow:0 14px 34px rgba(80,75,238,.34),0 0 22px rgba(56,220,255,.14)}
+#rytni-event-page .profile-email-link svg{width:18px;height:18px;color:#55eeff}
+#rytni-event-page .profile-email-link[hidden]{display:none}
+#rytni-event-page .auth-panel.is-embedded{width:100%;margin:0;padding:13px;border-radius:17px}
+#rytni-event-page .auth-panel.is-embedded .auth-form{grid-template-columns:1fr}
+#rytni-event-page .auth-panel.is-embedded .auth-submit-btn{width:100%}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact{position:relative;width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:26px;border:1px solid rgba(116,101,255,.42);border-radius:24px;color:#f7f8ff;background:radial-gradient(circle at 12% 0,rgba(94,67,255,.22),transparent 38%),radial-gradient(circle at 100% 100%,rgba(29,204,255,.12),transparent 38%),linear-gradient(145deg,rgba(9,14,42,.98),rgba(5,9,28,.98));box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 42px rgba(91,67,255,.12),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(24px) saturate(135%)}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact>h3{display:block;margin:0;padding:0 48px 0 0;color:#fff;text-align:left;font:800 24px/1.15 Onest,Manrope,sans-serif}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact>p{display:block;max-width:390px;margin:7px 0 0;color:#9fa9c7;text-align:left;font-size:14px;line-height:1.55}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .application-search-close{top:16px;right:16px;width:44px;height:44px;border-color:rgba(139,112,255,.42);background:rgba(22,19,61,.78);box-shadow:0 10px 28px rgba(0,0,0,.24)}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .application-search-close:hover{border-color:#c65cff;background:rgba(87,38,126,.82);box-shadow:0 12px 30px rgba(76,24,116,.3),0 0 20px rgba(190,74,255,.12)}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-panel{gap:11px;margin:19px 0 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-choice{gap:10px}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-mode-btn{min-height:48px;padding:10px 13px;border-radius:14px;font-size:14px}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-mode-btn svg{width:17px;height:17px}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-form{grid-template-columns:1fr;gap:9px}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .auth-submit-btn{width:100%;min-height:48px}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .form-status{min-height:0;margin:3px 0 0;padding:9px 11px;border:1px solid rgba(61,220,132,.22);border-radius:12px;background:rgba(22,128,91,.12);font-size:13px;line-height:1.4}
+#rytni-event-page #applicationPopup .application-popup.is-auth-compact .form-status:empty{display:none}
+#rytni-event-page .auth-success-toast{position:fixed;z-index:4200;top:22px;right:22px;display:flex;align-items:center;gap:11px;width:min(340px,calc(100vw - 28px));padding:13px 15px;border:1px solid rgba(68,236,171,.38);border-radius:16px;color:#edfff8;background:linear-gradient(145deg,rgba(9,39,42,.95),rgba(7,25,39,.96));box-shadow:0 20px 50px rgba(0,0,0,.42),0 0 28px rgba(49,222,158,.12),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(20px) saturate(140%);opacity:0;transform:translate3d(24px,-8px,0) scale(.96);pointer-events:none;transition:opacity .24s ease,transform .34s cubic-bezier(.2,.8,.2,1)}
+#rytni-event-page .auth-success-toast[hidden]{display:none}
+#rytni-event-page .auth-success-toast.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+#rytni-event-page .auth-success-toast-icon{display:grid;flex:0 0 38px;width:38px;height:38px;place-items:center;border:1px solid rgba(77,238,181,.42);border-radius:12px;color:#65f1bd;background:linear-gradient(145deg,rgba(36,180,132,.28),rgba(19,112,102,.2));box-shadow:0 0 20px rgba(63,224,167,.13)}
+#rytni-event-page .auth-success-toast-icon svg{width:20px;height:20px}
+#rytni-event-page .auth-success-toast-copy{display:grid;gap:2px;min-width:0}
+#rytni-event-page .auth-success-toast-copy strong{font:800 14px/1.2 Onest,Manrope,sans-serif}
+#rytni-event-page .auth-success-toast-copy span{color:#9dc8bd;font-size:13px;line-height:1.35}
+@media(max-width:820px){#rytni-event-page .room-action-stack{margin-right:48px}}
+@media(max-width:620px){#rytni-event-page .auth-choice,#rytni-event-page .auth-form{grid-template-columns:1fr}#rytni-event-page .auth-state{align-items:flex-start;flex-direction:column}#rytni-event-page .room-action-stack{margin-right:0}#rytni-event-page .profile-email-link{align-self:stretch;justify-content:center}#rytni-event-page .sponsor-chest-btn{width:100%;max-width:100%;min-width:0}#rytni-event-page .sponsor-chest-btn{min-height:62px;gap:8px;padding:5px 9px 5px 5px}#rytni-event-page .sponsor-chest-btn img{flex-basis:48px;width:48px;height:48px}#rytni-event-page .sponsor-chest-btn b{font-size:14px}#rytni-event-page .sponsor-chest-btn small{font-size:12px}#rytni-event-page .sponsor-chest-btn>svg{flex-basis:16px;width:16px;height:16px}#rytni-event-page #applicationPopup .application-popup.is-auth-compact{width:calc(100vw - 16px);padding:22px 16px;border-radius:20px}#rytni-event-page #applicationPopup .application-popup.is-auth-compact>h3{font-size:21px}#rytni-event-page #applicationPopup .application-popup.is-unlinked-state{width:calc(100vw - 14px)}#rytni-event-page .unlinked-email-state{padding:25px 16px 21px;border-radius:22px}#rytni-event-page .unlinked-email-actions{grid-template-columns:1fr}#rytni-event-page .unlinked-action{min-height:50px}}
+@media(max-width:460px){#rytni-event-page .auth-otp-actions{grid-template-columns:1fr}#rytni-event-page .auth-otp-destination{align-items:flex-start;flex-direction:column;gap:4px}#rytni-event-page .auth-otp-destination strong{text-align:left}}
+@media(max-width:620px){#rytni-event-page #applicationPopup .application-popup.is-banned-state{width:calc(100vw - 14px)}#rytni-event-page .banned-application-state{padding:28px 17px 22px;border-radius:22px}#rytni-event-page .banned-application-state>p{font-size:14px}#rytni-event-page .banned-application-close{width:100%}}
+
+/* 2.12: упрощённая регистрация, приватный рейтинг и личный маршрут. */
+#rytni-event-page .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+#rytni-event-page .registration-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
+#rytni-event-page .registration-step{display:flex;align-items:center;gap:9px;min-height:44px;padding:8px 12px;border:1px solid rgba(114,128,176,.28);border-radius:13px;color:#9ca5bb;background:rgba(5,9,25,.54);font-size:14px;font-weight:800}
+#rytni-event-page .registration-step b{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;color:#b9c0d3;background:rgba(255,255,255,.08)}
+#rytni-event-page .registration-step.is-current{border-color:rgba(91,218,255,.52);color:#e7fbff;background:rgba(24,118,157,.16)}
+#rytni-event-page .registration-step.is-current b,#rytni-event-page .registration-step.is-complete b{color:#031319;background:#61e6ff}
+#rytni-event-page .registration-step.is-complete{border-color:rgba(58,211,155,.48);color:#c9ffe8;background:rgba(34,151,109,.14)}
+#rytni-event-page #giveawayForm[data-registration-locked="true"] .form-grid,#rytni-event-page #giveawayForm[data-registration-locked="true"] .check,#rytni-event-page #giveawayForm[data-registration-locked="true"] #submitBtn{opacity:.48}
+#rytni-event-page #giveawayForm[data-registration-locked="true"]{position:relative}
+#rytni-event-page .auth-inline-hint{grid-column:1/-1;color:#8f98ad;font-size:13px;line-height:1.45}
+#rytni-event-page .gamer-score-line{flex-wrap:wrap}
+#rytni-event-page .sponsor-chest-btn[hidden]{display:none!important}
+#rytni-event-page .registration-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 14px}
+#rytni-event-page .registration-benefits>span{display:grid;grid-template-columns:34px minmax(0,1fr);grid-template-rows:auto auto;column-gap:9px;align-items:center;min-height:62px;padding:9px 11px;border:1px solid rgba(101,222,244,.17);border-radius:14px;background:linear-gradient(145deg,rgba(22,39,78,.64),rgba(24,12,48,.7))}
+#rytni-event-page .registration-benefits img{grid-row:1/3;width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(91,224,255,.25))}
+#rytni-event-page .registration-benefits b{color:#f6fbff;font-size:13px}
+#rytni-event-page .registration-benefits small{color:#8391ad;font-size:12px;line-height:1.3}
+#rytni-event-page .optional-label{display:inline-flex;margin-left:5px;padding:2px 6px;border:1px solid rgba(91,224,255,.22);border-radius:999px;color:#73dff0;background:rgba(52,190,218,.08);font-size:12px;text-transform:uppercase}
+#rytni-event-page .game-chips-preview{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+#rytni-event-page .game-chips-preview:empty{display:none}
+#rytni-event-page .game-chip{display:inline-flex;align-items:center;min-height:27px;padding:4px 9px;border:1px solid rgba(147,95,255,.38);border-radius:999px;color:#e8ddff;background:rgba(116,63,206,.16);font-size:12px;font-weight:850}
+#rytni-event-page .registration-privacy-note{display:flex;align-items:center;gap:8px;margin:10px 2px 15px;color:#7f91aa;font-size:12px;line-height:1.45}
+#rytni-event-page .registration-privacy-note img{flex:0 0 25px;width:25px;height:25px;object-fit:contain}
+#rytni-event-page .registration-auth-overlay{padding:16px}
+#rytni-event-page .registration-auth-popup{position:relative;width:min(480px,100%);padding:30px 26px 24px!important;border-color:rgba(95,224,255,.4)!important;text-align:center;background:radial-gradient(circle at 50% -15%,rgba(82,71,230,.38),transparent 48%),linear-gradient(150deg,#071127,#170b32)!important;box-shadow:0 34px 90px rgba(0,0,0,.68),0 0 50px rgba(86,109,255,.18)!important}
+#rytni-event-page .registration-auth-popup>.application-search-close{position:absolute;z-index:4;top:14px;right:14px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(190,112,255,.44);border-radius:13px;color:#f7efff;background:rgba(11,15,42,.86);box-shadow:0 10px 24px rgba(0,0,0,.25);cursor:pointer}
+#rytni-event-page .registration-auth-popup>.application-search-close:hover{border-color:#d45cff;background:rgba(77,31,112,.82);transform:translateY(-1px)}
+#rytni-event-page .registration-auth-popup>.application-search-close .application-search-close-mark{display:block;color:currentColor;font:400 31px/1 Arial,sans-serif;transform:translateY(-1px)}
+#rytni-event-page .registration-auth-art{width:82px;height:82px;margin:0 auto 7px;object-fit:contain;filter:drop-shadow(0 0 24px rgba(97,229,255,.36))}
+#rytni-event-page .registration-auth-kicker{display:block;color:#67e7f3;font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}
+#rytni-event-page .registration-auth-popup h3{margin:8px 0 5px;color:#fff;font-size:25px}
+#rytni-event-page .registration-auth-popup>p{max-width:390px;margin:0 auto 17px;color:#9eabc3;font-size:14px;line-height:1.55}
+#rytni-event-page #registrationAuthHost .auth-panel{display:block!important}
+#rytni-event-page #registrationAuthHost .auth-video-notice{display:none!important}
+#rytni-event-page #registrationAuthHost .auth-form{grid-template-columns:1fr}
+#rytni-event-page #registrationAuthHost .auth-submit-btn{min-height:48px}
+#rytni-event-page .registration-auth-security{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:13px;color:#7f90aa;font-size:12px}
+#rytni-event-page .registration-auth-security img{width:24px;height:24px;object-fit:contain}
+#rytni-event-page .gamer-score-top10{position:relative;grid-template-columns:28px minmax(0,1fr);column-gap:8px;align-content:center;overflow:hidden;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}
+#rytni-event-page .gamer-score-top10::after{content:"";position:absolute;inset:auto -20px -32px auto;width:76px;height:76px;border-radius:50%;background:rgba(117,91,255,.12);filter:blur(13px);pointer-events:none}
+#rytni-event-page .gamer-score-top10>svg{grid-row:1/3;width:24px;height:24px;color:#8d9abb;filter:drop-shadow(0 0 9px rgba(94,224,255,.18))}
+#rytni-event-page .gamer-score-top10 strong{align-self:end;min-width:0;font-size:14px!important;line-height:1.12}
+#rytni-event-page .gamer-score-top10 small{align-self:start;max-width:145px;white-space:normal;line-height:1.25}
+#rytni-event-page .gamer-score-top10.is-top-ten{border-color:rgba(255,195,53,.45);background:radial-gradient(circle at 8% 50%,rgba(255,194,48,.13),transparent 48%),rgba(4,10,25,.64);box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 0 24px rgba(255,176,33,.08)}
+#rytni-event-page .gamer-score-top10.is-top-ten>svg{color:#ffd255;filter:drop-shadow(0 0 10px rgba(255,185,37,.44))}
+#rytni-event-page .gamer-score-top10.is-top-ten::after{background:rgba(255,181,38,.15)}
+#rytni-event-page .gamer-score-top10.is-outside-top-ten>svg{color:#a375ff}
+@media(max-width:620px){#rytni-event-page .registration-steps{grid-template-columns:1fr}#rytni-event-page .registration-step{min-height:40px}}
+@media(max-width:720px){#rytni-event-page .email-confirm-card{grid-template-columns:1fr;padding:15px}#rytni-event-page .email-confirm-btn{width:100%;min-width:0}#rytni-event-page .email-confirm-reason{grid-column:1}}
+@media(max-width:720px){#rytni-event-page .registration-benefits{grid-template-columns:1fr}#rytni-event-page .registration-benefits>span{min-height:54px}#rytni-event-page .registration-auth-popup{padding:25px 17px 20px!important}}
+
+/* 2.12.1: самостоятельные визуальные сцены входа в прокачку и личную комнату. */
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-boost,
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-room{
+  --gateway-accent:#55e9ff;
+  --gateway-accent-rgb:85,233,255;
+  --gateway-second:#805dff;
+  position:relative;
+  isolation:isolate;
+  width:min(780px,calc(100vw - 24px));
+  max-height:calc(100dvh - 24px);
+  padding:0 26px 24px;
+  overflow:auto;
+  border:1px solid rgba(var(--gateway-accent-rgb),.42);
+  border-radius:30px;
+  color:#f8faff;
+  text-align:left;
+  background:
+    radial-gradient(circle at 18% 0,rgba(var(--gateway-accent-rgb),.18),transparent 37%),
+    radial-gradient(circle at 95% 14%,rgba(137,72,255,.24),transparent 36%),
+    linear-gradient(148deg,rgba(5,13,37,.99),rgba(13,8,39,.99));
+  box-shadow:0 38px 110px rgba(0,0,0,.68),0 0 58px rgba(var(--gateway-accent-rgb),.13),inset 0 1px 0 rgba(255,255,255,.09);
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-boost{
+  --gateway-accent:#ffca55;
+  --gateway-accent-rgb:255,202,85;
+  --gateway-second:#cf54ff;
+  background:
+    radial-gradient(circle at 18% 0,rgba(255,174,55,.2),transparent 38%),
+    radial-gradient(circle at 95% 12%,rgba(190,61,255,.28),transparent 38%),
+    linear-gradient(148deg,rgba(12,12,35,.99),rgba(24,7,42,.99));
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-boost::before,
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-room::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0 0 auto;
+  height:3px;
+  border-radius:30px 30px 0 0;
+  background:linear-gradient(90deg,transparent,var(--gateway-accent),var(--gateway-second),transparent);
+  box-shadow:0 0 24px rgba(var(--gateway-accent-rgb),.62);
+}
+#rytni-event-page .application-gateway[hidden]{display:none!important}
+#rytni-event-page .application-gateway{
+  position:relative;
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  align-items:center;
+  gap:25px;
+  min-height:228px;
+  padding:22px 48px 18px 2px;
+  border-bottom:1px solid rgba(142,155,211,.16);
+}
+#rytni-event-page .application-gateway::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:-1px;
+  left:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(var(--gateway-accent-rgb),.55),rgba(133,79,255,.45),transparent);
+}
+#rytni-event-page .application-gateway-visual{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:200px;
+  height:188px;
+}
+#rytni-event-page .application-gateway-aura{
+  position:absolute;
+  inset:22px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--gateway-accent-rgb),.25),rgba(121,72,255,.14) 48%,transparent 72%);
+  filter:blur(8px);
+}
+#rytni-event-page .application-gateway-ring{
+  position:absolute;
+  inset:24px;
+  border:1px solid rgba(var(--gateway-accent-rgb),.34);
+  border-radius:50%;
+  box-shadow:0 0 34px rgba(var(--gateway-accent-rgb),.13),inset 0 0 30px rgba(116,70,255,.1);
+}
+#rytni-event-page .application-gateway-ring::before,
+#rytni-event-page .application-gateway-ring::after{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px dashed rgba(181,157,255,.23);
+  border-radius:50%;
+}
+#rytni-event-page .application-gateway-ring::after{inset:30px;border-style:solid;border-color:rgba(var(--gateway-accent-rgb),.18)}
+#rytni-event-page .application-gateway-art{
+  position:relative;
+  z-index:1;
+  width:166px;
+  height:166px;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 24px rgba(0,0,0,.42)) drop-shadow(0 0 20px rgba(var(--gateway-accent-rgb),.25));
+}
+#rytni-event-page .application-gateway-badge{
+  position:absolute;
+  z-index:2;
+  right:8px;
+  bottom:18px;
+  display:grid;
+  place-items:center;
+  width:62px;
+  height:62px;
+  border:1px solid rgba(var(--gateway-accent-rgb),.48);
+  border-radius:19px;
+  background:linear-gradient(145deg,rgba(20,27,66,.97),rgba(29,10,53,.98));
+  box-shadow:0 13px 30px rgba(0,0,0,.4),0 0 24px rgba(var(--gateway-accent-rgb),.19),inset 0 1px 0 rgba(255,255,255,.12);
+}
+#rytni-event-page .application-gateway-badge img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 0 9px rgba(var(--gateway-accent-rgb),.35))}
+#rytni-event-page .application-gateway-copy{position:relative;z-index:1;min-width:0}
+#rytni-event-page .application-gateway-kicker{display:block;margin-bottom:9px;color:var(--gateway-accent);font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}
+#rytni-event-page .application-gateway h3{
+  margin:0!important;
+  padding:0!important;
+  color:#fff!important;
+  text-align:left!important;
+  font:400 clamp(28px,4vw,38px)/1.05 "Russo One",Manrope,sans-serif!important;
+  letter-spacing:-.025em;
+  text-shadow:0 8px 28px rgba(0,0,0,.42);
+}
+#rytni-event-page .application-gateway p{max-width:450px!important;margin:11px 0 0!important;color:#adb9d3!important;text-align:left!important;font-size:14px!important;line-height:1.58!important}
+#rytni-event-page .application-gateway-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#rytni-event-page .application-gateway-tags span{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:6px 10px;border:1px solid rgba(var(--gateway-accent-rgb),.23);border-radius:999px;color:#dfe9ff;background:rgba(var(--gateway-accent-rgb),.07);font-size:12px;font-weight:850}
+#rytni-event-page .application-gateway-tags svg{width:14px;height:14px;color:var(--gateway-accent)}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .application-search-close{top:18px;right:18px;width:44px;height:44px;border-color:rgba(var(--gateway-accent-rgb),.42);background:rgba(7,12,34,.82);box-shadow:0 12px 28px rgba(0,0,0,.3),0 0 20px rgba(var(--gateway-accent-rgb),.08)}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-panel{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:12px;
+  margin:18px 0 0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-choice{display:grid;grid-template-columns:1fr;gap:0}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-choice[hidden]{display:none}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-mode-btn{
+  min-height:74px;
+  padding:13px 17px;
+  border:1px solid rgba(var(--gateway-accent-rgb),.42);
+  border-radius:19px;
+  color:#fff;
+  background:linear-gradient(135deg,rgba(var(--gateway-accent-rgb),.13),rgba(81,61,185,.21));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 14px 32px rgba(0,0,0,.2);
+  font-size:14px;
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-mode-btn svg{width:22px;height:22px;color:var(--gateway-accent)}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  align-items:center;
+  gap:13px;
+  min-height:74px;
+  margin:0;
+  padding:9px 14px 9px 9px;
+  border:1px solid rgba(var(--gateway-accent-rgb),.23);
+  border-radius:19px;
+  background:linear-gradient(135deg,rgba(var(--gateway-accent-rgb),.08),rgba(102,56,185,.12));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055);
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice-icon{
+  display:grid;
+  place-items:center;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:17px;
+  background:rgba(3,9,27,.55);
+  box-shadow:inset 0 0 18px rgba(var(--gateway-accent-rgb),.1);
+}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice-icon img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(var(--gateway-accent-rgb),.35))}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice strong{color:#fff;font-size:14px;line-height:1.3}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice small{margin-top:4px;color:#8f9dbb;font-size:12px;line-height:1.42}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-form{grid-column:1/-1;grid-template-columns:minmax(0,1fr) 190px;gap:10px;padding:10px;border:1px solid rgba(var(--gateway-accent-rgb),.22);border-radius:20px;background:rgba(3,9,27,.46)}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-inline-hint{grid-column:1/-1;padding:0 6px 3px;color:#7786a5;font-size:12px}
+#rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .form-status{grid-column:1/-1}
+
+@media(max-width:700px){
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-boost,
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact).is-mode-room{width:calc(100vw - 14px);padding:0 14px 16px;border-radius:23px}
+  #rytni-event-page .application-gateway{grid-template-columns:112px minmax(0,1fr);gap:12px;min-height:168px;padding:18px 42px 14px 0}
+  #rytni-event-page .application-gateway-visual{width:108px;height:132px}
+  #rytni-event-page .application-gateway-aura{inset:12px}
+  #rytni-event-page .application-gateway-ring{inset:10px}
+  #rytni-event-page .application-gateway-art{width:108px;height:108px}
+  #rytni-event-page .application-gateway-badge{right:-2px;bottom:4px;width:43px;height:43px;border-radius:13px}
+  #rytni-event-page .application-gateway-badge img{width:38px;height:38px}
+  #rytni-event-page .application-gateway-kicker{margin-bottom:6px;font-size:12px}
+  #rytni-event-page .application-gateway h3{font-size:22px!important}
+  #rytni-event-page .application-gateway p{margin-top:7px!important;font-size:12px!important;line-height:1.45!important}
+  #rytni-event-page .application-gateway-tags{gap:5px;margin-top:10px}
+  #rytni-event-page .application-gateway-tags span{min-height:26px;padding:4px 7px;font-size:12px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .application-search-close{top:12px;right:12px;width:44px;height:44px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-panel{grid-template-columns:1fr;margin-top:13px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-mode-btn{min-height:58px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice{grid-template-columns:48px minmax(0,1fr);min-height:62px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice-icon{width:44px;height:44px;border-radius:13px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-video-notice-icon img{width:41px;height:41px}
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .auth-form{grid-template-columns:1fr;padding:8px;border-radius:17px}
+}
+
+/* 2.9.2: lightweight compositor path for tablets and touch devices. */
+@media (max-width:1024px),(pointer:coarse){
+  #rytni-event-page *,
+  #rytni-event-page *::before,
+  #rytni-event-page *::after{
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+  }
+  #rytni-event-page .application-popup,
+  #rytni-event-page .application-boost-panel,
+  #rytni-event-page .gamer-profile-card,
+  #rytni-event-page .progression-card,
+  #rytni-event-page .unlinked-email-state{
+    box-shadow:0 12px 32px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06)!important;
+  }
+  #rytni-event-page .lucky-coupon-popup::after,
+  #rytni-event-page .player-pass-glow{display:none!important}
+  #rytni-event-page .unlinked-email-state::before{animation:none!important}
+}
+
+/* 2.12.6: «Моя заявка» — компактный кабинет без игровых механик. */
+#rytni-event-page .application-boost-panel.is-private-room{
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:
+    "head"
+    "action"
+    "profile"
+    "edit"
+    "tiktok";
+  gap:14px;
+}
+#rytni-event-page .application-boost-panel.is-private-room > :is(
+  .daily-chest,
+  .player-progress-drawer,
+  #quizZone,
+  .profile-actions,
+  #boostRules,
+  .rytni-tiktok-quest
+){display:none!important}
+#rytni-event-page .application-boost-panel.is-private-room :is(
+  .sponsor-chest-btn
+){display:none!important}
+#rytni-event-page .application-boost-panel.is-private-room .gamer-profile-card{
+  max-width:980px;
+  width:100%;
+  margin-inline:auto;
+}
+#rytni-event-page .application-boost-panel.is-private-room .application-edit-panel,
+#rytni-event-page .application-boost-panel.is-private-room .tiktok-room-section{
+  width:100%;
+  max-width:980px;
+  margin-inline:auto;
+}
+#rytni-event-page .application-boost-panel.is-private-room .gamer-name-row{
+  align-items:flex-start;
+}
+#rytni-event-page .application-boost-panel.is-private-room .gamer-name{
+  min-width:0;
+  overflow:visible;
+  overflow-wrap:anywhere;
+  text-overflow:clip;
+  white-space:normal;
+}
+#rytni-event-page .application-boost-panel.is-private-room .tiktok-room-section{
+  border-color:rgba(81,227,255,.3);
+  background:linear-gradient(135deg,rgba(39,203,226,.08),rgba(111,67,255,.1));
+}
+#rytni-event-page .application-boost-panel.is-private-room .boost-panel-sub{max-width:610px}
+
+/* 2.12.3: consolidated mobile navigation, safe areas and touch ergonomics. */
+#rytni-event-page .top-nav .nav-links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-left:auto;
+}
+#rytni-event-page .mobile-nav-toggle{display:none}
+#rytni-event-page :is(#participationCard,#giveawayForm,#rules,.card,.room-section){scroll-margin-top:108px}
+#rytni-event-page .pgame[role="button"]{cursor:pointer}
+#rytni-event-page .pgame[role="button"]:focus-visible{outline:2px solid #57dcff;outline-offset:3px;border-radius:4px}
+#rytni-event-page .pgame.is-expanded{overflow:visible;text-overflow:clip;white-space:normal}
+
+@media(max-width:760px){
+  html{scroll-padding-top:78px}
+  #rytni-event-page{min-height:100dvh;background-attachment:scroll}
+  #rytni-event-page .page{padding-top:82px;padding-bottom:calc(98px + env(safe-area-inset-bottom))}
+  #rytni-event-page .top-nav{
+    top:max(8px,env(safe-area-inset-top));
+    width:calc(100% - 16px);
+    min-height:58px;
+    padding:7px 8px;
+    border-radius:17px;
+  }
+  #rytni-event-page .top-nav .nav-brand{
+    width:auto;
+    min-width:0;
+    min-height:44px;
+    justify-content:flex-start;
+    margin:0 auto 0 0;
+    padding:2px 6px 2px 2px;
+  }
+  #rytni-event-page .top-nav .nav-brand img{width:40px;height:40px}
+  #rytni-event-page .top-nav .nav-brand span{font-size:14px}
+  #rytni-event-page .mobile-nav-toggle{
+    display:grid;
+    place-items:center;
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    padding:0;
+    border:1px solid rgba(116,221,255,.3);
+    border-radius:13px;
+    color:#eefbff;
+    background:linear-gradient(145deg,rgba(23,43,83,.86),rgba(70,38,118,.82));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
+  }
+  #rytni-event-page .mobile-nav-toggle svg{width:21px;height:21px}
+  #rytni-event-page .top-nav .nav-links{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    display:none;
+    grid-template-columns:1fr;
+    gap:5px;
+    width:min(292px,calc(100vw - 16px));
+    max-height:calc(100dvh - 86px - env(safe-area-inset-top));
+    margin:0;
+    padding:9px;
+    overflow:auto;
+    border:1px solid rgba(139,77,255,.34);
+    border-radius:17px;
+    background:rgba(5,8,30,.98);
+    box-shadow:0 24px 60px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  #rytni-event-page .top-nav .nav-links.is-open{display:grid}
+  #rytni-event-page .top-nav .nav-links a{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:44px;
+    padding:11px 13px;
+    font-size:14px;
+  }
+  #rytni-event-page .top-nav .nav-links .donate{justify-content:center;margin:0}
+  #rytni-event-page .top-nav .sound-toggle-btn{width:44px;height:44px;margin:0}
+  #rytni-event-page :is(#participationCard,#giveawayForm,#rules,.card,.room-section){scroll-margin-top:78px}
+  #rytni-event-page .rytni-countdown-unit small{font-size:12px;letter-spacing:.02em}
+  #rytni-event-page :is(input,select,textarea){font-size:16px}
+  #rytni-event-page .sticky-cta{
+    position:fixed!important;
+    z-index:1100;
+    left:50%;
+    bottom:calc(10px + env(safe-area-inset-bottom));
+    width:min(300px,calc(100% - 42px));
+    transform:translateX(-50%);
+  }
+  #rytni-event-page .sticky-cta.is-hidden{transform:translate(-50%,12px)}
+  #rytni-event-page .popup-overlay{
+    min-height:100dvh;
+    padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));
+  }
+  #rytni-event-page #applicationPopup .application-popup,
+  #rytni-event-page .popup{
+    max-height:calc(100dvh - max(16px,env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    overscroll-behavior:contain;
+  }
+  #rytni-event-page #applicationPopup .application-popup:is(.is-searching,.is-auth-compact) .application-search-close,
+  #rytni-event-page .application-search-close{width:44px;height:44px;min-width:44px;min-height:44px}
+  #rytni-event-page .application-boost-panel .player-progress-drawer>summary{min-height:60px;cursor:pointer}
+  #rytni-event-page .application-boost-panel .player-progress-drawer>summary>.player-progress-chevron{display:block}
+  #rytni-event-page .application-boost-panel .player-progress-drawer:not([open]) .player-progress-drawer-body{display:none!important}
+  #rytni-event-page .application-boost-panel .gamer-score-top10{
+    grid-column:1/-1;
+    min-height:72px;
+    padding:10px 12px;
+    grid-template-columns:28px minmax(0,1fr);
+  }
+  #rytni-event-page .application-boost-panel .gamer-score-top10 strong{
+    white-space:normal;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  #rytni-event-page .application-boost-panel .gamer-score-top10 small{
+    max-width:none;
+    white-space:normal;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  #rytni-event-page .pgame[role="button"]::after{content:" · нажмите, чтобы раскрыть";color:#7684a5;font-size:12px;font-weight:650}
+  #rytni-event-page .pgame.is-expanded::after{content:" · свернуть"}
+  #rytni-event-page .grid>.card{content-visibility:auto;contain-intrinsic-size:auto 420px}
+  body.popup-open .bug-report-launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  .bug-report-launcher{
+    left:12px!important;
+    right:auto!important;
+    bottom:12px!important;
+    width:48px!important;
+    min-width:48px!important;
+    max-width:48px!important;
+    height:48px!important;
+    min-height:48px!important;
+    padding:0!important;
+    overflow:hidden;
+    justify-content:center;
+    gap:0!important;
+    border-radius:50%!important;
+    font-size:0!important;
+  }
+  .bug-report-launcher svg{width:20px!important;height:20px!important;flex:0 0 20px}
+  .bug-report-launcher span{display:none!important}
+  body.has-rytni-sticky-cta .bug-report-launcher{bottom:calc(76px + env(safe-area-inset-bottom))!important}
+  #rec2496706173 .t-popup{padding:max(8px,env(safe-area-inset-top)) 8px max(8px,env(safe-area-inset-bottom))!important}
+  #rec2496706173 .t-popup__container{max-height:calc(100dvh - 16px)!important;overflow:auto!important}
+  #rec2496706173 .t-popup__close,
+  #rec2496706173 .t-popup__close-wrapper{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}
+}
+
+@media(max-width:380px){
+  #rytni-event-page .top-nav .nav-brand span{font-size:14px}
+  #rytni-event-page .hero-actions{grid-template-columns:1fr}
+  #rytni-event-page .registration-step{font-size:12px}
+  #rytni-event-page .registration-benefits{grid-template-columns:1fr}
+}
+
+@media(pointer:coarse){
+  #rytni-event-page :is(.nav-brand img,.season-state-badge,.gold-boost-btn){animation:none!important}
+}
+
+/* Detailed event rules */
+#rytni-event-page .rules-summary-open{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:46px;
+  margin-top:18px;
+  padding:10px 16px;
+  border:1px solid rgba(105,225,255,.42);
+  border-radius:14px;
+  color:#f5fbff;
+  background:linear-gradient(135deg,rgba(47,102,215,.88),rgba(127,47,211,.88));
+  box-shadow:0 12px 28px rgba(55,52,190,.24),inset 0 1px 0 rgba(255,255,255,.12);
+  font:inherit;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+#rytni-event-page .rules-summary-open:hover{transform:translateY(-2px);border-color:#73ecff;box-shadow:0 16px 34px rgba(82,55,211,.3)}
+#rytni-event-page .rules-summary-open svg{width:18px;height:18px}
+#rytni-event-page .rules-popup-overlay{
+  z-index:3600;
+  align-items:stretch;
+  padding:clamp(8px,1.7vw,22px);
+  overflow:hidden;
+  background:rgba(1,3,16,.94);
+}
+#rytni-event-page .rules-popup{
+  position:relative;
+  width:min(1120px,100%);
+  max-height:calc(100dvh - clamp(16px,3.4vw,44px));
+  margin:auto;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-color:#7357d8 rgba(255,255,255,.04);
+  border:1px solid rgba(107,203,255,.3);
+  border-radius:clamp(20px,2vw,30px);
+  color:#f8f9ff;
+  background:
+    radial-gradient(circle at 10% 0,rgba(38,213,232,.13),transparent 28%),
+    radial-gradient(circle at 92% 5%,rgba(180,61,255,.21),transparent 32%),
+    linear-gradient(145deg,#071026,#10092d 58%,#090619);
+  box-shadow:0 38px 120px rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.08);
+  text-align:left;
+}
+#rytni-event-page .rules-popup-close{
+  position:sticky;
+  z-index:8;
+  top:15px;
+  float:right;
+  display:grid;
+  width:46px;
+  height:46px;
+  margin:15px 15px -61px 0;
+  place-items:center;
+  border:1px solid rgba(163,105,255,.44);
+  border-radius:15px;
+  color:#fff;
+  background:rgba(15,17,52,.94);
+  box-shadow:0 10px 28px rgba(0,0,0,.3);
+  cursor:pointer;
+}
+#rytni-event-page .rules-popup-close:hover{border-color:#dd71ff;background:rgba(88,35,120,.92)}
+#rytni-event-page .rules-popup-close svg{width:22px;height:22px}
+#rytni-event-page .rules-popup-hero{
+  display:grid;
+  grid-template-columns:82px minmax(0,1fr);
+  gap:20px;
+  align-items:center;
+  padding:clamp(28px,4vw,48px) clamp(22px,5vw,62px) 28px;
+  border-bottom:1px solid rgba(114,136,255,.18);
+}
+#rytni-event-page .rules-popup-emblem{
+  display:grid;
+  width:82px;
+  height:82px;
+  place-items:center;
+  border:1px solid rgba(88,229,255,.48);
+  border-radius:25px;
+  color:#7aeeff;
+  background:linear-gradient(145deg,rgba(30,131,192,.34),rgba(126,45,204,.34));
+  box-shadow:0 18px 42px rgba(15,101,180,.22),inset 0 1px 0 rgba(255,255,255,.14);
+}
+#rytni-event-page .rules-popup-emblem svg{width:38px;height:38px}
+#rytni-event-page .rules-popup-kicker{display:block;margin-bottom:8px;color:#63e9f5;font-size:12px;font-weight:950;letter-spacing:.16em}
+#rytni-event-page .rules-popup-hero h2{margin:0;font:950 clamp(28px,4vw,46px)/1 Onest,Manrope,sans-serif;letter-spacing:-.04em}
+#rytni-event-page .rules-popup-hero p{max-width:760px;margin:11px 0 0;color:#aeb9d2;font-size:14px;line-height:1.6}
+#rytni-event-page .rules-popup-nav{
+  position:sticky;
+  z-index:6;
+  top:0;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:7px;
+  padding:10px clamp(14px,3vw,34px);
+  border-bottom:1px solid rgba(114,136,255,.2);
+  background:rgba(5,8,27,.98);
+}
+#rytni-event-page .rules-popup-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:42px;
+  padding:8px 10px;
+  border:1px solid transparent;
+  border-radius:12px;
+  color:#aab6d2;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:900;
+  transition:.18s ease;
+}
+#rytni-event-page .rules-popup-nav a:hover,#rytni-event-page .rules-popup-nav a:focus-visible{border-color:rgba(89,225,255,.3);color:#fff;background:rgba(80,84,210,.17)}
+#rytni-event-page .rules-popup-nav svg{width:16px;height:16px;color:#65e8ff}
+#rytni-event-page .rules-popup-content{display:grid;gap:18px;padding:clamp(18px,3.5vw,38px)}
+#rytni-event-page .rules-section{
+  scroll-margin-top:76px;
+  padding:clamp(20px,3vw,32px);
+  border:1px solid rgba(111,126,201,.22);
+  border-radius:23px;
+  background:linear-gradient(145deg,rgba(12,21,52,.9),rgba(15,8,39,.9));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);
+}
+#rytni-event-page .rules-section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+#rytni-event-page .rules-section-heading small{display:block;margin-bottom:4px;color:#7183a9;font-size:12px;font-weight:950;letter-spacing:.15em}
+#rytni-event-page .rules-section-heading h3{margin:0;font:900 clamp(20px,3vw,28px)/1.12 Onest,Manrope,sans-serif}
+#rytni-event-page .rules-section-icon{display:grid;flex:0 0 50px;width:50px;height:50px;place-items:center;border:1px solid currentColor;border-radius:16px;background:rgba(255,255,255,.04)}
+#rytni-event-page .rules-section-icon svg{width:24px;height:24px}
+#rytni-event-page .rules-section-icon.is-violet{color:#bd6bff;background:rgba(166,62,255,.1)}
+#rytni-event-page .rules-section-icon.is-cyan{color:#55ebdf;background:rgba(55,220,205,.1)}
+#rytni-event-page .rules-section-icon.is-blue{color:#68b9ff;background:rgba(57,139,244,.11)}
+#rytni-event-page .rules-section-icon.is-telegram{color:#67d9ff;background:linear-gradient(145deg,rgba(37,157,220,.14),rgba(104,70,225,.13))}
+#rytni-event-page .rules-section-icon.is-gold{color:#ffd05e;background:rgba(255,184,46,.1)}
+#rytni-event-page .rules-section-icon.is-pink{color:#ff78c7;background:rgba(235,65,165,.1)}
+#rytni-event-page .rules-numbered-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#rytni-event-page .rules-numbered-list article{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:15px;border:1px solid rgba(124,141,210,.16);border-radius:16px;background:rgba(3,9,27,.48)}
+#rytni-event-page .rules-numbered-list article:last-child{grid-column:1/-1}
+#rytni-event-page .rules-numbered-list b{display:grid;width:36px;height:36px;place-items:center;border-radius:11px;color:#09101d;background:linear-gradient(145deg,#66ecff,#a76cff);font-size:14px}
+#rytni-event-page .rules-section article strong{display:block;color:#fff;font-size:14px}
+#rytni-event-page .rules-section article p,#rytni-event-page .rules-copy{margin:5px 0 0;color:#9eabc4;font-size:13px;line-height:1.55}
+#rytni-event-page .rules-highlight{display:grid;grid-template-columns:46px minmax(0,1fr);gap:13px;align-items:center;padding:16px;border:1px solid rgba(74,226,217,.28);border-radius:17px;background:linear-gradient(135deg,rgba(29,171,164,.1),rgba(102,65,206,.12))}
+#rytni-event-page .rules-highlight>svg{width:30px;height:30px;color:#52e8db}
+#rytni-event-page .rules-highlight p{margin:0;color:#bdc9dc;font-size:14px;line-height:1.55}
+#rytni-event-page .rules-highlight strong{color:#fff}
+#rytni-event-page .rules-guarantee{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  gap:15px;
+  align-items:center;
+  margin-top:12px;
+  padding:18px;
+  border:1px solid rgba(255,207,77,.5);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(255,184,43,.17),transparent 38%),
+    linear-gradient(135deg,rgba(91,58,12,.42),rgba(59,29,88,.42));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 14px 34px rgba(90,48,11,.16);
+}
+#rytni-event-page .rules-guarantee-icon{
+  display:grid;
+  width:58px;
+  height:58px;
+  place-items:center;
+  border:1px solid rgba(255,219,105,.56);
+  border-radius:18px;
+  color:#201103;
+  background:linear-gradient(145deg,#ffe477,#ffad32);
+  box-shadow:0 10px 24px rgba(255,166,36,.22);
+}
+#rytni-event-page .rules-guarantee-icon svg{width:29px;height:29px}
+#rytni-event-page .rules-guarantee small{display:block;margin-bottom:4px;color:#ffd76f;font-size:13px;font-weight:950;letter-spacing:.14em}
+#rytni-event-page .rules-guarantee strong{display:block;color:#fff;font-size:17px;line-height:1.35}
+#rytni-event-page .rules-guarantee p{margin:6px 0 0;color:#e7d8ba;font-size:15px;line-height:1.65}
+#rytni-event-page .rules-copy{margin:14px 0 20px;font-size:14px}
+#rytni-event-page .rules-section h4{margin:0 0 11px;color:#dce6ff;font-size:14px}
+#rytni-event-page .rules-method-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#rytni-event-page .rules-method-grid article{display:grid;grid-template-columns:42px minmax(0,1fr);gap:11px;padding:14px;border:1px solid rgba(109,129,205,.17);border-radius:15px;background:rgba(4,10,29,.5)}
+#rytni-event-page .rules-method-grid article>span{display:grid;width:42px;height:42px;place-items:center;border-radius:13px;color:#70ebff;background:linear-gradient(145deg,rgba(43,159,202,.22),rgba(114,53,211,.2))}
+#rytni-event-page .rules-method-grid svg{width:21px;height:21px}
+#rytni-event-page .rules-email-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#rytni-event-page .rules-email-grid article{padding:17px;border:1px solid rgba(93,178,242,.2);border-radius:16px;background:rgba(7,18,42,.58)}
+#rytni-event-page .rules-email-grid article>svg{width:26px;height:26px;margin-bottom:12px;color:#68b9ff}
+#rytni-event-page .rules-telegram-grid article{border-color:rgba(83,191,242,.22);background:linear-gradient(145deg,rgba(7,28,54,.66),rgba(25,17,65,.58))}
+#rytni-event-page .rules-telegram-grid article>svg{color:#63dcff;filter:drop-shadow(0 0 8px rgba(77,196,255,.22))}
+#rytni-event-page .rules-telegram-grid article b{color:#9de9ff}
+#rytni-event-page .rules-note{display:flex;align-items:center;gap:9px;margin:12px 0 0;padding:12px 14px;border-radius:14px;color:#9fb0cb;background:rgba(81,106,191,.1);font-size:13px}
+#rytni-event-page .rules-note svg{flex:0 0 18px;width:18px;height:18px;color:#78e7ff}
+#rytni-event-page .rules-telegram-note{border:1px solid rgba(67,224,187,.16);background:rgba(32,132,120,.09)}
+#rytni-event-page .rules-selection-card{padding:20px;border:1px solid rgba(255,194,65,.3);border-radius:19px;background:radial-gradient(circle at 100% 0,rgba(255,181,53,.11),transparent 35%),rgba(12,13,38,.72)}
+#rytni-event-page .rules-selection-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;color:#ffd76f;background:rgba(255,184,50,.1);font-size:12px;font-weight:950;letter-spacing:.1em}
+#rytni-event-page .rules-selection-badge svg{width:15px;height:15px}
+#rytni-event-page .rules-selection-card>p{margin:14px 0;color:#c3cbe0;font-size:14px;line-height:1.65}
+#rytni-event-page .rules-selection-card ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+#rytni-event-page .rules-selection-card li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:9px;align-items:start;color:#aeb9d0;font-size:13px;line-height:1.5}
+#rytni-event-page .rules-selection-card li svg{width:18px;height:18px;margin-top:1px;color:#ffd05e}
+#rytni-event-page .rules-warning{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;margin-top:11px;padding:13px 14px;border:1px solid rgba(255,112,115,.3);border-radius:15px;color:#ffc7c8;background:rgba(129,31,48,.16)}
+#rytni-event-page .rules-warning.is-soft{border-color:rgba(94,204,255,.26);color:#bde8ff;background:rgba(38,115,166,.12)}
+#rytni-event-page .rules-warning svg{width:20px;height:20px}
+#rytni-event-page .rules-warning p{margin:0;font-size:13px;line-height:1.55}
+#rytni-event-page .rules-mission{background:radial-gradient(circle at 100% 0,rgba(231,62,164,.13),transparent 32%),linear-gradient(145deg,rgba(17,16,52,.94),rgba(24,8,38,.9))}
+#rytni-event-page .rules-mission-lead{margin:0 0 15px;color:#d5d8e8;font-size:14px;font-weight:750;line-height:1.65}
+#rytni-event-page .rules-boundary{display:grid;grid-template-columns:44px minmax(0,1fr);gap:13px;margin-top:10px;padding:16px;border:1px solid rgba(108,183,255,.22);border-radius:17px;background:rgba(31,89,154,.11)}
+#rytni-event-page .rules-boundary>svg{width:27px;height:27px;color:#6dc5ff}
+#rytni-event-page .rules-boundary strong{display:block;color:#fff;font-size:14px}
+#rytni-event-page .rules-boundary p{margin:5px 0 0;color:#aab5ce;font-size:13px;line-height:1.55}
+#rytni-event-page .rules-boundary.is-danger{border-color:rgba(255,92,133,.27);background:rgba(133,30,66,.13)}
+#rytni-event-page .rules-boundary.is-danger>svg{color:#ff7da5}
+#rytni-event-page .rules-popup-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px clamp(22px,5vw,50px) calc(20px + env(safe-area-inset-bottom));border-top:1px solid rgba(113,135,205,.2);background:rgba(4,7,24,.78)}
+#rytni-event-page .rules-popup-footer p{display:flex;align-items:flex-start;gap:9px;max-width:640px;margin:0;color:#9eabc5;font-size:13px;line-height:1.5}
+#rytni-event-page .rules-popup-footer p svg{flex:0 0 18px;width:18px;height:18px;color:#e376ff}
+#rytni-event-page .rules-accept-btn{display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:11px 18px;border:0;border-radius:14px;color:#07111c;background:linear-gradient(135deg,#58eadb,#5cbcff 58%,#b468ff);box-shadow:0 12px 28px rgba(66,159,225,.24);font:inherit;font-size:14px;font-weight:950;cursor:pointer;white-space:nowrap}
+#rytni-event-page .rules-accept-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+#rytni-event-page .rules-accept-btn svg{width:18px;height:18px}
+
+@media(max-width:760px){
+  #rytni-event-page .rules-popup-overlay{padding:0}
+  #rytni-event-page .rules-popup{max-height:100dvh;border-radius:0;border-inline:0}
+  #rytni-event-page .rules-popup-close{top:10px;width:44px;height:44px;margin:10px 10px -54px 0}
+  #rytni-event-page .rules-popup-hero{grid-template-columns:58px minmax(0,1fr);gap:13px;padding:22px 64px 20px 16px}
+  #rytni-event-page .rules-popup-emblem{width:58px;height:58px;border-radius:18px}
+  #rytni-event-page .rules-popup-emblem svg{width:28px;height:28px}
+  #rytni-event-page .rules-popup-hero h2{font-size:27px}
+  #rytni-event-page .rules-popup-hero p{font-size:13px}
+  #rytni-event-page .rules-popup-nav{grid-template-columns:repeat(6,max-content);justify-content:start;overflow-x:auto;padding:8px 10px}
+  #rytni-event-page .rules-popup-nav a{min-height:40px;padding:8px 11px}
+  #rytni-event-page .rules-popup-content{gap:12px;padding:12px}
+  #rytni-event-page .rules-section{padding:17px 14px;border-radius:18px}
+  #rytni-event-page .rules-numbered-list,#rytni-event-page .rules-method-grid,#rytni-event-page .rules-email-grid{grid-template-columns:1fr}
+  #rytni-event-page .rules-numbered-list article:last-child{grid-column:auto}
+  #rytni-event-page .rules-popup-footer{display:grid;padding:16px}
+  #rytni-event-page .rules-accept-btn{width:100%}
+}
+
+@media(max-width:420px){
+  #rytni-event-page .rules-popup-hero{grid-template-columns:1fr;padding-top:68px}
+  #rytni-event-page .rules-popup-emblem{display:none}
+  #rytni-event-page .rules-popup-kicker{font-size:12px}
+  #rytni-event-page .rules-popup-hero h2{font-size:25px}
+  #rytni-event-page .rules-section-heading{align-items:flex-start}
+  #rytni-event-page .rules-section-icon{flex-basis:44px;width:44px;height:44px;border-radius:14px}
+  #rytni-event-page .rules-numbered-list article{grid-template-columns:32px minmax(0,1fr);padding:12px}
+  #rytni-event-page .rules-numbered-list b{width:32px;height:32px}
+  #rytni-event-page .rules-method-grid article{grid-template-columns:38px minmax(0,1fr);padding:12px}
+  #rytni-event-page .rules-method-grid article>span{width:38px;height:38px}
+}
+
+/* Readable rules typography for desktop and mobile. */
+#rytni-event-page .rules-summary-open{font-size:14px}
+#rytni-event-page .rules-popup-kicker{font-size:14px}
+#rytni-event-page .rules-popup-hero p{font-size:16px;line-height:1.65}
+#rytni-event-page .rules-popup-nav a{font-size:14px}
+#rytni-event-page .rules-section-heading small{font-size:13px}
+#rytni-event-page .rules-section article strong{font-size:16px;line-height:1.35}
+#rytni-event-page .rules-section article p,
+#rytni-event-page .rules-copy{font-size:15px;line-height:1.65}
+#rytni-event-page .rules-numbered-list b{font-size:14px}
+#rytni-event-page .rules-highlight p{font-size:15px;line-height:1.65}
+#rytni-event-page .rules-section h4{font-size:17px}
+#rytni-event-page .rules-note{font-size:14px;line-height:1.55}
+#rytni-event-page .rules-selection-badge{font-size:13px}
+#rytni-event-page .rules-selection-card>p{font-size:15px;line-height:1.7}
+#rytni-event-page .rules-selection-card li{font-size:15px;line-height:1.6}
+#rytni-event-page .rules-warning p{font-size:14px;line-height:1.65}
+#rytni-event-page .rules-mission-lead{font-size:17px;line-height:1.7}
+#rytni-event-page .rules-boundary strong{font-size:16px}
+#rytni-event-page .rules-boundary p{font-size:15px;line-height:1.65}
+#rytni-event-page .rules-popup-footer p{font-size:14px;line-height:1.6}
+#rytni-event-page .rules-accept-btn{font-size:15px}
+
+@media(max-width:760px){
+  #rytni-event-page .rules-popup-kicker{font-size:12px}
+  #rytni-event-page .rules-popup-hero p{font-size:15px}
+  #rytni-event-page .rules-popup-nav a{font-size:14px}
+  #rytni-event-page .rules-section-heading small{font-size:12px}
+  #rytni-event-page .rules-section article strong{font-size:15px}
+  #rytni-event-page .rules-section article p,
+  #rytni-event-page .rules-copy,
+  #rytni-event-page .rules-highlight p,
+  #rytni-event-page .rules-selection-card>p,
+  #rytni-event-page .rules-selection-card li,
+  #rytni-event-page .rules-boundary p{font-size:15px}
+  #rytni-event-page .rules-warning p,
+  #rytni-event-page .rules-note,
+  #rytni-event-page .rules-popup-footer p{font-size:14px}
+  #rytni-event-page .rules-mission-lead{font-size:16px}
+  #rytni-event-page .rules-accept-btn{font-size:15px}
+  #rytni-event-page .rules-guarantee{grid-template-columns:48px minmax(0,1fr);padding:15px}
+  #rytni-event-page .rules-guarantee-icon{width:48px;height:48px;border-radius:15px}
+  #rytni-event-page .rules-guarantee-icon svg{width:24px;height:24px}
+  #rytni-event-page .rules-guarantee strong{font-size:16px}
+  #rytni-event-page .rules-guarantee p{font-size:15px}
+}
+
+/* Test channel 2.14: readable auxiliary copy on phones. */
+.registration-completion{display:grid;gap:7px;margin:0 0 16px;padding:13px 15px;border:1px solid rgba(79,194,255,.28);border-radius:16px;background:linear-gradient(135deg,rgba(29,74,129,.2),rgba(90,31,132,.16))}
+.registration-completion>span:first-child{display:flex;align-items:center;gap:9px}.registration-completion>span:first-child svg{width:20px;height:20px;color:#57e8ff}.registration-completion strong{font-size:14px}.registration-completion small{color:#9eb0d3;font-size:14px;line-height:1.45}.registration-completion-track{display:block;height:6px;overflow:hidden;border-radius:999px;background:rgba(92,111,164,.25)}.registration-completion-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#22e8d0,#4ca6ff,#b14cff);transition:width .25s ease}
+#rytni-event-page #steamid.is-valid{border-color:rgba(50,225,188,.65);box-shadow:0 0 0 3px rgba(50,225,188,.08)}
+#rytni-event-page #steamid.is-invalid{border-color:rgba(255,102,125,.72);box-shadow:0 0 0 3px rgba(255,102,125,.08)}
+#rytni-event-page #steamidHint.is-valid{color:#5ce8c7}#rytni-event-page #steamidHint.is-invalid{color:#ff9aaa}
+@media(max-width:620px){
+  #rytni-event-page .eyebrow,
+  #rytni-event-page .winner-label,
+  #rytni-event-page .small-title,
+  #rytni-event-page .registration-step,
+  #rytni-event-page .registration-benefits b,
+  #rytni-event-page .email-confirm-reason,
+  #rytni-event-page .registration-privacy-note,
+  #rytni-event-page .auth-inline-hint,
+  #rytni-event-page .application-gateway-tags b,
+  #rytni-event-page .application-edit-note,
+  #rytni-event-page .room-section-note{font-size:14px!important;line-height:1.4!important}
+  #rytni-event-page .registration-benefits small,
+  #rytni-event-page .auth-video-notice small,
+  #rytni-event-page .hint,
+  #rytni-event-page .optional-label{font-size:14px!important;line-height:1.45!important}
+  #rytni-event-page .application-gateway-copy>p,
+  #rytni-event-page .unlinked-email-copy,
+  #rytni-event-page .banned-application-state>p{font-size:14px!important;line-height:1.55!important}
+  #rytni-event-page .rytni-countdown-unit small{font-size:12px!important}
+  #rytni-event-page .hero-actions .btn{box-sizing:border-box;min-width:0;width:100%;padding-inline:12px;white-space:normal}
+  #rytni-event-page .pgame{max-width:100%;overflow:hidden}
+  #rytni-event-page .pgame[role="button"]{display:flex;align-items:center;min-height:44px;padding-block:8px}
+  #rytni-event-page .pgame[role="button"]::after{font-size:13px}
+}
+
+/* 2.15: question feedback and compact-phone hardening */
+#rytni-event-page .question-report-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;margin-top:9px;padding:8px 11px;border:1px solid rgba(144,125,207,.3);border-radius:11px;color:#aeb9d2;background:rgba(19,21,54,.7);font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+#rytni-event-page .question-report-btn[hidden]{display:none!important}
+#rytni-event-page .question-report-btn svg{width:15px;height:15px}
+#rytni-event-page .question-report-form{display:grid;gap:9px;margin-top:10px;padding:12px;border:1px solid rgba(147,81,235,.3);border-radius:14px;background:rgba(13,11,41,.88)}
+#rytni-event-page .question-report-form[hidden]{display:none!important}
+#rytni-event-page .question-report-form label{color:#e9e7ff;font-size:14px;font-weight:850}
+#rytni-event-page .question-report-form :is(select,textarea){width:100%;padding:10px;border:1px solid rgba(112,121,193,.35);border-radius:10px;color:#f7f8ff;background:#080e28;font:inherit;font-size:14px}
+#rytni-event-page .question-report-actions{display:flex;gap:8px}
+#rytni-event-page .rules-popup-nav{scrollbar-width:none}
+#rytni-event-page .rules-popup-nav::-webkit-scrollbar{display:none}
+
+#rytni-event-page .telegram-disconnect-overlay{z-index:10040;background:rgba(1,4,18,.76);backdrop-filter:blur(14px)}
+#rytni-event-page .telegram-disconnect-popup{display:grid;width:min(440px,calc(100vw - 28px));justify-items:center;padding:30px 28px 25px;border:1px solid rgba(116,132,255,.34);border-radius:24px;color:#f8faff;text-align:center;background:radial-gradient(circle at 50% -20%,rgba(95,65,231,.28),transparent 50%),linear-gradient(145deg,rgba(12,18,49,.99),rgba(5,9,28,.99));box-shadow:0 28px 80px rgba(0,0,0,.48),0 0 38px rgba(75,78,225,.12)}
+#rytni-event-page .telegram-disconnect-icon{display:grid;width:58px;height:58px;margin-bottom:15px;place-items:center;border:1px solid rgba(255,105,137,.32);border-radius:18px;color:#ff92a8;background:rgba(137,34,65,.18)}
+#rytni-event-page .telegram-disconnect-icon svg{width:27px;height:27px}
+#rytni-event-page .telegram-disconnect-popup h3{margin:0;font-size:23px;font-weight:950}
+#rytni-event-page .telegram-disconnect-popup p{max-width:350px;margin:10px 0 22px;color:#aeb9d0;font-size:14px;line-height:1.55}
+#rytni-event-page .telegram-disconnect-actions{display:grid;width:100%;grid-template-columns:1.35fr 1fr;gap:9px}
+#rytni-event-page .telegram-disconnect-actions button{min-height:46px;padding:10px 14px;border-radius:13px;font:inherit;font-size:14px;font-weight:900;cursor:pointer}
+#rytni-event-page .telegram-disconnect-cancel{border:1px solid rgba(116,139,202,.3);color:#dbe4f6;background:rgba(28,39,73,.56)}
+#rytni-event-page .telegram-disconnect-confirm{display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(255,99,131,.42);color:#fff;background:linear-gradient(135deg,#a72f54,#dc476d)}
+#rytni-event-page .telegram-disconnect-confirm svg{width:16px;height:16px}
+#rytni-event-page .telegram-disconnect-actions button:hover{filter:brightness(1.1)}
+#rytni-event-page .telegram-disconnect-actions button:disabled{opacity:.6;cursor:wait}
+
+@media(max-width:500px){#rytni-event-page .telegram-disconnect-popup{padding:25px 17px 19px;border-radius:20px}#rytni-event-page .telegram-disconnect-actions{grid-template-columns:1fr}#rytni-event-page .player-meta-telegram-actions{gap:5px}#rytni-event-page .profile-telegram-btn{padding:7px 8px}#rytni-event-page .profile-telegram-disconnect{flex-basis:34px;width:34px;height:34px}}
+
+@media(max-width:700px){
+  #rytni-event-page .rules-popup-nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible!important;gap:6px}
+  #rytni-event-page .rules-popup-nav a{min-width:0!important;min-height:44px!important;justify-content:center;padding:8px 5px;font-size:14px;white-space:normal;text-align:center}
+}
+
+@media(max-width:860px){
+  #rytni-event-page .rytni-progression-tab .rytni-tab-copy small{display:block;overflow:visible;text-overflow:clip;white-space:normal;line-height:1.25}
+  #rytni-event-page .rytni-progression-tab{height:auto}
+}
+
+@media(max-width:390px){
+  #rytni-event-page .rytni-progression-tab{display:flex!important;min-width:0!important;min-height:86px!important;flex-direction:column;align-items:center;justify-content:center;gap:5px!important;padding:7px 4px!important;text-align:center;overflow:hidden}
+  #rytni-event-page .rytni-progression-tab .rytni-tab-emblem{flex:0 0 38px;width:38px;height:38px}
+  #rytni-event-page .rytni-progression-tab .rytni-tab-copy{display:block;min-width:0;width:100%}
+  #rytni-event-page .rytni-progression-tab .rytni-tab-copy strong{display:block;width:100%;font-size:12px!important;line-height:1.15;white-space:normal;overflow-wrap:normal;word-break:normal}
+  #rytni-event-page .application-boost-panel .gamer-name{max-width:100%;font-size:clamp(21px,8vw,29px)!important;white-space:normal!important;overflow-wrap:anywhere}
+  #rytni-event-page .application-boost-panel .gamer-score-line{grid-template-columns:minmax(0,1fr)!important}
+  #rytni-event-page .application-boost-panel .gamer-score{min-width:0!important}
+  #rytni-event-page .application-boost-panel .gamer-score strong{white-space:nowrap!important;word-break:normal!important}
+  #rytni-event-page .application-boost-panel .gamer-score small{font-size:13px!important;word-break:normal!important;overflow-wrap:normal!important}
+  #rytni-event-page .rules-popup-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* 2.15.13 TEST: redesigned winner archive / Hall of Fame. */
+#rytni-event-page .game-name{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;line-height:1.3}
+#rytni-event-page .winner-archive-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-color:rgba(151,92,255,.42);
+  background:
+    radial-gradient(circle at 8% 0%,rgba(128,71,255,.18),transparent 34%),
+    radial-gradient(circle at 92% 100%,rgba(39,210,232,.1),transparent 31%),
+    linear-gradient(145deg,rgba(12,12,46,.98),rgba(7,12,35,.98));
+  box-shadow:0 26px 70px rgba(2,4,24,.36),inset 0 1px 0 rgba(255,255,255,.045);
+}
+#rytni-event-page .winner-archive-card::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  opacity:.28;
+  background-image:radial-gradient(circle,rgba(222,211,255,.72) 0 1px,transparent 1.5px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(130deg,#000,transparent 68%);
+}
+#rytni-event-page .winner-archive-inner{display:grid;gap:24px;padding:28px}
+#rytni-event-page .winner-archive-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center}
+#rytni-event-page .winner-archive-emblem{
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border:1px solid rgba(178,116,255,.55);
+  border-radius:18px;
+  color:#f4d8ff;
+  background:linear-gradient(145deg,rgba(133,62,255,.72),rgba(57,27,127,.72));
+  box-shadow:0 0 30px rgba(147,62,255,.28),inset 0 1px 0 rgba(255,255,255,.2);
+  font-size:25px;
+}
+#rytni-event-page .winner-archive-heading{display:grid;gap:3px;min-width:0}
+#rytni-event-page .winner-archive-eyebrow{color:#9cecff;font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+#rytni-event-page .winner-archive-heading .section-title{margin:0;color:#f8f4ff;font-size:clamp(23px,2.5vw,32px);line-height:1.15}
+#rytni-event-page .winner-archive-heading p{margin:0;color:#99a9ca;font-size:14px;line-height:1.5}
+#rytni-event-page .winner-archive-badge{
+  justify-self:end;
+  padding:8px 12px;
+  border:1px solid rgba(158,100,255,.4);
+  border-radius:999px;
+  color:#d6baff;
+  background:rgba(99,45,180,.18);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#rytni-event-page .winner-archive-seasons{display:grid;gap:16px}
+#rytni-event-page .winner-archive-season{
+  overflow:hidden;
+  border:1px solid rgba(94,112,181,.24);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(17,24,59,.88),rgba(10,16,42,.9));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+#rytni-event-page .winner-archive-season-head{display:flex;width:100%;align-items:center;justify-content:space-between;gap:14px;padding:15px 17px;border:0;border-bottom:1px solid transparent;background:rgba(26,31,73,.44);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background-color .2s ease,border-color .2s ease}
+#rytni-event-page .winner-archive-season-head:hover{background:rgba(43,43,99,.62)}
+#rytni-event-page .winner-archive-season-head:focus-visible{outline:2px solid #a66aff;outline-offset:-3px}
+#rytni-event-page .winner-archive-season.is-open .winner-archive-season-head{border-bottom-color:rgba(105,117,179,.18)}
+#rytni-event-page .winner-archive-season-title{display:flex;flex:1 1 auto;align-items:center;gap:9px;min-width:0}
+#rytni-event-page .winner-archive-season-marker{flex:0 0 auto;color:#a66aff;text-shadow:0 0 15px rgba(166,106,255,.75)}
+#rytni-event-page .winner-archive-season-name{min-width:0;overflow:hidden;color:#e9e7ff;font-size:15px;font-weight:900;text-overflow:ellipsis;white-space:nowrap}
+#rytni-event-page .winner-archive-season-meta{display:flex;flex:0 0 auto;align-items:center;gap:11px}
+#rytni-event-page .winner-archive-season-count{flex:0 0 auto;color:#76deef;font-size:14px;font-weight:850}
+#rytni-event-page .winner-archive-season-action{display:inline-flex;align-items:center;justify-content:flex-end;gap:9px;min-width:118px;min-height:40px;padding:4px 4px 4px 13px;border:1px solid rgba(168,111,255,.38);border-radius:13px;color:#d9c7ff;background:linear-gradient(135deg,rgba(107,55,197,.2),rgba(54,33,116,.26));box-shadow:inset 0 1px 0 rgba(255,255,255,.06);transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}
+#rytni-event-page .winner-archive-season-action-label{font-size:14px;font-weight:900;letter-spacing:.025em}
+#rytni-event-page .winner-archive-season-chevron{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px;border:1px solid rgba(190,145,255,.45);border-radius:10px;color:#eadcff;background:linear-gradient(145deg,rgba(142,79,242,.5),rgba(92,49,181,.38));box-shadow:0 5px 14px rgba(72,30,151,.2),inset 0 1px 0 rgba(255,255,255,.13);transform:rotate(0deg);transition:transform .24s cubic-bezier(.2,.8,.2,1),background .2s ease,box-shadow .2s ease}
+#rytni-event-page .winner-archive-season-chevron svg{width:18px;height:18px;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.15;stroke-linecap:round;stroke-linejoin:round}
+#rytni-event-page .winner-archive-season.is-open .winner-archive-season-chevron{transform:rotate(180deg);background:linear-gradient(145deg,rgba(165,95,255,.72),rgba(103,52,207,.58));box-shadow:0 6px 18px rgba(117,55,230,.28),inset 0 1px 0 rgba(255,255,255,.18)}
+#rytni-event-page .winner-archive-season-head:hover .winner-archive-season-action{border-color:rgba(194,151,255,.72);color:#fff;background:linear-gradient(135deg,rgba(128,67,226,.32),rgba(65,39,136,.38));box-shadow:0 0 22px rgba(134,71,244,.15);transform:translateY(-1px)}
+#rytni-event-page .winner-archive-season-head:active .winner-archive-season-action{transform:translateY(0) scale(.98)}
+#rytni-event-page .winner-archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
+#rytni-event-page .winner-archive-grid[hidden]{display:none!important}
+#rytni-event-page .winner-archive-winner{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  min-width:0;
+  padding:14px;
+  border:1px solid rgba(97,113,176,.22);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(21,30,66,.82),rgba(12,19,47,.9));
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+#rytni-event-page .winner-archive-winner:hover{transform:translateY(-2px);border-color:rgba(158,92,255,.52);background:linear-gradient(135deg,rgba(34,36,91,.88),rgba(13,24,56,.94));box-shadow:0 13px 30px rgba(4,7,30,.28),0 0 22px rgba(121,66,232,.1)}
+#rytni-event-page .winner-archive-number{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(139,95,233,.35);border-radius:11px;color:#bda0ff;background:rgba(101,56,180,.16);font-size:13px;font-weight:900;font-variant-numeric:tabular-nums}
+#rytni-event-page .winner-archive-copy{display:grid;gap:3px;min-width:0}
+#rytni-event-page .winner-archive-name{color:#f6f5ff;font-size:15px;font-weight:950;line-height:1.3;overflow-wrap:anywhere}
+#rytni-event-page .winner-archive-game{color:#61dff2;font-size:14px;font-weight:800;line-height:1.35;overflow-wrap:anywhere}
+#rytni-event-page .winner-archive-meta{color:#7787aa;font-size:13px;font-weight:650}
+#rytni-event-page .winner-archive-trophy{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;color:#ffd27a;background:radial-gradient(circle,rgba(255,193,77,.2),rgba(255,193,77,.04));font-size:16px;text-shadow:0 0 14px rgba(255,188,69,.58)}
+@media(max-width:760px){
+  #rytni-event-page .winner-archive-inner{gap:18px;padding:18px}
+  #rytni-event-page .winner-archive-head{grid-template-columns:auto minmax(0,1fr)}
+  #rytni-event-page .winner-archive-badge{display:none}
+  #rytni-event-page .winner-archive-emblem{width:46px;height:46px;border-radius:15px;font-size:21px}
+  #rytni-event-page .winner-archive-heading p{font-size:14px}
+  #rytni-event-page .winner-archive-grid{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+  #rytni-event-page .game-name{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;line-height:1.3}
+  #rytni-event-page .winner-archive-inner{padding:15px}
+  #rytni-event-page .winner-archive-head{align-items:start;gap:11px}
+  #rytni-event-page .winner-archive-heading .section-title{font-size:22px}
+  #rytni-event-page .winner-archive-season-head{align-items:center;padding:13px}
+  #rytni-event-page .winner-archive-season-name{overflow:visible;font-size:14px;text-overflow:clip;white-space:normal;overflow-wrap:anywhere}
+  #rytni-event-page .winner-archive-season-count{display:none}
+  #rytni-event-page .winner-archive-season-action{min-width:40px;width:40px;min-height:40px;padding:4px;border-radius:12px}
+  #rytni-event-page .winner-archive-season-action-label{display:none}
+  #rytni-event-page .winner-archive-season-chevron{width:30px;height:30px}
+  #rytni-event-page .winner-archive-grid{padding:9px}
+  #rytni-event-page .winner-archive-winner{gap:9px;padding:12px}
+  #rytni-event-page .winner-archive-trophy{display:none}
+}
+
+/* Identifiable support center */
+#rytni-event-page .support-ticket-overlay{z-index:10060;padding:18px}
+#rytni-event-page .support-ticket-popup{width:min(720px,100%);max-height:min(900px,calc(100dvh - 36px));overflow:auto;padding:26px;border:1px solid rgba(103,218,244,.34);border-radius:25px;background:linear-gradient(155deg,rgba(13,22,57,.99),rgba(18,11,49,.995));box-shadow:0 30px 90px rgba(0,0,22,.7),0 0 35px rgba(97,67,225,.16)}
+#rytni-event-page .support-ticket-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;padding-right:35px}
+#rytni-event-page .support-ticket-icon{display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(83,226,246,.48);border-radius:16px;color:#52e6ef;background:linear-gradient(145deg,rgba(14,174,203,.22),rgba(112,65,226,.24));box-shadow:0 0 25px rgba(55,204,236,.14)}
+#rytni-event-page .support-ticket-icon svg{width:25px;height:25px}
+#rytni-event-page .support-ticket-kicker{color:#67dff2;font-size:13px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+#rytni-event-page .support-ticket-head h3{margin:4px 0 6px;color:#fff;font-size:27px;line-height:1.15}
+#rytni-event-page .support-ticket-head p{margin:0;color:#99a8c7;font-size:14px;line-height:1.55}
+#rytni-event-page .support-ticket-form{display:grid;gap:14px;margin-top:20px}
+#rytni-event-page .support-ticket-identity{display:grid;gap:4px;min-height:62px;padding:13px 15px;border:1px solid rgba(77,217,232,.25);border-radius:15px;color:#eafaff;background:linear-gradient(135deg,rgba(14,102,137,.16),rgba(71,47,153,.16));font-size:14px;line-height:1.45}
+#rytni-event-page .support-ticket-identity strong{font-size:14px}
+#rytni-event-page .support-ticket-identity small{color:#86a3c7;font-size:13px}
+#rytni-event-page .support-ticket-anonymous{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#rytni-event-page .support-ticket-field{display:grid;gap:7px;min-width:0;color:#e9edff;font-size:14px;font-weight:850}
+#rytni-event-page .support-ticket-field b{color:#ff759e}
+#rytni-event-page .support-ticket-field small{color:#7f91b4;font-size:12px;font-weight:650;line-height:1.4}
+#rytni-event-page .support-ticket-field :is(input,select,textarea){box-sizing:border-box;width:100%;min-width:0;padding:12px 13px;border:1px solid rgba(103,121,181,.38);border-radius:12px;outline:0;color:#f8f9ff;background:#080e28;font:inherit;font-size:14px;font-weight:650;line-height:1.4;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+#rytni-event-page .support-ticket-field :is(input,select,textarea):focus{border-color:#7c6dff;background:#0b1232;box-shadow:0 0 0 3px rgba(124,109,255,.14),0 0 25px rgba(98,81,231,.1)}
+#rytni-event-page .support-ticket-field textarea{resize:vertical}
+#rytni-event-page .support-ticket-trap{position:fixed!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+#rytni-event-page .support-ticket-status{min-height:19px;margin:0;color:#9fb0cc;font-size:14px;font-weight:750}
+#rytni-event-page .support-ticket-status.is-error{color:#ff829f}
+#rytni-event-page .support-ticket-status.is-success{color:#47e8bb}
+#rytni-event-page .support-ticket-actions{display:flex;gap:10px;justify-content:flex-end}
+#rytni-event-page .support-ticket-actions .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:215px}
+#rytni-event-page .support-ticket-actions .btn svg{width:17px;height:17px}
+@media(max-width:620px){
+  #rytni-event-page .support-ticket-overlay{align-items:flex-end;padding:8px}
+  #rytni-event-page .support-ticket-popup{max-height:calc(100dvh - 16px);padding:20px 16px;border-radius:22px}
+  #rytni-event-page .support-ticket-head{gap:10px;padding-right:28px}
+  #rytni-event-page .support-ticket-icon{width:44px;height:44px}
+  #rytni-event-page .support-ticket-head h3{font-size:22px}
+  #rytni-event-page .support-ticket-anonymous{grid-template-columns:1fr}
+  #rytni-event-page .support-ticket-actions{display:grid}
+  #rytni-event-page .support-ticket-actions .btn{min-width:0}
+}
+
+/* 2.15.18: профессиональная активация бонус-кодов в «Моей заявке». */
+#rytni-event-page .profile-bonus-code-btn{position:relative;isolation:isolate;grid-column:1/-1;display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:16px;width:calc(100% - 64px);min-height:88px;margin:20px 32px 0;padding:14px 18px;overflow:hidden;border:1px solid rgba(111,231,255,.44);border-radius:20px;color:#fff;text-align:left;background:radial-gradient(circle at 8% 50%,rgba(64,224,255,.2),transparent 27%),radial-gradient(circle at 88% 25%,rgba(228,83,255,.24),transparent 31%),linear-gradient(118deg,rgba(26,31,83,.96),rgba(58,24,112,.94) 55%,rgba(23,29,78,.98));box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 13px 34px rgba(27,17,85,.3),0 0 0 1px rgba(144,73,255,.12);font:inherit;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,filter .2s ease}
+#rytni-event-page .profile-bonus-code-btn:before{content:"";position:absolute;z-index:-1;top:-90%;left:-22%;width:28%;height:280%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);transform:rotate(18deg);animation:bonus-code-shimmer 5.8s ease-in-out infinite}
+#rytni-event-page .profile-bonus-code-btn:after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background-image:radial-gradient(circle at 14% 24%,rgba(255,255,255,.72) 0 1px,transparent 1.6px),radial-gradient(circle at 73% 69%,rgba(117,235,255,.72) 0 1px,transparent 1.7px),radial-gradient(circle at 91% 34%,rgba(239,137,255,.74) 0 1px,transparent 1.7px);opacity:.65}
+#rytni-event-page .bonus-code-trigger-art{position:relative;display:grid;place-items:center;width:56px;height:56px;border:1px solid rgba(117,234,255,.66);border-radius:18px;color:#fff;background:linear-gradient(145deg,#4037ed,#c136ec);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 0 26px rgba(113,89,255,.44)}
+#rytni-event-page .bonus-code-trigger-art:after{content:"";position:absolute;inset:-6px;border:1px solid rgba(105,231,255,.2);border-radius:22px;transform:rotate(8deg)}
+#rytni-event-page .bonus-code-trigger-art svg{width:29px;height:29px}
+#rytni-event-page .bonus-code-trigger-copy{display:grid;min-width:0;gap:3px}
+#rytni-event-page .bonus-code-trigger-copy small{display:flex;align-items:center;gap:6px;color:#6fe9ff;font-size:12px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+#rytni-event-page .bonus-code-trigger-copy small svg{width:12px;height:12px}
+#rytni-event-page .bonus-code-trigger-copy b{font-size:19px;line-height:1.15;letter-spacing:-.02em}
+#rytni-event-page .bonus-code-trigger-copy em{overflow:hidden;color:#acb8d8;font-size:13px;font-style:normal;font-weight:700;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+#rytni-event-page .bonus-code-trigger-action{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 15px;border:1px solid rgba(255,255,255,.17);border-radius:13px;color:#fff;background:linear-gradient(135deg,#6542f5,#b83ce8);box-shadow:0 8px 22px rgba(100,49,218,.3);font-size:13px;font-weight:950;white-space:nowrap}
+#rytni-event-page .bonus-code-trigger-action svg{width:16px;height:16px}
+#rytni-event-page .profile-bonus-code-btn:hover{transform:translateY(-2px);border-color:#76edff;filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 18px 42px rgba(73,35,169,.36),0 0 30px rgba(88,217,255,.11)}
+#rytni-event-page .profile-bonus-code-btn:focus-visible{outline:2px solid #79ecff;outline-offset:3px}
+#rytni-event-page .profile-bonus-code-btn:active{transform:translateY(0) scale(.992)}
+#rytni-event-page .profile-bonus-code-btn[hidden]{display:none!important}
+@keyframes bonus-code-shimmer{0%,68%{transform:translateX(-40%) rotate(18deg);opacity:0}76%{opacity:1}100%{transform:translateX(520%) rotate(18deg);opacity:0}}
+#rytni-event-page .bonus-code-overlay{z-index:10035;padding:16px;background:rgba(2,5,19,.82);backdrop-filter:blur(14px)}
+#rytni-event-page .bonus-code-popup{position:relative;box-sizing:border-box;width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:28px;border:1px solid rgba(141,93,255,.52);border-radius:28px;color:#f8f8ff;background:radial-gradient(circle at 50% -15%,rgba(165,67,255,.3),transparent 43%),linear-gradient(155deg,#101735,#080d20 64%,#12102d);box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 55px rgba(113,55,230,.17)}
+#rytni-event-page .bonus-code-visual{position:relative;display:grid;place-items:center;width:116px;height:116px;margin:0 auto 12px}
+#rytni-event-page .bonus-code-core{position:relative;z-index:2;display:grid;place-items:center;width:72px;height:72px;border:1px solid rgba(104,235,255,.6);border-radius:24px;color:#fff;background:linear-gradient(145deg,#4233e8,#c13bed);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 30px rgba(124,74,255,.5)}
+#rytni-event-page .bonus-code-core svg{width:34px;height:34px}
+#rytni-event-page .bonus-code-orbit{position:absolute;border:1px solid rgba(108,225,255,.32);border-radius:50%;inset:8px;transform:rotate(-18deg)}
+#rytni-event-page .bonus-code-orbit:after{content:"";position:absolute;top:7px;right:10px;width:8px;height:8px;border-radius:50%;background:#5ff1ff;box-shadow:0 0 14px #5ff1ff}
+#rytni-event-page .bonus-code-orbit.orbit-two{inset:0 19px;transform:rotate(62deg);border-color:rgba(218,91,255,.34)}
+#rytni-event-page .bonus-code-orbit.orbit-two:after{background:#e177ff;box-shadow:0 0 14px #e177ff}
+#rytni-event-page .bonus-code-kicker{display:flex;align-items:center;justify-content:center;gap:7px;color:#75e8ff;font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+#rytni-event-page .bonus-code-kicker svg{width:14px;height:14px}
+#rytni-event-page .bonus-code-popup h3{margin:7px 36px 6px;text-align:center;font-size:28px;line-height:1.12}
+#rytni-event-page .bonus-code-lead{max-width:390px;margin:0 auto 20px;color:#aeb8d5;text-align:center;font-size:14px;line-height:1.5}
+#rytni-event-page .bonus-code-form{display:grid;gap:10px}
+#rytni-event-page .bonus-code-form>label{display:flex;align-items:center;justify-content:center;gap:7px;color:#dce3fb;font-size:13px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+#rytni-event-page .bonus-code-form>label svg{width:14px;height:14px;color:#75e8ff}
+#rytni-event-page .bonus-code-input-row{position:relative;isolation:isolate;display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:76px;padding:8px 9px;overflow:hidden;border:1px solid rgba(116,213,255,.5);border-radius:20px;background:radial-gradient(circle at 8% 50%,rgba(66,221,255,.14),transparent 26%),linear-gradient(135deg,rgba(8,16,48,.98),rgba(23,12,58,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 12px 30px rgba(17,13,59,.28),0 0 0 3px rgba(126,75,255,.08);transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+#rytni-event-page .bonus-code-input-row:before{content:"";position:absolute;z-index:-1;inset:auto 12% 0;height:1px;background:linear-gradient(90deg,transparent,#52e9ff,#c85cff,transparent);box-shadow:0 0 13px rgba(120,103,255,.72)}
+#rytni-event-page .bonus-code-input-row:focus-within{border-color:#75e9ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 0 0 3px rgba(78,218,255,.13),0 0 34px rgba(130,71,237,.24);transform:translateY(-1px)}
+#rytni-event-page .bonus-code-input-row.has-value{border-color:rgba(197,93,255,.72);box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 0 0 3px rgba(174,77,255,.1),0 0 30px rgba(177,64,237,.2)}
+#rytni-event-page .bonus-code-input-emblem{position:relative;display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(119,232,255,.55);border-radius:17px;color:#fff;background:linear-gradient(145deg,#2c55e7,#ad37e9);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 0 22px rgba(100,93,255,.34)}
+#rytni-event-page .bonus-code-input-emblem:after{content:"";position:absolute;inset:-4px;border:1px solid rgba(212,101,255,.2);border-radius:20px;transform:rotate(5deg)}
+#rytni-event-page .bonus-code-input-emblem svg{width:25px;height:25px}
+#rytni-event-page .bonus-code-input-control{display:grid;min-width:0;gap:3px}
+#rytni-event-page .bonus-code-input-control small{color:#7888ad;font-size:12px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+#rytni-event-page .bonus-code-input-row input{width:100%;min-width:0;padding:0;border:0;outline:0;color:#fff;background:transparent;font:inherit;font-size:19px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+#rytni-event-page .bonus-code-input-row input::placeholder{color:#637093;font-size:14px;letter-spacing:.07em}
+#rytni-event-page .bonus-code-paste{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 11px;border:1px solid rgba(136,150,204,.35);border-radius:13px;color:#cbd8fa;background:rgba(24,31,72,.72);font:inherit;font-size:14px;font-weight:900;cursor:pointer;transition:.2s ease}
+#rytni-event-page .bonus-code-paste svg{width:16px;height:16px;color:#78e9ff}
+#rytni-event-page .bonus-code-paste:hover{border-color:#78e9ff;color:#fff;background:rgba(42,55,113,.78)}
+#rytni-event-page .bonus-code-paste:focus-visible{outline:2px solid #78e9ff;outline-offset:2px}
+#rytni-event-page .bonus-code-status{min-height:18px;margin:0;color:#9ca9c8;font-size:13px;font-weight:750;line-height:1.45}
+#rytni-event-page .bonus-code-status.is-error{color:#ff829f}.bonus-code-status.is-waiting{color:#7ee9ff}
+#rytni-event-page .bonus-code-submit{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:50px;margin-top:2px}
+#rytni-event-page .bonus-code-submit svg{width:18px;height:18px}
+#rytni-event-page .bonus-code-result{display:flex;align-items:center;gap:13px;margin-top:16px;padding:14px;border:1px solid rgba(69,235,183,.38);border-radius:16px;background:linear-gradient(135deg,rgba(18,115,98,.3),rgba(36,49,124,.3))}
+#rytni-event-page .bonus-code-result-icon{display:grid;place-items:center;flex:0 0 43px;width:43px;height:43px;border-radius:14px;color:#06231c;background:linear-gradient(135deg,#48ebbc,#62d5ff);box-shadow:0 0 22px rgba(76,231,196,.28)}
+#rytni-event-page .bonus-code-result-icon svg{width:24px;height:24px}.bonus-code-result span:last-child{display:grid;gap:3px}.bonus-code-result small{color:#71e7c2;font-size:12px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.bonus-code-result strong{font-size:15px;line-height:1.35}
+#rytni-event-page .bonus-code-footnote{display:flex;align-items:center;justify-content:center;gap:7px;margin:16px 0 0;color:#7f8dab;text-align:center;font-size:12px;font-weight:700}.bonus-code-footnote svg{flex:0 0 14px;width:14px;height:14px;color:#72dff5}
+@media(max-width:620px){#rytni-event-page .bonus-code-overlay{align-items:flex-end;padding:8px}#rytni-event-page .bonus-code-popup{width:100%;max-height:calc(100dvh - 16px);padding:22px 16px;border-radius:24px}#rytni-event-page .bonus-code-visual{width:92px;height:92px}#rytni-event-page .bonus-code-core{width:60px;height:60px;border-radius:20px}#rytni-event-page .bonus-code-popup h3{font-size:23px}#rytni-event-page .profile-bonus-code-btn{grid-template-columns:50px minmax(0,1fr);gap:12px;width:calc(100% - 28px);min-height:82px;margin:14px;padding:12px}#rytni-event-page .bonus-code-trigger-art{width:48px;height:48px;border-radius:16px}#rytni-event-page .bonus-code-trigger-art svg{width:25px;height:25px}#rytni-event-page .bonus-code-trigger-copy b{font-size:17px}#rytni-event-page .bonus-code-trigger-copy em{font-size:12px}#rytni-event-page .bonus-code-trigger-action{grid-column:1/-1;width:100%;min-height:38px}#rytni-event-page .bonus-code-input-row{grid-template-columns:50px minmax(0,1fr) 44px;gap:9px;min-height:72px;padding:8px}#rytni-event-page .bonus-code-input-emblem{width:48px;height:48px;border-radius:15px}#rytni-event-page .bonus-code-input-row input{font-size:17px}#rytni-event-page .bonus-code-paste{width:44px;min-height:44px;padding:0}#rytni-event-page .bonus-code-paste span{display:none}}
+@media(prefers-reduced-motion:reduce){#rytni-event-page .profile-bonus-code-btn:before{animation:none}}
+
+/* 2.15.28: personal weekly contracts */
+#rytni-event-page .weekly-contract-zone{position:relative;grid-column:1/-1;display:grid;grid-template-columns:116px minmax(0,1fr) auto;align-items:center;gap:18px;margin:16px 0;padding:18px 20px;overflow:hidden;border:1px solid rgba(184,101,255,.42);border-radius:24px;background:radial-gradient(circle at 10% 30%,rgba(52,224,255,.16),transparent 31%),linear-gradient(135deg,rgba(24,29,79,.96),rgba(39,18,81,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 48px rgba(4,8,31,.28)}
+#rytni-event-page .weekly-contract-zone[hidden]{display:none!important}
+#rytni-event-page .weekly-contract-zone:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.07) 48%,transparent 68%);transform:translateX(-100%);animation:weeklyContractScan 8s ease-in-out infinite}
+#rytni-event-page .weekly-contract-glow{position:absolute;left:34px;top:50%;width:100px;height:100px;border-radius:50%;background:rgba(88,220,255,.2);filter:blur(28px);transform:translateY(-50%)}
+#rytni-event-page .weekly-contract-archive-art{position:relative;z-index:1;width:108px;height:108px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,.38))}
+#rytni-event-page .weekly-contract-copy{position:relative;z-index:1;min-width:0}
+#rytni-event-page .weekly-contract-kicker,#rytni-event-page .weekly-contract-popup-kicker{display:flex;align-items:center;gap:7px;color:#79ebff;font-size:12px;font-weight:950;letter-spacing:.11em;text-transform:uppercase}
+#rytni-event-page .weekly-contract-kicker svg,#rytni-event-page .weekly-contract-popup-kicker svg{width:15px;height:15px}
+#rytni-event-page .weekly-contract-copy h4{margin:5px 0 6px;color:#fff;font-size:23px;line-height:1.14}
+#rytni-event-page .weekly-contract-copy>p{max-width:660px;margin:0;color:#b8c3df;font-size:14px;line-height:1.45}
+#rytni-event-page .weekly-contract-action{position:relative;z-index:1;display:grid;justify-items:end;gap:9px;min-width:170px}
+#rytni-event-page .weekly-contract-reward{display:flex;align-items:center;gap:6px;color:#ffd879;font-size:13px;font-weight:900}
+#rytni-event-page .weekly-contract-reward svg{width:16px;height:16px}
+#rytni-event-page .weekly-contract-button{display:flex;align-items:center;justify-content:center;gap:8px;min-width:170px;min-height:46px;padding:0 16px;border:1px solid rgba(101,231,255,.52);border-radius:14px;color:#071128;background:linear-gradient(135deg,#52e6ee,#9a64ff);box-shadow:0 9px 25px rgba(73,112,255,.22);font:inherit;font-size:14px;font-weight:950;cursor:pointer;transition:transform .18s ease,filter .18s ease}
+#rytni-event-page .weekly-contract-button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+#rytni-event-page .weekly-contract-button:disabled{cursor:default;filter:saturate(.55);opacity:.72;transform:none}
+#rytni-event-page .weekly-contract-button svg{width:17px;height:17px}
+#rytni-event-page .weekly-contract-progress{display:grid;gap:6px;margin-top:12px}
+#rytni-event-page .weekly-contract-progress>span{display:flex;justify-content:space-between;gap:12px;color:#dce7ff;font-size:12px;font-style:normal}
+#rytni-event-page .weekly-contract-progress em{color:#91a0c1;font-style:normal}
+#rytni-event-page .weekly-contract-progress>i{height:7px;overflow:hidden;border-radius:99px;background:rgba(71,86,139,.42)}
+#rytni-event-page .weekly-contract-progress>i>b{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#45e3ee,#b052ff);box-shadow:0 0 14px rgba(79,224,255,.45);transition:width .35s ease}
+#rytni-event-page .weekly-contract-status{grid-column:2/-1;min-height:0;margin:0;color:#ff9aaf;font-size:12px;font-weight:800}
+#rytni-event-page .weekly-contract-zone.is-complete{border-color:rgba(78,239,190,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 32px rgba(47,215,175,.13)}
+#rytni-event-page .weekly-contract-zone.is-claimed{border-color:rgba(255,209,103,.42);background:radial-gradient(circle at 10% 30%,rgba(255,206,82,.15),transparent 31%),linear-gradient(135deg,rgba(28,34,78,.96),rgba(52,27,74,.96))}
+#rytni-event-page .weekly-contract-overlay{padding:18px;overflow-y:auto}
+#rytni-event-page .weekly-contract-popup{position:relative;width:min(920px,calc(100vw - 28px));padding:30px;border:1px solid rgba(165,92,255,.48);border-radius:28px;background:radial-gradient(circle at 50% 0,rgba(107,56,211,.26),transparent 38%),linear-gradient(145deg,#0c1332,#17113e 58%,#241148);box-shadow:0 30px 90px rgba(0,0,0,.58)}
+#rytni-event-page .weekly-contract-close{position:absolute;top:15px;right:16px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(153,166,215,.35);border-radius:13px;color:#fff;background:rgba(14,20,51,.7);font-size:25px;cursor:pointer}
+#rytni-event-page .weekly-contract-popup h3{margin:7px 48px 7px 0;color:#fff;font-size:30px;line-height:1.1}
+#rytni-event-page .weekly-contract-popup-lead{max-width:700px;margin:0 0 20px;color:#aebbd8;font-size:14px;line-height:1.48}
+#rytni-event-page .weekly-contract-choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+#rytni-event-page .weekly-contract-choice{position:relative;display:grid;grid-template-rows:126px auto auto auto 1fr auto;gap:7px;min-width:0;padding:14px;overflow:hidden;border:1px solid rgba(125,142,206,.31);border-radius:21px;color:#fff;text-align:left;background:linear-gradient(155deg,rgba(25,34,76,.9),rgba(31,20,69,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+#rytni-event-page .weekly-contract-choice:hover{transform:translateY(-3px);border-color:rgba(91,226,255,.62);box-shadow:0 16px 36px rgba(0,0,0,.26)}
+#rytni-event-page .weekly-contract-choice.is-candidate{border-color:#69e7fb;box-shadow:0 0 0 2px rgba(99,226,250,.15),0 18px 42px rgba(76,84,230,.28)}
+#rytni-event-page .weekly-contract-choice img{width:126px;height:126px;margin:auto;object-fit:contain;filter:drop-shadow(0 10px 15px rgba(0,0,0,.35))}
+#rytni-event-page .weekly-contract-choice small{color:#69e6fb;font-size:14px;font-weight:950;letter-spacing:.06em;text-transform:uppercase}
+#rytni-event-page .weekly-contract-choice strong{font-size:18px;line-height:1.15}
+#rytni-event-page .weekly-contract-choice p{margin:0;color:#aeb9d5;font-size:14px;line-height:1.4}
+#rytni-event-page .weekly-contract-choice-task{display:flex;align-items:center;gap:7px;margin-top:3px;color:#eef2ff;font-size:14px;font-weight:850}
+#rytni-event-page .weekly-contract-choice-task svg{flex:0 0 16px;width:16px;height:16px;color:#c27aff}
+#rytni-event-page .weekly-contract-choice-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:5px;padding-top:10px;border-top:1px solid rgba(120,135,191,.21);color:#ffd873;font-size:14px;font-weight:950}
+#rytni-event-page .weekly-contract-choice-foot b{padding:5px 8px;border-radius:9px;color:#dffcff;background:rgba(65,205,232,.12)}
+#rytni-event-page .weekly-contract-popup-note{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0 0;color:#8796b8;font-size:12px;font-weight:750;text-align:center}
+#rytni-event-page .weekly-contract-popup-note svg{flex:0 0 15px;width:15px;height:15px;color:#64e3cd}
+@keyframes weeklyContractScan{0%,65%,100%{transform:translateX(-100%)}78%{transform:translateX(100%)}}
+@media(max-width:760px){#rytni-event-page .weekly-contract-zone{grid-template-columns:76px minmax(0,1fr);gap:11px;padding:14px;border-radius:20px}#rytni-event-page .weekly-contract-archive-art{width:74px;height:74px}#rytni-event-page .weekly-contract-glow{left:20px;width:70px;height:70px}#rytni-event-page .weekly-contract-copy h4{font-size:19px}#rytni-event-page .weekly-contract-copy>p{font-size:13px}#rytni-event-page .weekly-contract-action{grid-column:1/-1;grid-template-columns:1fr auto;align-items:center;justify-items:start;width:100%;min-width:0}#rytni-event-page .weekly-contract-button{justify-self:end;min-width:0}#rytni-event-page .weekly-contract-progress{grid-column:1/-1}#rytni-event-page .weekly-contract-status{grid-column:1/-1}#rytni-event-page .weekly-contract-popup{padding:24px 15px 18px;border-radius:24px}#rytni-event-page .weekly-contract-popup h3{font-size:24px}#rytni-event-page .weekly-contract-choice-grid{grid-template-columns:1fr}#rytni-event-page .weekly-contract-choice{grid-template-columns:92px minmax(0,1fr);grid-template-rows:auto;column-gap:12px;min-height:150px}#rytni-event-page .weekly-contract-choice img{grid-row:1/7;width:90px;height:112px}#rytni-event-page .weekly-contract-choice-foot{align-self:end}}
+@media(max-width:390px){#rytni-event-page .weekly-contract-action{grid-template-columns:1fr}#rytni-event-page .weekly-contract-button{justify-self:stretch;width:100%}#rytni-event-page .weekly-contract-reward{justify-self:start}#rytni-event-page .weekly-contract-choice{grid-template-columns:76px minmax(0,1fr);padding:11px}#rytni-event-page .weekly-contract-choice img{width:76px;height:100px}#rytni-event-page .weekly-contract-choice strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){#rytni-event-page .weekly-contract-zone:before{animation:none}#rytni-event-page .weekly-contract-choice,#rytni-event-page .weekly-contract-button{transition:none}}
+</style>
