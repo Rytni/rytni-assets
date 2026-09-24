@@ -564,22 +564,25 @@
     ...["coin","star","clover","magnet"].map(name=>`items/${name}.webp`),"items/ghost-dew-v1.webp","items/time-bloom-v1.webp","portal/portal-idle-v1.webp","portal/portal-enter-v1.webp","portal/portal-exit-v1.webp",
     ...["top","bottom"].flatMap(side=>Array.from({length:6},(_,i)=>`obstacles/${side}-${String(i+1).padStart(2,"0")}.webp`)),"obstacles/top-07-crystal-v3.webp","obstacles/bottom-07-crystal-v3.webp","obstacles/moving-top-01-v3.webp","obstacles/moving-bottom-01-v3.webp"
   ];
-  const images={"player/rig-body-v1.png":new Image()};
+  const images={};
   let resolveAssetsReady,assetLoadReady=false,preloadPromise=null;
   const assetsReady=new Promise(resolve=>{resolveAssetsReady=resolve;});
   function ensureFlyAssets(reason="fly-activation"){
     if(preloadPromise)return preloadPromise;
     if(flyDiag){flyDiag.preloadStarted=true;flyDiag.preloadStartReason=reason;flyDiag.preloadStartedAt=performance.now();}
     const requested=new Set(),assetPromises=imageFiles.map(file=>{
-      const image=images[file]||new Image();images[file]=image;image.crossOrigin="anonymous";image.decoding="async";
+      const existing=document.querySelector(`#rytniArcadeHost img[crossorigin="anonymous"][src="${asset(file)}"]`);
+      const image=existing||new Image();images[file]=image;if(!existing)image.crossOrigin="anonymous";image.decoding="async";
       const ready=new Promise(resolve=>{
         image.onload=()=>{const decoded=image.decode?.();const finish=()=>{if(flyDiag){flyDiag.decodedAssets++;flyDiag.decodedAssetCount++;}resolve();};if(decoded?.finally)decoded.catch(()=>{}).finally(finish);else finish();};
         image.onerror=()=>{if(image.dataset.mirror){resolve();return;}image.dataset.mirror="1";image.src=mirrorAsset(file);};
       });
-      if(flyDiag){if(requested.has(file))flyDiag.duplicateAssetRequests++;requested.add(file);flyDiag.imageRequestsStarted++;flyDiag.requestedAssetCount++;}
-      image.src=asset(file);
+      if(flyDiag){if(requested.has(file))flyDiag.duplicateAssetRequests++;requested.add(file);if(!existing){flyDiag.imageRequestsStarted++;flyDiag.requestedAssetCount++;}}
+      if(existing){if(image.complete){if(image.naturalWidth)image.onload();else image.onerror();}}
+      else image.src=asset(file);
       return ready;
     });
+    model.image=images["player/rig-body-v1.png"];
     preloadPromise=Promise.allSettled(assetPromises).then(results=>{
       assetLoadReady=true;
       if(flyDiag){flyDiag.preloadReadyAt=performance.now();flyDiag.criticalReadyAt=flyDiag.preloadReadyAt;flyDiag.allReadyAt=flyDiag.preloadReadyAt;}
@@ -681,13 +684,13 @@
         <article class="rytni-arcade-stage">
           <div class="rytni-arcade-menu-scene" aria-hidden="true"><i></i><i></i><i></i></div>
           <canvas class="rytni-arcade-canvas" id="rytniArcadeCanvas" width="960" height="540" aria-label="Игровое поле"></canvas>
-          <div class="rytni-arcade-hud" aria-live="polite"><div class="rytni-arcade-hud-group"><button class="rytni-arcade-pause" id="arcadePause" type="button" aria-label="Пауза"></button><button class="rytni-arcade-fullscreen" id="arcadeFullscreen" type="button" aria-label="Полноэкранный режим">${gameIcon("maximize")}</button><span class="rytni-arcade-pill">${gameIcon("timer")}<b id="arcadeTime">00:00</b></span><span class="rytni-arcade-score-card" id="arcadeScoreCard"><span class="score-icon">${gameIcon("sparkles")}</span><span class="rytni-arcade-score-copy"><small>счёт</small><b id="arcadeScore">0</b></span><span class="rytni-arcade-delta" id="arcadeScoreDelta" aria-hidden="true"></span></span></div><div class="rytni-arcade-hud-group"><span class="rytni-arcade-pill"><img src="${asset("items/coin.webp")}" alt="" width="19" height="19"><b id="arcadeSpores">0</b></span></div></div>
-          <div class="rytni-arcade-powerups"><span class="rytni-arcade-power" id="arcadePowerStar"><img src="${asset("items/star.webp")}" alt=""><b>×2 монеты · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerMagnet"><img src="${asset("items/magnet.webp")}" alt=""><b>Магнит · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerLuck"><img src="${asset("items/clover.webp")}" alt=""><b>Изобилие · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerGhost"><img src="${asset("items/ghost-dew-v1.webp")}" alt=""><b>Призрак · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerTime"><img src="${asset("items/time-bloom-v1.webp")}" alt=""><b>Время · <em>0</em></b></span></div>
+          <div class="rytni-arcade-hud" aria-live="polite"><div class="rytni-arcade-hud-group"><button class="rytni-arcade-pause" id="arcadePause" type="button" aria-label="Пауза"></button><button class="rytni-arcade-fullscreen" id="arcadeFullscreen" type="button" aria-label="Полноэкранный режим">${gameIcon("maximize")}</button><span class="rytni-arcade-pill">${gameIcon("timer")}<b id="arcadeTime">00:00</b></span><span class="rytni-arcade-score-card" id="arcadeScoreCard"><span class="score-icon">${gameIcon("sparkles")}</span><span class="rytni-arcade-score-copy"><small>счёт</small><b id="arcadeScore">0</b></span><span class="rytni-arcade-delta" id="arcadeScoreDelta" aria-hidden="true"></span></span></div><div class="rytni-arcade-hud-group"><span class="rytni-arcade-pill"><img crossorigin="anonymous" src="${asset("items/coin.webp")}" alt="" width="19" height="19"><b id="arcadeSpores">0</b></span></div></div>
+          <div class="rytni-arcade-powerups"><span class="rytni-arcade-power" id="arcadePowerStar"><img crossorigin="anonymous" src="${asset("items/star.webp")}" alt=""><b>×2 монеты · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerMagnet"><img crossorigin="anonymous" src="${asset("items/magnet.webp")}" alt=""><b>Магнит · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerLuck"><img crossorigin="anonymous" src="${asset("items/clover.webp")}" alt=""><b>Изобилие · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerGhost"><img crossorigin="anonymous" src="${asset("items/ghost-dew-v1.webp")}" alt=""><b>Призрак · <em>0</em></b></span><span class="rytni-arcade-power" id="arcadePowerTime"><img crossorigin="anonymous" src="${asset("items/time-bloom-v1.webp")}" alt=""><b>Время · <em>0</em></b></span></div>
           <div class="rytni-arcade-overlay" id="arcadeOverlay"><div class="rytni-arcade-dialog" id="arcadeDialog" data-menu="main">
             <div class="rytni-arcade-dialog-frame" aria-hidden="true"></div>
             <button class="rytni-arcade-menu-close" id="arcadeMenuClose" type="button" aria-label="Назад" hidden>${gameIcon("x")}</button>
             <header class="rytni-arcade-modal-header">
-              <div class="rytni-arcade-menu-brand" id="arcadeIntro"><img class="rytni-arcade-menu-logo" src="${asset("ui/logo.webp")}" alt="Mushroom Fly"><img class="rytni-arcade-menu-hero" src="${asset("player/rig-body-v1.png")}" alt=""></div>
+              <div class="rytni-arcade-menu-brand" id="arcadeIntro"><img class="rytni-arcade-menu-logo" src="${asset("ui/logo.webp")}" alt="Mushroom Fly"><img class="rytni-arcade-menu-hero" crossorigin="anonymous" src="${asset("player/rig-body-v1.png")}" alt=""></div>
               <small class="rytni-arcade-menu-kicker" id="arcadeMenuKicker">Бесконечное приключение</small><span class="mark">${gameIcon("training")}</span><h6 id="arcadeOverlayTitle">Mushroom Fly</h6><p id="arcadeOverlayText">Летите дальше, собирайте монеты и поднимайтесь в рейтинге.</p>
             </header>
             <div class="rytni-arcade-modal-body"><div class="rytni-arcade-result" id="arcadeResult" hidden></div><div class="rytni-arcade-menu-content" id="arcadeMenuContent" hidden></div></div>
