@@ -16,10 +16,13 @@
  function select(engine,index,bodyOnly=false){
   const current=at(engine,index);
   if(index===0)return {name:'head-'+names[engine.direction],kind:'head',direction:engine.direction,cell:engine.direction};
-  const before=at(engine,index-1),towardHead=direction(before.x-current.x,before.y-current.y);
+  const before=at(engine,index-1),headLink=Math.abs(before.x-current.x)+Math.abs(before.y-current.y)===1;
+  const after=at(engine,index+1),tailLink=Math.abs(after.x-current.x)+Math.abs(after.y-current.y)===1;
+  // Portal discontinuities are independent local runs, never long elbows.
+  const towardHead=headLink?direction(before.x-current.x,before.y-current.y):tailLink?(direction(after.x-current.x,after.y-current.y)+2)%4:engine.direction;
   if(index===engine.length-1&&!bodyOnly){const facing=(towardHead+2)%4;return {name:'tail-'+names[facing],kind:'tail',direction:facing,cell:12+facing};}
-  const after=at(engine,index+1),towardTail=direction(after.x-current.x,after.y-current.y);
-  if((towardHead+2)%4===towardTail){
+  const towardTail=direction(after.x-current.x,after.y-current.y);
+  if(!headLink||!tailLink||(towardHead+2)%4===towardTail){
    const vertical=towardHead%2===0;
    // Coordinate-stable variations: advancing the head cannot flicker the back.
    const mixed=(Math.imul(current.x,0x45d9f3b)^Math.imul(current.y,0x119de1f3))>>>0;
@@ -30,5 +33,17 @@
   if(corner===undefined)throw new Error('Snake path must contain distinct cardinal neighbours');
   return {name:'corner-'+['up-right','right-down','down-left','left-up'][corner],kind:'corner',direction:towardHead,cell:8+corner};
  }
- return {select,at,direction,placement};
+ function snapshot(engine,alpha=engine.phase){
+  engine.interpolate(alpha);
+  const cap=engine.bx.length,frame=engine.renderSnapshot||(engine.renderSnapshot={x:new Float32Array(cap),y:new Float32Array(cap),links:new Uint8Array(cap),parts:[]});
+  frame.alpha=Math.max(0,Math.min(1,alpha));frame.length=engine.length;
+  for(let i=0;i<frame.length;i++){
+   const j=(engine.head-i+cap)%cap,previous=(j+1)%cap;
+   frame.links[i]=i>0&&Math.abs(engine.bx[j]-engine.bx[previous])+Math.abs(engine.by[j]-engine.by[previous])===1?1:0;
+   const point=placement(engine,i);frame.x[i]=point.x;frame.y[i]=point.y;
+   frame.parts[i]=select(engine,i);
+  }
+  return frame;
+ }
+ return {select,at,direction,placement,snapshot};
 });

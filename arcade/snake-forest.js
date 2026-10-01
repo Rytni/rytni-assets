@@ -1,7 +1,7 @@
 /* Green Forest presentation. World units remain simulation cells. */
 (function(root){
  'use strict';
- const {select,at,placement}=root.MushroomSnakeSegments;
+ const {snapshot}=root.MushroomSnakeSegments;
  const SCALE={rows:12,columns:30,head:1.35,body:1.04,food:.9,obstacle:1};
  const geometry=new URLSearchParams(location.search).has('snake_geometry');
  const BASE='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v2/';
@@ -213,7 +213,7 @@
     }
    }
    this.smallCompositions(d,world,cx,cy,world.seed);
-   const entry={id,floor,decor,ambient};s.chunks.set(id,entry);return entry;
+   const entry=Object.freeze({id,floor,decor,ambient:Object.freeze(ambient)});s.chunks.set(id,entry);return entry;
   },
   prewarm(s,all=false){
    if(geometry||!this.ground||!s.view)return;
@@ -304,11 +304,19 @@
    if(e.fairy>0&&e.portalFlash>0){const a=e.portalFlash/30;for(let side=0;side<2;side++){const tx=(side?e.portalToX:e.portalFromX)+.5,ty=(side?e.portalToY:e.portalFromY)+.5;for(let i=0;i<5;i++){const angle=i*1.26+phase*.3,d=.2+(1-a)*(.4+i*.08);this.pixel(c,tx+Math.cos(angle)*d,ty+Math.sin(angle)*d,'#c3a1f1',.09-i*.008,a*(.8-i*.09));}}}
   },
   fit(w,h){return Math.max(h/SCALE.rows,w/SCALE.columns);},
+  fullInvalidate(s,reason){s.invalidateReason=reason;},
   paint(s){
    const v=s.view,e=s.engine,c=s.ctx;if(!v)return;
-   e.interpolate(Math.min(1,e.phase+(s.state==='play'?(s.acc||0)*e.speed:0)));
+   const frame=snapshot(e,Math.min(1,e.phase+(s.state==='play'?(s.acc||0)*e.speed:0)));
+   const biome=e.world.biomeIndex(e.x,e.y);
+   if(s.renderBiome!==biome){this.fullInvalidate(s,'biome');s.renderBiome=biome;}
+   if(e.portalFlash>0&&s.renderPortalTick!==e.moveTicks){this.fullInvalidate(s,'teleport');s.renderPortalTick=e.moveTicks;}
+   if(s.invalidateReason){if(c.reset)c.reset();else s.canvas.width=s.canvas.width;s.lastInvalidation=s.invalidateReason;s.invalidateReason=null;}
+   c.save();try{
+   // Clear and recompose the whole backing store; chunks only cache sources.
+   c.setTransform(1,0,0,1,0,0);c.globalAlpha=1;c.globalCompositeOperation='source-over';c.beginPath();c.clearRect(0,0,s.canvas.width,s.canvas.height);
    const scale=v.scale,sx=v.w*(s.mobile()?.58:.52),sy=v.h*.55;
-   s.camera={x:e.rx[0]+.5,y:e.ry[0]+.5};
+   s.camera={x:frame.x[0]+.5,y:frame.y[0]+.5};
    const left=s.camera.x-sx/scale,top=s.camera.y-sy/scale,right=left+v.w/scale,bottom=top+v.h/scale;
    c.setTransform(v.dpr,0,0,v.dpr,0,0);c.imageSmoothingEnabled=false;c.fillStyle='#142b25';c.fillRect(0,0,v.w,v.h);
    c.translate(sx-s.camera.x*scale,sy-s.camera.y*scale);c.scale(scale,scale);
@@ -344,47 +352,48 @@
    }
    for(const f of e.items)if(f.active&&f.kind!=='food'){const effect=EFFECTS[f.kind],image=effect&&s.assets[effect.asset],fx=(Number.isFinite(f.px)?f.px:f.x)+.5,fy=(Number.isFinite(f.py)?f.py:f.y)+.5;if(!geometry&&image)this.pickupSprite(c,image,fx,fy,e.ticks,effect.bad);else{c.fillStyle=effect?.bad?'#ef5775':'#b8f173';c.fillRect(fx-.35,fy-.35,.7,.7);}}
    if(e.fairy>0&&e.portals)for(let i=0;i<e.portals.length;i++){const portal=e.portals[i],image=s.assets[i?'portal-fairy-exit-v1':'portal-fairy-entry-v1'];this.portal(c,image,portal.x,portal.y,i);}
-   const draw=(i,bodyOnly=false)=>{
-    const p=bodyOnly?at(e,i):placement(e,i),x=p.x+.5,y=p.y+.5;if(x<left-2||x>right+2||y<top-2||y>bottom+2)return;
-    const part=select(e,i,bodyOnly);c.save();if(e.ghost>0||e.ghostGrace)c.globalAlpha=.62;c.translate(x,y);
-    if(!geometry&&this.atlas){this.sprite(c,part,this.segmentSize(i,e.length,part));c.restore();return;}
+   const draw=i=>{
+    const x=frame.x[i]+.5,y=frame.y[i]+.5;if(x<left-2||x>right+2||y<top-2||y>bottom+2)return;
+    const part=frame.parts[i];c.save();try{
+    // The neck begins behind the rear seam of this frame's head pose.
+    if(i===1&&frame.links[1]){const hx=frame.x[0]+.5,hy=frame.y[0]+.5,d=frame.parts[0].direction;c.beginPath();if(d===1)c.rect(hx-1000,hy-1000,999.55,2000);else if(d===3)c.rect(hx+.45,hy-1000,1000,2000);else if(d===2)c.rect(hx-1000,hy-1000,2000,999.55);else c.rect(hx-1000,hy+.45,2000,1000);c.clip();}
+    if(e.ghost>0||e.ghostGrace)c.globalAlpha=.62;c.translate(x,y);
+    if(!geometry&&this.atlas){this.sprite(c,part,this.segmentSize(i,e.length,part));return;}
     // Dev geometry only. No generated art is accepted implicitly by this preview.
     c.fillStyle=i===0?'#ffbd72':part.kind==='corner'?'#89c9ae':'#c9d69a';
     if(part.kind==='head'){c.beginPath();c.arc(0,0,SCALE.head/2,0,Math.PI*2);c.fill();}
     else if(part.kind==='tail'){c.rotate((part.direction-1)*Math.PI/2);c.beginPath();c.moveTo(-.5,-.38);c.quadraticCurveTo(.3,-.3,.58,0);c.quadraticCurveTo(.3,.3,-.5,.38);c.closePath();c.fill();}
     else if(part.kind==='corner'){
-     const current=at(e,i),before=at(e,i-1),after=at(e,i+1);
      c.strokeStyle=c.fillStyle;c.lineWidth=.78;c.lineJoin='round';c.lineCap='butt';
-     c.beginPath();c.moveTo((before.x-current.x)*.52,(before.y-current.y)*.52);c.quadraticCurveTo(0,0,(after.x-current.x)*.52,(after.y-current.y)*.52);c.stroke();
+     c.beginPath();c.moveTo((frame.x[i-1]-frame.x[i])*.52,(frame.y[i-1]-frame.y[i])*.52);c.quadraticCurveTo(0,0,(frame.x[i+1]-frame.x[i])*.52,(frame.y[i+1]-frame.y[i])*.52);c.stroke();
     }else{c.rotate(part.direction%2===0?Math.PI/2:0);c.fillRect(-.52,-.39,1.04,.78);}
-    c.restore();
+    }finally{c.restore();}
    };
-   // The head moves; interior junctions and terminal tip stay on their
-   // cardinal cells so no seam opens next to the fixed taper segment.
-   // Clip sprite coverage to the live path, without drawing any strip beneath it.
-   c.save();c.translate(0,.12);c.strokeStyle='#06120bb8';c.lineWidth=.6;c.lineJoin='round';c.lineCap='round';c.beginPath();
-   const cap=e.bx.length;let shadowOpen=false;
+   // Shadow uses the same adjusted terminal pose, never a historical path.
+   c.save();c.translate(0,.08);c.strokeStyle='#06120b50';c.lineWidth=.36;c.lineJoin='round';c.lineCap='round';c.beginPath();
+   let shadowOpen=false;
    for(let i=0;i<e.length;i++){
-    const j=(e.head-i+cap)%cap,x=e.rx[i]+.5,y=e.ry[i]+.5,inside=x>left-1&&x<right+1&&y>top-1&&y<bottom+1;
-    if(inside){if(shadowOpen&&i&&Math.abs(e.bx[j]-e.bx[(j+1)%cap])+Math.abs(e.by[j]-e.by[(j+1)%cap])===1)c.lineTo(x,y);else{c.moveTo(x,y);shadowOpen=true;}}else shadowOpen=false;
+    const x=frame.x[i]+.5,y=frame.y[i]+.5,inside=x>left-1&&x<right+1&&y>top-1&&y<bottom+1;
+    if(inside){if(shadowOpen&&frame.links[i])c.lineTo(x,y);else{c.moveTo(x,y);shadowOpen=true;}}else shadowOpen=false;
    }
    c.stroke();c.restore();
-   c.save();c.beginPath();
+   c.save();try{c.beginPath();
    for(let i=0;i<e.length;i++){
-    const x=e.rx[i]+.5,y=e.ry[i]+.5;
+    const x=frame.x[i]+.5,y=frame.y[i]+.5;
     c.rect(x-.53,y-.53,1.06,1.06);
-    if(i&&Math.abs(e.bx[(e.head-i+cap)%cap]-e.bx[(e.head-i+1+cap)%cap])+Math.abs(e.by[(e.head-i+cap)%cap]-e.by[(e.head-i+1+cap)%cap])===1){
-     const px=e.rx[i-1]+.5,py=e.ry[i-1]+.5;
+    if(frame.links[i]){
+     const px=frame.x[i-1]+.5,py=frame.y[i-1]+.5;
      c.rect(Math.min(x,px)-.53,Math.min(y,py)-.53,Math.abs(x-px)+1.06,Math.abs(y-py)+1.06);
     }
    }
    c.clip();
    // The terminal cell is exclusively the pointed tail sprite. Painting its
    // bodyOnly fallback first creates a second full-width silhouette underneath.
-   for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind!=='corner')draw(i,true);
-   for(let i=e.length-2;i>0;i--)if(select(e,i,true).kind==='corner')draw(i,true);
-   c.restore();
+   for(let i=e.length-2;i>0;i--)if(frame.parts[i].kind!=='corner')draw(i);
+   for(let i=e.length-2;i>0;i--)if(frame.parts[i].kind==='corner')draw(i);
+   }finally{c.restore();}
    draw(e.length-1);draw(0);this.effectAura(c,e);
+   }finally{c.restore();}
   }
  };
  root.MushroomSnakeForest=Forest;
