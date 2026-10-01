@@ -11,7 +11,7 @@
 - `grib/`, `web/`, `avatars/`, `chest/`, `sounds/`, `ui-v*/`: public asset families. `manifest.csv` is the legacy Postimg-to-GitHub-Pages mapping.
 - `giveaway/` and `giveaway-test/`: channel manifests plus generated immutable release bundles.
 - `arcade/09_T123_ARCADE_HUB_SNAKE.html`: Arcade Hub integration and legacy Snake slice.
-- Snake v2: `arcade/snake-core.js` (DOM-free deterministic simulation), `snake-controller.js` (render/input/lifecycle), `snake-ui.html` (styles/markup), and `assemble-snake-v2.cjs` (strict composition and asset gate).
+- Legacy Snake v2: `arcade/snake-core.js` (DOM-free deterministic simulation), `snake-controller.js` (render/input/lifecycle), `snake-ui.html` (styles/markup), and `assemble-snake-v2.cjs` (strict composition and asset gate). It is frozen: retain it for reference/rollback, not ongoing fixes or the foundation of a new Snake.
 - `grib/mushroom-snake-v2/`: Snake production art/audio; `arcade/snake-art-qa.html` is the dev asset gallery.
 - Durable game behavior and UI requirements live in `docs/mushroom-snake-spec.md` and `docs/mushroom-fly-ui-spec.md`.
 - `tilda-test/blocks/`: canonical TEST page blocks, including Mushroom Fly in `08_T123_BROWSER_ARCADE_2.15.34.html`; `00_T123_ТЕСТОВЫЙ_ЗАГРУЗЧИК.html` is the loader verification source. `tools/build_tilda_test.ps1` composes the eight runtime blocks plus the Snake bundle. See `tilda-test/README.md` for input order.
@@ -27,7 +27,8 @@
 - Keep gameplay coordinates/physics independent of canvas size, camera, DPR, resize, orientation, and fullscreen.
 - Mobile gameplay is landscape fullscreen with real D-pad controls; portrait is a safe prompt/pause state. Scrollable dialogs are intentional.
 - Decorative frames are nine-slice: fixed corners, axis-only edge scaling, no sprite distortion.
-- Performance-sensitive code: 60 Hz Snake simulation, typed ring buffer, bounded 5×5 world streaming, bounded render cache, DPR caps, and interpolation. Retain QA at 100/250/500/1200 segments.
+- Legacy performance-sensitive code: 60 Hz Snake simulation, typed ring buffer, bounded 5×5 world streaming, bounded render cache, DPR caps, and interpolation. These are legacy implementation details, not architectural requirements for a rebuild; retain long-body QA at 100/250/500/1200 segments.
+- A new Snake requires a separate source entry point and independently designed simulation/render/world/spawn modules. Do not copy legacy architecture; reuse only tiny utilities independently verified safe. New production art/audio must be independently created, not extracted or repackaged from legacy assets.
 - Concept images are art direction only. Never crop/reference-segment them into production assets.
 
 ## Build and verification
