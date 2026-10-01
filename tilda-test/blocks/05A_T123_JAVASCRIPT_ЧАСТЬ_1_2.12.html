@@ -581,6 +581,7 @@ function isPopupVisible(popup){
 }
 function focusPopup(popup){
   window.setTimeout(()=>{
+    if(!isPopupVisible(popup))return;
     const target=popupFocusable(popup)[0]||popup.querySelector(".popup");
     if(target){
       if(!target.hasAttribute("tabindex"))target.setAttribute("tabindex","-1");
@@ -601,8 +602,19 @@ function showPopup(id){
   }
   focusPopup(popup);
 }
+function restorePopupFocusBeforeHide(closing){
+  if(!closing.some(popup=>popup.contains(document.activeElement)))return;
+  const eligible=element=>element instanceof HTMLElement&&element.isConnected&&!closing.some(popup=>popup.contains(element))&&!element.closest('[aria-hidden="true"]')&&!element.disabled&&element.getClientRects().length&&getComputedStyle(element).visibility!=="hidden";
+  const underlying=[...popupLayers].reverse().find(popup=>!closing.includes(popup)&&isPopupVisible(popup));
+  const candidates=[...(underlying?popupFocusable(underlying):[]),popupReturnFocus,document.getElementById("mushroomSoundBtn"),...document.querySelectorAll('button,a[href],[tabindex="0"]')];
+  for(const target of candidates){if(eligible(target)){target.focus({preventScroll:true});if(document.activeElement===target)return;}}
+  // Body is the last visible host fallback, never leave focus in a hidden layer.
+  const old=document.body.getAttribute("tabindex");document.body.setAttribute("tabindex","-1");document.body.focus({preventScroll:true});
+  if(old===null)document.body.removeAttribute("tabindex");else document.body.setAttribute("tabindex",old);
+}
 function closePopupLayer(popup=activePopup){
   if(!popup)return;
+  restorePopupFocusBeforeHide([popup]);
   if(popup.id==="applicationPopup"){
     try{document.getElementById("ttqPlayer")?.contentWindow?.postMessage({type:"pause","x-tiktok-player":true},"https://www.tiktok.com");}catch(error){}
     if(typeof window.__RYTNI_STOP_PROGRESSION__==="function")window.__RYTNI_STOP_PROGRESSION__();
@@ -618,14 +630,14 @@ function closePopupLayer(popup=activePopup){
     return;
   }
   document.body.classList.remove("popup-open");
-  const target=popupReturnFocus;popupReturnFocus=null;
-  if(target&&document.contains(target))target.focus({preventScroll:true});
+  popupReturnFocus=null;
 }
 function closePopups(){
+  restorePopupFocusBeforeHide([...document.querySelectorAll(".popup-overlay")]);
   document.querySelectorAll(".popup-overlay").forEach(popup=>{popup.style.display="none";popup.setAttribute("aria-hidden","true");});
   if(typeof window.__RYTNI_STOP_PROGRESSION__==="function")window.__RYTNI_STOP_PROGRESSION__();
   document.body.classList.remove("popup-open");activePopup=null;popupLayers=[];
-  const target=popupReturnFocus;popupReturnFocus=null;if(target&&document.contains(target))target.focus({preventScroll:true});
+  popupReturnFocus=null;
 }
 document.addEventListener("click",event=>{
   const origin=event.target instanceof Element?event.target:null;

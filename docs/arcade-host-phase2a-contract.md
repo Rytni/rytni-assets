@@ -1,0 +1,10 @@
+# Host contract for Snake Next
+
+- Hub owns the fullscreen Escape in window capture. It prevents default and stops propagation; no game handler may change state for that event. `RytniArcadeHub.ownsFullscreenEscape(event)` is the defensive consumed-event query for future adapters. Held-key repeats are not a second distinct Escape. Native and pseudo fullscreen use the same owner.
+- The first fullscreen Escape preserves Main/Playing/Paused. A subsequent distinct Escape follows the page popup rules. Snake Next must not register a competing global fullscreen Escape owner.
+- Popup hide first restores focus to a visible underlying layer/host trigger; stale async focus callbacks do nothing for hidden popups. Do not mask aria-hidden warnings.
+- TEST deployment entry is `tools/deploy_tilda_test.ps1`; no actions by default, explicit `-Publish` is required, and publication only from main with an empty index. `-CheckOnly` is non-mutating. Canonical build/test scripts are unchanged.
+- Guard rejects Production working/index changes, unexpected tracked/index paths, Production byte changes during preparation, and invalid candidate hashes/paths. Stage only TEST manifest plus the selected candidate app.html, never the whole release directory. Existing untracked unrelated assets are not staged.
+- Retired sibling `CORE/Сайт/tools/deploy_tilda_test.ps1` was converted locally to a compatibility bridge; versioned bridge template is `tools/deploy_tilda_test_legacy_bridge.ps1`. Sibling workspace is not a Git repository; its local replacement is not contained in a Git commit, while all authoritative guard/build logic is committed here. Do not restore its old sibling build/Production-staging implementation.
+
+Verification: `& .\tools\test-test-deploy-guard.ps1`; `node tools/qa/build-host-fixture.cjs`; local HTTP on 8771, then Playwright CLI `run-code --filename=tools/qa/phase2a-host.js`. This QA uses anonymous preview and blocks write RPCs. It builds only a local fixture, not a release or manifest. TEST/Production publication remains explicitly separate.
