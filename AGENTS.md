@@ -20,7 +20,7 @@
 
 - Frontend is static HTML/CSS/vanilla JavaScript. Generated releases combine the site, progression UI, Mushroom Fly, Arcade Hub, and Snake.
 - Generated app bundles call Supabase through RPC helpers. Database schema, migrations, and RLS are not maintained here.
-- Snake reuses the existing Fly audio mixer and Hub lifecycle. Preserve one active RAF/audio owner when moving among Hub, Fly, Snake, tabs, popup close, and page lifecycle events.
+- Legacy Snake reuses the existing Fly audio mixer and Hub lifecycle. Preserve one active RAF/audio owner when moving among Hub, Fly, Snake, tabs, popup close, and page lifecycle events.
 
 ## Browser-game invariants
 
@@ -29,12 +29,16 @@
 - Decorative frames are nine-slice: fixed corners, axis-only edge scaling, no sprite distortion.
 - Legacy performance-sensitive code: 60 Hz Snake simulation, typed ring buffer, bounded 5×5 world streaming, bounded render cache, DPR caps, and interpolation. These are legacy implementation details, not architectural requirements for a rebuild; retain long-body QA at 100/250/500/1200 segments.
 - A new Snake requires a separate source entry point and independently designed simulation/render/world/spawn modules. Do not copy legacy architecture; reuse only tiny utilities independently verified safe. New production art/audio must be independently created, not extracted or repackaged from legacy assets.
+- Snake Next foundation is `arcade/snake-next/entry.js`: managed configurable arena, pure deterministic simulation, main-thread fixed timer driver (not RAF-driven simulation). Keep the core independent of Hub/ranked/rendering. Worker-compatible data does not mean a Worker default; require measured need before adding one.
 - Concept images are art direction only. Never crop/reference-segment them into production assets.
 
 ## Build and verification
 
 Run from the repository root:
 
+- `node --test arcade/snake-next/tests/foundation.test.js` — new independent foundation.
+- `node arcade/snake-next/tests/run-benchmark.js` — simulation-only; browser CPU×4 fixture is documented in its README.
+- `& .\tools\test-test-deploy-guard.ps1` — throwaway Git safety fixtures, no deployment.
 - `node arcade/test-snake-core.cjs`
 - `node arcade/assemble-snake-v2.cjs`
 - `node arcade/test-snake-v2-release.cjs` — rendered desktop/mobile QA with screenshots.

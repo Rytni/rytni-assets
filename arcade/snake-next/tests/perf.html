@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Snake Next — DEV foundation harness</title>
+<p>DEV-only main-thread simulation benchmark. No game UI, renderer, assets or backend.</p>
+<script type="module">
+import {benchmark} from './benchmark.js';
+import {FixedClock,startMainThreadClock} from '../simulation/clock.js';
+import {loopFixture} from './fixtures.js';
+import {step} from '../simulation/step.js';
+import {stateHash} from '../simulation/hash.js';
+window.snakeFoundationBench=benchmark;
+window.snakeFoundationTimerSmoke=()=>new Promise(resolve=>{
+  const f=loopFixture(),clock=new FixedClock({onTick:()=>{
+    step(f.state,f.arena,f.rules,f.commands(f.state.tick+1));
+    if(f.state.tick===60){stop();clock.pause();resolve({ticks:f.state.tick,status:f.state.status,hash:stateHash(f.state),driver:'main-thread timers, no RAF/Worker'});}
+  }});
+  const stop=startMainThreadClock(clock,{now:()=>performance.now(),schedule:(fn,ms)=>setTimeout(fn,ms),cancel:id=>clearTimeout(id)});
+});
+</script>
