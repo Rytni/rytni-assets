@@ -9,6 +9,10 @@ import {step} from '../simulation/step.js';
 import {stateHash} from '../simulation/hash.js';
 import {D2Resources} from '../d2/resources.js';
 import {D2Forest} from '../d2/forest.js';
+import {D2Renderer} from '../d2/renderer.js';
+import {D2Review} from '../d2/review.js';
+import {createTrainingRenderer,Training} from '../runtime/training.js';
+import {DevRenderer} from '../presentation/renderer.js';
 
 const phases=[0,.125,.25,.5,.75,.875,1],lengths=[8,30,100,250,500,1200];
 function setup(options){const f=createD2Fixture(options),state=createState({seed:73,...f,stateOptions:undefined,...f.stateOptions});const snaps=new BodySnapshots(f.arena.cells);snaps.reset(state);return {f,state,snaps};}
@@ -78,4 +82,28 @@ test('warm visible mobile ground does not evict and rebuild its own 32-chunk foo
 });
 test('colliderArtMatchesTopology and decorDoesNotMutateCollision: categories stay authoritative',()=>{
   const {f,state}=setup({length:30}),hash=stateHash(state),mask=f.arena.collisionCopy(),forest=new D2Forest(new D2Resources(),73);forest.prepare(f.arena,f.visuals);for(const p of forest.obstacles)assert.ok(f.arena.blocked(p.y*96+p.x));assert.deepEqual(f.arena.collisionCopy(),mask);assert.equal(stateHash(state),hash);assert.ok(forest.decor.every(p=>p.kind==='decor'));
+});
+function fakeRoot(){const node={disabled:false,hidden:false,textContent:'',getBoundingClientRect:()=>({width:800,height:450}),getContext:()=>({})};return {dataset:{},querySelector:()=>node,querySelectorAll:()=>[]};}
+test('viewDoesNotWriteState: presentation toggles leave authoritative hash unchanged',()=>{
+  const {f,state}=setup({length:250}),hash=stateHash(state),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.setView({lod:'small',grayscale:true,debug:true});r.setView({lod:'large',grayscale:false,debug:false});assert.equal(stateHash(state),hash);assert.equal(r.view.debug,false);
+});
+test('defaultRuntimeRendererUnchanged: factory injection is opt-in',()=>{
+  const canvas=fakeRoot().querySelector();assert.ok(createTrainingRenderer(canvas,6144) instanceof DevRenderer);const sentinel={};assert.equal(createTrainingRenderer(canvas,6144,()=>sentinel),sentinel);
+});
+test('lifecycleOneOwner: repeated suspension cancels each owner once',()=>{
+  const t=new Training(fakeRoot());let frames=0,timers=0;const old=globalThis.cancelAnimationFrame,oldTimer=globalThis.clearTimeout;globalThis.cancelAnimationFrame=()=>frames++;globalThis.clearTimeout=()=>timers++;
+  try{t.raf=4;t.timer=7;t.stop();t.stop();assert.equal(frames,1);assert.equal(timers,1);assert.equal(t.summary().resources.raf,0);assert.equal(t.summary().resources.timers,0);}finally{globalThis.cancelAnimationFrame=old;globalThis.clearTimeout=oldTimer;}
+});
+test('loadBeforeCanvasReveal: decode gate wins over reopen race',async()=>{
+  let finish;const r=new D2Resources({decode:()=>new Promise(resolve=>{finish=resolve;})});const review=new D2Review(fakeRoot(),{resources:r,manifest:[{id:'a',url:'one'}]});let activated=0;
+  const a=review.prepare({},()=>activated++),b=review.prepare({},()=>activated++);assert.equal(review.ui,'loading');assert.equal(activated,0);finish({width:16,height:16});await Promise.all([a,b]);assert.equal(activated,1);
+});
+test('stopReleasesResources: scene ground/backings and final decoded owner released',()=>{
+  const r=new D2Resources(),review=new D2Review(fakeRoot(),{resources:r});let disposed=0;review.renderer={dispose(){disposed++;r.release('stage');}};r.track('stage',800,450);review.stop();review.stop();assert.equal(disposed,1);assert.equal(r.inventory().backings,0);review.dispose();assert.equal(r.inventory().totalBytes,0);
+});
+test('organicContour: rounded vertices keep tip exact and control points inside corridor',()=>{
+ const {f,snaps}=setup({shape:'S',length:30}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,.5);const points=[];r.traceContour({moveTo:(x,y)=>points.push([x,y]),lineTo:(x,y)=>points.push([x,y]),quadraticCurveTo:(x,y,a,b)=>points.push([x,y],[a,b]),closePath(){}});assert.ok(points.length>r.body.count*2);for(const [x,y] of points)assert.ok(r.body.inCorridor(x,y));assert.ok(points.some(([x,y])=>Math.abs(x-r.body.tail.x)<1e-5&&Math.abs(y-r.body.tail.y)<1e-5));
+});
+test('contour includes both neck sides, no omitted terminal vertex',()=>{
+ const {f,snaps}=setup({shape:'straight',length:8}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,1);const vertices=[];r.traceContour({moveTo(){},lineTo(){},quadraticCurveTo:(x,y)=>vertices.push([x,y]),closePath(){}});assert.deepEqual(vertices.at(-1),[r.body.polygon[2],r.body.polygon[3]]);
 });

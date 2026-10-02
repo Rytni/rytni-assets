@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="data:,">
+<title>Mushroom Snake · D.2 Forest proof</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#142219;color:#e8e6cb;font:14px system-ui}button,select{font:inherit;min-height:44px;color:#f2eed8;background:#304332;border:1px solid #758260;border-radius:5px;padding:6px 12px}button{cursor:pointer}button:hover{background:#465940}button:focus-visible,select:focus-visible{outline:2px solid #f4dd98}button:disabled{opacity:.4}label{display:inline-flex;gap:5px;align-items:center;white-space:nowrap}input[type=checkbox]{width:20px;height:20px}
+#dev{height:100dvh;max-width:1920px;display:flex;flex-direction:column;margin:auto;padding:8px max(8px,env(safe-area-inset-left));gap:6px;background:#142219}header{display:flex;gap:6px;align-items:center;flex-wrap:wrap}header strong{margin-right:auto}#hud{font-size:12px}#stage{position:relative;flex:1;min-height:0;overflow:hidden;border:1px solid #596846}canvas{width:100%;height:100%;display:block;touch-action:none}#dev:is([data-state=main],[data-state=loading],[data-state=error]) canvas{visibility:hidden}section[data-screen]{position:absolute;inset:0;display:grid;place-items:center;background:#16291ade}section[hidden]{display:none}article{max-width:520px;padding:24px;line-height:1.5;border:1px solid #657252;background:#243426}article h1{margin-top:0}#controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}#controls summary{min-height:44px;display:flex;align-items:center;cursor:pointer}#controls .fields{display:flex;gap:10px;flex-wrap:wrap;align-items:center}#diagnostic{font-size:11px;color:#b6c1a2;min-height:14px}#dpad{display:none;justify-content:center;gap:8px;touch-action:none}#dpad button{width:56px;min-height:44px}#dev:fullscreen{max-width:none}#load-error{overflow-wrap:anywhere}
+@media(max-height:500px),(pointer:coarse){#dpad{display:flex}#dev{padding:4px max(8px,env(safe-area-inset-right)) max(4px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:3px}header strong{font-size:12px}#hud{font-size:11px}#controls{position:relative;flex:none}#controls[open] .fields{position:absolute;bottom:44px;left:0;right:0;z-index:5;padding:12px;background:#233426;border:1px solid #657252}article{padding:14px}#diagnostic{font-size:10px}}
+@media(orientation:portrait){#stage{min-height:240px}header strong{width:100%}#dev{height:auto;min-height:100dvh}article{max-width:95%}}
+</style>
+<main id="dev" data-state="main">
+<header><strong>MUSHROOM SNAKE · D.2 · LOCAL PROOF</strong><button id="pause">Pause</button><button id="fullscreen">Fullscreen</button><button id="main">Stop</button><span id="hud"></span></header>
+<div id="stage"><canvas aria-label="Playable Forest renderer proof"></canvas>
+<section data-screen="main"><article><h1>Direction D · Forest</h1><p>Реальный Canvas2D renderer на Snake Next. WASD / стрелки или D-pad. Magical Seed даёт рост. Камни, корни и пни — collision; низкая листва — decor.</p><p>Positive / negative / portal здесь — только visual representations, без новых mechanics.</p><button id="start">Играть / открыть proof</button><p>Landscape для игры. Debug выключен. Это не TEST и не production UI.</p></article></section>
+<section data-screen="loading" hidden><article><h1>Mushroom Snake</h1><p>Загрузка леса…</p></article></section>
+<section data-screen="error" hidden><article><h1>Assets не готовы</h1><p id="load-error"></p><button id="retry">Повторить</button></article></section>
+<section data-screen="paused" hidden><article><h1>Paused</h1><p id="pause-copy"></p><button id="resume">Resume</button><button id="restart-paused">Restart</button></article></section>
+<section data-screen="result" hidden><article><h1>Result</h1><p id="result-copy"></p><button id="restart-result">Restart</button></article></section></div>
+<nav id="dpad" aria-label="Direction controls"><button data-dir="3" aria-label="Left">←</button><button data-dir="0" aria-label="Up">↑</button><button data-dir="2" aria-label="Down">↓</button><button data-dir="1" aria-label="Right">→</button></nav>
+<details id="controls"><summary>DEV proof controls</summary><div class="fields">
+<label>Length <select id="length"><option>8</option><option selected>30</option><option>100</option><option>250</option><option>500</option><option>1200</option></select></label>
+<label>Speed <select id="speed"><option>2</option><option selected>4</option><option>8</option><option>12</option><option>20</option></select></label>
+<label>Track <select id="shape"><option>straight</option><option>90</option><option>U</option><option selected>S</option><option>parallel</option><option>stress</option></select></label>
+<label>Head <select id="direction"><option value="0">UP</option><option value="1" selected>RIGHT</option><option value="2">DOWN</option><option value="3">LEFT</option></select></label>
+<label><input id="automatic" type="checkbox">Auto cycle (long)</label><button id="apply">Apply / Restart</button>
+<label>LOD <select id="lod"><option>auto</option><option>small</option><option>large</option></select></label><label><input id="grayscale" type="checkbox">Grayscale</label><label><input id="debug" type="checkbox">Collision bounds</label>
+</div></details><div id="diagnostic" role="status"></div>
+</main>
+<script type="module">
+import {D2Review,installD2QA} from './d2/review.js';
+const root=document.getElementById('dev'),review=new D2Review(root),$=id=>document.getElementById(id);window.d2Review=review;
+const options=()=>({length:Number($('length').value),speed:Number($('speed').value),shape:$('shape').value,direction:Number($('direction').value),automatic:$('automatic').checked});
+for(const id of ['start','retry','apply','restart-paused','restart-result'])$(id).addEventListener('click',()=>review.start(options()));
+$('pause').addEventListener('click',()=>review.pause());$('resume').addEventListener('click',()=>review.resume());$('fullscreen').addEventListener('click',()=>review.fullscreen());$('main').addEventListener('click',()=>review.main());
+for(const id of ['lod','grayscale','debug'])$(id).addEventListener('change',()=>review.setView({lod:$('lod').value,grayscale:$('grayscale').checked,debug:$('debug').checked}));
+addEventListener('pagehide',()=>review.dispose());
+if(new URLSearchParams(location.search).get('qa')==='1')window.d2QA=installD2QA(review);
+</script></html>

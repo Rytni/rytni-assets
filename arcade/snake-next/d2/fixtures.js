@@ -22,6 +22,7 @@ export function createD2Fixture({shape='S',length=8,direction:heading=Direction.
   const rules=createRules({ticksPerCell:Math.round(60/speed),obstacleBlocks:0}),route=pathFor(shape,length);
   // Short proof fixtures rotate around arena center; long validated cycles retain their topology.
   if(length<=60&&shape!=='parallel')for(let i=0;i<route.length;i++){let x=route[i]%96-48,y=Math.floor(route[i]/96)-32;for(let r=0;r<(heading+3)%4;r++){const old=x;x=-y;y=old;}route[i]=(y+32)*96+x+48;}
+  if(length>60||shape==='parallel'){const at=route.indexOf(30*96+40);route.push(...route.splice(0,at));}
   const body=route.slice(0,length),blocked=[];
   for(let x=0;x<96;x++){blocked.push(x,63*96+x);}for(let y=1;y<63;y++)blocked.push(y*96,y*96+95);
   const obstacles=[{x:21,y:21,kind:'rock'},{x:43,y:22,kind:'stump'},{x:27,y:38,kind:'root'},{x:49,y:39,kind:'rock'},{x:55,y:28,kind:'stump'}];

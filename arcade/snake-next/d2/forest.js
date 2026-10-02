@@ -31,7 +31,7 @@ export class D2Forest {
   draw(ctx,bounds,clock,food=-1){
     const {x0,y0,x1,y1}=bounds,atlas=this.resources.get('objects');
     for(let cy=Math.floor(y0/8);cy<=Math.floor(y1/8);cy++)for(let cx=Math.floor(x0/8);cx<=Math.floor(x1/8);cx++){
-      const tile=this.cacheChunk(cx,cy,()=>this.compose(cx,cy));ctx.drawImage(tile,cx*8,cy*8,8,8);
+      const tile=this.cacheChunk(cx,cy,()=>this.compose(cx,cy));ctx.drawImage(tile,cx*8-.012,cy*8-.012,8.024,8.024);
     }
     if(!atlas)return;
     for(const p of this.decor)if(p.x>x0-2&&p.x<x1+2&&p.y>y0-2&&p.y<y1+2){ctx.globalAlpha=.40;atlasSprite(ctx,atlas,7,4,2,p.x,p.y,p.size);}

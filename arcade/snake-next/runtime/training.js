@@ -9,9 +9,12 @@ import {keyboardCommand} from '../input/turns.js';
 import {BodySnapshots} from '../presentation/path.js';
 import {DevRenderer} from '../presentation/renderer.js';
 
+export function createTrainingRenderer(canvas,capacity,factory){return factory?factory(canvas,capacity):new DevRenderer(canvas,capacity);}
+
 /** Local-only Training adapter owns clocks/input/UI; renderer is a read-only sink. */
 export class Training {
-  constructor(root){
+  constructor(root,{rendererFactory}={}){
+    this.rendererFactory=rendererFactory;
     this.root=root;this.canvas=root.querySelector('canvas');this.ui='main';this.raf=0;this.timer=0;this.cleanups=[];this.commands=[];this.sequence=0;this.latencies=[];this.accepted=[];this.receipts=new Map();this.inputLog=[];
     this.metrics={simulation:[],renderer:[],whole:[]};this.frames=0;this.recoveries=0;this.lastFrame=0;this.recordPerf=false;this.simSinceFrame=0;
     this.show('main');
@@ -23,7 +26,7 @@ export class Training {
     if(innerHeight>innerWidth){this.show('main');this.root.querySelector('#diagnostic').textContent='Rotate to landscape to start Training.';return;}
     this.rules=options.rules||createTrainingRules();this.arena=options.arena||generateArena(options.seed??7,this.rules);
     this.state=createState({seed:options.seed??7,rules:this.rules,arena:this.arena,...options.stateOptions});
-    this.snapshots=new BodySnapshots(this.arena.cells);this.snapshots.reset(this.state);this.renderer=new DevRenderer(this.canvas,this.arena.cells);
+    this.snapshots=new BodySnapshots(this.arena.cells);this.snapshots.reset(this.state);this.renderer=createTrainingRenderer(this.canvas,this.arena.cells,this.rendererFactory);
     this.commands.length=0;this.sequence=0;this.latencies.length=0;this.accepted.length=0;this.receipts.clear();this.inputLog.length=0;this.auto=null;this.frames=0;this.recoveries=0;
     this.lastFrame=0;this.simSinceFrame=0;this.metrics={simulation:[],renderer:[],whole:[]};
     this.clock=new FixedClock({tickHz:this.rules.tickHz,maxCatchUpTicks:this.rules.maxCatchUpTicks,onTick:()=>this.tick()});
