@@ -1,0 +1,773 @@
+{
+  "version": 1,
+  "cell": 32,
+  "snakeSource": 36,
+  "overhang": 2,
+  "bodyDiameter": 20,
+  "tailBaseDiameter": 14,
+  "assets": [
+    {
+      "id": "snake-body-horizontal",
+      "file": "snake-body-horizontal.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        3
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-body-vertical",
+      "file": "snake-body-vertical.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-body-horizontal-v1",
+      "file": "snake-body-horizontal-v1.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        3
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-body-vertical-v1",
+      "file": "snake-body-vertical-v1.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-body-horizontal-v2",
+      "file": "snake-body-horizontal-v2.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        3
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-body-vertical-v2",
+      "file": "snake-body-vertical-v2.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-corner-up-right",
+      "file": "snake-corner-up-right.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        1
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-corner-right-down",
+      "file": "snake-corner-right-down.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        2
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-corner-down-left",
+      "file": "snake-corner-down-left.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        2,
+        3
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-corner-left-up",
+      "file": "snake-corner-left-up.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3,
+        0
+      ],
+      "radii": [
+        10,
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-horizontal",
+      "file": "snake-taper-horizontal.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-vertical",
+      "file": "snake-taper-vertical.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-up-right",
+      "file": "snake-taper-corner-up-right.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        1
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-up-right-reverse",
+      "file": "snake-taper-corner-up-right-reverse.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        0
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-right-down",
+      "file": "snake-taper-corner-right-down.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1,
+        2
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-right-down-reverse",
+      "file": "snake-taper-corner-right-down-reverse.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        2,
+        1
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-down-left",
+      "file": "snake-taper-corner-down-left.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        2,
+        3
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-down-left-reverse",
+      "file": "snake-taper-corner-down-left-reverse.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3,
+        2
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-left-up",
+      "file": "snake-taper-corner-left-up.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3,
+        0
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-taper-corner-left-up-reverse",
+      "file": "snake-taper-corner-left-up-reverse.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0,
+        3
+      ],
+      "radii": [
+        10,
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-head-right",
+      "file": "snake-head-right.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3
+      ],
+      "radii": [
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-tail-right",
+      "file": "snake-tail-right.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        3
+      ],
+      "radii": [
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-head-down",
+      "file": "snake-head-down.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0
+      ],
+      "radii": [
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-tail-down",
+      "file": "snake-tail-down.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        0
+      ],
+      "radii": [
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-head-left",
+      "file": "snake-head-left.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1
+      ],
+      "radii": [
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-tail-left",
+      "file": "snake-tail-left.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        1
+      ],
+      "radii": [
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-head-up",
+      "file": "snake-head-up.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        2
+      ],
+      "radii": [
+        10
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "snake-tail-up",
+      "file": "snake-tail-up.png",
+      "width": 36,
+      "height": 36,
+      "kind": "manual-raster",
+      "ports": [
+        2
+      ],
+      "radii": [
+        7
+      ],
+      "group": "snake"
+    },
+    {
+      "id": "arena-floor-0",
+      "file": "arena-floor-0.png",
+      "width": 32,
+      "height": 32,
+      "kind": "manual-raster",
+      "group": "arena"
+    },
+    {
+      "id": "arena-floor-1",
+      "file": "arena-floor-1.png",
+      "width": 32,
+      "height": 32,
+      "kind": "manual-raster",
+      "group": "arena"
+    },
+    {
+      "id": "arena-floor-2",
+      "file": "arena-floor-2.png",
+      "width": 32,
+      "height": 32,
+      "kind": "manual-raster",
+      "group": "arena"
+    },
+    {
+      "id": "arena-floor-3",
+      "file": "arena-floor-3.png",
+      "width": 32,
+      "height": 32,
+      "kind": "manual-raster",
+      "group": "arena"
+    },
+    {
+      "id": "arena-floor-atlas",
+      "file": "arena-floor-atlas.png",
+      "width": 256,
+      "height": 256,
+      "kind": "manual-raster-atlas",
+      "group": "arena",
+      "cell": 32,
+      "macroCells": 8
+    },
+    {
+      "id": "hud-inner-fill",
+      "file": "hud-inner-fill.png",
+      "width": 16,
+      "height": 16,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-pause",
+      "file": "icon-pause.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-fullscreen",
+      "file": "icon-fullscreen.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-score",
+      "file": "icon-score.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-length",
+      "file": "icon-length.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-combo",
+      "file": "icon-combo.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "icon-effect",
+      "file": "icon-effect.png",
+      "width": 24,
+      "height": 24,
+      "kind": "manual-raster",
+      "group": "hud"
+    },
+    {
+      "id": "dpad-up-normal",
+      "file": "dpad-up-normal.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-right-normal",
+      "file": "dpad-right-normal.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-down-normal",
+      "file": "dpad-down-normal.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-left-normal",
+      "file": "dpad-left-normal.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-up-pressed",
+      "file": "dpad-up-pressed.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-right-pressed",
+      "file": "dpad-right-pressed.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-down-pressed",
+      "file": "dpad-down-pressed.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "dpad-left-pressed",
+      "file": "dpad-left-pressed.png",
+      "width": 40,
+      "height": 40,
+      "kind": "manual-raster",
+      "group": "controls",
+      "visualCss": 34,
+      "hitCss": 44
+    },
+    {
+      "id": "vfx-atlas",
+      "file": "vfx-atlas.png",
+      "width": 256,
+      "height": 128,
+      "kind": "manual-raster",
+      "group": "vfx",
+      "frames": 8,
+      "frameWidth": 32,
+      "frameHeight": 16,
+      "rows": [
+        "food-pickup",
+        "positive-pickup",
+        "negative-activation",
+        "combo-pop",
+        "portal-enter",
+        "portal-exit",
+        "death",
+        "new-record"
+      ],
+      "durationMs": 320
+    },
+    {
+      "id": "food-magical-seed",
+      "file": "food-magical-seed.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-normalized",
+      "group": "objects",
+      "sourceSha256": "44c1a4e306ac02f8195b5c3aeb31d39bbb6c01949432d6d8680b4126b0c938a1"
+    },
+    {
+      "id": "pickup-positive",
+      "file": "pickup-positive.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-normalized",
+      "group": "objects",
+      "sourceSha256": "dd6fb0b97b1462f1fc6f90f85ad91b81dae4369b4fd03300b84e7eae44df3f22"
+    },
+    {
+      "id": "pickup-negative",
+      "file": "pickup-negative.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-normalized",
+      "group": "objects",
+      "sourceSha256": "8fc96e60e3e3ba84709cb1a39118c16edca004d4cd7805340b36fd049cc5d263"
+    },
+    {
+      "id": "portal",
+      "file": "portal.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-normalized",
+      "group": "objects",
+      "sourceSha256": "ae32028e4260f0c8366e19dab0db59bfff4bd8a3fdbc3b06f26e94a83ff965be"
+    },
+    {
+      "id": "obstacle-stone",
+      "file": "obstacle-stone.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-normalized",
+      "group": "objects",
+      "sourceSha256": "c22acf53a630865baad13430e622c285729885c8180b43b77c0dfc12262a5531"
+    },
+    {
+      "id": "frame-ornament",
+      "file": "frame-ornament.png",
+      "width": 48,
+      "height": 48,
+      "kind": "imagegen-normalized",
+      "group": "frame",
+      "sourceSha256": "86e3bdb3fdfc152b64b70142ad7d5f8f16055ff58e3fbd988d60ce13bd89cb62"
+    },
+    {
+      "id": "frame-corner-top-left",
+      "file": "frame-corner-top-left.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "stretch": false,
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "frame-corner-top-right",
+      "file": "frame-corner-top-right.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "stretch": false,
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "frame-corner-bottom-right",
+      "file": "frame-corner-bottom-right.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "stretch": false,
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "frame-corner-bottom-left",
+      "file": "frame-corner-bottom-left.png",
+      "width": 64,
+      "height": 64,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "stretch": false,
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "frame-edge-horizontal",
+      "file": "frame-edge-horizontal.png",
+      "width": 128,
+      "height": 32,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "axis": "x",
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "frame-edge-vertical",
+      "file": "frame-edge-vertical.png",
+      "width": 32,
+      "height": 128,
+      "kind": "imagegen-nine-slice",
+      "group": "frame",
+      "axis": "y",
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    },
+    {
+      "id": "hud-panel",
+      "file": "hud-panel.png",
+      "width": 32,
+      "height": 32,
+      "kind": "imagegen-nine-slice",
+      "group": "hud",
+      "slice": 8,
+      "sourceSha256": "46879e7ae5e7d35fecd807e095994c146246f08980401beeec4727ca6ae9e185",
+      "independentlyGenerated": true
+    }
+  ]
+}
