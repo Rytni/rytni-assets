@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-02",
+  "baselineTechnicalCommit": "47d17ddce3c0c40b2e3f8047571403b8a93f5a37",
+  "visualApproval": "PENDING HUMAN REVIEW",
+  "assets": {
+    "independentImageGenMasters": 14,
+    "runtimeRasters": 83,
+    "decodedBytes": 3768768
+  },
+  "tests": {
+    "passed": 30,
+    "failed": 0
+  },
+  "pixelQA": {
+    "pairs": 8352,
+    "samples": 614592,
+    "gaps": 0,
+    "dpr": [
+      1,
+      1.5,
+      2
+    ],
+    "cssCell": [
+      12,
+      19.25,
+      32
+    ],
+    "originPhase": [
+      0,
+      0.375
+    ]
+  },
+  "browser": {
+    "viewports": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1366,
+        768
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        915,
+        412
+      ]
+    ],
+    "fullscreenControls": true,
+    "mobileHitArea": [
+      44,
+      44
+    ],
+    "galleryImages": 10,
+    "applicationErrors": 0,
+    "warnings": 0,
+    "requestFailures": 0,
+    "httpErrors": 0,
+    "repeatLoadNewRequests": 0
+  },
+  "memory": {
+    "mobile844BackingAtDpr2": 5109632,
+    "mobile844TrackedAtDpr2": 8878400,
+    "mainCanvasLayers": 1,
+    "additionalCachedGroundCanvases": 0,
+    "sourceMastersLoadedAtRuntime": 0
+  },
+  "performance": {
+    "method": "One full scene submission per RAF; 20 warmup + 120 samples. 1200 submitted tiles, many outside viewport. Not 1200 all-visible production gameplay.",
+    "lastRun": {
+      "desktop": {
+        "p50": 2.6,
+        "p95": 3.4,
+        "max": 4.2
+      },
+      "cpu4": {
+        "p50": 5,
+        "p95": 12.8,
+        "max": 19.2
+      }
+    },
+    "otherRuns": {
+      "desktopP95Range": [
+        1.3,
+        3.5
+      ],
+      "cpu4P95Range": [
+        5.8,
+        25
+      ],
+      "largestObservedCpu4": 31.8
+    },
+    "causeOfVariance": "Not established; no performance PASS claimed."
+  },
+  "deterministicManufacture": true,
+  "protectedFilesChanged": 0,
+  "published": false
+}

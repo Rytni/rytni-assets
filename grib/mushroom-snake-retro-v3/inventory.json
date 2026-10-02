@@ -1,0 +1,957 @@
+{
+  "version": 3,
+  "cell": 32,
+  "snakeSource": 72,
+  "logicalSize": 36,
+  "overhang": 2,
+  "bodyDiameter": 28,
+  "connectorDiameter": 26,
+  "roundingGuard": 1,
+  "tailBaseDiameter": 20,
+  "assets": [
+    {
+      "id": "snake-tail-up",
+      "file": "snake-tail-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        2
+      ],
+      "radii": [
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-tail-up",
+      "file": "shadow-snake-tail-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-corner-up-right",
+      "file": "snake-corner-up-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        1
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-corner-up-right",
+      "file": "shadow-snake-corner-up-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-up-right",
+      "file": "snake-taper-corner-up-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        1
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-up-right",
+      "file": "shadow-snake-taper-corner-up-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-up-right-reverse",
+      "file": "snake-taper-corner-up-right-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        1
+      ],
+      "radii": [
+        9,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-up-right-reverse",
+      "file": "shadow-snake-taper-corner-up-right-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-tail-right",
+      "file": "snake-tail-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3
+      ],
+      "radii": [
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-tail-right",
+      "file": "shadow-snake-tail-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-corner-right-down",
+      "file": "snake-corner-right-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        1,
+        2
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-corner-right-down",
+      "file": "shadow-snake-corner-right-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-right-down",
+      "file": "snake-taper-corner-right-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        1,
+        2
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-right-down",
+      "file": "shadow-snake-taper-corner-right-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-right-down-reverse",
+      "file": "snake-taper-corner-right-down-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        1,
+        2
+      ],
+      "radii": [
+        9,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-right-down-reverse",
+      "file": "shadow-snake-taper-corner-right-down-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-tail-down",
+      "file": "snake-tail-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0
+      ],
+      "radii": [
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-tail-down",
+      "file": "shadow-snake-tail-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-corner-down-left",
+      "file": "snake-corner-down-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        2,
+        3
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-corner-down-left",
+      "file": "shadow-snake-corner-down-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-down-left",
+      "file": "snake-taper-corner-down-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        2,
+        3
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-down-left",
+      "file": "shadow-snake-taper-corner-down-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-down-left-reverse",
+      "file": "snake-taper-corner-down-left-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        2,
+        3
+      ],
+      "radii": [
+        9,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-down-left-reverse",
+      "file": "shadow-snake-taper-corner-down-left-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-tail-left",
+      "file": "snake-tail-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        1
+      ],
+      "radii": [
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-tail-left",
+      "file": "shadow-snake-tail-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-corner-left-up",
+      "file": "snake-corner-left-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        0
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-corner-left-up",
+      "file": "shadow-snake-corner-left-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-left-up",
+      "file": "snake-taper-corner-left-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        0
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-left-up",
+      "file": "shadow-snake-taper-corner-left-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-corner-left-up-reverse",
+      "file": "snake-taper-corner-left-up-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        0
+      ],
+      "radii": [
+        9,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-corner-left-up-reverse",
+      "file": "shadow-snake-taper-corner-left-up-reverse.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-horizontal",
+      "file": "snake-body-horizontal.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-horizontal",
+      "file": "shadow-snake-body-horizontal.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-horizontal-v1",
+      "file": "snake-body-horizontal-v1.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-horizontal-v1",
+      "file": "shadow-snake-body-horizontal-v1.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-horizontal-v2",
+      "file": "snake-body-horizontal-v2.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-horizontal-v2",
+      "file": "shadow-snake-body-horizontal-v2.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-horizontal-v3",
+      "file": "snake-body-horizontal-v3.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-horizontal-v3",
+      "file": "shadow-snake-body-horizontal-v3.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-horizontal",
+      "file": "snake-taper-horizontal.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3,
+        1
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-horizontal",
+      "file": "shadow-snake-taper-horizontal.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-vertical",
+      "file": "snake-body-vertical.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-vertical",
+      "file": "shadow-snake-body-vertical.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-vertical-v1",
+      "file": "snake-body-vertical-v1.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-vertical-v1",
+      "file": "shadow-snake-body-vertical-v1.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-vertical-v2",
+      "file": "snake-body-vertical-v2.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-vertical-v2",
+      "file": "shadow-snake-body-vertical-v2.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-body-vertical-v3",
+      "file": "snake-body-vertical-v3.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        13,
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-body-vertical-v3",
+      "file": "shadow-snake-body-vertical-v3.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-taper-vertical",
+      "file": "snake-taper-vertical.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0,
+        2
+      ],
+      "radii": [
+        13,
+        9
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-taper-vertical",
+      "file": "shadow-snake-taper-vertical.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-head-up",
+      "file": "snake-head-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        2
+      ],
+      "radii": [
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-head-up",
+      "file": "shadow-snake-head-up.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-head-right",
+      "file": "snake-head-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        3
+      ],
+      "radii": [
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-head-right",
+      "file": "shadow-snake-head-right.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-head-down",
+      "file": "snake-head-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        0
+      ],
+      "radii": [
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-head-down",
+      "file": "shadow-snake-head-down.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "snake-head-left",
+      "file": "snake-head-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "snake",
+      "ports": [
+        1
+      ],
+      "radii": [
+        13
+      ],
+      "logicalSize": 36
+    },
+    {
+      "id": "shadow-snake-head-left",
+      "file": "shadow-snake-head-left.png",
+      "width": 72,
+      "height": 72,
+      "group": "shadow"
+    },
+    {
+      "id": "logo",
+      "file": "logo.png",
+      "width": 480,
+      "height": 151,
+      "group": "shell"
+    },
+    {
+      "id": "frame-top-left",
+      "file": "frame-top-left.png",
+      "width": 128,
+      "height": 128,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "frame-top-right",
+      "file": "frame-top-right.png",
+      "width": 128,
+      "height": 128,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "frame-bottom-left",
+      "file": "frame-bottom-left.png",
+      "width": 128,
+      "height": 128,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "frame-bottom-right",
+      "file": "frame-bottom-right.png",
+      "width": 128,
+      "height": 128,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "frame-top",
+      "file": "frame-top.png",
+      "width": 512,
+      "height": 28,
+      "group": "shell",
+      "axis": "x"
+    },
+    {
+      "id": "frame-bottom",
+      "file": "frame-bottom.png",
+      "width": 512,
+      "height": 28,
+      "group": "shell",
+      "axis": "x"
+    },
+    {
+      "id": "frame-left",
+      "file": "frame-left.png",
+      "width": 32,
+      "height": 70,
+      "group": "shell",
+      "axis": "y"
+    },
+    {
+      "id": "frame-right",
+      "file": "frame-right.png",
+      "width": 32,
+      "height": 70,
+      "group": "shell",
+      "axis": "y"
+    },
+    {
+      "id": "frame-joint-left",
+      "file": "frame-joint-left.png",
+      "width": 46,
+      "height": 64,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "frame-joint-right",
+      "file": "frame-joint-right.png",
+      "width": 46,
+      "height": 64,
+      "group": "shell",
+      "fixedCorner": true
+    },
+    {
+      "id": "hud",
+      "file": "hud.png",
+      "width": 512,
+      "height": 154,
+      "group": "shell",
+      "slice": 64
+    },
+    {
+      "id": "seed",
+      "file": "seed.png",
+      "width": 44,
+      "height": 64,
+      "group": "object"
+    },
+    {
+      "id": "positive",
+      "file": "positive.png",
+      "width": 88,
+      "height": 54,
+      "group": "object"
+    },
+    {
+      "id": "negative",
+      "file": "negative.png",
+      "width": 72,
+      "height": 72,
+      "group": "object"
+    },
+    {
+      "id": "portal",
+      "file": "portal.png",
+      "width": 128,
+      "height": 128,
+      "group": "object"
+    },
+    {
+      "id": "stone",
+      "file": "stone.png",
+      "width": 64,
+      "height": 64,
+      "group": "object"
+    },
+    {
+      "id": "floor",
+      "file": "floor.png",
+      "width": 256,
+      "height": 256,
+      "group": "ground",
+      "macroCells": 4
+    },
+    {
+      "id": "vfx-food",
+      "file": "vfx-food.png",
+      "width": 576,
+      "height": 96,
+      "group": "vfx",
+      "frames": 6,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "durationMs": 360,
+      "method": "independent ImageGen animation master; fixed slot manufacture"
+    },
+    {
+      "id": "vfx-positive",
+      "file": "vfx-positive.png",
+      "width": 576,
+      "height": 96,
+      "group": "vfx",
+      "frames": 6,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "durationMs": 360,
+      "method": "independent ImageGen animation master; fixed slot manufacture"
+    },
+    {
+      "id": "vfx-negative",
+      "file": "vfx-negative.png",
+      "width": 576,
+      "height": 96,
+      "group": "vfx",
+      "frames": 6,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "durationMs": 360,
+      "method": "independent ImageGen animation master; fixed slot manufacture"
+    },
+    {
+      "id": "vfx-portal-enter",
+      "file": "vfx-portal-enter.png",
+      "width": 576,
+      "height": 96,
+      "group": "vfx",
+      "frames": 6,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "durationMs": 420,
+      "method": "independent ImageGen animation master; fixed slot manufacture"
+    },
+    {
+      "id": "vfx-portal-exit",
+      "file": "vfx-portal-exit.png",
+      "width": 576,
+      "height": 96,
+      "group": "vfx",
+      "frames": 6,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "durationMs": 420,
+      "method": "independent ImageGen animation master; fixed slot manufacture"
+    }
+  ],
+  "provenance": [
+    {
+      "file": "frame.png",
+      "sha256": "4f6a40b9f495484353c934c9bdb6ca1a1475b4245447e9ff11b7736a27a8d72d",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "head.png",
+      "sha256": "d01b8c0cde9ae5154996bebd9a1890e6c3273d3ebf3e6e3dcb4be631a7e335da",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "hud.png",
+      "sha256": "2f2a25b3a713df567c766fb680412f22202a0fd5dd5801b950d8637f9131740e",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "logo.png",
+      "sha256": "19d92dc34b5ae625241d459b496257fea5840eac7666415ea8ecf5899b56fe08",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "material.png",
+      "sha256": "472ca8ea3e04c0f37137a897bc7175551b442f7ea84b62ba68294d3188611400",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "negative.png",
+      "sha256": "3ead66c056d791391b84d8ed1b5efa444a57ec01d85caa49cbb452e0c203a40b",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "portal.png",
+      "sha256": "c90629a2f286ae4c1320b5b69a0514f7716a402e1eb56ce98ea0edc96b31176f",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "positive.png",
+      "sha256": "26040c3079d1cbb902bb8b254927bb6b203075da9a6be3a1a72633df69376e0d",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "seed.png",
+      "sha256": "4dfd4aa2092c3e01f0a37285fa6af9d1b0bb079a97c28fb568e8d54f3ec0094a",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "stone.png",
+      "sha256": "a3a79f0bdbfe665843777f74ef7c4d6f45ce72431fcd1ec2af218716754741fc",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "vfx-food.png",
+      "sha256": "39702588be1e794954ef916eb1fb459ef4ed0c42db6e9b6dd99c6f2cfa2235c1",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "vfx-negative.png",
+      "sha256": "537aac737e0b45f639b4a320e6e936818e45a4ff72aab14ce4c4349d1aedee89",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "vfx-portal.png",
+      "sha256": "9dca56452782831f644fa5f83c67da0c5340804de5c636d4877a2b15b8a3f2a1",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    },
+    {
+      "file": "vfx-positive.png",
+      "sha256": "a42d1d09372b1086a2f1a2d4ee498b9e7b241c4bf01e9baf999288850925907c",
+      "method": "built-in ImageGen; independent generation; targets style-only"
+    }
+  ]
+}

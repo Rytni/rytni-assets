@@ -1,0 +1,46 @@
+{
+  "tool": "built-in ImageGen",
+  "referenceRole": "style only; independent assets, no extracted target pixels",
+  "prompts": [
+    {
+      "name": "head",
+      "prompt": "Create a NEW independently drawn production sprite for premium retro Mushroom Snake. Input images are STYLE REFERENCES ONLY, not edit targets. DO NOT crop, trace, copy, extract, repaint their pixels or make a screenshot. Match their crisp antique gold/wood/emerald commercial 16-bit pixel art system. Actual transparent background. Pixel clusters, stepped edges, no blur, no 3D render, no vector smoothness. ONE snake HEAD facing RIGHT, viewed directly top-down as in reference, with a flat square-rounded ivory cream face, two tiny expressive dark emerald eyes visible from above, little dark nose and subtle smile. Wider than neck. Small red mushroom with cream dots at its upper-left rear corner, two tiny moss leaves below mushroom. Face rather than mushroom is main identity. Rear ivory neck extends LEFT to touch x=0, exactly centered, straight squared connector. Canvas 1024 square, head centered within x220..920 y260..760, neck from x0 to360 y350..674. Strong cream top highlight and pale gold bottom shade; restrained pixel flecks. NO full snake, NO body strip, NO labels, no huge hat."
+    },
+    {
+      "name": "logo",
+      "prompt": "Create a NEW independently drawn production sprite for premium retro Mushroom Snake. Input images are STYLE REFERENCES ONLY, not edit targets. DO NOT crop, trace, copy, extract, repaint their pixels or make a screenshot. Match their crisp antique gold/wood/emerald commercial 16-bit pixel art system. Actual transparent background. Pixel clusters, stepped edges, no blur, no 3D render, no vector smoothness. ONE large transparent isolated GAME LOGO: exact text \"MUSHROOM\" on first line and \"SNAKE\" on second line, traditional premium gold-and-ivory carved pixel serif lettering, wide top line and shorter bottom line. Small red mushrooms and dark green leaves growing around lower sides. Tiny gold separators either side of SNAKE. Large legible wordmark, NOT a panel, NO background rectangle. Very close typography/material language to reference. Horizontal composition."
+    },
+    {
+      "name": "frame",
+      "prompt": "Create a NEW independently drawn production sprite for premium retro Mushroom Snake. Input images are STYLE REFERENCES ONLY, not edit targets. DO NOT crop, trace, copy, extract, repaint their pixels or make a screenshot. Match their crisp antique gold/wood/emerald commercial 16-bit pixel art system. Actual transparent background. Pixel clusters, stepped edges, no blur, no 3D render, no vector smoothness. ONE empty rectangular arena FRAME asset, thick rich dark reddish wood rails with antique gold inner trim, fixed ornate square brass corner joints, clustered emerald moss leaves and little red spotted mushrooms at all four corners. Front-on symmetrical no perspective. Transparent center and outside. Landscape rectangle 3:2. Frame about 6% image width, large corner joints about12%. Straight middle rails usable as nine-slice. No HUD, logo, text, snake, arena floor, scenery, buttons or game objects. Heavy crafted fantasy arcade cabinet frame, NOT thin generic gold border. Preserve transparent center."
+    },
+    {
+      "name": "hud",
+      "prompt": "Create a NEW independently drawn production sprite for premium retro Mushroom Snake. Input images are STYLE REFERENCES ONLY, not edit targets. DO NOT crop, trace, copy, extract, repaint their pixels or make a screenshot. Match their crisp antique gold/wood/emerald commercial 16-bit pixel art system. Actual transparent background. Pixel clusters, stepped edges, no blur, no 3D render, no vector smoothness. ONE empty wide rectangular HUD module/button panel, very dark emerald-teal inset center; thick carved dark reddish wood borders, thin antique-gold bevel, tiny intricate brass corner brackets. Front-on, pixel art, 3:2 aspect, transparent outside. Wide quiet dark inset suitable for live numerical text. No text, logo, icons or decoration in center. Nine-slice capable: fixed corner size, straight axis rails, quiet flat textured center. Match reference score/length HUD cabinet material."
+    },
+    {
+      "name": "material",
+      "prompt": "NEW independently authored seamless square material texture for ivory-cream retro Snake skin. Style reference only; no tracing or extraction. Opaque cream field, subtle restrained pale gold and ivory pixel flecks, delicate warm slightly darker natural mottling. No grid, no edges, no moss, no mushrooms, no face, NO snake silhouette. 16-bit premium pixel art material fill, low contrast; single square texture. Will be masked by independently authored grid-snake geometry. NOT a screenshot."
+    },
+    {
+      "name": "seed",
+      "prompt": "NEW independently created production sprite, premium Mushroom Snake retro pixel art. Inputs are STYLE REFERENCES ONLY. Do NOT crop, trace, copy or reuse any reference pixels. Crisp pixel clusters, stepped silhouettes, no blur or realistic 3D. No text or labels. Transparent background. One isolated asset centered, generous clear margins. ONE magical SEED, narrow asymmetrical golden ivory teardrop diamond seed with sharp upward pointed tip, split luminous golden seam, dark golden shell sides, tiny restrained leaf at base. Clearly seed not apple/fruit. Match reference screen strength. No ring, no particles, no pedestal."
+    },
+    {
+      "name": "positive",
+      "prompt": "NEW independently created production sprite, premium Mushroom Snake retro pixel art. Inputs are STYLE REFERENCES ONLY. Do NOT crop, trace, copy or reuse any reference pixels. Crisp pixel clusters, stepped silhouettes, no blur or realistic 3D. No text or labels. Transparent background. One isolated asset centered, generous clear margins. ONE winged CYAN POWER EMBLEM: dark teal hexagonal central shield with gold ivory UP chevron, bright cyan chunky border, two spread small gold-tipped cyan wings. Symmetrical broad horizontal silhouette, readable 32px icon. Match reference winged power token strength. No ring, no particles, no pedestal."
+    },
+    {
+      "name": "negative",
+      "prompt": "NEW independently created production sprite, premium Mushroom Snake retro pixel art. Inputs are STYLE REFERENCES ONLY. Do NOT crop, trace, copy or reuse any reference pixels. Crisp pixel clusters, stepped silhouettes, no blur or realistic 3D. No text or labels. Transparent background. One isolated asset centered, generous clear margins. ONE purple-black SPIKED HAZARD: jewel-like dark purple central faceted core, angular magenta border, eight prominent pointed magenta spikes in cardinal and diagonal directions. Chunky sinister silhouette, small ivory specular highlight. Very readable at 32px. NOT round fruit or collectible ring, no particles."
+    },
+    {
+      "name": "portal",
+      "prompt": "NEW independently created production sprite, premium Mushroom Snake retro pixel art. Inputs are STYLE REFERENCES ONLY. Do NOT crop, trace, copy or reuse any reference pixels. Crisp pixel clusters, stepped silhouettes, no blur or realistic 3D. No text or labels. Transparent background. One isolated asset centered, generous clear margins. ONE substantial WORLD PORTAL directly top-down: upright circular rippling stepped pixel rim blue/cyan/indigo/purple, thick segmented irregular rim, absolute dark near-black open center, a few bounded floating square cyan/purple fragments around rim. No bloom or blur. Large screen presence. Not a thin ring or positive collectible. No scene or pedestal."
+    },
+    {
+      "name": "stone",
+      "prompt": "NEW independently created production sprite, premium Mushroom Snake retro pixel art. Inputs are STYLE REFERENCES ONLY. Do NOT crop, trace, copy or reuse any reference pixels. Crisp pixel clusters, stepped silhouettes, no blur or realistic 3D. No text or labels. Transparent background. One isolated asset centered, generous clear margins. ONE neutral collision stone block directly top-down. Squared irregular beveled dark grey slate block with four broad rock plates and diagonal cracks, ivory subdued edge specular, solid dark underedge. Rectangular readable full-cell obstacle, NOT rounded pebble or foliage. Matches target neutral block. No moss, no particles."
+    }
+  ]
+}
