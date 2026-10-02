@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="data:,">
+<title>Snake Next · DEV Training</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101c19;color:#e6efde;font:16px system-ui}button{background:#30473a;border:1px solid #7e997b;color:#f1f5dc;border-radius:6px;padding:10px 18px;min-height:44px;cursor:pointer;font:inherit}button:hover{background:#466247}button:focus-visible{outline:3px solid #fff0a0}button:disabled{opacity:.4}button:active{background:#628759}
+#dev{height:100dvh;max-width:1920px;margin:auto;display:flex;flex-direction:column;padding:8px max(8px,env(safe-area-inset-right)) 8px max(8px,env(safe-area-inset-left));gap:6px}header{display:flex;gap:8px;align-items:center;flex-wrap:wrap}header strong{margin-right:auto}#hud{font-size:13px;color:#c9d8b8}#stage{position:relative;flex:1;min-height:0;border:1px solid #678068}canvas{display:block;width:100%;height:100%;touch-action:none}section[data-screen]{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;background:#101c19c9}section[hidden]{display:none}article{max-width:540px;padding:24px;background:#22342b;border:1px solid #6b8767}article h1{margin-top:0}article p{line-height:1.5}#dpad{display:none;gap:6px;justify-content:center;touch-action:none}#dpad button{width:56px;height:48px;padding:4px}#diagnostic{font-size:12px;min-height:15px;color:#ffcd8c}#portrait{display:none}
+@media(pointer:coarse),(max-height:500px){#dpad{display:flex}header button{padding:6px 12px}#dev{padding-top:4px;padding-bottom:max(4px,env(safe-area-inset-bottom))}#hud{font-size:12px}article{padding:14px}}
+@media(orientation:portrait){#portrait{display:block}#stage{min-height:260px}article{max-width:95%;padding:20px}header strong{width:100%}#dpad{display:flex}}
+</style>
+<main id="dev" data-state="main">
+<header><strong>Snake Next · DEV ONLY</strong><button id="pause" onclick="snakeDev.pause()">Pause</button><button onclick="snakeDev.fullscreen()">Fullscreen</button><button onclick="snakeDev.main()">Main</button><span id="hud"></span></header>
+<div id="stage"><canvas aria-label="Snake Training arena"></canvas>
+<section data-screen="main"><article><h1>Classic Snake Training</h1><p>Cream Snake moves forward. Orange dot = food (+100, grow 1). Gray blocks = collision. Turn with WASD / arrows or the D-pad.</p><p id="portrait">Rotate to landscape for Training. No orientation lock required in this isolated DEV entry.</p><button onclick="snakeDev.start()">Start Training</button><p>Seed 7 · managed arena · no backend / art / audio</p></article></section>
+<section data-screen="paused" hidden><article><h1>Paused</h1><p id="pause-copy"></p><button onclick="snakeDev.resume()">Resume</button> <button onclick="snakeDev.start()">Restart</button></article></section>
+<section data-screen="result" hidden><article><h1>Result</h1><p id="result-copy"></p><button onclick="snakeDev.start()">Restart</button> <button onclick="snakeDev.main()">Main Menu</button></article></section></div>
+<nav id="dpad" aria-label="Direction controls"><button data-dir="3" aria-label="Left">←</button><button data-dir="0" aria-label="Up">↑</button><button data-dir="2" aria-label="Down">↓</button><button data-dir="1" aria-label="Right">→</button></nav>
+<div id="diagnostic" role="status"></div>
+</main>
+<script type="module">import {Training} from './runtime/training.js';window.snakeDev=new Training(document.getElementById('dev'));if(new URLSearchParams(location.search).get('qa')==='1'){const {installQA}=await import('./tests/browser-qa.js');installQA(snakeDev);}</script>
+</html>

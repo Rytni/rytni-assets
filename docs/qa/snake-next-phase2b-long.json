@@ -1,0 +1,78 @@
+{
+  "wallSeconds": 764.493400000006,
+  "ui": "playing",
+  "tick": 45869,
+  "score": 11700,
+  "length": 125,
+  "food": 3873,
+  "hash": "1f8bb04d",
+  "cadence": 6,
+  "frames": 181430,
+  "recoveries": 0,
+  "rendererFaults": 0,
+  "backing": {
+    "width": 1348,
+    "height": 679,
+    "dpr": 1,
+    "resizes": 1
+  },
+  "resources": {
+    "raf": 1,
+    "timers": 1,
+    "listeners": 5,
+    "observers": 1,
+    "audio": 0
+  },
+  "metrics": {
+    "simulation": {
+      "p50": 0,
+      "p95": 0.29999999701976776,
+      "max": 5.5999999940395355,
+      "samples": 6000
+    },
+    "renderer": {
+      "p50": 0.09999999403953552,
+      "p95": 0.20000000298023224,
+      "max": 2.2000000029802322,
+      "samples": 6000
+    },
+    "whole": {
+      "p50": 0.10000000894069672,
+      "p95": 0.29999999701976776,
+      "max": 2.800000011920929,
+      "samples": 6000
+    }
+  },
+  "longBody": {
+    "ui": "playing",
+    "tick": 126,
+    "score": 0,
+    "length": 1200,
+    "food": 97,
+    "hash": "e14b8f3b",
+    "cadence": 15,
+    "frames": 401,
+    "recoveries": 0,
+    "rendererFaults": 0,
+    "backing": {
+      "width": 1902,
+      "height": 991,
+      "dpr": 1,
+      "resizes": 0
+    },
+    "resources": {
+      "raf": 1,
+      "timers": 1,
+      "listeners": 5,
+      "observers": 1,
+      "audio": 0
+    }
+  },
+  "afterLeave": {
+    "raf": 0,
+    "timers": 0,
+    "listeners": 0,
+    "observers": 0,
+    "audio": 0
+  }
+}

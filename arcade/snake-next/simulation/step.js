@@ -3,6 +3,7 @@ import {neighbour} from './rules.js';
 import {occupied,bodyCell,moveBody} from './body.js';
 import {chooseFood} from './food.js';
 import {emit} from './state.js';
+import {movementCadence} from './difficulty.js';
 
 /** One authoritative tick; no render timestamps.
  * @param {import('./types.js').State} state
@@ -16,9 +17,11 @@ export function step(state,arena,rules,commands=[]) {
   if(state.status!=='playing')return false;
   if(state.rulesKey!==rules.key||state.arenaHash!==arena.topologyHash)throw Error('Session configuration mismatch');
   state.tick++;
-  for(const command of commands)enqueueTurn(state,command);
-  if(++state.movePhase<rules.ticksPerCell)return true;
+  for(const command of commands)if(enqueueTurn(state,command))emit(state,'turn-queued',{inputSequence:command.sequence,direction:command.direction});
+  if(++state.movePhase<state.cadence)return true;
+  const turning=state.turnCount>0;
   state.movePhase=0;state.direction=takeTurn(state);
+  if(turning)emit(state,'turn-applied',{direction:state.direction});
   const next=neighbour(bodyCell(state,0),state.direction,arena.width,arena.height);
   const eat=next===state.food,grow=state.growth+(eat?rules.foodGrowth:0)>0;
   const tail=bodyCell(state,state.length-1);
@@ -31,5 +34,6 @@ export function step(state,arena,rules,commands=[]) {
     if(state.food<0){state.status='full';state.reason=state.length===arena.freeCount?'arena-filled':'no-legal-food';emit(state,'terminal',{reason:state.reason});}
     else emit(state,'food-spawned',{cell:state.food});
   }
+  state.cadence=movementCadence(state,rules);
   return state.status==='playing';
 }

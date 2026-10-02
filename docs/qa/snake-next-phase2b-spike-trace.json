@@ -1,0 +1,41 @@
+{
+  "result": {
+    "length": 8,
+    "simulation": {
+      "p50": 0,
+      "p95": 0.20000000298023224,
+      "max": 4.5,
+      "samples": 1000
+    },
+    "renderer": {
+      "p50": 0.29999999701976776,
+      "p95": 1.7999999970197678,
+      "max": 4.799999997019768,
+      "samples": 1000
+    },
+    "whole": {
+      "p50": 0.29999999701976776,
+      "p95": 2,
+      "max": 4.799999997019768,
+      "samples": 1000
+    },
+    "consumption": {
+      "p50": 1.3999999910593033,
+      "p95": 5.200000002980232,
+      "max": 6.299999997019768,
+      "samples": 100
+    },
+    "consumptionWhole": {
+      "p50": 1.7000000029802322,
+      "p95": 6,
+      "max": 9.299999997019768,
+      "samples": 100
+    },
+    "outliers": [],
+    "hash": "e9bdd02f",
+    "renderedSegments": 8
+  },
+  "samples": [],
+  "traceEvents": 20779,
+  "classification": "Only explicit GC intervals are labelled GC; untraced original outlier is not attributed."
+}

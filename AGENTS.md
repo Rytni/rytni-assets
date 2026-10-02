@@ -30,6 +30,7 @@
 - Legacy performance-sensitive code: 60 Hz Snake simulation, typed ring buffer, bounded 5×5 world streaming, bounded render cache, DPR caps, and interpolation. These are legacy implementation details, not architectural requirements for a rebuild; retain long-body QA at 100/250/500/1200 segments.
 - A new Snake requires a separate source entry point and independently designed simulation/render/world/spawn modules. Do not copy legacy architecture; reuse only tiny utilities independently verified safe. New production art/audio must be independently created, not extracted or repackaged from legacy assets.
 - Snake Next foundation is `arcade/snake-next/entry.js`: managed configurable arena, pure deterministic simulation, main-thread fixed timer driver (not RAF-driven simulation). Keep the core independent of Hub/ranked/rendering. Worker-compatible data does not mean a Worker default; require measured need before adding one.
+- Snake Next isolated DEV Training is `arcade/snake-next/dev.html`; `runtime/` owns input/lifecycle, `presentation/` reads snapshots only. It is not a public Hub entry. Serve locally; `?qa=1` explicitly enables test-only helpers.
 - Concept images are art direction only. Never crop/reference-segment them into production assets.
 
 ## Build and verification
@@ -37,6 +38,7 @@
 Run from the repository root:
 
 - `node --test arcade/snake-next/tests/foundation.test.js` — new independent foundation.
+- `node --test arcade/snake-next/tests/presentation.test.js` — canonical geometry, Training curve and presentation invariants.
 - `node arcade/snake-next/tests/run-benchmark.js` — simulation-only; browser CPU×4 fixture is documented in its README.
 - `& .\tools\test-test-deploy-guard.ps1` — throwaway Git safety fixtures, no deployment.
 - `node arcade/test-snake-core.cjs`

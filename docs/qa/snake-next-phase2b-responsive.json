@@ -1,0 +1,933 @@
+{
+  "rows": [
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 33,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1348,
+          "height": 679,
+          "dpr": 1,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1348,
+        "height": 679
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1.5,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 32,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 2022,
+          "height": 1019,
+          "dpr": 1.5,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1348,
+        "height": 679
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 2,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 28,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 2696,
+          "height": 1358,
+          "dpr": 2,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1348,
+        "height": 679
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 31,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1902,
+          "height": 991,
+          "dpr": 1,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 991
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1.5,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 26,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 2853,
+          "height": 1487,
+          "dpr": 1.5,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 991
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 17,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 3804,
+          "height": 1982,
+          "dpr": 2,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 991
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 1,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 32,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1902,
+          "height": 1351,
+          "dpr": 1,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 1351
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 1.5,
+      "summary": {
+        "ui": "playing",
+        "tick": 8,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "223e520c",
+        "cadence": 15,
+        "frames": 21,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 2853,
+          "height": 2027,
+          "dpr": 1.5,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 1351
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "dpr": 2,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 12,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 3804,
+          "height": 2702,
+          "dpr": 2,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 1902,
+        "height": 1351
+      },
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "dpr": 1,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 30,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 826,
+          "height": 255,
+          "dpr": 1,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 826,
+        "height": 255
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 315.40000000596046,
+            "commandEnqueueMs": 324.40000000596046,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 327.79999999701977,
+            "eventTick": 2,
+            "appliedMs": 544.4000000059605,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 9,
+            "simulationEnqueueLatencyMs": 3.3999999910593033,
+            "enqueueLatencyMs": 12.399999991059303,
+            "boundaryWaitMs": 216.6000000089407
+          },
+          {
+            "eventMs": 342.90000000596046,
+            "commandEnqueueMs": 348.90000000596046,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 361,
+            "eventTick": 4,
+            "appliedMs": 794.2000000029802,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 6,
+            "simulationEnqueueLatencyMs": 12.099999994039536,
+            "enqueueLatencyMs": 18.099999994039536,
+            "boundaryWaitMs": 433.20000000298023
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "dpr": 1.5,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 33,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1239,
+          "height": 383,
+          "dpr": 1.5,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 826,
+        "height": 255
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 322.09999999403954,
+            "commandEnqueueMs": 329.79999999701977,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 344.20000000298023,
+            "eventTick": 2,
+            "appliedMs": 560.9000000059605,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 7.700000002980232,
+            "simulationEnqueueLatencyMs": 14.400000005960464,
+            "enqueueLatencyMs": 22.100000008940697,
+            "boundaryWaitMs": 216.70000000298023
+          },
+          {
+            "eventMs": 351.90000000596046,
+            "commandEnqueueMs": 359.70000000298023,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 362.5,
+            "eventTick": 3,
+            "appliedMs": 811,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 7.799999997019768,
+            "simulationEnqueueLatencyMs": 2.7999999970197678,
+            "enqueueLatencyMs": 10.599999994039536,
+            "boundaryWaitMs": 448.5
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "dpr": 2,
+      "summary": {
+        "ui": "playing",
+        "tick": 7,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "ff0e3c3e",
+        "cadence": 15,
+        "frames": 31,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1652,
+          "height": 510,
+          "dpr": 2,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 826,
+        "height": 255
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 313,
+            "commandEnqueueMs": 322.09999999403954,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 326.79999999701977,
+            "eventTick": 2,
+            "appliedMs": 543.2999999970198,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 9.099999994039536,
+            "simulationEnqueueLatencyMs": 4.700000002980232,
+            "enqueueLatencyMs": 13.799999997019768,
+            "boundaryWaitMs": 216.5
+          },
+          {
+            "eventMs": 359.19999998807907,
+            "commandEnqueueMs": 370.79999999701977,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 376.3999999910593,
+            "eventTick": 5,
+            "appliedMs": 793.1999999880791,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 11.600000008940697,
+            "simulationEnqueueLatencyMs": 5.5999999940395355,
+            "enqueueLatencyMs": 17.200000002980232,
+            "boundaryWaitMs": 416.79999999701977
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 915,
+      "height": 412,
+      "dpr": 1,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 29,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 897,
+          "height": 277,
+          "dpr": 1,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 897,
+        "height": 277
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 328.19999998807907,
+            "commandEnqueueMs": 336,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 343.19999998807907,
+            "eventTick": 2,
+            "appliedMs": 559.7999999970198,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 7.800000011920929,
+            "simulationEnqueueLatencyMs": 7.199999988079071,
+            "enqueueLatencyMs": 15,
+            "boundaryWaitMs": 216.6000000089407
+          },
+          {
+            "eventMs": 358.8999999910593,
+            "commandEnqueueMs": 365.69999998807907,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 376.79999999701977,
+            "eventTick": 4,
+            "appliedMs": 809.3999999910593,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 6.799999997019768,
+            "simulationEnqueueLatencyMs": 11.100000008940697,
+            "enqueueLatencyMs": 17.900000005960464,
+            "boundaryWaitMs": 432.59999999403954
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 915,
+      "height": 412,
+      "dpr": 1.5,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 30,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1346,
+          "height": 416,
+          "dpr": 1.5,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 897,
+        "height": 277
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 329.5,
+            "commandEnqueueMs": 338.29999999701977,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 348.20000000298023,
+            "eventTick": 2,
+            "appliedMs": 565,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 8.799999997019768,
+            "simulationEnqueueLatencyMs": 9.900000005960464,
+            "enqueueLatencyMs": 18.700000002980232,
+            "boundaryWaitMs": 216.79999999701977
+          },
+          {
+            "eventMs": 392,
+            "commandEnqueueMs": 401.6000000089407,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 414.90000000596046,
+            "eventTick": 6,
+            "appliedMs": 814.7000000029802,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 9.600000008940697,
+            "simulationEnqueueLatencyMs": 13.299999997019768,
+            "enqueueLatencyMs": 22.900000005960464,
+            "boundaryWaitMs": 399.79999999701977
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 915,
+      "height": 412,
+      "dpr": 2,
+      "summary": {
+        "ui": "playing",
+        "tick": 6,
+        "score": 0,
+        "length": 8,
+        "food": 3087,
+        "hash": "579053cc",
+        "cadence": 15,
+        "frames": 31,
+        "recoveries": 0,
+        "rendererFaults": 0,
+        "backing": {
+          "width": 1794,
+          "height": 554,
+          "dpr": 2,
+          "resizes": 1
+        },
+        "resources": {
+          "raf": 1,
+          "timers": 1,
+          "listeners": 5,
+          "observers": 1,
+          "audio": 0
+        }
+      },
+      "rect": {
+        "width": 897,
+        "height": 277
+      },
+      "input": {
+        "direction": 3,
+        "latencies": [
+          {
+            "eventMs": 358.3999999910593,
+            "commandEnqueueMs": 368,
+            "source": "dpad",
+            "direction": 2,
+            "enqueueMs": 381.3999999910593,
+            "eventTick": 4,
+            "appliedMs": 564.5,
+            "appliedTick": 15,
+            "commandEnqueueLatencyMs": 9.600000008940697,
+            "simulationEnqueueLatencyMs": 13.399999991059303,
+            "enqueueLatencyMs": 23,
+            "boundaryWaitMs": 183.1000000089407
+          },
+          {
+            "eventMs": 420.5,
+            "commandEnqueueMs": 429.59999999403954,
+            "source": "dpad",
+            "direction": 3,
+            "enqueueMs": 431,
+            "eventTick": 7,
+            "appliedMs": 818.1999999880791,
+            "appliedTick": 30,
+            "commandEnqueueLatencyMs": 9.099999994039536,
+            "simulationEnqueueLatencyMs": 1.4000000059604645,
+            "enqueueLatencyMs": 10.5,
+            "boundaryWaitMs": 387.19999998807907
+          }
+        ]
+      },
+      "targets": [
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        },
+        {
+          "w": 56,
+          "h": 48
+        }
+      ],
+      "portraitRestart": "PASS",
+      "afterLeave": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}
