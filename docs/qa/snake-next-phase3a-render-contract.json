@@ -1,0 +1,19 @@
+{
+  "before": "2457ab6c",
+  "after": "2457ab6c",
+  "first": {
+    "floor": 107808958,
+    "objects": 4005055563,
+    "decor": 524,
+    "obstacles": 396
+  },
+  "second": {
+    "floor": 107808958,
+    "objects": 4005055563,
+    "decor": 524,
+    "obstacles": 396
+  },
+  "cacheSize": 1,
+  "injectedFaults": 1,
+  "recoveredHoles": 0
+}

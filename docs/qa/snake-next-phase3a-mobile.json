@@ -1,0 +1,94 @@
+{
+  "cases": [
+    {
+      "width": 360,
+      "height": 800,
+      "top": 160.625,
+      "bottom": 685.375,
+      "viewport": 800,
+      "timers": 0,
+      "coarse": true,
+      "dpr": 3
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "top": 182.625,
+      "bottom": 707.375,
+      "viewport": 844,
+      "timers": 0,
+      "coarse": true,
+      "dpr": 3
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "top": 226.625,
+      "bottom": 751.375,
+      "viewport": 932,
+      "timers": 0,
+      "coarse": true,
+      "dpr": 3
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "accepted": 2,
+      "resources": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    },
+    {
+      "width": 915,
+      "height": 412,
+      "accepted": 2,
+      "resources": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 0
+      }
+    }
+  ],
+  "orientation": {
+    "ui": "paused",
+    "tick": 0,
+    "score": 0,
+    "length": 8,
+    "food": 3087,
+    "hash": "2457ab6c",
+    "cadence": 15,
+    "frames": 6,
+    "recoveries": 0,
+    "rendererFaults": 0,
+    "backing": {
+      "width": 756,
+      "height": 1466,
+      "dpr": 2,
+      "resizes": 1
+    },
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 5,
+      "observers": 1,
+      "audio": 1
+    },
+    "audio": {
+      "sources": 1,
+      "music": 0,
+      "context": "running",
+      "decoded": 11,
+      "error": ""
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "notFound": []
+}

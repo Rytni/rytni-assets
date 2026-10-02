@@ -1,0 +1,23 @@
+{
+  "intentional404": [
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/hero-v1.webp"
+  ],
+  "before": {
+    "origin": 1790929675834.4,
+    "mainHidden": true,
+    "canvas": "hidden",
+    "appExists": false
+  },
+  "after": {
+    "origin": 1790929676094.6,
+    "ui": "main",
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 0,
+      "observers": 0,
+      "audio": 0
+    }
+  },
+  "errors": []
+}

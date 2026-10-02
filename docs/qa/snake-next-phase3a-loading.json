@@ -1,0 +1,83 @@
+{
+  "cold": {
+    "timing": {
+      "boot": 48.400000005960464,
+      "CRITICAL_ASSETS": 48.6000000089407,
+      "criticalDecoded": 105.80000001192093,
+      "MAIN_READY": 106.40000000596046,
+      "mainVisible": 106.40000000596046,
+      "GAME_ASSETS": 106.40000000596046,
+      "READY": 248.6000000089407,
+      "gameReady": 248.6000000089407
+    },
+    "criticalLoaded": 69.1000000089407,
+    "criticalDecoded": 105.80000001192093,
+    "critical": 7,
+    "game": 11,
+    "audio": 11
+  },
+  "first": {
+    "boot": 48.400000005960464,
+    "CRITICAL_ASSETS": 48.6000000089407,
+    "criticalDecoded": 105.80000001192093,
+    "MAIN_READY": 106.40000000596046,
+    "mainVisible": 106.40000000596046,
+    "GAME_ASSETS": 106.40000000596046,
+    "READY": 248.6000000089407,
+    "gameReady": 248.6000000089407,
+    "lastStartClick": 284.80000001192093,
+    "firstForestPaint": 298.1000000089407,
+    "firstForestVisible": 298.6000000089407,
+    "bakeMs": 6,
+    "assets": 18
+  },
+  "repeat": {
+    "boot": 48.400000005960464,
+    "CRITICAL_ASSETS": 48.6000000089407,
+    "criticalDecoded": 105.80000001192093,
+    "MAIN_READY": 106.40000000596046,
+    "mainVisible": 106.40000000596046,
+    "GAME_ASSETS": 106.40000000596046,
+    "READY": 248.6000000089407,
+    "gameReady": 248.6000000089407,
+    "lastStartClick": 350.1000000089407,
+    "firstForestPaint": 359.80000001192093,
+    "firstForestVisible": 360.20000000298023,
+    "bakeMs": 4.9000000059604645
+  },
+  "repeatRequests": [],
+  "gated": {
+    "ui": "loading",
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 0,
+      "observers": 0,
+      "audio": 0
+    },
+    "canvas": "hidden"
+  },
+  "cancelled": {
+    "ui": "main",
+    "hash": null,
+    "frames": 0,
+    "recoveries": 0,
+    "backing": null,
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 0,
+      "observers": 0,
+      "audio": 0
+    },
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "running",
+      "decoded": 11,
+      "error": ""
+    }
+  },
+  "errors": [],
+  "flyRequests": []
+}

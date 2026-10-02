@@ -1,0 +1,140 @@
+{
+  "tool": "Built-in ImageGen; one request per asset, no legacy/reference extraction",
+  "sourceRoot": "C:/Users/rytni/.codex/generated_images/01a08321-eab4-7933-939d-19e5a820a209",
+  "runtimeRoot": "arcade/snake-next/assets",
+  "rows": [
+    {
+      "id": "Head",
+      "status": "accepted",
+      "runtime": "character/head-right-v1.webp",
+      "source": "exec-6c11dc6d-95a6-4080-8400-45f91af5f9b4.png",
+      "prompt": "Use case: stylized-concept. Asset type: single production gameplay sprite for top-down 2D pixel-art fantasy Snake game, NOT concept sheet. Create from scratch one isolated friendly fantasy snake HEAD with a short cream neck, facing RIGHT. True transparent background, no ground or baked shadow. Strict orthographic top-down view with just enough face visibility for two warm amber expressive eyes and rounded ivory snout. Head is a natural snake/reptile head, NEVER a mushroom cap. Ivory/light cream scales, olive moss and two small leaf sprigs at the BACK of neck only. Absolutely no large red hat, no horns, no limbs. Consistent crisp pixel-art clusters like a polished 48x48 game sprite enlarged nearest-neighbor, dark olive 1-pixel outline, upper-left warm light. Head broad at cheeks, soft rounded snout points right, clean neck connection at left. Occupies central 70% of square image, transparent generous padding. Simple readable details at 32 CSS pixels. One head only, no body snake, no text, no frames, no checkerboard, no backdrop, no glow/blur, no watermark. Production asset, not a screenshot. Cream head MUST remain the focal point."
+    },
+    {
+      "id": "Body",
+      "status": "accepted",
+      "runtime": "character/skin-v1.webp",
+      "source": "exec-f3e7bb2e-9584-4c1d-a1db-ff9974582081.png",
+      "prompt": "Use case: stylized-concept. Asset type: one seamless opaque pixel-art body skin texture for a cream fantasy snake. From scratch, fill the entire square with small ivory/light cream reptile scales, restrained tan half-tone under each scale, sparse very tiny muted olive moss flecks, upper-left warm illumination, dark olive detailing only as thin scale seams. Seamless/tileable across all edges, no big motif, no head, no eyes, no limbs, no mushroom caps, no silhouette, no background. Premium modern crisp pixel art with a coarse 48x48 logical pixel grid enlarged, no blur or smooth gradients. Palette cream #efe2bb, warm bone #d7c79c, tan #bca477, soft moss #778244. The texture will be clipped to a continuous narrow snake body and pointed taper, seen at 20-32 pixels wide. Low contrast interior, readable cream dominant. No border, no letters, no watermark, no scene."
+    },
+    {
+      "id": "Moss",
+      "status": "accepted",
+      "runtime": "character/moss-mushrooms-v1.webp",
+      "source": "exec-95edddb3-ae12-45a4-b3f8-4d3e4398c8e3.png",
+      "prompt": "Use case: stylized-concept. Asset type: single tiny production character decoration sprite. Top-down premium pixel art, one compact clump of olive moss with 3 small green leaves and TWO miniature crimson mushrooms growing out of it, ivory short stems and a few cream spots on red caps. NOT a head, no eyes, no reptile, no body. Will sit on a cream fantasy snake's back occupying 12x14 logical pixels at normal gameplay scale. Crisp clustered chunky pixels, dark olive fine outline, warm upper-left highlights, low complexity. Actual transparent alpha background, no floor, no baked shadow, no labels, no border, no checkerboard. Compact centered object with 20% transparent margins, no detached pieces. From scratch independent production sprite, not a crop."
+    },
+    {
+      "id": "Ground",
+      "status": "rejected-noisy",
+      "runtime": null,
+      "source": "exec-2c574bcd-6a28-4a55-a059-f81daec2da29.png",
+      "prompt": "Use case: stylized-concept. Asset type: one production seamless top-down ground texture for Green Forest game. Square fully opaque tile, uniform overhead viewpoint. Premium modern crisp pixel art, mossy forest floor with small dense grass/velvet moss clusters, sparse muted olive leaves and soil flecks. Quiet rich DEEP muted woodland green #263e2c/#354b31/#405337, occasional dry earth #494534. Very low contrast, no luminous objects, no mushrooms, no flowers, no rocks, no trees, no obstacles, no paths or strong bands. Controlled irregular organic microtexture, NO grid or checkerboard, no radial vignette or giant repeated shapes. Entire image full of ground, genuinely seamless at all edges. Crisp square pixels equivalent to 128x128 logical texels enlarged; no smooth gradients, no blur. This is final production raster tile, not concept art or screenshot. Cream snake and golden food will contrast strongly. No text, watermark, border, environment horizon."
+    },
+    {
+      "id": "Decor",
+      "status": "accepted",
+      "runtime": "forest/fern-v1.webp",
+      "source": "exec-1e2f7374-4ce0-4be3-a596-6eacde83100d.png",
+      "prompt": "Use case: stylized-concept. Asset type: one production NON-COLLIDING forest fern composition sprite. True transparent background. Top-down low-profile patch of 2 graceful small ferns, three fallen leaves, a short twig and 3 tiny muted pale lilac flowers at one edge. Irregular compact asymmetric ground-hugging arrangement, lots of open alpha between leaves; no central solid boulder, no trunk or large mushroom. Muted forest olive/green/umber, flower petals subdued not bright yellow. Dark soft outline, upper-left warm highlights, premium crisp pixel art equivalent to a 48x40 logical sprite enlarged. It will occupy at most 1.1 cells, be lower contrast than a cream snake and golden seed. No glow, no backdrop, no fake transparency checkerboard, no text, no labels, no border, no watermark. All pieces near one composition, no sprite sheet."
+    },
+    {
+      "id": "Rock",
+      "status": "accepted",
+      "runtime": "forest/rock-v1.webp",
+      "source": "exec-723d01b7-c949-4931-8867-845cbd7c9cbe.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE production collision obstacle sprite, a heavy mossy granite boulder. Orthographic overhead top-down 2D forest game, no side-view. Compact roughly square irregular footprint, fully solid center, 85% width/height, genuine transparent margins, no ground square. Heavy muted gray-green faceted rock with dark forest olive outline, sparse moss on upper edges, warm upper-left light, hard pixel-art contact shadow under bottom edge included. Premium modern chunky crisp pixels equivalent to 40x40 logical sprite. It must read as a solid obstacle, NOT collectible, not glowing or gold, no crystals. Clear silhouette nearly fills its one collision cell. No scene, horizon, blur, fake checkerboard, text, border, labels, sprite sheet or watermark. Original production sprite from scratch."
+    },
+    {
+      "id": "Stump",
+      "status": "accepted",
+      "runtime": "forest/stump-v1.webp",
+      "source": "exec-3c02f60a-5f6d-4230-a1af-127368f2a7d3.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE production collision obstacle sprite of a squat OLD TREE STUMP viewed overhead, for top-down pixel-art forest. One compact roughly square sturdy stump with thick gnarly dark bark, exposed muted honey-brown wood rings in center, small dull moss fringes, chunky solid roots that fill most of footprint; heavy grounded silhouette, warm upper-left light and sharp dark pixel contact shadow. Genuine transparent margins, no floor tile, no scene. Crisp premium chunky pixel art equivalent to 40x40 logical sprite, no smooth gradients or blur. At 28px game size must unmistakably read as heavy collision obstacle not food. No glowing core, no crystal, no eyes, no bright red mushrooms, no extra objects. No text, labels, checkerboard, border or watermark. Entire solid object fits central 85% square, not cropped."
+    },
+    {
+      "id": "Root",
+      "status": "accepted",
+      "runtime": "forest/root-v1.webp",
+      "source": "exec-2b6e8e38-088a-44ef-bd09-ff19f67e96a9.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE production collision obstacle sprite, thick intertwined ancient tree ROOT KNOT. True overhead top-down camera. A compact squared solid knot of thick brown roots, gnarled muted bark, occasional subdued olive moss. Not thin decorative twigs, roots densely occupy most of one square cell with a solid center, heavy raised grounded silhouette and crisp dark contact shadow. Uniform 40x40 logical pixel-art grid enlarged, upper-left warm highlights, cream/gold food and snake stay far brighter. Genuine transparent background/margins, no ground plane, no scene, no big surrounding plant. No snakes/heads/eyes, no mushrooms, no jewels/glow, no labels, no text, no borders, no checkerboard, no watermark. Original production raster, not concept."
+    },
+    {
+      "id": "Bush",
+      "status": "accepted",
+      "runtime": "forest/bush-v1.webp",
+      "source": "exec-c2aba47d-c744-48ef-b1fc-8660273b7443.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE production solid collision obstacle sprite, a dense squat THORNY BUSH in top-down woodland pixel game. Compact roughly square/circular nearly full cell footprint, dark dense center, deep bottle green foliage with muted sage/olive highlights and a few thorny brown twigs. Heavy grounded opaque mass, unmistakably solid, NOT low-profile fern decor. Orthographic top-down, warm upper-left light, crisp dark pixel contact shadow. Pixel art equivalent to 40x40 logical pixels enlarged, large readable color clusters, no tiny photorealistic detail, no blur. True transparent background, no grass tile/no scene. No fruit, berries, flowers, luminous objects, coins, gems, text, labels, watermark or fake checkerboard. Central85% sprite with modest transparent padding, original from scratch."
+    },
+    {
+      "id": "Log",
+      "status": "accepted",
+      "runtime": "forest/log-v1.webp",
+      "source": "exec-728e85ee-63c7-41a7-bacb-ebf002398d3b.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE production collision obstacle, a short wide broken mossy log viewed from true overhead. Compact thick chopped forest trunk, wood grain and broken end grain, dark bark edges, muted brown/olive palette, one small moss patch. It is a HEAVY solid raised obstacle occupying most of one square collision cell, not a thin stick. Nearly square overall footprint, log angled diagonally a little with a chunky branch stub. Crisp dark olive contact shadow included, warm upper-left light. Premium pixel-art blocks equivalent40x40 logical pixels enlarged. No scenery, ground tile, foliage spray, mushrooms, food, jewels/glow, no blur. Genuine alpha transparent margin, no checkerboard, labels, text, watermark. Independent production asset from scratch."
+    },
+    {
+      "id": "Food",
+      "status": "accepted",
+      "runtime": "forest/seed-v1.webp",
+      "source": "exec-fc1d7fa6-585d-47c3-898b-91a8e4a12c7c.png",
+      "prompt": "Use case: stylized-concept. Asset type: SINGLE final production regular food sprite for Mushroom Snake. An ENCHANTED FOREST SEED: plump warm amber/golden acorn-like seed with two small fresh green sprout leaves growing from top and a tiny ivory magical star glint. Friendly warm collectible silhouette, not diamond/gem, not a mushroom, not a rock. Orthographic top-down-ish 2D object, oval amber core dominant. Premium modern chunky pixel art equivalent to24x24 logical pixels enlarged, crisp dark warm outline, upper-left highlights, no blur, no giant halo. True transparent background, no floor, no circular badge. Compact centered object occupies65% of square with generous transparent margin. Will render at0.60 world-cell so stays significantly smaller than solid obstacles, bright warm core stands out against dark green ground. No text, watermark, labels, checkerboard, scene or sprite sheet. Original independent production sprite from scratch."
+    },
+    {
+      "id": "Hero",
+      "status": "superseded-halo-cleanup",
+      "runtime": null,
+      "source": "exec-51a9f0ee-303b-44c2-abf6-703ef4c3f4b0.png",
+      "prompt": "Use case: stylized-concept. Asset type: original premium PIXEL ART MENU HERO ILLUSTRATION with genuine transparent background for Mushroom Snake. Reference image is identity reference ONLY, do NOT crop, paste or extract it. Create a NEW full living fantasy snake from scratch matching referenced cream snake head: rounded reptile snout, amber friendly eyes, cream/ivory scales, olive moss/leaves on neck and back. One natural S-curved long light body, NO limbs, ONE head, pointed gradually tapered tail; three tiny clusters of small crimson mushrooms growing ON selected parts of its back. Mushroom NEVER replaces head, absolutely NO giant red cap/hat. Head at upper right looks toward viewer slightly, body curls downward and left, composition wide about3:2, compact coherent silhouette with breathing room. Same crisp enlarged pixel clusters as polished 96x72 logical artwork, dark olive fine outline, warm upper-left light, subtle highlights. More richly detailed than gameplay but unmistakably same creature, not another species. No forest background, no floor/rock, no text, no logo, no other character, no fake checkerboard, no watermark, no blur. Whole snake fully visible, tail not cropped."
+    },
+    {
+      "id": "HeroClean",
+      "status": "accepted",
+      "runtime": "ui/hero-v1.webp",
+      "source": "exec-2d971aaa-b6aa-4f59-8f12-6859edae2475.png",
+      "prompt": "Use case: precise-object-edit. Edit target: generated production menu hero Snake. Change ONLY remove every soft glow/colored halo around the snake, especially yellow/green halo along neck and red halo near mushrooms. Make the exterior genuinely fully transparent right up to a crisp hard pixel-art contour. Preserve character pose, exactly ONE head, cream head/snout, amber eyes, body, tapered tail, moss, tiny red mushrooms, lighting and original pixel colors inside the creature. No additions. No backdrop, no drop shadow, no gradients/blur outside outline. Keep full body visible and do not crop. This must be a usable alpha PNG production sprite, not illustration on dark background."
+    },
+    {
+      "id": "Frame",
+      "status": "accepted",
+      "runtime": "ui/frame-v1.webp",
+      "source": "exec-4dd819b0-a3fd-4fc7-a839-bf8470d067f8.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE final production NINE-SLICE UI FRAME asset, NOT a UI screenshot. Square 1024x1024 canvas. A hollow rectangular premium pixel-art WOODEN FANTASY FRAME with restrained aged gold inner trim, olive moss on corners, tiny leaf ornaments, dark warm wood grain. Each edge about100pixels thick, fixed corner artwork fits within160x160; middle edge strips simple, straight and repeatable/stretchable along ONE axis. Frame runs to canvas perimeter, tiny7px-like pixel bevel on outer corners (NOT big diagonal cut corners), almost rectangular silhouette. Center 704x704 must be FULLY alpha transparent EMPTY, no wood panel/scene inside. Outer corner negative areas genuinely transparent. Upper-left warm lighting, consistent crisp pixel grid equivalent256 logical pixels enlarged. No huge ornaments, no big mushroom hat, no buttons/content, no text, no border captions, no watermark, no fake checkerboard, no blur. This is a shippable production asset to be nine-sliced; symmetric sizing on all sides, no perspective."
+    },
+    {
+      "id": "Surface",
+      "status": "accepted",
+      "runtime": "ui/surface-v1.webp",
+      "source": "exec-f7eb036d-9cd2-4f29-b5fc-a7a4e702e615.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE production tileable dark wooden UI INNER SURFACE texture, not a panel. Fully opaque square, seamless at edges. Very dark warm walnut/forest wood #241e18/#30291e/#3c3425, extremely subtle short woodgrain pixel clusters and tiny occasional moss-tinted flecks. Quiet enough for cream text, no strong lines/bands, no large knots, no planks grid, no frame, no borders, no bevel, no labels. Premium crisp pixel-art about128x128 logical pixels enlarged, upper-left faint light but no gradient vignette. Fine irregular warm texture, NOT flat single color, not photographic. No objects, mushrooms, logo, text, watermark, checkerboard or scene. It fills entire image; tileable both X and Y."
+    },
+    {
+      "id": "Background",
+      "status": "accepted",
+      "runtime": "ui/background-v1.webp",
+      "source": "exec-7eee97fc-8e3c-47c2-be45-d4028c8be2ad.png",
+      "prompt": "Use case: stylized-concept. Asset type: one production forest MAIN MENU BACKGROUND illustration for a premium pixel-art game. Landscape16:9. Enchanting rich GREEN FOREST with tall dark gnarly trunks framing LEFT and RIGHT edges, moss/ferns and miniature red mushrooms on ground at bottom edges, deep woodland layers behind. Center of image a calm dark green empty clearing with no focal object, reserved for UI shell/logo/hero. Warm dappled morning light high in canopy, little subtle firefly specks only in edges. Modern premium crisp pixel-art, consistent square pixels about384x216 logical grid enlarged, no painterly blur, no continuous smooth effects, no strong beams through central UI region. Palette forest/olive greens, warm muted tree bark, restrained small gold accents. NO snake, no character, no menu/text/buttons/frame, no watermark, no gem, no HUD. This is final standalone background art, not screenshot, independent from legacy assets. Rich edges with peaceful negative space center."
+    },
+    {
+      "id": "Logo",
+      "status": "accepted",
+      "runtime": "ui/logo-v1.webp",
+      "source": "exec-28d63827-f6ad-4432-b464-e9d22157ed3b.png",
+      "prompt": "Use case: logo-brand. Asset type: final premium PIXEL ART GAME WORDMARK with real transparent background. Text verbatim TWO LINES: first line \"MUSHROOM\", second line \"SNAKE\". Original chunky hand-built fantasy pixel lettering, warm cream/light golden faces with subtle dark wood depth/olive dark pixel outline, restrained moss on a couple corner letters, TWO miniature crimson mushrooms only as tiny accents outside lettering. All letters fully readable, no invented glyphs, no additional words, no snake/character, no panel/scene. Wordmark about3:1 overall wide, centered, modest transparent padding. Sharp coarse square pixels equivalent to240x80 logical pixels enlarged, no photorealism, no blur, no background glow or shadow cloud. Mushroom is an accent not a head. Do not imitate any existing game franchise typography. No watermark, labels, checkerboard, copyright symbols, slogan or decorative large frame."
+    },
+    {
+      "id": "Button",
+      "status": "accepted",
+      "runtime": "ui/button-v1.webp",
+      "source": "exec-ee1d0ad0-91fe-4d9a-bc87-e4586cb7ce1e.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE production empty fantasy PIXEL ART BUTTON skin suitable for nine-slice scaling. Wide horizontal3:1 rectangle, no text and NO ICON. A single cohesive dark moss-green wooden button body with a fine warm aged-gold edge, very subtle inner bevel, deep calm mossy/wood textured center. Small fixed pixel-art corners, only tiny4px logical corner bevels, not round pill. Outer background genuine alpha transparent, body opaque, no big halo or outer drop shadow. Equivalent144x48 logical crisp square pixel art enlarged, light upper-left, ornate but restrained, readable cream text will be overlaid by game. Exactly ONE visible surface, no button inside button, no nested square. No scenery, mushrooms, leaves sticking far outside, logo, letters, labels, watermark, checkerboard, blur. Original from scratch production UI asset, centered with only small transparent margins."
+    },
+    {
+      "id": "Ground2",
+      "status": "accepted",
+      "runtime": "forest/ground-v2.webp",
+      "source": "exec-07334bab-c1f5-4dba-93b0-e3fcccfa8c70.png",
+      "prompt": "Use case: stylized-concept. Asset type: final production seamless top-down Green Forest GROUND TILE v2. Entire square opaque, NO objects. CRITICAL: floor is QUIET, NOT dense grass/noise. At least70% smooth dark moss carpet made of broad solid muted green pixel clusters with only a few sparse two-pixel flecks. The remaining30% forms irregular low-contrast moss/grass patches and a few subtle dry brown soil islands. NO millions of leaves/grass blades. Colors close in value: deep #26382b, #30432e, #3a4933, muted earth #3c4030. Macro variation within tile large soft irregular pixel region shapes, micro variation sparse and subtle. Seamless all edges, no strong focal motif, no obvious grid, no bright yellowgrass or flowers, no trees/rocks/stumps/mushrooms. Pixel-art equivalent128x128 logical texels enlarged, true crisp clusters not blurred, no gradient, no photographic texture. Designed for cream snake and goldfood extremely readable in top-down arcadegame. No text, watermark, vignette, scene, border, checkerboard. Restrained premium pixel-art, low noise, not uniformly flat."
+    }
+  ]
+}

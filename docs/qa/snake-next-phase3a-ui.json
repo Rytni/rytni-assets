@@ -1,0 +1,144 @@
+{
+  "loading": {
+    "state": "loading",
+    "mainHidden": true,
+    "canvas": "hidden"
+  },
+  "cold": {
+    "timing": {
+      "boot": 105.59999999403954,
+      "CRITICAL_ASSETS": 106.8999999910593,
+      "criticalDecoded": 234.5,
+      "MAIN_READY": 236.79999999701977,
+      "mainVisible": 236.79999999701977,
+      "GAME_ASSETS": 236.79999999701977,
+      "READY": 562.0999999940395,
+      "gameReady": 562.0999999940395
+    },
+    "critical": 7,
+    "game": 11
+  },
+  "repeat": {
+    "wallMs": 149,
+    "newRequests": []
+  },
+  "paused": {
+    "ui": "paused",
+    "tick": 109,
+    "score": 100,
+    "length": 9,
+    "food": 1407,
+    "hash": "0830981f",
+    "cadence": 15,
+    "frames": 433,
+    "recoveries": 0,
+    "rendererFaults": 0,
+    "backing": {
+      "width": 1346,
+      "height": 702,
+      "dpr": 1,
+      "resizes": 0
+    },
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 5,
+      "observers": 1,
+      "audio": 1
+    },
+    "audio": {
+      "sources": 1,
+      "music": 0,
+      "context": "running",
+      "decoded": 11,
+      "error": ""
+    }
+  },
+  "mainEnd": {
+    "ui": "main",
+    "tick": 1,
+    "score": 0,
+    "length": 8,
+    "food": 3087,
+    "hash": "268a8a1a",
+    "cadence": 15,
+    "frames": 13,
+    "recoveries": 0,
+    "rendererFaults": 0,
+    "backing": {
+      "width": 1346,
+      "height": 702,
+      "dpr": 1,
+      "resizes": 5
+    },
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 0,
+      "observers": 0,
+      "audio": 0
+    },
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "running",
+      "decoded": 11,
+      "error": ""
+    }
+  },
+  "screens": [
+    "loading",
+    "main-desktop",
+    "how-desktop",
+    "settings-desktop",
+    "food-pickup",
+    "pause",
+    "restart-confirm",
+    "result-desktop",
+    "main-360",
+    "prompt-360",
+    "main-390",
+    "prompt-390",
+    "main-430",
+    "prompt-430",
+    "how-1920",
+    "how-1366",
+    "main-fullscreen"
+  ],
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "notFound": [],
+  "requests": [
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/background-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/frame-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/surface-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/logo-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/hero-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/button-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/ui/icons-v1.svg",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/forest-theme-v1.ogg",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/hover-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/click-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/pickup-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/combo-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/turn-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/death-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/result-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/pause-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/resume-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/audio/arrival-v1.wav",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/character/head-right-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/character/skin-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/character/moss-mushrooms-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/ground-v2.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/fern-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/rock-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/stump-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/root-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/bush-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/log-v1.webp",
+    "http://127.0.0.1:8771/arcade/snake-next/assets/forest/seed-v1.webp"
+  ],
+  "duplicates": []
+}

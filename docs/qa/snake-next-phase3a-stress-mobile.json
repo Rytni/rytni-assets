@@ -1,0 +1,882 @@
+{
+  "mode": "mobile",
+  "count": 24,
+  "captures": [
+    {
+      "name": "normal-0",
+      "path": ".playwright-cli/phase3a/stress/mobile-00-normal-0.png",
+      "ui": "playing",
+      "tick": 10,
+      "score": 0,
+      "length": 8,
+      "food": 3087,
+      "hash": "f6bd75b4",
+      "cadence": 15,
+      "frames": 43,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-1",
+      "path": ".playwright-cli/phase3a/stress/mobile-01-normal-1.png",
+      "ui": "playing",
+      "tick": 59,
+      "score": 0,
+      "length": 8,
+      "food": 3087,
+      "hash": "5129c349",
+      "cadence": 15,
+      "frames": 98,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-2",
+      "path": ".playwright-cli/phase3a/stress/mobile-02-normal-2.png",
+      "ui": "playing",
+      "tick": 107,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "aa35fa77",
+      "cadence": 15,
+      "frames": 151,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 2
+      },
+      "audio": {
+        "sources": 2,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-3",
+      "path": ".playwright-cli/phase3a/stress/mobile-03-normal-3.png",
+      "ui": "playing",
+      "tick": 155,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "53c7ba53",
+      "cadence": 15,
+      "frames": 204,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-4",
+      "path": ".playwright-cli/phase3a/stress/mobile-04-normal-4.png",
+      "ui": "playing",
+      "tick": 204,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "b7222fa2",
+      "cadence": 15,
+      "frames": 258,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-5",
+      "path": ".playwright-cli/phase3a/stress/mobile-05-normal-5.png",
+      "ui": "playing",
+      "tick": 251,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "50836cfd",
+      "cadence": 15,
+      "frames": 312,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-6",
+      "path": ".playwright-cli/phase3a/stress/mobile-06-normal-6.png",
+      "ui": "playing",
+      "tick": 300,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "4ec64c47",
+      "cadence": 15,
+      "frames": 366,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "normal-7",
+      "path": ".playwright-cli/phase3a/stress/mobile-07-normal-7.png",
+      "ui": "playing",
+      "tick": 348,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "32dbb308",
+      "cadence": 15,
+      "frames": 422,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1648,
+        "height": 582,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-0",
+      "path": ".playwright-cli/phase3a/stress/mobile-08-resize-0.png",
+      "ui": "playing",
+      "tick": 397,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "4067cd33",
+      "cadence": 15,
+      "frames": 479,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-1",
+      "path": ".playwright-cli/phase3a/stress/mobile-09-resize-1.png",
+      "ui": "playing",
+      "tick": 449,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "d4fea217",
+      "cadence": 15,
+      "frames": 536,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-2",
+      "path": ".playwright-cli/phase3a/stress/mobile-10-resize-2.png",
+      "ui": "playing",
+      "tick": 495,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "37f1d998",
+      "cadence": 15,
+      "frames": 590,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-3",
+      "path": ".playwright-cli/phase3a/stress/mobile-11-resize-3.png",
+      "ui": "playing",
+      "tick": 543,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "841c82ac",
+      "cadence": 15,
+      "frames": 646,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-4",
+      "path": ".playwright-cli/phase3a/stress/mobile-12-resize-4.png",
+      "ui": "playing",
+      "tick": 588,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "e82543f4",
+      "cadence": 15,
+      "frames": 701,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resize-5",
+      "path": ".playwright-cli/phase3a/stress/mobile-13-resize-5.png",
+      "ui": "playing",
+      "tick": 635,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "0ce44c55",
+      "cadence": 15,
+      "frames": 756,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "pause",
+      "path": ".playwright-cli/phase3a/stress/mobile-14-pause.png",
+      "ui": "paused",
+      "tick": 671,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "d3dca0c1",
+      "cadence": 15,
+      "frames": 773,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 0,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "settings",
+      "path": ".playwright-cli/phase3a/stress/mobile-15-settings.png",
+      "ui": "settings",
+      "tick": 671,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "d3dca0c1",
+      "cadence": 15,
+      "frames": 773,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 0,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "resume",
+      "path": ".playwright-cli/phase3a/stress/mobile-16-resume.png",
+      "ui": "playing",
+      "tick": 682,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "e1eaf7ed",
+      "cadence": 15,
+      "frames": 816,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 1
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 3
+      },
+      "audio": {
+        "sources": 3,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-0",
+      "path": ".playwright-cli/phase3a/stress/mobile-17-length-250-0.png",
+      "ui": "playing",
+      "tick": 9,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "a5e468e4",
+      "cadence": 15,
+      "frames": 41,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-1",
+      "path": ".playwright-cli/phase3a/stress/mobile-18-length-250-1.png",
+      "ui": "playing",
+      "tick": 54,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "58bce0d0",
+      "cadence": 15,
+      "frames": 96,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-2",
+      "path": ".playwright-cli/phase3a/stress/mobile-19-length-250-2.png",
+      "ui": "playing",
+      "tick": 101,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "6d1ded34",
+      "cadence": 15,
+      "frames": 153,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-3",
+      "path": ".playwright-cli/phase3a/stress/mobile-20-length-250-3.png",
+      "ui": "playing",
+      "tick": 146,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "70419c3d",
+      "cadence": 15,
+      "frames": 208,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-4",
+      "path": ".playwright-cli/phase3a/stress/mobile-21-length-250-4.png",
+      "ui": "playing",
+      "tick": 193,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "28de90e8",
+      "cadence": 15,
+      "frames": 263,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "length-250-5",
+      "path": ".playwright-cli/phase3a/stress/mobile-22-length-250-5.png",
+      "ui": "playing",
+      "tick": 238,
+      "score": 0,
+      "length": 250,
+      "food": 97,
+      "hash": "040fadcf",
+      "cadence": 15,
+      "frames": 319,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 1,
+        "timers": 1,
+        "listeners": 5,
+        "observers": 1,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 1,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    },
+    {
+      "name": "natural-result",
+      "path": ".playwright-cli/phase3a/stress/mobile-23-natural-result.png",
+      "ui": "result",
+      "tick": 1275,
+      "score": 100,
+      "length": 9,
+      "food": 1407,
+      "hash": "1ae080a7",
+      "cadence": 15,
+      "frames": 5103,
+      "recoveries": 0,
+      "rendererFaults": 0,
+      "backing": {
+        "width": 1790,
+        "height": 626,
+        "dpr": 2,
+        "resizes": 0
+      },
+      "resources": {
+        "raf": 0,
+        "timers": 0,
+        "listeners": 0,
+        "observers": 0,
+        "audio": 1
+      },
+      "audio": {
+        "sources": 1,
+        "music": 0,
+        "context": "running",
+        "decoded": 11,
+        "error": ""
+      },
+      "holes": 0
+    }
+  ],
+  "end": {
+    "ui": "main",
+    "tick": 1275,
+    "score": 100,
+    "length": 9,
+    "food": 1407,
+    "hash": "1ae080a7",
+    "cadence": 15,
+    "frames": 5103,
+    "recoveries": 0,
+    "rendererFaults": 0,
+    "backing": {
+      "width": 1790,
+      "height": 626,
+      "dpr": 2,
+      "resizes": 0
+    },
+    "resources": {
+      "raf": 0,
+      "timers": 0,
+      "listeners": 0,
+      "observers": 0,
+      "audio": 0
+    },
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "running",
+      "decoded": 11,
+      "error": ""
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "notFound": []
+}

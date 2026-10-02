@@ -1,0 +1,154 @@
+{
+  "origin": "Independent Phase3A ImageGen raster art + original SVG icons + original synthesized music/SFX; no legacy extraction.",
+  "promptRecord": "../../../docs/qa/snake-next-phase3a-prompts.json",
+  "preparation": "tools/qa/prepare-snake-next-assets.ps1",
+  "audioSource": "tools/qa/create-snake-next-audio.cjs",
+  "decodedMusicPCM16SHA256": "019e36f7f19f54ee2fa01450a8fc39d48dfcae8277311cd2e16035828203f855",
+  "files": [
+    {
+      "path": "audio/arrival-v1.wav",
+      "bytes": 45026,
+      "sha256": "a955780f4e7faf96e5bd212002736ca6fd40d5b2f12bf6dccf4df4a03817f85c"
+    },
+    {
+      "path": "audio/click-v1.wav",
+      "bytes": 17244,
+      "sha256": "e23a1566504c76bfb79725b226c471582c2f82331e7c8d6a8768c45d87ebca71"
+    },
+    {
+      "path": "audio/combo-v1.wav",
+      "bytes": 26504,
+      "sha256": "6dc9faeceba619cfee6080ec215c2ece089aa85666480f6a990f7d4a9979bf1b"
+    },
+    {
+      "path": "audio/death-v1.wav",
+      "bytes": 42380,
+      "sha256": "ddb008b8d5ce6ac1a51ccef19bab0b29de986848e0a7ebe49d283da678e12abb"
+    },
+    {
+      "path": "audio/forest-theme-v1.ogg",
+      "bytes": 332742,
+      "sha256": "d37da3dd2dbff5338bbbc653edf66a3c1ccb0e83b3218c4be0259acc8c38e03a"
+    },
+    {
+      "path": "audio/hover-v1.wav",
+      "bytes": 8864,
+      "sha256": "6d283bbebd14e8e5d0a6b3a133f2cba760c5573be73e6002b64f09aea951ab6d"
+    },
+    {
+      "path": "audio/pause-v1.wav",
+      "bytes": 20330,
+      "sha256": "1242c1a77c233b5fa52f3c8f4e93406e5a28692e9e8ec541d6e0941ccd3f86c0"
+    },
+    {
+      "path": "audio/pickup-v1.wav",
+      "bytes": 30032,
+      "sha256": "4fa2a4f780683cfa9e5037abbf2b8f0a124ebe5fe1673a9e06256ff7d4092669"
+    },
+    {
+      "path": "audio/result-v1.wav",
+      "bytes": 45908,
+      "sha256": "22e51790abae9bcc8891699a1721ae7d627d8bac39ee7164428e1e5414964f0e"
+    },
+    {
+      "path": "audio/resume-v1.wav",
+      "bytes": 20330,
+      "sha256": "e9e3089b796048437eaf5364d5940395bf4d0bf22adc84da047f2297ef090609"
+    },
+    {
+      "path": "audio/turn-v1.wav",
+      "bytes": 5778,
+      "sha256": "28017cdcc8af42714f86a47dfcf663f5635d016bbd77d8259cca2b8d9c648ebf"
+    },
+    {
+      "path": "character/head-right-v1.webp",
+      "bytes": 23778,
+      "sha256": "76ec82471fe080296495dd56ea76745c77fdd1dae7410ad1bf5adcf0d553e9e9"
+    },
+    {
+      "path": "character/moss-mushrooms-v1.webp",
+      "bytes": 7998,
+      "sha256": "a570fc62b7efa2ab76e7e6cc97446f2b9c1e40e292f0d1472e6d73d0ea2ad4a0"
+    },
+    {
+      "path": "character/skin-v1.webp",
+      "bytes": 30614,
+      "sha256": "49d90bcd8ef7f69f30ff825e179f453a38eaadf2f1cf4afc85c0c8c3e1893a06"
+    },
+    {
+      "path": "forest/bush-v1.webp",
+      "bytes": 24988,
+      "sha256": "5f3d69e43d8da81525cd0ccebe2b5851a59fdb077fb2586d7f92526994a5022c"
+    },
+    {
+      "path": "forest/fern-v1.webp",
+      "bytes": 13658,
+      "sha256": "19c0e33439cdd3aabd79c401a676079a4c06f1cf6f858e9aacfffbe43b705a7d"
+    },
+    {
+      "path": "forest/ground-v2.webp",
+      "bytes": 63118,
+      "sha256": "9d095981238835328d3d3da49326c2fc318bf0e58b59b0b8770b9d77d158a827"
+    },
+    {
+      "path": "forest/log-v1.webp",
+      "bytes": 19718,
+      "sha256": "8e08f7b5ae79bf6cb700ba2aecc52437a8a18467a1c1b81d11144a0c675cb199"
+    },
+    {
+      "path": "forest/rock-v1.webp",
+      "bytes": 20240,
+      "sha256": "7bdf49bad543a2f1b7ba36b6126200b317a4185613dddb7296b9cab516a6ed56"
+    },
+    {
+      "path": "forest/root-v1.webp",
+      "bytes": 26320,
+      "sha256": "cd5ff794373995f2796d44c011e6327e594fedbedf3ec06cd48651ebbc1748f8"
+    },
+    {
+      "path": "forest/seed-v1.webp",
+      "bytes": 5124,
+      "sha256": "21fc4fcce748a4c3e501238edb6643cd5f1b1576dac1dfff6174394b6dc77cd2"
+    },
+    {
+      "path": "forest/stump-v1.webp",
+      "bytes": 15206,
+      "sha256": "b8d31f9889aad0934ccd38d7db5553bc3d5a26bbc1b2deb1c13733deffac7113"
+    },
+    {
+      "path": "ui/background-v1.webp",
+      "bytes": 1266804,
+      "sha256": "d3944d0e6df5bfdd0c447acdd0e5c5b1dd13f0ba5959df6948a8dbdee76f5570"
+    },
+    {
+      "path": "ui/button-v1.webp",
+      "bytes": 117202,
+      "sha256": "8a3387d756e5b4813e15888be2db09cdfa690bbb09dc4cc174e75d1af33661e2"
+    },
+    {
+      "path": "ui/frame-v1.webp",
+      "bytes": 273844,
+      "sha256": "eae5aada9a4196d12cd9b198d7feea1dace4e2ad395e751e0446e308e33d4a38"
+    },
+    {
+      "path": "ui/hero-v1.webp",
+      "bytes": 299826,
+      "sha256": "ff96c1b6b77f8e7440d99e4642f35df99bb637329cb0963f1c32c20f946c7cbc"
+    },
+    {
+      "path": "ui/icons-v1.svg",
+      "bytes": 1524,
+      "sha256": "fa05f198b85b4916a8fd7c69f95a5d87fc231601bf4ac0ab820a1f6953dead92"
+    },
+    {
+      "path": "ui/logo-v1.webp",
+      "bytes": 265882,
+      "sha256": "83c5a1446288732de79cb83b3f8a803fe6e886652a725e21a55608769fac6277"
+    },
+    {
+      "path": "ui/surface-v1.webp",
+      "bytes": 79214,
+      "sha256": "c20b708b36cd4699ab3cc8907711b59b0ae6e4387270907f5454cad3e24ad64c"
+    }
+  ]
+}

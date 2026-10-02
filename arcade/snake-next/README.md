@@ -40,3 +40,49 @@ Presentation stores previous/current completed-move snapshots and one shared alp
 Fixture body/food overrides allow edge-state tests, not future ranked configuration. Benchmarks use a legal fixed loop, every tick moves (higher cadence than intended gameplay), and food outside that loop to keep exact tested lengths. Separate actual consumption tick samples include grow/score/full food selection; setup/clone is excluded. Browser zeros in tiny movement samples mean timer quantization, not zero cost. No rendering is measured in Phase 2A.
 
 Default runtime stays **main thread**; no Worker runtime/SAB introduced. Later integration must follow `docs/arcade-host-phase2a-contract.md`. Production art/audio/biomes/effects/ranked/Hub integration require separate review; do not advance automatically.
+
+## Phase 3A — isolated production vertical slice (human review required)
+
+`slice.html` is the new independent Green Forest production-art/UI/audio entry;
+`character.html` isolates character geometry. Both use the unchanged Phase2B
+foundation through `production/` adapters. Neither is registered in Hub or built
+into TEST. `dev.html` remains the accepted unskinned baseline.
+
+Serve locally using the command above, then open
+`http://127.0.0.1:8771/arcade/snake-next/slice.html`. Add `?qa=1` **only** for QA
+helpers. Run all26 tests with:
+
+```powershell
+node --test arcade/snake-next/tests/foundation.test.js arcade/snake-next/tests/presentation.test.js arcade/snake-next/tests/production.test.js
+playwright-cli -s=phase3a open http://127.0.0.1:8771/arcade/snake-next/slice.html?qa=1 --browser=msedge
+playwright-cli -s=phase3a run-code --filename=tools/qa/phase3a-ui.js
+```
+
+Other CLI scenarios: `phase3a-character.js`, `phase3a-loading.js`, `phase3a-loading-error.js`,
+`phase3a-mobile.js` (open a separate `--mobile` session), `phase3a-stress.js`,
+`phase3a-review.js`, `phase3a-compare.js`. Create the screenshot directories
+`.playwright-cli/phase3a/{geometry,review,stress}` before running them. Stress uses
+real clocks; synthetic long-body/shape fixtures are explicitly QA-only.
+
+Loading gates7 critical visual assets, then11 game visuals +11 decoded audio
+files. No new global eager preloader. Shell/surface use fixed nine-slice corners,
+7px bevel and scrollable inner safe-area. Master/Music/SFX uses an isolated
+adapter contract; host mixer injection belongs to a later integration phase.
+
+Art provenance/hashes: `assets/provenance.json`; exact prompts:
+`docs/qa/snake-next-phase3a-prompts.json`. Accepted runtime WebP/Ogg/WAV/SVG assets
+are committed. Original PNGs stay in local `.playwright-cli/phase3a/sources` and
+the ImageGen directory recorded in the prompts. These are independently
+generated source art, never reference/screenshot crops. To prepare a **fresh**
+asset output directory:
+
+```powershell
+node tools/qa/create-snake-next-audio.cjs
+& ./tools/qa/prepare-snake-next-assets.ps1 -OutputRoot .playwright-cli/phase3a/regenerated
+```
+
+Preparation skips existing outputs, accepts `-SourceRoot`/`-Ffmpeg`, and excludes
+rejected ground-v1. Icons are authored SVG, not converted. WebP/SFX reproduction
+was byte-identical; Ogg container serial can differ, decoded PCM SHA matches.
+Subjective art/music approval, physical-device QA and public host integration
+are not implied by passing local automated tests. Stop before Phase3B.
