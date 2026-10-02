@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
+<title>Mushroom Snake Retro V5.2 — review gallery</title>
+<style>
+body{margin:24px;background:#101e1c;color:#e9e3d3;font:16px/1.5 system-ui}
+h1{font-size:26px}h2{font-size:20px}p{max-width:1050px}a{color:#d0b675}
+.scroll{width:100%;overflow:auto;border:1px solid #466058;margin-bottom:30px}
+.checker{width:max-content;background:repeating-conic-gradient(#30423d 0% 25%,#22362f 0% 50%) 0 0/16px 16px}
+img{display:block;max-width:none;image-rendering:pixelated;flex:none}
+.comparison{display:flex;width:max-content;gap:24px}.comparison figure{margin:0}
+pre{white-space:pre-wrap}section{margin:24px 0}
+</style>
+<h1>Retro V5.2 — locked geometry + unified material</h1>
+<p>Cell68 · body36 · head42 · taper+tip68. Original manual raster material on immutable approved masks. ImageGen operations:0. No concept pixels used as assets. Native anatomy PNGs are never shrink-to-fit.</p>
+<p><a href="/arcade/snake-next/retro-v5-review.html">PLAYABLE DEV REVIEW</a> — WASD / arrows · Space · R · F · mobile D-pad. Desktop/mobile compositions below are real Canvas runtime captures, not concept renders.</p>
+<p>Review only: positive/negative pickups have visual HUD timers; portal has a contact event and compact VFX. Canonical simulation, scoring, food and collision are unchanged. No new bonus mechanics or teleport. No Caves/Swamp, ranked, Fly, Hub or deployment.</p>
+<main id="gallery"></main>
+<h2>TARGET concept beside actual V5.2 runtime</h2>
+<p>Original TARGET shown whole, reference only. Both images at original pixel dimensions; horizontal scroll, no crop/extract. Runtime composition is not visually approved yet.</p>
+<div class="scroll"><div class="comparison">
+<figure><figcaption>TARGET / concept reference</figcaption><img src="../retro-v3/target-desktop.png" width="1672" height="941"></figure>
+<figure><figcaption>V5.2 / actual runtime</figcaption><img src="desktop-1920.png" width="1920" height="1080"></figure>
+</div></div>
+<details><summary>Bounded QA / performance</summary><pre id="qa">QA capture in progress.</pre></details>
+<script type="module">
+const native=await fetch('native-gallery.json').then(r=>r.json());
+const captures=[
+['desktop-1366','Desktop embedded 1366×768',1366,768],['desktop-1920','Desktop embedded 1920×1080',1920,1080],
+['fullscreen','Desktop fullscreen 1366×768',1366,768],['mobile-844','Mobile landscape 844×390',844,390],
+['mobile-915','Mobile landscape 915×412',915,412],['grayscale','Actual runtime grayscale readability',1366,768]];
+for(const item of [...native,...captures.map(([id,label,width,height])=>({id,label,width,height,file:id+'.png'}))]) {
+ const section=document.createElement('section');section.id=item.id;
+ const title=document.createElement('h2');title.textContent=item.label;
+ const scroll=document.createElement('div');scroll.className='scroll';
+ const checker=document.createElement('div');checker.className='checker';
+ const image=document.createElement('img');image.src=item.file;image.alt=item.label;image.width=item.width;image.height=item.height;
+ checker.append(image);scroll.append(checker);section.append(title,scroll);document.querySelector('main').append(section);
+}
+fetch('qa-results.json').then(r=>r.ok?r.json():null).then(r=>{if(r)document.querySelector('#qa').textContent=JSON.stringify(r,null,2)});
+</script>
+</html>

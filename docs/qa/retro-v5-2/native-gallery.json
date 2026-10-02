@@ -1,0 +1,74 @@
+[
+  {
+    "id": "straight-8",
+    "label": "Straight length 8 — cell68 / body36 native",
+    "file": "straight-8.png",
+    "width": 592,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "straight-30",
+    "label": "Straight length 30 — horizontal scroll, no shrink — cell68 / body36 native",
+    "file": "straight-30.png",
+    "width": 2088,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "tight-U",
+    "label": "Tight U / neighboring lanes — cell68 / body36 native",
+    "file": "tight-U.png",
+    "width": 320,
+    "height": 184,
+    "native": true
+  },
+  {
+    "id": "S",
+    "label": "S pattern — cell68 / body36 native",
+    "file": "S.png",
+    "width": 728,
+    "height": 388,
+    "native": true
+  },
+  {
+    "id": "head-neck",
+    "label": "Head → neck → body / native 100% — cell68 / body36 native",
+    "file": "head-neck.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "taper-tail",
+    "label": "Body → taper → tail / terminal = 68 px — cell68 / body36 native",
+    "file": "taper-tail.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "four-corners",
+    "label": "Four corners — same material, world-space lighting",
+    "file": "four-corners.png",
+    "width": 524,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "object-grammar",
+    "label": "FOOD / POSITIVE / NEGATIVE / COLLISION / PORTAL",
+    "file": "object-grammar.png",
+    "width": 680,
+    "height": 160,
+    "native": true
+  },
+  {
+    "id": "vfx-contact",
+    "label": "VFX contact sheet: seed / positive / negative / portal; 4 frames each",
+    "file": "vfx-contact.png",
+    "width": 192,
+    "height": 192,
+    "native": true
+  }
+]

@@ -1,0 +1,1332 @@
+{
+  "version": "retro-v5.2-review",
+  "imageGenOperations": 0,
+  "cell": 68,
+  "body": 36,
+  "head": 42,
+  "terminal": 68,
+  "geometryHash": "6a3fc44525bdc51368823a12dc5be1060cfc752ab258aedf4bbd1c38557abba5",
+  "maskMismatch": 0,
+  "assets": [
+    {
+      "id": "straight-0-v0",
+      "file": "straight-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v1",
+      "file": "straight-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v2",
+      "file": "straight-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v3",
+      "file": "straight-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v4",
+      "file": "straight-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v5",
+      "file": "straight-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v6",
+      "file": "straight-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-0-v7",
+      "file": "straight-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v0",
+      "file": "neck-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v1",
+      "file": "neck-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v2",
+      "file": "neck-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v3",
+      "file": "neck-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v4",
+      "file": "neck-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v5",
+      "file": "neck-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v6",
+      "file": "neck-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-0-v7",
+      "file": "neck-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "head-0-v0",
+      "file": "head-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "bc7d63aabbcf9686ee82ddd7e7e463649bb24fb7bf52c35e6196ec554f4a58a3",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v0",
+      "file": "corner-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3e5998199f4bf4ca80c4b2b92acfc1ab611b356ff48e3a4ab1d0f06dfc5d332e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v1",
+      "file": "corner-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "700c3e9937a49dca317ee45771dee21dc2c07551ebe5dbcce7ebf66da76bb9b7",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v2",
+      "file": "corner-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3a8629341f47a8d07f7cfca8dfa7dbf86bb29fe4c29ec7930bd431511d6e4085",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v3",
+      "file": "corner-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "132055866d8ed5c11105ebfbe9ba14da42caa978596a17b5b482a497876af6ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v4",
+      "file": "corner-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c46677c833f77c082ca3fdba98818b9c193437d33f0d4c858bff279c2887d4f3",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v5",
+      "file": "corner-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "af00e260356eefe1a85b49d6d09c32f5204e1a88c8b2222fa29f84cd21696890",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v6",
+      "file": "corner-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3bfd0421988b00dd3419790fb02bf7e6acc1513cf649930aa8230b942f337ea9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-0-v7",
+      "file": "corner-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "23057660e787098f37ea3c6bd946bec55ca78a3620fe695db333ec62467f675c",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v0",
+      "file": "terminal-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "37574f94c2ce72ac18bcfcbcdca005ee592d26ebc3ecb734135bdd7f2ad97bd9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v1",
+      "file": "terminal-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "47aa6f4def84ed740ef0756f871e1c40139124b6d2adbe63d54e3a762d47099a",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v2",
+      "file": "terminal-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "36532f22ba5c5fb4a4caf96f60dd258784a15d420dec02f12c54c35346de918b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v3",
+      "file": "terminal-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e4409f6a9fa747d55b0d7601cfc8b9ae1232f3735586e322ef6bb29948b293b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v4",
+      "file": "terminal-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "19aa354ff6e67c01941f6adff10da6015bb56b17d28e044a93295e69fe1ea4b0",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v5",
+      "file": "terminal-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f31a7f4254e99495a60cd3832f8ddb2215a572ed6ddb9b56092a46092667099a",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v6",
+      "file": "terminal-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "54bca233ab1c31c330610ff7731132341daecc029b432a57592b27278e3127ea",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-0-v7",
+      "file": "terminal-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d8e125d8dda528450e88838f301e348f6f1920a1c4df67919f0f7476bed95b9e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v0",
+      "file": "straight-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v1",
+      "file": "straight-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v2",
+      "file": "straight-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v3",
+      "file": "straight-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v4",
+      "file": "straight-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v5",
+      "file": "straight-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v6",
+      "file": "straight-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-1-v7",
+      "file": "straight-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v0",
+      "file": "neck-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v1",
+      "file": "neck-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v2",
+      "file": "neck-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v3",
+      "file": "neck-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v4",
+      "file": "neck-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v5",
+      "file": "neck-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v6",
+      "file": "neck-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-1-v7",
+      "file": "neck-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "head-1-v0",
+      "file": "head-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7e1c2cbe73347305cfc0c427dd8109a3121a96c84619be68640ba44e6930bc83",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v0",
+      "file": "corner-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ac06ffa17cc54e21e958456b4bb2c171da74fc396264326f5b8cbb27b4142b50",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v1",
+      "file": "corner-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a1fd03571132fb5eb13309d48fa129c2ac7f8740c2ba6f73d8db2a6c8d1b77c7",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v2",
+      "file": "corner-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a6418c8f1def272eb70604ee7940db93fef581d0c3a48e6620586256208ac376",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v3",
+      "file": "corner-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6a14a99806799e1e99122517850e0f32be28e1560be31200d0186495d7c73dc8",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v4",
+      "file": "corner-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a1fd03571132fb5eb13309d48fa129c2ac7f8740c2ba6f73d8db2a6c8d1b77c7",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v5",
+      "file": "corner-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6d6845cf71416df795b7350f9b6c9ac7cb505324962d6fc3d33db6aad5fa18d1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v6",
+      "file": "corner-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0d95db962d1ec067addc094da5c2c69ed796143c63d78759c492a753d58284bd",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-1-v7",
+      "file": "corner-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "cafe7359a4d25cf01b81e6c0fa2ed0f21a05ba90eda6035853975034478df56c",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v0",
+      "file": "terminal-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a00b7c8b6482f3187eb61a89559f87cb0fbf3d23af78e2676c8b5869c6a1817a",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v1",
+      "file": "terminal-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4d86b958c99c4dcf44cfb4feb099fe7fd21e483f79c1209207321b446d4bf523",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v2",
+      "file": "terminal-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "40f8aa73042190040547d6c9b79cb4a020531985fe7995e806c8c1003fbaffa2",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v3",
+      "file": "terminal-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8297fdacb00e35a74e77997dd52074bd159c606cb3f9bb5527206e95e77461c5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v4",
+      "file": "terminal-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b67136f3facd9607647c77ee3ef70b0ec29e1ce10190d77de16ed10eee7d67a1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v5",
+      "file": "terminal-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7c139faf4075ced968d0fd0811ba4cc5a5c411f735f007707a271fc805e02280",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v6",
+      "file": "terminal-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "03b9cef01272e56a6a46e11357a8e2be5775ddfaeb2e33130e25ebe1d328fb6f",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-1-v7",
+      "file": "terminal-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4457496c51b6253f56b5c41d2e4bf94bb43ff7baf005353842f43793c0950504",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v0",
+      "file": "straight-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v1",
+      "file": "straight-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v2",
+      "file": "straight-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v3",
+      "file": "straight-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v4",
+      "file": "straight-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v5",
+      "file": "straight-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v6",
+      "file": "straight-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-2-v7",
+      "file": "straight-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v0",
+      "file": "neck-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v1",
+      "file": "neck-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v2",
+      "file": "neck-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v3",
+      "file": "neck-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v4",
+      "file": "neck-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v5",
+      "file": "neck-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v6",
+      "file": "neck-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-2-v7",
+      "file": "neck-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "head-2-v0",
+      "file": "head-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "23693b3affe8701b31ab42bcf14b18b40e69c2f77addfdeaa24842fb7d6a3930",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v0",
+      "file": "corner-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a934b808186e85986467fb582bf3c463c1619830161feb7c08044f33563db090",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v1",
+      "file": "corner-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2126b85cb4591f22072789769e62584bf176635fd44373fab3e34931df00c939",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v2",
+      "file": "corner-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a5d31a71478818ba74e097528a097d8576e61ba5d25fe86dcac69b63b3d5e765",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v3",
+      "file": "corner-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d87492e77aedc805cf8bdeb97e003e7ee053465af2e6a7e30d3d03221e6dabd8",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v4",
+      "file": "corner-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f4a5cbff4bfcc0c1280fe9d8293c0ce4dcfe662308fdb4c9e985d6a1f25853ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v5",
+      "file": "corner-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a934b808186e85986467fb582bf3c463c1619830161feb7c08044f33563db090",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v6",
+      "file": "corner-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "72ad1b64c5c3c3f439a0366a6b157bca8867475536593d3a51ea25da3edcf479",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-2-v7",
+      "file": "corner-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1bb6a56d814a5734a558d3ac04f90befb3395a4da19905f50f8f8063b19763e0",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v0",
+      "file": "terminal-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "103a0e212aa98f82fe42abbfe4286621331838d1dd2273272ae7f02ae05e8bdb",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v1",
+      "file": "terminal-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9016abf3a5aa7f8f4bd3f76f66474e810bcf9bec30b8ebd39ac0f68e7eac495a",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v2",
+      "file": "terminal-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2ded04ad0b84e1bf142b092554ceb214d0d11cd89c9e17b5edfd3b63d5eafbc8",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v3",
+      "file": "terminal-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "fb5f68125a26fce7c5f12cc0aef778c391cd56519d0db1ef307135854854ba9b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v4",
+      "file": "terminal-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3719d2a96bdc31b3734b60a63df6ee4622a556b5c6424ad055e255ff7a2d353c",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v5",
+      "file": "terminal-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "26ecdbff0118dd7c9fe3bb81464a69c984ab69ac62fc89e9239343c8c3b5a2cf",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v6",
+      "file": "terminal-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "cedabfb9a79023732f9acbfce9169819f5cd3f784cc057b40de2418740bbda8f",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-2-v7",
+      "file": "terminal-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "dfffed6ae19cf39a1e0a24f836868cc5f69e5d9cdbe1a29870d1cf3c1fefd2ad",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v0",
+      "file": "straight-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v1",
+      "file": "straight-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v2",
+      "file": "straight-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v3",
+      "file": "straight-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v4",
+      "file": "straight-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v5",
+      "file": "straight-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v6",
+      "file": "straight-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "straight-3-v7",
+      "file": "straight-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v0",
+      "file": "neck-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v1",
+      "file": "neck-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v2",
+      "file": "neck-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v3",
+      "file": "neck-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v4",
+      "file": "neck-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v5",
+      "file": "neck-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v6",
+      "file": "neck-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "neck-3-v7",
+      "file": "neck-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "head-3-v0",
+      "file": "head-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "830988abc32a0a542226b00d9e97f43be8f8d926c3a4f7fe7b812ef60883ed85",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v0",
+      "file": "corner-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4c1c8454748f5411c9a0bbe72204a7ebceebd9e897399fbc9011e88ed73fcb1d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v1",
+      "file": "corner-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c98971e67bb01cdfb0f59d34d683a0c7cc9e32eae928ca8442a1e5bd6046b676",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v2",
+      "file": "corner-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1cde89c28cc92144cbb8e22d0c72645fc274b3b9c2de721404e5057c3f7681c7",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v3",
+      "file": "corner-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "94e636dac4982f1f9a98e4f5ab94b2cdfd607da4f82c24d860b1b8efd5f4d866",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v4",
+      "file": "corner-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1cde89c28cc92144cbb8e22d0c72645fc274b3b9c2de721404e5057c3f7681c7",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v5",
+      "file": "corner-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7a3ace10188702b6f81c33cabd73ac4e7a80f68424363f9fbc9694b88392c65d",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v6",
+      "file": "corner-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "eeda6f4488e1343b781ebc814cb9baf92fd2986849531e865e50b262c8a40857",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "corner-3-v7",
+      "file": "corner-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b704309e72ad4e880b9c64ef423b0878c46bd1776c94d343245b3af0d1a4ee60",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v0",
+      "file": "terminal-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "fe980682e9cb45409d06b2f2b6104be1226469984a493e2b4508dd0bbe156d21",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v1",
+      "file": "terminal-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "878784f8c2fd754adc4ca661329920c06203af0f7823e7b17bac53e150a96521",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v2",
+      "file": "terminal-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9e574d167775014f59d8e56cb481d26cbd435ac79a98dedfb8f7c280f103043b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v3",
+      "file": "terminal-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7ded323649d8627331f65e0e77a5221528ff274ef2e36ecf4a23a8ca4362abf3",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v4",
+      "file": "terminal-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f628dd05bac88ec478272f5d33ef59246d390051690896c8f03a495ef16f8705",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v5",
+      "file": "terminal-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c79cc4b3d9de4c54938508f5ab8945de34eef90d12eecfed0ff9f5e6d220aed8",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v6",
+      "file": "terminal-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b0f08d40007d1a83a1639da127c6a0b97e5bb2e081aa7d841ba7dc936f083e57",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "terminal-3-v7",
+      "file": "terminal-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ad92c3359520f7fbc003153584a95a12db1478c6db5e29377fa2aa82bcea72c4",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-0",
+      "file": "floor-0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "19db3d84ac2f164d173e82038c8d640de60614cf11979c173f0d64d7147167ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-1",
+      "file": "floor-1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "461f9202299792b75440d9aefa33c32038747e0b96ec87924c9dd8b4e5a84c28",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-2",
+      "file": "floor-2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "25622ba3d0a83edad6ca963b99c16d6f5c8dcfd5cb9575d34b3153362e0c4622",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-3",
+      "file": "floor-3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "331985d4ef08035e75681ed0bace4f2b1b69334d12cf563fb521ede053afcef5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-4",
+      "file": "floor-4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "dfef3cbeb76d19f181048acc80b1877733c2eac9c8a26da0137b474fef080dee",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-5",
+      "file": "floor-5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c900c6b4d00094fcfa978e98d51de1af5072d6a662894855cc47a99aaf02988f",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-6",
+      "file": "floor-6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9e054ecf160d7da5154db52b26c45c3b0e9cdb714c336e95e3d083a5eb9bca82",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-7",
+      "file": "floor-7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4dc6f52977fc19f9166fa74942d05a6331614192ab08900e33ce94601dba6141",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-8",
+      "file": "floor-8.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9d4364fbd2fa05e8301655b51a4590b22af3585cb344ce72857054c0c4bb6fd6",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-9",
+      "file": "floor-9.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "06c6709113d1f0f6489d23a3991e5191baa1766ed99457e25ceeab45d83c16e4",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "dpad-normal",
+      "file": "dpad-normal.png",
+      "width": 44,
+      "height": 44,
+      "sha256": "15d9ad6e4fe6254a4247a38766475f7998813ea59c5cffb8a37b94427b6c1fcc",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "dpad-pressed",
+      "file": "dpad-pressed.png",
+      "width": 44,
+      "height": 44,
+      "sha256": "35a1de17de13124f9bb6b251d89d91e4149b1dd8d245a3143fc491d09cae0bd4",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-seed",
+      "file": "vfx-seed.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "94a9d7825db1bdeee747d9d648df2a874ba37920330bb3b9d3ccf54a3da2ccd9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-positive",
+      "file": "vfx-positive.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "f437919241c564626549afb867e9c153daf5b2a85e54802c170f38526be1d7a1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-negative",
+      "file": "vfx-negative.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "94ccb4b9df00e67e690673ab0db978708323a9b529e1aa73e5b5fc2f68994b5b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-portal",
+      "file": "vfx-portal.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "0ed60425ffe4724037dd1d5f191c8f74debcea2283439a8a9035bd6020ef62f1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "logo",
+      "file": "logo.png",
+      "width": 480,
+      "height": 151,
+      "sha256": "a09a8a36186d8a472dc492ab1ec0baab192059dc4a0971b5fc6ea1565cc6e05d",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "hud",
+      "file": "hud.png",
+      "width": 512,
+      "height": 154,
+      "sha256": "490090caf2a21274e8c15fed8d280d98b080eb62c7254ad241c8f73cdb2d2dc7",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "seed",
+      "file": "seed.png",
+      "width": 44,
+      "height": 64,
+      "sha256": "486eb4a3d62c1f4dd45dbf304c2d7240ebe34026ac0971b9211c1d839ec274ff",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "positive",
+      "file": "positive.png",
+      "width": 88,
+      "height": 54,
+      "sha256": "059b736f32bb112025cb9ddce25a7f962511e8fc9e68a5377ffb66c00cb6e978",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "negative",
+      "file": "negative.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "28a63fe981a9efb468096a86bd28f1550acc4d1e3809992faa18e1f2a7f97a70",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "portal",
+      "file": "portal.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "7d4de247bb1d5b3fbcb847632fdb864e896a49cdde55ea78be3fab52eaf69389",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "stone",
+      "file": "stone.png",
+      "width": 64,
+      "height": 64,
+      "sha256": "6938be1bd4651f2683b75228d87c1559494bad8292643809203da39685a97ecb",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top",
+      "file": "frame-top.png",
+      "width": 512,
+      "height": 28,
+      "sha256": "230b27fc7bab867c13cb09534284a1dbb70db8e4060887fd8aa3c7983f632526",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom",
+      "file": "frame-bottom.png",
+      "width": 512,
+      "height": 28,
+      "sha256": "02608b25a0cdc4cd267599206d63b36aa37217860714a62dac9dad69fe582072",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-left",
+      "file": "frame-left.png",
+      "width": 32,
+      "height": 70,
+      "sha256": "f61fa15255220d5a6a97393843c4cb1ffeefff6b5541058de331562fc1aa21ad",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-right",
+      "file": "frame-right.png",
+      "width": 32,
+      "height": 70,
+      "sha256": "077ddfca222f98357a0c1307906eef50932058e8a2ba1188f3029386c8f93543",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top-left",
+      "file": "frame-top-left.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "4283f3a23c55cd99840bd86aab0bdfeb271ef5754ff6b6aec063491404b5dba8",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top-right",
+      "file": "frame-top-right.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "0a6f2d415cbe03ad20c399839ece88e712640d542e6ce88bba9ef00191df051c",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom-left",
+      "file": "frame-bottom-left.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "9678cf341f08fe7b70317ca2919012c667f35d7cd058f3cb086cf387c70ef3c8",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom-right",
+      "file": "frame-bottom-right.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "6334f572ae5ac438fdbd2106abc70df20444ec91cd570ae12cda7538f0eef23d",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-joint-left",
+      "file": "frame-joint-left.png",
+      "width": 46,
+      "height": 64,
+      "sha256": "5667e62aed9351367c2586036ea381614431a50ae333bff9b79006842d9d3041",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-joint-right",
+      "file": "frame-joint-right.png",
+      "width": 46,
+      "height": 64,
+      "sha256": "1b383ceb19a9336eb69345935dc9569993fc17dc1ba6df96407ff78249b0767b",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    }
+  ]
+}
