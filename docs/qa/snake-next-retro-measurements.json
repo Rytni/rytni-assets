@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-02",
+  "browser": "Playwright CLI / Microsoft Edge headless",
+  "viewport": "1366x768",
+  "canvasBacking": "1346x631 DPR1",
+  "measurement": "Training.paint JS CPU duration, 120 RAF warm-up then 600 measured RAF samples per case; not GPU time or a physical-device FPS guarantee",
+  "units": "milliseconds",
+  "foundation1200": {"p50":0.2,"p95":0.4,"max":0.5,"simulationP95":0.1},
+  "uncachedRetro1200": {"desktopP95":1.1,"cpu4P95":4.7,"cpu4Max":10.7},
+  "final": [
+    {"length":8,"cpu":1,"samples":600,"p50":0.1,"p95":0.2,"max":0.4,"simulationP95":0.1,"rasterBytes":3919544},
+    {"length":100,"cpu":1,"samples":600,"p50":0.1,"p95":0.2,"max":0.3,"simulationP95":0.1,"rasterBytes":4712120},
+    {"length":250,"cpu":1,"samples":600,"p50":0.1,"p95":0.2,"max":0.6,"simulationP95":0.1,"rasterBytes":6076088},
+    {"length":500,"cpu":1,"samples":600,"p50":0.1,"p95":0.2,"max":1.3,"simulationP95":0.1,"rasterBytes":7292600},
+    {"length":1200,"cpu":1,"samples":600,"p50":0.1,"p95":0.2,"max":2.2,"simulationP95":0.1,"rasterBytes":10536632},
+    {"length":8,"cpu":4,"samples":600,"p50":0.3,"p95":0.6,"max":1.0,"simulationP95":0.2,"rasterBytes":3919544},
+    {"length":100,"cpu":4,"samples":600,"p50":0.3,"p95":0.5,"max":1.3,"simulationP95":0.2,"rasterBytes":4712120},
+    {"length":250,"cpu":4,"samples":600,"p50":0.3,"p95":0.5,"max":2.8,"simulationP95":0.2,"rasterBytes":6076088},
+    {"length":500,"cpu":4,"samples":600,"p50":0.3,"p95":0.6,"max":6.8,"simulationP95":0.2,"rasterBytes":7292600},
+    {"length":1200,"cpu":4,"samples":600,"p50":0.3,"p95":0.6,"max":12.1,"simulationP95":0.2,"rasterBytes":10536632}
+  ],
+  "schedulerRecoveries":0,
+  "rendererFaults":0,
+  "unitTests":{"passed":29,"failed":0},
+  "pixelQA":{"samples":7056,"dpr":[1,1.5,2],"directions":4,"tracks":["straight","90","U","S"],"backgroundGaps":0},
+  "flowQA":{"foodGrowth":true,"positive":true,"negative":true,"portalTransferCount":1,"portalGrace":true,"portalPauseResume":true,"deathResultRestart":true,"fullscreen":true,"mobileTouch":true,"orientation":true},
+  "lifecycleAfterMainOrResult":{"raf":0,"timers":0,"activeAudioSources":0},
+  "consoleErrors":0,"networkFailures":0,"http404":0,"screenshotCount":10
+}

@@ -1,0 +1,7 @@
+export class RetroEffects {
+ constructor(){this.pool=Array.from({length:24},()=>({life:0}));this.clear();}
+ clear(){this.time=0;this.flash=0;this.pop=0;this.kind=null;this.x=this.y=0;for(const p of this.pool)p.life=0;}
+ burst(kind,cell,width){this.kind=kind;this.x=cell%width+.5;this.y=Math.floor(cell/width)+.5;this.flash=.14;this.pop=kind==='food'?.6:0;let n=0;for(const p of this.pool){if(p.life>0)continue;const angle=(n/8)*Math.PI*2+.3;p.x=this.x;p.y=this.y;p.vx=Math.cos(angle)*(3+n*.1);p.vy=Math.sin(angle)*(3+n*.1);p.life=.42;p.color=kind==='negative'?'#ee7b9c':kind==='positive'?'#96ebbd':'#f4d887';if(++n===8)break;}}
+ update(dt){this.time+=dt;this.flash=Math.max(0,this.flash-dt);this.pop=Math.max(0,this.pop-dt);for(const p of this.pool)if(p.life>0){p.life=Math.max(0,p.life-dt);p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=dt*1.5;}}
+ draw(ctx,scale){if(this.flash>0){ctx.globalAlpha=this.flash/.14*.55;ctx.fillStyle=this.kind==='negative'?'#fa9bae':'#f8e9b5';ctx.fillRect(this.x-.43,this.y-.43,.86,.86);}for(const p of this.pool)if(p.life>0){ctx.globalAlpha=p.life/.42;ctx.fillStyle=p.color;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(this.time*3);ctx.fillRect(-.065,-.065,.13,.13);ctx.restore();}ctx.globalAlpha=1;if(this.pop>0){ctx.fillStyle='#f7dfa2';ctx.font=`600 ${Math.max(.42,12/scale)}px ui-monospace,monospace`;ctx.textAlign='center';ctx.fillText('+100',this.x,this.y-.65-(.6-this.pop)*.8);}}
+}
