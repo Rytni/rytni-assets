@@ -1,0 +1,12 @@
+{
+  "version": "D2-proof-1",
+  "light": "fixed world northwest; four head variants, not rotated lighting",
+  "pivot": "atlas cell center; runtime alpha-bounds crop for head fitting only",
+  "assets": [
+    {"id":"heads","file":"heads.png","width":1254,"height":1254,"grid":[2,2],"slots":["up","right","down","left"],"sha256":"42cadb586dce72c3759f6b0cd48640fe7a913816ab288dd3c87281451b3c9288"},
+    {"id":"objects","file":"objects.png","width":1774,"height":887,"grid":[4,2],"slots":["seed","positive","negative","portal","rock","stump","root","decor"],"sha256":"0e9210ad70dd509f3791390c7032e4a9a76e353b497485a934ce3ecf066fa47c"},
+    {"id":"ground","file":"ground.png","width":1254,"height":1254,"sha256":"af2ac0988a17f5f91a278bb9a5591f306123f2de4add39b543520ef4e57850ee"},
+    {"id":"accents","file":"accents.png","width":1536,"height":1024,"grid":[3,2],"slots":["moss-a","moss-b","moss-c","leaf","flower","mushroom"],"sha256":"fec399a49418c1b2b5af1f128ba4a1b6b90d7275e5c44d5619fb33c13a5244b7"}
+  ],
+  "alphaAudit": "Sampled every 3 native px at alpha>16. Heads bounds U180,27..480,612; R18,198..579,531; D180,30..486,570; L12,147..576,480 (627-square cells). Objects remain inside cells. Accents have no diffuse alpha haze; colored RGB in alpha=0 is ignored. Final raster memory tested in browser Task4."
+}

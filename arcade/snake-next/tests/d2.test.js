@@ -7,6 +7,8 @@ import {BodySnapshots,ContinuousBody} from '../presentation/path.js';
 import {createState} from '../simulation/state.js';
 import {step} from '../simulation/step.js';
 import {stateHash} from '../simulation/hash.js';
+import {D2Resources} from '../d2/resources.js';
+import {D2Forest} from '../d2/forest.js';
 
 const phases=[0,.125,.25,.5,.75,.875,1],lengths=[8,30,100,250,500,1200];
 function setup(options){const f=createD2Fixture(options),state=createState({seed:73,...f,stateOptions:undefined,...f.stateOptions});const snaps=new BodySnapshots(f.arena.cells);snaps.reset(state);return {f,state,snaps};}
@@ -56,4 +58,24 @@ test('material categories remain stable when visible window clips other accents'
   const {f,snaps}=setup({length:250}),g=new D2Geometry(f.arena.cells).build(snaps,96,1),m=new D2Material(73,f.arena.cells),out=[];m.capture(snaps);
   m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);const before=out.map(v=>({...v}));
   m.visibleAccents(g,{x0:30,y0:12,x1:85,y1:15},'large',out);for(const v of out){const old=before.find(x=>x.id===v.id);if(old)assert.equal(v.kind,old.kind);}
+});
+test('decodeDeduplicates: concurrent/repeated aliases share one decoded resource',async()=>{
+  let calls=0;const r=new D2Resources({decode:async url=>{calls++;return {width:256,height:256,url};}}),manifest=[{id:'a',url:'art.png'},{id:'b',url:'art.png'}];await Promise.all([r.load(manifest),r.load(manifest)]);assert.equal(calls,1);assert.equal(r.get('a'),r.get('b'));assert.equal(r.inventory().images,262144);assert.equal(r.inventory().duplicates,0);
+});
+test('decodeFailureIsVisible: reject and expose failed URL, retry does not keep failed promise',async()=>{
+  let fail=true;const r=new D2Resources({decode:async()=>{if(fail)throw Error('decode failed');return {width:16,height:16};}});await assert.rejects(r.load([{id:'a',url:'bad.png'}]),/bad.png/);assert.equal(r.get('a'),undefined);fail=false;await r.load([{id:'a',url:'bad.png'}]);assert.equal(r.inventory().images,1024);
+});
+test('memoryInventoryNoDoubleCount: owned raster categories counted once and release clears',async()=>{
+  const r=new D2Resources({decode:async()=>({width:64,height:32,close(){}})});await r.load([{id:'a',url:'a.png'}]);r.track('stage',100,100,'backings');r.track('chunk',128,128,'ground');r.track('stage',100,100,'backings');assert.equal(r.inventory().totalBytes,8192+40000+65536);r.release('chunk');assert.equal(r.inventory().ground,0);r.dispose();assert.equal(r.inventory().totalBytes,0);
+});
+test('boundedForestCache and seededCompositionsStable: visual prep is bounded and reproducible',()=>{
+  const {f}=setup({length:8}),r=new D2Resources(),a=new D2Forest(r,73),b=new D2Forest(r,73);a.prepare(f.arena,f.visuals);b.prepare(f.arena,f.visuals);assert.deepEqual(a.decor,b.decor);for(let i=0;i<70;i++)a.cacheChunk(i,0,()=>({width:128,height:128}));assert.ok(a.cache.size<=48);assert.ok(r.inventory().ground<=48*128*128*4);a.dispose();assert.equal(r.inventory().ground,0);
+});
+test('warm visible mobile ground does not evict and rebuild its own 32-chunk footprint',()=>{
+  const f=new D2Forest(new D2Resources(),73);let creates=0;
+  for(let frame=0;frame<2;frame++)for(let y=0;y<4;y++)for(let x=0;x<8;x++)f.cacheChunk(x,y,()=>{creates++;return {width:192,height:192};});
+  assert.equal(creates,32);
+});
+test('colliderArtMatchesTopology and decorDoesNotMutateCollision: categories stay authoritative',()=>{
+  const {f,state}=setup({length:30}),hash=stateHash(state),mask=f.arena.collisionCopy(),forest=new D2Forest(new D2Resources(),73);forest.prepare(f.arena,f.visuals);for(const p of forest.obstacles)assert.ok(f.arena.blocked(p.y*96+p.x));assert.deepEqual(f.arena.collisionCopy(),mask);assert.equal(stateHash(state),hash);assert.ok(forest.decor.every(p=>p.kind==='decor'));
 });
