@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<title>Mushroom Snake D.1 — production blueprint review</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#101c23;color:#e4e5d8;font:16px/1.6 system-ui,sans-serif}header,main,footer{max-width:1440px;margin:auto;padding:24px}h1{font-size:clamp(26px,4vw,44px);line-height:1.2}h2{font-size:24px;margin:0 0 12px}h3{font-size:18px}p{max-width:100ch}a{color:#acd4bd}nav{display:flex;flex-wrap:wrap;gap:8px 20px}section{margin:36px 0 64px;scroll-margin-top:20px}.notice{border-left:3px solid #d0b27b;padding:12px 18px;background:#19272c}.sheet{overflow:auto;border:1px solid #3d4b4e;background:#172129}.sheet img{display:block;width:100%;height:auto}.native .sheet img{width:auto;max-width:none}.gray .sheet img{filter:grayscale(1)}.tools{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0}label{cursor:pointer}input{accent-color:#c3bd86}small,.caption{color:#b6c1bc}.caption{margin-top:8px}.plan{background:#19272c;padding:20px;border:1px solid #3d4b4e}.table{overflow:auto}table{border-collapse:collapse;width:100%;min-width:560px}td,th{padding:10px;text-align:left;border-bottom:1px solid #3d4b4e}th{color:#d6c399}code{color:#d6c399}footer{border-top:1px solid #3d4b4e}@media(max-width:600px){header,main,footer{padding:16px}section{margin-bottom:40px}.plan{padding:12px}}
+</style>
+<header>
+<p>DIRECTION D → D.1 / REVIEW ONLY</p>
+<h1>Mushroom Snake — production blueprint</h1>
+<div class="notice">Это visual contract и независимо созданные ImageGen concept sheets — не production asset pack и не доказательство работающего renderer. Код, существующие assets, TEST и Production не изменены. Phase 3B не начата.</div>
+<p><a href="BLUEPRINT.md">Полная спецификация: geometry, material, LOD, object grammar, biomes, menu layers, runtime budgets и approval gates</a> · <a href="prompts.json">Точные prompts и provenance</a> · <a href="README.md">Область работы и ограничения</a></p>
+<nav aria-label="Review sections">
+<a href="#anatomy">1 Anatomy</a><a href="#personality">2 Personality</a><a href="#stress">3 Stress frame</a><a href="#grammar">4 Object grammar</a><a href="#food">5 Food candidates</a><a href="#portal">6 Portal</a><a href="#biomes">7 Biomes</a><a href="#main">8 Main layers</a><a href="#runtime">9 Runtime plan</a>
+</nav>
+<div class="tools"><label><input id="gray" type="checkbox"> Grayscale category review</label><label><input id="native" type="checkbox"> Native PNG size / horizontal scroll</label></div>
+<small>Для проверки деталей откройте original PNG. Fit/native — режимы просмотра листа, не калиброванная эмуляция gameplay scale.</small>
+</header>
+<main>
+<section id="anatomy"><h2>1. Snake production anatomy</h2><div class="sheet"><img src="01-anatomy.png" alt="Top-down Snake anatomy: four facing directions, head-neck, straight, turns, taper, tail and length studies"></div><p class="caption"><a href="01-anatomy.png">Original PNG</a> · Единый cream/moss персонаж. Размеры и соединения задаёт спецификация, а не приблизительные cell labels на рисунке. Long-body/motion proof ещё нужен.</p></section>
+<section id="personality"><h2>2. Personality states</h2><div class="sheet"><img src="02-personality.png" loading="lazy" alt="Seven restrained Snake personality studies: neutral, blink, focus, eat, positive, negative, hurt"></div><p class="caption"><a href="02-personality.png">Original PNG</a> · Дизайн поз, не production animation frames. Pivot, facing и непрерывность шеи должны сохраняться.</p></section>
+<section id="stress"><h2>3. Worst-case readability frame</h2><div class="sheet"><img src="03-stress.png" loading="lazy" alt="Direction D complex gameplay concept with long Snake, food, two positives, one negative, blockers, portal, decor and HUD"></div><p class="caption"><a href="03-stress.png">Original PNG</a> · ~50 длина условна. Coral food — временный marker, не выбранный вариант. Задача review: за 1 секунду найти head/tail, food, 2 positive, 1 negative, collision и portal без подписей. Повторить grayscale. Human gate ещё не пройден.</p></section>
+<section id="grammar"><h2>4. Object-category grammar</h2><div class="sheet"><img src="04-grammar.png" loading="lazy" alt="Six visual categories distinguished by silhouette, material, ground treatment and effect language"></div><p class="caption"><a href="04-grammar.png">Original PNG</a> · Collision — поднятый замкнутый объём с contact rim. Decor — низкая открытая растительность без ложного blocking footprint.</p></section>
+<section id="food"><h2>5. Food redesign — none selected</h2><div class="sheet"><img src="05-food.png" loading="lazy" alt="Three equal food design candidates: magical seed, forest spore fruit, fungal seedpod"></div><p class="caption"><a href="05-food.png">Original PNG</a> · Три кандидата; выбора и внедрения нет. Tiny thumbnails на листе не являются технически измеренными sprites.</p></section>
+<section id="portal"><h2>6. Portal = world destination</h2><div class="sheet"><img src="06-portal.png" loading="lazy" alt="Grounded root portal refinement, open threshold and controlled local fungal light"></div><p class="caption"><a href="06-portal.png">Original PNG</a> · Отличается от collectible размером, пустым проходом, укоренённым силуэтом и inward motion. Не floating orb и не яркий ring.</p></section>
+<section id="biomes"><h2>7. Forest / Caves / Swamp — same-state intent</h2><div class="sheet"><img src="07-biomes.png" loading="lazy" alt="Same intended gameplay route and categories in Forest, Caves and Swamp materials"></div><p class="caption"><a href="07-biomes.png">Original PNG</a> · Независимо нарисованная comparison sheet. Генерация не гарантирует точное совпадение coordinates/object counts; будущая acceptance требует одного canonical snapshot в реальном renderer.</p></section>
+<section id="main"><h2>8. Main Menu — separate layers</h2><div class="sheet"><img src="08-main-layers.png" loading="lazy" alt="Direction D main menu layer architecture: environment, hero, logo, live menu, ambient and interaction states"></div><p class="caption"><a href="08-main-layers.png">Original PNG</a> · Текущая композиция и UI LOCK сохраняются. Production background не содержит text/logo/buttons/hero. На схеме текст пояснительный; никаких extraction/crop.</p></section>
+<section id="runtime"><h2>9. Production asset / runtime plan</h2><div class="plan">
+<p>Предлагаемые бюджеты, не benchmark results. Детали и memory arithmetic: <a href="BLUEPRINT.md">BLUEPRINT.md §7</a>. Snake — непрерывный contour/material, не 1200 независимых полноценных body sprites. Детали cull по экрану, а не растут с общей длиной.</p>
+<div class="table"><table><thead><tr><th>Family</th><th>Representation</th></tr></thead><tbody>
+<tr><td>Snake</td><td>Continuous silhouette; directional head/reaction atlas; sparse stable arc-length accents</td></tr>
+<tr><td>Ground / decor</td><td>Static variants, deterministic clusters, bounded cached chunks</td></tr>
+<tr><td>Food / pickups / portal</td><td>Category atlas; small authored frame sequences; rooted portal + inward particles</td></tr>
+<tr><td>VFX</td><td>Bounded sprite particles, local response; no blur/full-screen filters</td></tr>
+<tr><td>Main / UI</td><td>Separate background/hero/logo/UI; live labels; critical decode gate; existing UI LOCK shell</td></tr>
+</tbody></table></div>
+<div class="table"><table><thead><tr><th>Initial ceiling</th><th>Mobile</th><th>Desktop</th></tr></thead><tbody>
+<tr><td>World sprites / Snake accents</td><td>220 / 48</td><td>360 / 96</td></tr><tr><td>Animated props / particles</td><td>8 / 24</td><td>16 / 48</td></tr><tr><td>Canvas layers</td><td>≤3</td><td>≤3</td></tr><tr><td>Gameplay atlases (RGBA)</td><td>48 MiB</td><td>72 MiB</td></tr><tr><td>Tracked raster resources ceiling</td><td>80 MiB</td><td>128 MiB</td></tr><tr><td>Render p95 target — unmeasured</td><td>≤4 ms</td><td>≤2 ms</td></tr>
+</tbody></table></div>
+<p>1024² RGBA = 4 MiB; 2048² = 16 MiB. Current + adjacent biome only; menu textures releasable; canvas/cache и CPU decode copies считаются отдельно. Длина 1200, DPR и active stack требуют будущего measured proof.</p>
+<h3>Human review / stop gate</h3><p>Нужен review anatomy, category silhouettes, portal, food shortlist и biome constants. Эти листы не доказывают seamless animation или runtime feasibility. До отдельного approval — никаких production assets, implementation или публикации.</p>
+</div></section>
+</main>
+<footer>Built-in ImageGen · independently generated concept originals · Reference ≠ Source Asset · no game implementation</footer>
+<script>
+for(const id of ['gray','native'])document.getElementById(id).addEventListener('change',e=>document.body.classList.toggle(id,e.target.checked));
+</script>
+</html>
