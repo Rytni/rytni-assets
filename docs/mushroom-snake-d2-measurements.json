@@ -2,196 +2,6 @@
   "perf": [
     {
       "viewport": {
-        "width": 844,
-        "height": 390
-      },
-      "dpr": 2,
-      "length": 8,
-      "actualLength": 8,
-      "cpuRate": 4,
-      "lod": "small",
-      "cold": {
-        "insertions": 27,
-        "totalMs": 8.400000050663948,
-        "maxMs": 1.2000000029802322
-      },
-      "travel": {
-        "insertions": 27,
-        "totalMs": 8.400000050663948,
-        "maxMs": 1.2000000029802322
-      },
-      "p50": 0.7999999970197678,
-      "p95": 1.0999999940395355,
-      "max": 1.5,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 2933952,
-        "ground": 3981312,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 20788416,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
-        "width": 844,
-        "height": 390
-      },
-      "dpr": 2,
-      "length": 100,
-      "actualLength": 100,
-      "cpuRate": 4,
-      "lod": "small",
-      "cold": {
-        "insertions": 27,
-        "totalMs": 6.799999937415123,
-        "maxMs": 0.5
-      },
-      "travel": {
-        "insertions": 27,
-        "totalMs": 6.799999937415123,
-        "maxMs": 0.5
-      },
-      "p50": 0.9000000059604645,
-      "p95": 1.2999999970197678,
-      "max": 1.7000000029802322,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 2933952,
-        "ground": 3981312,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 20788416,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
-        "width": 844,
-        "height": 390
-      },
-      "dpr": 2,
-      "length": 250,
-      "actualLength": 250,
-      "cpuRate": 4,
-      "lod": "small",
-      "cold": {
-        "insertions": 27,
-        "totalMs": 7.700000002980232,
-        "maxMs": 0.7000000029802322
-      },
-      "travel": {
-        "insertions": 27,
-        "totalMs": 7.700000002980232,
-        "maxMs": 0.7000000029802322
-      },
-      "p50": 1.2000000029802322,
-      "p95": 1.5999999940395355,
-      "max": 2.0999999940395355,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 2933952,
-        "ground": 3981312,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 20788416,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
-        "width": 844,
-        "height": 390
-      },
-      "dpr": 2,
-      "length": 500,
-      "actualLength": 500,
-      "cpuRate": 4,
-      "lod": "small",
-      "cold": {
-        "insertions": 27,
-        "totalMs": 6.699999988079071,
-        "maxMs": 0.6000000089406967
-      },
-      "travel": {
-        "insertions": 27,
-        "totalMs": 6.699999988079071,
-        "maxMs": 0.6000000089406967
-      },
-      "p50": 1.4000000059604645,
-      "p95": 1.9000000059604645,
-      "max": 2.5999999940395355,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 2933952,
-        "ground": 3981312,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 20788416,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
-        "width": 844,
-        "height": 390
-      },
-      "dpr": 2,
-      "length": 1200,
-      "actualLength": 1200,
-      "cpuRate": 4,
-      "lod": "small",
-      "cold": {
-        "insertions": 27,
-        "totalMs": 5.800000011920929,
-        "maxMs": 0.7999999970197678
-      },
-      "travel": {
-        "insertions": 27,
-        "totalMs": 5.800000011920929,
-        "maxMs": 0.7999999970197678
-      },
-      "p50": 1.7000000029802322,
-      "p95": 2.3999999910593033,
-      "max": 3,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 2933952,
-        "ground": 3981312,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 20788416,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
         "width": 1366,
         "height": 768
       },
@@ -207,8 +17,46 @@
       },
       "travel": {
         "insertions": 32,
-        "totalMs": 1,
-        "maxMs": 0.20000000298023224
+        "totalMs": 0.9000000059604645,
+        "maxMs": 0.10000000894069672
+      },
+      "p50": 0.10000000894069672,
+      "p95": 0.29999999701976776,
+      "max": 0.3999999910593033,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 3391568,
+        "ground": 4718592,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 21983312,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "dpr": 1,
+      "length": 100,
+      "actualLength": 100,
+      "cpuRate": 1,
+      "lod": "large",
+      "cold": {
+        "insertions": 28,
+        "totalMs": 0.9000000059604645,
+        "maxMs": 0.10000000894069672
+      },
+      "travel": {
+        "insertions": 32,
+        "totalMs": 1.0000000149011612,
+        "maxMs": 0.10000000894069672
       },
       "p50": 0.19999998807907104,
       "p95": 0.29999999701976776,
@@ -234,61 +82,23 @@
         "height": 768
       },
       "dpr": 1,
-      "length": 100,
-      "actualLength": 100,
-      "cpuRate": 1,
-      "lod": "large",
-      "cold": {
-        "insertions": 28,
-        "totalMs": 0.7999999821186066,
-        "maxMs": 0.10000000894069672
-      },
-      "travel": {
-        "insertions": 32,
-        "totalMs": 1.0999999940395355,
-        "maxMs": 0.10000000894069672
-      },
-      "p50": 0.20000000298023224,
-      "p95": 0.30000001192092896,
-      "max": 0.5,
-      "spikes": {
-        "over4": 0,
-        "over8": 0,
-        "over16_7": 0
-      },
-      "memory": {
-        "images": 13283328,
-        "backings": 3391568,
-        "ground": 4718592,
-        "variants": 589824,
-        "duplicates": 0,
-        "totalBytes": 21983312,
-        "peakTransientDecodeBytes": 6294152
-      }
-    },
-    {
-      "viewport": {
-        "width": 1366,
-        "height": 768
-      },
-      "dpr": 1,
       "length": 250,
       "actualLength": 250,
       "cpuRate": 1,
       "lod": "large",
       "cold": {
         "insertions": 28,
-        "totalMs": 0.7000000029802322,
-        "maxMs": 0.10000000894069672
+        "totalMs": 0.9000000059604645,
+        "maxMs": 0.20000000298023224
       },
       "travel": {
         "insertions": 32,
-        "totalMs": 0.8999999910593033,
-        "maxMs": 0.10000000894069672
+        "totalMs": 1.2000000029802322,
+        "maxMs": 0.20000000298023224
       },
       "p50": 0.20000000298023224,
-      "p95": 0.4000000059604645,
-      "max": 0.5,
+      "p95": 0.30000001192092896,
+      "max": 0.4000000059604645,
       "spikes": {
         "over4": 0,
         "over8": 0,
@@ -316,17 +126,17 @@
       "lod": "large",
       "cold": {
         "insertions": 28,
-        "totalMs": 1.3999999910593033,
-        "maxMs": 0.20000000298023224
+        "totalMs": 0.9000000059604645,
+        "maxMs": 0.10000000894069672
       },
       "travel": {
         "insertions": 32,
-        "totalMs": 1.5999999940395355,
-        "maxMs": 0.20000000298023224
+        "totalMs": 1,
+        "maxMs": 0.10000000894069672
       },
-      "p50": 0.3999999910593033,
-      "p95": 0.7000000029802322,
-      "max": 0.9000000059604645,
+      "p50": 0.29999999701976776,
+      "p95": 0.4000000059604645,
+      "max": 0.5999999940395355,
       "spikes": {
         "over4": 0,
         "over8": 0,
@@ -354,17 +164,17 @@
       "lod": "large",
       "cold": {
         "insertions": 28,
-        "totalMs": 0.7000000178813934,
+        "totalMs": 0.699999988079071,
         "maxMs": 0.10000000894069672
       },
       "travel": {
         "insertions": 32,
-        "totalMs": 0.8000000268220901,
+        "totalMs": 0.7999999821186066,
         "maxMs": 0.10000000894069672
       },
-      "p50": 0.5,
-      "p95": 0.699999988079071,
-      "max": 1.1000000089406967,
+      "p50": 0.4000000059604645,
+      "p95": 0.5999999940395355,
+      "max": 0.9000000059604645,
       "spikes": {
         "over4": 0,
         "over8": 0,
@@ -377,6 +187,196 @@
         "variants": 589824,
         "duplicates": 0,
         "totalBytes": 21983312,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dpr": 2,
+      "length": 8,
+      "actualLength": 8,
+      "cpuRate": 4,
+      "lod": "small",
+      "cold": {
+        "insertions": 27,
+        "totalMs": 6.899999991059303,
+        "maxMs": 1
+      },
+      "travel": {
+        "insertions": 27,
+        "totalMs": 6.899999991059303,
+        "maxMs": 1
+      },
+      "p50": 0.7000000029802322,
+      "p95": 1,
+      "max": 1.5999999940395355,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 2933952,
+        "ground": 3981312,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 20788416,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dpr": 2,
+      "length": 100,
+      "actualLength": 100,
+      "cpuRate": 4,
+      "lod": "small",
+      "cold": {
+        "insertions": 27,
+        "totalMs": 4.899999961256981,
+        "maxMs": 0.4000000059604645
+      },
+      "travel": {
+        "insertions": 27,
+        "totalMs": 4.899999961256981,
+        "maxMs": 0.4000000059604645
+      },
+      "p50": 0.7000000029802322,
+      "p95": 1,
+      "max": 1.300000011920929,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 2933952,
+        "ground": 3981312,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 20788416,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dpr": 2,
+      "length": 250,
+      "actualLength": 250,
+      "cpuRate": 4,
+      "lod": "small",
+      "cold": {
+        "insertions": 27,
+        "totalMs": 6.300000011920929,
+        "maxMs": 0.4000000059604645
+      },
+      "travel": {
+        "insertions": 27,
+        "totalMs": 6.300000011920929,
+        "maxMs": 0.4000000059604645
+      },
+      "p50": 1,
+      "p95": 1.6000000089406967,
+      "max": 2.1000000089406967,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 2933952,
+        "ground": 3981312,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 20788416,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dpr": 2,
+      "length": 500,
+      "actualLength": 500,
+      "cpuRate": 4,
+      "lod": "small",
+      "cold": {
+        "insertions": 27,
+        "totalMs": 4.700000002980232,
+        "maxMs": 0.4000000059604645
+      },
+      "travel": {
+        "insertions": 27,
+        "totalMs": 4.700000002980232,
+        "maxMs": 0.4000000059604645
+      },
+      "p50": 1.2999999970197678,
+      "p95": 1.7999999970197678,
+      "max": 3.3999999910593033,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 2933952,
+        "ground": 3981312,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 20788416,
+        "peakTransientDecodeBytes": 6294152
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dpr": 2,
+      "length": 1200,
+      "actualLength": 1200,
+      "cpuRate": 4,
+      "lod": "small",
+      "cold": {
+        "insertions": 27,
+        "totalMs": 5.400000020861626,
+        "maxMs": 0.5
+      },
+      "travel": {
+        "insertions": 27,
+        "totalMs": 5.400000020861626,
+        "maxMs": 0.5
+      },
+      "p50": 1.4000000059604645,
+      "p95": 1.7999999970197678,
+      "max": 2.5,
+      "spikes": {
+        "over4": 0,
+        "over8": 0,
+        "over16_7": 0
+      },
+      "memory": {
+        "images": 13283328,
+        "backings": 2933952,
+        "ground": 3981312,
+        "variants": 589824,
+        "duplicates": 0,
+        "totalBytes": 20788416,
         "peakTransientDecodeBytes": 6294152
       }
     }
@@ -433,8 +433,8 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 30,
-          "totalMs": 1.6999999731779099,
-          "maxMs": 0.30000001192092896
+          "totalMs": 1.399999976158142,
+          "maxMs": 0.10000000894069672
         }
       },
       {
@@ -483,8 +483,8 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 30,
-          "totalMs": 1.2000000178813934,
-          "maxMs": 0.19999998807907104
+          "totalMs": 1,
+          "maxMs": 0.20000000298023224
         }
       },
       {
@@ -533,8 +533,8 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 30,
-          "totalMs": 1.899999976158142,
-          "maxMs": 0.29999999701976776
+          "totalMs": 1.1000000089406967,
+          "maxMs": 0.19999998807907104
         }
       },
       {
@@ -583,8 +583,8 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 40,
-          "totalMs": 2.3999999910593033,
-          "maxMs": 0.29999999701976776
+          "totalMs": 1.5999999940395355,
+          "maxMs": 0.10000000894069672
         }
       },
       {
@@ -633,7 +633,7 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 40,
-          "totalMs": 2.1000000089406967,
+          "totalMs": 1.5999999940395355,
           "maxMs": 0.20000000298023224
         }
       },
@@ -683,20 +683,20 @@
         "automatic": false,
         "groundPreparation": {
           "insertions": 40,
-          "totalMs": 2.0999999940395355,
+          "totalMs": 1.7000000178813934,
           "maxMs": 0.20000000298023224
         }
       }
     ],
     "stopped": {
       "ui": "main",
-      "tick": 209,
+      "tick": 180,
       "score": 100,
       "length": 31,
       "food": 3765,
-      "hash": "b85d07b5",
+      "hash": "07c7dcfd",
       "cadence": 15,
-      "frames": 840,
+      "frames": 726,
       "recoveries": 0,
       "backing": null,
       "resources": {
@@ -722,32 +722,6 @@
       },
       "automatic": false,
       "groundPreparation": null
-    }
-  },
-  "method": {
-    "warmupFrames": 120,
-    "measuredFrames": 600,
-    "engine": "Edge / Canvas2D",
-    "desktopDPR": 1,
-    "mobileDPR": 2,
-    "cpuThrottle": "CDP x4",
-    "simulation": "unchanged60Hz",
-    "cold": {
-      "criticalDecodedMs": 183.6,
-      "firstDrawMs": 7.9,
-      "readyMs": 197.3,
-      "repeatMs": 8.6,
-      "repeatNewRequests": 0
-    },
-    "beforeContourSimplification": {
-      "length": 1200,
-      "cpuRate": 4,
-      "dpr": 2,
-      "p95": 4.1,
-      "max": 7.6,
-      "over4": 38,
-      "over8": 0,
-      "over16_7": 0
     }
   }
 }

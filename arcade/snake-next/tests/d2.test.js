@@ -39,13 +39,23 @@ test('growthKeepsTerminalContinuous: real food growth keeps previous terminal at
   snaps.capture(state);assert.equal(state.length,9);
   const g=new D2Geometry(f.arena.cells);for(const a of phases){g.build(snaps,f.arena.width,a);close(g.tail.x,old%96+.5);close(g.tail.y,Math.floor(old/96)+.5);}
 });
-test('materialAnchorSurvivesGrowthResize: same anchor travels with body, capture idempotent',()=>{
+test('materialAnchorSurvivesGrowthResize: same anatomy anchor moves with the body through all phases',()=>{
   const {f,state,snaps}=setup({shape:'straight',length:30,speed:20}),m=new D2Material(73,f.arena.cells),g=new D2Geometry(f.arena.cells),out=[];
   m.capture(snaps);g.build(snaps,96,1);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);const before=out.map(v=>({...v}));
   for(let i=0;i<f.rules.ticksPerCell;i++)step(state,f.arena,f.rules,[]);snaps.capture(state);m.capture(snaps);m.capture(snaps);assert.equal(m.travel,1);
-  g.build(snaps,96,1);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);
-  for(const old of before){const current=out.find(v=>v.id===old.id);if(current){close(current.x,old.x);close(current.y,old.y);}}
+  for(const alpha of phases){
+    g.build(snaps,96,alpha);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);
+    for(const old of before){const current=out.find(v=>v.id===old.id);assert.ok(current,'Movement must retain material identity');close(current.x,old.x+alpha);close(current.y,old.y);close(current.distance-g.start,old.distance);assert.equal(current.kind,old.kind);}
+  }
+  state.food=snaps.current[0]+1;
+  for(let i=0;i<f.rules.ticksPerCell;i++)step(state,f.arena,f.rules,[]);snaps.capture(state);m.capture(snaps);assert.equal(state.length,31);
+  for(const alpha of phases){g.build(snaps,96,alpha);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);for(const old of before){const current=out.find(v=>v.id===old.id);assert.ok(current,'Growth must not scramble old material');close(current.x,old.x+1+alpha);close(current.distance-g.start,old.distance);}}
   const ids=out.map(v=>v.id);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);assert.deepEqual(out.map(v=>v.id),ids);
+});
+test('material follows the canonical turn path, independent of viewport and LOD',()=>{
+  const {f,state,snaps}=setup({shape:'S',length:30,speed:20}),m=new D2Material(73,f.arena.cells),g=new D2Geometry(f.arena.cells),out=[],bounds={x0:0,y0:0,x1:96,y1:64};m.capture(snaps);g.build(snaps,96,1);m.visibleAccents(g,bounds,'large',out);const before=out.map(v=>({...v})),point={};
+  for(let i=0;i<f.rules.ticksPerCell;i++)step(state,f.arena,f.rules,[]);snaps.capture(state);m.capture(snaps);
+  for(const alpha of phases)for(const lod of ['small','large']){g.build(snaps,96,alpha);m.visibleAccents(g,bounds,lod,out);for(const old of before){const current=out.find(v=>v.id===old.id);assert.ok(current);g.point(g.start+old.distance,point);close(current.x,point.x);close(current.y,point.y);close(current.distance-g.start,old.distance);}const records=out.map(v=>({...v}));m.visibleAccents(g,{x0:35,y0:27,x1:45,y1:35},lod,out);for(const v of out){const expected=records.find(r=>r.id===v.id);close(v.x,expected.x);close(v.y,expected.y);}}
 });
 test('mushroomCaps: no periodic per-cell stamps, short and sliding 50-cell caps',()=>{
   for(const length of lengths){const {f,snaps}=setup({length}),g=new D2Geometry(f.arena.cells).build(snaps,96,1),m=new D2Material(73,f.arena.cells),out=[];m.capture(snaps);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);const fungi=out.filter(v=>v.kind==='mushroom');if(length===8)assert.ok(fungi.length<=1);if(length<=60)assert.ok(fungi.length<=2);for(const a of fungi)assert.ok(fungi.filter(b=>b.distance>=a.distance&&b.distance<a.distance+50).length<=2);}

@@ -5,6 +5,15 @@ async page => {
   await page.unrouteAll({behavior:'ignoreErrors'});await page.setViewportSize({width:1366,height:768});await page.goto('http://127.0.0.1:8773/arcade/snake-next/d2-review.html?qa=1');
   await page.evaluate(async()=>{await d2QA.scene({shape:'straight',length:8});d2QA.phase(.5);});
   const probe=await page.evaluate(()=>d2QA.rasterProbe());assert(probe.holes===0,'Raster centerline has holes');
+  // Actual drawn accents must ride with tissue, not stay painted on the world route.
+  await page.evaluate(async()=>{await d2QA.scene({shape:'straight',length:30,speed:4});d2QA.phase(1);});
+  const materialBefore=await page.evaluate(()=>d2Review.renderer.accents.filter(v=>v.distance<10).map(v=>({...v})));assert(materialBefore.length>0,'No visible material motion evidence');
+  await page.evaluate(()=>d2QA.advance(15));
+  for(const alpha of [0,.125,.5,.875,1]){
+    const actual=await page.evaluate(a=>{d2QA.phase(a);return {start:d2Review.renderer.body.start,accents:d2Review.renderer.accents.map(v=>({...v}))};},alpha);
+    for(const old of materialBefore){const v=actual.accents.find(v=>v.id===old.id);assert(v&&Math.abs(v.x-old.x-alpha)<1e-5&&Math.abs(v.y-old.y)<1e-5&&Math.abs(v.distance-actual.start-old.distance)<1e-5,'Material is world-locked or changes anatomy identity');}
+    await page.screenshot({path:`${dir}/material-motion-a${alpha}.png`});
+  }
   // Slow critical load: no canvas visible until all decodes finish.
   await page.route('**/mushroom-snake-d2-proof/*.png',async route=>{await page.waitForTimeout(120);await route.continue();});await page.reload();await page.locator('#start').click();await page.waitForFunction(()=>d2Review.ui==='loading');assert(await page.locator('canvas').evaluate(c=>getComputedStyle(c).visibility==='hidden'),'Canvas revealed during decode');await page.screenshot({path:`${dir}/loading.png`});await page.waitForFunction(()=>d2Review.ui==='playing');await page.unroute('**/mushroom-snake-d2-proof/*.png');
   for(const shape of ['straight','90','U','S','parallel'])for(const direction of [0,1,2,3]){

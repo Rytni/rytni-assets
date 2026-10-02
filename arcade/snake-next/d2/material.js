@@ -1,5 +1,7 @@
 export function visualHash(seed,index){let h=(seed^Math.imul(index,0x9e3779b1))>>>0;h^=h>>>16;h=Math.imul(h,0x85ebca6b);h^=h>>>13;return h>>>0;}
-/** Persistent material domain: p = completed travel + fractional move - distance from head. */
+/** Persistent anatomy domain: p = -distance behind the interpolated head.
+ * Travel tracks canonical moves, not texture flow: growth exposes more tail material.
+ */
 export class D2Material {
   constructor(seed,capacity){this.seed=seed;this.capacity=capacity;this.point={x:0,y:0,dx:0,dy:0};this.pool=Array.from({length:96},()=>({}));this.reset();}
   reset(){this.travel=0;this.lastHead=-1;}
@@ -10,10 +12,10 @@ export class D2Material {
     return true;
   }
   visibleAccents(g,bounds,lod,out){
-    const origin=this.travel-(g.alpha<1&&g.start>0?1-g.alpha:0),a=Math.floor((origin-g.span)/3)-1,b=Math.ceil(origin/3)+1;
+    const a=Math.floor(-g.span/3)-1,b=1;
     let n=0;const limit=lod==='small'?48:96;
     for(let k=b;k>=a&&n<limit;k--){
-      const h=visualHash(this.seed,k),p=k*3+(h%210)/100,d=g.start+origin-p;
+      const h=visualHash(this.seed,k),p=k*3+(h%210)/100,d=g.start-p;
       if(d<g.start+.9||d>g.end-.7)continue;
       g.point(d,this.point);const {x,y,dx,dy}=this.point;if(x<bounds.x0-.3||x>bounds.x1+.3||y<bounds.y0-.3||y>bounds.y1+.3)continue;
       const mushroom=this.mushroomAt(k,h,p);if(!mushroom&&h%5>=2)continue;
