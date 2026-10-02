@@ -10,7 +10,7 @@ export class D2Renderer {
   constructor(canvas,capacity,resources,{fixture}={}){
     this.canvas=canvas;this.ctx=canvas.getContext('2d');this.resources=resources;this.body=new D2Geometry(capacity);this.material=new D2Material(73,capacity);this.camera=new Camera();this.forest=new D2Forest(resources,73);
     if(fixture)this.forest.prepare(fixture.arena,fixture.visuals);
-    this.view={lod:'auto',grayscale:false,debug:false};this.width=this.height=1;this.dpr=1;this.resizes=0;this.faults=0;this.time=0;this.accents=[];this.bounds={x0:0,y0:0,x1:0,y1:0};this.headVariants=[];this.diagnostic='';
+    this.view={lod:'auto',grayscale:false,debug:false};this.width=this.height=1;this.dpr=1;this.resizes=0;this.faults=0;this.time=0;this.accents=[];this.bounds={x0:0,y0:0,x1:0,y1:0};this.headVariants=[];this.diagnostic='';this.vertexIndices=new Int32Array((capacity+20)*2);
   }
   setView(view){Object.assign(this.view,view);}
   resize(width,height,dpr){
@@ -25,13 +25,14 @@ export class D2Renderer {
   traceContour(p){
     const g=this.body,a=g.polygon,n=g.count,total=n*2-1;
     const offset=i=>i<n?i*4:(total-1-i)*4+2;
-    for(let i=0;i<total;i++){
-      const c=offset(i),prev=offset((i+total-1)%total),next=offset((i+1)%total),x=a[c],y=a[c+1],ax=a[prev]-x,ay=a[prev+1]-y,bx=a[next]-x,by=a[next+1]-y,al=Math.hypot(ax,ay),bl=Math.hypot(bx,by);
+    let kept=0;for(let i=0;i<total;i++){const c=offset(i),prev=offset((i+total-1)%total),next=offset((i+1)%total),ax=a[prev]-a[c],ay=a[prev+1]-a[c+1],bx=a[next]-a[c],by=a[next+1]-a[c+1];if(i!==n-1&&Math.abs(ax*by-ay*bx)<1e-8&&ax*bx+ay*by<0)continue;this.vertexIndices[kept++]=i;}
+    for(let j=0;j<kept;j++){
+      const i=this.vertexIndices[j],c=offset(i),prev=offset(this.vertexIndices[(j+kept-1)%kept]),next=offset(this.vertexIndices[(j+1)%kept]),x=a[c],y=a[c+1],ax=a[prev]-x,ay=a[prev+1]-y,bx=a[next]-x,by=a[next+1]-y,al=Math.hypot(ax,ay),bl=Math.hypot(bx,by);
       const amount=i===n-1?0:Math.min(.23,al*.4,bl*.4),sx=x+(al?ax/al*amount:0),sy=y+(al?ay/al*amount:0),ex=x+(bl?bx/bl*amount:0),ey=y+(bl?by/bl*amount:0);
-      if(i===0)p.moveTo(sx,sy);else p.lineTo(sx,sy);p.quadraticCurveTo(x,y,ex,ey);
+      if(j===0)p.moveTo(sx,sy);else p.lineTo(sx,sy);p.quadraticCurveTo(x,y,ex,ey);
     }p.closePath();
   }
-  centerline(){const g=this.body,p=new Path2D();p.moveTo(g.head.x,g.head.y);for(let i=0;i<g.count;i++){g.point(g.distances[i],g.probe);p.lineTo(g.probe.x,g.probe.y);}return p;}
+  centerline(){const g=this.body,p=new Path2D();p.moveTo(g.head.x,g.head.y);for(let i=Math.floor(g.start)+1;i<g.end;i++){if(g.x[i-1]===g.x[i+1]||g.y[i-1]===g.y[i+1])continue;p.lineTo(g.x[i],g.y[i]);}p.lineTo(g.tail.x,g.tail.y);return p;}
   prepareHeads(){
     if(this.headVariants.length)return;const image=this.resources.get('heads'),cell=image.width/2;
     for(let i=0;i<4;i++){
@@ -62,5 +63,12 @@ export class D2Renderer {
     this.diagnostic=`D.2 · ${lod} LOD · ${snapshots.length} cells · ${this.forest.cache.size}/48 ground · ${(this.inventory().totalBytes/1048576).toFixed(1)} MiB tracked`;
   }
   inventory(){return this.resources.inventory();}
+  rasterProbe(){
+    // QA-only temporary mask; samples actual Canvas2D contour, not just mathematical vertices.
+    const g=this.body,scale=12,w=96*scale,h=64*scale,c=new OffscreenCanvas(w,h),ctx=c.getContext('2d');ctx.scale(scale,scale);ctx.fill(this.silhouette());const data=ctx.getImageData(0,0,w,h).data;let holes=0,outside=0;
+    for(let d=g.start;d<g.end-.3;d+=.05){g.point(d,g.probe);const x=Math.floor(g.probe.x*scale),y=Math.floor(g.probe.y*scale);if(data[(y*w+x)*4+3]<64)holes++;}
+    for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(data[(y*w+x)*4+3]>200&&!g.inCorridor((x+.5)/scale,(y+.5)/scale))outside++;
+    c.width=c.height=0;return {holes,outside,temporaryBytes:w*h*4};
+  }
   dispose(){this.forest.dispose();for(let i=0;i<this.headVariants.length;i++){this.headVariants[i].width=this.headVariants[i].height=0;this.resources.release(`head:${i}`);}this.headVariants.length=0;this.resources.release('d2-stage');this.canvas.width=this.canvas.height=0;}
 }

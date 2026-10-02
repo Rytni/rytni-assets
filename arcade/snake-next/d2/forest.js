@@ -2,7 +2,7 @@ import {visualHash} from './material.js';
 import {atlasSprite,OBJECT_SLOTS} from './resources.js';
 
 export class D2Forest {
-  constructor(resources,seed){this.resources=resources;this.seed=seed;this.cache=new Map();this.decor=[];this.obstacles=[];this.objects=[];}
+  constructor(resources,seed){this.resources=resources;this.seed=seed;this.cache=new Map();this.decor=[];this.obstacles=[];this.objects=[];this.stats={insertions:0,totalMs:0,maxMs:0};}
   prepare(arena,visuals){
     this.dispose();this.arena=arena;this.objects=visuals.objects.map(p=>({...p}));
     this.obstacles=visuals.obstacles.filter(p=>arena.blocked(p.y*arena.width+p.x)).map(p=>({...p}));
@@ -19,7 +19,7 @@ export class D2Forest {
   cacheChunk(x,y,create){
     const key=`${x},${y}`;if(this.cache.has(key))return this.cache.get(key);
     while(this.cache.size>=48){const old=this.cache.keys().next().value,canvas=this.cache.get(old);this.resources.release(`ground:${old}`);canvas.width=canvas.height=0;this.cache.delete(old);}
-    const canvas=create();this.cache.set(key,canvas);this.resources.track(`ground:${key}`,canvas.width,canvas.height,'ground');return canvas;
+    const started=performance.now(),canvas=create(),cost=performance.now()-started;this.stats.insertions++;this.stats.totalMs+=cost;this.stats.maxMs=Math.max(this.stats.maxMs,cost);this.cache.set(key,canvas);this.resources.track(`ground:${key}`,canvas.width,canvas.height,'ground');return canvas;
   }
   compose(x,y){
     const canvas=document.createElement('canvas');canvas.width=canvas.height=192;const ctx=canvas.getContext('2d');
@@ -36,7 +36,7 @@ export class D2Forest {
     if(!atlas)return;
     for(const p of this.decor)if(p.x>x0-2&&p.x<x1+2&&p.y>y0-2&&p.y<y1+2){ctx.globalAlpha=.40;atlasSprite(ctx,atlas,7,4,2,p.x,p.y,p.size);}
     ctx.globalAlpha=1;
-    for(const p of this.obstacles)if(p.x>x0-2&&p.x<x1+2&&p.y>y0-2&&p.y<y1+2)atlasSprite(ctx,atlas,OBJECT_SLOTS[p.kind],4,2,p.x+.5,p.y+.5,1.45);
+    for(const p of this.obstacles)if(p.x>x0-2&&p.x<x1+2&&p.y>y0-2&&p.y<y1+2)atlasSprite(ctx,atlas,OBJECT_SLOTS[p.kind],4,2,p.x+.5,p.y+.5,1.15);
     for(const p of this.objects)if(p.x>x0-3&&p.x<x1+3&&p.y>y0-3&&p.y<y1+3){const size=p.kind==='portal'?3.5:1.15;atlasSprite(ctx,atlas,OBJECT_SLOTS[p.kind],4,2,p.x,p.y,size,p.kind==='portal'?3:size);}
     if(food>=0)atlasSprite(ctx,atlas,0,4,2,food%this.arena.width+.5,Math.floor(food/this.arena.width)+.5,1.15);
     // Six authored leaf-shaped ambient specks, capped independent of Snake length.

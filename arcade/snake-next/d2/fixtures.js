@@ -9,13 +9,13 @@ function pathFor(shape,length){
   for(let i=1;i<length+20;i++){
     if(shape==='straight'){x--;}
     else if(shape==='90'){if(i<8)x--;else y++;}
-    else if(shape==='U'){if(i<10)x--;else if(i<12)y++;else x++;}
+    else if(shape==='U'){if(i<10)x--;else if(i<11)y++;else x++;}
     else {if(i<10)x--;else if(i<13)y++;else if(i<25)x++;else if(i<28)y++;else x--;}
     path.push(y*96+x);
   }
   return path;
 }
-export function createD2Fixture({shape='S',length=8,direction:heading=Direction.RIGHT,speed=4}={}){
+export function createD2Fixture({shape='S',length=8,direction:heading=Direction.RIGHT,speed=4,benchmark=false,foodDirection}={}){
   if(![8,30,100,250,500,1200].includes(length))throw RangeError('Unsupported D2 length');
   if(!['straight','90','U','S','parallel','stress'].includes(shape))throw RangeError('Unsupported D2 track');
   if(!Number.isFinite(speed)||speed<2||speed>20)throw RangeError('Speed must be 2..20 cells/s');
@@ -32,5 +32,7 @@ export function createD2Fixture({shape='S',length=8,direction:heading=Direction.
   const head=body[0],ahead=head+(facing===1?3:facing===3?-3:facing===2?288:-288);
   const visuals={obstacles:obstacles.filter(p=>arena.blocked(p.y*96+p.x)),objects:[{kind:'positive',x:40.5,y:24.5},{kind:'positive',x:32.5,y:36.5},{kind:'negative',x:52.5,y:36.5},{kind:'portal',x:54.5,y:22.5}]};
   const stateOptions={direction:facing};if(!body.includes(ahead)&&!arena.blocked(ahead))stateOptions.food=ahead;
+  if(benchmark)stateOptions.food=3*96+3;
+  if(foodDirection!==undefined){if(![0,1,2,3].includes(foodDirection))throw RangeError('Invalid food direction');stateOptions.food=head+[ -96,1,96,-1 ][foodDirection];}
   return {seed:73,rules,arena,stateOptions,visuals,route,commands:tick=>[]};
 }

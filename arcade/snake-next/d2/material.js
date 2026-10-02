@@ -12,13 +12,14 @@ export class D2Material {
   visibleAccents(g,bounds,lod,out){
     const origin=this.travel-(g.alpha<1&&g.start>0?1-g.alpha:0),a=Math.floor((origin-g.span)/3)-1,b=Math.ceil(origin/3)+1;
     let n=0;const limit=lod==='small'?48:96;
-    for(let k=a;k<=b&&n<limit;k++){
+    for(let k=b;k>=a&&n<limit;k--){
       const h=visualHash(this.seed,k),p=k*3+(h%210)/100,d=g.start+origin-p;
       if(d<g.start+.9||d>g.end-.7)continue;
       g.point(d,this.point);const {x,y,dx,dy}=this.point;if(x<bounds.x0-.3||x>bounds.x1+.3||y<bounds.y0-.3||y>bounds.y1+.3)continue;
+      const mushroom=this.mushroomAt(k,h,p);if(!mushroom&&h%5>=2)continue;
       let kind='moss';
       // Global material-space thinning, independent of visible window or body length.
-      if(this.mushroomAt(k,h,p))kind='mushroom';
+      if(mushroom)kind='mushroom';
       else if(lod==='large'&&h%7===0)kind='flower';
       const record=this.pool[n];record.id=k;record.kind=kind;record.x=x;record.y=y;record.dx=dx;record.dy=dy;record.distance=d;record.size=.35+(h>>>16)%45/100;record.side=((h>>>12)%140-70)/1000;record.variant=h%3;out[n++]=record;
     }

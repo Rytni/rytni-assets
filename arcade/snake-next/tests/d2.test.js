@@ -102,8 +102,24 @@ test('stopReleasesResources: scene ground/backings and final decoded owner relea
   const r=new D2Resources(),review=new D2Review(fakeRoot(),{resources:r});let disposed=0;review.renderer={dispose(){disposed++;r.release('stage');}};r.track('stage',800,450);review.stop();review.stop();assert.equal(disposed,1);assert.equal(r.inventory().backings,0);review.dispose();assert.equal(r.inventory().totalBytes,0);
 });
 test('organicContour: rounded vertices keep tip exact and control points inside corridor',()=>{
- const {f,snaps}=setup({shape:'S',length:30}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,.5);const points=[];r.traceContour({moveTo:(x,y)=>points.push([x,y]),lineTo:(x,y)=>points.push([x,y]),quadraticCurveTo:(x,y,a,b)=>points.push([x,y],[a,b]),closePath(){}});assert.ok(points.length>r.body.count*2);for(const [x,y] of points)assert.ok(r.body.inCorridor(x,y));assert.ok(points.some(([x,y])=>Math.abs(x-r.body.tail.x)<1e-5&&Math.abs(y-r.body.tail.y)<1e-5));
+ const {f,snaps}=setup({shape:'S',length:30}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,.5);const points=[];r.traceContour({moveTo:(x,y)=>points.push([x,y]),lineTo:(x,y)=>points.push([x,y]),quadraticCurveTo:(x,y,a,b)=>points.push([x,y],[a,b]),closePath(){}});assert.ok(points.length>8);for(const [x,y] of points)assert.ok(r.body.inCorridor(x,y));assert.ok(points.some(([x,y])=>Math.abs(x-r.body.tail.x)<1e-5&&Math.abs(y-r.body.tail.y)<1e-5));
 });
 test('contour includes both neck sides, no omitted terminal vertex',()=>{
  const {f,snaps}=setup({shape:'straight',length:8}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,1);const vertices=[];r.traceContour({moveTo(){},lineTo(){},quadraticCurveTo:(x,y)=>vertices.push([x,y]),closePath(){}});assert.deepEqual(vertices.at(-1),[r.body.polygon[2],r.body.polygon[3]]);
+});
+test('long-body material budget retains head-side anchors, not only tail-side islands',()=>{
+ const {f,snaps}=setup({shape:'parallel',length:1200}),g=new D2Geometry(f.arena.cells).build(snaps,96,1),m=new D2Material(73,f.arena.cells),out=[];m.capture(snaps);m.visibleAccents(g,{x0:0,y0:0,x1:96,y1:64},'large',out);assert.ok(out.some(v=>v.distance<20),'Head fragment lost all materials');
+});
+test('material capture consumes every simulation move even without render frames',()=>{
+ const {f,state,snaps}=setup({shape:'straight',length:8,speed:20}),review=new D2Review(fakeRoot()),m=new D2Material(73,f.arena.cells);m.capture(snaps);review.state=state;review.arena=f.arena;review.rules=f.rules;review.snapshots=snaps;review.renderer={material:m};review.clock={pause(){}};
+ for(let i=0;i<9;i++)review.tick();assert.equal(m.travel,3);
+});
+test('tight U fixture uses adjacent lanes with a one-cell bend',()=>{
+ const f=createD2Fixture({shape:'U',length:30,direction:1});assert.equal(f.route[10]-f.route[9],96);assert.equal(f.route[11]-f.route[10],1);
+});
+test('timing fixture food stays outside automated cycle so measured length is exact',()=>{
+ const f=createD2Fixture({shape:'parallel',length:1200,benchmark:true});assert.ok(!f.route.includes(f.stateOptions.food));assert.ok(!f.arena.blocked(f.stateOptions.food));
+});
+test('outline omits collinear commands, preserving every bend and taper vertex',()=>{
+ const {f,snaps}=setup({shape:'parallel',length:1200}),r=new D2Renderer(fakeRoot().querySelector(),f.arena.cells,new D2Resources());r.body.build(snaps,96,.5);let commands=0;r.traceContour({moveTo(){},lineTo(){},quadraticCurveTo(){commands++;},closePath(){}});assert.ok(commands<150,`Redundant commands: ${commands}`);
 });
