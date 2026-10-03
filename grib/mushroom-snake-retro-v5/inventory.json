@@ -1,6 +1,6 @@
 {
-  "version": "retro-v5.3-art-review",
-  "imageGenOperations": 1,
+  "version": "retro-v5.4-art-review",
+  "imageGenOperations": 0,
   "cell": 68,
   "body": 36,
   "head": 42,
@@ -13,1056 +13,1056 @@
       "file": "straight-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0c9017855987e071b38b18456612dc10b0798f201273a48b4d388a16215d220c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e3581ba0d53c2c3849427e07a150e577718f79c6b72659ca8bbee84ac6f0d666",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v1",
       "file": "straight-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "778d5033712c451967e9099edb837fceb19292d78d1f107d2e3cdc3ed10e4e51",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "7a466a4d1a59dcd4cb08f6f4f33f033a4595ed9d761c94f218ff057a4f6fadfe",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v2",
       "file": "straight-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "baa1917f6d3b03938adc8ac4d796dbdf28b909a1a097a5a75b6421b083f991a7",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "8e98f3f4571ab005c0b076a414a72564c8d1870a4beb3f83e0ebdb7e0e178c6a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v3",
       "file": "straight-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "1faab52823748d99b32fccf133fded9ca6038fd2a949c76645dee27bc0f9ce9d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "4e5513bb4d2c01bfc1267abdc8fa127c220a5546e6747b88d7a1193d80e8a9d7",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v4",
       "file": "straight-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "b7331789961251d926d0df9d456221d58232d2754409e47590e0f8d4d1562015",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "8efa1c66fc6c3153e38d4104bf47a168871d29ef32a152680b87f4c72168a067",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v5",
       "file": "straight-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "29006eab0ee1a6575d103a9a96ad437d42d43938517302317a588c916d5e8ca0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a70a4e52ecc5734bcd3c781b6b14a3037294ae6663dcaad9180881c73220619f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v6",
       "file": "straight-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "377c180d55672f9ee24257e03d0a88d5de488f212cb62bf82a069918371df96d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e3d6b81dd6ebb81647d0d1026ed7b38016e0f39658e0cf4582450a33da122497",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-0-v7",
       "file": "straight-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "a970c80a1fbb7b37e2b759c34298d5160765836cd735eeeb75bba479c868367f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "dcd62971f4a18609b1a3f4446f02dfcb92fcd0fca9b0440bfa221fb863500d0b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v0",
       "file": "neck-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0c9017855987e071b38b18456612dc10b0798f201273a48b4d388a16215d220c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "dd25fe602b56686884812415ed645bf7298ff11693c988aca4cf35a61f5c9afa",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v1",
       "file": "neck-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "778d5033712c451967e9099edb837fceb19292d78d1f107d2e3cdc3ed10e4e51",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a331a99d292840f9d56d745622ce1fdd6d60edf3fc20caa6af4eb5ce5c8a7162",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v2",
       "file": "neck-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "baa1917f6d3b03938adc8ac4d796dbdf28b909a1a097a5a75b6421b083f991a7",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9cd2f771f79a92d815d8695644f31124980cb6e84f2e06af2cc214ed7f341973",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v3",
       "file": "neck-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "1faab52823748d99b32fccf133fded9ca6038fd2a949c76645dee27bc0f9ce9d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "52bf9a796fde49da31de977d758d35a64beb66f90af0f3003b0cae501517f573",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v4",
       "file": "neck-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "b7331789961251d926d0df9d456221d58232d2754409e47590e0f8d4d1562015",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "fc78e40925d2cefeaaac8b49003edfd7fc1db809fb675e11185f4519c422d77d",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v5",
       "file": "neck-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "29006eab0ee1a6575d103a9a96ad437d42d43938517302317a588c916d5e8ca0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "335e561086ff03e17bbbb5ff577456bfebba38f6f9c10a2148a5509c7cf79be3",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v6",
       "file": "neck-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "377c180d55672f9ee24257e03d0a88d5de488f212cb62bf82a069918371df96d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "3f3198945086715db6b031ae507f1bce5e7ab7440840b29acd777871023829a4",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-0-v7",
       "file": "neck-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "a970c80a1fbb7b37e2b759c34298d5160765836cd735eeeb75bba479c868367f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "bac42b7ad9941ca6709891050afe81a03ddc594d6b964a681eaecbb3f6332cfa",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "head-0-v0",
       "file": "head-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "00e388446822d350eac719229816e6a8854795328462ff94e7fb0a23944c1d0a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "dc46cc0c5595fea6057b5b3ed71b4f557a59f1f040438052876392ee44221273",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v0",
       "file": "corner-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "1ebd4e9ef5464d3578f76e3ef328db3168e5fc1515950e8d7df4ba43efad9813",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "08c635b17447a1384d90af1bb3d2e1a39dafecefd0763c977a66ac7a67470042",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v1",
       "file": "corner-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "0fb2e2f67c045733b97295c0a7d09a547942b7f7fed6d5074aa19bbf5cef5daf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "336f7568e46e05602e448d6cfaa80def26129196314444c7310bfd088bdc2b96",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v2",
       "file": "corner-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "092e6822c921cae3c267031935d244fe6e5b1d5917dc0b4cf16a94d3f89535b0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "6615f760e0b894ebf253cae876430bd58f7aa8d5e317ddc43ec07501db4b4884",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v3",
       "file": "corner-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "a1b1f001859d6c580ad2355b3c8bf863d570726d66756e1e3d27dad41d18db96",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "c79c780d7573cc1fc8c097bb4ec38db3ca09a0488dcc4cbc83e64e0c4c10603a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v4",
       "file": "corner-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "d3b8cf5fed1066c89739a28f5ae2716b7eb87c472acaf83af1c0993afdc8f56c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "859342f7dbb5a3302ccc21d112113c171b2a94e58a548ce277bc96e2dce8dda2",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v5",
       "file": "corner-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "3fc917bcb8d46546ac2b34d0c3544a91db2664649f8f68eb843e9ec6b016a0f1",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "c56f33f78cd6c08f42ad75730a7473ea8c6dba5e81f3e3edec389c1f23f91234",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v6",
       "file": "corner-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "f834db4bd50ee720576fa87484cabb275fbe17db4fbe3610611a48ed3617f7ae",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5cf351b25b07a9be61b76374fd372c1ed8b2de0dac5e9aa402fc319fa2c0d576",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-0-v7",
       "file": "corner-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "cab9c563995719bd0689c408beccb0e92d020da3a18ead1bd587d344a28170ab",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "797315559a02c684d3bea2b77a3e0844f8aff95352fa30a5117bab2200814e86",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v0",
       "file": "terminal-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "5825a7b29be3f8453b5aa02f1cf88f24fbd2b8e514371b84f92c306f31085734",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f164e37b962414ad08539000791d32904b151d2aaa2d742acf47b64a2f8cc6fb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v1",
       "file": "terminal-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "4f67029a6ff08adaa8c2716046a1334fc106bc87e751e200791953392b791644",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "832e0cccfc6f3f9e50e76ca7775966a8b3b6d2d74dbe1eba78656b587692a4c9",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v2",
       "file": "terminal-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "04da7332e5fc87e01869a5ce8e891ad5d820abc66e49312177245addbc88eb4b",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5deaebe81de2543e7998eec7b678cba51f1acb4c6e446196d7e8020021c4101c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v3",
       "file": "terminal-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "7839086aacf0ec63fba28a4f945e89b11140c2775fa07441fd911cef16952ae8",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f6315fce7953a50355ea597338e06f5bac46376645c54d72f50672045e3405a4",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v4",
       "file": "terminal-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "0c65aeed43d285415939862e52d317dd47f65fa63314a6a2b7b1c038fce20b72",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "00352046187ee9d45a75c22299e7fcc1d00f895cca60f03e2fd6726ff80e24bd",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v5",
       "file": "terminal-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "1dc6bbb99af20c5c9bcf3ebd6ab5e5f7925444f2b5cb830a9a378f30d2527b5e",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d7fc3b4f1558fae0cca14856422f0c9714adc1b8dd3567b5841ddd80844fb6ae",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v6",
       "file": "terminal-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f247888d3a4b8e8971874c901c5af8220f26a8d5fc678a54223a8fa62f7d7b6",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9a1a70b7d93703f2c931d93feef633acd7a6460551534d06c144f3473fb4bfb5",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-0-v7",
       "file": "terminal-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "8d58907ebc6d170a3786aa6076f9264094c82f26aa2387336a3061ecc64862bd",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "cc17b8a89f905f198faafbda7b98c62fcaf865eff376bd094af58605261119cb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v0",
       "file": "straight-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "6a6c35f7d43336e1881438abb4bf0783979232e3b6db0ce678ce4ba90dbb621f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "694b36d6ae7b9fa5113a958a8c6287a142cd73a2d4fefa87df1adee6d61fbeaf",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v1",
       "file": "straight-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "b6b9f22ece7cce9d41e68eed9ee62c06858f7cfbe787a7a624f78621f2c1ceac",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "4c58a9e08e38e0b65c740168374caf785c8031846bdd55cb1edfe2fc25bf1d95",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v2",
       "file": "straight-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "cfb024370b8f6df34aff0c9e54f0aa9f1c53d944836f668896e0f951134e3988",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "2f75166e42d7c088e3c2f7a839cd252f5acd9566fe1b0aafdd10b5a83304555f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v3",
       "file": "straight-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "f0861e6ac8ce9496027fb32b2d1e2588925a3b1b8aae348329e678073a356d6f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "1333a8105b4e9b7eae6040b028932ed52b1e3ffc88d2e074071d40acef8e09bd",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v4",
       "file": "straight-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "900e50b16a86ecd49b79cb187e5cf19b516f0dc8a8e289c7eaa78dfd95a685e2",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "41034101501004a42cd1b56514916f3ba26cc3c72f206cb378d934651cf43e27",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v5",
       "file": "straight-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a0a38e8f0462304690d246665fc1b78aeb9c8272f75cb144b32e54bf829da481",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "cb0e6b31b8795ecb8da8be9e1fee9de96030814aa3664ae69bb54cd74f083f33",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v6",
       "file": "straight-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "229e776783836747f51019946cb1738ce4923e2f9760d7261d5df7c2027e69e9",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "2c50e22f45453026ab64b06dc8fbb20d867727f89cdb0110c7ead14fd2f22535",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-1-v7",
       "file": "straight-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b9f05b73b7d2b6a96eaa9ab3d162beb244f28d332e66e1ecba7ab52e2fb8bd18",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a6005db566c682c81e525575849eedcff4da35090df975a54679ddfd38975e35",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v0",
       "file": "neck-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "6a6c35f7d43336e1881438abb4bf0783979232e3b6db0ce678ce4ba90dbb621f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5a1f86a67e2562f550ba55fbe4cc0a2a5fd6ed3c9e8157703711bc665351ab84",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v1",
       "file": "neck-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "b6b9f22ece7cce9d41e68eed9ee62c06858f7cfbe787a7a624f78621f2c1ceac",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9d1467a88f9ea0d8cef4e42cf3000c4e8104369a7c0274bb73bdd5c540027f8c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v2",
       "file": "neck-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "cfb024370b8f6df34aff0c9e54f0aa9f1c53d944836f668896e0f951134e3988",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "33f8ac0cbfdf099a92b4e5513c0a09c1e09df8d3808195fc0f857db0335355f2",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v3",
       "file": "neck-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "f0861e6ac8ce9496027fb32b2d1e2588925a3b1b8aae348329e678073a356d6f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "bb13262aa5e645627e8a52a7b3ce7655b29a2cfc1b1bf274fe0d7d84c9fb2264",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v4",
       "file": "neck-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "900e50b16a86ecd49b79cb187e5cf19b516f0dc8a8e289c7eaa78dfd95a685e2",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "2be6685fe3fc9fbf307cb409bd2e0ef45f29b8048d7a602d545fef1e680fe3dc",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v5",
       "file": "neck-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a0a38e8f0462304690d246665fc1b78aeb9c8272f75cb144b32e54bf829da481",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "ad8ab025efbd21ea7bb5b84f89576839d3aa92d87effc80d1ae30fbdb222aae2",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v6",
       "file": "neck-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "229e776783836747f51019946cb1738ce4923e2f9760d7261d5df7c2027e69e9",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "ce991a343697f09e6deddf08ac42937c7be63eec15ac32a851eed8ead16cc66f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-1-v7",
       "file": "neck-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b9f05b73b7d2b6a96eaa9ab3d162beb244f28d332e66e1ecba7ab52e2fb8bd18",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "3fb2ff4634f4d357e6de3c93c0aa72a0a91c070fe9f601636a0bee1eb7774add",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "head-1-v0",
       "file": "head-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "47f6c04a65c02cde7cfdde2d181e05a20f65a4e2f99e2734032e72a9a7246992",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "4927e77fca0d73c20280afb8c28d3774baf9ecb3873c0145de2aa771e91efb56",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v0",
       "file": "corner-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "37532d6914bbf938b423ac3d8eecadd0007c3ff341b459a4ef0984b3ee3e59fb",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "140ac4eda913c1c5364a4b6a3455297ab60a1d6c000052c022c4a13e7de911ad",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v1",
       "file": "corner-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "4aff8e77ea1f023f870f1ed9c3c862583f37afbc498fe8f8f12d579a22ed6567",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "3ce4efabca1d7d0029fba6673129f2c3f73f099f330f5c607095aa9da0221c3a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v2",
       "file": "corner-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "63e6e0b9bff3d15fa444f708a73acc1465963f3f4941ae43029d47e07fea4db3",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "8de322de45388be6617de59681eaa9fb982745c093d35e000aaa1a67ce14dcbb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v3",
       "file": "corner-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "cb9bd03c0f513ba46082b5667645d0b94a1e1cb20c98421177df03c246fe4938",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "86757865452ab6097d5dbfa1172d8dc443512cee5d5b42e69f413e9e9becc613",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v4",
       "file": "corner-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "bc5c46090eb1666dfb93e395c4762ef54f79f0646965bd5a67148ceab07bc9da",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "1e742ff5840885ea75d25471e515116203cbbdc7398b004a892eef5844ea173e",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v5",
       "file": "corner-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "84db6affbd514f5de184e681942fd9794749167c7443323782ec0bdbb2e0a9a6",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9c217ac7412acc9848adcf9b7228e369fabb964e30e2d3610d560b94e521edde",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v6",
       "file": "corner-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f1151f7a8b726a639c84fc5d9437606413546fff1efcc9c1e2eb9bfa6969b5f",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5ca092d613ac3cb244dc027d261e92cc20f9ee6b4378ba038f0b362428c482f9",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-1-v7",
       "file": "corner-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "5f0bda6c26f75cde661a42ac15b3a2eaf3c97b574412b47b5ade07eb0cb722ec",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "80fc44d440754104319025b9381a3381958fff540585fcc4388de8f5d19eb409",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v0",
       "file": "terminal-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "bc6bbf3e15730dc6b7a4e36c69bb626fa580e13f3f13bcc772e859a22e8fd87c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "31085aac77b6e690a0f6847b42be1d4a9f2572b258f1cf610bf4aaf76905eee5",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v1",
       "file": "terminal-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "3bb7e387efb2b044a109d2ae988e06524afd2ece31d5982b055eb6a6d6327b2d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "ddb21f5530e76d4c3d9269fdcedcae15bf7340e7994a3223b8e052a6ffb8f55c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v2",
       "file": "terminal-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "bfea048a2a9ef4e7baba88f744f9f300b35765c1f656a73074e301c86ff77e8b",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9d6f7c1dd649fb2c6c740f5e2638801e5961b95059ee792974b1cd1769abb3cf",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v3",
       "file": "terminal-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "87916ffe88e3587b72492a3225a66e2a44ab9f58ab9db2a6fefff87df2861d24",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5689a0a5b00fea053a709d1ebef1c7b591c1248670dee0ac0989b62f8e2da5fc",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v4",
       "file": "terminal-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "260a34103816cba8b36555f760645474ca0c5d44ff102a06bbf20d011ff644eb",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9c57dacdf0e24abc1f35dc991d9874a9154a5ddcd2a8a798e99f63b8a850a6d3",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v5",
       "file": "terminal-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "70835d4b8dab6ef923f9a607f12ea1aa86bf894cc4380472096186f9fa710faa",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "99bb7a6c5e791ceb6641db506c08d776eddf765d3a37f29ae3c6742a128d03b9",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v6",
       "file": "terminal-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "33756a50817fc00a638524ad53757ef646f3b35c9f620cff3835e4a0c1b16a86",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "7434a252b5a9ef4099680d4c110c1cedd0595d8872b5ccb95fb269621d5ab21b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-1-v7",
       "file": "terminal-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "66b65d9a8134249c10b77c381fa9de91dfb661e5f4d665b7b3bcfbcde71b1a8b",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5a35ae2cd31eff5ee31b2a2e3194dc7e2c40da6d74ec7f032a1bf062b604ec38",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v0",
       "file": "straight-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "bb729f386df1d8ac046f8a58d1ed94471b710269b0b4355681e3ff392b075416",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "31f520b6a5da1f76a056a43fa7f0278752677a75d76625c98d783bea5c099539",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v1",
       "file": "straight-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "2bf9455e77a64f9e702b5d4361921f8f20715bbdbf6f06893737f784fdea3baf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "60b3f020d34e0d762bdb63f9155c9bd241400bd753ca8dcd1cbf31c26e34a29b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v2",
       "file": "straight-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "b509fdb4ac9aa6ffd54822455179e219dc540060e1f0a05c553b574a9a15bb9a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "1a15b6dcf4a6c0099fd485edf28535cbe9d450ffbeafcbc1c03108ff214238e6",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v3",
       "file": "straight-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6ab0fc1bd37aa3360b4e7232df1f36594d3315f72857755e77b34e1a6fd7817a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "8d2e9c72f58a5e989dbb9057fad6cd579f746df1f204d21d452155e3237b732b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v4",
       "file": "straight-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "04c7d3eed20afe7df8eb08de8c7ac5ec4375c64e9b997fc30d41347b5a502ff0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "026b4458f4c89de0a1a85de9fbc0afd6f71f12f277d2cbffe80fd5fd328b7a2c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v5",
       "file": "straight-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "1810351a9a7bffa7700b4a377b327a32b81c053c6b498767a8fc9fd951ffa3f2",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d66efceafb1a81381c0ba4ca7ddabd42b10ec250550b02dc18ff24b7d8b9af0f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v6",
       "file": "straight-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "4c990f2b8c88f606d5b4ac3f8e2e176d000ce921566a48fc189c4d71db7a4884",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a0e594b0689cb7c72bd51c176d7cdc041c9a2457d37617f5c1b0416019bf8bc0",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-2-v7",
       "file": "straight-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "8901f3785f38f14b300c7cc569b6e72436158253797848cbb873fcbd14f409ec",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e43e88e7f6209006e603fef2c956fe04a7c8e4f3d0577534f789d484aaa7f360",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v0",
       "file": "neck-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "bb729f386df1d8ac046f8a58d1ed94471b710269b0b4355681e3ff392b075416",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "6cebee5cabd6548cf6293221d9455a5f06157298464eaa2b6308d98cd4b3cee6",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v1",
       "file": "neck-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "2bf9455e77a64f9e702b5d4361921f8f20715bbdbf6f06893737f784fdea3baf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "78d7db1ad755825d86427780b8a9718a98c2ac4013462cda1e8c793dc9911e88",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v2",
       "file": "neck-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "b509fdb4ac9aa6ffd54822455179e219dc540060e1f0a05c553b574a9a15bb9a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "7403238beef12dcfb4804da900ae564c7001c5e4ec9f4aff435f09deac10ca6f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v3",
       "file": "neck-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6ab0fc1bd37aa3360b4e7232df1f36594d3315f72857755e77b34e1a6fd7817a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5275bcdd713425ea8d567faae4819e6c63f0663d64620aa291b0eca3d1b2a6a5",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v4",
       "file": "neck-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "04c7d3eed20afe7df8eb08de8c7ac5ec4375c64e9b997fc30d41347b5a502ff0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "94ece0621b4c2275fc8c66201ec97625c57700ce46ffff150583a01663e709d2",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v5",
       "file": "neck-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "1810351a9a7bffa7700b4a377b327a32b81c053c6b498767a8fc9fd951ffa3f2",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d92633443495e0993b725b9a895a4fb4d2015f7d1711c8616febd01152419cd1",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v6",
       "file": "neck-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "4c990f2b8c88f606d5b4ac3f8e2e176d000ce921566a48fc189c4d71db7a4884",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e402fbbc91fb7f5605dcc39577cad2ce19b5e032c5e0f0b3e6c19f5e8e373c53",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-2-v7",
       "file": "neck-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "8901f3785f38f14b300c7cc569b6e72436158253797848cbb873fcbd14f409ec",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "2464e9fc5dc0cd5437aa073a51c467ce363af4ca78f8760ff7ca2f50ef22e9eb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "head-2-v0",
       "file": "head-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "4569f3a023e406919e6290a00f8e962a9a665f78f2e9aeb68e64783ee54627fb",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d5220590b293f4bc9dc3fd863c666bf31193e8ee618eb4aabcf36d4fdc62971b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v0",
       "file": "corner-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0386d4bdcfff086143306d2974305fbb081f7d0e37c4554fa3043e921b7793a4",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "11e52965680f0dc4dabd967bc70665e6f35eb89668357241bcd2d35fe834d50f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v1",
       "file": "corner-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "684a1be3fb8ac54a7abdd7524156252c49c8821da1acdc6aa6b7c28645e39766",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a9b4c2a538b9bf7d03d19091e3fd92f9ce5f99d0435b962d12f9be36ed2dda80",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v2",
       "file": "corner-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "a2a1df0bc64c9442b5c5fe1f022d1cee4591abbc54d971c33a82ca63fb8fc237",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f789e8b5426672dae0cde62ddf306be7967191d8fc1ddab0d5d4f4f00f018b7b",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v3",
       "file": "corner-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "1e2881a176bfd45f9bfc52fab92109dc8cbcff5c1d8298265334dea442470cd1",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e666b3f445ac8dc161098283034f9562e2558bde09894126a583c67362e3bbbe",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v4",
       "file": "corner-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "32c590b70e112407e012eabf23adef77072214c330f097b3eeae58ac4e7dc866",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "dbc897644ffeed58dfe393ded12d8eb5598196717802691843ac5762ace487ca",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v5",
       "file": "corner-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "96b0cb62b196084ca4957e58a4473c445f3d1cf9499d71ef64883523eb86aac5",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "397d04436645b7fa3c20dbf0299990b692f7c45bdd9f3f7bf95d06fe668fd895",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v6",
       "file": "corner-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "dbef91eddb02aff6709bd30b5150591a62b48599c7a5647de7ca40f0a6a68046",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "0325700fc69dd576b703c88f25de7d3b335f3b224a0f857cc502bd26ff800de6",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-2-v7",
       "file": "corner-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "ee2efcdeb60329e37ff1648efaf4a7f528aae543d345da583dcf32bf42a6649a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d050eab977937d35db289fcf09a48a3af8c0730a53ce1c83742174884c3fff8d",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v0",
       "file": "terminal-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "fa0024518f990daf25f43b755e42380915bb0f1e390f19947b408ad9ee96bebf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d6e70b27faf4d728fae20d8983c5a93fd00294b8f001df8508b43e9f57869693",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v1",
       "file": "terminal-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "68287cdea502eaa59d5296ebce69751e813188e5198ca6bf35c50bfac45a0aea",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f1c5f30479b499a641e4fb636439ab482767ae99182075723da738c729578a5a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v2",
       "file": "terminal-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "878d3925ed663d7621502b1f63c668acd96c053c6c7e646381a058659f194695",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "a4df6107cc85edc16c5e146d7a36df07175eebb770bd63919d528fba79c70e82",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v3",
       "file": "terminal-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "ca8b3c8a0d45930bfa2f04566d79969b54a908a9db31d5538cda3b27fc6c8680",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "b35a64ca8dd998eb6f763c87e532c323b73fdc88327777b8f9c4f413b803eec8",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v4",
       "file": "terminal-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "db038cad7ca525760358a07f33a901a91181e16cfe2b656750a38d1d334710eb",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5a467dddcd522d14efc426257b2ae3f02c379986e65c859dfaa56c36136dcd92",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v5",
       "file": "terminal-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "56fe1cf3a99fc8809ef12019c0af519bf4ffe291cbf9ac24a10580cfc0bb56f7",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "3a11f965d29acff726da9dd10cb44ae086d3740627e9d72a96f3ff9aa5d21be0",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v6",
       "file": "terminal-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "2cea6ffbe1bb2627bfccd6c642d9e89c3bb4b2b91da8f682134c5c6d5a53edd5",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "6d2d15cf1a2ebaf179c4f34f792f55a3082cc6ed719799d28f5c6c01ee3c6687",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-2-v7",
       "file": "terminal-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "1e2394c938f7499f5a6a1b138e150be965a4a0a78d7293a97af81274e65c93bc",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f536a25e17c1138bc41c7c4d47eada4a5021bf9605387bbf8599be129a1112e9",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v0",
       "file": "straight-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "27d23c968b5b4230a29ca463f9ad42a51c7cbc2c0f32d33ac8e1d2e51ac7dc1e",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "458a0c939da70c7bf0bed9b7c064f9063492a50f0e0d3f5566a46392c04cedcf",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v1",
       "file": "straight-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "46d5487a7f15d478fadda6092fbd831c7b0e6cc13e163f764dd7b0b97d7c1363",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5877fcf8d07aa9e6a51cc77d473e023fb27f5fcc3167a5b647c9a893043c3de1",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v2",
       "file": "straight-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2b7434544ddd00c17e9f3413937fe87dd43dc249645ba1d1dbe289884db468f0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "d1c8a384f981cf4898b3114288bcbf875bdd29f9c2fcae1ff7da1e6841422213",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v3",
       "file": "straight-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "65722982cd509a288ada374514268c26965f5734d5e4d99ead9d736ddd631925",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "3dbef75aa9288c874babce89dbc4d19af8a004baaa293115b440997830d8bcbc",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v4",
       "file": "straight-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "3b402e79b43263e12f53dde8a8815f82851206bf9273acf4fffb8cbaca1a9934",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "c2dbea107eb19ef9bde4b01f6fafbc83047fff0fde62f1acb4e06e0a885a4648",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v5",
       "file": "straight-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "c80705acb3b9c58d3ac40d24560950e858385401b3153a70219e50f14ec8cfaf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "5c06bbc19a1bf041751a870537619d2bd2fe1cecaade69c2bb9714e319e4269e",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v6",
       "file": "straight-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "123dd4b841fd22876630301429c6e1fe66acb2187a18d84931e43e2071a11483",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "6021ba2e471bf0bada496fd8e28c723a84a4905cacffc5b9b75f756e3511e69c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "straight-3-v7",
       "file": "straight-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "c8482e384a132bc9461013ac5c053780315ebf7ccdaf5c6eba66a3f9bbfdb511",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "222ae343c6e0a514e116f4d0b8ef7ee98d1ede35b97058af18c531142c86e81c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v0",
       "file": "neck-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "27d23c968b5b4230a29ca463f9ad42a51c7cbc2c0f32d33ac8e1d2e51ac7dc1e",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "932d8bdfab5a0751543db49547653827faf6353ffa36a34e0125cb321d772d4a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v1",
       "file": "neck-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "46d5487a7f15d478fadda6092fbd831c7b0e6cc13e163f764dd7b0b97d7c1363",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "203f031fa54e908568fee34a4148817de662b59b1dcc2604a675c1bdda8ced48",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v2",
       "file": "neck-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2b7434544ddd00c17e9f3413937fe87dd43dc249645ba1d1dbe289884db468f0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "56f469434507ebcc3585d014f3db09418887816b345c11d90921845347fc8dcf",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v3",
       "file": "neck-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "65722982cd509a288ada374514268c26965f5734d5e4d99ead9d736ddd631925",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "93dbfb376a34571be57e1c80e94925a06d48becdcebd341c5d886fccf4590616",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v4",
       "file": "neck-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "3b402e79b43263e12f53dde8a8815f82851206bf9273acf4fffb8cbaca1a9934",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "04c6e66e8757d8594fb2c10f080273ceda20bac5026bb7a78eb299201ada5796",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v5",
       "file": "neck-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "c80705acb3b9c58d3ac40d24560950e858385401b3153a70219e50f14ec8cfaf",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "0e6d24e3217f3990a5892915b813a1f6f098ad50c2c58defc6a728674000cf20",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v6",
       "file": "neck-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "123dd4b841fd22876630301429c6e1fe66acb2187a18d84931e43e2071a11483",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "4208e0a611118df1cf5b289ae5ef82663545dd27f9cec16d4da9023859bff697",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "neck-3-v7",
       "file": "neck-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "c8482e384a132bc9461013ac5c053780315ebf7ccdaf5c6eba66a3f9bbfdb511",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "bff57a2a76bfc3bff7eb13378879d1a63e7f314bda8f795950b96ef3d4da06cb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "head-3-v0",
       "file": "head-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0d564d9389ee04cd9446ffe887b7b75d7736d4079106796f924c3b202a38ac2a",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "800f3edec50f03ae54a8bfa2a7eadb1ea4a591d6ab143c27cb69f0a88c9b414e",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v0",
       "file": "corner-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "38811b35305b647377fe3045da2f6a58dc8a4ae41cbe7263371994f231b5f4a0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "0a2f5af25ff6df8a5d0789e1e2b045aa45a6d1c80773455d10989b0b1a78ed91",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v1",
       "file": "corner-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "3854e6db57e5693677314dc1f7c87bfc3d6024db4a7189e0ccc3cc3237104a43",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "ee3ce227d80d54365635697f391fe57c71f49756bf6a8494a503d26b3781f807",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v2",
       "file": "corner-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "44b964c1b663c916becbcc2dcc050d6e23d1162f82fc7133bd3a113906b76552",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "fef0cc6864f77b3b001c1022e36c5174b0a6e6e0f1e54fa674bd4f3c58124291",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v3",
       "file": "corner-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "b6eb0090650d21838a6c665f5971ed0f6cea7d1c63019b59da93b74a90e51379",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f9d196565cde9ea7559bfadbe0369e7d53ea70cd6b594255e09f6ae42c0948c7",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v4",
       "file": "corner-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "2fd2618a075def9b2b63c884d84bc738eda5d7fd30047682ea33e1286808953b",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e6dd555c76d34be96245846bd02ddeff4e21d1cd93f870da6aeccb767bff47df",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v5",
       "file": "corner-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a6efa3a80ea0887266f33696a5d3112cecad5ad89f451105b2852afc4acf5554",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "fa1a4a305699997009ae0c70379e7a47a375b15ce27355ed98b4026d9766264f",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v6",
       "file": "corner-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "18bb873eb6965cb9ea3456e91c9dda6a1317a9d68473d4456b3e4afedd808f4c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "75ab226bd2ffe1f1ef56f8606f0d45ddd25392c460a94d40b9e975371ad79a0c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "corner-3-v7",
       "file": "corner-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "d22a00c684d7c57223370ece08c8e32c25ca3666c00bdd36e9195c599a9db73b",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "54be7fba6ec60dbd1d9ac3e72414d066a45deae87dcb65af21ffa8dcda040f2c",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v0",
       "file": "terminal-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "6a452061e5edaa5ce4aa6379941c1aeaa7c6ed20d05748e9a04b4189af57a89c",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "c0291c5f36c005ad1ad368f6a5d33e2a371e4a6a13bc4d131a0bef0fce2f9ef8",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v1",
       "file": "terminal-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "fa6c14f90254921270f06a8a31ecb1bdcbb5a1e3fea6634265b10862e0cb32f0",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "7a7e4167969c75f0bf014b33d5699efba3bcef137f4d2fe3795f29f9817ed837",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v2",
       "file": "terminal-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "b871821405652d1b6f8479426476af643c7e808ee99f1ad99b50c554447e02f5",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "f55410202f7d8456ba6f10d2cf01a77e246eee4fb2310cd4b49e85c395825ddb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v3",
       "file": "terminal-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "f939e9049388c8035d876d40d5a372e73f738e55828f7ca6abbe6da939eef9af",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "46ccf006f5410660ed4c41a78e3bfa682654b46ed5a3ad549523bba59c87ff1e",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v4",
       "file": "terminal-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "2f9b704ade234214be6b40a9789e246cf309dd7f86ea7cdcae29c2dd4cc71cb1",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "37595b5a2d21a0d939b2745605f64c477aa3907b73985f559509291254fb9c16",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v5",
       "file": "terminal-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "c3577e7a74d203668d7a177c8cb01cf644b8f5a6131bbb52503452a91c55009d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "e0b3fe79c697ad89f743510dab41070011577e6fea65c9ebbba573e2b3efafbe",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v6",
       "file": "terminal-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "4eda870e1098b4b064b0add2bac0c8c1009575909a9c5542bdc0dbeffbd24705",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "9efc3265fc82920dc7ac8df020b1a3d45b570c1c74dc15bd21d067caeae0fcbb",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "terminal-3-v7",
       "file": "terminal-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "a0b8b710838100fe9482b244610106365b89798152f3ae5a700a97740a9eb56d",
-      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
+      "sha256": "28332cfbefaed1f45c2f1b535c0bcf4a821034a11976dad1a5ab340d5922797a",
+      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
     },
     {
       "id": "floor-0",
