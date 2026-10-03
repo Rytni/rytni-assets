@@ -1,0 +1,17 @@
+{
+  "ticks": 481,
+  "hashFailures": 0,
+  "transfers": 1,
+  "atomicReset": true,
+  "cardinal": true,
+  "phases": [
+    "armed",
+    "entering",
+    "teleport",
+    "exit-grace",
+    "cooldown"
+  ],
+  "recoveries": 0,
+  "status": "playing",
+  "hash": "45f8f431"
+}

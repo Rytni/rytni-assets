@@ -1,68 +1,76 @@
-import {pieces,DIRS,OPPOSITE,CELL} from '../retro-v5/geometry.mjs';
+import {CELL} from '../retro-v5/geometry.mjs';
 import {variant} from '../retro-v5/material.mjs';
+import {tubePath,tubeSample} from './tube-path.js';
 
-const dir=(a,b)=>DIRS.findIndex(([x,y])=>b.x-a.x===x&&b.y-a.y===y);
-const lookup=new Map();
-/** Authored quarter-bend UVs. Each pixel belongs to exactly one canonical tile.
- * Endpoint art is sampled along this same tube, never lerped between cells. */
-function mapping(a,b){
-  const key=a+':'+b;if(lookup.has(key))return lookup.get(key);
-  const out=new Float32Array(CELL*CELL*2),corner=OPPOSITE(a)!==b;
-  const cx=(a===1||b===1)?CELL:0,cy=(a===2||b===2)?CELL:0;
-  const p=[a===1?CELL:a===3?0:34,a===2?CELL:a===0?0:34];
-  const q=[b===1?CELL:b===3?0:34,b===2?CELL:b===0?0:34];
-  const angle=Math.atan2(p[1]-cy,p[0]-cx);let delta=Math.atan2(q[1]-cy,q[0]-cx)-angle;
-  if(delta>Math.PI)delta-=Math.PI*2;if(delta<-Math.PI)delta+=Math.PI*2;
-  for(let y=0;y<CELL;y++)for(let x=0;x<CELL;x++){
-    const n=(y*CELL+x)*2;
-    if(!corner){const [dx,dy]=DIRS[b];out[n]=34+(x+.5-34)*dx+(y+.5-34)*dy;out[n+1]=-(x+.5-34)*dy+(y+.5-34)*dx;}
-    else {let t=Math.atan2(y+.5-cy,x+.5-cx)-angle;if(t>Math.PI)t-=Math.PI*2;if(t<-Math.PI)t+=Math.PI*2;out[n]=Math.max(0,Math.min(1,t/delta))*CELL;out[n+1]=(Math.hypot(x+.5-cx,y+.5-cy)-34)*(delta<0?1:-1);}
-  }
-  lookup.set(key,out);return out;
-}
+/** Continuous strip rasterizer. Spatial bins are acceleration only: no bin
+ * owns a neck/corner/terminal sprite or chooses a material by route index. */
 export class SmoothSprites {
-  constructor(art){
-    this.art=art;this.sources=new Map();
-    this.tile=document.createElement('canvas');this.tile.width=this.tile.height=CELL;
-    this.context=this.tile.getContext('2d');this.pixels=this.context.createImageData(CELL,CELL);
-    // Decode/readback and UV construction happen while loading, never on the
-    // first active fixed-clock frame (which must not cause catch-up recovery).
-    for(const key of art.images.keys())if(/^(head|neck|straight|corner|terminal)-/.test(key))this.source(key);
-    for(let a=0;a<4;a++)for(let b=0;b<4;b++)if(a!==b)mapping(a,b);
+ constructor(art){
+  this.art=art;this.sources=new Map();this.materials=[];this.uvCache=new Map();this.tile=document.createElement('canvas');this.tile.width=this.tile.height=CELL;
+  this.context=this.tile.getContext('2d');this.pixels=this.context.createImageData(CELL,CELL);this.uvScratch=new Float64Array(CELL*CELL*2);
+  this.frameCanvas=document.createElement('canvas');this.frameContext=this.frameCanvas.getContext('2d');this.framePixels=null;
+  for(const key of ['head-0-v0',...Array.from({length:8},(_,i)=>'straight-0-v'+i),'terminal-0-v0'])this.source(key);
+ }
+ source(key){
+  if(!this.sources.has(key)){const c=document.createElement('canvas');c.width=c.height=CELL;const x=c.getContext('2d');x.drawImage(this.art.images.get(key),0,0);this.sources.set(key,x.getImageData(0,0,CELL,CELL).data);}return this.sources.get(key);
+ }
+ draw(ctx,frame,cell,ox,oy,view={x:0,y:0},clip=null){
+  // Inverse-sample only resolvable backing pixels. Approved sources and UVs
+  // remain 68px-native; nearest-neighbour source reads preserve their art.
+  const size=Math.min(CELL,Math.max(1,Math.round(cell*(ctx.getTransform?.().a||1)))),count=size*size;
+  if(this.tile.width!==size||!this.pixelRows){this.tile.width=this.tile.height=size;this.pixels=this.context.createImageData(size,size);this.uvScratch=new Float64Array(count*2);this.pixelRows=Array.from({length:size},(_,y)=>this.pixels.data.subarray(y*size*4,(y+1)*size*4));}
+  const {start,end}=frame,head=this.source('head-0-v0'),tail=this.source('terminal-0-v0'),primitives=tubePath(frame),bins=new Map();
+  // Stable material identities are resolved once, not via variant() inside
+  // the pixel loop (its local-minimum test allocates a temporary array).
+  while(this.materials.length<=frame.route.length){const id=this.materials.length;this.materials.push(this.source('straight-0-v'+variant(id)));}
+  function bin(x,y){const key=x+','+y;if(!bins.has(key))bins.set(key,{x,y,primitives:[]});return bins.get(key);}
+  for(const p of primitives){
+   const minX=p.kind==='line'?Math.min(p.a.x,p.b.x):p.cx-p.r,maxX=p.kind==='line'?Math.max(p.a.x,p.b.x):p.cx+p.r;
+   const minY=p.kind==='line'?Math.min(p.a.y,p.b.y):p.cy-p.r,maxY=p.kind==='line'?Math.max(p.a.y,p.b.y):p.cy+p.r;
+   for(let y=Math.floor((minY-18)/CELL);y<=Math.floor((maxY+18)/CELL);y++)for(let x=Math.floor((minX-18)/CELL);x<=Math.floor((maxX+18)/CELL);x++)bin(x,y).primitives.push(p);
   }
-  source(key){
-    if(!this.sources.has(key)){const c=document.createElement('canvas');c.width=c.height=CELL;const ctx=c.getContext('2d');ctx.drawImage(this.art.images.get(key),0,0);this.sources.set(key,ctx.getImageData(0,0,CELL,CELL).data);}
-    return this.sources.get(key);
-  }
-  draw(ctx,frame,cell,ox,oy,view={x:0,y:0},clip=null){
-    const {route,start,end,moves}=frame,head=this.source('head-0-v0');
-    // Head/tail are endpoint material ranges on ONE path. Fixed authored bends
-    // stay on the canonical corners; no moving corner stamps or diagonal joins.
-    for(let i=0;i<route.length;i++){
-      if(i-.5>end+.5)continue;
-      const p=route[i],left=Math.round(ox+(p.x-view.x)*cell),top=Math.round(oy+(p.y-view.y)*cell),right=Math.round(ox+(p.x-view.x+1)*cell),bottom=Math.round(oy+(p.y-view.y+1)*cell);
-      if(clip&&(right<clip.x||left>clip.x+clip.w||bottom<clip.y||top>clip.y+clip.h))continue;
-      const a=i?dir(p,route[i-1]):OPPOSITE(dir(p,route[i+1])),b=i<route.length-1?dir(p,route[i+1]):OPPOSITE(a);
-      const corner=OPPOSITE(a)!==b,kind=corner?'corner':i===1?'neck':'straight',piece=pieces.find(s=>s.kind===kind&&s.ports.includes(a)&&s.ports.includes(b));
-      const key=piece.name+'-v'+(kind==='neck'?0:variant(moves-i)),base=this.source(key);
-      if(i-.5>=start+.5&&i+.5<=end-.5){ctx.drawImage(this.art.images.get(key),left,top,right-left,bottom-top);continue;}
-      const uv=mapping(a,b),pixels=this.pixels.data,tail=this.source('terminal-0-v'+variant(moves-i));
-      for(let n=0;n<CELL*CELL;n++){
-        const d=i-.5+uv[n*2]/CELL,v=uv[n*2+1];let src=base,index=n*4;
-        if(d<start)index=-1;
-        else if(d>end-.5){src=tail;const x=Math.floor((d-end+.5)*CELL),y=Math.floor(34+v);index=x<0||x>=CELL||y<0||y>=CELL?-1:(y*CELL+x)*4;}
-        // The face remains rigid, centered on the exact cardinal path sample.
-        // Only its connecting skin shares the authored bend. This avoids an
-        // eye/nose taking the bend UV's diagonal arc shortcut or duplicating it.
-        if(i<2){
-          const px=(p.x+(n%CELL+.5)/CELL-frame.head.x-.5)*CELL,py=(p.y+(Math.floor(n/CELL)+.5)/CELL-frame.head.y-.5)*CELL;
-          const x=Math.floor(34+px*frame.head.dx+py*frame.head.dy),y=Math.floor(34-px*frame.head.dy+py*frame.head.dx),h=x>=0&&x<CELL&&y>=0&&y<CELL?(y*CELL+x)*4:-1;
-          if(h>=0&&head[h+3]){src=head;index=h;}
-        }
-        const k=n*4;for(let c=0;c<4;c++)pixels[k+c]=index<0?0:src[index+c];
-      }
-      this.context.putImageData(this.pixels,0,0);ctx.drawImage(this.tile,left,top,right-left,bottom-top);
+  const hx=(frame.head.x+.5)*CELL,hy=(frame.head.y+.5)*CELL;
+  for(let y=Math.floor((hy-34)/CELL);y<=Math.floor((hy+34)/CELL);y++)for(let x=Math.floor((hx-34)/CELL);x<=Math.floor((hx+34)/CELL);x++)bin(x,y);
+  const scale=ctx.getTransform?.().a||1,extent=[...bins.values()],box=clip||{x:0,y:0,w:ctx.canvas?.width/scale||Math.max(...extent.map(b=>Math.round(ox+(b.x-view.x+1)*cell))),h:ctx.canvas?.height/scale||Math.max(...extent.map(b=>Math.round(oy+(b.y-view.y+1)*cell)))};
+  const fx=Math.floor(box.x*scale),fy=Math.floor(box.y*scale),fw=Math.max(1,Math.ceil((box.x+box.w)*scale)-fx),fh=Math.max(1,Math.ceil((box.y+box.h)*scale)-fy);
+  if(this.frameCanvas.width!==fw||this.frameCanvas.height!==fh||!this.framePixels){this.frameCanvas.width=fw;this.frameCanvas.height=fh;this.framePixels=this.frameContext.createImageData(fw,fh);}
+  const output=this.framePixels.data;output.fill(0);
+  for(const b of bins.values()){
+   const left=Math.round(ox+(b.x-view.x)*cell),top=Math.round(oy+(b.y-view.y)*cell),right=Math.round(ox+(b.x-view.x+1)*cell),bottom=Math.round(oy+(b.y-view.y+1)*cell);
+   if(clip&&(right<clip.x||left>clip.x+clip.w||bottom<clip.y||top>clip.y+clip.h))continue;
+   // Cache inverse geometry, not a rendered texture. Most straight/bend bins
+   // are unchanged while their material phase travels each RAF. Bounded LRU
+   // also covers endpoint geometry; no cache key contains a route index.
+   const ref=b.primitives.length?Math.floor(Math.min(...b.primitives.map(p=>p.d0))):0;
+   const local=b.primitives.map(p=>p.kind==='line'?{kind:p.kind,a:{x:p.a.x-b.x*CELL,y:p.a.y-b.y*CELL},b:{x:p.b.x-b.x*CELL,y:p.b.y-b.y*CELL},d0:p.d0-ref,d1:p.d1-ref}:{...p,cx:p.cx-b.x*CELL,cy:p.cy-b.y*CELL,d0:p.d0-ref,d1:p.d1-ref});
+   const key=size+':'+JSON.stringify(local,(_k,v)=>typeof v==='number'?Math.round(v*1e7)/1e7:v);
+   const stable=local.every(p=>[p.d0,p.d1].every(d=>Math.abs(d*2-Math.round(d*2))<1e-9));
+   let uv=stable?this.uvCache.get(key):null;
+   if(!uv){uv=stable?new Float64Array(count*2):this.uvScratch;uv.fill(NaN);const sample={d:0,v:0};for(let n=0;n<count;n++){let bestD=NaN,bestV=Infinity;for(const p of local){const q=tubeSample(p,(n%size+.5)*CELL/size,(Math.floor(n/size)+.5)*CELL/size,sample);if(q&&Math.abs(q.v)<Math.abs(bestV)){bestD=q.d;bestV=q.v;}}uv[n*2]=bestD;uv[n*2+1]=bestV;}if(stable){if(this.uvCache.size>=128)this.uvCache.delete(this.uvCache.keys().next().value);this.uvCache.set(key,uv);}}
+   else {this.uvCache.delete(key);this.uvCache.set(key,uv);}
+   const pixels=this.pixels.data;pixels.fill(0);
+   const hasHead=Math.abs((b.x+.5)*CELL-hx)<CELL&&Math.abs((b.y+.5)*CELL-hy)<CELL;
+   for(let n=0;n<count;n++){
+    const x=b.x*CELL+(n%size+.5)*CELL/size,y=b.y*CELL+(Math.floor(n/size)+.5)*CELL/size;
+    let source,index=-1;
+    if(!Number.isNaN(uv[n*2])){
+     const d=ref+uv[n*2],v=uv[n*2+1];
+     // The polyline points head→tail; approved material faces toward the
+     // head. Use its forward normal consistently, including the terminal.
+     if(d>end-.5){source=tail;const u=Math.floor((d-end+.5)*CELL),row=Math.floor(34-v);if(u>=0&&u<CELL&&row>=0&&row<CELL)index=(row*CELL+u)*4;}
+     else {const distance=Math.max(0,(d-start)*CELL),identity=Math.floor(distance/CELL),u=Math.floor(distance-identity*CELL),row=Math.floor(34-v);source=this.materials[identity];index=(row*CELL+u)*4;}
     }
+    // Rigid approved head; the tube and face are one disjoint output raster.
+    if(hasHead){const px=x-hx,py=y-hy,u=Math.floor(34+px*frame.head.dx+py*frame.head.dy),row=Math.floor(34-px*frame.head.dy+py*frame.head.dx),h=u>=0&&u<CELL&&row>=0&&row<CELL?(row*CELL+u)*4:-1;if(h>=0&&head[h+3]){source=head;index=h;}}
+    const k=n*4;if(index>=0)for(let c=0;c<4;c++)pixels[k+c]=source[index+c];
+   }
+   // Compose bins in CPU memory. Uploading the same tiny canvas for every bin
+   // serializes the GPU pipeline and made a 250-cell frame needlessly slow.
+   const bx=Math.round(left*scale)-fx,by=Math.round(top*scale)-fy,bw=Math.round(right*scale)-fx-bx,bh=Math.round(bottom*scale)-fy-by;
+   if(bw===size&&bh===size&&bx>=0&&bx+bw<=fw&&by>=0&&by+bh<=fh){for(let y=0;y<size;y++)output.set(this.pixelRows[y],((by+y)*fw+bx)*4);continue;}
+   for(let y=Math.max(0,-by);y<bh&&by+y<fh;y++){const sy=Math.min(size-1,Math.floor((y+.5)*size/bh));for(let x=Math.max(0,-bx);x<bw&&bx+x<fw;x++){const sx=Math.min(size-1,Math.floor((x+.5)*size/bw)),s=(sy*size+sx)*4,d=((by+y)*fw+bx+x)*4;output[d]=pixels[s];output[d+1]=pixels[s+1];output[d+2]=pixels[s+2];output[d+3]=pixels[s+3];}}
   }
-  release(){this.sources.clear();}
+  this.frameContext.putImageData(this.framePixels,0,0);ctx.drawImage(this.frameCanvas,fx/scale,fy/scale,fw/scale,fh/scale);
+ }
+ release(){this.sources.clear();this.materials.length=0;this.uvCache.clear();this.framePixels=null;this.frameCanvas.width=this.frameCanvas.height=1;}
 }

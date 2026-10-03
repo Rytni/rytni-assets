@@ -1,0 +1,151 @@
+{
+  "results": [
+    {
+      "length": 8,
+      "mobile": false,
+      "start": 2615.800000011921,
+      "ticks": 6113,
+      "moves": 542,
+      "turns": 79,
+      "foods": 1,
+      "hashFailures": 0,
+      "frames": 3420,
+      "recoveries": 0,
+      "paused": false,
+      "direction": 3,
+      "warmupRecoveries": 0,
+      "warmupTicks": 91,
+      "wallSeconds": 100.50080000001192,
+      "status": "playing",
+      "hash": "d75a14be",
+      "summary": {
+        "hash": "d75a14be",
+        "tick": 6113,
+        "score": 100,
+        "foods": 1,
+        "length": 9,
+        "combo": 0,
+        "speed": 6,
+        "effects": [],
+        "food": 118,
+        "portal": {
+          "phase": "armed",
+          "elapsed": 4313,
+          "transfers": 0,
+          "rejected": 0,
+          "entry": -1,
+          "exit": -1
+        },
+        "status": "playing"
+      },
+      "pauseResume": true,
+      "restart": {
+        "alpha": 1,
+        "history": false,
+        "frozen": null,
+        "length": 8
+      }
+    },
+    {
+      "length": 30,
+      "mobile": true,
+      "start": 2409,
+      "ticks": 6012,
+      "moves": 523,
+      "turns": 77,
+      "foods": 4,
+      "hashFailures": 0,
+      "frames": 15991,
+      "recoveries": 0,
+      "paused": false,
+      "warmupRecoveries": 1,
+      "warmupTicks": 9,
+      "direction": 1,
+      "wallSeconds": 100.18740000000597,
+      "status": "playing",
+      "hash": "d4d0996f",
+      "summary": {
+        "hash": "d4d0996f",
+        "tick": 6012,
+        "score": 464,
+        "foods": 4,
+        "length": 34,
+        "combo": 0,
+        "speed": 6,
+        "effects": [],
+        "food": 1181,
+        "portal": {
+          "phase": "armed",
+          "elapsed": 4212,
+          "transfers": 0,
+          "rejected": 0,
+          "entry": -1,
+          "exit": -1
+        },
+        "status": "playing"
+      },
+      "pauseResume": true,
+      "restart": {
+        "alpha": 1,
+        "history": false,
+        "frozen": null,
+        "length": 8
+      }
+    },
+    {
+      "length": 250,
+      "mobile": false,
+      "start": 1951.9000000059605,
+      "ticks": 6048,
+      "moves": 515,
+      "turns": 75,
+      "foods": 0,
+      "hashFailures": 0,
+      "frames": 17019,
+      "recoveries": 0,
+      "paused": false,
+      "direction": 3,
+      "warmupRecoveries": 1,
+      "warmupTicks": 38,
+      "wallSeconds": 100.27969999998808,
+      "status": "playing",
+      "hash": "86915eb9",
+      "summary": {
+        "hash": "86915eb9",
+        "tick": 6048,
+        "score": 0,
+        "foods": 0,
+        "length": 250,
+        "combo": 0,
+        "speed": 6,
+        "effects": [
+          {
+            "kind": "harvest",
+            "ends": 6739,
+            "remaining": 11.516666666666667
+          }
+        ],
+        "food": 97,
+        "portal": {
+          "phase": "armed",
+          "elapsed": 4248,
+          "transfers": 0,
+          "rejected": 0,
+          "entry": -1,
+          "exit": -1
+        },
+        "status": "playing"
+      },
+      "pauseResume": true,
+      "restart": {
+        "alpha": 1,
+        "history": false,
+        "frozen": null,
+        "length": 8
+      }
+    }
+  ],
+  "activeWallSeconds": 300.967900000006,
+  "errors": [],
+  "failed": []
+}

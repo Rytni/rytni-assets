@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "name": "straight",
+      "boundaryChangedPixels": 296,
+      "headChangedPixels": 296,
+      "tailChangedPixels": 0
+    },
+    {
+      "name": "headTurn",
+      "boundaryChangedPixels": 16,
+      "headChangedPixels": 16,
+      "tailChangedPixels": 0
+    },
+    {
+      "name": "neckTurn",
+      "boundaryChangedPixels": 0,
+      "headChangedPixels": 0,
+      "tailChangedPixels": 0
+    },
+    {
+      "name": "U",
+      "boundaryChangedPixels": 280,
+      "headChangedPixels": 280,
+      "tailChangedPixels": 280
+    },
+    {
+      "name": "S",
+      "boundaryChangedPixels": 280,
+      "headChangedPixels": 280,
+      "tailChangedPixels": 0
+    },
+    {
+      "name": "growth",
+      "boundaryChangedPixels": 0,
+      "headChangedPixels": 0,
+      "tailChangedPixels": 0
+    },
+    {
+      "name": "tailTurn",
+      "boundaryChangedPixels": 277,
+      "headChangedPixels": 277,
+      "tailChangedPixels": 0
+    }
+  ],
+  "pass": false
+}

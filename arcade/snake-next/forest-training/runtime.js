@@ -54,6 +54,9 @@ export class TrainingGame {
   start(){
     if(this.portrait){this.show();return;}
     this.stop();this.session=this.sessionFactory({touch:this.touch});this.motion=new SnakeMotion(this.session);this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
+    // Compile this viewport's initial presentation before starting the fixed
+    // timer. Cold inverse-raster setup is not simulation time or clock debt.
+    this.render();
     this.clock=new FixedClock({onTick:()=>this.tick(),maxCatchUpTicks:5});
     this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();}).catch(e=>{this.audio.error=String(e)});
     this.run();this.show();
