@@ -1,0 +1,16 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Forest Training — Composition review</title>
+<style>body{margin:24px;background:#061c17;color:#ecdfb6;font:16px/1.5 ui-monospace,monospace}a{color:#8bd9c0}section{margin:36px 0}figure{margin:0;overflow:auto;border:1px solid #315048}img{display:block;max-width:none;width:auto;height:auto}table{border-collapse:collapse}td,th{padding:8px 16px;text-align:left;border-bottom:1px solid #315048}</style>
+<h1>Forest Training — composition-only review</h1>
+<p>Ровно 7 review images. Изображения показаны 1:1 CSS px, без shrink-to-fit; широкие сравнения прокручиваются горизонтально. Browser zoom: 100%.</p>
+<p><a href="/arcade/snake-next/forest-training.html">Playable DEV Training</a> · <a href="report.md">Измерения / ограничения / QA</a> · <a href="measurements.json">Raw browser measurements</a></p>
+<p>V5.6 art, simulation и механики неизменны. Screenshots — один и тот же явно заданный QA composition fixture, не заявление о достижении этого счёта игрой. TARGET показан целиком и используется только для review.</p>
+<table><tr><th>Viewport</th><th>Stage</th><th>HUD</th><th>Arena</th><th>Dead bands inside</th></tr><tr><td>1920×1080</td><td>1881.6×1058.4</td><td>1880.9×109</td><td>1766.9×679.6</td><td>0 px</td></tr><tr><td>1366×768</td><td>1338.7×753</td><td>1338.7×78</td><td>1253.9×482.3</td><td>0 px</td></tr><tr><td>844×390</td><td>844×390</td><td>844×48</td><td>807.5×310.6</td><td>0 px</td></tr><tr><td>915×412</td><td>915×412</td><td>904.7×48</td><td>868.2×333.9</td><td>0 px</td></tr></table>
+<p>Ограничение locked topology: 26×10 проходимых клеток. Клетки квадратные, cabinet прижат к ним; desktop 16:9 stage содержит свободное место только СНАРУЖИ cabinet. Visual approval — human review, не автоматический PASS.</p>
+<section><h2>1. Whole TARGET → CURRENT BEFORE</h2><figure><img src="01-target-before.png" alt="TARGET beside baseline e57acbd"></figure></section>
+<section><h2>2. Whole TARGET → AFTER 1920×1080</h2><figure><img src="02-target-after-1920.png" alt="TARGET beside new desktop composition"></figure></section>
+<section><h2>3. AFTER 1366×768 — measured outlines</h2><figure><img src="03-after-1366-measured.png" alt="Stage HUD arena and outside letterbox measured"></figure></section>
+<section><h2>4. AFTER 844×390 — touch landscape</h2><figure><img src="04-after-mobile-844.png" alt="844 touch gameplay"></figure></section>
+<section><h2>5. AFTER 915×412 — touch landscape</h2><figure><img src="05-after-mobile-915.png" alt="915 touch gameplay"></figure></section>
+<section><h2>6. Floor — actual native runtime scale</h2><figure><img src="06-floor-native.png" alt="Four by four floor cells at desktop native scale"></figure></section>
+<section><h2>7. HUD — actual native runtime scale</h2><figure><img src="07-hud-native.png" alt="Continuous HUD rail at desktop native scale"></figure></section>
+<p>STOP: следующий polish / gameplay scope не начат. TEST / Production не публиковались.</p></html>

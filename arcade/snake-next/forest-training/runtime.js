@@ -1,4 +1,5 @@
 import {loadArt} from '../retro-v5/renderer.js';
+import {loadBoard} from './board.js';
 import {FixedClock,startMainThreadClock,keyboardCommand} from '../entry.js';
 import {Session,EFFECTS} from './session.js';
 import {ForestRenderer} from './renderer.js';
@@ -78,16 +79,17 @@ export class TrainingGame {
   pause(){if(!['playing','dying'].includes(this.status))return;this.stop();this.session.cancelPortal();this.commands=[];this.status='paused';this.show();this.render();}
   resume(){if(!this.session||this.portrait||this.status!=='paused')return;this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
   main(){this.stop();this.session=null;this.clock=null;this.commands=[];this.log=[];this.status='main';this.settingsFrom='main';this.renderer.release();this.show();this.render();}
-  resize(){const r=this.root.getBoundingClientRect();this.portrait=r.height>r.width;if(this.portrait)this.pause();this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();}
+  resize(){const r=this.root.getBoundingClientRect();this.portrait=matchMedia('(orientation:portrait)').matches;if(this.portrait)this.pause();this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();}
   render(){
-    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch});
+    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch,fullscreen:document.fullscreenElement===this.root});
     this.root.style.setProperty('--header',l.header+'px');
+    const hud=this.root.querySelector('#hud');Object.assign(hud.style,{left:l.hud.x+'px',top:l.hud.y+'px',width:l.hud.w+'px',height:l.hud.h+'px'});
     const pad=this.root.querySelector('#pad');pad.hidden=!this.touch||this.portrait||this.status!=='playing';
     pad.style.left=Math.round(l.field.x+l.cell*3.5-46)+'px';pad.style.top=Math.round(l.field.y+l.cell*9-46)+'px';
     const s=this.session;this.root.querySelector('#score').textContent=s?.score||0;this.root.querySelector('#length').textContent=s?.state.length||8;this.root.querySelector('#combo').textContent='×'+Math.max(1,s?.combo||1);
     const effects=s?.effects||[],key=effects.map(e=>e.kind).join(',');
     if(this.effectKey!==key||!this.root.querySelector('#effects').children.length){
-      this.effectKey=key;this.root.querySelector('#effects').innerHTML=effects.length?effects.map(e=>`<div class="card effect ${EFFECTS[e.kind].positive?'':'negative'}" data-effect="${e.kind}"><img alt="" src="/grib/mushroom-snake-retro-v5/${EFFECTS[e.kind].positive?'positive':'negative'}.png"><span>${EFFECTS[e.kind].label} <b></b></span><progress max="1" value="1"></progress></div>`).join(''):'<span class="effect-empty">ЛЕС · ТРЕНИРОВКА</span>';
+      this.effectKey=key;this.root.querySelector('#effects').innerHTML=effects.length?effects.map(e=>`<div class="effect ${EFFECTS[e.kind].positive?'':'negative'}" data-effect="${e.kind}"><img alt="" src="/grib/mushroom-snake-retro-v5/${EFFECTS[e.kind].positive?'positive':'negative'}.png"><span>${EFFECTS[e.kind].label} <b></b></span><progress max="1" value="1"></progress></div>`).join(''):'<span class="effect-empty">ЭФФЕКТЫ —</span>';
     }
     for(const e of effects){const card=this.root.querySelector(`[data-effect="${e.kind}"]`),remaining=Math.max(0,e.ends-s.tick);card.querySelector('b').textContent=(remaining/60).toFixed(1);card.querySelector('progress').value=Math.min(1,remaining/EFFECTS[e.kind].duration);}
   }
@@ -110,7 +112,7 @@ export class TrainingGame {
 }
 const root=document.querySelector('#game');
 try{
-  const audio=new ForestAudio(),[art]=await Promise.all([loadArt(),audio.load()]);
+  const audio=new ForestAudio(),[art,board]=await Promise.all([loadArt(),loadBoard(),audio.load()]);art.board=board;
   root.hidden=false;document.querySelector('#loading').hidden=true;
   const game=new TrainingGame(root,art,audio);
   if(new URLSearchParams(location.search).has('qa'))window.forestTraining=game;
