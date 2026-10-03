@@ -2,7 +2,8 @@ import {loadArt} from '../retro-v5/renderer.js';
 import {loadBoard} from './board.js';
 import {FixedClock,startMainThreadClock,keyboardCommand} from '../entry.js';
 import {Session,EFFECTS} from './session.js';
-import {ForestRenderer} from './renderer.js';
+import {ForestRenderer,cabinetSize} from './renderer.js';
+import {drawHudType} from './hud-type.js';
 import {ForestAudio} from './audio.js';
 
 export class TrainingGame {
@@ -79,9 +80,17 @@ export class TrainingGame {
   pause(){if(!['playing','dying'].includes(this.status))return;this.stop();this.session.cancelPortal();this.commands=[];this.status='paused';this.show();this.render();}
   resume(){if(!this.session||this.portrait||this.status!=='paused')return;this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
   main(){this.stop();this.session=null;this.clock=null;this.commands=[];this.log=[];this.status='main';this.settingsFrom='main';this.renderer.release();this.show();this.render();}
-  resize(){const r=this.root.getBoundingClientRect();this.portrait=matchMedia('(orientation:portrait)').matches;if(this.portrait)this.pause();this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();}
+  resize(){
+    this.portrait=matchMedia('(orientation:portrait)').matches;
+    this.compact=matchMedia('(max-height:500px) and (orientation:landscape)').matches;
+    const w=Math.round(this.root.getBoundingClientRect().width);
+    this.root.style.setProperty('--cabinet-height',cabinetSize(w,this.compact).h+'px');
+    this.root.classList.toggle('compact',this.compact);
+    if(this.portrait)this.pause();const r=this.root.getBoundingClientRect();
+    this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();
+  }
   render(){
-    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch,fullscreen:document.fullscreenElement===this.root});
+    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch,fullscreen:document.fullscreenElement===this.root,compact:this.compact});
     this.root.style.setProperty('--header',l.header+'px');
     const hud=this.root.querySelector('#hud');Object.assign(hud.style,{left:l.hud.x+'px',top:l.hud.y+'px',width:l.hud.w+'px',height:l.hud.h+'px'});
     const pad=this.root.querySelector('#pad');pad.hidden=!this.touch||this.portrait||this.status!=='playing';
@@ -92,6 +101,7 @@ export class TrainingGame {
       this.effectKey=key;this.root.querySelector('#effects').innerHTML=effects.length?effects.map(e=>`<div class="effect ${EFFECTS[e.kind].positive?'':'negative'}" data-effect="${e.kind}"><img alt="" src="/grib/mushroom-snake-retro-v5/${EFFECTS[e.kind].positive?'positive':'negative'}.png"><span>${EFFECTS[e.kind].label} <b></b></span><progress max="1" value="1"></progress></div>`).join(''):'<span class="effect-empty">ЭФФЕКТЫ —</span>';
     }
     for(const e of effects){const card=this.root.querySelector(`[data-effect="${e.kind}"]`),remaining=Math.max(0,e.ends-s.tick);card.querySelector('b').textContent=(remaining/60).toFixed(1);card.querySelector('progress').value=Math.min(1,remaining/EFFECTS[e.kind].duration);}
+    drawHudType(hud);
   }
   show(){
     const panel=this.root.querySelector('#overlay');panel.hidden=['playing','dying'].includes(this.status)&&!this.portrait;

@@ -1,16 +1,20 @@
 import {drawSnake} from '../retro-v5/renderer.js';
-import {drawFrame,nineSlice} from '../retro-v3/renderer.js';
+import {drawFrame} from '../retro-v3/renderer.js';
 import {boardVariant} from './board.js';
 import {pixelText} from '../retro-v5/pixel-text.js';
 import {bodyCells} from '../simulation/body.js';
 import {EFFECTS} from './session.js';
 
-export function geometry(w,h,cols=28,rows=12,fullscreen=false) {
-  const mobile=h<=500,stageWidth=mobile?w:Math.min(w,h*16/9);
-  const scale=mobile?.32:Math.min(1,stageWidth/1800),header=mobile?48:Math.max(76,Math.round(stageWidth*.058));
+export function cabinetSize(w,mobile=false,cols=28,rows=12){
+  const scale=mobile?.42:Math.min(1.35,w/1800*1.35),header=mobile?52:Math.max(96,Math.round(w*.068));
+  const cell=(w-114*scale)/(cols-2);
+  return {scale,header,cell,w,h:header+cell*(rows-2)+94*scale};
+}
+export function geometry(w,h,cols=28,rows=12,fullscreen=false,mobile=h<=500) {
+  const natural=cabinetSize(w,mobile,cols,rows),fit=Math.min(1,h/natural.h);
+  const scale=natural.scale*fit,header=natural.header*fit,cell=natural.cell*fit;
   // The blocked outer row/column lives underneath the cabinet, not a second
   // stone frame. Canonical positions/collision are unchanged (26 x 10 interior).
-  const cell=Math.min((stageWidth-114*scale)/(cols-2),(h-header-94*scale)/(rows-2));
   const cw=(cols-2)*cell+114*scale,ch=header+(rows-2)*cell+94*scale;
   const x=(w-cw)/2,y=fullscreen||mobile?(h-ch)/2:0;
   const arena={x:x+57*scale,y:y+header+28*scale,w:(cols-2)*cell,h:(rows-2)*cell};
@@ -25,8 +29,8 @@ function sprite(ctx,art,key,x,y,size){const im=art.images.get(key);ctx.drawImage
 export class ForestRenderer {
   constructor(canvas,art){this.canvas=canvas;this.art=art;this.cache=null;this.metrics=[];this.lastHash='';}
   resize(w,h,dpr){this.w=w;this.h=h;this.dpr=Math.min(2,dpr);this.canvas.width=Math.round(w*this.dpr);this.canvas.height=Math.round(h*this.dpr);this.cache=null;}
-  render(session,{preview,status,pressed,touch,fullscreen}={}){
-    const start=performance.now(),s=session||preview,view=s.view||{x:0,y:0,cols:s.arena.width,rows:s.arena.height},l=geometry(this.w,this.h,view.cols,view.rows,fullscreen),{field,arena,cell}=l;
+  render(session,{preview,status,pressed,touch,fullscreen,compact}={}){
+    const start=performance.now(),s=session||preview,view=s.view||{x:0,y:0,cols:s.arena.width,rows:s.arena.height},l=geometry(this.w,this.h,view.cols,view.rows,fullscreen,compact),{field,arena,cell}=l;
     const ctx=this.canvas.getContext('2d');ctx.setTransform(this.dpr,0,0,this.dpr,0,0);ctx.imageSmoothingEnabled=false;
     ctx.fillStyle='#021512';ctx.fillRect(0,0,this.w,this.h);
     const cacheKey=JSON.stringify([view,arena]);if(cacheKey!==this.cacheKey){this.cache=null;this.cacheKey=cacheKey;}
@@ -44,13 +48,13 @@ export class ForestRenderer {
     // Render interior obstacles only; the cabinet communicates boundary collision.
     for(let y=1;y<l.rows-1;y++)for(let x=1;x<l.cols-1;x++)if(s.arena.blocked((y+view.y)*s.arena.width+x+view.x)){
       if(touch&&x>=1&&x<6&&y>=7&&y<11)continue;
-      const p=at((y+view.y)*s.arena.width+x+view.x);sprite(ctx,this.art,'stone',p.x,p.y,cell*.83);
+      const p=at((y+view.y)*s.arena.width+x+view.x);sprite(ctx,this.art,'stone',p.x,p.y,cell*.94);
     }
     if(touch){ctx.fillStyle='#092720';ctx.fillRect(field.x+cell,field.y+7*cell,5*cell,4*cell);}
     const seconds=s.tick/60;
-    for(const c of s.portals){const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;sprite(ctx,this.art,'portal',p.x,p.y,cell*1.1);ctx.globalAlpha=1;}
+    for(const c of s.portals){const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;sprite(ctx,this.art,'portal',p.x,p.y,cell*1.25);ctx.globalAlpha=1;}
     if(s.state.food>=0){const p=at(s.state.food);sprite(ctx,this.art,'seed',p.x,p.y+Math.round(Math.sin(seconds*3)*cell*.025),cell*.8);}
-    for(const o of s.pickups){const p=at(o.cell),key=EFFECTS[o.kind].positive?'positive':'negative';sprite(ctx,this.art,key,p.x,p.y,cell*.98);
+    for(const o of s.pickups){const p=at(o.cell),key=EFFECTS[o.kind].positive?'positive':'negative';sprite(ctx,this.art,key,p.x,p.y,cell*1.06);
       // The two positive mechanics retain the positive silhouette, with a legible identity badge.
       if(o.kind==='harvest')pixelText(ctx,'×2',Math.round(p.x),Math.round(p.y+cell*.2),1,'#fff0bd','center');
     }
@@ -67,7 +71,6 @@ export class ForestRenderer {
     // Restrained contact inset, immediately at the wood edge (no second frame).
     ctx.fillStyle='#021b17';ctx.globalAlpha=.45;ctx.fillRect(arena.x,arena.y,arena.w,2);ctx.fillRect(arena.x,arena.y,2,arena.h);ctx.globalAlpha=1;
     ctx.restore();drawFrame(ctx,this.art,l.frame.x,l.frame.y,l.frame.w,l.frame.h,l.scale);
-    nineSlice(ctx,this.art.images.get('hud'),l.hud.x+5*l.scale,l.hud.y,l.hud.w-10*l.scale,l.header,Math.min(25,l.header/3),64);
     this.last=l;
     if(this.recordPerf){this.metrics.push(performance.now()-start);if(this.metrics.length>2400)this.metrics.shift();}
     return l;

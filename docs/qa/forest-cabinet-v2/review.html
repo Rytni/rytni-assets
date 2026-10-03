@@ -1,0 +1,15 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Forest cabinet / arena — V2 review</title>
+<style>body{margin:24px;background:#061b15;color:#eadbb4;font:16px/1.5 monospace}a{color:#8adcc0}section{margin:32px 0}figure{margin:0;border:1px solid #365346;overflow:auto}img{display:block;max-width:none;width:auto;height:auto}td,th{padding:8px 14px;text-align:left;border-bottom:1px solid #365346}table{border-collapse:collapse}</style>
+<h1>Cabinet / Arena Visual Match V2</h1>
+<p>Ровно 6 review images. Native runtime screenshots показаны 1:1 CSS px, без shrink-to-fit. Сравнения прокручиваются горизонтально. TARGET целиком показан в таком же display box, как AFTER: 1920×1080 / 1366×768.</p>
+<p><a href="/arcade/snake-next/forest-training.html">Playable DEV</a> · <a href="report.md">Report</a> · <a href="measurements.json">Raw measurements</a></p>
+<table><tr><th>Embedded viewport</th><th>Stage</th><th>Cabinet</th><th>Reserved empty space below cabinet</th></tr><tr><td>1920×1080</td><td>1881.6×919.5</td><td>1882×919.6</td><td>≈0 px (−0.007 rounding)</td></tr><tr><td>1366×768</td><td>1338.7×661.4</td><td>1338.3×661</td><td>0.36 px rounding</td></tr></table>
+<p>Physical wood/brass modules, live Cyrillic bitmap typography, square cabinet buttons, heavier original perimeter and static emerald material tiles. No random arena clutter. V5.6 / simulation / gameplay / audio / object source art unchanged.</p>
+<p>Screenshots use the same clearly identified 22-cell QA composition fixture as cdf1a30; short actual Training interaction is verified separately. Visual approval remains a human decision.</p>
+<section><h2>1. TARGET vs AFTER — 1920×1080, equal displayed size</h2><figure><img src="01-target-after-1920.png" alt="Whole TARGET reference versus new 1920 runtime"></figure></section>
+<section><h2>2. TARGET vs AFTER — 1366×768, equal displayed size</h2><figure><img src="02-target-after-1366.png" alt="Whole TARGET reference versus new 1366 runtime"></figure></section>
+<section><h2>3. HUD — native 100%</h2><figure><img src="03-hud-native.png" alt="Physical cabinet modules and live bitmap text"></figure></section>
+<section><h2>4. Floor — native 100%</h2><figure><img src="04-floor-native.png" alt="Four by four cells with original static pixel material"></figure></section>
+<section><h2>5. Mobile — 844×390</h2><figure><img src="05-mobile-844.png" alt="Compact HUD and overlay D-pad with 44px targets"></figure></section>
+<section><h2>6. Embedded geometry — component ends at cabinet</h2><figure><img src="06-embedded-geometry.png" alt="Stage HUD arena outlines and normal website content immediately below"></figure></section>
+<p>STOP for human visual review. No TEST / Production deployment.</p></html>
