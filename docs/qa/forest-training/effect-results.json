@@ -1,0 +1,231 @@
+{
+  "cycles": [
+    {
+      "effects": 0,
+      "tick": 865,
+      "log": [
+        {
+          "kind": "positive",
+          "cell": 156,
+          "tick": 75,
+          "effect": "focus",
+          "refresh": false
+        },
+        {
+          "kind": "positive",
+          "cell": 157,
+          "tick": 94,
+          "effect": "harvest",
+          "refresh": false
+        },
+        {
+          "kind": "negative",
+          "cell": 158,
+          "tick": 113,
+          "effect": "rush",
+          "refresh": false
+        }
+      ]
+    },
+    {
+      "effects": 0,
+      "tick": 864,
+      "log": [
+        {
+          "kind": "positive",
+          "cell": 156,
+          "tick": 75,
+          "effect": "focus",
+          "refresh": false
+        },
+        {
+          "kind": "positive",
+          "cell": 157,
+          "tick": 94,
+          "effect": "harvest",
+          "refresh": false
+        },
+        {
+          "kind": "negative",
+          "cell": 158,
+          "tick": 113,
+          "effect": "rush",
+          "refresh": false
+        }
+      ]
+    },
+    {
+      "effects": 0,
+      "tick": 866,
+      "log": [
+        {
+          "kind": "positive",
+          "cell": 156,
+          "tick": 75,
+          "effect": "focus",
+          "refresh": false
+        },
+        {
+          "kind": "positive",
+          "cell": 157,
+          "tick": 94,
+          "effect": "harvest",
+          "refresh": false
+        },
+        {
+          "kind": "negative",
+          "cell": 158,
+          "tick": 113,
+          "effect": "rush",
+          "refresh": false
+        }
+      ]
+    }
+  ],
+  "fullscreenActive": "playing",
+  "audio": [
+    {
+      "name": "forest-theme",
+      "duration": 80,
+      "peak": 0.5029703378677368,
+      "bytes": 15360000,
+      "loopEdge": 0.0002852964971680194
+    },
+    {
+      "name": "hover",
+      "duration": 0.1,
+      "peak": 0.17996662855148315,
+      "bytes": 19200,
+      "loopEdge": null
+    },
+    {
+      "name": "click",
+      "duration": 0.195,
+      "peak": 0.4999430775642395,
+      "bytes": 37440,
+      "loopEdge": null
+    },
+    {
+      "name": "pickup",
+      "duration": 0.34,
+      "peak": 0.4999607503414154,
+      "bytes": 65280,
+      "loopEdge": null
+    },
+    {
+      "name": "turn",
+      "duration": 0.065,
+      "peak": 0.18000079691410065,
+      "bytes": 12480,
+      "loopEdge": null
+    },
+    {
+      "name": "resume",
+      "duration": 0.23,
+      "peak": 0.4999430775642395,
+      "bytes": 44160,
+      "loopEdge": null
+    },
+    {
+      "name": "pause",
+      "duration": 0.23,
+      "peak": 0.4997889995574951,
+      "bytes": 44160,
+      "loopEdge": null
+    },
+    {
+      "name": "combo",
+      "duration": 0.3,
+      "peak": 0.5012673735618591,
+      "bytes": 57600,
+      "loopEdge": null
+    },
+    {
+      "name": "death",
+      "duration": 0.48,
+      "peak": 0.49995800852775574,
+      "bytes": 92160,
+      "loopEdge": null
+    },
+    {
+      "name": "arrival",
+      "duration": 0.51,
+      "peak": 0.4999222159385681,
+      "bytes": 97920,
+      "loopEdge": null
+    },
+    {
+      "name": "result",
+      "duration": 0.52,
+      "peak": 0.4996187686920166,
+      "bytes": 99840,
+      "loopEdge": null
+    },
+    {
+      "name": "buff",
+      "duration": 0.4,
+      "peak": 0.286382794380188,
+      "bytes": 76800,
+      "loopEdge": null
+    },
+    {
+      "name": "portal-exit",
+      "duration": 0.4,
+      "peak": 0.28482338786125183,
+      "bytes": 76800,
+      "loopEdge": null
+    },
+    {
+      "name": "debuff",
+      "duration": 0.4,
+      "peak": 0.2564633786678314,
+      "bytes": 76800,
+      "loopEdge": null
+    },
+    {
+      "name": "portal-enter",
+      "duration": 0.4,
+      "peak": 0.28163015842437744,
+      "bytes": 76800,
+      "loopEdge": null
+    }
+  ],
+  "bars": [
+    {
+      "width": 62.0625,
+      "parent": 82.0625,
+      "value": 0.995
+    },
+    {
+      "width": 62.0625,
+      "parent": 82.0625,
+      "value": 0.9958333333333333
+    },
+    {
+      "width": 62.0625,
+      "parent": 82.0625,
+      "value": 0.9928571428571429
+    }
+  ],
+  "cleanup": {
+    "status": "main",
+    "session": null,
+    "starts": 4,
+    "raf": 0,
+    "timers": 0,
+    "activeSessions": 0,
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "running",
+      "decoded": 15,
+      "error": ""
+    },
+    "raster": {
+      "decodedBytes": 3945920,
+      "canvasBytes": 1316640,
+      "cachedGroundBytes": 1316640
+    },
+    "fullscreenError": ""
+  }
+}

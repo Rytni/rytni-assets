@@ -1,0 +1,493 @@
+{
+  "cold": {
+    "status": "main",
+    "session": null,
+    "starts": 0,
+    "raf": 0,
+    "timers": 0,
+    "activeSessions": 0,
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "suspended",
+      "decoded": 15,
+      "error": ""
+    },
+    "raster": {
+      "decodedBytes": 3945920,
+      "canvasBytes": 4196352,
+      "cachedGroundBytes": 4196352
+    },
+    "fullscreenError": ""
+  },
+  "stack": {
+    "hash": "585a943e",
+    "tick": 128,
+    "score": 100,
+    "foods": 1,
+    "length": 9,
+    "combo": 1,
+    "speed": 4,
+    "effects": [
+      {
+        "kind": "focus",
+        "ends": 728,
+        "remaining": 10
+      },
+      {
+        "kind": "harvest",
+        "ends": 814,
+        "remaining": 11.433333333333334
+      },
+      {
+        "kind": "rush",
+        "ends": 533,
+        "remaining": 6.75
+      }
+    ],
+    "food": 102,
+    "portal": {
+      "phase": "inactive",
+      "elapsed": 128,
+      "transfers": 0,
+      "rejected": 0,
+      "entry": -1,
+      "exit": -1
+    },
+    "status": "playing"
+  },
+  "expiration": 0,
+  "portal": [
+    {
+      "phase": "exit-grace",
+      "elapsed": 8,
+      "transfers": 1,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 2,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 3,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 4,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 5,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 6,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 7,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 8,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 9,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 10,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 11,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 12,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 13,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 14,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 15,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 16,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 17,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 18,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 19,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 20,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 21,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 22,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 23,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 24,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 25,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 26,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 27,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 28,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 29,
+      "rejected": 0,
+      "entry": 94,
+      "exit": 242
+    },
+    {
+      "phase": "exit-grace",
+      "elapsed": 0,
+      "transfers": 30,
+      "rejected": 0,
+      "entry": 242,
+      "exit": 94
+    }
+  ],
+  "portalPause": [
+    {
+      "phase": "inactive",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    },
+    {
+      "phase": "armed",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    },
+    {
+      "phase": "entering",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    },
+    {
+      "phase": "teleport",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    },
+    {
+      "phase": "exit-grace",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    },
+    {
+      "phase": "cooldown",
+      "paused": {
+        "raf": 0,
+        "timers": 0,
+        "audio": 0
+      },
+      "restarted": "inactive"
+    }
+  ],
+  "death": {
+    "status": "result",
+    "session": {
+      "hash": "a1d4e3a4",
+      "tick": 267,
+      "score": 100,
+      "foods": 1,
+      "length": 9,
+      "combo": 1,
+      "speed": 4,
+      "effects": [],
+      "food": 102,
+      "portal": {
+        "phase": "inactive",
+        "elapsed": 240,
+        "transfers": 0,
+        "rejected": 0,
+        "entry": -1,
+        "exit": -1
+      },
+      "status": "result"
+    },
+    "starts": 8,
+    "raf": 0,
+    "timers": 0,
+    "activeSessions": 1,
+    "audio": {
+      "sources": 1,
+      "music": 0,
+      "context": "running",
+      "decoded": 15,
+      "error": ""
+    },
+    "raster": {
+      "decodedBytes": 3945920,
+      "canvasBytes": 4196352,
+      "cachedGroundBytes": 4196352
+    },
+    "fullscreenError": ""
+  },
+  "fullscreen": "PASS",
+  "cleanup": {
+    "status": "main",
+    "session": null,
+    "starts": 9,
+    "raf": 0,
+    "timers": 0,
+    "activeSessions": 0,
+    "audio": {
+      "sources": 0,
+      "music": 0,
+      "context": "running",
+      "decoded": 15,
+      "error": ""
+    },
+    "raster": {
+      "decodedBytes": 3945920,
+      "canvasBytes": 8294400,
+      "cachedGroundBytes": 8294400
+    },
+    "fullscreenError": ""
+  },
+  "repeatRequests": [],
+  "mobile": [
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "hitArea": {
+        "x": 123,
+        "y": 250,
+        "width": 44,
+        "height": 44
+      },
+      "cleanup": {
+        "status": "main",
+        "session": null,
+        "starts": 1,
+        "raf": 0,
+        "timers": 0,
+        "activeSessions": 0,
+        "audio": {
+          "sources": 0,
+          "music": 0,
+          "context": "running",
+          "decoded": 15,
+          "error": ""
+        },
+        "raster": {
+          "decodedBytes": 3945920,
+          "canvasBytes": 5266560,
+          "cachedGroundBytes": 5266560
+        },
+        "fullscreenError": ""
+      }
+    },
+    {
+      "viewport": {
+        "width": 915,
+        "height": 412
+      },
+      "hitArea": {
+        "x": 139,
+        "y": 266,
+        "width": 44,
+        "height": 44
+      },
+      "cleanup": {
+        "status": "main",
+        "session": null,
+        "starts": 1,
+        "raf": 0,
+        "timers": 0,
+        "activeSessions": 0,
+        "audio": {
+          "sources": 0,
+          "music": 0,
+          "context": "running",
+          "decoded": 15,
+          "error": ""
+        },
+        "raster": {
+          "decodedBytes": 3945920,
+          "canvasBytes": 6031680,
+          "cachedGroundBytes": 6031680
+        },
+        "fullscreenError": ""
+      }
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "failed": [],
+  "http": []
+}

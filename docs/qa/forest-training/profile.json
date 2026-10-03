@@ -1,0 +1,118 @@
+{
+  "metrics": {
+    "p50": 1.7999999821186066,
+    "p95": 2.4000000059604645,
+    "max": 3,
+    "over16": 0
+  },
+  "functions": [
+    {
+      "function": "(program)",
+      "url": "",
+      "line": 0,
+      "samples": 368
+    },
+    {
+      "function": "drawImage",
+      "url": "",
+      "line": 0,
+      "samples": 80
+    },
+    {
+      "function": "(idle)",
+      "url": "",
+      "line": 0,
+      "samples": 35
+    },
+    {
+      "function": "render",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/forest-training/renderer.js",
+      "line": 19,
+      "samples": 21
+    },
+    {
+      "function": "render",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/forest-training/runtime.js",
+      "line": 82,
+      "samples": 19
+    },
+    {
+      "function": "drawSnake",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/retro-v5/renderer.js",
+      "line": 38,
+      "samples": 18
+    },
+    {
+      "function": "",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/retro-v5/renderer.js",
+      "line": 23,
+      "samples": 18
+    },
+    {
+      "function": "bodyCells",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/simulation/body.js",
+      "line": 6,
+      "samples": 18
+    },
+    {
+      "function": "",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/retro-v5/renderer.js",
+      "line": 21,
+      "samples": 14
+    },
+    {
+      "function": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "samples": 13
+    },
+    {
+      "function": "rectFor",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/retro-v5/renderer.js",
+      "line": 37,
+      "samples": 12
+    },
+    {
+      "function": "",
+      "url": "",
+      "line": 1,
+      "samples": 8
+    },
+    {
+      "function": "drawImage",
+      "url": "",
+      "line": 0,
+      "samples": 7
+    },
+    {
+      "function": "selectPieces",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/retro-v5/renderer.js",
+      "line": 22,
+      "samples": 6
+    },
+    {
+      "function": "",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/simulation/body.js",
+      "line": 6,
+      "samples": 6
+    },
+    {
+      "function": "bodyCell",
+      "url": "http://127.0.0.1:8773/arcade/snake-next/simulation/body.js",
+      "line": 5,
+      "samples": 5
+    },
+    {
+      "function": "drawImage",
+      "url": "",
+      "line": 0,
+      "samples": 5
+    },
+    {
+      "function": "querySelector",
+      "url": "",
+      "line": 0,
+      "samples": 5
+    }
+  ]
+}
