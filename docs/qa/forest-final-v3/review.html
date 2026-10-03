@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Forest visual finalization V3 — human review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:20px;background:#031813;color:#eee1bb;font:15px/1.5 system-ui,sans-serif}h1{font-size:24px}h2{font-size:18px}a{color:#bde5cd}nav{display:flex;gap:16px;flex-wrap:wrap}.capture{overflow:auto;border:1px solid #2e4837;background:#021512;width:100%;margin-bottom:28px}.capture img{display:block;max-width:none;width:auto;height:auto;image-rendering:pixelated}p{max-width:1000px}section{scroll-margin-top:12px}small{color:#b5c4ac}
+</style>
+<h1>Mushroom Snake — Forest visual finalization V3</h1>
+<p>Composition baseline: <code>31efcd4</code>. Только surface floor, содержимое effect area, вес pause/fullscreen glyphs и finish D-pad. Геометрия, V5.6 Snake, cabinet/frame, объекты и механики сохранены.</p>
+<p>Ровно пять captures, без shrink-to-fit: один image pixel = один CSS pixel при browser zoom 100%. Большие desktop captures прокручиваются горизонтально. Это замороженная DEV QA fixture: score 12400, length 22, combo ×3; не результат игрового прохождения.</p>
+<nav><a href="#floor">1. Floor V2 → V3</a><a href="#desktop">2. Desktop</a><a href="#stack">3. Legal 2+1</a><a href="#mobile">4. Mobile</a><a href="#pressed">5. Pressed D-pad</a></nav>
+<p>Targeted regression: 51/51; states 0/1/2/2+1 проверены на 1920×1080, 1366×768, 844×390. Layout и DOM bounding boxes совпадают с baseline; console errors/warnings, failed requests и HTTP ≥400 = 0 в новых QA contexts. <a href="measurements.json">Raw evidence</a> · <a href="report.md">Report / repeat commands</a> · <a href="/arcade/snake-next/forest-training.html?qa=1">Local DEV Training</a>.</p>
+<p><strong>STOP — ожидается human visual review.</strong> FOREST CABINET + ARENA + HUD не объявлены финально VISUAL LOCK до вашего approval. TEST/Production не публиковались.</p>
+<section id="floor"><h2>1. Floor V2 → V3 · native gameplay scale</h2><p><small>Одинаковый 4×4 runtime crop. 6 оригинальных 68px variants; внутренний bevel contrast −30%, внешние seam pixels byte-identical. Patina/wear: по 1% selection buckets.</small></p><div class="capture"><img src="01-floor-v2-v3-native.png" width="580" height="330" alt="Floor V2 versus V3 at native gameplay scale"></div></section>
+<section id="desktop"><h2>2. Desktop gameplay · 1920×1080 · 1 effect</h2><div class="capture"><img src="02-desktop-1920.png" width="1920" height="1080" alt="Desktop Forest gameplay with one compact effect and two quiet empty slots"></div></section>
+<section id="stack"><h2>3. Desktop · legal 2 positive + 1 negative</h2><div class="capture"><img src="03-desktop-stack-2-plus-1.png" width="1920" height="1080" alt="Desktop with focus, harvest and rush timers"></div></section>
+<section id="mobile"><h2>4. Mobile landscape · 844×390</h2><div class="capture"><img src="04-mobile-844.png" width="844" height="390" alt="Mobile Forest gameplay with full legal effect stack"></div></section>
+<section id="pressed"><h2>5. Mobile D-pad · real pointer press held</h2><p><small>Нажата нижняя правая кнопка ↓. Input принят canonical command queue; release очищает pressed state. Placement и 44×44 hitboxes неизменны.</small></p><div class="capture"><img src="05-mobile-dpad-pressed.png" width="844" height="390" alt="Mobile D-pad down button pressed"></div></section>
+</html>

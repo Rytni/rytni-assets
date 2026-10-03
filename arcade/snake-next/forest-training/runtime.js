@@ -98,9 +98,9 @@ export class TrainingGame {
     const s=this.session;this.root.querySelector('#score').textContent=s?.score||0;this.root.querySelector('#length').textContent=s?.state.length||8;this.root.querySelector('#combo').textContent='×'+Math.max(1,s?.combo||1);
     const effects=s?.effects||[],key=effects.map(e=>e.kind).join(',');
     if(this.effectKey!==key||!this.root.querySelector('#effects').children.length){
-      this.effectKey=key;this.root.querySelector('#effects').innerHTML=effects.length?effects.map(e=>`<div class="effect ${EFFECTS[e.kind].positive?'':'negative'}" data-effect="${e.kind}"><img alt="" src="/grib/mushroom-snake-retro-v5/${EFFECTS[e.kind].positive?'positive':'negative'}.png"><span>${EFFECTS[e.kind].label} <b></b></span><progress max="1" value="1"></progress></div>`).join(''):'<span class="effect-empty">ЭФФЕКТЫ —</span>';
+      this.effectKey=key;this.root.querySelector('#effects').innerHTML=effects.map(e=>`<div class="effect ${EFFECTS[e.kind].positive?'':'negative'}" data-effect="${e.kind}" aria-label="${EFFECTS[e.kind].label}"><img alt="" src="/grib/mushroom-snake-retro-v5/${EFFECTS[e.kind].positive?'positive':'negative'}.png"><span>${EFFECTS[e.kind].label}</span><b></b><progress aria-label="Оставшееся время" max="1" value="1"></progress></div>`).join('')+Array.from({length:Math.max(0,3-effects.length)},()=>'<div class="effect-vacant" aria-hidden="true"></div>').join('');
     }
-    for(const e of effects){const card=this.root.querySelector(`[data-effect="${e.kind}"]`),remaining=Math.max(0,e.ends-s.tick);card.querySelector('b').textContent=(remaining/60).toFixed(1);card.querySelector('progress').value=Math.min(1,remaining/EFFECTS[e.kind].duration);}
+    for(const e of effects){const card=this.root.querySelector(`[data-effect="${e.kind}"]`),remaining=Math.max(0,e.ends-s.tick);card.querySelector('b').textContent=this.compact?Math.ceil(remaining/60)+'С':(remaining/60).toFixed(1);card.querySelector('progress').value=Math.min(1,remaining/EFFECTS[e.kind].duration);}
     drawHudType(hud);
   }
   show(){
