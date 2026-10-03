@@ -1,0 +1,74 @@
+[
+  {
+    "id": "v52-straight-8",
+    "label": "Straight length 8 — cell68 / body36 native",
+    "file": "v52-straight-8.png",
+    "width": 592,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-straight-30",
+    "label": "Straight length 30 — horizontal scroll, no shrink — cell68 / body36 native",
+    "file": "v52-straight-30.png",
+    "width": 2088,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-tight-U",
+    "label": "Tight U / neighboring lanes — cell68 / body36 native",
+    "file": "v52-tight-U.png",
+    "width": 320,
+    "height": 184,
+    "native": true
+  },
+  {
+    "id": "v52-S",
+    "label": "S pattern — cell68 / body36 native",
+    "file": "v52-S.png",
+    "width": 728,
+    "height": 388,
+    "native": true
+  },
+  {
+    "id": "v52-head-neck",
+    "label": "Head → neck → body / native 100% — cell68 / body36 native",
+    "file": "v52-head-neck.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-taper-tail",
+    "label": "Body → taper → tail / terminal = 68 px — cell68 / body36 native",
+    "file": "v52-taper-tail.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-four-corners",
+    "label": "Four corners — same material, world-space lighting",
+    "file": "v52-four-corners.png",
+    "width": 524,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-body-crop",
+    "label": "Body native-scale crop / four cells with wrapping authored accents",
+    "file": "v52-body-crop.png",
+    "width": 320,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "v52-corner-crop",
+    "label": "Corner native crop / straight → corner → straight",
+    "file": "v52-corner-crop.png",
+    "width": 184,
+    "height": 184,
+    "native": true
+  }
+]

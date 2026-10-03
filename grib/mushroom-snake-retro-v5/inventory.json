@@ -1,6 +1,6 @@
 {
-  "version": "retro-v5.2-review",
-  "imageGenOperations": 0,
+  "version": "retro-v5.3-art-review",
+  "imageGenOperations": 1,
   "cell": 68,
   "body": 36,
   "head": 42,
@@ -13,1056 +13,1056 @@
       "file": "straight-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
-      "provenance": "Original manually authored raster"
+      "sha256": "0c9017855987e071b38b18456612dc10b0798f201273a48b4d388a16215d220c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v1",
       "file": "straight-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
-      "provenance": "Original manually authored raster"
+      "sha256": "778d5033712c451967e9099edb837fceb19292d78d1f107d2e3cdc3ed10e4e51",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v2",
       "file": "straight-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
-      "provenance": "Original manually authored raster"
+      "sha256": "baa1917f6d3b03938adc8ac4d796dbdf28b909a1a097a5a75b6421b083f991a7",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v3",
       "file": "straight-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
-      "provenance": "Original manually authored raster"
+      "sha256": "1faab52823748d99b32fccf133fded9ca6038fd2a949c76645dee27bc0f9ce9d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v4",
       "file": "straight-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
-      "provenance": "Original manually authored raster"
+      "sha256": "b7331789961251d926d0df9d456221d58232d2754409e47590e0f8d4d1562015",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v5",
       "file": "straight-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
-      "provenance": "Original manually authored raster"
+      "sha256": "29006eab0ee1a6575d103a9a96ad437d42d43938517302317a588c916d5e8ca0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v6",
       "file": "straight-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
-      "provenance": "Original manually authored raster"
+      "sha256": "377c180d55672f9ee24257e03d0a88d5de488f212cb62bf82a069918371df96d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-0-v7",
       "file": "straight-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "a970c80a1fbb7b37e2b759c34298d5160765836cd735eeeb75bba479c868367f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v0",
       "file": "neck-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
-      "provenance": "Original manually authored raster"
+      "sha256": "0c9017855987e071b38b18456612dc10b0798f201273a48b4d388a16215d220c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v1",
       "file": "neck-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
-      "provenance": "Original manually authored raster"
+      "sha256": "778d5033712c451967e9099edb837fceb19292d78d1f107d2e3cdc3ed10e4e51",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v2",
       "file": "neck-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
-      "provenance": "Original manually authored raster"
+      "sha256": "baa1917f6d3b03938adc8ac4d796dbdf28b909a1a097a5a75b6421b083f991a7",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v3",
       "file": "neck-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
-      "provenance": "Original manually authored raster"
+      "sha256": "1faab52823748d99b32fccf133fded9ca6038fd2a949c76645dee27bc0f9ce9d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v4",
       "file": "neck-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
-      "provenance": "Original manually authored raster"
+      "sha256": "b7331789961251d926d0df9d456221d58232d2754409e47590e0f8d4d1562015",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v5",
       "file": "neck-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
-      "provenance": "Original manually authored raster"
+      "sha256": "29006eab0ee1a6575d103a9a96ad437d42d43938517302317a588c916d5e8ca0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v6",
       "file": "neck-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
-      "provenance": "Original manually authored raster"
+      "sha256": "377c180d55672f9ee24257e03d0a88d5de488f212cb62bf82a069918371df96d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-0-v7",
       "file": "neck-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "a970c80a1fbb7b37e2b759c34298d5160765836cd735eeeb75bba479c868367f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "head-0-v0",
       "file": "head-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "bc7d63aabbcf9686ee82ddd7e7e463649bb24fb7bf52c35e6196ec554f4a58a3",
-      "provenance": "Original manually authored raster"
+      "sha256": "00e388446822d350eac719229816e6a8854795328462ff94e7fb0a23944c1d0a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v0",
       "file": "corner-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "3e5998199f4bf4ca80c4b2b92acfc1ab611b356ff48e3a4ab1d0f06dfc5d332e",
-      "provenance": "Original manually authored raster"
+      "sha256": "1ebd4e9ef5464d3578f76e3ef328db3168e5fc1515950e8d7df4ba43efad9813",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v1",
       "file": "corner-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "700c3e9937a49dca317ee45771dee21dc2c07551ebe5dbcce7ebf66da76bb9b7",
-      "provenance": "Original manually authored raster"
+      "sha256": "0fb2e2f67c045733b97295c0a7d09a547942b7f7fed6d5074aa19bbf5cef5daf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v2",
       "file": "corner-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "3a8629341f47a8d07f7cfca8dfa7dbf86bb29fe4c29ec7930bd431511d6e4085",
-      "provenance": "Original manually authored raster"
+      "sha256": "092e6822c921cae3c267031935d244fe6e5b1d5917dc0b4cf16a94d3f89535b0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v3",
       "file": "corner-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "132055866d8ed5c11105ebfbe9ba14da42caa978596a17b5b482a497876af6ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "a1b1f001859d6c580ad2355b3c8bf863d570726d66756e1e3d27dad41d18db96",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v4",
       "file": "corner-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "c46677c833f77c082ca3fdba98818b9c193437d33f0d4c858bff279c2887d4f3",
-      "provenance": "Original manually authored raster"
+      "sha256": "d3b8cf5fed1066c89739a28f5ae2716b7eb87c472acaf83af1c0993afdc8f56c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v5",
       "file": "corner-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "af00e260356eefe1a85b49d6d09c32f5204e1a88c8b2222fa29f84cd21696890",
-      "provenance": "Original manually authored raster"
+      "sha256": "3fc917bcb8d46546ac2b34d0c3544a91db2664649f8f68eb843e9ec6b016a0f1",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v6",
       "file": "corner-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3bfd0421988b00dd3419790fb02bf7e6acc1513cf649930aa8230b942f337ea9",
-      "provenance": "Original manually authored raster"
+      "sha256": "f834db4bd50ee720576fa87484cabb275fbe17db4fbe3610611a48ed3617f7ae",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-0-v7",
       "file": "corner-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "23057660e787098f37ea3c6bd946bec55ca78a3620fe695db333ec62467f675c",
-      "provenance": "Original manually authored raster"
+      "sha256": "cab9c563995719bd0689c408beccb0e92d020da3a18ead1bd587d344a28170ab",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v0",
       "file": "terminal-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "37574f94c2ce72ac18bcfcbcdca005ee592d26ebc3ecb734135bdd7f2ad97bd9",
-      "provenance": "Original manually authored raster"
+      "sha256": "5825a7b29be3f8453b5aa02f1cf88f24fbd2b8e514371b84f92c306f31085734",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v1",
       "file": "terminal-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "47aa6f4def84ed740ef0756f871e1c40139124b6d2adbe63d54e3a762d47099a",
-      "provenance": "Original manually authored raster"
+      "sha256": "4f67029a6ff08adaa8c2716046a1334fc106bc87e751e200791953392b791644",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v2",
       "file": "terminal-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "36532f22ba5c5fb4a4caf96f60dd258784a15d420dec02f12c54c35346de918b",
-      "provenance": "Original manually authored raster"
+      "sha256": "04da7332e5fc87e01869a5ce8e891ad5d820abc66e49312177245addbc88eb4b",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v3",
       "file": "terminal-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e4409f6a9fa747d55b0d7601cfc8b9ae1232f3735586e322ef6bb29948b293b",
-      "provenance": "Original manually authored raster"
+      "sha256": "7839086aacf0ec63fba28a4f945e89b11140c2775fa07441fd911cef16952ae8",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v4",
       "file": "terminal-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "19aa354ff6e67c01941f6adff10da6015bb56b17d28e044a93295e69fe1ea4b0",
-      "provenance": "Original manually authored raster"
+      "sha256": "0c65aeed43d285415939862e52d317dd47f65fa63314a6a2b7b1c038fce20b72",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v5",
       "file": "terminal-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "f31a7f4254e99495a60cd3832f8ddb2215a572ed6ddb9b56092a46092667099a",
-      "provenance": "Original manually authored raster"
+      "sha256": "1dc6bbb99af20c5c9bcf3ebd6ab5e5f7925444f2b5cb830a9a378f30d2527b5e",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v6",
       "file": "terminal-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "54bca233ab1c31c330610ff7731132341daecc029b432a57592b27278e3127ea",
-      "provenance": "Original manually authored raster"
+      "sha256": "3f247888d3a4b8e8971874c901c5af8220f26a8d5fc678a54223a8fa62f7d7b6",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-0-v7",
       "file": "terminal-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "d8e125d8dda528450e88838f301e348f6f1920a1c4df67919f0f7476bed95b9e",
-      "provenance": "Original manually authored raster"
+      "sha256": "8d58907ebc6d170a3786aa6076f9264094c82f26aa2387336a3061ecc64862bd",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v0",
       "file": "straight-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
-      "provenance": "Original manually authored raster"
+      "sha256": "6a6c35f7d43336e1881438abb4bf0783979232e3b6db0ce678ce4ba90dbb621f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v1",
       "file": "straight-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
-      "provenance": "Original manually authored raster"
+      "sha256": "b6b9f22ece7cce9d41e68eed9ee62c06858f7cfbe787a7a624f78621f2c1ceac",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v2",
       "file": "straight-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
-      "provenance": "Original manually authored raster"
+      "sha256": "cfb024370b8f6df34aff0c9e54f0aa9f1c53d944836f668896e0f951134e3988",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v3",
       "file": "straight-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
-      "provenance": "Original manually authored raster"
+      "sha256": "f0861e6ac8ce9496027fb32b2d1e2588925a3b1b8aae348329e678073a356d6f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v4",
       "file": "straight-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
-      "provenance": "Original manually authored raster"
+      "sha256": "900e50b16a86ecd49b79cb187e5cf19b516f0dc8a8e289c7eaa78dfd95a685e2",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v5",
       "file": "straight-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
-      "provenance": "Original manually authored raster"
+      "sha256": "a0a38e8f0462304690d246665fc1b78aeb9c8272f75cb144b32e54bf829da481",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v6",
       "file": "straight-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
-      "provenance": "Original manually authored raster"
+      "sha256": "229e776783836747f51019946cb1738ce4923e2f9760d7261d5df7c2027e69e9",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-1-v7",
       "file": "straight-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
-      "provenance": "Original manually authored raster"
+      "sha256": "b9f05b73b7d2b6a96eaa9ab3d162beb244f28d332e66e1ecba7ab52e2fb8bd18",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v0",
       "file": "neck-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
-      "provenance": "Original manually authored raster"
+      "sha256": "6a6c35f7d43336e1881438abb4bf0783979232e3b6db0ce678ce4ba90dbb621f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v1",
       "file": "neck-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
-      "provenance": "Original manually authored raster"
+      "sha256": "b6b9f22ece7cce9d41e68eed9ee62c06858f7cfbe787a7a624f78621f2c1ceac",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v2",
       "file": "neck-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
-      "provenance": "Original manually authored raster"
+      "sha256": "cfb024370b8f6df34aff0c9e54f0aa9f1c53d944836f668896e0f951134e3988",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v3",
       "file": "neck-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
-      "provenance": "Original manually authored raster"
+      "sha256": "f0861e6ac8ce9496027fb32b2d1e2588925a3b1b8aae348329e678073a356d6f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v4",
       "file": "neck-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
-      "provenance": "Original manually authored raster"
+      "sha256": "900e50b16a86ecd49b79cb187e5cf19b516f0dc8a8e289c7eaa78dfd95a685e2",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v5",
       "file": "neck-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
-      "provenance": "Original manually authored raster"
+      "sha256": "a0a38e8f0462304690d246665fc1b78aeb9c8272f75cb144b32e54bf829da481",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v6",
       "file": "neck-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
-      "provenance": "Original manually authored raster"
+      "sha256": "229e776783836747f51019946cb1738ce4923e2f9760d7261d5df7c2027e69e9",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-1-v7",
       "file": "neck-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
-      "provenance": "Original manually authored raster"
+      "sha256": "b9f05b73b7d2b6a96eaa9ab3d162beb244f28d332e66e1ecba7ab52e2fb8bd18",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "head-1-v0",
       "file": "head-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "7e1c2cbe73347305cfc0c427dd8109a3121a96c84619be68640ba44e6930bc83",
-      "provenance": "Original manually authored raster"
+      "sha256": "47f6c04a65c02cde7cfdde2d181e05a20f65a4e2f99e2734032e72a9a7246992",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v0",
       "file": "corner-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "ac06ffa17cc54e21e958456b4bb2c171da74fc396264326f5b8cbb27b4142b50",
-      "provenance": "Original manually authored raster"
+      "sha256": "37532d6914bbf938b423ac3d8eecadd0007c3ff341b459a4ef0984b3ee3e59fb",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v1",
       "file": "corner-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "a1fd03571132fb5eb13309d48fa129c2ac7f8740c2ba6f73d8db2a6c8d1b77c7",
-      "provenance": "Original manually authored raster"
+      "sha256": "4aff8e77ea1f023f870f1ed9c3c862583f37afbc498fe8f8f12d579a22ed6567",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v2",
       "file": "corner-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "a6418c8f1def272eb70604ee7940db93fef581d0c3a48e6620586256208ac376",
-      "provenance": "Original manually authored raster"
+      "sha256": "63e6e0b9bff3d15fa444f708a73acc1465963f3f4941ae43029d47e07fea4db3",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v3",
       "file": "corner-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6a14a99806799e1e99122517850e0f32be28e1560be31200d0186495d7c73dc8",
-      "provenance": "Original manually authored raster"
+      "sha256": "cb9bd03c0f513ba46082b5667645d0b94a1e1cb20c98421177df03c246fe4938",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v4",
       "file": "corner-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "a1fd03571132fb5eb13309d48fa129c2ac7f8740c2ba6f73d8db2a6c8d1b77c7",
-      "provenance": "Original manually authored raster"
+      "sha256": "bc5c46090eb1666dfb93e395c4762ef54f79f0646965bd5a67148ceab07bc9da",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v5",
       "file": "corner-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "6d6845cf71416df795b7350f9b6c9ac7cb505324962d6fc3d33db6aad5fa18d1",
-      "provenance": "Original manually authored raster"
+      "sha256": "84db6affbd514f5de184e681942fd9794749167c7443323782ec0bdbb2e0a9a6",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v6",
       "file": "corner-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "0d95db962d1ec067addc094da5c2c69ed796143c63d78759c492a753d58284bd",
-      "provenance": "Original manually authored raster"
+      "sha256": "3f1151f7a8b726a639c84fc5d9437606413546fff1efcc9c1e2eb9bfa6969b5f",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-1-v7",
       "file": "corner-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "cafe7359a4d25cf01b81e6c0fa2ed0f21a05ba90eda6035853975034478df56c",
-      "provenance": "Original manually authored raster"
+      "sha256": "5f0bda6c26f75cde661a42ac15b3a2eaf3c97b574412b47b5ade07eb0cb722ec",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v0",
       "file": "terminal-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "a00b7c8b6482f3187eb61a89559f87cb0fbf3d23af78e2676c8b5869c6a1817a",
-      "provenance": "Original manually authored raster"
+      "sha256": "bc6bbf3e15730dc6b7a4e36c69bb626fa580e13f3f13bcc772e859a22e8fd87c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v1",
       "file": "terminal-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "4d86b958c99c4dcf44cfb4feb099fe7fd21e483f79c1209207321b446d4bf523",
-      "provenance": "Original manually authored raster"
+      "sha256": "3bb7e387efb2b044a109d2ae988e06524afd2ece31d5982b055eb6a6d6327b2d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v2",
       "file": "terminal-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "40f8aa73042190040547d6c9b79cb4a020531985fe7995e806c8c1003fbaffa2",
-      "provenance": "Original manually authored raster"
+      "sha256": "bfea048a2a9ef4e7baba88f744f9f300b35765c1f656a73074e301c86ff77e8b",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v3",
       "file": "terminal-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "8297fdacb00e35a74e77997dd52074bd159c606cb3f9bb5527206e95e77461c5",
-      "provenance": "Original manually authored raster"
+      "sha256": "87916ffe88e3587b72492a3225a66e2a44ab9f58ab9db2a6fefff87df2861d24",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v4",
       "file": "terminal-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "b67136f3facd9607647c77ee3ef70b0ec29e1ce10190d77de16ed10eee7d67a1",
-      "provenance": "Original manually authored raster"
+      "sha256": "260a34103816cba8b36555f760645474ca0c5d44ff102a06bbf20d011ff644eb",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v5",
       "file": "terminal-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "7c139faf4075ced968d0fd0811ba4cc5a5c411f735f007707a271fc805e02280",
-      "provenance": "Original manually authored raster"
+      "sha256": "70835d4b8dab6ef923f9a607f12ea1aa86bf894cc4380472096186f9fa710faa",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v6",
       "file": "terminal-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "03b9cef01272e56a6a46e11357a8e2be5775ddfaeb2e33130e25ebe1d328fb6f",
-      "provenance": "Original manually authored raster"
+      "sha256": "33756a50817fc00a638524ad53757ef646f3b35c9f620cff3835e4a0c1b16a86",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-1-v7",
       "file": "terminal-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "4457496c51b6253f56b5c41d2e4bf94bb43ff7baf005353842f43793c0950504",
-      "provenance": "Original manually authored raster"
+      "sha256": "66b65d9a8134249c10b77c381fa9de91dfb661e5f4d665b7b3bcfbcde71b1a8b",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v0",
       "file": "straight-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
-      "provenance": "Original manually authored raster"
+      "sha256": "bb729f386df1d8ac046f8a58d1ed94471b710269b0b4355681e3ff392b075416",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v1",
       "file": "straight-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
-      "provenance": "Original manually authored raster"
+      "sha256": "2bf9455e77a64f9e702b5d4361921f8f20715bbdbf6f06893737f784fdea3baf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v2",
       "file": "straight-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
-      "provenance": "Original manually authored raster"
+      "sha256": "b509fdb4ac9aa6ffd54822455179e219dc540060e1f0a05c553b574a9a15bb9a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v3",
       "file": "straight-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
-      "provenance": "Original manually authored raster"
+      "sha256": "6ab0fc1bd37aa3360b4e7232df1f36594d3315f72857755e77b34e1a6fd7817a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v4",
       "file": "straight-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
-      "provenance": "Original manually authored raster"
+      "sha256": "04c7d3eed20afe7df8eb08de8c7ac5ec4375c64e9b997fc30d41347b5a502ff0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v5",
       "file": "straight-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
-      "provenance": "Original manually authored raster"
+      "sha256": "1810351a9a7bffa7700b4a377b327a32b81c053c6b498767a8fc9fd951ffa3f2",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v6",
       "file": "straight-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
-      "provenance": "Original manually authored raster"
+      "sha256": "4c990f2b8c88f606d5b4ac3f8e2e176d000ce921566a48fc189c4d71db7a4884",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-2-v7",
       "file": "straight-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "8901f3785f38f14b300c7cc569b6e72436158253797848cbb873fcbd14f409ec",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v0",
       "file": "neck-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e8bb2c6eaf9ec584ba8a2bc43b42125c9615018a7b08f8d1bf7a12a339db146",
-      "provenance": "Original manually authored raster"
+      "sha256": "bb729f386df1d8ac046f8a58d1ed94471b710269b0b4355681e3ff392b075416",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v1",
       "file": "neck-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "470e383364a8f53545a32babfa6c43fae2a97669732b6367fc481c8f3c6436d5",
-      "provenance": "Original manually authored raster"
+      "sha256": "2bf9455e77a64f9e702b5d4361921f8f20715bbdbf6f06893737f784fdea3baf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v2",
       "file": "neck-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "931a89213106b6736f2bd2e25dab06a2a633f4ff95d0ac2f1352e5aa4275b45e",
-      "provenance": "Original manually authored raster"
+      "sha256": "b509fdb4ac9aa6ffd54822455179e219dc540060e1f0a05c553b574a9a15bb9a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v3",
       "file": "neck-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "49fbb021d597299dc0774951830a6441d1f9230b3f0165696a3bd6e4a6071243",
-      "provenance": "Original manually authored raster"
+      "sha256": "6ab0fc1bd37aa3360b4e7232df1f36594d3315f72857755e77b34e1a6fd7817a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v4",
       "file": "neck-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "d0b45999d7dfe404d3a28facb45d250cae90fe5080589434976ffd1367ac141d",
-      "provenance": "Original manually authored raster"
+      "sha256": "04c7d3eed20afe7df8eb08de8c7ac5ec4375c64e9b997fc30d41347b5a502ff0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v5",
       "file": "neck-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "b795b4115debc4225f253000b5ecd8a903e0437b8f3ccbe62f42e230f282c2d1",
-      "provenance": "Original manually authored raster"
+      "sha256": "1810351a9a7bffa7700b4a377b327a32b81c053c6b498767a8fc9fd951ffa3f2",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v6",
       "file": "neck-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "304cf33ce6892c75ca1e9b10b9b8162acad4dfaa42adf037b6ceff9d408a0636",
-      "provenance": "Original manually authored raster"
+      "sha256": "4c990f2b8c88f606d5b4ac3f8e2e176d000ce921566a48fc189c4d71db7a4884",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-2-v7",
       "file": "neck-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b44a770870f20b7690be6c4913d9b3309089dd89dcd6f4363cbf6c89ae5fd4ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "8901f3785f38f14b300c7cc569b6e72436158253797848cbb873fcbd14f409ec",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "head-2-v0",
       "file": "head-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "23693b3affe8701b31ab42bcf14b18b40e69c2f77addfdeaa24842fb7d6a3930",
-      "provenance": "Original manually authored raster"
+      "sha256": "4569f3a023e406919e6290a00f8e962a9a665f78f2e9aeb68e64783ee54627fb",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v0",
       "file": "corner-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "a934b808186e85986467fb582bf3c463c1619830161feb7c08044f33563db090",
-      "provenance": "Original manually authored raster"
+      "sha256": "0386d4bdcfff086143306d2974305fbb081f7d0e37c4554fa3043e921b7793a4",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v1",
       "file": "corner-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "2126b85cb4591f22072789769e62584bf176635fd44373fab3e34931df00c939",
-      "provenance": "Original manually authored raster"
+      "sha256": "684a1be3fb8ac54a7abdd7524156252c49c8821da1acdc6aa6b7c28645e39766",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v2",
       "file": "corner-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "a5d31a71478818ba74e097528a097d8576e61ba5d25fe86dcac69b63b3d5e765",
-      "provenance": "Original manually authored raster"
+      "sha256": "a2a1df0bc64c9442b5c5fe1f022d1cee4591abbc54d971c33a82ca63fb8fc237",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v3",
       "file": "corner-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "d87492e77aedc805cf8bdeb97e003e7ee053465af2e6a7e30d3d03221e6dabd8",
-      "provenance": "Original manually authored raster"
+      "sha256": "1e2881a176bfd45f9bfc52fab92109dc8cbcff5c1d8298265334dea442470cd1",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v4",
       "file": "corner-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "f4a5cbff4bfcc0c1280fe9d8293c0ce4dcfe662308fdb4c9e985d6a1f25853ac",
-      "provenance": "Original manually authored raster"
+      "sha256": "32c590b70e112407e012eabf23adef77072214c330f097b3eeae58ac4e7dc866",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v5",
       "file": "corner-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a934b808186e85986467fb582bf3c463c1619830161feb7c08044f33563db090",
-      "provenance": "Original manually authored raster"
+      "sha256": "96b0cb62b196084ca4957e58a4473c445f3d1cf9499d71ef64883523eb86aac5",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v6",
       "file": "corner-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "72ad1b64c5c3c3f439a0366a6b157bca8867475536593d3a51ea25da3edcf479",
-      "provenance": "Original manually authored raster"
+      "sha256": "dbef91eddb02aff6709bd30b5150591a62b48599c7a5647de7ca40f0a6a68046",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-2-v7",
       "file": "corner-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "1bb6a56d814a5734a558d3ac04f90befb3395a4da19905f50f8f8063b19763e0",
-      "provenance": "Original manually authored raster"
+      "sha256": "ee2efcdeb60329e37ff1648efaf4a7f528aae543d345da583dcf32bf42a6649a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v0",
       "file": "terminal-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "103a0e212aa98f82fe42abbfe4286621331838d1dd2273272ae7f02ae05e8bdb",
-      "provenance": "Original manually authored raster"
+      "sha256": "fa0024518f990daf25f43b755e42380915bb0f1e390f19947b408ad9ee96bebf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v1",
       "file": "terminal-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "9016abf3a5aa7f8f4bd3f76f66474e810bcf9bec30b8ebd39ac0f68e7eac495a",
-      "provenance": "Original manually authored raster"
+      "sha256": "68287cdea502eaa59d5296ebce69751e813188e5198ca6bf35c50bfac45a0aea",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v2",
       "file": "terminal-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2ded04ad0b84e1bf142b092554ceb214d0d11cd89c9e17b5edfd3b63d5eafbc8",
-      "provenance": "Original manually authored raster"
+      "sha256": "878d3925ed663d7621502b1f63c668acd96c053c6c7e646381a058659f194695",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v3",
       "file": "terminal-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "fb5f68125a26fce7c5f12cc0aef778c391cd56519d0db1ef307135854854ba9b",
-      "provenance": "Original manually authored raster"
+      "sha256": "ca8b3c8a0d45930bfa2f04566d79969b54a908a9db31d5538cda3b27fc6c8680",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v4",
       "file": "terminal-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "3719d2a96bdc31b3734b60a63df6ee4622a556b5c6424ad055e255ff7a2d353c",
-      "provenance": "Original manually authored raster"
+      "sha256": "db038cad7ca525760358a07f33a901a91181e16cfe2b656750a38d1d334710eb",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v5",
       "file": "terminal-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "26ecdbff0118dd7c9fe3bb81464a69c984ab69ac62fc89e9239343c8c3b5a2cf",
-      "provenance": "Original manually authored raster"
+      "sha256": "56fe1cf3a99fc8809ef12019c0af519bf4ffe291cbf9ac24a10580cfc0bb56f7",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v6",
       "file": "terminal-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "cedabfb9a79023732f9acbfce9169819f5cd3f784cc057b40de2418740bbda8f",
-      "provenance": "Original manually authored raster"
+      "sha256": "2cea6ffbe1bb2627bfccd6c642d9e89c3bb4b2b91da8f682134c5c6d5a53edd5",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-2-v7",
       "file": "terminal-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "dfffed6ae19cf39a1e0a24f836868cc5f69e5d9cdbe1a29870d1cf3c1fefd2ad",
-      "provenance": "Original manually authored raster"
+      "sha256": "1e2394c938f7499f5a6a1b138e150be965a4a0a78d7293a97af81274e65c93bc",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v0",
       "file": "straight-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
-      "provenance": "Original manually authored raster"
+      "sha256": "27d23c968b5b4230a29ca463f9ad42a51c7cbc2c0f32d33ac8e1d2e51ac7dc1e",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v1",
       "file": "straight-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
-      "provenance": "Original manually authored raster"
+      "sha256": "46d5487a7f15d478fadda6092fbd831c7b0e6cc13e163f764dd7b0b97d7c1363",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v2",
       "file": "straight-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
-      "provenance": "Original manually authored raster"
+      "sha256": "2b7434544ddd00c17e9f3413937fe87dd43dc249645ba1d1dbe289884db468f0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v3",
       "file": "straight-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
-      "provenance": "Original manually authored raster"
+      "sha256": "65722982cd509a288ada374514268c26965f5734d5e4d99ead9d736ddd631925",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v4",
       "file": "straight-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
-      "provenance": "Original manually authored raster"
+      "sha256": "3b402e79b43263e12f53dde8a8815f82851206bf9273acf4fffb8cbaca1a9934",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v5",
       "file": "straight-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
-      "provenance": "Original manually authored raster"
+      "sha256": "c80705acb3b9c58d3ac40d24560950e858385401b3153a70219e50f14ec8cfaf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v6",
       "file": "straight-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
-      "provenance": "Original manually authored raster"
+      "sha256": "123dd4b841fd22876630301429c6e1fe66acb2187a18d84931e43e2071a11483",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "straight-3-v7",
       "file": "straight-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
-      "provenance": "Original manually authored raster"
+      "sha256": "c8482e384a132bc9461013ac5c053780315ebf7ccdaf5c6eba66a3f9bbfdb511",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v0",
       "file": "neck-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "b5b98e210edf8d0a9fca79d99a9b01a9b157ea2a5868600d8a20e1930c1f6cc2",
-      "provenance": "Original manually authored raster"
+      "sha256": "27d23c968b5b4230a29ca463f9ad42a51c7cbc2c0f32d33ac8e1d2e51ac7dc1e",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v1",
       "file": "neck-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "81abb5a93b5c7bb2072c3a013d0159349e0d6b50dbfd21bc696e1ebcd4e21dcd",
-      "provenance": "Original manually authored raster"
+      "sha256": "46d5487a7f15d478fadda6092fbd831c7b0e6cc13e163f764dd7b0b97d7c1363",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v2",
       "file": "neck-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2af5623bbe77088534ec27b7806e98f7d5cb8d9af223523ebd1a21731b3faf13",
-      "provenance": "Original manually authored raster"
+      "sha256": "2b7434544ddd00c17e9f3413937fe87dd43dc249645ba1d1dbe289884db468f0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v3",
       "file": "neck-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "6494c262586332e27463ef2c621b62a29bb016e7d202c087ea004cac6db0ec00",
-      "provenance": "Original manually authored raster"
+      "sha256": "65722982cd509a288ada374514268c26965f5734d5e4d99ead9d736ddd631925",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v4",
       "file": "neck-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "835bfa4ba542bf3b416eaaafe8e1269312b93b70bab9bc25710d0983555cdcaf",
-      "provenance": "Original manually authored raster"
+      "sha256": "3b402e79b43263e12f53dde8a8815f82851206bf9273acf4fffb8cbaca1a9934",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v5",
       "file": "neck-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "6e831f7668c98aa98781e32a4428fd9054fdea12439a9f41fa5d01507eb6e594",
-      "provenance": "Original manually authored raster"
+      "sha256": "c80705acb3b9c58d3ac40d24560950e858385401b3153a70219e50f14ec8cfaf",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v6",
       "file": "neck-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f9a86fecd6bd924f76deec95229128a95ea076fc8790bf397c09e02a8216eb9",
-      "provenance": "Original manually authored raster"
+      "sha256": "123dd4b841fd22876630301429c6e1fe66acb2187a18d84931e43e2071a11483",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "neck-3-v7",
       "file": "neck-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "f92408578dc80093a7d70063fbfa13ddcdb1920218d9c604f022d879d0d01f84",
-      "provenance": "Original manually authored raster"
+      "sha256": "c8482e384a132bc9461013ac5c053780315ebf7ccdaf5c6eba66a3f9bbfdb511",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "head-3-v0",
       "file": "head-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "830988abc32a0a542226b00d9e97f43be8f8d926c3a4f7fe7b812ef60883ed85",
-      "provenance": "Original manually authored raster"
+      "sha256": "0d564d9389ee04cd9446ffe887b7b75d7736d4079106796f924c3b202a38ac2a",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v0",
       "file": "corner-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "4c1c8454748f5411c9a0bbe72204a7ebceebd9e897399fbc9011e88ed73fcb1d",
-      "provenance": "Original manually authored raster"
+      "sha256": "38811b35305b647377fe3045da2f6a58dc8a4ae41cbe7263371994f231b5f4a0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v1",
       "file": "corner-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "c98971e67bb01cdfb0f59d34d683a0c7cc9e32eae928ca8442a1e5bd6046b676",
-      "provenance": "Original manually authored raster"
+      "sha256": "3854e6db57e5693677314dc1f7c87bfc3d6024db4a7189e0ccc3cc3237104a43",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v2",
       "file": "corner-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "1cde89c28cc92144cbb8e22d0c72645fc274b3b9c2de721404e5057c3f7681c7",
-      "provenance": "Original manually authored raster"
+      "sha256": "44b964c1b663c916becbcc2dcc050d6e23d1162f82fc7133bd3a113906b76552",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v3",
       "file": "corner-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "94e636dac4982f1f9a98e4f5ab94b2cdfd607da4f82c24d860b1b8efd5f4d866",
-      "provenance": "Original manually authored raster"
+      "sha256": "b6eb0090650d21838a6c665f5971ed0f6cea7d1c63019b59da93b74a90e51379",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v4",
       "file": "corner-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "1cde89c28cc92144cbb8e22d0c72645fc274b3b9c2de721404e5057c3f7681c7",
-      "provenance": "Original manually authored raster"
+      "sha256": "2fd2618a075def9b2b63c884d84bc738eda5d7fd30047682ea33e1286808953b",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v5",
       "file": "corner-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "7a3ace10188702b6f81c33cabd73ac4e7a80f68424363f9fbc9694b88392c65d",
-      "provenance": "Original manually authored raster"
+      "sha256": "a6efa3a80ea0887266f33696a5d3112cecad5ad89f451105b2852afc4acf5554",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v6",
       "file": "corner-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "eeda6f4488e1343b781ebc814cb9baf92fd2986849531e865e50b262c8a40857",
-      "provenance": "Original manually authored raster"
+      "sha256": "18bb873eb6965cb9ea3456e91c9dda6a1317a9d68473d4456b3e4afedd808f4c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "corner-3-v7",
       "file": "corner-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "b704309e72ad4e880b9c64ef423b0878c46bd1776c94d343245b3af0d1a4ee60",
-      "provenance": "Original manually authored raster"
+      "sha256": "d22a00c684d7c57223370ece08c8e32c25ca3666c00bdd36e9195c599a9db73b",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v0",
       "file": "terminal-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "fe980682e9cb45409d06b2f2b6104be1226469984a493e2b4508dd0bbe156d21",
-      "provenance": "Original manually authored raster"
+      "sha256": "6a452061e5edaa5ce4aa6379941c1aeaa7c6ed20d05748e9a04b4189af57a89c",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v1",
       "file": "terminal-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "878784f8c2fd754adc4ca661329920c06203af0f7823e7b17bac53e150a96521",
-      "provenance": "Original manually authored raster"
+      "sha256": "fa6c14f90254921270f06a8a31ecb1bdcbb5a1e3fea6634265b10862e0cb32f0",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v2",
       "file": "terminal-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "9e574d167775014f59d8e56cb481d26cbd435ac79a98dedfb8f7c280f103043b",
-      "provenance": "Original manually authored raster"
+      "sha256": "b871821405652d1b6f8479426476af643c7e808ee99f1ad99b50c554447e02f5",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v3",
       "file": "terminal-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "7ded323649d8627331f65e0e77a5221528ff274ef2e36ecf4a23a8ca4362abf3",
-      "provenance": "Original manually authored raster"
+      "sha256": "f939e9049388c8035d876d40d5a372e73f738e55828f7ca6abbe6da939eef9af",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v4",
       "file": "terminal-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "f628dd05bac88ec478272f5d33ef59246d390051690896c8f03a495ef16f8705",
-      "provenance": "Original manually authored raster"
+      "sha256": "2f9b704ade234214be6b40a9789e246cf309dd7f86ea7cdcae29c2dd4cc71cb1",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v5",
       "file": "terminal-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "c79cc4b3d9de4c54938508f5ab8945de34eef90d12eecfed0ff9f5e6d220aed8",
-      "provenance": "Original manually authored raster"
+      "sha256": "c3577e7a74d203668d7a177c8cb01cf644b8f5a6131bbb52503452a91c55009d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v6",
       "file": "terminal-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "b0f08d40007d1a83a1639da127c6a0b97e5bb2e081aa7d841ba7dc936f083e57",
-      "provenance": "Original manually authored raster"
+      "sha256": "4eda870e1098b4b064b0add2bac0c8c1009575909a9c5542bdc0dbeffbd24705",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "terminal-3-v7",
       "file": "terminal-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "ad92c3359520f7fbc003153584a95a12db1478c6db5e29377fa2aa82bcea72c4",
-      "provenance": "Original manually authored raster"
+      "sha256": "a0b8b710838100fe9482b244610106365b89798152f3ae5a700a97740a9eb56d",
+      "provenance": "Original V5.3 authored pixels within locked masks; generated material sheet is reference only"
     },
     {
       "id": "floor-0",

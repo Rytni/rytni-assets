@@ -4,7 +4,8 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
-import {CELL,pieces,rotate} from './geometry.mjs';
+import {CELL,pieces} from './geometry.mjs';
+import {paintSnake} from './paint-snake-v53.mjs';
 const require=createRequire(import.meta.url),{Raster,png,decode}=require('./raster.cjs');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..');
 const out=path.join(root,'grib/mushroom-snake-retro-v5');
@@ -14,52 +15,10 @@ function save(id,r,provenance='Original manually authored raster') {
   const bytes=png(r.w,r.h,r.data);fs.writeFileSync(path.join(out,id+'.png'),bytes);
   rasters.set(id,r);assets.push({id,file:id+'.png',width:r.w,height:r.h,sha256:crypto.createHash('sha256').update(bytes).digest('hex'),provenance});
 }
-const P={base:'eee6d2',light:'fff7e4',mid:'f5eedb',shadow:'d5c6a8',deep:'baa98a',moss:'31523a',leaf:'56734a',red:'b44135'};
-function material(piece,variant) {
-  const r=new Raster(CELL),mask=piece.mask;
-  const inside=(x,y)=>{
-    if(x>=0&&y>=0&&x<CELL&&y<CELL)return !!mask[y*CELL+x];
-    if(x<0&&y>=0&&y<CELL&&piece.ports.includes(3))return !!mask[y*CELL];
-    if(x>=CELL&&y>=0&&y<CELL&&piece.ports.includes(1))return !!mask[y*CELL+CELL-1];
-    if(y<0&&x>=0&&x<CELL&&piece.ports.includes(0))return !!mask[x];
-    if(y>=CELL&&x>=0&&x<CELL&&piece.ports.includes(2))return !!mask[(CELL-1)*CELL+x];
-    return false;
-  };
-  const distance=(x,y,dx,dy)=>{for(let d=1;d<=4;d++)if(!inside(x+dx*d,y+dy*d))return d;return 5};
-  for(let y=0;y<CELL;y++)for(let x=0;x<CELL;x++)if(mask[y*CELL+x]) {
-    const upper=Math.min(distance(x,y,0,-1),distance(x,y,-1,0));
-    const lower=Math.min(distance(x,y,0,1),distance(x,y,1,0));
-    const c=lower<=1?P.deep:lower<=3?P.shadow:upper<=2?P.light:upper<=4?P.mid:P.base;
-    r.dot(x,y,c);
-  }
-  const put=(x,y,c)=>{if(x>=0&&y>=0&&x<CELL&&y<CELL&&mask[y*CELL+x])r.dot(x,y,c)};
-  // Quiet authored clusters, never random procedural noise and never at sockets.
-  const patterns=[[[24,28,3,1],[42,36,2,1]],[[29,37,2,1]],[[38,27,3,1]],[[21,35,2,1],[44,29,2,1]],[]];
-  for(const [x,y,w,h] of patterns[variant%5])for(let dy=0;dy<h;dy++)for(let dx=0;dx<w;dx++)put(x+dx,y+dy,'f2ead7');
-  if(variant===5)for(const [x,y,c] of [[28,29,P.moss],[29,29,P.moss],[30,30,P.leaf],[28,30,P.leaf],[27,31,P.moss],[29,31,P.moss]])put(x,y,c);
-  if(variant===6)for(const [x,y,c] of [[37,34,P.moss],[38,33,P.leaf],[39,32,P.leaf],[39,33,P.leaf],[40,32,P.moss]])put(x,y,c);
-  if(variant===7) {
-    for(let x=31;x<=35;x++)put(x,29,P.red);
-    for(let x=32;x<=34;x++)put(x,28,P.red);
-    put(33,28,'ffe6c4');put(33,30,P.shadow);put(33,31,P.shadow);
-  }
-  if(piece.kind==='head') {
-    const turn=Number(piece.name.at(-1));
-    const feature=(x,y,c)=>{for(let i=0;i<turn;i++)[x,y]=[67-y,x];put(x,y,c)};
-    for(const ey of [24,40])for(let y=ey;y<ey+4;y++)for(let x=46;x<50;x++)feature(x,y,'17362c');
-    feature(47,24,'fffae9');feature(47,40,'fffae9');
-    for(let x=57;x<60;x++)feature(x,34,'675641');
-    for(let x=22;x<=30;x++)feature(x,22,P.red);
-    for(let x=23;x<=29;x++)feature(x,21,P.red);
-    for(let x=24;x<=28;x++)feature(x,20,P.red);
-    feature(25,20,'fff0d8');feature(28,21,'f1aa79');feature(26,23,P.shadow);feature(26,24,P.shadow);
-    for(const [x,y] of [[20,25],[21,26],[20,27],[22,25]])feature(x,y,P.moss);
-  }
-  return r;
-}
+function material(piece,variant) { return paintSnake(piece,variant); }
 for(const piece of pieces) {
   const variants=piece.kind==='head'?1:8;
-  for(let v=0;v<variants;v++)save(piece.name+'-v'+v,material(piece,v));
+  for(let v=0;v<variants;v++)save(piece.name+'-v'+v,material(piece,v),'Original V5.3 authored pixels within locked masks; generated material sheet is reference only');
 }
 for(let v=0;v<10;v++) {
   const r=new Raster(CELL);r.rect(0,0,68,68,'062e2a');r.rect(1,1,66,66,'0b4940');
@@ -103,5 +62,5 @@ for(const piece of pieces)for(const asset of assets.filter(a=>a.id.startsWith(pi
 }
 if(mismatch)throw Error('Artwork changed locked alpha masks: '+mismatch);
 const geometryHash=crypto.createHash('sha256').update(fs.readFileSync(new URL('./geometry.mjs',import.meta.url))).digest('hex');
-fs.writeFileSync(path.join(out,'inventory.json'),JSON.stringify({version:'retro-v5.2-review',imageGenOperations:0,cell:68,body:36,head:42,terminal:68,geometryHash,maskMismatch:mismatch,assets},null,2)+'\n');
-console.log(JSON.stringify({assets:assets.length,geometryHash,maskMismatch:mismatch,imageGenOperations:0}));
+fs.writeFileSync(path.join(out,'inventory.json'),JSON.stringify({version:'retro-v5.3-art-review',imageGenOperations:1,cell:68,body:36,head:42,terminal:68,geometryHash,maskMismatch:mismatch,assets},null,2)+'\n');
+console.log(JSON.stringify({assets:assets.length,geometryHash,maskMismatch:mismatch,imageGenOperations:1}));

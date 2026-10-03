@@ -1,0 +1,16 @@
+// Review-only composition. No concept pixels become production sprites.
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url),{decode}=require('./raster.cjs');
+const out=new URL('../../../docs/qa/retro-v5-3/',import.meta.url);
+const list=JSON.parse(fs.readFileSync(new URL('native-gallery.json',out)));
+const image=(file,label)=>{
+  const {w,h}=decode(fs.readFileSync(new URL(file,out)));
+  return `<figure><figcaption>${label} · ${w}×${h} · 100%</figcaption><div class="checker"><img src="${file}" width="${w}" height="${h}" alt="${label}"></div></figure>`;
+};
+const anatomy=list.map(item=>`<section><h2>${item.label}</h2><div class="scroll"><div class="pair">${image('v52-'+item.file,'V5.2 same geometry / same material locations')}${image(item.file,'V5.3')}</div></div></section>`).join('\n');
+const captures=['desktop-1920.png','mobile-844.png'].map(file=>`<section><h2>${file.startsWith('desktop')?'Desktop 1920×1080':'Mobile landscape 844×390'}</h2><div class="scroll"><div class="pair">${image('../retro-v5-2/'+file,'V5.2 archived runtime')}${image(file,'V5.3 actual runtime')}</div></div></section>`).join('\n');
+fs.writeFileSync(new URL('review.html',out),`<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Mushroom Snake V5.3 — Snake art review</title><style>
+*{box-sizing:border-box}body{margin:0;background:#101b18;color:#eee5cd;font:16px/1.5 system-ui,sans-serif}header,section{padding:20px}header{max-width:1100px}h1{margin:0}h2{font-size:18px}a{color:#f0d294}.scroll{overflow:auto;border:1px solid #47594e}.pair{display:flex;width:max-content;gap:24px;padding:12px}figure{margin:0;flex:none}figcaption{padding:6px;background:#26372d}.checker{width:max-content;background:repeating-conic-gradient(#2e3835 0% 25%,#46534d 0% 50%) 0 0/20px 20px}img{display:block;max-width:none;width:auto;height:auto;image-rendering:pixelated}section{border-top:1px solid #35493c}.reference{overflow:auto}
+</style><header><h1>V5.3 — Snake-only art candidate</h1><p>Cell 68 px · body 36 px · head 42 px · terminal 68 px. Exact masks unchanged. One generated common material sheet used solely as a reference; all production pixels painted independently within locked masks.</p><p>V5.2 → V5.3, always 1 image pixel = 1 CSS pixel at browser zoom 100%. Horizontal scroll is intentional. No shrink-to-fit; compare at native scale.</p><p>Technical QA passed. Visual acceptance remains a human review gate. This is not a newly approved direction or gameplay integration.</p><p><a href="qa-results.json">Browser connector / console evidence</a> · <a href="report.md">Report</a> · <a href="material-reference.png">Unified material reference, NOT source asset</a> · <a href="imagegen-prompt.txt">ImageGen prompt (1 operation)</a> · <a href="../../../arcade/snake-next/retro-v5-review.html">Existing isolated DEV renderer</a></p></header>${anatomy}${captures}<section><h2>Mobile grayscale diagnostic · native 844×390</h2><div class="scroll">${image('mobile-grayscale.png','V5.3 grayscale; screenshot-only filter')}</div></section></html>\n`);
+console.log('Native-scale comparison gallery written');

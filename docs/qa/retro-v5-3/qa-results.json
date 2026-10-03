@@ -1,0 +1,89 @@
+{
+  "scope": "Snake art only; no gameplay benchmark or integration",
+  "captures": [
+    {
+      "file": "desktop-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": false,
+      "layout": {
+        "cell": 69.92307692307692,
+        "canvas": {
+          "width": 1920,
+          "height": 1036
+        }
+      }
+    },
+    {
+      "file": "mobile-844.png",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "layout": {
+        "cell": 31,
+        "canvas": {
+          "width": 844,
+          "height": 390
+        }
+      }
+    }
+  ],
+  "connectors": [
+    {
+      "dpr": 1,
+      "deviceCell": 68,
+      "deviceConnector": 36,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.202035710673,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    },
+    {
+      "dpr": 1.5,
+      "deviceCell": 102,
+      "deviceConnector": 54,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.64683181324426,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    },
+    {
+      "dpr": 2,
+      "deviceCell": 136,
+      "deviceConnector": 72,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.1552645881975,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    }
+  ],
+  "gallery": {
+    "images": 23,
+    "shrunk": []
+  },
+  "errors": [],
+  "failed": [],
+  "httpErrors": [],
+  "warnings": []
+}
