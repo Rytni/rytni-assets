@@ -1,0 +1,87 @@
+{
+  "scope": "Existing geometry/connector regression and runtime screenshots only; no benchmark",
+  "captures": [
+    {
+      "file": "desktop-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": false,
+      "cell": 69.92307692307692
+    },
+    {
+      "file": "desktop-1366.png",
+      "width": 1366,
+      "height": 768,
+      "mobile": false,
+      "cell": 48.76923076923077
+    },
+    {
+      "file": "mobile-844.png",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "cell": 31
+    },
+    {
+      "file": "mobile-915.png",
+      "width": 915,
+      "height": 412,
+      "mobile": true,
+      "cell": 33.73076923076923
+    }
+  ],
+  "connectors": [
+    {
+      "dpr": 1,
+      "deviceCell": 68,
+      "deviceConnector": 36,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.202035710673,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    },
+    {
+      "dpr": 1.5,
+      "deviceCell": 102,
+      "deviceConnector": 54,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.64683181324426,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    },
+    {
+      "dpr": 2,
+      "deviceCell": 136,
+      "deviceConnector": 72,
+      "connectors": 32,
+      "pairs": 256,
+      "gaps": 0,
+      "connectorMismatch": 0,
+      "overlapPixels": 0,
+      "disconnectedPairs": 0,
+      "maxCornerCoverageCssPx": 37.1552645881975,
+      "widthToleranceCssPx": 2,
+      "excessiveCornerWidth": false,
+      "pass": true,
+      "failures": []
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "httpErrors": [],
+  "warnings": []
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "straight-8",
+    "label": "straight-8 / cell68, body36 / native 100%",
+    "file": "straight-8.png",
+    "width": 592,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "straight-30",
+    "label": "straight-30 / cell68, body36 / native 100%",
+    "file": "straight-30.png",
+    "width": 2088,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "head-neck",
+    "label": "head-neck / cell68, body36 / native 100%",
+    "file": "head-neck.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "tight-U",
+    "label": "tight-U / cell68, body36 / native 100%",
+    "file": "tight-U.png",
+    "width": 320,
+    "height": 184,
+    "native": true
+  },
+  {
+    "id": "S",
+    "label": "S / cell68, body36 / native 100%",
+    "file": "S.png",
+    "width": 728,
+    "height": 388,
+    "native": true
+  },
+  {
+    "id": "body",
+    "label": "Body / native runtime material selection",
+    "file": "body.png",
+    "width": 592,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "taper-tail",
+    "label": "Exact 68px terminal / softer internal material",
+    "file": "taper-tail.png",
+    "width": 252,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "four-corners",
+    "label": "Four directions / clean corners, no automatic foliage",
+    "file": "four-corners.png",
+    "width": 524,
+    "height": 116,
+    "native": true
+  },
+  {
+    "id": "corner-joint",
+    "label": "Straight → corner → straight / common skin rhythm",
+    "file": "corner-joint.png",
+    "width": 184,
+    "height": 184,
+    "native": true
+  }
+]

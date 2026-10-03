@@ -1,5 +1,5 @@
 {
-  "version": "retro-v5.4-art-review",
+  "version": "retro-v5.5-art-review",
   "imageGenOperations": 0,
   "cell": 68,
   "body": 36,
@@ -13,1056 +13,1056 @@
       "file": "straight-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "e3581ba0d53c2c3849427e07a150e577718f79c6b72659ca8bbee84ac6f0d666",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "69c75d7dbd5e9c40ee6d0209a51f711bc8077ad25b1c420d1e586abfcf1dad02",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v1",
       "file": "straight-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "7a466a4d1a59dcd4cb08f6f4f33f033a4595ed9d761c94f218ff057a4f6fadfe",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "12a450c1086e22958270eb25fe831b758dd8d48ecbae4334bce3ce977518891d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v2",
       "file": "straight-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "8e98f3f4571ab005c0b076a414a72564c8d1870a4beb3f83e0ebdb7e0e178c6a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "1eaac5757323d2951ca5d5bec8f18c3feb83700ec9f2ab584a26650e5b4b1e0d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v3",
       "file": "straight-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "4e5513bb4d2c01bfc1267abdc8fa127c220a5546e6747b88d7a1193d80e8a9d7",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5ba1ea3b9e15dd9a7bcc75e762c1059a97e722b37d7931734b0d64e9642f9e03",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v4",
       "file": "straight-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "8efa1c66fc6c3153e38d4104bf47a168871d29ef32a152680b87f4c72168a067",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "1f4a6c4da303ad11a9b49170ef9ec7e0a18259795ead8ff8f4a2d197f58ea252",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v5",
       "file": "straight-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a70a4e52ecc5734bcd3c781b6b14a3037294ae6663dcaad9180881c73220619f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "066c05a415f274ffc30a4999eedaf79ab6a9c08d80d64152fd4046795200c362",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v6",
       "file": "straight-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "e3d6b81dd6ebb81647d0d1026ed7b38016e0f39658e0cf4582450a33da122497",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "2d4af120a106cd681f867ac828d619e2624410b52640ed5c6c8c908fb6103595",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-0-v7",
       "file": "straight-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "dcd62971f4a18609b1a3f4446f02dfcb92fcd0fca9b0440bfa221fb863500d0b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "b09e0baa276022ddd8a6574cb8240029bdff3c0717b6bf0f0afc3f75e09232b4",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v0",
       "file": "neck-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "dd25fe602b56686884812415ed645bf7298ff11693c988aca4cf35a61f5c9afa",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "4cf2291b8f41ca234871a079baee18fef782859928b8f999ae6e9462dcaafddd",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v1",
       "file": "neck-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "a331a99d292840f9d56d745622ce1fdd6d60edf3fc20caa6af4eb5ce5c8a7162",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "4adbeea1b924deb10bad949e583e865f4b9eb1913192db35fc5fd667dfac5bae",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v2",
       "file": "neck-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "9cd2f771f79a92d815d8695644f31124980cb6e84f2e06af2cc214ed7f341973",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "724604cfbb29d76186dd2a60fb60cab4b47b6ccd4ac6263f6d560609c4293692",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v3",
       "file": "neck-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "52bf9a796fde49da31de977d758d35a64beb66f90af0f3003b0cae501517f573",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "ce9416e31a3ef272941e9934c289e19a54d148316dce98016bd993a27120f0cb",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v4",
       "file": "neck-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "fc78e40925d2cefeaaac8b49003edfd7fc1db809fb675e11185f4519c422d77d",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8c3e968d1328aaeb2a3eaf9e34a39d40e50748f3c5bd2c11793ae4313e8cd5aa",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v5",
       "file": "neck-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "335e561086ff03e17bbbb5ff577456bfebba38f6f9c10a2148a5509c7cf79be3",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "cd3065f9ae1e81707a3b7bcce204a9f00d483cb4c4349bdb0547a98b4fe57c61",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v6",
       "file": "neck-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "3f3198945086715db6b031ae507f1bce5e7ab7440840b29acd777871023829a4",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "94c7c8dc1184c0106bc18452ca7d61653dfefff2961ae9e428d535a69c72c1a1",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-0-v7",
       "file": "neck-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "bac42b7ad9941ca6709891050afe81a03ddc594d6b964a681eaecbb3f6332cfa",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f7f4a58f6c6f35adc3582a5a3fe505704b188753562d23514fdad65deea3c1ee",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "head-0-v0",
       "file": "head-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "dc46cc0c5595fea6057b5b3ed71b4f557a59f1f040438052876392ee44221273",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "60d145d301eb521e31f593cc92c2dbb980712fd00dee6ca1e29daf6c0a86a497",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v0",
       "file": "corner-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "08c635b17447a1384d90af1bb3d2e1a39dafecefd0763c977a66ac7a67470042",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c58a01d66962662e80c8865f7f32ed96f4d2d66dfc2f39ec3064c8fcc2b7f3d3",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v1",
       "file": "corner-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "336f7568e46e05602e448d6cfaa80def26129196314444c7310bfd088bdc2b96",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "43a63fb0d5e9a2fbe4af4863af34159cb9da340bf1a7fe9ec80f16312d8785f7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v2",
       "file": "corner-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "6615f760e0b894ebf253cae876430bd58f7aa8d5e317ddc43ec07501db4b4884",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "d0aa3fc92dcf82871ec7945e54a6811a8b8d0afc63a5b492b81703f450f036b5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v3",
       "file": "corner-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "c79c780d7573cc1fc8c097bb4ec38db3ca09a0488dcc4cbc83e64e0c4c10603a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c0169024f55c2f500351b3bca1f577a2b40680865a97a69c7397fd0a9d8e9eba",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v4",
       "file": "corner-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "859342f7dbb5a3302ccc21d112113c171b2a94e58a548ce277bc96e2dce8dda2",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c1dea772dbdd6b0f4e975f2d841b61ec3600ae17a1112ce44fa0349185287ed3",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v5",
       "file": "corner-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "c56f33f78cd6c08f42ad75730a7473ea8c6dba5e81f3e3edec389c1f23f91234",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "091fef7e8d005382bb5c6d764f386a87a9aed6f02ef1896d7ea09b74e84a47ec",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v6",
       "file": "corner-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "5cf351b25b07a9be61b76374fd372c1ed8b2de0dac5e9aa402fc319fa2c0d576",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "9218236e7ccec5d1dccd1724fa9a509ef92abf07c896e6eda6eb9641b0eac3c7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-0-v7",
       "file": "corner-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "797315559a02c684d3bea2b77a3e0844f8aff95352fa30a5117bab2200814e86",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8858a6a130f778287925637bf54adf382aa34b0ce55a0e855543ee9398b74038",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v0",
       "file": "terminal-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "f164e37b962414ad08539000791d32904b151d2aaa2d742acf47b64a2f8cc6fb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f32bc38b6c71c463541d1bc682244c40d36bfff37702c805b41c67ec60a66f38",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v1",
       "file": "terminal-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "832e0cccfc6f3f9e50e76ca7775966a8b3b6d2d74dbe1eba78656b587692a4c9",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "3519aeafc86e326ff79424f6ece1d11d0eeec80c054924ee801885c5b92b5d98",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v2",
       "file": "terminal-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "5deaebe81de2543e7998eec7b678cba51f1acb4c6e446196d7e8020021c4101c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5d973986209a23e926baab93b8e57540a7967256213c266ad8e2a7adb92e8c5c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v3",
       "file": "terminal-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "f6315fce7953a50355ea597338e06f5bac46376645c54d72f50672045e3405a4",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "4544c6f641db37654622606b919c48ad009c8e8d06a05057a94a4c178259e1b5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v4",
       "file": "terminal-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "00352046187ee9d45a75c22299e7fcc1d00f895cca60f03e2fd6726ff80e24bd",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "21c2ce6679460d927200e72aa9ddc5e9e239802e3a0ad2f504f804247bb94b58",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v5",
       "file": "terminal-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "d7fc3b4f1558fae0cca14856422f0c9714adc1b8dd3567b5841ddd80844fb6ae",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "082f1aca4de57095e387caeb0e37239edac8b1d98aac585479f2e811978edf8e",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v6",
       "file": "terminal-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "9a1a70b7d93703f2c931d93feef633acd7a6460551534d06c144f3473fb4bfb5",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "78809e66bdc262c8309f0e42c278895f843ad4fa986ba2f85ef0c26d2617e980",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-0-v7",
       "file": "terminal-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "cc17b8a89f905f198faafbda7b98c62fcaf865eff376bd094af58605261119cb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "0800d45b26d45d127af72f3175deb1c925c9e1f796bd45f46ac762d59d08781b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v0",
       "file": "straight-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "694b36d6ae7b9fa5113a958a8c6287a142cd73a2d4fefa87df1adee6d61fbeaf",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "afa04c70a82a7c20888fa97bbf68ae28159badf3d1a7b4fdb1a78affd516b01b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v1",
       "file": "straight-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "4c58a9e08e38e0b65c740168374caf785c8031846bdd55cb1edfe2fc25bf1d95",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "055fab1aefa8551cd2841f17743a3a81da9062429ec7f191d4e26ecf2f99cb65",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v2",
       "file": "straight-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "2f75166e42d7c088e3c2f7a839cd252f5acd9566fe1b0aafdd10b5a83304555f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "a75bffcd03539216a4daa32191bc0802a7929d88ee5d97361212729e6f1f934d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v3",
       "file": "straight-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "1333a8105b4e9b7eae6040b028932ed52b1e3ffc88d2e074071d40acef8e09bd",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "b9a822efcb0d2cd0ef3535a53a73abb97d33382932efb3d01f99a08cf622b77b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v4",
       "file": "straight-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "41034101501004a42cd1b56514916f3ba26cc3c72f206cb378d934651cf43e27",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "e16c47fcbef759f9982ad02246b745fa477d6160067d63c86a851d9b57f23fb7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v5",
       "file": "straight-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "cb0e6b31b8795ecb8da8be9e1fee9de96030814aa3664ae69bb54cd74f083f33",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "31d28f20a37b7c27e86cd5bb3e60e1f268b3477b41c930529769b06114ec0e99",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v6",
       "file": "straight-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "2c50e22f45453026ab64b06dc8fbb20d867727f89cdb0110c7ead14fd2f22535",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5b9b113cb428ba50b5bb615a4e52a6c47757fde35e43771cbf4c45f9cea1b36b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-1-v7",
       "file": "straight-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "a6005db566c682c81e525575849eedcff4da35090df975a54679ddfd38975e35",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "66e1216e65b7692e8eebe0cb7c7b59e676601a81206fa0eac9ac256f0591c70d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v0",
       "file": "neck-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "5a1f86a67e2562f550ba55fbe4cc0a2a5fd6ed3c9e8157703711bc665351ab84",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8648c62dafeca03c7ca4acc8e9ad69af11e14678b9027701076ee0c3294b1b7d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v1",
       "file": "neck-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "9d1467a88f9ea0d8cef4e42cf3000c4e8104369a7c0274bb73bdd5c540027f8c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c3583d4a6a12a3262d873fe55d814fe946be957a57a400771791ec5bbd5aae1b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v2",
       "file": "neck-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "33f8ac0cbfdf099a92b4e5513c0a09c1e09df8d3808195fc0f857db0335355f2",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8ce0685dc9b8321ae7fd5b28de8ac6da48a206cca171ef8ef621692172ab3ac6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v3",
       "file": "neck-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "bb13262aa5e645627e8a52a7b3ce7655b29a2cfc1b1bf274fe0d7d84c9fb2264",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "2b9d265fe97f778aa1f75c9545d86dd612bf68d8cb7f3ffc6d76c13c306a0dd6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v4",
       "file": "neck-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "2be6685fe3fc9fbf307cb409bd2e0ef45f29b8048d7a602d545fef1e680fe3dc",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "3cc5c15c0c2a02b295adad56a71c50be89086b0e40af83eb963689bc0410869c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v5",
       "file": "neck-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "ad8ab025efbd21ea7bb5b84f89576839d3aa92d87effc80d1ae30fbdb222aae2",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "193f4e4557ead3d902a47b51a07df0a60d32d38b8a08d29e8705711642e8f080",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v6",
       "file": "neck-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "ce991a343697f09e6deddf08ac42937c7be63eec15ac32a851eed8ead16cc66f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "bc19081165571ac1a3ec872670692143685c84ab2a537ece2bf6f4a6ca388959",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-1-v7",
       "file": "neck-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "3fb2ff4634f4d357e6de3c93c0aa72a0a91c070fe9f601636a0bee1eb7774add",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "3d318b5c016e9272218935d82604e5001270afb6f25d885b40ff03fe61f1f435",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "head-1-v0",
       "file": "head-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "4927e77fca0d73c20280afb8c28d3774baf9ecb3873c0145de2aa771e91efb56",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "78e4e1bd1b0a83ecc4561501c124dabf716fd27802ec32550c7b43eb545f18bb",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v0",
       "file": "corner-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "140ac4eda913c1c5364a4b6a3455297ab60a1d6c000052c022c4a13e7de911ad",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "2be06b5d9229b6a9cc91b9051d6df21847288315af4436e595fe3eb3c6f2d5a1",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v1",
       "file": "corner-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "3ce4efabca1d7d0029fba6673129f2c3f73f099f330f5c607095aa9da0221c3a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "d1cdf129f51813634476b83d207d97af83b75f0bfe71c5fe2f80ac9b684df82a",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v2",
       "file": "corner-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "8de322de45388be6617de59681eaa9fb982745c093d35e000aaa1a67ce14dcbb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "b0235e528eddb7d03320a834727cd9e1a1fd5ec1bd5f9131129a17ba9757dbf8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v3",
       "file": "corner-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "86757865452ab6097d5dbfa1172d8dc443512cee5d5b42e69f413e9e9becc613",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "cf1aff27d85978a4da5821ce89fb85918e8e843da95ff90ae956786579652388",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v4",
       "file": "corner-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "1e742ff5840885ea75d25471e515116203cbbdc7398b004a892eef5844ea173e",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "ba1d48f86e16b56fb1d05c1b6f3b8595fd2106a203122887bd4f78fe8efe6628",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v5",
       "file": "corner-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "9c217ac7412acc9848adcf9b7228e369fabb964e30e2d3610d560b94e521edde",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "154bfe8cc66e4f673e685e8e6780bc87b8f5814c13ee66da2c3c726482052c6b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v6",
       "file": "corner-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "5ca092d613ac3cb244dc027d261e92cc20f9ee6b4378ba038f0b362428c482f9",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c762dd6478550aec3a3960dde0c7ed81d4fc0ab0c44c4304667f51ec3e9c3cdf",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-1-v7",
       "file": "corner-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "80fc44d440754104319025b9381a3381958fff540585fcc4388de8f5d19eb409",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "a3171dbd73bee18bf0c1ef75ba1f1dd8c48f6b12fed0e9f2b6a4242d10345089",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v0",
       "file": "terminal-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "31085aac77b6e690a0f6847b42be1d4a9f2572b258f1cf610bf4aaf76905eee5",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "4f7a18f1a3297974a620e10e316478276ee74d22057fc534bc4536ceea9eb243",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v1",
       "file": "terminal-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "ddb21f5530e76d4c3d9269fdcedcae15bf7340e7994a3223b8e052a6ffb8f55c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "34cb42e0427183cba00dd50b7be8bacad24a23c33111dcd72383bbf67fcb5d91",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v2",
       "file": "terminal-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "9d6f7c1dd649fb2c6c740f5e2638801e5961b95059ee792974b1cd1769abb3cf",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "6ff81f4ef1ad5959f83ac523626b5db3d079fbd9aecfe210e9d1713c65b1ace5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v3",
       "file": "terminal-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "5689a0a5b00fea053a709d1ebef1c7b591c1248670dee0ac0989b62f8e2da5fc",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c1929798f31593dfe7a504ca3b98434692f9793f3904a383f71266ed5cd69aec",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v4",
       "file": "terminal-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "9c57dacdf0e24abc1f35dc991d9874a9154a5ddcd2a8a798e99f63b8a850a6d3",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "39c380bab9f52b7340dae617a071912783d39323fefbd17b41346d71d5dbbe42",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v5",
       "file": "terminal-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "99bb7a6c5e791ceb6641db506c08d776eddf765d3a37f29ae3c6742a128d03b9",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "fc7098ca41ed8e2c56d0e67d54322c995481b2b2797c4744edf3f905a285c62f",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v6",
       "file": "terminal-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "7434a252b5a9ef4099680d4c110c1cedd0595d8872b5ccb95fb269621d5ab21b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "ce58fa8bb52c22ce6c23afbda4d4d33b1cba6fd070e5e5f6de494f887aaced8d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-1-v7",
       "file": "terminal-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "5a35ae2cd31eff5ee31b2a2e3194dc7e2c40da6d74ec7f032a1bf062b604ec38",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5badc93dbc423841b1bc74650c38fa919a1b3fb054882a1084c8384fc571a456",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v0",
       "file": "straight-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "31f520b6a5da1f76a056a43fa7f0278752677a75d76625c98d783bea5c099539",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "48aa71eb44040aa07ad5ed37bb669f7bcdb66b2e13fbbb13e113e71dff11e5a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v1",
       "file": "straight-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "60b3f020d34e0d762bdb63f9155c9bd241400bd753ca8dcd1cbf31c26e34a29b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8bafc7cb51feb70a9c5be6d9d10eac70382656e5646373247cd5754ee752ebab",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v2",
       "file": "straight-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "1a15b6dcf4a6c0099fd485edf28535cbe9d450ffbeafcbc1c03108ff214238e6",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "cc8e37f9a3bb37668e7319137365b13a6ba96f0bf94e22377a4113b21e04f64f",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v3",
       "file": "straight-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "8d2e9c72f58a5e989dbb9057fad6cd579f746df1f204d21d452155e3237b732b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "32b987b11c95cc396a80f15f46de139b76b966c39debf049c674101fad1d4e55",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v4",
       "file": "straight-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "026b4458f4c89de0a1a85de9fbc0afd6f71f12f277d2cbffe80fd5fd328b7a2c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "d2504bfa2357986b0547efe1db019e6ad3c26a76c4d46cb23b6915f91bcec0ca",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v5",
       "file": "straight-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "d66efceafb1a81381c0ba4ca7ddabd42b10ec250550b02dc18ff24b7d8b9af0f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "77b5e0200a0b3e62c62a0702e464017b3f62b71243a109f32b0bf3a4c2e35b94",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v6",
       "file": "straight-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "a0e594b0689cb7c72bd51c176d7cdc041c9a2457d37617f5c1b0416019bf8bc0",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "83a48d9b21e819280de7461137dea803ee99ea7b5937e63dabf89abb82d130fc",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-2-v7",
       "file": "straight-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "e43e88e7f6209006e603fef2c956fe04a7c8e4f3d0577534f789d484aaa7f360",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "6b1df08c7e572d184fe9f80c4ade8540462655ff8c14a674ab79172fe5f5a4e0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v0",
       "file": "neck-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "6cebee5cabd6548cf6293221d9455a5f06157298464eaa2b6308d98cd4b3cee6",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "6ffb829eb18a51ef6cf4ed5e3d9ae72c012bf457e70af233a3a7d05dfca827a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v1",
       "file": "neck-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "78d7db1ad755825d86427780b8a9718a98c2ac4013462cda1e8c793dc9911e88",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "0fdd437be40a8d86315497f6c796c34084225e09be12b968eecd25b3cf852c43",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v2",
       "file": "neck-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "7403238beef12dcfb4804da900ae564c7001c5e4ec9f4aff435f09deac10ca6f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "132a3a20bc7cb7a8ac5691b852e03a7f1cae117e74b4c5c10ce5fdf71b1c1d6e",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v3",
       "file": "neck-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "5275bcdd713425ea8d567faae4819e6c63f0663d64620aa291b0eca3d1b2a6a5",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "023e71eb3338da48dc8038f5bdf0eaaa973ebd5148ae95d7d74ab8f5029b8281",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v4",
       "file": "neck-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "94ece0621b4c2275fc8c66201ec97625c57700ce46ffff150583a01663e709d2",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "c9cc61ea913bc89f8dde1d1d8992d9ee93c640a23c0a439fa563a184620898f5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v5",
       "file": "neck-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "d92633443495e0993b725b9a895a4fb4d2015f7d1711c8616febd01152419cd1",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "70984c467af23151dc8238b62e2b36fdc4a70fb03c3f61a95b91ac50302b9afd",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v6",
       "file": "neck-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "e402fbbc91fb7f5605dcc39577cad2ce19b5e032c5e0f0b3e6c19f5e8e373c53",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f8744d5d36a3b42895176b1325a9c25312088bd1db57fc5db52d9d67a7f004a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-2-v7",
       "file": "neck-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "2464e9fc5dc0cd5437aa073a51c467ce363af4ca78f8760ff7ca2f50ef22e9eb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "6d63dd645e58655b5b403ea028b94671e4fed0c709b6f69e6ad884a0ffa9ea39",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "head-2-v0",
       "file": "head-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "d5220590b293f4bc9dc3fd863c666bf31193e8ee618eb4aabcf36d4fdc62971b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "82d1112c6289f0ecf91b1f8d256ced62e7bf2a39450419ec5f506443fad43f4d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v0",
       "file": "corner-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "11e52965680f0dc4dabd967bc70665e6f35eb89668357241bcd2d35fe834d50f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "37f97a0f5966279e90ee1ea5289b270712f586a730272df5c0bd5b1f992d9ec0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v1",
       "file": "corner-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "a9b4c2a538b9bf7d03d19091e3fd92f9ce5f99d0435b962d12f9be36ed2dda80",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "ee33f0ab5a4c727081052e1a2028357e54e3a7f99eb1fbc35a1aa45451413fce",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v2",
       "file": "corner-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "f789e8b5426672dae0cde62ddf306be7967191d8fc1ddab0d5d4f4f00f018b7b",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "2f4b3fa56a3df4295cb0a9497a2d461f5545ab7dd3b3b08e82e469f5a64c6364",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v3",
       "file": "corner-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "e666b3f445ac8dc161098283034f9562e2558bde09894126a583c67362e3bbbe",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "a5812ab0eef611ae7f966169e9ca7e7b53339b436350ff0cfbfe00471eae8b3b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v4",
       "file": "corner-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "dbc897644ffeed58dfe393ded12d8eb5598196717802691843ac5762ace487ca",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "69df4c7ad6498127466f06b9e84505908a69a097c7564ac4c489ef8210b08a19",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v5",
       "file": "corner-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "397d04436645b7fa3c20dbf0299990b692f7c45bdd9f3f7bf95d06fe668fd895",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "7c6ab4514adf29983fe8c5dec26db185ab3a54cd5cba8578521be65fd76c6a5b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v6",
       "file": "corner-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "0325700fc69dd576b703c88f25de7d3b335f3b224a0f857cc502bd26ff800de6",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8e446046d61108476b729874d575b3bdcf0e3ef64eff170b708d6151a3c185b0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-2-v7",
       "file": "corner-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "d050eab977937d35db289fcf09a48a3af8c0730a53ce1c83742174884c3fff8d",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "92e3b0ccb98a17b2f9d6d60c657bb74eb700b5ee8015100912500ad7052bc272",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v0",
       "file": "terminal-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "d6e70b27faf4d728fae20d8983c5a93fd00294b8f001df8508b43e9f57869693",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "0b0b5a6fc2e1d2cd557f789ce97e5db327af3026595af26e43f3b328c667f13d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v1",
       "file": "terminal-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "f1c5f30479b499a641e4fb636439ab482767ae99182075723da738c729578a5a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "1e9c0d995c6a6182ab8959214947606f4b52f846abefd325b6d7418fab1aa35c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v2",
       "file": "terminal-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "a4df6107cc85edc16c5e146d7a36df07175eebb770bd63919d528fba79c70e82",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "43dfd887836483c428fe5f8663b2002e64fd06dfae33833db16ddc10cc133f56",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v3",
       "file": "terminal-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "b35a64ca8dd998eb6f763c87e532c323b73fdc88327777b8f9c4f413b803eec8",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "efb207fb5d9beb8e8876fd5a322866eb18f5efb1d447ed243c29fe4a8f9fb42b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v4",
       "file": "terminal-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "5a467dddcd522d14efc426257b2ae3f02c379986e65c859dfaa56c36136dcd92",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "8b06f1e95494b460281b8364da186e1401b4e1e162cc47254ffee433d68ce146",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v5",
       "file": "terminal-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "3a11f965d29acff726da9dd10cb44ae086d3740627e9d72a96f3ff9aa5d21be0",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "39da26d3138910d64d54387126afbe80ee37d562fdf0831670af85c0e67a82ed",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v6",
       "file": "terminal-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "6d2d15cf1a2ebaf179c4f34f792f55a3082cc6ed719799d28f5c6c01ee3c6687",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "57e1ec7d9acdac4a22b6482e079849a213838027e40f1254d89d92cfd616483b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-2-v7",
       "file": "terminal-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "f536a25e17c1138bc41c7c4d47eada4a5021bf9605387bbf8599be129a1112e9",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "47b7eb9962db8f92144663110309548f5197491e7e6f5f1648575827293bfe80",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v0",
       "file": "straight-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "458a0c939da70c7bf0bed9b7c064f9063492a50f0e0d3f5566a46392c04cedcf",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "62b9979567484aeb06b40ac53e6de427bf1d20a73c058a3447c3fc0d18a64183",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v1",
       "file": "straight-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "5877fcf8d07aa9e6a51cc77d473e023fb27f5fcc3167a5b647c9a893043c3de1",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f666b8cc4064dfc5b40c0e4c94fb5ed55f2e8d925823bdb8302ba8fa02a0ea14",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v2",
       "file": "straight-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "d1c8a384f981cf4898b3114288bcbf875bdd29f9c2fcae1ff7da1e6841422213",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "ffd13ea42bc186f0f7aa5e5bd0711aca27e7948020cacc4b8910382ccfb32aa6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v3",
       "file": "straight-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "3dbef75aa9288c874babce89dbc4d19af8a004baaa293115b440997830d8bcbc",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "fecdb350087c53664964c08536104727f6ac3054075fb371c4b99f9e23c8ff43",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v4",
       "file": "straight-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "c2dbea107eb19ef9bde4b01f6fafbc83047fff0fde62f1acb4e06e0a885a4648",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "546a358349402b9dc73db36b17a038d82bf63240166f2cab60d486587de68772",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v5",
       "file": "straight-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "5c06bbc19a1bf041751a870537619d2bd2fe1cecaade69c2bb9714e319e4269e",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "e2008f56a6f51ce4de2555f43f25f3941c3da935d6a0b555e239567cb5f28e61",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v6",
       "file": "straight-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "6021ba2e471bf0bada496fd8e28c723a84a4905cacffc5b9b75f756e3511e69c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "205cde01e580f47274f4344d1af17edf002557f10ebed1512b370312936545a5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "straight-3-v7",
       "file": "straight-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "222ae343c6e0a514e116f4d0b8ef7ee98d1ede35b97058af18c531142c86e81c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "95874a81f26ce63554c851942a795d043ca7aa9d05ee5e763e3d37823486522e",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v0",
       "file": "neck-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "932d8bdfab5a0751543db49547653827faf6353ffa36a34e0125cb321d772d4a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5c5c772e49e06da6d5aac9476b258228bbb57052cf9c427635b45f139189c52b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v1",
       "file": "neck-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "203f031fa54e908568fee34a4148817de662b59b1dcc2604a675c1bdda8ced48",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "0e32515591dcd452719e875fa26b465dfe9c60742c06ca487f24e3ad12993715",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v2",
       "file": "neck-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "56f469434507ebcc3585d014f3db09418887816b345c11d90921845347fc8dcf",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "0d8d7bd1730b679e3a12c127af8d023e85ee3f171770026e76958478423adf65",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v3",
       "file": "neck-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "93dbfb376a34571be57e1c80e94925a06d48becdcebd341c5d886fccf4590616",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "224779fb8f09c59026853cd5eadbac2b5e56d626512d42aa9af79dfe77891014",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v4",
       "file": "neck-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "04c6e66e8757d8594fb2c10f080273ceda20bac5026bb7a78eb299201ada5796",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "e30b37902f8becfbfd59d1d679b5882b65703f2f3f6c00e5f93b872e3ef9a908",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v5",
       "file": "neck-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "0e6d24e3217f3990a5892915b813a1f6f098ad50c2c58defc6a728674000cf20",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "40004a002c0022dad5e9882f8893d2aa37a42f7844c02228c22687765afd2883",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v6",
       "file": "neck-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "4208e0a611118df1cf5b289ae5ef82663545dd27f9cec16d4da9023859bff697",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "7931d6d808c7b6bf7ca7ff6b8434253931b6e0675e1b0087a97fa8411662e408",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "neck-3-v7",
       "file": "neck-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "bff57a2a76bfc3bff7eb13378879d1a63e7f314bda8f795950b96ef3d4da06cb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "06e0a14b8eb07b0ad9d01a5b828aa868a2815de8f15b37b345c98a60a6a5d0b8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "head-3-v0",
       "file": "head-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "800f3edec50f03ae54a8bfa2a7eadb1ea4a591d6ab143c27cb69f0a88c9b414e",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "85fceb46f22e3b109e59264b638ac75f1a07b1cd432927e60d23a8094cb4b757",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v0",
       "file": "corner-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0a2f5af25ff6df8a5d0789e1e2b045aa45a6d1c80773455d10989b0b1a78ed91",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f4bbc1895ef3d3d3c0e4691c0250e0558e73d075833c277099fae50b1ab073eb",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v1",
       "file": "corner-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "ee3ce227d80d54365635697f391fe57c71f49756bf6a8494a503d26b3781f807",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "7b2432eeb6a54c6ded80e8705b4fe0350e38f1b30e5f708f9195227b0e8ab94b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v2",
       "file": "corner-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "fef0cc6864f77b3b001c1022e36c5174b0a6e6e0f1e54fa674bd4f3c58124291",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "38dd8f35ab0ed17adab3462d670289407ca70c39f8adf36236e1f2b692cf4824",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v3",
       "file": "corner-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "f9d196565cde9ea7559bfadbe0369e7d53ea70cd6b594255e09f6ae42c0948c7",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "1408d26f40d9d863bbd68bd056d1960b6e9090e8bc37946b7cc5e5493f0bdbaf",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v4",
       "file": "corner-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "e6dd555c76d34be96245846bd02ddeff4e21d1cd93f870da6aeccb767bff47df",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "a1ad07ad65b1f0c5f2a3a49685293268e109164ca6ba571c69c4998da22b6267",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v5",
       "file": "corner-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "fa1a4a305699997009ae0c70379e7a47a375b15ce27355ed98b4026d9766264f",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "92a6d4c01d8c6cef39bfbe3bf90466213fff09b528957eeef51a1207e6b67e97",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v6",
       "file": "corner-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "75ab226bd2ffe1f1ef56f8606f0d45ddd25392c460a94d40b9e975371ad79a0c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "f52b48b4ad94c6bf6b1a176126a0a4f7dc23bd181bb83057a7581985459b7f85",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "corner-3-v7",
       "file": "corner-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "54be7fba6ec60dbd1d9ac3e72414d066a45deae87dcb65af21ffa8dcda040f2c",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "16decae1c98af177b6778130908780f05cf35b2decb54aa69b4e2bbc35641db8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v0",
       "file": "terminal-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "c0291c5f36c005ad1ad368f6a5d33e2a371e4a6a13bc4d131a0bef0fce2f9ef8",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "3080af64dc5a8156dc13a4c39285c3a1c81a575ec58ef853bb8e8a978f9351d8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v1",
       "file": "terminal-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "7a7e4167969c75f0bf014b33d5699efba3bcef137f4d2fe3795f29f9817ed837",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "828a75a68c047614e2ed302140674b6647891db5858fae699968789584716be0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v2",
       "file": "terminal-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "f55410202f7d8456ba6f10d2cf01a77e246eee4fb2310cd4b49e85c395825ddb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "cdd3a03b810fadcf7473fa611e051b9c3fae2e63c56e90b02fab7a93fb9fdb97",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v3",
       "file": "terminal-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "46ccf006f5410660ed4c41a78e3bfa682654b46ed5a3ad549523bba59c87ff1e",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "5293ef9b0b89daa26c931ac3955529a9c937109056323ac139c3ea4b48212f9c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v4",
       "file": "terminal-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "37595b5a2d21a0d939b2745605f64c477aa3907b73985f559509291254fb9c16",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "84e433bff090084fe00e9e1dc8fb847f6fafea1666c8d206e42a58252ea11a8c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v5",
       "file": "terminal-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "e0b3fe79c697ad89f743510dab41070011577e6fea65c9ebbba573e2b3efafbe",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "a119a734a6023aa76283bed1f1eefed2c140cab55f14d79829a2feca9e5a2b2a",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v6",
       "file": "terminal-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "9efc3265fc82920dc7ac8df020b1a3d45b570c1c74dc15bd21d067caeae0fcbb",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "7157a8a28db9ae78695888e8ea7536ae2b1aa681f72bdb0fc8c24fe2a7ac5194",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "terminal-3-v7",
       "file": "terminal-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "28332cfbefaed1f45c2f1b535c0bcf4a821034a11976dad1a5ab340d5922797a",
-      "provenance": "Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only"
+      "sha256": "d8494dfe9a7d842768dd0430de6ba06e5cbd3a0e09a88dc7e82959f52881d012",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
     },
     {
       "id": "floor-0",

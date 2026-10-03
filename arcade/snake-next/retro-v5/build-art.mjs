@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
 import {CELL,pieces} from './geometry.mjs';
-import {paintSnake} from './paint-snake-v54.mjs';
+import {paintSnake} from './paint-snake-v55.mjs';
 const require=createRequire(import.meta.url),{Raster,png,decode}=require('./raster.cjs');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..');
 const out=path.join(root,'grib/mushroom-snake-retro-v5');
@@ -18,7 +18,7 @@ function save(id,r,provenance='Original manually authored raster') {
 function material(piece,variant) { return paintSnake(piece,variant); }
 for(const piece of pieces) {
   const variants=piece.kind==='head'?1:8;
-  for(let v=0;v<variants;v++)save(piece.name+'-v'+v,material(piece,v),'Original V5.4 hand-authored pixels within locked masks; existing V5.3 material sheet is reference only');
+  for(let v=0;v<variants;v++)save(piece.name+'-v'+v,material(piece,v),'Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused');
 }
 for(let v=0;v<10;v++) {
   const r=new Raster(CELL);r.rect(0,0,68,68,'062e2a');r.rect(1,1,66,66,'0b4940');
@@ -62,5 +62,5 @@ for(const piece of pieces)for(const asset of assets.filter(a=>a.id.startsWith(pi
 }
 if(mismatch)throw Error('Artwork changed locked alpha masks: '+mismatch);
 const geometryHash=crypto.createHash('sha256').update(fs.readFileSync(new URL('./geometry.mjs',import.meta.url))).digest('hex');
-fs.writeFileSync(path.join(out,'inventory.json'),JSON.stringify({version:'retro-v5.4-art-review',imageGenOperations:0,cell:68,body:36,head:42,terminal:68,geometryHash,maskMismatch:mismatch,assets},null,2)+'\n');
+fs.writeFileSync(path.join(out,'inventory.json'),JSON.stringify({version:'retro-v5.5-art-review',imageGenOperations:0,cell:68,body:36,head:42,terminal:68,geometryHash,maskMismatch:mismatch,assets},null,2)+'\n');
 console.log(JSON.stringify({assets:assets.length,geometryHash,maskMismatch:mismatch,imageGenOperations:0}));
