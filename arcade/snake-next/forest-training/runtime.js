@@ -6,12 +6,14 @@ import {Session,EFFECTS} from './session.js';
 import {ForestRenderer,cabinetSize} from './renderer.js';
 import {drawHudType} from './hud-type.js';
 import {ForestAudio} from './audio.js';
+import {SnakeMotion} from './motion.js';
 
 export class TrainingGame {
   constructor(root,art,audio){
     this.root=root;this.art=art;this.audio=audio;this.renderer=new ForestRenderer(root.querySelector('canvas'),art);
     const logo=art.images.get('logo');logo.className='logo';logo.alt='Mushroom Snake';root.querySelector('.logo').replaceWith(logo);
     this.sessionFactory=options=>new Session(options);
+    this.smooth=true;this.motion=null;
     this.touch=matchMedia('(pointer:coarse)').matches;this.session=null;this.preview=new Session();this.status='main';this.sequence=0;
     this.raf=0;this.cancelTimer=null;this.commands=[];this.listeners=[];this.log=[];this.starts=0;this.effectKey='';this.settingsFrom='main';
     this.listen(root,'click',e=>{const action=e.target.closest('[data-action]')?.dataset.action;if(action)this.action(action);});
@@ -51,7 +53,7 @@ export class TrainingGame {
   }
   start(){
     if(this.portrait){this.show();return;}
-    this.stop();this.session=this.sessionFactory({touch:this.touch});this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
+    this.stop();this.session=this.sessionFactory({touch:this.touch});this.motion=new SnakeMotion(this.session);this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
     this.clock=new FixedClock({onTick:()=>this.tick(),maxCatchUpTicks:5});
     this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();}).catch(e=>{this.audio.error=String(e)});
     this.run();this.show();
@@ -67,7 +69,7 @@ export class TrainingGame {
   }
   tick(){
     if(!this.session||!['playing','dying'].includes(this.status))return;
-    const commands=this.commands.splice(0);this.session.advance(commands);this.status=this.session.status;
+    const commands=this.commands.splice(0);this.session.advance(commands);this.motion.capture(this.session);this.status=this.session.status;
     for(const e of this.session.events){
       this.log.push(e);if(this.log.length>2000)this.log.shift();
       if(e.kind==='seed'){this.audio.play(e.combo>1?'combo':'pickup');}
@@ -79,9 +81,10 @@ export class TrainingGame {
     }
   }
   stop(){if(this.cancelTimer)this.cancelTimer();this.cancelTimer=null;if(this.clock)this.clock.pause();if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;this.audio.stopAll();}
-  pause(){if(!['playing','dying'].includes(this.status))return;this.stop();this.session.cancelPortal();this.commands=[];this.status='paused';this.show();this.render();}
-  resume(){if(!this.session||this.portrait||this.status!=='paused')return;this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
-  main(){this.stop();this.session=null;this.clock=null;this.commands=[];this.log=[];this.status='main';this.settingsFrom='main';this.renderer.release();this.show();this.render();}
+  pause(){if(!['playing','dying'].includes(this.status))return;this.motion.freeze(this.session,this.renderFraction());this.stop();this.session.cancelPortal();this.commands=[];this.status='paused';this.show();this.render();}
+  resume(){if(!this.session||this.portrait||this.status!=='paused')return;this.motion.resume();this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
+  main(){this.stop();this.session=null;this.motion=null;this.clock=null;this.commands=[];this.log=[];this.status='main';this.settingsFrom='main';this.renderer.release();this.show();this.render();}
+  renderFraction(now=performance.now()){return this.clock?.status==='running'?Math.max(0,Math.min(1,(this.clock.debt+Math.max(0,now-this.clock.last))/this.clock.tickMs)):0;}
   resize(){
     this.portrait=matchMedia('(orientation:portrait)').matches;
     this.compact=matchMedia('(max-height:500px) and (orientation:landscape)').matches;
@@ -92,7 +95,8 @@ export class TrainingGame {
     this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();
   }
   render(){
-    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch,fullscreen:document.fullscreenElement===this.root,compact:this.compact});
+    const motion=this.session&&this.smooth?this.motion.frame(this.session,this.renderFraction()):null;
+    const l=this.renderer.render(this.session,{preview:this.preview,status:this.status,touch:this.touch,fullscreen:document.fullscreenElement===this.root,compact:this.compact,motion});
     this.root.style.setProperty('--header',l.header+'px');
     const hud=this.root.querySelector('#hud');Object.assign(hud.style,{left:l.hud.x+'px',top:l.hud.y+'px',width:l.hud.w+'px',height:l.hud.h+'px'});
     const pad=this.root.querySelector('#pad');pad.hidden=!this.touch||this.portrait||this.status!=='playing';
@@ -120,7 +124,7 @@ export class TrainingGame {
   }
   async fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await this.root.requestFullscreen();}catch(e){this.fullscreenError=String(e);}}
   summary(){return {status:this.status,session:this.session?.summary()||null,starts:this.starts,raf:Number(!!this.raf),timers:Number(!!this.cancelTimer),activeSessions:Number(!!this.session),audio:this.audio.summary(),raster:{decodedBytes:this.art.bytes,...this.renderer.memory()},fullscreenError:this.fullscreenError||''};}
-  dispose(){this.stop();this.status='disposed';this.session=null;this.clock=null;this.renderer.release();for(const off of this.listeners.splice(0))off();this.audio.dispose();}
+  dispose(){this.stop();this.status='disposed';this.session=null;this.motion=null;this.clock=null;this.renderer.release();this.renderer.smoothSprites.release();for(const off of this.listeners.splice(0))off();this.audio.dispose();}
 }
 const root=document.querySelector('#game');
 try{

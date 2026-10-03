@@ -1,4 +1,5 @@
 import {drawSnake} from '../retro-v5/renderer.js';
+import {SmoothSprites} from './smooth-sprites.js';
 import {drawFrame} from '../retro-v3/renderer.js';
 import {boardVariant} from './board.js';
 import {pixelText} from '../retro-v5/pixel-text.js';
@@ -25,11 +26,11 @@ export function geometry(w,h,cols=28,rows=12,fullscreen=false,mobile=h<=500) {
   return {w,h,mobile,header,scale,cell,cols,rows,field,arena,frame,cabinet:{x,y,w:cw,h:ch},hud:{x,y,w:cw,h:header},deadSpace,unusedInside:deadSpace.above+deadSpace.below};
 }
 
-/** Cached tile layer + immutable approved sprites. No new contour/interpolation system. */
+/** Cached tile layer + immutable approved sprites, with optional shared motion. */
 export class ForestRenderer {
-  constructor(canvas,art){this.canvas=canvas;this.art=art;this.cache=null;this.metrics=[];this.lastHash='';}
+  constructor(canvas,art){this.canvas=canvas;this.art=art;this.cache=null;this.metrics=[];this.lastHash='';this.smoothSprites=new SmoothSprites(art);}
   resize(w,h,dpr){this.w=w;this.h=h;this.dpr=Math.min(2,dpr);this.canvas.width=Math.round(w*this.dpr);this.canvas.height=Math.round(h*this.dpr);this.cache=null;}
-  render(session,{preview,status,pressed,touch,fullscreen,compact}={}){
+  render(session,{preview,status,pressed,touch,fullscreen,compact,motion}={}){
     const start=performance.now(),s=session||preview,view=s.view||{x:0,y:0,cols:s.arena.width,rows:s.arena.height},l=geometry(this.w,this.h,view.cols,view.rows,fullscreen,compact),{field,arena,cell}=l;
     const ctx=this.canvas.getContext('2d');ctx.setTransform(this.dpr,0,0,this.dpr,0,0);ctx.imageSmoothingEnabled=false;
     ctx.fillStyle='#021512';ctx.fillRect(0,0,this.w,this.h);
@@ -59,9 +60,11 @@ export class ForestRenderer {
     }
     const cells=bodyCells(s.state).map(c=>({x:c%s.arena.width-view.x,y:Math.floor(c/s.arena.width)-view.y}));
     if(s.portal.phase==='entering')ctx.globalAlpha=Math.max(.18,1-s.portal.elapsed/14);
+    if(s.portal.phase==='teleport')ctx.globalAlpha=0;
     if(s.portal.phase==='exit-grace')ctx.globalAlpha=Math.min(1,.5+s.portal.elapsed/16);
     if(status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
-    drawSnake(ctx,this.art,cells,cell,field.x,field.y,s.moves,field);ctx.globalAlpha=1;
+    if(motion)this.smoothSprites.draw(ctx,motion,cell,field.x,field.y,view,field);
+    else drawSnake(ctx,this.art,cells,cell,field.x,field.y,s.moves,field);ctx.globalAlpha=1;
     for(const fx of s.feedback){const age=(s.tick-fx.tick)/60,p=at(fx.cell),im=this.art.images.get('vfx-'+fx.kind);
       if(fx.kind==='seed'){drawFoodFeedback(ctx,this.art,fx,age,p,cell);continue;}
       if(im&&age<.18){const frame=Math.min(3,Math.floor(age/.045));ctx.drawImage(im,frame*48,0,48,48,Math.round(p.x-cell*.45),Math.round(p.y-cell*.45),Math.round(cell*.9),Math.round(cell*.9));}

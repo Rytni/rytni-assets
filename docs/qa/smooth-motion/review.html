@@ -1,0 +1,11 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Snake — Smooth motion review</title>
+<style>body{margin:20px;background:#0b1515;color:#dfebe6;font:16px/1.5 system-ui}a{color:#e1c783}section{overflow-x:auto;margin:24px 0}img{display:block;max-width:none;width:auto;height:auto;image-rendering:pixelated}h2{font-size:18px}p{max-width:900px}</style>
+<h1>Smooth motion · B baseline · human review</h1>
+<p><a href="/arcade/snake-next/game-feel-lab.html">Играть / SMOOTH ON ↔ GRID SNAP</a>. Нажмите B. Баланс, input queue, collision, scoring, food и portal FSM не изменены. GAME FEEL LOCK пока не установлен.</p>
+<p>Первые три изображения — диагностические кадры настоящего sprite renderer на canonical path fixtures, не live-run screenshots. Alpha 0 → 1 соответствует одному логическому шагу. Cell = 68 px; изображения показаны 1:1, без shrink-to-fit. Последнее — реальный mobile Training 844×390.</p>
+<section><h2>1 · Straight motion sequence</h2><img src="straight-sequence.png" alt="Straight movement, five interpolation phases"></section>
+<section><h2>2 · 90° turn sequence / head → neck</h2><img src="turn-sequence.png" alt="Turn movement, five interpolation phases"></section>
+<section><h2>3 · Tight U / S, native close-up</h2><img src="u-s-close-up.png" alt="U and S intermediate poses"></section>
+<section><h2>4 · Mobile gameplay / 844×390</h2><img src="mobile-gameplay.png" alt="Live mobile Forest Training"></section>
+<p><a href="report.md">Architecture / QA report</a> · <a href="results.json">Raw QA evidence</a></p>
+</html>
