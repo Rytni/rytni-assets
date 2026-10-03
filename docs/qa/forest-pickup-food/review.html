@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Forest — pickup language + red mushroom review</title>
+<style>*{box-sizing:border-box}body{margin:0;padding:20px;background:#031813;color:#eee1bb;font:15px/1.5 system-ui,sans-serif}h1{font-size:24px}h2{font-size:18px}a{color:#bde5cd}nav{display:flex;gap:16px;flex-wrap:wrap}.capture{overflow:auto;border:1px solid #2e4837;background:#021512;margin-bottom:28px}.capture img{display:block;max-width:none;width:auto;height:auto;image-rendering:pixelated}p{max-width:1100px}table{border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{border:1px solid #344738;padding:8px;text-align:left}section{scroll-margin-top:12px}</style>
+<h1>Mushroom Snake — pickup visual language + red mushroom food</h1>
+<p>Forest V3 composition approved / locked: <code>764e180</code>. Только gameplay-object presentation, red/golden food и короткий food pop. Snake V5.6, cabinet/HUD/floor/arena, collision/simulation/scoring/speed/portal FSM и audio сохранены.</p>
+<p>Root cause: positive <code>88×54</code> принудительно рисовался квадратом. Теперь у каждого object один uniform scale, centered contain, собственный visualScale. Existing positive/negative/stone/portal art не заменялся.</p>
+<p><strong>STOP for human review.</strong> Ровно шесть images, displayed 1:1 при browser zoom 100%, без shrink-to-fit. Крупные captures прокручиваются горизонтально. Сцены — frozen QA fixture: length22 / score12400 / combo×3.</p>
+<nav><a href="#native">1. Mushroom native</a><a href="#arena">2. Actual arena</a><a href="#gold">3. Harvest</a><a href="#lineup">4. Category lineup</a><a href="#desktop">5. Desktop</a><a href="#mobile">6. Mobile</a></nav>
+<p>Targeted QA: 34/34; реальные canvas draws uniform; locked bounding boxes unchanged; one real mushroom pickup → length9 / score100 / atomic replacement; pause/resume и D-pad PASS. Console/network/404 = 0 в новых contexts. <a href="report.md">Подробный report</a> · <a href="measurements.json">Raw evidence + 1366×768</a> · <a href="/arcade/snake-next/forest-training.html?qa=1">Local DEV Training</a>. Никакой публикации.</p>
+<div style="overflow:auto"><table><thead><tr><th>Object</th><th>Intrinsic px</th><th>Aspect</th><th>visualScale</th><th>Desktop rendered px</th><th>Mobile rendered px</th></tr></thead><tbody>
+<tr><td>Red mushroom</td><td>48×43</td><td>1.1163</td><td>0.70</td><td>46.526×41.679</td><td>21.020×18.830</td></tr>
+<tr><td>Golden mushroom</td><td>48×43</td><td>1.1163</td><td>0.70</td><td>46.526×41.679</td><td>21.020×18.830</td></tr>
+<tr><td>Positive — Focus / Harvest</td><td>88×54</td><td>1.6296</td><td>0.96</td><td>63.807×39.154</td><td>28.828×17.690</td></tr>
+<tr><td>Negative — Rush</td><td>72×72</td><td>1.0000</td><td>0.86</td><td>57.160×57.160</td><td>25.825×25.825</td></tr>
+<tr><td>Stone</td><td>64×64</td><td>1.0000</td><td>0.94</td><td>62.477×62.477</td><td>28.227×28.227</td></tr>
+<tr><td>Portal</td><td>128×128</td><td>1.0000</td><td>1.00</td><td>66.465×66.465</td><td>30.029×30.029</td></tr>
+</tbody></table></div><p>Cell: desktop 66.4654 px, mobile 30.0287 px. Anchor всех objects (0.5,0.5), offset (0,0). Размеры округлены только в таблице, actual draw использует точный единый scale.</p>
+<section id="native"><h2>1. Red mushroom — native desktop / mobile scale</h2><div class="capture"><img src="01-red-mushroom-native.png" width="720" height="218" alt="Red mushroom at actual desktop and mobile rendering scales"></div></section>
+<section id="arena"><h2>2. Mushroom inside actual arena</h2><div class="capture"><img src="02-mushroom-in-arena.png" width="200" height="200" alt="Native arena crop showing mushroom beside Snake and stone"></div></section>
+<section id="gold"><h2>3. Golden Harvest active — same mushroom geometry</h2><p>Harvest даёт ×2 award согласно существующей механике; gold — только состояние food visual. Истечение эффекта возвращает red.</p><div class="capture"><img src="03-golden-harvest.png" width="1920" height="1080" alt="Active Harvest HUD and golden mushroom in actual gameplay"></div></section>
+<section id="lineup"><h2>4. Food / positive / negative / stone / portal — native scales</h2><div class="capture"><img src="04-category-lineup-native.png" width="720" height="260" alt="Runtime scale object category lineup, desktop and mobile"></div></section>
+<section id="desktop"><h2>5. Desktop gameplay — 1920×1080</h2><div class="capture"><img src="05-desktop-1920.png" width="1920" height="1080" alt="Desktop gameplay with red mushroom and corrected positive negative fitting"></div></section>
+<section id="mobile"><h2>6. Mobile gameplay — 844×390</h2><div class="capture"><img src="06-mobile-844.png" width="844" height="390" alt="Native mobile gameplay with readable red mushroom and distinct object silhouettes"></div></section>
+</html>

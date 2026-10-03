@@ -1,4 +1,5 @@
 import {loadArt} from '../retro-v5/renderer.js';
+import {loadObjects} from './objects.js';
 import {loadBoard} from './board.js';
 import {FixedClock,startMainThreadClock,keyboardCommand} from '../entry.js';
 import {Session,EFFECTS} from './session.js';
@@ -107,11 +108,11 @@ export class TrainingGame {
     const panel=this.root.querySelector('#overlay');panel.hidden=['playing','dying'].includes(this.status)&&!this.portrait;
     if(panel.hidden)return;
     const data=this.portrait?['Разверните экран','Для лесной тренировки нужен landscape. Управление: WASD / стрелки или D-pad.',[['fullscreen','Полный экран']]]:
-      this.status==='main'?['Mushroom Snake','Тренировка в лесу · Собирайте семена, растите и держите ритм.',[['start','Тренировка'],['help','Как играть?'],['settings','Настройки']]]:
+      this.status==='main'?['Mushroom Snake','Тренировка в лесу · Собирайте грибы, растите и держите ритм.',[['start','Тренировка'],['help','Как играть?'],['settings','Настройки']]]:
       this.status==='paused'?['Пауза','Лес подождёт. Эффекты и portal поставлены на паузу.',[['resume','Продолжить'],['settings','Настройки'],['restart','Начать заново'],['main','Главное меню']]]:
-      this.status==='result'?['Результат',`Счёт: ${this.session?.score||0} · Семена: ${this.session?.foods||0} · Длина: ${this.session?.state.length||8}`, [['restart','Ещё раз'],['main','Главное меню']]]:
+      this.status==='result'?['Результат',`Счёт: ${this.session?.score||0} · Грибы: ${this.session?.foods||0} · Длина: ${this.session?.state.length||8}`, [['restart','Ещё раз'],['main','Главное меню']]]:
       this.status==='settings'?['Настройки','', [['mute',this.audio.muted?'Включить звук':'Выключить звук'],['back','Назад']]]:
-      ['Как играть?','WASD / стрелки — поворот. Space — пауза. Семя даёт рост и combo. Фокус замедляет движение, Урожай даёт ×2 очки, Спешка ускоряет. Portal открывается через 10 секунд и переносит Snake, если выход безопасен.',[['back','Назад']]];
+      ['Как играть?','WASD / стрелки — поворот. Space — пауза. Гриб даёт рост и combo. Фокус замедляет движение, Урожай даёт ×2 очки, Спешка ускоряет. Portal открывается через 10 секунд и переносит Snake, если выход безопасен.',[['back','Назад']]];
     this.root.querySelector('#heading').textContent=data[0];this.root.querySelector('#copy').textContent=data[1];
     if(this.status==='settings'&&!this.portrait)this.root.querySelector('#copy').innerHTML=Object.entries({master:'Master',music:'Music',sfx:'Effects'}).map(([key,label])=>`<label class="volume">${label}<input aria-label="${label}" data-volume="${key}" type="range" min="0" max="1" step=".05" value="${this.audio.volumes[key]}"></label>`).join('');
     this.root.querySelector('#actions').innerHTML=data[2].map(([action,label])=>`<button data-action="${action}">${label}</button>`).join('');
@@ -122,7 +123,7 @@ export class TrainingGame {
 }
 const root=document.querySelector('#game');
 try{
-  const audio=new ForestAudio(),[art,board]=await Promise.all([loadArt(),loadBoard(),audio.load()]);art.board=board;
+  const audio=new ForestAudio(),[art,board,objects]=await Promise.all([loadArt(),loadBoard(),loadObjects(),audio.load()]);art.board=board;art.objects=objects;art.bytes+=objects.bytes;
   root.hidden=false;document.querySelector('#loading').hidden=true;
   const game=new TrainingGame(root,art,audio);
   if(new URLSearchParams(location.search).has('qa'))window.forestTraining=game;

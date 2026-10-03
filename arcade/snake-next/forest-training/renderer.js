@@ -4,6 +4,7 @@ import {boardVariant} from './board.js';
 import {pixelText} from '../retro-v5/pixel-text.js';
 import {bodyCells} from '../simulation/body.js';
 import {EFFECTS} from './session.js';
+import {drawObject,foodKey,foodBob,drawFoodFeedback} from './objects.js';
 
 export function cabinetSize(w,mobile=false,cols=28,rows=12){
   const scale=mobile?.42:Math.min(1.35,w/1800*1.35),header=mobile?52:Math.max(96,Math.round(w*.068));
@@ -23,7 +24,6 @@ export function geometry(w,h,cols=28,rows=12,fullscreen=false,mobile=h<=500) {
   const deadSpace={above:Math.max(0,arena.y-(frame.y+66*scale)),below:Math.max(0,frame.y+frame.h-66*scale-arena.y-arena.h)};
   return {w,h,mobile,header,scale,cell,cols,rows,field,arena,frame,cabinet:{x,y,w:cw,h:ch},hud:{x,y,w:cw,h:header},deadSpace,unusedInside:deadSpace.above+deadSpace.below};
 }
-function sprite(ctx,art,key,x,y,size){const im=art.images.get(key);ctx.drawImage(im,Math.round(x-size/2),Math.round(y-size/2),Math.round(size),Math.round(size));}
 
 /** Cached tile layer + immutable approved sprites. No new contour/interpolation system. */
 export class ForestRenderer {
@@ -48,13 +48,12 @@ export class ForestRenderer {
     // Render interior obstacles only; the cabinet communicates boundary collision.
     for(let y=1;y<l.rows-1;y++)for(let x=1;x<l.cols-1;x++)if(s.arena.blocked((y+view.y)*s.arena.width+x+view.x)){
       if(touch&&x>=1&&x<6&&y>=7&&y<11)continue;
-      const p=at((y+view.y)*s.arena.width+x+view.x);sprite(ctx,this.art,'stone',p.x,p.y,cell*.94);
+      const p=at((y+view.y)*s.arena.width+x+view.x);drawObject(ctx,this.art,'stone',p.x,p.y,cell);
     }
     if(touch){ctx.fillStyle='#092720';ctx.fillRect(field.x+cell,field.y+7*cell,5*cell,4*cell);}
-    const seconds=s.tick/60;
-    for(const c of s.portals){const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;sprite(ctx,this.art,'portal',p.x,p.y,cell*1.25);ctx.globalAlpha=1;}
-    if(s.state.food>=0){const p=at(s.state.food);sprite(ctx,this.art,'seed',p.x,p.y+Math.round(Math.sin(seconds*3)*cell*.025),cell*.8);}
-    for(const o of s.pickups){const p=at(o.cell),key=EFFECTS[o.kind].positive?'positive':'negative';sprite(ctx,this.art,key,p.x,p.y,cell*1.06);
+    for(const c of s.portals){const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;drawObject(ctx,this.art,'portal',p.x,p.y,cell);ctx.globalAlpha=1;}
+    if(s.state.food>=0){const p=at(s.state.food);drawObject(ctx,this.art,foodKey(s.effects,s.tick),p.x,p.y+foodBob(s.tick,cell),cell);}
+    for(const o of s.pickups){const p=at(o.cell),key=EFFECTS[o.kind].positive?'positive':'negative';drawObject(ctx,this.art,key,p.x,p.y,cell);
       // The two positive mechanics retain the positive silhouette, with a legible identity badge.
       if(o.kind==='harvest')pixelText(ctx,'×2',Math.round(p.x),Math.round(p.y+cell*.2),1,'#fff0bd','center');
     }
@@ -64,6 +63,7 @@ export class ForestRenderer {
     if(status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
     drawSnake(ctx,this.art,cells,cell,field.x,field.y,s.moves,field);ctx.globalAlpha=1;
     for(const fx of s.feedback){const age=(s.tick-fx.tick)/60,p=at(fx.cell),im=this.art.images.get('vfx-'+fx.kind);
+      if(fx.kind==='seed'){drawFoodFeedback(ctx,this.art,fx,age,p,cell);continue;}
       if(im&&age<.18){const frame=Math.min(3,Math.floor(age/.045));ctx.drawImage(im,frame*48,0,48,48,Math.round(p.x-cell*.45),Math.round(p.y-cell*.45),Math.round(cell*.9),Math.round(cell*.9));}
       if(fx.amount&&age>.08)pixelText(ctx,'+'+fx.amount,Math.round(p.x),Math.round(p.y-cell*(.6+age*.5)),Math.max(1,Math.floor(cell/25)),'#f3df9e','center');
       if(fx.label)pixelText(ctx,fx.label,Math.round(p.x),Math.round(p.y-cell*(.6+age*.5)),Math.max(1,Math.floor(cell/30)),'#dbc7e9','center');
