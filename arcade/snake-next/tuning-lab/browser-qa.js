@@ -1,0 +1,32 @@
+async page=>{
+ const browser=page.context().browser(),base='http://127.0.0.1:8773',url=base+'/arcade/snake-next/game-feel-lab.html',dir='docs/qa/game-feel-lab/';
+ const errors=[],warnings=[],failed=[],http=[],runs=[];const assert=(ok,m)=>{if(!ok)throw Error(m);};
+ const attach=p=>{p.on('pageerror',e=>errors.push(e.message));p.on('console',e=>{if(['warning','error'].includes(e.type()))warnings.push(e.text());});p.on('requestfailed',r=>failed.push(r.url()));p.on('response',r=>{if(r.status()>=400)http.push({url:r.url(),status:r.status()});});};
+ const ctx=await browser.newContext({viewport:{width:1366,height:900},deviceScaleFactor:1}),p=await ctx.newPage();attach(p);await ctx.grantPermissions(['clipboard-read','clipboard-write'],{origin:base});await p.goto(url);await p.waitForFunction(()=>window.tuningLab?.game);
+ assert(await p.locator('[data-preset]').count()===3,'Missing immediately selectable profiles');
+ for(const id of ['A','B','C']){
+  await p.locator(`[data-preset="${id}"]`).click();await p.waitForFunction(id=>tuningLab.current?.telemetry.profile.id===id&&tuningLab.game.status==='playing',id);
+  assert(await p.evaluate(()=>{const l=tuningLab,s=l.current;return s.tick<5&&s.effects.length===0&&s.pickups.length===0&&s.portal.phase==='inactive'&&s.replay.length===0&&s.transitCommands.length===0&&l.game.commands.length===0&&l.game.starts>0&&!!l.game.raf&&!!l.game.cancelTimer;}),'Dirty restart '+id);
+  await p.waitForFunction(()=>tuningLab.current.foods>=1);assert(await p.evaluate(()=>tuningLab.summary().maxReplacementTicks===0&&tuningLab.summary().foodFailures===0),'Food atomicity');
+  await p.keyboard.press('ArrowDown');await p.waitForFunction(()=>tuningLab.current.state.direction===2);
+  await p.keyboard.press('KeyA');await p.waitForFunction(()=>tuningLab.current.state.direction===3);await p.keyboard.press('Space');await p.waitForFunction(()=>tuningLab.game.status==='paused');
+  const hash=await p.evaluate(()=>tuningLab.current.hash());await p.waitForTimeout(80);assert(await p.evaluate(()=>tuningLab.current.hash())===hash,'Paused run mutates');
+  const r=await p.evaluate(()=>({summary:tuningLab.summary(),resources:tuningLab.game.summary(),insideLabNodes:tuningLab.game.root.querySelectorAll('#fields,#telemetry,#speed-graph').length}));assert(r.insideLabNodes===0,'Production UI contamination');assert(r.resources.raf===0&&r.resources.timers===0&&r.resources.audio.sources===0,'Paused resource cleanup');runs.push(r);
+  await p.keyboard.press('Space');await p.waitForFunction(()=>tuningLab.game.status==='playing');await p.waitForFunction(()=>document.querySelector('#telemetry').textContent.includes('· playing ·'));await p.screenshot({path:dir+id+'-dev.png',fullPage:true});
+ }
+ assert(await p.evaluate(()=>tuningLab.history.length>=2),'Lost previous run summaries');
+ await p.locator('#copy-results').click();const clipboard=await p.evaluate(()=>navigator.clipboard.readText());assert(clipboard.includes('Preset C')&&clipboard.includes('Death:')&&clipboard.includes('Avg speed:')&&clipboard.includes('Foods:'),'Copy results failed');
+ await p.locator('#cfg-startSpeed').fill('0');await p.locator('#apply').click();assert(await p.locator('#lab-status').textContent().then(s=>s.includes('Invalid startSpeed')),'Invalid config accepted');await p.locator('#cfg-startSpeed').fill('4.6');await p.locator('#apply').click();await p.waitForFunction(()=>tuningLab.current.telemetry.profile.startSpeed===4.6);
+ await p.locator('#show-multiplier').uncheck();await p.waitForFunction(()=>!document.querySelector('#telemetry').textContent.includes('Score multiplier'));await p.locator('#show-multiplier').check();await p.waitForFunction(()=>document.querySelector('#telemetry').textContent.includes('Score multiplier'));
+ // Repeated restart stops the old fixed clock rather than leaving a second owner.
+ await p.evaluate(()=>{window.oldSession=tuningLab.current;window.oldHash=oldSession.hash();});await p.locator('[data-preset="B"]').click();await p.waitForTimeout(100);assert(await p.evaluate(()=>oldSession.hash()===oldHash),'Old session still ticking');await ctx.close();
+ const mobile=await browser.newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true,deviceScaleFactor:1}),q=await mobile.newPage();attach(q);await q.goto(url);await q.waitForFunction(()=>window.tuningLab?.game);await q.locator('[data-preset="B"]').tap();await q.waitForFunction(()=>tuningLab.current?.foods>=1);
+ const f=q.frameLocator('#training');await f.locator('#pad [data-dir="2"]').tap();await q.waitForFunction(()=>tuningLab.current.state.direction===2);assert(await q.evaluate(()=>[...tuningLab.game.root.querySelectorAll('#hud button,#pad button')].every(n=>{const r=n.getBoundingClientRect();return r.width>=44&&r.height>=44;})),'Mobile targets shrank');await f.locator('[data-action=pause]').tap();await q.waitForFunction(()=>tuningLab.game.status==='paused');
+ await f.locator('[data-action=resume]').tap();await q.waitForFunction(()=>tuningLab.game.status==='playing');
+ // Full-page mobile capture can resize the viewport and trigger portrait pause.
+ // Capture the actual 844×390 game viewport instead; never override lifecycle.
+ await q.locator('#training').scrollIntoViewIfNeeded();await q.waitForFunction(()=>tuningLab.game.status==='playing'&&!tuningLab.game.root.querySelector('#pad').hidden);await q.locator('#training').screenshot({path:dir+'mobile-dev.png'});
+ assert(await q.evaluate(()=>tuningLab.game.status==='playing'&&!tuningLab.game.portrait),'Capture changed mobile lifecycle');
+ await q.locator('[data-preset="C"]').tap();await q.waitForFunction(()=>tuningLab.current.telemetry.profile.id==='C');assert(await q.evaluate(()=>tuningLab.current.effects.length===0&&tuningLab.current.pickups.length===0),'Mobile restart not clean');await mobile.close();
+ const result={runs,clipboard,desktopKeyboard:true,mobileDpad:true,restartCleanup:true,copyResults:true,errors,warnings,failed,http};const pending=page.waitForEvent('download');await page.evaluate(r=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(r,null,2)],{type:'application/json'}));a.download='results.json';a.click();},result);await(await pending).saveAs(dir+'results.json');assert(!errors.length&&!warnings.length&&!failed.length&&!http.length,'Console/network failures');return {desktopKeyboard:true,mobileDpad:true,restartCleanup:true,copyResults:true,profiles:runs.map(r=>r.summary.preset),errors,warnings,failed,http};
+}

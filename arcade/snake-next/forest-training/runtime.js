@@ -11,6 +11,7 @@ export class TrainingGame {
   constructor(root,art,audio){
     this.root=root;this.art=art;this.audio=audio;this.renderer=new ForestRenderer(root.querySelector('canvas'),art);
     const logo=art.images.get('logo');logo.className='logo';logo.alt='Mushroom Snake';root.querySelector('.logo').replaceWith(logo);
+    this.sessionFactory=options=>new Session(options);
     this.touch=matchMedia('(pointer:coarse)').matches;this.session=null;this.preview=new Session();this.status='main';this.sequence=0;
     this.raf=0;this.cancelTimer=null;this.commands=[];this.listeners=[];this.log=[];this.starts=0;this.effectKey='';this.settingsFrom='main';
     this.listen(root,'click',e=>{const action=e.target.closest('[data-action]')?.dataset.action;if(action)this.action(action);});
@@ -50,7 +51,7 @@ export class TrainingGame {
   }
   start(){
     if(this.portrait){this.show();return;}
-    this.stop();this.session=new Session({touch:this.touch});this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
+    this.stop();this.session=this.sessionFactory({touch:this.touch});this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
     this.clock=new FixedClock({onTick:()=>this.tick(),maxCatchUpTicks:5});
     this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();}).catch(e=>{this.audio.error=String(e)});
     this.run();this.show();

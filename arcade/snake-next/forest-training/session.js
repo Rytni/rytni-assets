@@ -29,7 +29,8 @@ export function forestArena(touch=false) {
 /** Pure deterministic Training orchestration. Core step/grid/queue remain untouched.
  * All durations are active fixed ticks; replay must use Session.hash, not core hash alone. */
 export class Session {
-  constructor({seed=56103,touch=false,arena,rules}={}) {
+  constructor({seed=56103,touch=false,arena,rules,pacing=null}={}) {
+    this.pacing=pacing;this.placedFoods=0;
     const forest=arena?{arena,rocks:[]}:forestArena(touch);
     this.arena=forest.arena;this.rocks=forest.rocks;
     this.rules=rules||createRules({version:'forest-training-v1',width:this.arena.width,height:this.arena.height,
@@ -40,17 +41,20 @@ export class Session {
     this.rng=(seed^0x5f0ae55)>>>0;this.touch=touch;this.portal={phase:'inactive',elapsed:0,transfers:0,rejected:0,entry:-1,exit:-1};
     this.portals=arena?[]:[3*this.arena.width+10,8*this.arena.width+18];
     this.replay=[];this.status='playing';this.deathTicks=0;this.sequence=0;this.transitCommands=[];
+    if(pacing){this.nextPickup={positive:Math.round(pacing.positiveInterval*60),negative:Math.round(pacing.negativeInterval*60)};this.state.cadence=this.cadence();}
     this.repairFood();
   }
   emit(kind,cell,data={}) {this.events.push({kind,cell,tick:this.tick,...data});}
   forbidden(cell) {return this.portals.includes(cell)||this.pickups.some(p=>p.cell===cell);}
-  freeCell() {
+  freeCell(food=false) {
     const n=reachableFoodCells(this.state,this.arena),available=[];
-    for(let i=0;i<n;i++){const c=this.state.scratch.candidates[i];if(!this.forbidden(c)&&c!==this.state.food)available.push(c);}
+    for(let i=0;i<n;i++){const c=this.state.scratch.candidates[i];if(!this.forbidden(c)&&(food||c!==this.state.food))available.push(c);}
+    if(food&&this.pacing){const head=bodyCell(this.state,0),w=this.arena.width,near=available.filter(c=>{const d=Math.abs(c%w-head%w)+Math.abs(Math.floor(c/w)-Math.floor(head/w));return d>=this.pacing.foodMin&&d<=this.pacing.foodMax;});if(near.length)return near[randomIndex(this,near.length)];}
     return available.length?available[randomIndex(this,available.length)]:-1;
   }
   repairFood() {
     if(this.state.status!=='playing')return;
+    if(this.pacing&&this.foods!==this.placedFoods){this.placedFoods=this.foods;const cell=this.freeCell(true);if(cell>=0)this.state.food=cell;}
     if(this.state.food>=0&&!this.forbidden(this.state.food))return;
     const cell=this.freeCell();
     if(cell<0){this.state.food=-1;this.state.status='full';this.state.reason='no-legal-food';this.status='dying';return;}
@@ -67,9 +71,9 @@ export class Session {
     }
     this.emit(definition.positive?'positive':'negative',cell,{effect:kind,refresh:!!existing});return true;
   }
-  spawnPickup() {
+  spawnPickup(positive=null) {
     const choices=Object.keys(EFFECTS).filter(kind=>{
-      const d=EFFECTS[kind];return !this.pickups.some(p=>p.kind===kind)
+      const d=EFFECTS[kind];return (positive===null||d.positive===positive)&&!this.pickups.some(p=>p.kind===kind)
         &&this.effects.filter(e=>EFFECTS[e.kind].positive===d.positive).length<(d.positive?2:1);
     });
     if(this.pickups.length>=3||!choices.length)return;
@@ -77,7 +81,7 @@ export class Session {
     this.pickups.push({kind:choices[randomIndex(this,choices.length)],cell,ends:this.tick+1200});
   }
   cadence() {
-    let n=baseCadence(this.tick,this.foods);
+    let n=this.pacing?this.pacing.cadence(this.tick):baseCadence(this.tick,this.foods);
     if(this.effects.some(e=>e.kind==='focus'))n=Math.ceil(n*1.25);
     if(this.effects.some(e=>e.kind==='rush'))n=Math.max(5,Math.round(n*.8));
     return n;
@@ -102,7 +106,7 @@ export class Session {
   }
   portalTick() {
     const p=this.portal;p.elapsed++;
-    if(p.phase==='inactive'&&this.tick>=600){p.phase='armed';p.elapsed=0;}
+    if(p.phase==='inactive'&&this.tick>=(this.pacing?Math.round(this.pacing.portalFirst*60):600)){p.phase='armed';p.elapsed=0;}
     else if(p.phase==='entering'&&p.elapsed>=12){p.phase='teleport';p.elapsed=0;}
     else if(p.phase==='teleport'){
       const destination=neighbour(p.exit,this.state.direction,this.arena.width,this.arena.height);
@@ -110,8 +114,9 @@ export class Session {
       else {p.rejected++;p.phase='cooldown';this.emit('portal-rejected',bodyCell(this.state,0));}
       p.elapsed=0;
     } else if(p.phase==='exit-grace'&&p.elapsed>=36){p.phase='cooldown';p.elapsed=0;}
-    else if(p.phase==='cooldown'&&p.elapsed>=90&&!this.portals.includes(bodyCell(this.state,0))){p.phase='armed';p.elapsed=0;}
+    else if(p.phase==='cooldown'&&p.elapsed>=(this.pacing?Math.round(this.pacing.portalCooldown*60):90)&&!this.portals.includes(bodyCell(this.state,0))){p.phase='armed';p.elapsed=0;}
   }
+  portalAvailable(){return !this.pacing||this.pacing.portalWindowOpen(this.tick);}
   advance(commands=[]) {
     this.events=[];if(this.status==='result')return;
     this.tick++;
@@ -131,25 +136,27 @@ export class Session {
     if(head!==old){
       this.moves++;
       if(this.state.events.some(e=>e.type==='food-consumed')){
-        this.foods++;this.combo=this.tick-this.lastFood<=600?Math.min(8,this.combo+1):1;this.lastFood=this.tick;
-        const amount=Math.round(100*(1+(15-baseCadence(this.tick,this.foods))*.08)*(1+(this.combo-1)*.15))*(this.effects.some(e=>e.kind==='harvest')?2:1);
+        this.foods++;this.combo=this.tick-this.lastFood<=(this.pacing?this.pacing.comboTimeout*60:600)?Math.min(8,this.combo+1):1;this.lastFood=this.tick;
+        const amount=Math.round(100*(1+((this.pacing?this.pacing.cadence(0):15)-(this.pacing?this.pacing.cadence(this.tick):baseCadence(this.tick,this.foods)))*.08)*(1+(this.combo-1)*(this.pacing?this.pacing.comboStep:.15)))*(this.effects.some(e=>e.kind==='harvest')?2:1);
         this.score+=amount;this.emit('seed',head,{amount,combo:this.combo});this.feedback.push({kind:'seed',cell:head,tick:this.tick,amount});this.repairFood();
       }
       for(const p of this.pickups.filter(p=>p.cell===head))this.collect(p.kind,head);
       this.pickups=this.pickups.filter(p=>p.cell!==head);
-      if(this.portal.phase==='armed'&&this.portals.includes(head)){
+      if(this.portal.phase==='armed'&&this.portalAvailable()&&this.portals.includes(head)){
         this.portal.phase='entering';this.portal.elapsed=0;this.portal.entry=head;this.portal.exit=this.portals.find(c=>c!==head);
         this.emit('portal-enter',head);
       }
     }
-    if(this.tick>=this.spawnTick){this.spawnPickup();this.spawnTick=this.tick+480;}
-    if(this.tick-this.lastFood>600)this.combo=0;
+    if(this.pacing){for(const [kind,positive] of [['positive',true],['negative',false]])if(this.tick>=this.nextPickup[kind]){this.spawnPickup(positive);this.nextPickup[kind]=this.tick+Math.round(this.pacing[kind+'Interval']*60);}}
+    else if(this.tick>=this.spawnTick){this.spawnPickup();this.spawnTick=this.tick+480;}
+    if(this.tick-this.lastFood>(this.pacing?this.pacing.comboTimeout*60:600))this.combo=0;
     if(this.state.status!=='playing'){this.status='dying';this.effects=[];this.pickups=[];this.portal.phase='inactive';this.emit('death',head,{reason:this.state.reason});}
   }
   hash() {
     return hashText(JSON.stringify({core:stateHash(this.state),tick:this.tick,moves:this.moves,score:this.score,foods:this.foods,
       combo:this.combo,lastFood:this.lastFood,rng:this.rng,effects:this.effects,pickups:this.pickups,portal:this.portal,
-      spawnTick:this.spawnTick,status:this.status,deathTicks:this.deathTicks,transitCommands:this.transitCommands})).toString(16).padStart(8,'0');
+      spawnTick:this.spawnTick,status:this.status,deathTicks:this.deathTicks,transitCommands:this.transitCommands,
+      ...(this.pacing?{pacing:this.pacing.config,nextPickup:this.nextPickup,placedFoods:this.placedFoods}:{})})).toString(16).padStart(8,'0');
   }
   summary(){return {hash:this.hash(),tick:this.tick,score:this.score,foods:this.foods,length:this.state.length,combo:this.combo,
     speed:60/this.cadence(),effects:this.effects.map(e=>({...e,remaining:(e.ends-this.tick)/60})),food:this.state.food,portal:{...this.portal},status:this.status};}

@@ -51,7 +51,7 @@ export class ForestRenderer {
       const p=at((y+view.y)*s.arena.width+x+view.x);drawObject(ctx,this.art,'stone',p.x,p.y,cell);
     }
     if(touch){ctx.fillStyle='#092720';ctx.fillRect(field.x+cell,field.y+7*cell,5*cell,4*cell);}
-    for(const c of s.portals){const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;drawObject(ctx,this.art,'portal',p.x,p.y,cell);ctx.globalAlpha=1;}
+    for(const c of s.portals){if(s.pacing&&(['inactive','cooldown'].includes(s.portal.phase)||(s.portal.phase==='armed'&&!s.portalAvailable())))continue;const p=at(c);ctx.globalAlpha=s.portal.phase==='inactive'?.4:1;drawObject(ctx,this.art,'portal',p.x,p.y,cell);ctx.globalAlpha=1;}
     if(s.state.food>=0){const p=at(s.state.food);drawObject(ctx,this.art,foodKey(s.effects,s.tick),p.x,p.y+foodBob(s.tick,cell),cell);}
     for(const o of s.pickups){const p=at(o.cell),key=EFFECTS[o.kind].positive?'positive':'negative';drawObject(ctx,this.art,key,p.x,p.y,cell);
       // The two positive mechanics retain the positive silhouette, with a legible identity badge.

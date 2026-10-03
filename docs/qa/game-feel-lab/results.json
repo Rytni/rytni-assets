@@ -1,0 +1,271 @@
+{
+  "runs": [
+    {
+      "summary": {
+        "preset": "A",
+        "profile": {
+          "id": "A",
+          "startSpeed": 3.7,
+          "maxSpeed": 6,
+          "acceleration": 0.012,
+          "grace": 15,
+          "foodMin": 3,
+          "foodMax": 8,
+          "positiveInterval": 14,
+          "negativeInterval": 26,
+          "portalFirst": 45,
+          "portalInterval": 60,
+          "portalWindow": 8,
+          "portalCooldown": 25,
+          "comboTimeout": 16,
+          "comboStep": 0.12
+        },
+        "duration": 1.6,
+        "score": 100,
+        "length": 9,
+        "foods": 1,
+        "maxCombo": 1,
+        "averageCombo": 0.34375,
+        "comboBreaks": [],
+        "averageSpeed": 3.75,
+        "positiveSpawns": 0,
+        "negativeSpawns": 0,
+        "positivePickups": 0,
+        "negativePickups": 0,
+        "portalAppearances": 0,
+        "portalUses": 0,
+        "portalRejected": 0,
+        "portalCooldown": 25,
+        "portalCooldownRemaining": 0,
+        "averageFoodSeconds": null,
+        "averageFoodDistance": null,
+        "maxReplacementTicks": 0,
+        "foodFailures": 0,
+        "death": null,
+        "end": "playing"
+      },
+      "resources": {
+        "status": "paused",
+        "session": {
+          "hash": "cc1049a8",
+          "tick": 96,
+          "score": 100,
+          "foods": 1,
+          "length": 9,
+          "combo": 1,
+          "speed": 3.75,
+          "effects": [],
+          "food": 43,
+          "portal": {
+            "phase": "inactive",
+            "elapsed": 96,
+            "transfers": 0,
+            "rejected": 0,
+            "entry": -1,
+            "exit": -1
+          },
+          "status": "playing"
+        },
+        "starts": 1,
+        "raf": 0,
+        "timers": 0,
+        "activeSessions": 1,
+        "audio": {
+          "sources": 0,
+          "music": 0,
+          "context": "running",
+          "decoded": 15,
+          "error": ""
+        },
+        "raster": {
+          "decodedBytes": 3999296,
+          "canvasBytes": 3540316,
+          "cachedGroundBytes": 3540316
+        },
+        "fullscreenError": ""
+      },
+      "insideLabNodes": 0
+    },
+    {
+      "summary": {
+        "preset": "B",
+        "profile": {
+          "id": "B",
+          "startSpeed": 4.2,
+          "maxSpeed": 7.5,
+          "acceleration": 0.035,
+          "grace": 12,
+          "foodMin": 5,
+          "foodMax": 12,
+          "positiveInterval": 10,
+          "negativeInterval": 18,
+          "portalFirst": 30,
+          "portalInterval": 45,
+          "portalWindow": 10,
+          "portalCooldown": 20,
+          "comboTimeout": 12,
+          "comboStep": 0.15
+        },
+        "duration": 1.4,
+        "score": 100,
+        "length": 9,
+        "foods": 1,
+        "maxCombo": 1,
+        "averageCombo": 0.34523809523809523,
+        "comboBreaks": [],
+        "averageSpeed": 4.285714285714282,
+        "positiveSpawns": 0,
+        "negativeSpawns": 0,
+        "positivePickups": 0,
+        "negativePickups": 0,
+        "portalAppearances": 0,
+        "portalUses": 0,
+        "portalRejected": 0,
+        "portalCooldown": 20,
+        "portalCooldownRemaining": 0,
+        "averageFoodSeconds": null,
+        "averageFoodDistance": null,
+        "maxReplacementTicks": 0,
+        "foodFailures": 0,
+        "death": null,
+        "end": "playing"
+      },
+      "resources": {
+        "status": "paused",
+        "session": {
+          "hash": "04be3bd7",
+          "tick": 84,
+          "score": 100,
+          "foods": 1,
+          "length": 9,
+          "combo": 1,
+          "speed": 4.285714285714286,
+          "effects": [],
+          "food": 121,
+          "portal": {
+            "phase": "inactive",
+            "elapsed": 84,
+            "transfers": 0,
+            "rejected": 0,
+            "entry": -1,
+            "exit": -1
+          },
+          "status": "playing"
+        },
+        "starts": 2,
+        "raf": 0,
+        "timers": 0,
+        "activeSessions": 1,
+        "audio": {
+          "sources": 0,
+          "music": 0,
+          "context": "running",
+          "decoded": 15,
+          "error": ""
+        },
+        "raster": {
+          "decodedBytes": 3999296,
+          "canvasBytes": 3540316,
+          "cachedGroundBytes": 3540316
+        },
+        "fullscreenError": ""
+      },
+      "insideLabNodes": 0
+    },
+    {
+      "summary": {
+        "preset": "C",
+        "profile": {
+          "id": "C",
+          "startSpeed": 4.8,
+          "maxSpeed": 8.6,
+          "acceleration": 0.055,
+          "grace": 10,
+          "foodMin": 6,
+          "foodMax": 18,
+          "positiveInterval": 7,
+          "negativeInterval": 12,
+          "portalFirst": 24,
+          "portalInterval": 35,
+          "portalWindow": 10,
+          "portalCooldown": 15,
+          "comboTimeout": 10,
+          "comboStep": 0.2
+        },
+        "duration": 1.3,
+        "score": 100,
+        "length": 9,
+        "foods": 1,
+        "maxCombo": 1,
+        "averageCombo": 0.34615384615384615,
+        "comboBreaks": [],
+        "averageSpeed": 4.615384615384622,
+        "positiveSpawns": 0,
+        "negativeSpawns": 0,
+        "positivePickups": 0,
+        "negativePickups": 0,
+        "portalAppearances": 0,
+        "portalUses": 0,
+        "portalRejected": 0,
+        "portalCooldown": 15,
+        "portalCooldownRemaining": 0,
+        "averageFoodSeconds": null,
+        "averageFoodDistance": null,
+        "maxReplacementTicks": 0,
+        "foodFailures": 0,
+        "death": null,
+        "end": "playing"
+      },
+      "resources": {
+        "status": "paused",
+        "session": {
+          "hash": "f31c48be",
+          "tick": 78,
+          "score": 100,
+          "foods": 1,
+          "length": 9,
+          "combo": 1,
+          "speed": 4.615384615384615,
+          "effects": [],
+          "food": 302,
+          "portal": {
+            "phase": "inactive",
+            "elapsed": 78,
+            "transfers": 0,
+            "rejected": 0,
+            "entry": -1,
+            "exit": -1
+          },
+          "status": "playing"
+        },
+        "starts": 3,
+        "raf": 0,
+        "timers": 0,
+        "activeSessions": 1,
+        "audio": {
+          "sources": 0,
+          "music": 0,
+          "context": "running",
+          "decoded": 15,
+          "error": ""
+        },
+        "raster": {
+          "decodedBytes": 3999296,
+          "canvasBytes": 3540316,
+          "cachedGroundBytes": 3540316
+        },
+        "fullscreenError": ""
+      },
+      "insideLabNodes": 0
+    }
+  ],
+  "clipboard": "Preset C\r\nConfig: {\"id\":\"C\",\"startSpeed\":4.8,\"maxSpeed\":8.6,\"acceleration\":0.055,\"grace\":10,\"foodMin\":6,\"foodMax\":18,\"positiveInterval\":7,\"negativeInterval\":12,\"portalFirst\":24,\"portalInterval\":35,\"portalWindow\":10,\"portalCooldown\":15,\"comboTimeout\":10,\"comboStep\":0.2}\r\nRun: 00:01 (active time)\r\nScore: 100\r\nLength: 9\r\nFoods: 1\r\nMax combo: 1; avg 0.38; breaks 0 (none)\r\nPositive pickups: 0 / spawned 0\r\nNegative pickups: 0 / spawned 0\r\nPortals: 0 appearances / 0 uses / 0 unsafe rejects; cooldown 15s\r\nAvg speed: 4.62 cells/s\r\nFood interval: —s / — cells; replacement 0 ticks; failures 0\r\nDeath: none\r\nEnd: playing",
+  "desktopKeyboard": true,
+  "mobileDpad": true,
+  "restartCleanup": true,
+  "copyResults": true,
+  "errors": [],
+  "warnings": [],
+  "failed": [],
+  "http": []
+}
