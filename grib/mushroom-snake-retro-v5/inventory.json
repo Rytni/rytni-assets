@@ -1,5 +1,5 @@
 {
-  "version": "retro-v5.5-art-review",
+  "version": "retro-v5.6-art-review",
   "imageGenOperations": 0,
   "cell": 68,
   "body": 36,
@@ -141,8 +141,8 @@
       "file": "head-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "60d145d301eb521e31f593cc92c2dbb980712fd00dee6ca1e29daf6c0a86a497",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "b514931066166a28f85640734b3ff30b1602cd98644e094adb0ad8b029719185",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "corner-0-v0",
@@ -213,64 +213,64 @@
       "file": "terminal-0-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "f32bc38b6c71c463541d1bc682244c40d36bfff37702c805b41c67ec60a66f38",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "0848bbdeb85087da2561e49e8b2116ea125d8f50acf99dc58b6a1c48217cab62",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v1",
       "file": "terminal-0-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "3519aeafc86e326ff79424f6ece1d11d0eeec80c054924ee801885c5b92b5d98",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "6a80d469539d1f6f260a7b315969360060e24cfbf08baa7bbaabfaf6c7fc151d",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v2",
       "file": "terminal-0-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "5d973986209a23e926baab93b8e57540a7967256213c266ad8e2a7adb92e8c5c",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "fbefd1908fcf076986486933c869d52b8bc8e988e18c601adfe6b38179dc8988",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v3",
       "file": "terminal-0-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "4544c6f641db37654622606b919c48ad009c8e8d06a05057a94a4c178259e1b5",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "ee15140cb298bec8f6f24dd14b8be139cbef27e4eee667e88155656d398fccaf",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v4",
       "file": "terminal-0-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "21c2ce6679460d927200e72aa9ddc5e9e239802e3a0ad2f504f804247bb94b58",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "5bd4bbf02f16e00ef87a109b45f584ef07096d3eb8e47124b73b24f057ea8a90",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v5",
       "file": "terminal-0-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "082f1aca4de57095e387caeb0e37239edac8b1d98aac585479f2e811978edf8e",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "59c165b2f1befda234dd8b434f7f6706f5656ce0cd28711abe626587faaf4b83",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v6",
       "file": "terminal-0-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "78809e66bdc262c8309f0e42c278895f843ad4fa986ba2f85ef0c26d2617e980",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "824d39c66a14be63e2765a8653d052318dd791f39e4944ad777df1dbb5e56e3c",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-0-v7",
       "file": "terminal-0-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "0800d45b26d45d127af72f3175deb1c925c9e1f796bd45f46ac762d59d08781b",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "4dcaff8653576011ad0ec7256879124da73893471d5fd413677b43bd4a3a45ba",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "straight-1-v0",
@@ -405,8 +405,8 @@
       "file": "head-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "78e4e1bd1b0a83ecc4561501c124dabf716fd27802ec32550c7b43eb545f18bb",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "58c62dfb3d580219eb63780524aac3b59812fe1637c4243ae4f7876f501e1366",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "corner-1-v0",
@@ -477,64 +477,64 @@
       "file": "terminal-1-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "4f7a18f1a3297974a620e10e316478276ee74d22057fc534bc4536ceea9eb243",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "e21a24e04057b73fa01edc8d981bd4d708a56446cb18ff88946e0c1d84fc7c84",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v1",
       "file": "terminal-1-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "34cb42e0427183cba00dd50b7be8bacad24a23c33111dcd72383bbf67fcb5d91",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "88826be2c4beaf0a0f3946aa3f73860788159cf8f717e80a966669da0de0fd05",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v2",
       "file": "terminal-1-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "6ff81f4ef1ad5959f83ac523626b5db3d079fbd9aecfe210e9d1713c65b1ace5",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "d40b8b32db83a43ca486b888523c7963c68fc9c6cb38cb364db9a3a2b765efa1",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v3",
       "file": "terminal-1-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "c1929798f31593dfe7a504ca3b98434692f9793f3904a383f71266ed5cd69aec",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "423745ab62506e0cb4caa1315cde17a87115dcc8674b22607898698bc0aea2dc",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v4",
       "file": "terminal-1-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "39c380bab9f52b7340dae617a071912783d39323fefbd17b41346d71d5dbbe42",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "32cd03b5a9a441c75a4f08949b315f4f22b8e5d88503af8a5fb307c68d003da9",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v5",
       "file": "terminal-1-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "fc7098ca41ed8e2c56d0e67d54322c995481b2b2797c4744edf3f905a285c62f",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "129cade5100942ef60beba0d9eadbd6d508c1f67a76e358d9f3546e672af9211",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v6",
       "file": "terminal-1-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "ce58fa8bb52c22ce6c23afbda4d4d33b1cba6fd070e5e5f6de494f887aaced8d",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "ccb52a2a57ac57b9bc87633f150001fc1ee205ae387bd2a38be589de91bde8ff",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-1-v7",
       "file": "terminal-1-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "5badc93dbc423841b1bc74650c38fa919a1b3fb054882a1084c8384fc571a456",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "3a89bcb6b8145d1c25e2a266eed6d4ce72b5b07bf4ef69f23d9a9c526cd04a63",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "straight-2-v0",
@@ -669,8 +669,8 @@
       "file": "head-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "82d1112c6289f0ecf91b1f8d256ced62e7bf2a39450419ec5f506443fad43f4d",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "4f49e42499fff08ab0c2a5b5fb5f9164720c866efe5d35a978af793148a05cb4",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "corner-2-v0",
@@ -741,64 +741,64 @@
       "file": "terminal-2-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "0b0b5a6fc2e1d2cd557f789ce97e5db327af3026595af26e43f3b328c667f13d",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "a78c1dd5adcd5d9535f7598ff665ff964c1c604c45d39d7977953c14e7903833",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v1",
       "file": "terminal-2-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "1e9c0d995c6a6182ab8959214947606f4b52f846abefd325b6d7418fab1aa35c",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "69fb389a13e0c6822c611362a9b35bf0f936c2361820778a10996938df9da872",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v2",
       "file": "terminal-2-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "43dfd887836483c428fe5f8663b2002e64fd06dfae33833db16ddc10cc133f56",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "55069c5e6e1d900fbedd21c995e34067387a3a455b4d9e9701f65537d86acbd9",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v3",
       "file": "terminal-2-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "efb207fb5d9beb8e8876fd5a322866eb18f5efb1d447ed243c29fe4a8f9fb42b",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "859a1d0f69f540e23ebd7c2e177b1e16f094ce0aacfe78fba453c92c6a3519c3",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v4",
       "file": "terminal-2-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "8b06f1e95494b460281b8364da186e1401b4e1e162cc47254ffee433d68ce146",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "a822e84cdd47892d0916265ffaf3a65d46178c663a2c03328d55e0df55129f8e",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v5",
       "file": "terminal-2-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "39da26d3138910d64d54387126afbe80ee37d562fdf0831670af85c0e67a82ed",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "b9f7b53579d7795743429b65da1946ae9f3e9052b5a8552fa18186ecce1b9957",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v6",
       "file": "terminal-2-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "57e1ec7d9acdac4a22b6482e079849a213838027e40f1254d89d92cfd616483b",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "d045230340661caacc11bebc535d928a50df1ad0e4aa4aedc7a02c787f590299",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-2-v7",
       "file": "terminal-2-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "47b7eb9962db8f92144663110309548f5197491e7e6f5f1648575827293bfe80",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "6b41166ca2bc512157fd960927de8561dc2a31e03a32ecdb77859b8379067949",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "straight-3-v0",
@@ -933,8 +933,8 @@
       "file": "head-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "85fceb46f22e3b109e59264b638ac75f1a07b1cd432927e60d23a8094cb4b757",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "160fb6b5a46be1928fa7ab80f0ab7002e7315f77edaa8e27adcc0bd4a98b3eaf",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "corner-3-v0",
@@ -1005,64 +1005,64 @@
       "file": "terminal-3-v0.png",
       "width": 68,
       "height": 68,
-      "sha256": "3080af64dc5a8156dc13a4c39285c3a1c81a575ec58ef853bb8e8a978f9351d8",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "360b42eb6ba91c1bfc864336a9d69e94c3a8c9c2f5838535c6e5af6551a43696",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v1",
       "file": "terminal-3-v1.png",
       "width": 68,
       "height": 68,
-      "sha256": "828a75a68c047614e2ed302140674b6647891db5858fae699968789584716be0",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "19df63364ebc2bb6cd608704a5497ab27f8bf1c869887d16fd4fc386f1d52201",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v2",
       "file": "terminal-3-v2.png",
       "width": 68,
       "height": 68,
-      "sha256": "cdd3a03b810fadcf7473fa611e051b9c3fae2e63c56e90b02fab7a93fb9fdb97",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "3dd42428021b7fef0d8a0a7cd782213d55134fbbcf88847866603b5906b22ec0",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v3",
       "file": "terminal-3-v3.png",
       "width": 68,
       "height": 68,
-      "sha256": "5293ef9b0b89daa26c931ac3955529a9c937109056323ac139c3ea4b48212f9c",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "699b911bbedb1f8d64ba44ff8c717c0e5005fecd386fee0fa2842b284e975ca0",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v4",
       "file": "terminal-3-v4.png",
       "width": 68,
       "height": 68,
-      "sha256": "84e433bff090084fe00e9e1dc8fb847f6fafea1666c8d206e42a58252ea11a8c",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "492e8c88c13cece6b260e38c14d292b2191c11514bd50a7b8fedf7d66e0aebcb",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v5",
       "file": "terminal-3-v5.png",
       "width": 68,
       "height": 68,
-      "sha256": "a119a734a6023aa76283bed1f1eefed2c140cab55f14d79829a2feca9e5a2b2a",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "c61224866947fa491a974e9cfdafc30c4450fd6ca4e969c0ed8f932d5c86010e",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v6",
       "file": "terminal-3-v6.png",
       "width": 68,
       "height": 68,
-      "sha256": "7157a8a28db9ae78695888e8ea7536ae2b1aa681f72bdb0fc8c24fe2a7ac5194",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "461f58a27f794505456f928cfb28b62e7d88a3da9de6ac0d9c42e31d662345e3",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "terminal-3-v7",
       "file": "terminal-3-v7.png",
       "width": 68,
       "height": 68,
-      "sha256": "d8494dfe9a7d842768dd0430de6ba06e5cbd3a0e09a88dc7e82959f52881d012",
-      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+      "sha256": "ed9319b48e214c72f3b9868dae588d43309902f4da2f5f78d7a2e525256b7c43",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
     },
     {
       "id": "floor-0",

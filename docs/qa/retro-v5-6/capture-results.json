@@ -1,0 +1,23 @@
+{
+  "scope": "Required art screenshots only; geometry/connector regression is the existing node suite",
+  "captures": [
+    {
+      "file": "desktop-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "mobile": false,
+      "cell": 69.92307692307692
+    },
+    {
+      "file": "mobile-844.png",
+      "width": 844,
+      "height": 390,
+      "mobile": true,
+      "cell": 31
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "bad": [],
+  "warnings": []
+}

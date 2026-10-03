@@ -1,0 +1,30 @@
+[
+  {
+    "id": "straight-8",
+    "label": "straight-8 / native 100%",
+    "file": "v55-straight-8.png",
+    "width": 592,
+    "height": 116
+  },
+  {
+    "id": "straight-30",
+    "label": "straight-30 / native 100%",
+    "file": "v55-straight-30.png",
+    "width": 2088,
+    "height": 116
+  },
+  {
+    "id": "head-neck",
+    "label": "head-neck / native 100%",
+    "file": "v55-head-neck.png",
+    "width": 252,
+    "height": 116
+  },
+  {
+    "id": "taper-tail",
+    "label": "Terminal / exact 68px mask, native 100%",
+    "file": "v55-taper-tail.png",
+    "width": 252,
+    "height": 116
+  }
+]
