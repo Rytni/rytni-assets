@@ -1,0 +1,5982 @@
+{
+  "method": "50 natural seeded runs; unchanged archived legal-input planner; 900s or260 mushrooms or natural terminal; mobile command replay; supplementary seeded2+1 warning/expiry fixtures. No fun or performance claim.",
+  "totals": {
+    "seeds": 50,
+    "allChapters": 39,
+    "length100": 41,
+    "length250": 24,
+    "trueNoLegalFood": 0,
+    "boardFull": 0,
+    "generatorErrors": 0,
+    "unsafeSpawn": 0,
+    "unreachableAtSpawn": 0,
+    "expansionInvalidation": 0,
+    "hazardInvalidation": 0,
+    "spawnChecks": 9524,
+    "temporaryAttempts": 58,
+    "tiers": [
+      9430,
+      94,
+      0,
+      0
+    ],
+    "hashParity": true,
+    "naturalHazards": 23,
+    "warningActivations": 100,
+    "warningRejections": 0,
+    "endReasons": {
+      "test-limit": 50
+    }
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 134,
+      "length": 142,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1382,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3557,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7607,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13604,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "spawnChecks": 134,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 17388,
+          "outcome": "spawned",
+          "cell": 3385,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 2807
+        },
+        "counts": {
+          "spawned": 134,
+          "temporarily unreachable": 1,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          129,
+          5,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "7a30cc60",
+      "replayHash": "7a30cc60",
+      "director": {
+        "positive": 76,
+        "negative": 42,
+        "portal": 29,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 3727
+    },
+    {
+      "seed": 56103,
+      "ticks": 45322,
+      "seconds": 755.3666666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1434,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3680,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8922,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14154,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 22730,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 33530,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 45322,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 45322,
+          "outcome": "spawned",
+          "cell": 4325,
+          "tier": 1,
+          "reachable": 189,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          259,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "8085481c",
+      "replayHash": "8085481c",
+      "director": {
+        "positive": 82,
+        "negative": 39,
+        "portal": 27,
+        "hazards": 0,
+        "spores": 7
+      },
+      "activePositive": 0,
+      "head": 3537
+    },
+    {
+      "seed": 777,
+      "ticks": 38279,
+      "seconds": 637.9833333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1603,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3964,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7866,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13951,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20167,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29457,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38279,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38279,
+          "outcome": "spawned",
+          "cell": 3415,
+          "tier": 1,
+          "reachable": 3939,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "8b3b74dc",
+      "replayHash": "8b3b74dc",
+      "director": {
+        "positive": 64,
+        "negative": 38,
+        "portal": 22,
+        "hazards": 2,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 4308
+    },
+    {
+      "seed": 0,
+      "ticks": 45469,
+      "seconds": 757.8166666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1814,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 4044,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8909,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13901,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 22653,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 32845,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 45469,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 45469,
+          "outcome": "spawned",
+          "cell": 1500,
+          "tier": 1,
+          "reachable": 3990,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          258,
+          2,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "790355a5",
+      "replayHash": "790355a5",
+      "director": {
+        "positive": 88,
+        "negative": 38,
+        "portal": 27,
+        "hazards": 0,
+        "spores": 14
+      },
+      "activePositive": 0,
+      "head": 2061
+    },
+    {
+      "seed": 1,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 6,
+      "length": 14,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        }
+      ],
+      "spawnChecks": 6,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 672,
+          "outcome": "spawned",
+          "cell": 1146,
+          "tier": 1,
+          "reachable": 242,
+          "vacant": 245
+        },
+        "counts": {
+          "spawned": 6,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          6,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "a7df5354",
+      "replayHash": "a7df5354",
+      "director": {
+        "positive": 63,
+        "negative": 22,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 474
+    },
+    {
+      "seed": 2,
+      "ticks": 40448,
+      "seconds": 674.1333333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1369,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3656,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7474,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 11864,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20648,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 30640,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 40448,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 40448,
+          "outcome": "spawned",
+          "cell": 3288,
+          "tier": 1,
+          "reachable": 3961,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "843b69ae",
+      "replayHash": "843b69ae",
+      "director": {
+        "positive": 73,
+        "negative": 34,
+        "portal": 24,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 3181
+    },
+    {
+      "seed": 3,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 4,
+      "length": 12,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        }
+      ],
+      "spawnChecks": 4,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 434,
+          "outcome": "spawned",
+          "cell": 126,
+          "tier": 1,
+          "reachable": 245,
+          "vacant": 247
+        },
+        "counts": {
+          "spawned": 4,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "a32418cc",
+      "replayHash": "a32418cc",
+      "director": {
+        "positive": 64,
+        "negative": 27,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 115
+    },
+    {
+      "seed": 7,
+      "ticks": 39207,
+      "seconds": 653.45,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1279,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3861,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 9903,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14783,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 23767,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 33207,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 39207,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 39207,
+          "outcome": "spawned",
+          "cell": 3143,
+          "tier": 1,
+          "reachable": 3858,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          259,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "7f231d2c",
+      "replayHash": "7f231d2c",
+      "director": {
+        "positive": 71,
+        "negative": 33,
+        "portal": 22,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 2923
+    },
+    {
+      "seed": 42,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 9,
+      "length": 17,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        }
+      ],
+      "spawnChecks": 9,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 1106,
+          "outcome": "spawned",
+          "cell": 122,
+          "tier": 1,
+          "reachable": 238,
+          "vacant": 242
+        },
+        "counts": {
+          "spawned": 9,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          9,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "507d1642",
+      "replayHash": "507d1642",
+      "director": {
+        "positive": 66,
+        "negative": 27,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 133
+    },
+    {
+      "seed": 99,
+      "ticks": 38886,
+      "seconds": 648.1,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1512,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3734,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8760,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14128,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20776,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 28046,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38886,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38886,
+          "outcome": "spawned",
+          "cell": 416,
+          "tier": 1,
+          "reachable": 5,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "6ec6a317",
+      "replayHash": "6ec6a317",
+      "director": {
+        "positive": 70,
+        "negative": 38,
+        "portal": 23,
+        "hazards": 0,
+        "spores": 2
+      },
+      "activePositive": 1,
+      "head": 865
+    },
+    {
+      "seed": 65535,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 179,
+      "length": 187,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1720,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3986,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8179,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12619,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 17403,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        }
+      ],
+      "spawnChecks": 179,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 22291,
+          "outcome": "spawned",
+          "cell": 193,
+          "tier": 1,
+          "reachable": 3190,
+          "vacant": 3404
+        },
+        "counts": {
+          "spawned": 179,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          179,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "72fb1c94",
+      "replayHash": "72fb1c94",
+      "director": {
+        "positive": 104,
+        "negative": 52,
+        "portal": 34,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 395
+    },
+    {
+      "seed": 4294967295,
+      "ticks": 40411,
+      "seconds": 673.5166666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1395,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3601,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7121,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13979,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 21291,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29035,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 40411,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 40411,
+          "outcome": "spawned",
+          "cell": 4116,
+          "tier": 1,
+          "reachable": 4024,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "3237c981",
+      "replayHash": "3237c981",
+      "director": {
+        "positive": 76,
+        "negative": 32,
+        "portal": 23,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 3996
+    },
+    {
+      "seed": 3102288766,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 80,
+      "length": 88,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1358,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3376,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7484,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        }
+      ],
+      "spawnChecks": 80,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 8822,
+          "outcome": "spawned",
+          "cell": 3310,
+          "tier": 1,
+          "reachable": 1754,
+          "vacant": 1759
+        },
+        "counts": {
+          "spawned": 80,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          80,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "26deb49f",
+      "replayHash": "26deb49f",
+      "director": {
+        "positive": 78,
+        "negative": 43,
+        "portal": 26,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 398
+    },
+    {
+      "seed": 760353309,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 222,
+      "length": 230,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1303,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3554,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7113,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14645,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 24725,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29437,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 222,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 32657,
+          "outcome": "spawned",
+          "cell": 683,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 4069
+        },
+        "counts": {
+          "spawned": 222,
+          "temporarily unreachable": 9,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          214,
+          8,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "ec3f9caa",
+      "replayHash": "ec3f9caa",
+      "director": {
+        "positive": 85,
+        "negative": 46,
+        "portal": 32,
+        "hazards": 2,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 1594
+    },
+    {
+      "seed": 2367764277,
+      "ticks": 36255,
+      "seconds": 604.25,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1799,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3879,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7507,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12839,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19695,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29655,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 36255,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 36255,
+          "outcome": "spawned",
+          "cell": 2988,
+          "tier": 1,
+          "reachable": 3805,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "6f2a83ee",
+      "replayHash": "6f2a83ee",
+      "director": {
+        "positive": 69,
+        "negative": 28,
+        "portal": 21,
+        "hazards": 2,
+        "spores": 9
+      },
+      "activePositive": 0,
+      "head": 2434
+    },
+    {
+      "seed": 3544160278,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 214,
+      "length": 222,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1408,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3590,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8076,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13092,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 18004,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 25772,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 214,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 29348,
+          "outcome": "spawned",
+          "cell": 225,
+          "tier": 1,
+          "reachable": 15,
+          "vacant": 4077
+        },
+        "counts": {
+          "spawned": 214,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          213,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "dd5361b6",
+      "replayHash": "dd5361b6",
+      "director": {
+        "positive": 91,
+        "negative": 55,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 2
+      },
+      "activePositive": 0,
+      "head": 689
+    },
+    {
+      "seed": 664029448,
+      "ticks": 38664,
+      "seconds": 644.4,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1525,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3832,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7879,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12216,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19776,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 26984,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38664,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38664,
+          "outcome": "spawned",
+          "cell": 256,
+          "tier": 1,
+          "reachable": 3784,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "74632993",
+      "replayHash": "74632993",
+      "director": {
+        "positive": 70,
+        "negative": 36,
+        "portal": 23,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 483
+    },
+    {
+      "seed": 2014762002,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 234,
+      "length": 242,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1434,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3447,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8908,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13642,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 23864,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 32968,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 234,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 41640,
+          "outcome": "spawned",
+          "cell": 846,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 4057
+        },
+        "counts": {
+          "spawned": 234,
+          "temporarily unreachable": 3,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          232,
+          2,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "d4d46df8",
+      "replayHash": "d4d46df8",
+      "director": {
+        "positive": 98,
+        "negative": 47,
+        "portal": 32,
+        "hazards": 0,
+        "spores": 6
+      },
+      "activePositive": 0,
+      "head": 1654
+    },
+    {
+      "seed": 4027346520,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 254,
+      "length": 262,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1406,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3332,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8179,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12266,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 17354,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 23434,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 254,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 30770,
+          "outcome": "spawned",
+          "cell": 1249,
+          "tier": 1,
+          "reachable": 18,
+          "vacant": 4037
+        },
+        "counts": {
+          "spawned": 254,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          254,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "9fd144ca",
+      "replayHash": "9fd144ca",
+      "director": {
+        "positive": 95,
+        "negative": 52,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 914
+    },
+    {
+      "seed": 3308079067,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 8,
+      "length": 16,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        }
+      ],
+      "spawnChecks": 8,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 938,
+          "outcome": "spawned",
+          "cell": 118,
+          "tier": 1,
+          "reachable": 240,
+          "vacant": 243
+        },
+        "counts": {
+          "spawned": 8,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          8,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "73495ee5",
+      "replayHash": "73495ee5",
+      "director": {
+        "positive": 54,
+        "negative": 20,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 922
+    },
+    {
+      "seed": 3608426288,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 110,
+      "length": 118,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1228,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3376,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8337,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14057,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "spawnChecks": 110,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 14057,
+          "outcome": "spawned",
+          "cell": 1292,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 1729
+        },
+        "counts": {
+          "spawned": 110,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          109,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "c09e2708",
+      "replayHash": "c09e2708",
+      "director": {
+        "positive": 77,
+        "negative": 45,
+        "portal": 28,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1964
+    },
+    {
+      "seed": 1873929961,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 153,
+      "length": 161,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1564,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 4140,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8801,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13761,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "spawnChecks": 153,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 21057,
+          "outcome": "spawned",
+          "cell": 149,
+          "tier": 1,
+          "reachable": 2762,
+          "vacant": 2788
+        },
+        "counts": {
+          "spawned": 153,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          153,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "fdf82420",
+      "replayHash": "fdf82420",
+      "director": {
+        "positive": 98,
+        "negative": 46,
+        "portal": 30,
+        "hazards": 2,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 2146
+    },
+    {
+      "seed": 1055982783,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 152,
+      "length": 160,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1356,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3469,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7224,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 16889,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "spawnChecks": 153,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 23297,
+          "outcome": "spawned",
+          "cell": 3771,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 2789
+        },
+        "counts": {
+          "spawned": 153,
+          "temporarily unreachable": 13,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          141,
+          12,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "a73fca31",
+      "replayHash": "a73fca31",
+      "director": {
+        "positive": 78,
+        "negative": 46,
+        "portal": 30,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 4218
+    },
+    {
+      "seed": 3535510028,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 238,
+      "length": 246,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1343,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3700,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7655,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 19702,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 26318,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 31486,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 238,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 36814,
+          "outcome": "spawned",
+          "cell": 195,
+          "tier": 1,
+          "reachable": 4030,
+          "vacant": 4053
+        },
+        "counts": {
+          "spawned": 238,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          238,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "d20acb8a",
+      "replayHash": "d20acb8a",
+      "director": {
+        "positive": 99,
+        "negative": 47,
+        "portal": 31,
+        "hazards": 2,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 2969
+    },
+    {
+      "seed": 2662536401,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 200,
+      "length": 208,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1447,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3656,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8100,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13729,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20841,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        }
+      ],
+      "spawnChecks": 200,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 27233,
+          "outcome": "spawned",
+          "cell": 2600,
+          "tier": 1,
+          "reachable": 76,
+          "vacant": 3383
+        },
+        "counts": {
+          "spawned": 200,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          197,
+          3,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "cfd90d3d",
+      "replayHash": "cfd90d3d",
+      "director": {
+        "positive": 93,
+        "negative": 48,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 2715
+    },
+    {
+      "seed": 2030047845,
+      "ticks": 41447,
+      "seconds": 690.7833333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1304,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3542,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8655,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13239,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 21023,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 28239,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 41447,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 41447,
+          "outcome": "spawned",
+          "cell": 1369,
+          "tier": 1,
+          "reachable": 136,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "4a453436",
+      "replayHash": "4a453436",
+      "director": {
+        "positive": 77,
+        "negative": 34,
+        "portal": 24,
+        "hazards": 2,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1490
+    },
+    {
+      "seed": 316503971,
+      "ticks": 39122,
+      "seconds": 652.0333333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1317,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3568,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8305,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12354,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20794,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 31314,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 39122,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 39122,
+          "outcome": "spawned",
+          "cell": 2419,
+          "tier": 1,
+          "reachable": 365,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          259,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "cca14e0c",
+      "replayHash": "cca14e0c",
+      "director": {
+        "positive": 69,
+        "negative": 36,
+        "portal": 23,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1752
+    },
+    {
+      "seed": 956333911,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 108,
+      "length": 116,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1552,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3371,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7054,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        }
+      ],
+      "spawnChecks": 108,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 13712,
+          "outcome": "spawned",
+          "cell": 3036,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 1731
+        },
+        "counts": {
+          "spawned": 108,
+          "temporarily unreachable": 9,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          94,
+          14,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "f76b439d",
+      "replayHash": "f76b439d",
+      "director": {
+        "positive": 58,
+        "negative": 35,
+        "portal": 27,
+        "hazards": 0,
+        "spores": 3
+      },
+      "activePositive": 0,
+      "head": 3260
+    },
+    {
+      "seed": 3954835554,
+      "ticks": 40073,
+      "seconds": 667.8833333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1525,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3547,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 9167,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 22625,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 27681,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 33249,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 40073,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 40073,
+          "outcome": "spawned",
+          "cell": 2690,
+          "tier": 1,
+          "reachable": 3968,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "74f9d8e0",
+      "replayHash": "74f9d8e0",
+      "director": {
+        "positive": 69,
+        "negative": 35,
+        "portal": 22,
+        "hazards": 0,
+        "spores": 6
+      },
+      "activePositive": 0,
+      "head": 2469
+    },
+    {
+      "seed": 3715408537,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 194,
+      "length": 202,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1317,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3293,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7529,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13566,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 24078,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        }
+      ],
+      "spawnChecks": 194,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 30014,
+          "outcome": "spawned",
+          "cell": 712,
+          "tier": 2,
+          "reachable": 2,
+          "vacant": 3389
+        },
+        "counts": {
+          "spawned": 194,
+          "temporarily unreachable": 1,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          188,
+          6,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "7eb4bc21",
+      "replayHash": "7eb4bc21",
+      "director": {
+        "positive": 92,
+        "negative": 51,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 722
+    },
+    {
+      "seed": 1842571082,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 66,
+      "length": 74,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1564,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3755,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7296,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        }
+      ],
+      "spawnChecks": 66,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 7359,
+          "outcome": "spawned",
+          "cell": 910,
+          "tier": 1,
+          "reachable": 1757,
+          "vacant": 1773
+        },
+        "counts": {
+          "spawned": 66,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          66,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "d64374f2",
+      "replayHash": "d64374f2",
+      "director": {
+        "positive": 75,
+        "negative": 39,
+        "portal": 25,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 912
+    },
+    {
+      "seed": 645848375,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 106,
+      "length": 114,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1668,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 4295,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7873,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        }
+      ],
+      "spawnChecks": 106,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 12596,
+          "outcome": "spawned",
+          "cell": 3361,
+          "tier": 1,
+          "reachable": 1700,
+          "vacant": 1733
+        },
+        "counts": {
+          "spawned": 106,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          106,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "dc591344",
+      "replayHash": "dc591344",
+      "director": {
+        "positive": 76,
+        "negative": 48,
+        "portal": 27,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1135
+    },
+    {
+      "seed": 1188051131,
+      "ticks": 42750,
+      "seconds": 712.5,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1510,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3686,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7043,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13494,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20566,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 31030,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 42750,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 42750,
+          "outcome": "spawned",
+          "cell": 1830,
+          "tier": 1,
+          "reachable": 3871,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "36260dbe",
+      "replayHash": "36260dbe",
+      "director": {
+        "positive": 77,
+        "negative": 38,
+        "portal": 25,
+        "hazards": 2,
+        "spores": 8
+      },
+      "activePositive": 0,
+      "head": 1162
+    },
+    {
+      "seed": 2032694104,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 128,
+      "length": 136,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1538,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3832,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7571,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13907,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "spawnChecks": 128,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 16883,
+          "outcome": "spawned",
+          "cell": 1643,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 2813
+        },
+        "counts": {
+          "spawned": 128,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          127,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "8ebd57ef",
+      "replayHash": "8ebd57ef",
+      "director": {
+        "positive": 79,
+        "negative": 40,
+        "portal": 29,
+        "hazards": 0,
+        "spores": 5
+      },
+      "activePositive": 0,
+      "head": 524
+    },
+    {
+      "seed": 2670352345,
+      "ticks": 40895,
+      "seconds": 681.5833333333334,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1434,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3226,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7100,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12529,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20873,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 28839,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 40895,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 40895,
+          "outcome": "spawned",
+          "cell": 2755,
+          "tier": 1,
+          "reachable": 4018,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 2,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          252,
+          8,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "0c3d9431",
+      "replayHash": "0c3d9431",
+      "director": {
+        "positive": 77,
+        "negative": 35,
+        "portal": 24,
+        "hazards": 2,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 2648
+    },
+    {
+      "seed": 1878178577,
+      "ticks": 33799,
+      "seconds": 563.3166666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1343,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3876,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 9215,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 15487,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 21015,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 27807,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 33799,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 33799,
+          "outcome": "spawned",
+          "cell": 1512,
+          "tier": 1,
+          "reachable": 3979,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 9,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          252,
+          8,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "b44e85ec",
+      "replayHash": "b44e85ec",
+      "director": {
+        "positive": 57,
+        "negative": 29,
+        "portal": 19,
+        "hazards": 0,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 2291
+    },
+    {
+      "seed": 713059449,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 240,
+      "length": 248,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1694,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 4339,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8948,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 16500,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 23764,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 30564,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        }
+      ],
+      "spawnChecks": 240,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 40780,
+          "outcome": "spawned",
+          "cell": 865,
+          "tier": 2,
+          "reachable": 1,
+          "vacant": 4051
+        },
+        "counts": {
+          "spawned": 240,
+          "temporarily unreachable": 9,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          232,
+          8,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "fa0845ee",
+      "replayHash": "fa0845ee",
+      "director": {
+        "positive": 100,
+        "negative": 47,
+        "portal": 32,
+        "hazards": 2,
+        "spores": 0
+      },
+      "activePositive": 1,
+      "head": 744
+    },
+    {
+      "seed": 3336871998,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 184,
+      "length": 192,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1408,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3810,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7418,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13213,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19469,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        }
+      ],
+      "spawnChecks": 184,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 22989,
+          "outcome": "spawned",
+          "cell": 135,
+          "tier": 1,
+          "reachable": 3394,
+          "vacant": 3399
+        },
+        "counts": {
+          "spawned": 184,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          184,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "e1de0b85",
+      "replayHash": "e1de0b85",
+      "director": {
+        "positive": 95,
+        "negative": 51,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1064
+    },
+    {
+      "seed": 243949743,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 182,
+      "length": 190,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1395,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3678,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7491,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 11572,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19444,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        }
+      ],
+      "spawnChecks": 182,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 24140,
+          "outcome": "spawned",
+          "cell": 1575,
+          "tier": 1,
+          "reachable": 18,
+          "vacant": 3401
+        },
+        "counts": {
+          "spawned": 182,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          182,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "796d76db",
+      "replayHash": "796d76db",
+      "director": {
+        "positive": 94,
+        "negative": 50,
+        "portal": 33,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 2038
+    },
+    {
+      "seed": 292265440,
+      "ticks": 38106,
+      "seconds": 635.1,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1477,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3637,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7810,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 12618,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19626,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 28978,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38106,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38106,
+          "outcome": "spawned",
+          "cell": 1080,
+          "tier": 1,
+          "reachable": 3947,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          259,
+          1,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "f432220c",
+      "replayHash": "f432220c",
+      "director": {
+        "positive": 67,
+        "negative": 35,
+        "portal": 22,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 1,
+      "head": 1747
+    },
+    {
+      "seed": 941768171,
+      "ticks": 43009,
+      "seconds": 716.8166666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1590,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3458,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8891,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14481,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 21641,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 32529,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 43009,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 43009,
+          "outcome": "spawned",
+          "cell": 5128,
+          "tier": 1,
+          "reachable": 3966,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 2,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          249,
+          11,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "c9020083",
+      "replayHash": "c9020083",
+      "director": {
+        "positive": 77,
+        "negative": 39,
+        "portal": 25,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 4347
+    },
+    {
+      "seed": 2356356772,
+      "ticks": 38057,
+      "seconds": 634.2833333333333,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1356,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3403,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7460,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13089,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 21841,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29929,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38057,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38057,
+          "outcome": "spawned",
+          "cell": 684,
+          "tier": 1,
+          "reachable": 3529,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "7e057c42",
+      "replayHash": "7e057c42",
+      "director": {
+        "positive": 66,
+        "negative": 35,
+        "portal": 22,
+        "hazards": 1,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 788
+    },
+    {
+      "seed": 4233989143,
+      "ticks": 36540,
+      "seconds": 609,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1556,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3574,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8528,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14288,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20968,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 26128,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 36540,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 36540,
+          "outcome": "spawned",
+          "cell": 4932,
+          "tier": 1,
+          "reachable": 3994,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "940e671b",
+      "replayHash": "940e671b",
+      "director": {
+        "positive": 64,
+        "negative": 33,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 4713
+    },
+    {
+      "seed": 4130739704,
+      "ticks": 37024,
+      "seconds": 617.0666666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1408,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3475,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7241,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 11728,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 18280,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 26184,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 37024,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 37024,
+          "outcome": "spawned",
+          "cell": 340,
+          "tier": 1,
+          "reachable": 36,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "4bee5b6b",
+      "replayHash": "4bee5b6b",
+      "director": {
+        "positive": 63,
+        "negative": 38,
+        "portal": 22,
+        "hazards": 0,
+        "spores": 9
+      },
+      "activePositive": 0,
+      "head": 796
+    },
+    {
+      "seed": 2779314236,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 84,
+      "length": 92,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1460,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3649,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7456,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        }
+      ],
+      "spawnChecks": 84,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 10093,
+          "outcome": "spawned",
+          "cell": 3361,
+          "tier": 1,
+          "reachable": 1723,
+          "vacant": 1755
+        },
+        "counts": {
+          "spawned": 84,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          84,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "023c1560",
+      "replayHash": "023c1560",
+      "director": {
+        "positive": 73,
+        "negative": 46,
+        "portal": 26,
+        "hazards": 2,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1693
+    },
+    {
+      "seed": 4014704651,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 2,
+      "length": 10,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        }
+      ],
+      "spawnChecks": 2,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 182,
+          "outcome": "spawned",
+          "cell": 123,
+          "tier": 1,
+          "reachable": 247,
+          "vacant": 249
+        },
+        "counts": {
+          "spawned": 2,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "8f9dc38c",
+      "replayHash": "8f9dc38c",
+      "director": {
+        "positive": 60,
+        "negative": 20,
+        "portal": 21,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 474
+    },
+    {
+      "seed": 1461601006,
+      "ticks": 36226,
+      "seconds": 603.7666666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1509,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 4222,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8502,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13690,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 20226,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 28226,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 36226,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 36226,
+          "outcome": "spawned",
+          "cell": 2515,
+          "tier": 1,
+          "reachable": 4001,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "6cdd938d",
+      "replayHash": "6cdd938d",
+      "director": {
+        "positive": 63,
+        "negative": 33,
+        "portal": 21,
+        "hazards": 2,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 1397
+    },
+    {
+      "seed": 2000315567,
+      "ticks": 38360,
+      "seconds": 639.3333333333334,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1460,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3513,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8122,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13960,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 19024,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 29440,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 38360,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 38360,
+          "outcome": "spawned",
+          "cell": 5238,
+          "tier": 1,
+          "reachable": 4025,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "33e6ccff",
+      "replayHash": "33e6ccff",
+      "director": {
+        "positive": 67,
+        "negative": 34,
+        "portal": 22,
+        "hazards": 0,
+        "spores": 10
+      },
+      "activePositive": 0,
+      "head": 4906
+    },
+    {
+      "seed": 1314698872,
+      "ticks": 54000,
+      "seconds": 900,
+      "foods": 52,
+      "length": 60,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1408,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3361,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        }
+      ],
+      "spawnChecks": 52,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 6235,
+          "outcome": "spawned",
+          "cell": 2174,
+          "tier": 1,
+          "reachable": 932,
+          "vacant": 943
+        },
+        "counts": {
+          "spawned": 52,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          52,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "8d50800e",
+      "replayHash": "8d50800e",
+      "director": {
+        "positive": 83,
+        "negative": 36,
+        "portal": 28,
+        "hazards": 0,
+        "spores": 0
+      },
+      "activePositive": 0,
+      "head": 823
+    },
+    {
+      "seed": 3404241937,
+      "ticks": 41862,
+      "seconds": 697.7,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": 0,
+          "chapter": "Forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1945,
+          "foods": 12,
+          "stage": 1,
+          "chapter": "Forest growth",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3980,
+          "foods": 30,
+          "stage": 2,
+          "chapter": "Caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8718,
+          "foods": 65,
+          "stage": 3,
+          "chapter": "Swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13750,
+          "foods": 110,
+          "stage": 4,
+          "chapter": "Endless 1",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 18150,
+          "foods": 160,
+          "stage": 5,
+          "chapter": "Endless 2",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 26790,
+          "foods": 210,
+          "stage": 6,
+          "chapter": "Endless 3",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 41862,
+          "foods": 260,
+          "stage": 7,
+          "chapter": "Endless 4",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "spawnChecks": 260,
+      "unsafeSpawn": 0,
+      "unreachableAtSpawn": 0,
+      "expansionInvalidation": 0,
+      "hazardInvalidation": 0,
+      "spawn": {
+        "last": {
+          "tick": 41862,
+          "outcome": "spawned",
+          "cell": 1980,
+          "tier": 1,
+          "reachable": 189,
+          "vacant": 4031
+        },
+        "counts": {
+          "spawned": 260,
+          "temporarily unreachable": 0,
+          "board_full": 0,
+          "generator_error": 0
+        },
+        "tiers": [
+          0,
+          260,
+          0,
+          0,
+          0
+        ],
+        "pendingSince": null
+      },
+      "hash": "518e64dc",
+      "replayHash": "518e64dc",
+      "director": {
+        "positive": 76,
+        "negative": 39,
+        "portal": 25,
+        "hazards": 0,
+        "spores": 4
+      },
+      "activePositive": 0,
+      "head": 2436
+    }
+  ]
+}

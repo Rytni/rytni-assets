@@ -1,5 +1,7 @@
 # Progressive single-run architecture — DEV / NOT balanced
 
+Reliability follow-up: [food spawn diagnosis and50-seed stress](../food-reliability/README.md). The baseline witness below is preserved historically; progressive food starvation now defers safe placement instead of ending the run. No balance constants were changed.
+
 Motion foundation: Smooth V4 `fa8c3d1`, byte-identical. Base feel B; Forest cabinet/HUD/floor and existing red mushroom retained. No publication/backend/attempts. No ImageGen or final biome/music polish.
 
 Playable URL: http://127.0.0.1:8775/arcade/snake-next/game-feel-lab.html

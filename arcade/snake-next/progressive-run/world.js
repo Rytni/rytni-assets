@@ -2,6 +2,7 @@ import {createArena} from '../entry.js';
 import {bodyCells,bodyCell,occupied} from '../simulation/body.js';
 import {STRIDE,ROWS} from './config.js';
 import {distances,manhattan} from '../tuning-lab/measure.js';
+import {foodField} from './food.js';
 
 export function topology(world,body=Array.from({length:8},(_,i)=>5*STRIDE+11-i),direction=1){
  const blocked=[],stones=new Set([...world.obstacles.map(o=>o.cell),...world.hazards.map(o=>o.cell)]);
@@ -28,6 +29,10 @@ export function hazardSafe(s,cell){
  if(s.portals.some(c=>manhattan(c,cell,STRIDE)<4)||bodyCells(s.state).some(c=>manhattan(c,cell,STRIDE)<4))return false;
  // Generous orthogonal envelope, not a one-cell passage or dead-end spawn.
  for(const n of [cell-1,cell+1,cell-STRIDE,cell+STRIDE])if(s.arena.blocked(n))return false;
+ // Never activate while the only food route is already transiently closed,
+ // nor remove its last route. If food is pending, leave a legal spawn route.
+ const currentFood=foodField(s),proposedFood=foodField(s,cell);
+ if(s.state.food>=0?(!currentFood.seen[s.state.food]||!proposedFood.seen[s.state.food]):!proposedFood.legal.length)return false;
  const occupiedCells=new Set(bodyCells(s.state).slice(1,-1)),base=distances(s.arena,bodyCell(s.state,0),occupiedCells),next=distances(s.arena,bodyCell(s.state,0),new Set([...occupiedCells,cell]));
  if(base[s.state.food]>=0&&next[s.state.food]<0)return false;
  if(Array.from(next).filter(v=>v>=0).length<Array.from(base).filter(v=>v>=0).length-1)return false;

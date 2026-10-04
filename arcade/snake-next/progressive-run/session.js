@@ -8,6 +8,7 @@ import {config,VERSION,STRIDE,ROWS,stageAt,cadence,eventPressure} from './config
 import {topology,expandWorld,installTopology} from './world.js';
 import {Director,DEFINITIONS} from './director.js';
 import {manhattan,distances} from '../tuning-lab/measure.js';
+import {FOOD_POLICY,selectFood,foodLegal} from './food.js';
 
 export class ProgressiveSession extends Session {
  constructor(options={}){
@@ -16,6 +17,7 @@ export class ProgressiveSession extends Session {
   super({...options,touch:false,arena:topology(world),rules:createRules({version:VERSION,width:STRIDE,height:ROWS,ticksPerCell:14,runwayCells:4,minFreeCells:1,obstacleBlocks:0,firstFoodAhead:4}),pacing});
   this.config=c;this.world=world;this.progressBias=initial.at;this.progress=this.foods+this.progressBias;this.stage=initial;this.director=new Director(this.state.seed);
   this.spores=[];this.announcements=[];this.transitions=[];this.devCommands=[];this.stageChanges=0;this.design={arenaPreset:'PROGRESSIVE',density:c.density};
+  this.foodSpawn={last:null,counts:{spawned:0,'temporarily unreachable':0,board_full:0,generator_error:0},tiers:[0,0,0,0,0],pendingSince:null};
   this.director.next.positive=this.director.interval(this,'positive');this.director.next.negative=this.director.interval(this,'negative');
   this.portals=[3*STRIDE+10,8*STRIDE+18];this.nextPickup={positive:Number.MAX_SAFE_INTEGER,negative:Number.MAX_SAFE_INTEGER};
   this.view={x:0,y:0,cols:28,rows:12};this.rocks=world.obstacles.map(o=>({x:o.cell%STRIDE,y:Math.floor(o.cell/STRIDE)}));
@@ -29,6 +31,21 @@ export class ProgressiveSession extends Session {
   };
  }
  forbidden(cell){return super.forbidden(cell)||(this.spores||[]).some(p=>p.cell===cell)||(this.director?.warnings||[]).some(p=>p.cell===cell);}
+ freeCell(food=false){if(!food||!this.world)return super.freeCell(food);return this.placeFoodCandidate();}
+ placeFoodCandidate(){const result=selectFood(this);this.foodSpawn.last={tick:this.tick,...result};this.foodSpawn.counts[result.outcome]++;if(result.tier)this.foodSpawn.tiers[result.tier]++;return result.cell;}
+ repairFood(){
+  if(!this.world)return super.repairFood();
+  const recoverable=this.state.status==='full'&&['no-legal-food','arena-filled'].includes(this.state.reason);
+  if(this.state.status!=='playing'&&!recoverable)return;
+  const replacement=this.foods!==this.placedFoods;
+  if(!replacement&&this.state.food>=0&&foodLegal(this,this.state.food))return;
+  this.placedFoods=this.foods;this.state.food=this.placeFoodCandidate();const result=this.foodSpawn.last;
+  if(result.outcome==='spawned'||result.outcome==='temporarily unreachable'){
+   if(recoverable){this.state.status='playing';this.state.reason=null;this.state.events=this.state.events.filter(e=>e.type!=='terminal');}
+   if(result.outcome==='temporarily unreachable'){this.foodSpawn.pendingSince??=this.tick;}
+   else this.foodSpawn.pendingSince=null;
+  }else{this.state.status=result.outcome==='board_full'?'full':'error';this.state.reason=result.outcome;}
+ }
  collect(kind,cell){const d=DEFINITIONS[kind];if(!d)return false;const existing=this.effects.find(e=>e.kind===kind);
   if(existing){existing.ends=this.tick+d.duration;existing.charges=d.charge?1:undefined;}
   else {if(this.effects.filter(e=>DEFINITIONS[e.kind].positive===d.positive).length>=(d.positive?2:1))return false;this.effects.push({kind,ends:this.tick+d.duration,...(d.charge?{charges:1}:{})});}
@@ -44,7 +61,7 @@ export class ProgressiveSession extends Session {
   this.state.movePhase=-1;return true;
  }
  advance(commands=[]){
-  const oldStatus=this.status,oldStage=this.stage.index,previousScore=this.score,previousLength=this.state.length;
+  const oldStatus=this.status,oldStage=this.stage.index,previousScore=this.score,previousLength=this.state.length,previousMoves=this.moves,previousRevision=this.world.revision;
   const dev=this.devCommands.filter(c=>c.tick===this.tick+1);for(const c of dev)this.progressBias=Math.max(this.progressBias,c.progress-this.foods);
   this.progress=this.progressBias+this.foods;
   if(this.effects.some(e=>e.kind==='anchor'&&e.ends>this.tick+1)&&this.combo>0)this.lastFood++;
@@ -66,10 +83,15 @@ export class ProgressiveSession extends Session {
    this.announcements.push({tick:this.tick,text:next.index===1?'ЛЕС РАСШИРЯЕТСЯ':next.chapter.toUpperCase()+' · ×'+next.multiplier.toFixed(2)});this.emit('expansion',head,{stage:next.index,width:this.world.width,height:this.world.height});
   }
   this.director.step(this);this.announcements=this.announcements.filter(a=>this.tick-a.tick<150);
+  // Deferred starvation is not death. Retry on canonical movement/topology
+  // change; never place in an unreachable component or add a separate timer.
+  if(this.status==='playing'&&this.state.food<0&&this.foodSpawn.last?.tick!==this.tick&&(this.moves!==previousMoves||this.world.revision!==previousRevision)){
+   this.repairFood();if(this.state.status!=='playing'){this.status='dying';this.emit('death',head,{reason:this.state.reason});}
+  }
   if(this.status!=='playing'){if(this.world.hazards.length){this.world.hazards=[];installTopology(this);}this.director.warnings=[];this.spores=[];}
   // No idle score or progression; only seed/spore/portal-prize awards above.
  }
  portalAvailable(){return !this.director?false:this.tick<this.director.windowEnd;}
- hash(){return hashText(JSON.stringify({version:VERSION,base:super.hash(),config:this.config,progress:this.progress,progressBias:this.progressBias,world:this.world,director:this.director.snapshot(),spores:this.spores,devCommands:this.devCommands,stage:this.stage.index})).toString(16).padStart(8,'0');}
- progressionSummary(){return {version:VERSION,progress:this.progress,foods:this.foods,stage:this.stage,world:[this.world.width,this.world.height],pressure:eventPressure(this.progress,this.config),speed:60/this.cadence(),multiplier:this.stage.multiplier,director:this.director.snapshot(),hazards:this.world.hazards.length,warning:this.director.warnings.length,preview:this.config.startStage>0||this.devCommands.length>0};}
+ hash(){return hashText(JSON.stringify({version:VERSION,foodPolicy:FOOD_POLICY,base:super.hash(),config:this.config,progress:this.progress,progressBias:this.progressBias,world:this.world,director:this.director.snapshot(),spores:this.spores,devCommands:this.devCommands,stage:this.stage.index})).toString(16).padStart(8,'0');}
+ progressionSummary(){return {version:VERSION,progress:this.progress,foods:this.foods,stage:this.stage,world:[this.world.width,this.world.height],pressure:eventPressure(this.progress,this.config),speed:60/this.cadence(),multiplier:this.stage.multiplier,director:this.director.snapshot(),foodSpawn:this.foodSpawn,hazards:this.world.hazards.length,warning:this.director.warnings.length,preview:this.config.startStage>0||this.devCommands.length>0};}
 }

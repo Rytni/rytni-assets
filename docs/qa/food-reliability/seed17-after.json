@@ -1,0 +1,46 @@
+{
+  "seed": 17,
+  "tick": 54000,
+  "foods": 134,
+  "length": 142,
+  "status": "playing",
+  "reason": null,
+  "episodes": [
+    {
+      "started": 17340,
+      "foods": 132,
+      "head": 3273,
+      "ended": 17348,
+      "food": 3498,
+      "tier": 2,
+      "legal": true,
+      "reachable": true
+    }
+  ],
+  "spawn": {
+    "last": {
+      "tick": 17388,
+      "outcome": "spawned",
+      "cell": 3385,
+      "tier": 2,
+      "reachable": 1,
+      "vacant": 2807
+    },
+    "counts": {
+      "spawned": 134,
+      "temporarily unreachable": 1,
+      "board_full": 0,
+      "generator_error": 0
+    },
+    "tiers": [
+      0,
+      129,
+      5,
+      0,
+      0
+    ],
+    "pendingSince": null
+  },
+  "hash": "7a30cc60",
+  "matchesStressHash": true
+}
