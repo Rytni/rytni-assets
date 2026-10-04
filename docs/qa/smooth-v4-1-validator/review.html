@@ -1,0 +1,29 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
+<title>V4.1 — validate the validator</title>
+<style>body{margin:20px;background:#10251f;color:#f5e9cc;font:16px/1.5 system-ui}h1{font-size:24px}h2{font-size:18px}a{color:#f5cd79}.row{display:flex;gap:20px;overflow:auto;max-width:100%;align-items:flex-start}figure{margin:0;flex:none}img{display:block;max-width:none;image-rendering:pixelated}p{max-width:980px}table{border-collapse:collapse}td,th{padding:7px 14px;border:1px solid #486052;text-align:left}.legend span{padding:2px 8px}.info{min-height:48px;font:13px monospace}</style>
+<h1>V4.1 — FALSE POSITIVE · BODY-width gate</h1>
+<p>Renderer <code>edece22</code> не изменён. Exact U: α=2/11, sample=(903.472727,306), d=2.213636. До головы по canonical body-distance: 26.8909 px. Прежние 45 px состоят из <strong>36 local BODY + 9 leading CAP</strong>, а не из 45 px локальной толщины.</p>
+<p class="legend"><span style="color:#cf91ed">Purple: centerline</span><span style="color:#62d9ed">Cyan: sampled primitive/tangent</span><span style="color:#e7d153">Yellow: normal</span><span>White: sample point</span></p>
+<h2 id="old">1. Old validator — все 45 пикселей красные</h2>
+<div class="row"><figure><figcaption>1× runtime</figcaption><img src="old-validator.png" width="204" height="204" alt="Old scan 45px with centerline normal tangent"></figure><figure><figcaption>4× nearest neighbour</figcaption><img src="old-validator-4x.png" width="816" height="816" alt="Old scan enlarged four times"></figure></div>
+<h2 id="corrected">2. Corrected validator — A=36, B=0, C=9</h2>
+<p class="legend"><span style="color:#64ff95">A green: intended local section</span><span style="color:#60b7ff">B blue: other body branch (none here)</span><span style="color:#ff86ed">C pink: leading cap</span></p>
+<div class="row"><figure><figcaption>1× runtime</figcaption><img class="inspect" src="corrected-validator.png" width="204" height="204" alt="36 local pixels plus 9 cap pixels"></figure><figure><figcaption>4× nearest neighbour</figcaption><img class="inspect" src="corrected-validator-4x.png" width="816" height="816" alt="Local and cap ownership enlarged"></figure></div>
+<p class="info" id="info">Наведите на цветную normal-scan колонку: class / retained d / nearest d. <a href="counted-pixels.csv">Все 45 пикселей и их body-distance</a>.</p>
+<h2 id="naked">3. Naked exact region — без изменения изображения</h2>
+<div class="row"><figure><figcaption>1× runtime</figcaption><img src="naked.png" width="204" height="204" alt="Exact original V4 naked crop"></figure><figure><figcaption>4× nearest neighbour</figcaption><img src="naked-4x.png" width="816" height="816" alt="Exact crop enlarged"></figure></div>
+<h2 id="table">4. Corrected geometry metrics</h2>
+<table><tr><th>Метрика</th><th>Результат</th></tr>
+<tr><td>Точное локальное сечение</td><td>36 px</td></tr><tr><td>Глобальный непрерывный span той же normal</td><td>45 px = A36 + C9</td></tr>
+<tr><td>BODY после cap-transition, 96 sampled frames</td><td>36–36 px; failures 0</td></tr>
+<tr><td>Локальная d-neighbourhood</td><td>CELL/8 = 8.5 px</td></tr><tr><td>HEAD/CAP transition domain</td><td>−24…+42 px от head endpoint; не BODY-gate</td></tr>
+<tr><td>Параллельные ветви: centerline / clearance</td><td>68 / 32 px · canonical long-leg U validation fixture</td></tr>
+<tr><td>Пиксели перекрытия nonlocal ветвей исходного tight U</td><td>0 · 12 alpha phases · ближайшие к голове 200×280 px</td></tr>
+<tr><td>Targeted validator tests</td><td>5 PASS: false-positive, real 44px defect, missing pixels, branch overlap, cap radius continuity</td></tr></table>
+<p>У исходного очень короткого U нет двух перекрывающихся прямых параллельных участков: противоположная короткая ветвь полностью округлена. Поэтому 32 px проверены на отдельном canonical U с длинными параллельными ветвями; для исходного U отдельно проверено отсутствие nonlocal pixel overlap. Соединяющий разворот не считается «другой ветвью».</p>
+<p>Option A: границы принадлежат одному local d-band; пиксели могут быть покрыты local field даже когда окончательный material owner выбран из cap. Слепое исключение всех cap-owned pixels внутри BODY создало бы ложное сужение. Полный global span сохраняется как отдельная метрика.</p>
+<p><strong>FALSE POSITIVE для BODY-width.</strong> V4 проходит этот targeted geometry gate. Это не human art approval для формы cap и не acceptance в gameplay. Нет geometry/material/head/interpolation изменений, integration, benchmark, full regression или deploy. STOP.</p>
+<script type="module">
+const q=await(await fetch('metrics.json')).json();
+for(const img of document.querySelectorAll('.inspect'))img.addEventListener('pointermove',e=>{const r=img.getBoundingClientRect(),x=(e.clientX-r.left)*204/r.width,y=(e.clientY-r.top)*204/r.height,p=q.measure.pixels.find(p=>Math.abs(p.x-800-x)<1&&Math.floor(p.y-224)===Math.floor(y));if(p)document.querySelector('#info').textContent=`${p.type} · pixel (${p.x},${p.y}) · retained d=${p.retainedD.toFixed(6)} · nearest d=${p.nearestD.toFixed(6)} · local d=${p.localD?.toFixed(6)??'outside local band'}`;});
+</script></html>
