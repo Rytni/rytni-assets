@@ -1,0 +1,194 @@
+{
+  "method": "Offline deterministic legal-input planner; natural mushrooms and thresholds, no forced expansions or food spawns; mobile replay of identical commands.",
+  "runs": [
+    {
+      "seed": 17,
+      "seconds": 289,
+      "foods": 132,
+      "length": 140,
+      "status": "dying",
+      "reason": "no-legal-food",
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": "Forest",
+          "biome": "forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1382,
+          "foods": 12,
+          "stage": "Forest growth",
+          "biome": "forest",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3557,
+          "foods": 30,
+          "stage": "Caves",
+          "biome": "caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 7607,
+          "foods": 65,
+          "stage": "Swamp",
+          "biome": "swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 13604,
+          "foods": 110,
+          "stage": "Endless 1",
+          "biome": "forest",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        }
+      ],
+      "foodErrors": 0,
+      "spawnErrors": 0,
+      "expansionInvalidations": 0,
+      "temporarilyUnreachableFrames": 3361,
+      "hash": "f4322411",
+      "replayHash": "f4322411",
+      "director": {
+        "positive": 25,
+        "negative": 14,
+        "portal": 8,
+        "hazards": 0,
+        "spores": 0
+      }
+    },
+    {
+      "seed": 56103,
+      "seconds": 755.3666666666667,
+      "foods": 260,
+      "length": 268,
+      "status": "playing",
+      "reason": null,
+      "stages": [
+        {
+          "tick": 1,
+          "foods": 0,
+          "stage": "Forest",
+          "biome": "forest",
+          "world": [
+            28,
+            12
+          ],
+          "length": 8
+        },
+        {
+          "tick": 1434,
+          "foods": 12,
+          "stage": "Forest growth",
+          "biome": "forest",
+          "world": [
+            36,
+            18
+          ],
+          "length": 20
+        },
+        {
+          "tick": 3680,
+          "foods": 30,
+          "stage": "Caves",
+          "biome": "caves",
+          "world": [
+            48,
+            24
+          ],
+          "length": 38
+        },
+        {
+          "tick": 8922,
+          "foods": 65,
+          "stage": "Swamp",
+          "biome": "swamp",
+          "world": [
+            64,
+            32
+          ],
+          "length": 73
+        },
+        {
+          "tick": 14154,
+          "foods": 110,
+          "stage": "Endless 1",
+          "biome": "forest",
+          "world": [
+            80,
+            40
+          ],
+          "length": 118
+        },
+        {
+          "tick": 22730,
+          "foods": 160,
+          "stage": "Endless 2",
+          "biome": "caves",
+          "world": [
+            88,
+            44
+          ],
+          "length": 168
+        },
+        {
+          "tick": 33530,
+          "foods": 210,
+          "stage": "Endless 3",
+          "biome": "swamp",
+          "world": [
+            96,
+            48
+          ],
+          "length": 218
+        },
+        {
+          "tick": 45322,
+          "foods": 260,
+          "stage": "Endless 4",
+          "biome": "forest",
+          "world": [
+            104,
+            52
+          ],
+          "length": 268
+        }
+      ],
+      "foodErrors": 0,
+      "spawnErrors": 0,
+      "expansionInvalidations": 0,
+      "temporarilyUnreachableFrames": 14605,
+      "hash": "b37adb8c",
+      "replayHash": "b37adb8c",
+      "director": {
+        "positive": 82,
+        "negative": 39,
+        "portal": 27,
+        "hazards": 0,
+        "spores": 7
+      }
+    }
+  ]
+}

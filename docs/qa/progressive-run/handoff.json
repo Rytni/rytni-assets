@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "mobile": false,
+      "stage": 0,
+      "world": [
+        28,
+        12
+      ],
+      "speed": 4.285714285714286,
+      "multiplier": 1
+    },
+    {
+      "mobile": false,
+      "stage": 2,
+      "world": [
+        48,
+        24
+      ],
+      "speed": 5.454545454545454,
+      "multiplier": 1.2
+    },
+    {
+      "mobile": false,
+      "stage": 3,
+      "world": [
+        64,
+        32
+      ],
+      "speed": 6.666666666666667,
+      "multiplier": 1.45
+    },
+    {
+      "mobile": false,
+      "stage": 4,
+      "world": [
+        80,
+        40
+      ],
+      "speed": 7.5,
+      "multiplier": 1.6
+    },
+    {
+      "mobile": false,
+      "modes": [
+        "SMOOTH V2",
+        "GRID SNAP",
+        "SMOOTH V4"
+      ],
+      "hashStable": true
+    },
+    {
+      "mobile": false,
+      "staticComparison": true,
+      "restoredForest": true,
+      "focusPrevention": true
+    },
+    {
+      "mobile": true,
+      "stage": 0,
+      "world": [
+        28,
+        12
+      ],
+      "speed": 4.285714285714286,
+      "multiplier": 1
+    },
+    {
+      "mobile": true,
+      "stage": 2,
+      "world": [
+        48,
+        24
+      ],
+      "speed": 5.454545454545454,
+      "multiplier": 1.2
+    },
+    {
+      "mobile": true,
+      "stage": 3,
+      "world": [
+        64,
+        32
+      ],
+      "speed": 6.666666666666667,
+      "multiplier": 1.45
+    },
+    {
+      "mobile": true,
+      "stage": 4,
+      "world": [
+        80,
+        40
+      ],
+      "speed": 7.5,
+      "multiplier": 1.6
+    },
+    {
+      "mobile": true,
+      "modes": [
+        "SMOOTH V2",
+        "GRID SNAP",
+        "SMOOTH V4"
+      ],
+      "hashStable": true
+    },
+    {
+      "mobile": true,
+      "staticComparison": true,
+      "restoredForest": true,
+      "focusPrevention": true
+    }
+  ],
+  "errors": [],
+  "network": []
+}

@@ -4,7 +4,7 @@ async page=>{
   const ctx=await browser.newContext({viewport:mobile?{width:844,height:390}:{width:1920,height:1080},hasTouch:mobile,isMobile:mobile,deviceScaleFactor:mobile?2:1}),p=await ctx.newPage();
   p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text());});p.on('requestfailed',r=>network.push(r.url()));p.on('response',r=>{if(r.status()>=400)network.push(r.status()+' '+r.url());});
   try{
-   await p.goto('http://127.0.0.1:8775/arcade/snake-next/game-feel-lab.html');await p.waitForFunction(()=>tuningLab?.game);await p.bringToFront();
+   await p.goto('http://127.0.0.1:8775/arcade/snake-next/game-feel-lab.html');await p.waitForFunction(()=>tuningLab?.game);await p.bringToFront();if(await p.locator('#run-model').count())await p.locator('#run-model').selectOption('static');
    await p.evaluate(()=>{window.pauseReasons=[];const g=tuningLab.game,pause=g.pause.bind(g);g.pause=()=>{pauseReasons.push({clock:g.clock?.status,stack:new Error().stack});pause();};});
    for(const arena of ['A','B','C'])for(const density of ['LOW','MEDIUM','HIGH']){
     await p.locator('#arena-preset').selectOption(arena);await p.waitForTimeout(150);await p.locator('#obstacle-density').selectOption(density);await p.waitForTimeout(150);

@@ -1,0 +1,928 @@
+{
+  "results": [
+    {
+      "mobile": false,
+      "stage": 0,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 0,
+        "foods": 0,
+        "stage": {
+          "at": 0,
+          "world": [
+            28,
+            12
+          ],
+          "biome": "forest",
+          "chapter": "Forest",
+          "multiplier": 1,
+          "index": 0
+        },
+        "world": [
+          28,
+          12
+        ],
+        "pressure": 0.12,
+        "speed": 4.285714285714286,
+        "multiplier": 1,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 568,
+            "negative": 1022,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": false
+      },
+      "cell": 66.46538461538461,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 7,
+          "right": 20,
+          "top": 3,
+          "bottom": 8
+        }
+      },
+      "audio": {
+        "biome": "forest",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": false,
+      "stage": 2,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 30,
+        "foods": 0,
+        "stage": {
+          "at": 30,
+          "world": [
+            48,
+            24
+          ],
+          "biome": "caves",
+          "chapter": "Caves",
+          "multiplier": 1.2,
+          "index": 2
+        },
+        "world": [
+          48,
+          24
+        ],
+        "pressure": 0.26666666666666666,
+        "speed": 5.454545454545454,
+        "multiplier": 1.2,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 528,
+            "negative": 950,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 66.46538461538461,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 7,
+          "right": 20,
+          "top": 3,
+          "bottom": 8
+        }
+      },
+      "audio": {
+        "biome": "caves",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": false,
+      "stage": 3,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 65,
+        "foods": 0,
+        "stage": {
+          "at": 65,
+          "world": [
+            64,
+            32
+          ],
+          "biome": "swamp",
+          "chapter": "Swamp",
+          "multiplier": 1.45,
+          "index": 3
+        },
+        "world": [
+          64,
+          32
+        ],
+        "pressure": 0.43777777777777777,
+        "speed": 6.666666666666667,
+        "multiplier": 1.45,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 482,
+            "negative": 737,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 66.46538461538461,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 7,
+          "right": 20,
+          "top": 3,
+          "bottom": 8
+        }
+      },
+      "audio": {
+        "biome": "swamp",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": false,
+      "stage": 4,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 110,
+        "foods": 0,
+        "stage": {
+          "index": 4,
+          "at": 110,
+          "world": [
+            80,
+            40
+          ],
+          "biome": "forest",
+          "chapter": "Endless 1",
+          "multiplier": 1.6
+        },
+        "world": [
+          80,
+          40
+        ],
+        "pressure": 0.6577777777777778,
+        "speed": 7.5,
+        "multiplier": 1.6,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 422,
+            "negative": 760,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 66.46538461538461,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 7,
+          "right": 20,
+          "top": 3,
+          "bottom": 8
+        }
+      },
+      "audio": {
+        "biome": "forest",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": false,
+      "transition": {
+        "world": [
+          48,
+          24
+        ],
+        "status": "playing",
+        "cell": 66.46538461538461,
+        "age": 2,
+        "audio": {
+          "biome": "caves",
+          "loops": 1,
+          "sources": 2
+        }
+      },
+      "settled": {
+        "clock": "running",
+        "audio": {
+          "biome": "caves",
+          "loops": 1,
+          "sources": 1
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "long": {
+        "status": "playing",
+        "clock": "running",
+        "length": 250,
+        "camera": {
+          "x": 23.625,
+          "y": 12,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          }
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "portal": {
+        "phase": "exit-grace",
+        "transfers": 1,
+        "camera": {
+          "x": 20,
+          "y": 9.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          }
+        },
+        "score": 360,
+        "slots": 2
+      }
+    },
+    {
+      "mobile": false,
+      "pause": {
+        "hash": "343f8323",
+        "alpha": 1,
+        "camera": {
+          "x": 20,
+          "y": 9.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          }
+        },
+        "audio": 0,
+        "timers": 0,
+        "raf": 0
+      },
+      "restart": {
+        "length": 8,
+        "effects": 0,
+        "hazards": 0,
+        "world": [
+          28,
+          12
+        ],
+        "starts": 8
+      }
+    },
+    {
+      "mobile": false,
+      "death": {
+        "reason": "obstacle",
+        "status": "result",
+        "raf": 0,
+        "timer": 0,
+        "audio": 0,
+        "hazards": 0
+      }
+    },
+    {
+      "mobile": true,
+      "stage": 0,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 0,
+        "foods": 0,
+        "stage": {
+          "at": 0,
+          "world": [
+            28,
+            12
+          ],
+          "biome": "forest",
+          "chapter": "Forest",
+          "multiplier": 1,
+          "index": 0
+        },
+        "world": [
+          28,
+          12
+        ],
+        "pressure": 0.12,
+        "speed": 4.285714285714286,
+        "multiplier": 1,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 568,
+            "negative": 1022,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": false
+      },
+      "cell": 30.028666264333133,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 8,
+          "right": 19,
+          "top": 4,
+          "bottom": 7
+        }
+      },
+      "audio": {
+        "biome": "forest",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": true,
+      "stage": 2,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 30,
+        "foods": 0,
+        "stage": {
+          "at": 30,
+          "world": [
+            48,
+            24
+          ],
+          "biome": "caves",
+          "chapter": "Caves",
+          "multiplier": 1.2,
+          "index": 2
+        },
+        "world": [
+          48,
+          24
+        ],
+        "pressure": 0.26666666666666666,
+        "speed": 5.454545454545454,
+        "multiplier": 1.2,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 528,
+            "negative": 950,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 30.028666264333133,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 8,
+          "right": 19,
+          "top": 4,
+          "bottom": 7
+        }
+      },
+      "audio": {
+        "biome": "caves",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": true,
+      "stage": 3,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 65,
+        "foods": 0,
+        "stage": {
+          "at": 65,
+          "world": [
+            64,
+            32
+          ],
+          "biome": "swamp",
+          "chapter": "Swamp",
+          "multiplier": 1.45,
+          "index": 3
+        },
+        "world": [
+          64,
+          32
+        ],
+        "pressure": 0.43777777777777777,
+        "speed": 6.666666666666667,
+        "multiplier": 1.45,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 482,
+            "negative": 737,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 30.028666264333133,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 8,
+          "right": 19,
+          "top": 4,
+          "bottom": 7
+        }
+      },
+      "audio": {
+        "biome": "swamp",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": true,
+      "stage": 4,
+      "summary": {
+        "version": "progressive-dev-v1",
+        "progress": 110,
+        "foods": 0,
+        "stage": {
+          "index": 4,
+          "at": 110,
+          "world": [
+            80,
+            40
+          ],
+          "biome": "forest",
+          "chapter": "Endless 1",
+          "multiplier": 1.6
+        },
+        "world": [
+          80,
+          40
+        ],
+        "pressure": 0.6577777777777778,
+        "speed": 7.5,
+        "multiplier": 1.6,
+        "director": {
+          "rng": 1297030863,
+          "next": {
+            "positive": 422,
+            "negative": 760,
+            "portal": 1800
+          },
+          "windowEnd": 0,
+          "counts": {
+            "positive": 0,
+            "negative": 0,
+            "portal": 0,
+            "hazards": 0,
+            "spores": 0
+          },
+          "warnings": [],
+          "hazardCooldown": 0
+        },
+        "hazards": 0,
+        "warning": 0,
+        "preview": true
+      },
+      "cell": 30.028666264333133,
+      "hashStable": true,
+      "status": "playing",
+      "clock": "running",
+      "mode": "SMOOTH V4",
+      "pad": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "cols": 28,
+        "rows": 12,
+        "safe": {
+          "left": 8,
+          "right": 19,
+          "top": 4,
+          "bottom": 7
+        }
+      },
+      "audio": {
+        "biome": "forest",
+        "loops": 1,
+        "sources": 1
+      }
+    },
+    {
+      "mobile": true,
+      "transition": {
+        "world": [
+          48,
+          24
+        ],
+        "status": "playing",
+        "cell": 30.028666264333133,
+        "age": 0,
+        "audio": {
+          "biome": "caves",
+          "loops": 1,
+          "sources": 2
+        }
+      },
+      "settled": {
+        "clock": "running",
+        "audio": {
+          "biome": "caves",
+          "loops": 1,
+          "sources": 1
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "long": {
+        "status": "playing",
+        "clock": "running",
+        "length": 250,
+        "camera": {
+          "x": 24.5,
+          "y": 13,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 4,
+            "bottom": 7
+          }
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "portal": {
+        "phase": "exit-grace",
+        "transfers": 1,
+        "camera": {
+          "x": 20,
+          "y": 9.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 4,
+            "bottom": 7
+          }
+        },
+        "score": 360,
+        "slots": 2
+      }
+    },
+    {
+      "mobile": true,
+      "pause": {
+        "hash": "dabf868f",
+        "alpha": 1,
+        "camera": {
+          "x": 20,
+          "y": 9.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 4,
+            "bottom": 7
+          }
+        },
+        "audio": 0,
+        "timers": 0,
+        "raf": 0
+      },
+      "restart": {
+        "length": 8,
+        "effects": 0,
+        "hazards": 0,
+        "world": [
+          28,
+          12
+        ],
+        "starts": 8
+      }
+    },
+    {
+      "mobile": true,
+      "death": {
+        "reason": "obstacle",
+        "status": "result",
+        "raf": 0,
+        "timer": 0,
+        "audio": 0,
+        "hazards": 0
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}
