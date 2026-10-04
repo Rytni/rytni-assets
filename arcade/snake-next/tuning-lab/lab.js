@@ -3,7 +3,7 @@ import {ARENAS,designSession} from './arena.js';
 import {arenaMeasurements} from './measure.js';
 import {cabinetSize} from '../forest-training/renderer.js';
 import {RibbonSprites} from '../forest-training/ribbon-sprites.js';
-import {ProgressiveSession} from '../progressive-run/session.js';
+import {TunnelSession} from '../gate-one/session.js';
 import {installProgression,progressiveEnabled,labConfig} from '../progressive-run/adapter.js';
 import {speedTarget as progressiveSpeedTarget} from '../progressive-run/config.js';
 const frame=document.querySelector('#training'),status=document.querySelector('#lab-status'),fields=document.querySelector('#fields');
@@ -23,7 +23,7 @@ function resultText(){return current.telemetry.text(current)+'\n'+current.teleme
 function archive(reason){if(current){current.telemetry.finish(current,reason);history.push(resultText());if(history.length>30)history.shift();document.querySelector('#history').replaceChildren(...history.map(v=>{const p=document.createElement('pre');p.textContent=v;return p;}));}}
 function install(){
  progressAdapter=installProgression(game);
- game.sessionFactory=options=>{archive('restart');current=progressiveEnabled()?new ProgressiveSession({...options,progression:labConfig()}):designSession(profile,{...options,arenaPreset:arenaSelect.value,density:densitySelect.value});current.startsKey=game.starts+1;progressAdapter.reset();return current;};
+ game.sessionFactory=options=>{archive('restart');current=progressiveEnabled()?new TunnelSession({...options,progression:labConfig()}):designSession(profile,{...options,arenaPreset:arenaSelect.value,density:densitySelect.value});current.startsKey=game.starts+1;progressAdapter.reset();return current;};
  // DEV dimension adaptation only. Do not modify Forest's default sizing or
  // Smooth V4 geometry. All cells/art keep the same uniform 68px-native ratio.
  const render=game.render.bind(game),resize=game.resize.bind(game);
@@ -43,6 +43,8 @@ document.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',
 document.querySelector('#expand-world').addEventListener('pointerdown',e=>e.preventDefault());
 document.querySelector('#expand-world').addEventListener('click',()=>{if(current?.world){current.forceExpansion();frame.contentWindow.focus();}else status.textContent='Select progressive run first';});
 document.querySelector('#camera-debug').addEventListener('change',()=>game?.render());
+const awareness=document.createElement('label');awareness.innerHTML='<input id="world-awareness" type="checkbox" checked> DEV world bounds / viewport / head indicator';document.querySelector('#camera-debug').parentElement.after(awareness);
+awareness.querySelector('input').addEventListener('change',()=>game?.render());
 function controlsMode(){const progressive=progressiveEnabled();for(const b of document.querySelectorAll('[data-preset]'))b.disabled=progressive&&b.dataset.preset!=='B';arenaSelect.disabled=densitySelect.disabled=progressive;document.querySelector('[aria-label="DEV Forest design"]').hidden=progressive;for(const n of fields.querySelectorAll('input'))n.disabled=progressive;}
 document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{profile=PRESETS[b.dataset.preset];fill();start();}));
 document.querySelector('#controls').addEventListener('submit',e=>e.preventDefault());
@@ -60,7 +62,7 @@ document.querySelector('#copy-results').addEventListener('click',async()=>{if(!c
 function fit(){const compact=innerHeight<=500&&innerWidth>innerHeight,portrait=innerWidth<=innerHeight,p=progressiveEnabled()?ARENAS.B:ARENAS[arenaSelect.value];frame.style.height=compact||portrait?innerHeight+'px':Math.ceil(cabinetSize(Math.round(frame.clientWidth*.98),false,p.width,p.height).h)+'px';}
 function resize(){fit();}
 fill();controlsMode();resize();window.addEventListener('resize',resize);
-const ready=setInterval(()=>{if(frame.contentWindow.forestTraining){clearInterval(ready);game=frame.contentWindow.forestTraining;originalSprites=game.renderer.smoothSprites;ribbonSprites=new RibbonSprites(game.art);game.renderer.smoothSprites=ribbonSprites;install();fit();status.textContent=proofWarning;if(queued)start();}},50);window.addEventListener('pagehide',()=>{clearInterval(ready);if(originalSprites!==game?.renderer.smoothSprites)originalSprites?.release();if(ribbonSprites!==game?.renderer.smoothSprites)ribbonSprites?.release();},{once:true});
+const ready=setInterval(()=>{if(frame.contentWindow.forestTraining){clearInterval(ready);game=frame.contentWindow.forestTraining;originalSprites=game.renderer.smoothSprites;ribbonSprites=new RibbonSprites(game.art);game.ribbonV4=ribbonSprites;game.renderer.smoothSprites=ribbonSprites;install();fit();status.textContent=proofWarning;if(queued)start();}},50);window.addEventListener('pagehide',()=>{clearInterval(ready);if(originalSprites!==game?.renderer.smoothSprites)originalSprites?.release();if(ribbonSprites!==game?.renderer.smoothSprites)ribbonSprites?.release();},{once:true});
 const timer=setInterval(update,250);window.addEventListener('pagehide',()=>{clearInterval(timer);game?.dispose();},{once:true});
 // Explicit DEV test/debug surface; no bot, autopilot or privileged gameplay path.
 window.tuningLab={get profile(){return profile;},get game(){return game;},get current(){return current;},get progression(){return current?.world?current.progressionSummary():null;},get camera(){return progressAdapter?.presentation.lastView;},get biomeAudio(){return progressAdapter?.music.summary();},get design(){return {arenaPreset:arenaSelect.value,density:densitySelect.value};},history,summary:()=>current?.telemetry.summary(current),text:()=>current&&resultText(),measurements:()=>current?.world?{...current.progressionSummary(),viewport:[28,12],backing:[current.arena.width,current.arena.height],camera:progressAdapter?.presentation.lastView}:current&&arenaMeasurements(current)};

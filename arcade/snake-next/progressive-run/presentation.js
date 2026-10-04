@@ -7,6 +7,8 @@ import {drawObject,foodKey,foodBob,drawFoodFeedback} from '../forest-training/ob
 import {bodyCells} from '../simulation/body.js';
 import {Camera} from './camera.js';
 import {DEFINITIONS} from './director.js';
+import {LookAheadCamera} from '../gate-one/camera.js';
+import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
 
 const COLORS={anchor:'#e8cf73',spores:'#eaa2d5',guard:'#72bce6',portalPrize:'#b9a0f3',weak:'#c87192',decay:'#f59d56',brambles:'#aabe65',mist:'#adbcd0'};
 const PIXELS={anchor:['..####..','.##..##.','##..#.##','#...#..#','#...##.#','##....##','.##..##.','..####..'],spores:['...##...','.######.','########','..####..','########','.######.','...##...','...##...'],guard:['.######.','########','##....##','##.##.##','.######.','..####..','...##...','........'],portalPrize:['..####..','.##..##.','##.##.##','#..##..#','#......#','##.##.##','.##..##.','..####..'],weak:['#......#','.##..##.','..####..','...##...','..####..','.##..##.','#......#','........'],decay:['########','.######.','..####..','...##...','..####..','.######.','########','........'],brambles:['#..##..#','.#.##.#.','..####..','########','..####..','.#.##.#.','#..##..#','........'],mist:['..####..','.######.','########','########','.######.','........','##..##..','..##..##']};
@@ -21,7 +23,8 @@ export class ProgressPresentation {
  board(biome){if(this.tiles.has(biome))return this.tiles.get(biome);const tiles=this.art.board.map(im=>{const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const ctx=c.getContext('2d');ctx.drawImage(im,0,0);if(biome!=='forest'){const data=ctx.getImageData(0,0,c.width,c.height);for(let i=0;i<data.data.length;i+=4){const [r,g,b]=data.data.slice(i,i+3);if(biome==='caves'){data.data[i]=Math.round(g*.43);data.data[i+1]=Math.round(g*.65);data.data[i+2]=Math.round(g*.9);}else{data.data[i]=Math.round(g*.47);data.data[i+1]=Math.round(g*.77);data.data[i+2]=Math.round(b*.6);}}ctx.putImageData(data,0,0);}return c;});this.tiles.set(biome,tiles);return tiles;}
  render(renderer,s,options,debug=false){
   if(this.session!==s.state.seed+':'+s.startsKey){this.reset();this.session=s.state.seed+':'+s.startsKey;}
-  const frame=options.motion||{head:{x:bodyCells(s.state)[0]%s.arena.width,y:Math.floor(bodyCells(s.state)[0]/s.arena.width)},alpha:1};
+  if(s.portalEdges&&!(this.camera instanceof LookAheadCamera))this.camera=new LookAheadCamera();
+  const frame=options.motion||{head:{x:bodyCells(s.state)[0]%s.arena.width,y:Math.floor(bodyCells(s.state)[0]/s.arena.width),dx:[0,1,0,-1][s.state.direction],dy:[-1,0,1,0][s.state.direction]},alpha:1};
   const view=this.camera.update(frame,s,options.touch),l=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),{field,arena,cell}=l;
   this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';ctx.fillRect(0,0,l.w,l.h);
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});
@@ -33,10 +36,11 @@ export class ProgressPresentation {
    const px=Math.round(left),py=Math.round(top),pw=Math.round(left+cell)-px,ph=Math.round(top+cell)-py;
    ctx.drawImage(oldTiles[index],px,py,pw,ph);if(blend>0){ctx.globalAlpha=blend;ctx.drawImage(tiles[index],px,py,pw,ph);ctx.globalAlpha=1;}
   }
+  if(s.portalEdges)drawEnvironment(ctx,s,view,l,frame,document.querySelector('#world-awareness')?.checked);
   for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);if(o.kind==='crystal'){ctx.fillStyle='#a4c9ec';ctx.fillRect(p.x-2,p.y-cell*.25,4,cell*.4);}else if(o.kind==='root'||o.kind==='stump'){ctx.fillStyle=o.kind==='root'?'#567c35':'#755c30';ctx.fillRect(p.x-cell*.15,p.y-cell*.25,cell*.3,cell*.4);}}
   for(const w of s.director.warnings){const p=at(w.cell);ctx.strokeStyle='#d3b070';ctx.lineWidth=2;ctx.strokeRect(p.x-cell*.3,p.y-cell*.3,cell*.6,cell*.6);symbol(ctx,'brambles',p.x,p.y,cell*.25);}
   for(const o of s.world.hazards){const p=at(o.cell);symbol(ctx,'brambles',p.x,p.y,cell*.65);}
-  for(const c of s.portals)if(['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawObject(ctx,this.art,'portal',p.x,p.y,cell);}
+  for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawObject(ctx,this.art,'portal',p.x,p.y,cell);}
   if(s.state.food>=0){const p=at(s.state.food);drawObject(ctx,this.art,foodKey(s.effects,s.tick),p.x,p.y+foodBob(s.tick,cell),cell);}
   for(const p of s.pickups){const xy=at(p.cell);if(PIXELS[p.kind])symbol(ctx,p.kind,xy.x,xy.y,cell*.65);else{drawObject(ctx,this.art,DEFINITIONS[p.kind].positive?'positive':'negative',xy.x,xy.y,cell);if(p.kind==='harvest')pixelText(ctx,'×2',xy.x,xy.y+cell*.2,1,'#fff0bd','center');}}
   for(const p of s.spores){const xy=at(p.cell);ctx.fillStyle='#eacd7d';ctx.fillRect(xy.x-2,xy.y-2,4,4);ctx.fillStyle='#fff4c8';ctx.fillRect(xy.x,xy.y,2,2);}
@@ -45,7 +49,8 @@ export class ProgressPresentation {
   if(options.motion)renderer.smoothSprites.draw(ctx,options.motion,cell,field.x,field.y,view,field);
   else drawSnake(ctx,this.art,bodyCells(s.state).map(c=>({x:c%s.arena.width-view.x,y:Math.floor(c/s.arena.width)-view.y})),cell,field.x,field.y,s.moves,field);
   ctx.globalAlpha=1;
-  for(const fx of s.feedback){const age=(s.tick-fx.tick)/60,p=at(fx.cell);if(fx.kind==='seed')drawFoodFeedback(ctx,this.art,fx,age,p,cell);else if(age<.35){ctx.strokeStyle=COLORS[fx.effect]||'#e8d38c';ctx.lineWidth=2;ctx.strokeRect(p.x-cell*(.2+age),p.y-cell*(.2+age),cell*(.4+age*2),cell*(.4+age*2));}}
+  if(s.portalEdges)drawPortalActivity(ctx,s,at,cell,frame);
+  for(const fx of s.feedback){if(s.portalEdges&&['portal','expansion'].includes(fx.kind))continue;const age=(s.tick-fx.tick)/60,p=at(fx.cell);if(fx.kind==='seed')drawFoodFeedback(ctx,this.art,fx,age,p,cell);else if(age<.35){ctx.strokeStyle=COLORS[fx.effect]||'#e8d38c';ctx.lineWidth=2;ctx.strokeRect(p.x-cell*(.2+age),p.y-cell*(.2+age),cell*(.4+age*2),cell*(.4+age*2));}}
   if(s.effects.some(e=>e.kind==='mist')){ctx.fillStyle='#bbcbbd';ctx.globalAlpha=.12;ctx.fillRect(arena.x,arena.y,arena.w,cell*.6);ctx.fillRect(arena.x,arena.y+arena.h-cell*.6,arena.w,cell*.6);ctx.globalAlpha=1;}
   if(debug){ctx.strokeStyle='#e7be75';ctx.lineWidth=1;ctx.strokeRect(field.x+(view.safe.left+.5)*cell,field.y+(view.safe.top+.5)*cell,(view.safe.right-view.safe.left)*cell,(view.safe.bottom-view.safe.top)*cell);}
   const banner=s.announcements.at(-1);if(banner){const x=arena.x+arena.w/2,y=arena.y+cell*.4,scale=Math.max(1,Math.floor(cell/28));ctx.fillStyle='#06221de8';ctx.fillRect(x-Math.min(arena.w*.45,250),y-10*scale,Math.min(arena.w*.9,500),20*scale);pixelText(ctx,banner.text,Math.round(x),Math.round(y-4*scale),scale,'#ead290','center');}

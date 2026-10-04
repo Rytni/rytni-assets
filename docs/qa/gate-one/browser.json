@@ -1,0 +1,471 @@
+{
+  "checks": 18,
+  "results": [
+    {
+      "mobile": false,
+      "start": {
+        "status": "playing",
+        "clock": "running",
+        "motion": "TunnelMotion",
+        "mode": "SMOOTH V4",
+        "pad": [
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          }
+        ],
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 10,
+            "right": 15,
+            "top": 4,
+            "bottom": 5
+          }
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "live": {
+        "status": "playing",
+        "length": 30,
+        "edge": {
+          "move": 1,
+          "entry": 462,
+          "exit": 803,
+          "incoming": 1,
+          "outgoing": 1,
+          "complete": false,
+          "tick": 16
+        },
+        "head": {
+          "x": 20.03814285704068,
+          "y": 7,
+          "dx": 1,
+          "dy": 0
+        },
+        "spans": 2,
+        "hashReadStable": true,
+        "phase": "cooldown",
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 19.03814285704068,
+            "right": 5.961857142959321,
+            "top": 6,
+            "bottom": 3
+          }
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "parity": [
+        {
+          "mode": "SMOOTH V2",
+          "hash": "c8d51323",
+          "same": true
+        },
+        {
+          "mode": "GRID SNAP",
+          "hash": "c8d51323",
+          "same": true
+        },
+        {
+          "mode": "SMOOTH V4",
+          "hash": "c8d51323",
+          "same": true
+        }
+      ]
+    },
+    {
+      "mobile": false,
+      "resumed": {
+        "status": "playing",
+        "edges": 1,
+        "clock": "running"
+      }
+    },
+    {
+      "mobile": false,
+      "expansion": {
+        "world": [
+          36,
+          18
+        ],
+        "opening": {
+          "tick": 2,
+          "from": {
+            "width": 28,
+            "height": 12,
+            "biome": "forest"
+          },
+          "to": {
+            "width": 36,
+            "height": 18,
+            "biome": "forest"
+          },
+          "duration": 60
+        },
+        "age": 16,
+        "status": "playing",
+        "moves": 1,
+        "camera": {
+          "x": 1.9091098897185386,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 10.34700000005109,
+            "right": 22.65299999994891,
+            "top": 4,
+            "bottom": 11
+          }
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "settled": {
+        "age": 94,
+        "status": "playing"
+      }
+    },
+    {
+      "mobile": false,
+      "long": {
+        "status": "playing",
+        "moves": 4,
+        "running": true,
+        "length": 250,
+        "edges": 1,
+        "spans": 2,
+        "clock": "paused",
+        "camera": {
+          "x": 45.26609522410167,
+          "y": 6.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 54.05375,
+            "right": 22.94625,
+            "top": 11,
+            "bottom": 26
+          }
+        }
+      }
+    },
+    {
+      "mobile": false,
+      "clean": {
+        "edges": 0,
+        "openings": 0,
+        "length": 8,
+        "queue": 0
+      }
+    },
+    {
+      "mobile": false,
+      "death": {
+        "reason": "obstacle",
+        "status": "result",
+        "raf": 0,
+        "timer": 0,
+        "hazards": 0
+      }
+    },
+    {
+      "mobile": true,
+      "start": {
+        "status": "playing",
+        "clock": "running",
+        "motion": "TunnelMotion",
+        "mode": "SMOOTH V4",
+        "pad": [
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          }
+        ],
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 10,
+            "right": 15,
+            "top": 4,
+            "bottom": 5
+          }
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "live": {
+        "status": "playing",
+        "length": 30,
+        "edge": {
+          "move": 1,
+          "entry": 462,
+          "exit": 803,
+          "incoming": 1,
+          "outgoing": 1,
+          "complete": false,
+          "tick": 18
+        },
+        "head": {
+          "x": 20.071428571428573,
+          "y": 7,
+          "dx": 1,
+          "dy": 0
+        },
+        "spans": 2,
+        "hashReadStable": true,
+        "phase": "cooldown",
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 19.071428571428573,
+            "right": 5.928571428571427,
+            "top": 6,
+            "bottom": 3
+          }
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "parity": [
+        {
+          "mode": "SMOOTH V2",
+          "hash": "649e2fea",
+          "same": true
+        },
+        {
+          "mode": "GRID SNAP",
+          "hash": "649e2fea",
+          "same": true
+        },
+        {
+          "mode": "SMOOTH V4",
+          "hash": "649e2fea",
+          "same": true
+        }
+      ]
+    },
+    {
+      "mobile": true,
+      "resumed": {
+        "status": "playing",
+        "edges": 1,
+        "clock": "running"
+      }
+    },
+    {
+      "mobile": true,
+      "expansion": {
+        "world": [
+          36,
+          18
+        ],
+        "opening": {
+          "tick": 2,
+          "from": {
+            "width": 28,
+            "height": 12,
+            "biome": "forest"
+          },
+          "to": {
+            "width": 36,
+            "height": 18,
+            "biome": "forest"
+          },
+          "duration": 60
+        },
+        "age": 16,
+        "status": "playing",
+        "moves": 1,
+        "camera": {
+          "x": 1.891928644936109,
+          "y": 0,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 10.328142857296125,
+            "right": 22.671857142703875,
+            "top": 4,
+            "bottom": 11
+          }
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "settled": {
+        "age": 83,
+        "status": "playing"
+      }
+    },
+    {
+      "mobile": true,
+      "long": {
+        "status": "playing",
+        "moves": 4,
+        "running": true,
+        "length": 250,
+        "edges": 1,
+        "spans": 2,
+        "clock": "paused",
+        "camera": {
+          "x": 45.26544945779532,
+          "y": 6.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "lookAhead": {
+            "dx": 1,
+            "dy": 0
+          },
+          "wallDistance": {
+            "left": 54.048500000089405,
+            "right": 22.951499999910595,
+            "top": 11,
+            "bottom": 26
+          }
+        }
+      }
+    },
+    {
+      "mobile": true,
+      "clean": {
+        "edges": 0,
+        "openings": 0,
+        "length": 8,
+        "queue": 0
+      }
+    },
+    {
+      "mobile": true,
+      "death": {
+        "reason": "obstacle",
+        "status": "result",
+        "raf": 0,
+        "timer": 0,
+        "hazards": 0
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}

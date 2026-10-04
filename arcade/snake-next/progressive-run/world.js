@@ -3,14 +3,26 @@ import {bodyCells,bodyCell,occupied} from '../simulation/body.js';
 import {STRIDE,ROWS} from './config.js';
 import {distances,manhattan} from '../tuning-lab/measure.js';
 import {foodField} from './food.js';
+import {DX,DY} from '../simulation/rules.js';
 
-export function topology(world,body=Array.from({length:8},(_,i)=>5*STRIDE+11-i),direction=1){
+export function topology(world,body=Array.from({length:8},(_,i)=>5*STRIDE+11-i),direction=1,links=[]){
  const blocked=[],stones=new Set([...world.obstacles.map(o=>o.cell),...world.hazards.map(o=>o.cell)]);
  for(let y=0;y<ROWS;y++)for(let x=0;x<STRIDE;x++){const c=y*STRIDE+x;if(x<1||y<1||x>=world.width-1||y>=world.height-1||stones.has(c))blocked.push(c);}
- return createArena({width:STRIDE,height:ROWS,blockedCells:blocked,initialBody:body,initialDirection:direction,runwayCells:0,theme:world.biome});
+ const cuts=body.some((c,i)=>i&&Math.abs(c%STRIDE-body[i-1]%STRIDE)+Math.abs(Math.floor(c/STRIDE)-Math.floor(body[i-1]/STRIDE))!==1);
+ if(cuts){
+  const seen=new Set(),mask=new Set(blocked);
+  body.forEach((c,i)=>{
+   if(!Number.isInteger(c)||c<0||c>=STRIDE*ROWS||mask.has(c)||seen.has(c))throw Error('Invalid tunnel body');seen.add(c);
+   if(i&&Math.abs(c%STRIDE-body[i-1]%STRIDE)+Math.abs(Math.floor(c/STRIDE)-Math.floor(body[i-1]/STRIDE))!==1&&!links.some(e=>e.index===i&&e.newer===body[i-1]&&e.older===c))throw Error('Unmarked body discontinuity');
+  });
+ }
+ // Terrain connectedness remains fully validated by createArena. The actual
+ // ring is retained; a portal-spanning ring is not an initial spawn path.
+ return createArena({width:STRIDE,height:ROWS,blockedCells:blocked,initialBody:cuts?[body[0]]:body,initialDirection:direction,runwayCells:0,theme:world.biome});
 }
+function linksFor(s){return (s.portalEdges||[]).map(e=>({index:s.moves-e.move+1,newer:e.exit,older:e.entry-DX[e.incoming]-DY[e.incoming]*STRIDE}));}
 export function installTopology(s){
- const arena=topology(s.world,bodyCells(s.state),s.state.direction);s.arena=arena;s.state.arenaHash=arena.topologyHash;
+ const arena=topology(s.world,bodyCells(s.state),s.state.direction,linksFor(s));s.arena=arena;s.state.arenaHash=arena.topologyHash;
  s.rocks=s.world.obstacles.map(o=>({x:o.cell%STRIDE,y:Math.floor(o.cell/STRIDE)}));s.world.revision++;
 }
 export function expandWorld(s,stage){
@@ -36,6 +48,6 @@ export function hazardSafe(s,cell){
  const occupiedCells=new Set(bodyCells(s.state).slice(1,-1)),base=distances(s.arena,bodyCell(s.state,0),occupiedCells),next=distances(s.arena,bodyCell(s.state,0),new Set([...occupiedCells,cell]));
  if(base[s.state.food]>=0&&next[s.state.food]<0)return false;
  if(Array.from(next).filter(v=>v>=0).length<Array.from(base).filter(v=>v>=0).length-1)return false;
- try{topology({...s.world,hazards:[...s.world.hazards,{cell}]},bodyCells(s.state),s.state.direction);}catch{return false;}
+ try{topology({...s.world,hazards:[...s.world.hazards,{cell}]},bodyCells(s.state),s.state.direction,linksFor(s));}catch{return false;}
  return true;
 }
