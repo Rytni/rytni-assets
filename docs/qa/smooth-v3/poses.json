@@ -1,0 +1,205 @@
+{
+  "reviewOnly": true,
+  "cell": 68,
+  "body": 36,
+  "headTransverseWidth": 42,
+  "canvas": {
+    "width": 160,
+    "height": 160
+  },
+  "rearJoinDistance": 1.65,
+  "frames": [
+    {
+      "phase": 0,
+      "alpha": 0,
+      "angleDegrees": 0,
+      "file": "front-00.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 48
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 1,
+      "alpha": 0.09090909090909091,
+      "angleDegrees": 0,
+      "file": "front-01.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 54.18181818181818
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 2,
+      "alpha": 0.18181818181818182,
+      "angleDegrees": -6,
+      "file": "front-02.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 60.36363636363636
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 3,
+      "alpha": 0.2727272727272727,
+      "angleDegrees": -15,
+      "file": "front-03.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 66.54545454545455
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 4,
+      "alpha": 0.36363636363636365,
+      "angleDegrees": -27,
+      "file": "front-04.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 72.72727272727272
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 5,
+      "alpha": 0.45454545454545453,
+      "angleDegrees": -39,
+      "file": "front-05.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 78.9090909090909
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 6,
+      "alpha": 0.5454545454545454,
+      "angleDegrees": -51,
+      "file": "front-06.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 85.0909090909091
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 7,
+      "alpha": 0.6363636363636364,
+      "angleDegrees": -63,
+      "file": "front-07.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 91.27272727272728
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 8,
+      "alpha": 0.7272727272727273,
+      "angleDegrees": -75,
+      "file": "front-08.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 97.45454545454545
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 9,
+      "alpha": 0.8181818181818182,
+      "angleDegrees": -84,
+      "file": "front-09.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 103.63636363636364
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 10,
+      "alpha": 0.9090909090909091,
+      "angleDegrees": -90,
+      "file": "front-10.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 109.81818181818181
+      },
+      "connector": 36,
+      "components": 1
+    },
+    {
+      "phase": 11,
+      "alpha": 1,
+      "angleDegrees": -90,
+      "file": "front-11.png",
+      "pivot": {
+        "x": 96,
+        "y": 48
+      },
+      "join": {
+        "x": 51.800000000000004,
+        "y": 116
+      },
+      "connector": 36,
+      "components": 1
+    }
+  ]
+}

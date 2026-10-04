@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smooth V3 — front character pose gate</title>
+<style>
+body{margin:24px;background:#10251f;color:#f5e9cc;font:16px/1.5 system-ui,sans-serif}
+h1{font-size:24px}h2{font-size:18px;margin-top:24px}p{max-width:850px}
+.native{overflow:auto;max-width:100%;background:#072a23;border:1px solid #486052}
+img{display:block;max-width:none;image-rendering:pixelated}
+.phases{display:flex;width:1920px}.phases span{width:160px;flex:none;text-align:center;font:12px monospace;padding:8px 0}
+</style>
+<h1>Smooth V3 · HEAD + NECK · sprite review ONLY</h1>
+<p>RIGHT → UP, один канонический 12-кадровый front module. Материал и лицо взяты из V5.6. Поворот подготовлен офлайн в native pixel frames; runtime-вращения нет. В gameplay ничего не подключено.</p>
+<p>Cell 68 px · BODY 36 px · исходная поперечная ширина головы 42 px · canvas каждого кадра 160×160. В полосах центр головы выровнен для сравнения поз, а шея учитывает текущую canonical alpha. Обычное перемещение головы здесь не демонстрируется.</p>
+<h2>1. Native RIGHT → UP · transparency · 100%</h2>
+<div class="native"><img src="turn-native.png" alt="12 transparent native front poses"><div class="phases"><span>0 / α0.000</span><span>1 / α0.091</span><span>2 / α0.182</span><span>3 / α0.273</span><span>4 / α0.364</span><span>5 / α0.455</span><span>6 / α0.545</span><span>7 / α0.636</span><span>8 / α0.727</span><span>9 / α0.818</span><span>10 / α0.909</span><span>11 / α1.000</span></div></div>
+<h2>2. Та же полоса · checkerboard · 100%</h2>
+<div class="native"><img src="turn-checker.png" alt="The same 12 native poses on checkerboard"></div>
+<h2>3. Кадр 6 · HEAD + NECK · nearest-neighbour ×4</h2>
+<div class="native"><img src="turn-4x.png" alt="Middle pose enlarged four times"></div>
+<h2>4. Симулированный composite · обычное тело → front module · 100%</h2>
+<div class="native"><img src="body-composite.png" alt="Ordinary V5.6 body material joined to middle front pose"></div>
+<p>Изображения не shrink-to-fit: длинные полосы прокручиваются. Это статический sprite gate, не доказательство качества в движении. STOP для human approval до интеграции.</p>
+</html>
