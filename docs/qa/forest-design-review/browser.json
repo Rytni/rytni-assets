@@ -1,0 +1,798 @@
+{
+  "results": [
+    {
+      "mobile": false,
+      "arena": "A",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "A",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 78.55,
+      "bodyScreenPx": 41.58529411764705,
+      "headScreenPx": 41.58529411764705,
+      "rootHeight": 961.84375,
+      "cabinetHeight": 961.8499999999999,
+      "embeddedUnused": -0.0062499999999090505,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · LOW\nTraversable 197 · vacant now 189 · run average 189.00 · stones 1 (0.5%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.17s · max gap 0.17s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "A",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "A",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 78.55,
+      "bodyScreenPx": 41.58529411764705,
+      "headScreenPx": 41.58529411764705,
+      "rootHeight": 961.84375,
+      "cabinetHeight": 961.8499999999999,
+      "embeddedUnused": -0.0062499999999090505,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · MEDIUM\nTraversable 195 · vacant now 187 · run average 187.00 · stones 3 (1.5%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.17s · max gap 0.17s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "A",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "A",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 78.55,
+      "bodyScreenPx": 41.58529411764705,
+      "headScreenPx": 41.58529411764705,
+      "rootHeight": 961.84375,
+      "cabinetHeight": 961.8499999999999,
+      "embeddedUnused": -0.0062499999999090505,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · HIGH\nTraversable 192 · vacant now 184 · run average 184.00 · stones 6 (3.0%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.18s · max gap 0.18s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "B",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "B",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 66.46538461538461,
+      "bodyScreenPx": 35.18755656108597,
+      "headScreenPx": 35.18755656108597,
+      "rootHeight": 919.546875,
+      "cabinetHeight": 919.553846153846,
+      "embeddedUnused": -0.0069711538460524025,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · LOW\nTraversable 259 · vacant now 251 · run average 251.00 · stones 1 (0.4%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.18s · max gap 0.18s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "B",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "B",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 66.46538461538461,
+      "bodyScreenPx": 35.18755656108597,
+      "headScreenPx": 35.18755656108597,
+      "rootHeight": 919.546875,
+      "cabinetHeight": 919.553846153846,
+      "embeddedUnused": -0.0069711538460524025,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · MEDIUM\nTraversable 257 · vacant now 249 · run average 249.00 · stones 3 (1.2%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.17s · max gap 0.17s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "B",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "B",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 66.46538461538461,
+      "bodyScreenPx": 35.18755656108597,
+      "headScreenPx": 35.18755656108597,
+      "rootHeight": 919.546875,
+      "cabinetHeight": 919.553846153846,
+      "embeddedUnused": -0.0069711538460524025,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · HIGH\nTraversable 254 · vacant now 246 · run average 246.00 · stones 6 (2.3%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.15s · max gap 0.15s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "C",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "C",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 54.003125,
+      "bodyScreenPx": 28.589889705882353,
+      "headScreenPx": 28.589889705882353,
+      "rootHeight": 902.9375,
+      "cabinetHeight": 902.9374999999999,
+      "embeddedUnused": 1.1368683772161603e-13,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · LOW\nTraversable 383 · vacant now 375 · run average 375.00 · stones 1 (0.3%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.17s · max gap 0.17s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "C",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "C",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 54.003125,
+      "bodyScreenPx": 28.589889705882353,
+      "headScreenPx": 28.589889705882353,
+      "rootHeight": 902.9375,
+      "cabinetHeight": 902.9374999999999,
+      "embeddedUnused": 1.1368683772161603e-13,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · MEDIUM\nTraversable 381 · vacant now 373 · run average 373.00 · stones 3 (0.8%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.17s · max gap 0.17s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": false,
+      "arena": "C",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "C",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 54.003125,
+      "bodyScreenPx": 28.589889705882353,
+      "headScreenPx": 28.589889705882353,
+      "rootHeight": 902.9375,
+      "cabinetHeight": 902.9374999999999,
+      "embeddedUnused": 1.1368683772161603e-13,
+      "padInside": false,
+      "buttons": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · HIGH\nTraversable 378 · vacant now 370 · run average 370.00 · stones 6 (1.6%) · pad 0 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.15s · max gap 0.15s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "A",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "A",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 33.83078874307556,
+      "bodyScreenPx": 17.910417569863533,
+      "headScreenPx": 17.910417569863533,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · LOW\nTraversable 182 · vacant now 174 · run average 174.00 · stones 1 (0.5%) · pad 15 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.48s · max gap 0.48s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "A",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "A",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 33.83078874307556,
+      "bodyScreenPx": 17.910417569863533,
+      "headScreenPx": 17.910417569863533,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · MEDIUM\nTraversable 180 · vacant now 172 · run average 172.00 · stones 3 (1.5%) · pad 15 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.48s · max gap 0.48s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "A",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "A",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 24,
+      "height": 11,
+      "cell": 33.83078874307556,
+      "bodyScreenPx": 17.910417569863533,
+      "headScreenPx": 17.910417569863533,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 133,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena A · 24×11 logical / 22×9 interior · HIGH\nTraversable 177 · vacant now 169 · run average 169.00 · stones 6 (3.0%) · pad 15 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.43s · max gap 0.43s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "B",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "B",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 30.028666264333133,
+      "bodyScreenPx": 15.8975291987646,
+      "headScreenPx": 15.8975291987646,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · LOW\nTraversable 239 · vacant now 231 · run average 231.00 · stones 1 (0.4%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.42s · max gap 0.42s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "B",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "B",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 30.028666264333133,
+      "bodyScreenPx": 15.8975291987646,
+      "headScreenPx": 15.8975291987646,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · MEDIUM\nTraversable 237 · vacant now 229 · run average 229.00 · stones 3 (1.2%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.42s · max gap 0.42s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "B",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "B",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 28,
+      "height": 12,
+      "cell": 30.028666264333133,
+      "bodyScreenPx": 15.8975291987646,
+      "headScreenPx": 15.8975291987646,
+      "rootHeight": 390,
+      "cabinetHeight": 390,
+      "embeddedUnused": 0,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 155,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena B · 28×12 logical / 26×10 interior · HIGH\nTraversable 234 · vacant now 226 · run average 226.00 · stones 6 (2.3%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.45s · max gap 0.45s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "C",
+      "density": "LOW",
+      "design": {
+        "arenaPreset": "C",
+        "density": "LOW"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 24.87715531055701,
+      "bodyScreenPx": 13.1702586938243,
+      "headScreenPx": 13.1702586938243,
+      "rootHeight": 390,
+      "cabinetHeight": 389.99999999999994,
+      "embeddedUnused": 5.684341886080802e-14,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · LOW\nTraversable 363 · vacant now 355 · run average 355.00 · stones 1 (0.3%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.43s · max gap 0.43s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "C",
+      "density": "MEDIUM",
+      "design": {
+        "arenaPreset": "C",
+        "density": "MEDIUM"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 24.87715531055701,
+      "bodyScreenPx": 13.1702586938243,
+      "headScreenPx": 13.1702586938243,
+      "rootHeight": 390,
+      "cabinetHeight": 389.99999999999994,
+      "embeddedUnused": 5.684341886080802e-14,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · MEDIUM\nTraversable 361 · vacant now 353 · run average 353.00 · stones 3 (0.8%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.23s · max gap 0.23s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    },
+    {
+      "mobile": true,
+      "arena": "C",
+      "density": "HIGH",
+      "design": {
+        "arenaPreset": "C",
+        "density": "HIGH"
+      },
+      "balance": "B",
+      "mode": "SMOOTH V4",
+      "status": "playing",
+      "clock": "running",
+      "width": 34,
+      "height": 14,
+      "cell": 24.87715531055701,
+      "bodyScreenPx": 13.1702586938243,
+      "headScreenPx": 13.1702586938243,
+      "rootHeight": 390,
+      "cabinetHeight": 389.99999999999994,
+      "embeddedUnused": 5.684341886080802e-14,
+      "padInside": true,
+      "buttons": [
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        },
+        {
+          "w": 44,
+          "h": 44
+        }
+      ],
+      "food": 221,
+      "portals": 2,
+      "hashReadsPreserved": true,
+      "telemetry": "Arena C · 34×14 logical / 32×12 interior · HIGH\nTraversable 358 · vacant now 350 · run average 350.00 · stones 6 (1.6%) · pad 20 cells\nMushroom: spawn 4 Manhattan / 4 terrain cells · mean 4.00 · food gap —s · trip — cells · 0.00/min\nSince last mushroom 0.37s · max gap 0.37s · preference fallbacks 0\nBonus mean spawn distance — · stone approaches 0 · event-quiet gaps >8s 0 (0s max; proxy, not proof of no choice)"
+    }
+  ],
+  "errors": [],
+  "network": []
+}
