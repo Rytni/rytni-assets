@@ -1,0 +1,24 @@
+{
+  "result": [
+    {
+      "mobile": false,
+      "exactPauseResume": true,
+      "snapToggle": true,
+      "status": "playing",
+      "moves": 13,
+      "foods": 1,
+      "recoveries": 0
+    },
+    {
+      "mobile": true,
+      "exactPauseResume": true,
+      "snapToggle": true,
+      "status": "playing",
+      "moves": 13,
+      "foods": 1,
+      "recoveries": 0
+    }
+  ],
+  "errors": [],
+  "failed": []
+}
