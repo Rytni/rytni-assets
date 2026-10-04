@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "length": 8,
+      "hashFailures": 0,
+      "ticks": 150,
+      "recoveries": 0,
+      "status": "playing",
+      "foods": 1,
+      "hash": "20ba0a1f"
+    },
+    {
+      "length": 30,
+      "hashFailures": 0,
+      "ticks": 150,
+      "recoveries": 0,
+      "status": "playing",
+      "foods": 1,
+      "hash": "695d5add"
+    },
+    {
+      "length": 250,
+      "hashFailures": 0,
+      "ticks": 150,
+      "recoveries": 0,
+      "status": "playing",
+      "foods": 1,
+      "hash": "4a46a74c"
+    }
+  ],
+  "errors": []
+}

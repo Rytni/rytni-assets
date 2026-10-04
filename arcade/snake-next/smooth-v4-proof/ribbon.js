@@ -87,3 +87,6 @@ export function raster(frame,w,h,sources){
  for(const p of overlays[dir]){const x=Math.floor(sweep.hx+p.x),y=Math.floor(sweep.hy+p.y),n=y*w+x;if(x>=0&&y>=0&&x<w&&y<h&&mask[n])data.set([...p.color,255],n*4);}
  return {data,mask,fields,sweep,w,h};
 }
+// Read-only integration hooks. Geometry, palette, overlays and proof raster
+// remain unchanged; the live adapter can reuse these without duplicating art.
+export {material};

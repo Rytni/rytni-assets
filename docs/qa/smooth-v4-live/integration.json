@@ -1,0 +1,194 @@
+{
+  "results": [
+    {
+      "mobile": false,
+      "input": {
+        "status": "playing",
+        "clock": "running",
+        "direction": 0,
+        "mode": "SMOOTH V4",
+        "renderer": "RibbonSprites"
+      },
+      "pauseResume": true,
+      "restart": {
+        "length": 8,
+        "moved": false,
+        "frozen": 1
+      },
+      "cases": {
+        "turnDirections": [
+          {
+            "rotation": 0,
+            "mirror": 0,
+            "outgoing": 0
+          },
+          {
+            "rotation": 1,
+            "mirror": 0,
+            "outgoing": 1
+          },
+          {
+            "rotation": 2,
+            "mirror": 0,
+            "outgoing": 2
+          },
+          {
+            "rotation": 3,
+            "mirror": 0,
+            "outgoing": 3
+          },
+          {
+            "rotation": 0,
+            "mirror": 1,
+            "outgoing": 0
+          },
+          {
+            "rotation": 1,
+            "mirror": 1,
+            "outgoing": 1
+          },
+          {
+            "rotation": 2,
+            "mirror": 1,
+            "outgoing": 2
+          },
+          {
+            "rotation": 3,
+            "mirror": 1,
+            "outgoing": 3
+          }
+        ],
+        "shapes": [
+          "straight",
+          "U",
+          "S",
+          "alternating",
+          "growth"
+        ],
+        "samples": 1933,
+        "widthMin": 36,
+        "widthMax": 36,
+        "widthFailures": 0,
+        "hashFailures": 0,
+        "lengths": [
+          8,
+          30,
+          250
+        ],
+        "portal": {
+          "transfers": 1,
+          "atomic": true,
+          "phases": [
+            "armed",
+            "entering",
+            "teleport",
+            "exit-grace",
+            "cooldown"
+          ]
+        },
+        "growth": true
+      },
+      "modeHashes": [
+        "d3b4631a",
+        "d3b4631a",
+        "d3b4631a"
+      ]
+    },
+    {
+      "mobile": true,
+      "input": {
+        "status": "playing",
+        "clock": "running",
+        "direction": 0,
+        "mode": "SMOOTH V4",
+        "renderer": "RibbonSprites"
+      },
+      "pauseResume": true,
+      "restart": {
+        "length": 8,
+        "moved": false,
+        "frozen": 1
+      },
+      "cases": {
+        "turnDirections": [
+          {
+            "rotation": 0,
+            "mirror": 0,
+            "outgoing": 0
+          },
+          {
+            "rotation": 1,
+            "mirror": 0,
+            "outgoing": 1
+          },
+          {
+            "rotation": 2,
+            "mirror": 0,
+            "outgoing": 2
+          },
+          {
+            "rotation": 3,
+            "mirror": 0,
+            "outgoing": 3
+          },
+          {
+            "rotation": 0,
+            "mirror": 1,
+            "outgoing": 0
+          },
+          {
+            "rotation": 1,
+            "mirror": 1,
+            "outgoing": 1
+          },
+          {
+            "rotation": 2,
+            "mirror": 1,
+            "outgoing": 2
+          },
+          {
+            "rotation": 3,
+            "mirror": 1,
+            "outgoing": 3
+          }
+        ],
+        "shapes": [
+          "straight",
+          "U",
+          "S",
+          "alternating",
+          "growth"
+        ],
+        "samples": 1933,
+        "widthMin": 36,
+        "widthMax": 36,
+        "widthFailures": 0,
+        "hashFailures": 0,
+        "lengths": [
+          8,
+          30,
+          250
+        ],
+        "portal": {
+          "transfers": 1,
+          "atomic": true,
+          "phases": [
+            "armed",
+            "entering",
+            "teleport",
+            "exit-grace",
+            "cooldown"
+          ]
+        },
+        "growth": true
+      },
+      "modeHashes": [
+        "5018a383",
+        "5018a383",
+        "5018a383"
+      ]
+    }
+  ],
+  "errors": [],
+  "network": []
+}

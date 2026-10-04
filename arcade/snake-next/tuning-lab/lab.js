@@ -1,20 +1,18 @@
 import {PRESETS,validateProfile,targetSpeed,profileCadence} from './config.js';
 import {labSession} from './session.js';
 import {cabinetSize} from '../forest-training/renderer.js';
+import {RibbonSprites} from '../forest-training/ribbon-sprites.js';
 const frame=document.querySelector('#training'),status=document.querySelector('#lab-status'),fields=document.querySelector('#fields');
 const labels={startSpeed:'Start speed · cells/s',maxSpeed:'Max base speed · cells/s',acceleration:'Acceleration · cells/s per second',grace:'Calm start · seconds',foodMin:'Food preferred min · Manhattan cells',foodMax:'Food preferred max · Manhattan cells',positiveInterval:'Positive interval · seconds',negativeInterval:'Negative interval · seconds',portalFirst:'First portal window · seconds',portalInterval:'Portal window interval · seconds',portalWindow:'Portal visible window · seconds',portalCooldown:'Portal cooldown · seconds',comboTimeout:'Combo timeout · seconds',comboStep:'Combo reward step'};
 for(const [key,label] of Object.entries(labels)){const l=document.createElement('label');l.textContent=label;const n=document.createElement('input');n.id='cfg-'+key;n.type='number';n.step=['startSpeed','maxSpeed','acceleration','comboStep'].includes(key)?'0.001':'1';l.append(n);fields.append(l);}
 let profile=PRESETS.B,game=null,current=null,queued=false;const history=[];
 const motionToggle=document.querySelector('#motion-toggle');
-const turnAtlasProof=new URLSearchParams(location.search).has('turnAtlas');
-let motionMode=0,originalSprites=null,atlasSprites=null;
-const socketProof=new URLSearchParams(location.search).has('socketProof');
-const fixedSocketProof=new URLSearchParams(location.search).has('fixedSocketProof');
-const smoothLabel=turnAtlasProof?'SMOOTH V2.3':fixedSocketProof?'SMOOTH V2.2':socketProof?'SMOOTH V2.1':'SMOOTH V2';
-const proofWarning=turnAtlasProof?'V2.3 turn atlas — DEV diagnostic, human visual review required.':fixedSocketProof?'V2.2 DIAGNOSTIC / QA FAIL: initial turn silhouette jump, oblique neck section below 35px. Not approved.':socketProof?'V2.1 PROTOTYPE / QA FAIL: tight U socket envelope 42px':'';
-motionToggle.textContent=smoothLabel;
+let motionMode=0,originalSprites=null,ribbonSprites=null;
+const motionLabels=['SMOOTH V4','SMOOTH V2','GRID SNAP'];
+const proofWarning='SMOOTH V4 — DEV integration; awaiting human play review.';
+motionToggle.textContent=motionLabels[motionMode];
 motionToggle.addEventListener('pointerdown',e=>e.preventDefault()); // keep iframe focus: no accidental pause
-motionToggle.addEventListener('click',()=>{if(!game)return;if(turnAtlasProof){motionMode=(motionMode+1)%3;game.smooth=motionMode!==2;game.renderer.smoothSprites=motionMode===0?atlasSprites:originalSprites;motionToggle.textContent=['SMOOTH V2.3','SMOOTH V2','GRID SNAP'][motionMode];}else{game.smooth=!game.smooth;motionToggle.textContent=game.smooth?smoothLabel:'GRID SNAP';}motionToggle.setAttribute('aria-pressed',String(game.smooth));game.render();frame.contentWindow.focus();});
+motionToggle.addEventListener('click',()=>{if(!game)return;motionMode=(motionMode+1)%3;game.smooth=motionMode!==2;game.renderer.smoothSprites=motionMode===0?ribbonSprites:originalSprites;motionToggle.textContent=motionLabels[motionMode];motionToggle.setAttribute('aria-pressed',String(game.smooth));game.render();frame.contentWindow.focus();});
 function fill(){for(const key of Object.keys(labels))document.querySelector('#cfg-'+key).value=profile[key];document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.preset===profile.id)));}
 function archive(reason){if(current){current.telemetry.finish(current,reason);history.push(current.telemetry.text(current));if(history.length>30)history.shift();document.querySelector('#history').replaceChildren(...history.map(v=>{const p=document.createElement('pre');p.textContent=v;return p;}));}}
 function install(){game.sessionFactory=options=>{archive(current&&current.telemetry.profile.id!==profile.id?'preset-change':current&&JSON.stringify(current.telemetry.profile)!==JSON.stringify(profile)?'config-change':'restart');current=labSession(profile,options);return current;};}
@@ -29,7 +27,7 @@ document.querySelector('#copy-results').addEventListener('click',async()=>{if(!c
 function fit(){const compact=innerHeight<=500&&innerWidth>innerHeight,portrait=innerWidth<=innerHeight;frame.style.height=compact||portrait?innerHeight+'px':Math.ceil(cabinetSize(Math.round(frame.clientWidth*.98),false).h)+'px';}
 function resize(){fit();}
 fill();resize();window.addEventListener('resize',resize);
-const ready=setInterval(async()=>{if(frame.contentWindow.forestTraining){clearInterval(ready);const candidate=frame.contentWindow.forestTraining;if(turnAtlasProof){const {TurnAtlasSprites}=await import('../forest-training/turn-atlas-sprites.js');originalSprites=candidate.renderer.smoothSprites;atlasSprites=new TurnAtlasSprites(candidate.art);candidate.renderer.smoothSprites=atlasSprites;}else if(fixedSocketProof){const {FixedSocketSprites}=await import('../forest-training/fixed-socket-sprites.js');candidate.renderer.smoothSprites.release();candidate.renderer.smoothSprites=new FixedSocketSprites(candidate.art);}else if(socketProof){const {SocketPrototypeSprites}=await import('../forest-training/socket-prototype-sprites.js');candidate.renderer.smoothSprites.release();candidate.renderer.smoothSprites=new SocketPrototypeSprites(candidate.art);}game=candidate;install();fit();status.textContent=proofWarning||'Готово — выберите A / B / C. При смене preset старый run сохранится ниже.';if(queued)start();}},50);window.addEventListener('pagehide',()=>{clearInterval(ready);if(originalSprites!==game?.renderer.smoothSprites)originalSprites?.release();if(atlasSprites!==game?.renderer.smoothSprites)atlasSprites?.release();},{once:true});
+const ready=setInterval(()=>{if(frame.contentWindow.forestTraining){clearInterval(ready);game=frame.contentWindow.forestTraining;originalSprites=game.renderer.smoothSprites;ribbonSprites=new RibbonSprites(game.art);game.renderer.smoothSprites=ribbonSprites;install();fit();status.textContent=proofWarning;if(queued)start();}},50);window.addEventListener('pagehide',()=>{clearInterval(ready);if(originalSprites!==game?.renderer.smoothSprites)originalSprites?.release();if(ribbonSprites!==game?.renderer.smoothSprites)ribbonSprites?.release();},{once:true});
 const timer=setInterval(update,250);window.addEventListener('pagehide',()=>{clearInterval(timer);game?.dispose();},{once:true});
 // Explicit DEV test/debug surface; no bot, autopilot or privileged gameplay path.
 window.tuningLab={get profile(){return profile;},get game(){return game;},get current(){return current;},history,summary:()=>current?.telemetry.summary(current),text:()=>current?.telemetry.text(current)};
