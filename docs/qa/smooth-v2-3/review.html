@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smooth V2.3 — native socket review</title>
+<style>
+body{margin:24px;background:#10251f;color:#f5e9cc;font:16px/1.5 system-ui,sans-serif}
+a{color:#f8ce70}h1{font-size:24px}h2{font-size:18px;margin-top:28px}
+.native{overflow:auto;border:1px solid #486052;max-width:100%;background:#072a23}
+.native img{display:block;max-width:none;image-rendering:pixelated}
+.note{max-width:900px;color:#d4d3b3}
+</style>
+<h1>SMOOTH V2.3 — диагностический visual review</h1>
+<p><a href="/arcade/snake-next/game-feel-lab.html?turnAtlas=1">Играть: SMOOTH V2.3 | SMOOTH V2 | GRID SNAP</a></p>
+<p class="note">Все изображения — 1 image pixel = 1 CSS pixel, cell 68 px. Полосы прокручиваются по горизонтали, не уменьшаются. Фаза 0 — завершённое предыдущее направление; фазы 1–15 — новый поворот. Визуального approval пока нет.</p>
+<p class="note">Сокет 36 px, offset 32 px, underlap 2 px. Растровая выборка: 216 кадров, пропусков сокета 0, измеренные открытые нормальные сечения 35–37 px; изменения RGBA головы и прямого движения 0. Максимальная Δarea 550 px² (V2: 478, gate: 766). Это выборочные проверки, не доказательство всех возможных контуров.</p>
+<h2>1. Native head-neck atlas · 16 фаз</h2>
+<div class="native"><img src="atlas-native.png" width="544" height="624" alt="16 native-scale head-neck turn phases"></div>
+<h2>2. RIGHT → UP · 16 кадров</h2>
+<div class="native"><img src="RIGHT-UP.png" width="3264" height="228" alt="Right to Up, alpha 0 through 1"></div>
+<h2>3. RIGHT → DOWN · 16 кадров</h2>
+<div class="native"><img src="RIGHT-DOWN.png" width="3264" height="228" alt="Right to Down, alpha 0 through 1"></div>
+<h2>4. Tight U · alpha 0.333</h2>
+<div class="native"><img src="tight-U.png" width="204" height="204" alt="Tight U native-scale head-neck crop"></div>
+<p class="note"><a href="REPORT.md">Метод измерения / ограничения</a> · <a href="targeted.json">Растровые результаты</a>. STOP: только human review, без публикации.</p>
+</html>
