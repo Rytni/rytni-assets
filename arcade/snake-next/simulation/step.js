@@ -4,6 +4,7 @@ import {occupied,bodyCell,moveBody} from './body.js';
 import {chooseFood} from './food.js';
 import {emit} from './state.js';
 import {movementCadence} from './difficulty.js';
+import {MOVE_UNIT} from './timing.js';
 
 /** One authoritative tick; no render timestamps.
  * @param {import('./types.js').State} state
@@ -18,7 +19,12 @@ export function step(state,arena,rules,commands=[]) {
   if(state.rulesKey!==rules.key||state.arenaHash!==arena.topologyHash)throw Error('Session configuration mismatch');
   state.tick++;
   for(const command of commands)if(enqueueTurn(state,command))emit(state,'turn-queued',{inputSequence:command.sequence,direction:command.direction});
-  if(++state.movePhase<state.cadence)return true;
+  ++state.movePhase;
+  if(state.movement){
+    state.movement.progress+=state.movement.rate;
+    if(state.movement.progress<MOVE_UNIT)return true;
+    state.movement.progress-=MOVE_UNIT;
+  }else if(state.movePhase<state.cadence)return true;
   const turning=state.turnCount>0;
   state.movePhase=0;state.direction=takeTurn(state);
   if(turning)emit(state,'turn-applied',{direction:state.direction});

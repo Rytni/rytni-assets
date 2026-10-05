@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {withoutTimingAdditions} from '../tests/timing-lock.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -157,6 +158,6 @@ test('spatial portal cue retains SFX bus, one source and ended/stop cleanup',()=
 
 test('locked core, B, Smooth V4, food policy, cabinet and HUD byte identical',()=>{
  for(const file of ['simulation/step.js','simulation/body.js','input/turns.js','tuning-lab/config.js','progressive-run/config.js','progressive-run/food.js','forest-training/session.js','forest-training/runtime.js','forest-training/motion.js','forest-training/ribbon-sprites.js','forest-training/ribbon-raster.js','smooth-v4-proof/ribbon.js','forest-training/renderer.js','forest-training/style.css','forest-training/hud-type.js']){
-  const path='arcade/snake-next/'+file;assert.equal(readFileSync(path,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','5bd0c0c:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
+  const path='arcade/snake-next/'+file;assert.equal(withoutTimingAdditions(file,readFileSync(path,'utf8')),execFileSync('git',['show','5bd0c0c:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
  }
 });

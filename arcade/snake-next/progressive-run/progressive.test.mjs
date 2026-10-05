@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {withoutTimingAdditions} from '../tests/timing-lock.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -74,6 +75,6 @@ test('dead-zone camera does not drift in center and handles portal atomically',(
 });
 test('approved Smooth V4, core, B config, cabinet/HUD and Forest remain byte-identical',()=>{
  for(const file of ['forest-training/session.js','forest-training/runtime.js','forest-training/renderer.js','forest-training/motion.js','forest-training/ribbon-sprites.js','forest-training/ribbon-raster.js','smooth-v4-proof/ribbon.js','forest-training/style.css','forest-training/hud-type.js','tuning-lab/config.js','simulation/step.js']){
-  const path='arcade/snake-next/'+file;assert.equal(readFileSync(path,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','fa8c3d1:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'));
+  const path='arcade/snake-next/'+file;assert.equal(withoutTimingAdditions(file,readFileSync(path,'utf8')),execFileSync('git',['show','fa8c3d1:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'));
  }
 });

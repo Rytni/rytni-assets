@@ -1,4 +1,5 @@
 import {PRESETS,targetSpeed} from '../tuning-lab/config.js';
+import {WORLDS} from '../effect-playground/capacity-model.js';
 
 export const VERSION='progressive-dev-v1';
 export const STRIDE=112,ROWS=56;
@@ -12,12 +13,14 @@ export const STAGES=Object.freeze([
 ]);
 export function config(input={}){
  const c={...DEFAULTS,...input,speedCaps:[...(input.speedCaps||DEFAULTS.speedCaps)],thresholds:[...(input.thresholds||DEFAULTS.thresholds)]};
+ if(c.model==='fit-world-v2'&&(c.startStage>3||![15,25,35].includes(c.freeTrigger??15)))throw Error('Invalid FIT WORLD V2 stage/trigger');
  for(const [key,lo,hi] of [['startStage',0,4],['pressure',-1,1],['positiveInterval',4,60],['negativeInterval',8,90],['portalInterval',24,120],['density',0,6]])if(!Number.isFinite(c[key])||c[key]<lo||c[key]>hi)throw Error('Invalid progressive '+key);
  if(!Number.isInteger(c.startStage)||!Number.isInteger(c.density)||c.speedCaps.length!==5||c.speedCaps.some((v,i)=>!Number.isFinite(v)||v<4.2||v>9||i&&v<c.speedCaps[i-1]))throw Error('Invalid stage/caps');
  if(c.thresholds.length!==5||c.thresholds[0]!==0||c.thresholds.some((v,i)=>!Number.isSafeInteger(v)||v<0||v>1000||i&&v<=c.thresholds[i-1])||!Number.isSafeInteger(c.endlessInterval)||c.endlessInterval<20||c.endlessInterval>200)throw Error('Invalid chapter thresholds');
  return Object.freeze({...c,speedCaps:Object.freeze(c.speedCaps),thresholds:Object.freeze(c.thresholds)});
 }
 export function stageAt(progress,c=DEFAULTS){
+ if(c.model==='fit-world-v2'){const i=Math.min(3,c.startStage);return {...STAGES[i],world:WORLDS[i],index:i};}
  const thresholds=c.thresholds;if(progress<thresholds[4]){let i=0;while(i<3&&progress>=thresholds[i+1])i++;return {...STAGES[i],at:thresholds[i],index:i};}
  const cycle=Math.floor((progress-thresholds[4])/c.endlessInterval),index=4+cycle;
  return {index,at:thresholds[4]+cycle*c.endlessInterval,world:[Math.min(STRIDE,80+cycle*8),Math.min(ROWS,40+cycle*4)],biome:['forest','caves','swamp'][cycle%3],chapter:'Endless '+(cycle+1),multiplier:Math.min(2,1.6+cycle*.08)};

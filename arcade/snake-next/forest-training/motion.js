@@ -1,5 +1,6 @@
 import {BodySnapshots} from '../presentation/path.js';
 import {bodyCell} from '../simulation/body.js';
+import {movementAlpha} from '../simulation/timing.js';
 
 /** Read-only presentation history. No prediction, input consumption or sim writes. */
 export class SnakeMotion {
@@ -22,6 +23,7 @@ export class SnakeMotion {
     if(this.frozen!==null)return this.frozen;
     if(!this.snapshots.moved)return this.alpha=1;
     const entering=['entering','teleport'].includes(session.portal.phase);
+    if(session.state.movement&&!entering)return this.alpha=Math.max(this.floor,this.alpha,movementAlpha(session.state,fraction));
     const phase=entering?session.portal.elapsed:session.state.movePhase;
     const cadence=entering?Math.min(12,session.state.cadence):session.state.cadence;
     return this.alpha=Math.max(this.floor,this.alpha,Math.min(1,Math.max(0,(phase+fraction)/cadence)));

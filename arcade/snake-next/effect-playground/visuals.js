@@ -3,6 +3,7 @@ import {drawObject,objectImage} from '../forest-training/objects.js';
 import {drawPickup,spriteURL,LABELS} from './art.js';
 import {DEFINITIONS} from '../progressive-run/director.js';
 import {drawVfx} from './vfx-art.js';
+import {drawReadable} from './readable-objects.js';
 export const DETAILS={harvest:'ГРИБЫ ×2 · 16 С',focus:'СПОКОЙНЕЕ · КОМБО ЗАМОРОЖЕНО · 15 С',spores:'СОБИРАЙ СВЕТЯЩИЕСЯ СПОРЫ',guard:'ЩИТ · 1 ЗАРЯД',portalPrize:'НАЙДИ ПОРТАЛ · БОНУС',rush:'СКОРОСТЬ ↑ · 10 С',weak:'ОЧКИ −40% · 12 С',brambles:'КОРНИ · СЛЕДИ ЗА ТРЕЩИНАМИ',mist:'ОБЗОР СУЖЕН · 10 С'};
 const has=(s,k)=>s.effects.some(e=>e.kind===k),clamp=n=>Math.max(0,Math.min(1,n));
 const corruptCache=new WeakMap();
@@ -20,8 +21,8 @@ export function drawMote(ctx,x,y,cell,tick,id=0){
 }
 export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
  const {arena}=l,t=s.tick+frame.alpha,q=cell/68,h={x:l.field.x+(frame.head.x-frame.viewX+.5)*cell,y:l.field.y+(frame.head.y-frame.viewY+.5)*cell};
- if(s.state.food>=0){const p=at(s.state.food),im=foodSprite(art,s),size=cell*.70,scale=size/Math.max(im.width,im.height);
-  ctx.drawImage(im,Math.round(p.x-im.width*scale/2),Math.round(p.y-im.height*scale/2+Math.sin(t/67)*2*q),im.width*scale,im.height*scale);
+ if(s.state.food>=0){const p=at(s.state.food),im=foodSprite(art,s);
+  drawReadable(ctx,im,has(s,'weak')?'food-corrupt':has(s,'harvest')?'food-gold':'food',p.x,p.y+Math.sin(t/67)*2*q,cell,l.compact,.70);
   if(has(s,'harvest'))drawVfx(ctx,'crown',p.x,p.y-cell*.29,Math.max(12,cell*.3),t,.9);
   if(has(s,'harvest')||has(s,'weak'))for(let i=0;i<3;i++){const a=t/70+i*2.1;drawVfx(ctx,has(s,'weak')?'mold':'glint',p.x+Math.cos(a)*cell*.32,p.y+Math.sin(a)*cell*.32,Math.max(7,cell*.16),t+i*8,.65);}
  }
@@ -68,8 +69,8 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
    ctx.drawImage(fogCloud(),Math.round(x-size/2),Math.round(y-size*.3),size,size*.6);
   }ctx.restore();ctx.globalAlpha=1;
   // Goals remain discernible beyond the clear safety radius.
-  if(s.state.food>=0){const p=at(s.state.food),im=foodSprite(art,s),scale=cell*.7/Math.max(im.width,im.height);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.8;ctx.drawImage(im,Math.round(p.x-im.width*scale/2),Math.round(p.y-im.height*scale/2+Math.sin(t/67)*2*q),im.width*scale,im.height*scale);ctx.globalAlpha=1;sparkle(ctx,p.x,p.y-cell*.27,Math.max(1,q),'#e7d9a6');}}
-  if(s.portalAvailable()||s.portalEdges.some(e=>!e.complete))for(const c of s.portals){const p=at(c);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.6;drawObject(ctx,art,'portal',p.x,p.y,cell);ctx.globalAlpha=1;}}
+  if(s.state.food>=0){const p=at(s.state.food),im=foodSprite(art,s);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.8;drawReadable(ctx,im,has(s,'weak')?'food-corrupt':has(s,'harvest')?'food-gold':'food',p.x,p.y+Math.sin(t/67)*2*q,cell,l.compact,.7);ctx.globalAlpha=1;sparkle(ctx,p.x,p.y-cell*.27,Math.max(1,q),'#e7d9a6');}}
+  if(s.portalAvailable()||s.portalEdges.some(e=>!e.complete))for(const c of s.portals){const p=at(c);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.6;drawReadable(ctx,objectImage(art,'portal'),'portal',p.x,p.y,cell,l.compact,1);ctx.globalAlpha=1;}}
  }
  // No effect pickup notice or explanatory prose in the steering area.
  const lastFood=s.feedback.findLast(f=>f.kind==='seed'&&!f.spore);if(lastFood?.maxReached&&t-lastFood.tick<60)pixelText(ctx,'MAX COMBO',Math.round(h.x),Math.round(h.y-cell*.85),Math.max(1,Math.floor(cell/32)),'#f4df8e','center');

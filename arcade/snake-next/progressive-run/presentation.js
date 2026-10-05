@@ -11,6 +11,8 @@ import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
 import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
 import {drawEffectsWorld,effectSlots} from '../effect-playground/visuals.js';
 import {fitWorldLayout} from '../effect-playground/fit-world.js';
+import {drawReadable} from '../effect-playground/readable-objects.js';
+import {objectImage} from '../forest-training/objects.js';
 
 const COLORS={anchor:'#e8cf73',spores:'#eaa2d5',guard:'#72bce6',portalPrize:'#b9a0f3',weak:'#c87192',decay:'#f59d56',brambles:'#aabe65',mist:'#adbcd0'};
 const PIXELS={anchor:['..####..','.##..##.','##..#.##','#...#..#','#...##.#','##....##','.##..##.','..####..'],spores:['...##...','.######.','########','..####..','########','.######.','...##...','...##...'],guard:['.######.','########','##....##','##.##.##','.######.','..####..','...##...','........'],portalPrize:['..####..','.##..##.','##.##.##','#..##..#','#......#','##.##.##','.##..##.','..####..'],weak:['#......#','.##..##.','..####..','...##...','..####..','.##..##.','#......#','........'],decay:['########','.######.','..####..','...##...','..####..','.######.','########','........'],brambles:['#..##..#','.#.##.#.','..####..','########','..####..','.#.##.#.','#..##..#','........'],mist:['..####..','.######.','########','########','.######.','........','##..##..','..##..##']};
@@ -49,7 +51,7 @@ export class ProgressPresentation {
   if(s.portalEdges)drawEnvironment(ctx,s,view,l,frame,document.querySelector('#world-awareness')?.checked);
   // Clean approved stone fallback until complete biome silhouettes are approved.
   for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}
-  for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawObject(ctx,this.art,'portal',p.x,p.y,cell);}
+  for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawReadable(ctx,objectImage(this.art,'portal'),'portal',p.x,p.y,cell,options.compact,1);}
   if(s.portal.phase==='entering')ctx.globalAlpha=Math.max(.18,1-s.portal.elapsed/14);if(s.portal.phase==='teleport')ctx.globalAlpha=0;if(s.portal.phase==='exit-grace')ctx.globalAlpha=Math.min(1,.5+s.portal.elapsed/16);
   if(options.status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
   const impact=s.feedback.findLast(f=>f.kind==='guard-used'),hold=impact&&s.tick-impact.tick<5;

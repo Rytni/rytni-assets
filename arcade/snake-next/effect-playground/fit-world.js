@@ -1,6 +1,6 @@
 // DEV presentation only. No simulation, head-follow, RNG or wall ownership.
 const clamp=n=>Math.max(0,Math.min(1,n));
-export function activeTime(frame,s){return s.tick+clamp((frame.alpha||0)*s.state.cadence-s.state.movePhase);}
+export function activeTime(frame,s){return s.tick+clamp(s.state.movement?((frame.alpha||0)*60_000_000-s.state.movement.progress)/s.state.movement.rate:(frame.alpha||0)*s.state.cadence-s.state.movePhase);}
 export function fitWorldLayout(base,s,frame){
  const {arena}=base,opening=s.openings?.at(-1),time=activeTime(frame,s),p=opening?clamp((time-opening.tick)/(opening.duration||60)):1,e=p*p*(3-2*p);
  const from=opening?.from||s.world,to=s.world,pad=4;

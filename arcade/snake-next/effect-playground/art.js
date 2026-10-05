@@ -1,6 +1,7 @@
 // Original, manually authored native pixel art. 28×28 logical paint cells at
 // 2 native pixels each; no reference pixels, arbitrary rotation or X/Y stretch.
 import {drawVfx} from './vfx-art.js';
+import {drawReadable} from './readable-objects.js';
 export const KINDS=['harvest','focus','spores','guard','portalPrize','rush','weak','brambles','mist'];
 export const LABELS={harvest:'УРОЖАЙ',focus:'ФОКУС',spores:'СПОРЫ',guard:'ЩИТ',portalPrize:'ПОРТАЛ+',rush:'СПЕШКА',weak:'ПОРЧА',brambles:'КОРНИ',mist:'ТУМАН'};
 export const POSITIVE=new Set(KINDS.slice(0,5));
@@ -62,6 +63,7 @@ export function paintSprite(ctx,kind,silhouette=false){
 export function sprite(kind){if(!cache.has(kind)){const c=document.createElement('canvas');c.width=c.height=56;paintSprite(c.getContext('2d'),kind);cache.set(kind,c);}return cache.get(kind);}
 export function spriteURL(kind){return sprite(kind).toDataURL();}
 export function drawPickup(ctx,kind,x,y,cell,tick,compact=false){
+ if(cell*(compact?.94:.68)<30){drawReadable(ctx,sprite(kind),kind,x,y,cell,compact,compact?.94:.68);return;}
  const positive=POSITIVE.has(kind),size=cell*(compact?.94:.68),t=tick/60;
  const bob=positive?Math.sin(t*1.7)*Math.min(2,cell*.05):Math.sin(t*13)*cell*.012;
  for(let i=0;i<2;i++)drawVfx(ctx,positive?'glint':'mold',x+(i?1:-1)*size*.4,y+Math.sin(t+i*2)*size*.2,Math.max(6,size*.22),tick+i*9,positive?.35:.25+.15*Math.sin(t*3));

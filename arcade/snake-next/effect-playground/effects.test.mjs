@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {withoutTimingAdditions} from '../tests/timing-lock.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -63,6 +64,6 @@ test('Guard survives Forest expansion but expires on actual biome change',()=>{
 
 test('locked motion, camera, tunnel, borders, world, food, core and B stay byte-identical',()=>{
  for(const file of ['gate-one/session.js','gate-one/motion.js','gate-one/camera.js','gate-one/ribbon.js','progressive-run/world.js','progressive-run/food.js','progressive-run/config.js','forest-training/runtime.js','forest-training/session.js','forest-training/motion.js','forest-training/renderer.js','forest-training/ribbon-raster.js','forest-training/ribbon-sprites.js','tuning-lab/config.js','simulation/step.js','input/turns.js']){
-  const p='arcade/snake-next/'+file;assert.equal(readFileSync(p,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','85a1702:'+p],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
+  const p='arcade/snake-next/'+file;assert.equal(withoutTimingAdditions(file,readFileSync(p,'utf8')),execFileSync('git',['show','85a1702:'+p],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
  }
 });

@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {withoutTimingAdditions} from '../tests/timing-lock.mjs';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
@@ -30,6 +31,9 @@ test('authored VFX have bounded nonempty native masks and four cache phases',()=
 });
 test('presentation contains no effect notice or obstacle type rectangles; core/effects remain byte-identical',()=>{
  const visuals=readFileSync('arcade/snake-next/effect-playground/visuals.js','utf8'),presentation=readFileSync('arcade/snake-next/progressive-run/presentation.js','utf8');assert.ok(!visuals.includes('const notice='));assert.ok(!presentation.includes("o.kind==='crystal'"));
- for(const f of ['progressive-run/session.js','progressive-run/director.js','progressive-run/config.js','progressive-run/world.js','progressive-run/food.js','gate-one/session.js','gate-one/motion.js','gate-one/camera.js','gate-one/ribbon.js','forest-training/runtime.js','forest-training/ribbon-sprites.js','forest-training/ribbon-raster.js','smooth-v4-proof/ribbon.js','tuning-lab/config.js','simulation/step.js','input/turns.js']){const p='arcade/snake-next/'+f;assert.equal(readFileSync(p,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','5ac5fd8:'+p],{encoding:'utf8'}).replace(/\r\n/g,'\n'),f);}
+ // Session's capacity/timing orchestration is explicitly unlocked in FIT V2;
+ // its collision/body/spatial and remaining mechanics locks are checked below
+ // and in fit-v2.test.mjs. Historical default session behavior remains tested.
+ for(const f of ['progressive-run/director.js','progressive-run/config.js','progressive-run/world.js','progressive-run/food.js','gate-one/session.js','gate-one/motion.js','gate-one/camera.js','gate-one/ribbon.js','forest-training/runtime.js','forest-training/ribbon-sprites.js','forest-training/ribbon-raster.js','smooth-v4-proof/ribbon.js','tuning-lab/config.js','simulation/step.js','input/turns.js']){const p='arcade/snake-next/'+f;assert.equal(withoutTimingAdditions(f,readFileSync(p,'utf8')),execFileSync('git',['show','5ac5fd8:'+p],{encoding:'utf8'}).replace(/\r\n/g,'\n'),f);}
  const css=readFileSync('arcade/snake-next/forest-training/style.css','utf8');assert.equal(css.replace(/\r\n/g,'\n'),execFileSync('git',['show','764e180:arcade/snake-next/forest-training/style.css'],{encoding:'utf8'}).replace(/\r\n/g,'\n'));
 });

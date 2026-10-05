@@ -1,0 +1,1224 @@
+{
+  "viewports": [
+    {
+      "mobile": false,
+      "sizes": [
+        {
+          "world": [
+            30,
+            12
+          ],
+          "cell": 54.72115384615384,
+          "body": 28.970022624434385,
+          "arena": {
+            "x": 76.95,
+            "y": 165.8,
+            "w": 1728.1,
+            "h": 664.6538461538461
+          },
+          "field": {
+            "x": 120.18269230769234,
+            "y": 169.8,
+            "w": 1641.6346153846152,
+            "h": 656.6538461538461
+          },
+          "capacity": {
+            "traversableCapacity": 279,
+            "snakeOccupied": 8,
+            "free": 271,
+            "freeRatio": 0.9713261648745519,
+            "trigger": 15,
+            "predictedExpansionLength": 238,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": false,
+              "footprint": 38.30480769230768,
+              "w": 38.30480769230768,
+              "h": 34.3147235576923,
+              "aspect": 1.116279069767442,
+              "uniform": 0.7980168269230767
+            },
+            {
+              "kind": "harvest",
+              "lod": false,
+              "footprint": 31.89461538461538,
+              "w": 31.894615384615378,
+              "h": 31.894615384615378,
+              "aspect": 1,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "focus",
+              "lod": false,
+              "footprint": 34.552499999999995,
+              "w": 34.552499999999995,
+              "h": 29.236730769230764,
+              "aspect": 1.1818181818181819,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "spores",
+              "lod": false,
+              "footprint": 35.8814423076923,
+              "w": 35.8814423076923,
+              "h": 34.552499999999995,
+              "aspect": 1.0384615384615385,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "guard",
+              "lod": false,
+              "footprint": 33.223557692307686,
+              "w": 26.57884615384615,
+              "h": 33.223557692307686,
+              "aspect": 0.8,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "portalPrize",
+              "lod": false,
+              "footprint": 34.552499999999995,
+              "w": 34.552499999999995,
+              "h": 31.894615384615378,
+              "aspect": 1.0833333333333335,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "rush",
+              "lod": false,
+              "footprint": 35.8814423076923,
+              "w": 35.8814423076923,
+              "h": 34.552499999999995,
+              "aspect": 1.0384615384615385,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "weak",
+              "lod": false,
+              "footprint": 35.8814423076923,
+              "w": 35.8814423076923,
+              "h": 29.236730769230764,
+              "aspect": 1.2272727272727273,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "brambles",
+              "lod": false,
+              "footprint": 35.8814423076923,
+              "w": 34.552499999999995,
+              "h": 35.8814423076923,
+              "aspect": 0.9629629629629629,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "mist",
+              "lod": false,
+              "footprint": 34.552499999999995,
+              "w": 34.552499999999995,
+              "h": 33.223557692307686,
+              "aspect": 1.04,
+              "uniform": 0.6644711538461537
+            },
+            {
+              "kind": "portal",
+              "lod": false,
+              "footprint": 54.72115384615384,
+              "w": 54.72115384615384,
+              "h": 54.72115384615384,
+              "aspect": 1,
+              "uniform": 0.42750901442307687
+            }
+          ],
+          "hash": "af0ef3fa",
+          "touchTargets": [
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            }
+          ]
+        },
+        {
+          "world": [
+            40,
+            16
+          ],
+          "cell": 41.04086538461538,
+          "body": 21.727516968325787,
+          "arena": {
+            "x": 76.95,
+            "y": 165.8,
+            "w": 1728.1,
+            "h": 664.6538461538461
+          },
+          "field": {
+            "x": 120.18269230769234,
+            "y": 169.8,
+            "w": 1641.6346153846152,
+            "h": 656.6538461538461
+          },
+          "capacity": {
+            "traversableCapacity": 529,
+            "snakeOccupied": 8,
+            "free": 521,
+            "freeRatio": 0.9848771266540642,
+            "trigger": 15,
+            "predictedExpansionLength": 450,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": false,
+              "footprint": 28.728605769230764,
+              "w": 28.72860576923076,
+              "h": 25.736042668269224,
+              "aspect": 1.1162790697674418,
+              "uniform": 0.5985126201923076
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 23.920961538461537,
+              "w": 23.920961538461537,
+              "h": 20.503681318681316,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.7086401098901098
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 25.914375,
+              "w": 25.914375,
+              "h": 12.9571875,
+              "aspect": 2,
+              "uniform": 1.6196484375
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 26.91108173076923,
+              "w": 26.91108173076923,
+              "h": 19.222201236263736,
+              "aspect": 1.4,
+              "uniform": 1.9222201236263736
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 24.917668269230766,
+              "w": 24.917668269230766,
+              "h": 20.764723557692303,
+              "aspect": 1.2000000000000002,
+              "uniform": 2.0764723557692304
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 25.914375,
+              "w": 25.914375,
+              "h": 25.914375,
+              "aspect": 1,
+              "uniform": 1.6196484375
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 26.91108173076923,
+              "w": 22.770915310650885,
+              "h": 26.911081730769226,
+              "aspect": 0.8461538461538463,
+              "uniform": 2.0700832100591713
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 26.91108173076923,
+              "w": 26.91108173076923,
+              "h": 21.14442135989011,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.9222201236263736
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 26.91108173076923,
+              "w": 26.91108173076923,
+              "h": 24.98886160714286,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.9222201236263736
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 25.914375,
+              "w": 25.914375,
+              "h": 18.510267857142857,
+              "aspect": 1.4,
+              "uniform": 1.8510267857142857
+            },
+            {
+              "kind": "portal",
+              "lod": false,
+              "footprint": 41.04086538461538,
+              "w": 41.04086538461538,
+              "h": 41.04086538461538,
+              "aspect": 1,
+              "uniform": 0.32063176081730765
+            }
+          ],
+          "hash": "12ddca5e",
+          "touchTargets": [
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            }
+          ]
+        },
+        {
+          "world": [
+            50,
+            20
+          ],
+          "cell": 32.832692307692305,
+          "body": 17.382013574660633,
+          "arena": {
+            "x": 76.95,
+            "y": 165.8,
+            "w": 1728.1,
+            "h": 664.6538461538461
+          },
+          "field": {
+            "x": 120.18269230769234,
+            "y": 169.8,
+            "w": 1641.6346153846152,
+            "h": 656.6538461538461
+          },
+          "capacity": {
+            "traversableCapacity": 857,
+            "snakeOccupied": 8,
+            "free": 849,
+            "freeRatio": 0.9906651108518086,
+            "trigger": 15,
+            "predictedExpansionLength": 729,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 22.98288461538461,
+              "w": 22.98288461538461,
+              "h": 18.057980769230763,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.6416346153846149
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 18,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.5
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 10.5,
+              "aspect": 2,
+              "uniform": 1.3125
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 21.528865384615383,
+              "w": 21.528865384615383,
+              "h": 15.377760989010987,
+              "aspect": 1.4000000000000001,
+              "uniform": 1.5377760989010987
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 17.5,
+              "aspect": 1.2,
+              "uniform": 1.75
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 21,
+              "aspect": 1,
+              "uniform": 1.3125
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 21.528865384615383,
+              "w": 18.21673224852071,
+              "h": 21.528865384615383,
+              "aspect": 0.8461538461538463,
+              "uniform": 1.6560665680473372
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 21.528865384615383,
+              "w": 21.528865384615383,
+              "h": 16.915537087912085,
+              "aspect": 1.272727272727273,
+              "uniform": 1.5377760989010987
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 21.528865384615383,
+              "w": 21.528865384615383,
+              "h": 19.99108928571428,
+              "aspect": 1.076923076923077,
+              "uniform": 1.5377760989010987
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 15,
+              "aspect": 1.4,
+              "uniform": 1.5
+            },
+            {
+              "kind": "portal",
+              "lod": false,
+              "footprint": 32.832692307692305,
+              "w": 32.832692307692305,
+              "h": 32.832692307692305,
+              "aspect": 1,
+              "uniform": 0.25650540865384613
+            }
+          ],
+          "hash": "1f6be663",
+          "touchTargets": [
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            }
+          ]
+        },
+        {
+          "world": [
+            60,
+            24
+          ],
+          "cell": 27.36057692307692,
+          "body": 14.485011312217193,
+          "arena": {
+            "x": 76.95,
+            "y": 165.8,
+            "w": 1728.1,
+            "h": 664.6538461538461
+          },
+          "field": {
+            "x": 120.18269230769234,
+            "y": 169.8,
+            "w": 1641.6346153846152,
+            "h": 656.6538461538461
+          },
+          "capacity": {
+            "traversableCapacity": 1271,
+            "snakeOccupied": 8,
+            "free": 1263,
+            "freeRatio": 0.993705743509048,
+            "trigger": 15,
+            "predictedExpansionLength": 1081,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 19.15240384615384,
+              "w": 19.15240384615384,
+              "h": 15.048317307692304,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.368028846153846
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 18,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.5
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 10.5,
+              "aspect": 2,
+              "uniform": 1.3125
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 15,
+              "aspect": 1.4,
+              "uniform": 1.5
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 17.5,
+              "aspect": 1.2,
+              "uniform": 1.75
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 21,
+              "aspect": 1,
+              "uniform": 1.3125
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 21,
+              "w": 17.76923076923077,
+              "h": 21,
+              "aspect": 0.8461538461538461,
+              "uniform": 1.6153846153846154
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 16.5,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.5
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 19.5,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.5
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 21,
+              "w": 21,
+              "h": 15,
+              "aspect": 1.4,
+              "uniform": 1.5
+            },
+            {
+              "kind": "portal",
+              "lod": true,
+              "footprint": 28,
+              "w": 28,
+              "h": 28,
+              "aspect": 1,
+              "uniform": 1.75
+            }
+          ],
+          "hash": "c8419076",
+          "touchTargets": [
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            },
+            {
+              "w": 0,
+              "h": 0
+            }
+          ],
+          "modeHashParity": true
+        }
+      ],
+      "live": {
+        "direction": 2,
+        "pausedAlpha": 0.185,
+        "alphaStable": true,
+        "hashStable": true,
+        "clock": "paused"
+      }
+    },
+    {
+      "mobile": true,
+      "sizes": [
+        {
+          "world": [
+            30,
+            12
+          ],
+          "cell": 24.357221886944277,
+          "body": 12.894999822499912,
+          "arena": {
+            "x": 31.627338563669284,
+            "y": 62.52866626433313,
+            "w": 780.7453228726614,
+            "h": 300.28666264333134
+          },
+          "field": {
+            "x": 56.641671695835825,
+            "y": 66.52866626433314,
+            "w": 730.7166566083283,
+            "h": 292.28666264333134
+          },
+          "capacity": {
+            "traversableCapacity": 279,
+            "snakeOccupied": 8,
+            "free": 271,
+            "freeRatio": 0.9713261648745519,
+            "trigger": 15,
+            "predictedExpansionLength": 238,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 17.05005532086099,
+              "w": 17.05005532086099,
+              "h": 13.39647203781935,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.2178610943472137
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 19.624961634623673,
+              "w": 19.624961634623673,
+              "h": 16.821395686820292,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.401782973901691
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 21.260375104175644,
+              "w": 21.260375104175644,
+              "h": 10.630187552087822,
+              "aspect": 2,
+              "uniform": 1.3287734440109777
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 22.07808183895163,
+              "w": 22.07808183895163,
+              "h": 15.77005845639402,
+              "aspect": 1.4000000000000001,
+              "uniform": 1.577005845639402
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 20.44266836939966,
+              "w": 20.44266836939966,
+              "h": 17.035556974499716,
+              "aspect": 1.2,
+              "uniform": 1.7035556974499715
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 21.260375104175644,
+              "w": 21.260375104175644,
+              "h": 21.260375104175644,
+              "aspect": 1,
+              "uniform": 1.3287734440109777
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 22.07808183895163,
+              "w": 18.6814538637283,
+              "h": 22.07808183895163,
+              "aspect": 0.8461538461538461,
+              "uniform": 1.6983139876116637
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 22.07808183895163,
+              "w": 22.07808183895163,
+              "h": 17.347064302033424,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.577005845639402
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 22.07808183895163,
+              "w": 22.07808183895163,
+              "h": 20.501075993312227,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.577005845639402
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 21.260375104175644,
+              "w": 21.260375104175644,
+              "h": 15.185982217268316,
+              "aspect": 1.4000000000000001,
+              "uniform": 1.5185982217268317
+            },
+            {
+              "kind": "portal",
+              "lod": true,
+              "footprint": 26,
+              "w": 26,
+              "h": 26,
+              "aspect": 1,
+              "uniform": 1.625
+            }
+          ],
+          "hash": "af0ef3fa",
+          "touchTargets": [
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            }
+          ]
+        },
+        {
+          "world": [
+            40,
+            16
+          ],
+          "cell": 18.26791641520821,
+          "body": 9.671249866874934,
+          "arena": {
+            "x": 31.627338563669284,
+            "y": 62.52866626433313,
+            "w": 780.7453228726614,
+            "h": 300.28666264333134
+          },
+          "field": {
+            "x": 56.641671695835825,
+            "y": 66.52866626433314,
+            "w": 730.7166566083283,
+            "h": 292.28666264333134
+          },
+          "capacity": {
+            "traversableCapacity": 529,
+            "snakeOccupied": 8,
+            "free": 521,
+            "freeRatio": 0.9848771266540642,
+            "trigger": 15,
+            "predictedExpansionLength": 450,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 14,
+              "w": 14,
+              "h": 11,
+              "aspect": 1.2727272727272727,
+              "uniform": 1
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 16.285714285714285,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 9.5,
+              "aspect": 2,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 15.833333333333332,
+              "aspect": 1.2000000000000002,
+              "uniform": 1.5833333333333333
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 19,
+              "aspect": 1,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 19,
+              "w": 16.076923076923077,
+              "h": 19,
+              "aspect": 0.8461538461538461,
+              "uniform": 1.4615384615384615
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 14.928571428571429,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 17.642857142857142,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "portal",
+              "lod": true,
+              "footprint": 26,
+              "w": 26,
+              "h": 26,
+              "aspect": 1,
+              "uniform": 1.625
+            }
+          ],
+          "hash": "4f6f86c9",
+          "touchTargets": [
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            }
+          ]
+        },
+        {
+          "world": [
+            50,
+            20
+          ],
+          "cell": 14.614333132166568,
+          "body": 7.736999893499948,
+          "arena": {
+            "x": 31.627338563669284,
+            "y": 62.52866626433313,
+            "w": 780.7453228726614,
+            "h": 300.28666264333134
+          },
+          "field": {
+            "x": 56.64167169583577,
+            "y": 66.52866626433314,
+            "w": 730.7166566083284,
+            "h": 292.28666264333134
+          },
+          "capacity": {
+            "traversableCapacity": 857,
+            "snakeOccupied": 8,
+            "free": 849,
+            "freeRatio": 0.9906651108518086,
+            "trigger": 15,
+            "predictedExpansionLength": 729,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 14,
+              "w": 14,
+              "h": 11,
+              "aspect": 1.2727272727272727,
+              "uniform": 1
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 16.285714285714285,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 9.5,
+              "aspect": 2,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 15.833333333333332,
+              "aspect": 1.2000000000000002,
+              "uniform": 1.5833333333333333
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 19,
+              "aspect": 1,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 19,
+              "w": 16.076923076923077,
+              "h": 19,
+              "aspect": 0.8461538461538461,
+              "uniform": 1.4615384615384615
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 14.928571428571429,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 17.642857142857142,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "portal",
+              "lod": true,
+              "footprint": 26,
+              "w": 26,
+              "h": 26,
+              "aspect": 1,
+              "uniform": 1.625
+            }
+          ],
+          "hash": "1f6be663",
+          "touchTargets": [
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            }
+          ]
+        },
+        {
+          "world": [
+            60,
+            24
+          ],
+          "cell": 12.178610943472139,
+          "body": 6.447499911249956,
+          "arena": {
+            "x": 31.627338563669284,
+            "y": 62.52866626433313,
+            "w": 780.7453228726614,
+            "h": 300.28666264333134
+          },
+          "field": {
+            "x": 56.641671695835825,
+            "y": 66.52866626433314,
+            "w": 730.7166566083283,
+            "h": 292.28666264333134
+          },
+          "capacity": {
+            "traversableCapacity": 1271,
+            "snakeOccupied": 8,
+            "free": 1263,
+            "freeRatio": 0.993705743509048,
+            "trigger": 15,
+            "predictedExpansionLength": 1081,
+            "shouldExpand": false
+          },
+          "objects": [
+            {
+              "kind": "food",
+              "lod": true,
+              "footprint": 14,
+              "w": 14,
+              "h": 11,
+              "aspect": 1.2727272727272727,
+              "uniform": 1
+            },
+            {
+              "kind": "harvest",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 16.285714285714285,
+              "aspect": 1.1666666666666667,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "focus",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 9.5,
+              "aspect": 2,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "spores",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "guard",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 15.833333333333332,
+              "aspect": 1.2000000000000002,
+              "uniform": 1.5833333333333333
+            },
+            {
+              "kind": "portalPrize",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 19,
+              "aspect": 1,
+              "uniform": 1.1875
+            },
+            {
+              "kind": "rush",
+              "lod": true,
+              "footprint": 19,
+              "w": 16.076923076923077,
+              "h": 19,
+              "aspect": 0.8461538461538461,
+              "uniform": 1.4615384615384615
+            },
+            {
+              "kind": "weak",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 14.928571428571429,
+              "aspect": 1.2727272727272727,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "brambles",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 17.642857142857142,
+              "aspect": 1.0769230769230769,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "mist",
+              "lod": true,
+              "footprint": 19,
+              "w": 19,
+              "h": 13.571428571428573,
+              "aspect": 1.4,
+              "uniform": 1.3571428571428572
+            },
+            {
+              "kind": "portal",
+              "lod": true,
+              "footprint": 26,
+              "w": 26,
+              "h": 26,
+              "aspect": 1,
+              "uniform": 1.625
+            }
+          ],
+          "hash": "c8419076",
+          "touchTargets": [
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            },
+            {
+              "w": 48,
+              "h": 48
+            }
+          ],
+          "modeHashParity": true
+        }
+      ],
+      "live": {
+        "direction": 2,
+        "pausedAlpha": 0.3678933331449825,
+        "alphaStable": true,
+        "hashStable": true,
+        "clock": "paused"
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}

@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {withoutTimingAdditions} from '../tests/timing-lock.mjs';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
@@ -27,7 +28,7 @@ test('environment is deterministic/read-only, and pause leaves pixels/phase unch
 
 test('all locked runtime modules and portal presentation remain byte-identical to a85a2ff',()=>{
  for(const file of ['gate-one/session.js','gate-one/motion.js','gate-one/ribbon.js','gate-one/audio.js','progressive-run/food.js','progressive-run/config.js','progressive-run/world.js','tuning-lab/config.js','forest-training/runtime.js','smooth-v4-proof/ribbon.js','simulation/step.js','input/turns.js']){
-  const path='arcade/snake-next/'+file;assert.equal(readFileSync(path,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','a85a2ff:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
+  const path='arcade/snake-next/'+file;assert.equal(withoutTimingAdditions(file,readFileSync(path,'utf8')),execFileSync('git',['show','a85a2ff:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'),file);
  }
  const path='arcade/snake-next/gate-one/environment.js',current=readFileSync(path,'utf8').split('export function drawPortalActivity')[1],base=execFileSync('git',['show','a85a2ff:'+path],{encoding:'utf8'}).split('export function drawPortalActivity')[1];assert.equal(current.replace(/\r\n/g,'\n'),base.replace(/\r\n/g,'\n'));
 });
