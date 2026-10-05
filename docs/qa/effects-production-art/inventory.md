@@ -1,0 +1,44 @@
+# Exact created delivery PNGs
+
+Root: `grib/mushroom-snake-effects-v1/assets/`
+
+- `effects/harvest-field.png` — 64×64 RGBA
+- `effects/harvest-lod.png` — 24×24 RGBA
+- `effects/harvest-hud.png` — 32×32 RGBA
+- `effects/harvest-idle.png` — 256×64 RGBA
+- `effects/focus-field.png` — 64×64 RGBA
+- `effects/focus-lod.png` — 24×24 RGBA
+- `effects/focus-hud.png` — 32×32 RGBA
+- `effects/focus-idle.png` — 256×64 RGBA
+- `effects/spores-field.png` — 64×64 RGBA
+- `effects/spores-lod.png` — 24×24 RGBA
+- `effects/spores-hud.png` — 32×32 RGBA
+- `effects/spores-idle.png` — 256×64 RGBA
+- `effects/guard-field.png` — 64×64 RGBA
+- `effects/guard-lod.png` — 24×24 RGBA
+- `effects/guard-hud.png` — 32×32 RGBA
+- `effects/guard-idle.png` — 256×64 RGBA
+- `effects/portal-plus-field.png` — 64×64 RGBA
+- `effects/portal-plus-lod.png` — 24×24 RGBA
+- `effects/portal-plus-hud.png` — 32×32 RGBA
+- `effects/portal-plus-idle.png` — 256×64 RGBA
+- `effects/rush-field.png` — 64×64 RGBA
+- `effects/rush-lod.png` — 24×24 RGBA
+- `effects/rush-hud.png` — 32×32 RGBA
+- `effects/rush-idle.png` — 256×64 RGBA
+- `effects/corruption-field.png` — 64×64 RGBA
+- `effects/corruption-lod.png` — 24×24 RGBA
+- `effects/corruption-hud.png` — 32×32 RGBA
+- `effects/corruption-idle.png` — 256×64 RGBA
+- `effects/roots-field.png` — 64×64 RGBA
+- `effects/roots-lod.png` — 24×24 RGBA
+- `effects/roots-hud.png` — 32×32 RGBA
+- `effects/roots-idle.png` — 256×64 RGBA
+- `effects/mist-field.png` — 64×64 RGBA
+- `effects/mist-lod.png` — 24×24 RGBA
+- `effects/mist-hud.png` — 32×32 RGBA
+- `effects/mist-idle.png` — 256×64 RGBA
+- `food/golden-field.png` — 48×48 RGBA
+- `food/golden-lod.png` — 24×24 RGBA
+- `food/corrupted-field.png` — 48×48 RGBA
+- `food/corrupted-lod.png` — 24×24 RGBA

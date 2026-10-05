@@ -1,0 +1,325 @@
+{
+  "status": "PASS — isolated art review only",
+  "desktop": {
+    "metrics": {
+      "world": {
+        "width": 30,
+        "height": 12
+      },
+      "cells": {
+        "desktop": 60.17082917082917,
+        "mobile": 24.998321678321673
+      },
+      "objects": [
+        {
+          "name": "harvest",
+          "field": {
+            "x": 8,
+            "y": 4,
+            "w": 48,
+            "h": 56
+          },
+          "desktop": {
+            "w": 30.68712287712288,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "focus",
+          "field": {
+            "x": 5,
+            "y": 13,
+            "w": 54,
+            "h": 37
+          },
+          "desktop": {
+            "w": 34.52301323676324,
+            "h": 23.65465721778222,
+            "footprint": 34.52301323676324,
+            "lod": false
+          },
+          "mobile": {
+            "w": 19.826793881118878,
+            "h": 16.852774798951046,
+            "footprint": 19.826793881118878,
+            "lod": true
+          }
+        },
+        {
+          "name": "spores",
+          "field": {
+            "x": 7,
+            "y": 4,
+            "w": 50,
+            "h": 56
+          },
+          "desktop": {
+            "w": 31.965752997003,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "guard",
+          "field": {
+            "x": 9,
+            "y": 4,
+            "w": 46,
+            "h": 56
+          },
+          "desktop": {
+            "w": 29.408492757242758,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 19.533063601398595,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "portal-plus",
+          "field": {
+            "x": 4,
+            "y": 4,
+            "w": 56,
+            "h": 56
+          },
+          "desktop": {
+            "w": 35.80164335664336,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "rush",
+          "field": {
+            "x": 8,
+            "y": 4,
+            "w": 47,
+            "h": 56
+          },
+          "desktop": {
+            "w": 30.047807817182818,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 19.533063601398595,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "corruption",
+          "field": {
+            "x": 4,
+            "y": 4,
+            "w": 55,
+            "h": 56
+          },
+          "desktop": {
+            "w": 35.1623282967033,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 18.505007622377615,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "roots",
+          "field": {
+            "x": 4,
+            "y": 6,
+            "w": 56,
+            "h": 52
+          },
+          "desktop": {
+            "w": 35.80164335664336,
+            "h": 33.24438311688312,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        },
+        {
+          "name": "mist",
+          "field": {
+            "x": 8,
+            "y": 4,
+            "w": 48,
+            "h": 56
+          },
+          "desktop": {
+            "w": 30.68712287712288,
+            "h": 35.80164335664336,
+            "footprint": 35.80164335664336,
+            "lod": false
+          },
+          "mobile": {
+            "w": 20.56111958041957,
+            "h": 20.56111958041957,
+            "footprint": 20.561119580419575,
+            "lod": true
+          }
+        }
+      ]
+    },
+    "rows": 9,
+    "previews": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "images": true,
+    "idle": [
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      },
+      {
+        "width": 64,
+        "height": 64,
+        "state": "running"
+      },
+      {
+        "width": 256,
+        "height": 256,
+        "state": "running"
+      }
+    ],
+    "cell": 24.998321678321673
+  },
+  "mobile": {
+    "viewport": [
+      844,
+      390
+    ],
+    "rows": 9,
+    "horizontalReviewScroll": true,
+    "status": "40 PNGs loaded · awaiting human review"
+  },
+  "idleAdvances": true,
+  "pauseFreezes": true,
+  "consoleErrors": [],
+  "networkFailures": []
+}

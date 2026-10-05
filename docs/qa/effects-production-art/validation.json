@@ -1,0 +1,1426 @@
+{
+  "status": "PASS \u2014 asset structure only; no human art approval",
+  "base": "398ee52",
+  "pngCount": 40,
+  "files": [
+    {
+      "file": "effects/harvest-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          56,
+          60
+        ]
+      ],
+      "sha256": "b2b5802d784bb6c0415ee79e37a6a35e643bbe75d25396e9f016b1b2a948df93"
+    },
+    {
+      "file": "effects/harvest-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "af627a7b71d567860dd12ed129ed5b04fb8faa040aec48bd78d7918a1e14c2aa"
+    },
+    {
+      "file": "effects/harvest-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          4,
+          2,
+          28,
+          30
+        ]
+      ],
+      "sha256": "b7ec0c7b92900f1a4efa21cc5b4b60eb6b948902b20a3206bd6250ec583901c9"
+    },
+    {
+      "file": "effects/harvest-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ]
+      ],
+      "sha256": "33cadd3cb3ed324733b1fd81d815b8a88a440c551d051f177812f817f68742e8"
+    },
+    {
+      "file": "effects/focus-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          5,
+          13,
+          59,
+          50
+        ]
+      ],
+      "sha256": "eb7823ff0bb0547146958f5edf5e71b9535abc68adb5b2e2f05bb5aa01497583"
+    },
+    {
+      "file": "effects/focus-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          3,
+          22,
+          20
+        ]
+      ],
+      "sha256": "62c93c0ed74238ad98d0418e510d3b3c3f83fa301c887ede83c1cbca23f1de6d"
+    },
+    {
+      "file": "effects/focus-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          2,
+          6,
+          30,
+          25
+        ]
+      ],
+      "sha256": "dc49ecd292b06460e89f6e924745fa0e594170645a6fb5d81da1d401cd5e863d"
+    },
+    {
+      "file": "effects/focus-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          5,
+          13,
+          59,
+          50
+        ],
+        [
+          5,
+          13,
+          59,
+          50
+        ],
+        [
+          5,
+          13,
+          59,
+          50
+        ],
+        [
+          5,
+          13,
+          59,
+          50
+        ]
+      ],
+      "sha256": "f68762dd89d2108dabccae56c56b80e7ef8cb32070469376dbfec4043bc9fd7f"
+    },
+    {
+      "file": "effects/spores-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          7,
+          4,
+          57,
+          60
+        ]
+      ],
+      "sha256": "e10b15cc8cdcad126de39f3c4c7d18bae9516854f627605d0a1a7bc70f2e4c42"
+    },
+    {
+      "file": "effects/spores-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          3,
+          3,
+          22,
+          22
+        ]
+      ],
+      "sha256": "fc13df2fc573c285112262e2ea3e55e4558f8d476ae4e737d93038f366811564"
+    },
+    {
+      "file": "effects/spores-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          3,
+          2,
+          28,
+          30
+        ]
+      ],
+      "sha256": "3b92bbd4b43485b0283f7b9a2515c10de31e9495214327bd381ec500aa95121a"
+    },
+    {
+      "file": "effects/spores-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          7,
+          4,
+          57,
+          60
+        ],
+        [
+          8,
+          4,
+          57,
+          60
+        ],
+        [
+          8,
+          5,
+          56,
+          59
+        ],
+        [
+          7,
+          4,
+          56,
+          59
+        ]
+      ],
+      "sha256": "50b017dfbcaf5b68214cb222bf3c802a74179e5ca895a32d1f429ba627d804b8"
+    },
+    {
+      "file": "effects/guard-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          9,
+          4,
+          55,
+          60
+        ]
+      ],
+      "sha256": "a73d6b4f01c84a9d65cb6adfdb469bdc4f7ebfc9f458b7b48416ad4fb7124778"
+    },
+    {
+      "file": "effects/guard-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          3,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "3f1f4699f8047c90ffa68932c3b7bb80bcf844a3e6c324b625f267f446b666ac"
+    },
+    {
+      "file": "effects/guard-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          4,
+          2,
+          27,
+          30
+        ]
+      ],
+      "sha256": "0aa211722ed96ec28bf0c98c57d9d535a453fdf69f6f9266457769151213a2a6"
+    },
+    {
+      "file": "effects/guard-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          9,
+          4,
+          55,
+          60
+        ],
+        [
+          9,
+          4,
+          55,
+          60
+        ],
+        [
+          9,
+          4,
+          55,
+          60
+        ],
+        [
+          9,
+          4,
+          55,
+          60
+        ]
+      ],
+      "sha256": "082b922e1d7ba538be4d36f2ae2b5f428bac09f0bc63f5090e26e50e3c47010c"
+    },
+    {
+      "file": "effects/portal-plus-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          4,
+          60,
+          60
+        ]
+      ],
+      "sha256": "a83826a7eceba7f9ed1a6f2c27c5c1438c33bb52c71997fc0a343534f8718651"
+    },
+    {
+      "file": "effects/portal-plus-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "a8d75fdc8129aac22c1dc8f597f996f82a3279ccc566155daf0a982ba22c637b"
+    },
+    {
+      "file": "effects/portal-plus-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          30,
+          30
+        ]
+      ],
+      "sha256": "7aada270742a393ad619946640014a6e5d9087c29210c9ff6db6705b6600cf81"
+    },
+    {
+      "file": "effects/portal-plus-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          4,
+          60,
+          60
+        ],
+        [
+          4,
+          4,
+          60,
+          60
+        ],
+        [
+          4,
+          4,
+          60,
+          60
+        ],
+        [
+          4,
+          4,
+          60,
+          60
+        ]
+      ],
+      "sha256": "b1313bc1dfda19014d14893be7d47966bdd0617d4fc98c51791d123eae46649d"
+    },
+    {
+      "file": "effects/rush-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          55,
+          60
+        ]
+      ],
+      "sha256": "4a130bb03b988853d828b12a74a42499a05631d86aeb1b0ad47d93c78bea3d0f"
+    },
+    {
+      "file": "effects/rush-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          3,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "e8de23be492a06e4663d48c3ef19f6c0e74568714252d8ccf7bcd995525a0d12"
+    },
+    {
+      "file": "effects/rush-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          4,
+          2,
+          27,
+          30
+        ]
+      ],
+      "sha256": "2d41e3bfb4570360e957ede9177f4208311806b2685087ee4b63a5874dde8ff0"
+    },
+    {
+      "file": "effects/rush-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          55,
+          60
+        ],
+        [
+          8,
+          4,
+          55,
+          60
+        ],
+        [
+          8,
+          4,
+          55,
+          60
+        ],
+        [
+          8,
+          4,
+          55,
+          60
+        ]
+      ],
+      "sha256": "e05aec183028b617655fe22a5703f1b759710f07fc4ae42c7c3b85364e067412"
+    },
+    {
+      "file": "effects/corruption-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          4,
+          59,
+          60
+        ]
+      ],
+      "sha256": "11d08901df573f6a474e2180b4517a593e3873fd5b0a7ab7781a96eae2d00276"
+    },
+    {
+      "file": "effects/corruption-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          4,
+          22,
+          22
+        ]
+      ],
+      "sha256": "575314ab9b68b4c903e8bd1125acbba5781170f619c506765dc37a5853facd37"
+    },
+    {
+      "file": "effects/corruption-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          29,
+          30
+        ]
+      ],
+      "sha256": "23f1cd7ef07509329285ff1afcf308f834ba50e902084e29a0387955357f4cb6"
+    },
+    {
+      "file": "effects/corruption-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          4,
+          59,
+          60
+        ],
+        [
+          4,
+          4,
+          59,
+          60
+        ],
+        [
+          4,
+          4,
+          59,
+          60
+        ],
+        [
+          4,
+          4,
+          59,
+          60
+        ]
+      ],
+      "sha256": "cb5aeb28340d6e2486615f64333f7a2c84e1a5f1dbda1fa2e6fcd3affe5529b5"
+    },
+    {
+      "file": "effects/roots-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          6,
+          60,
+          58
+        ]
+      ],
+      "sha256": "33c01d98cddf1c1de478a386da8b93963cff27f9d3ba8cb17805ed6df6c8ff7d"
+    },
+    {
+      "file": "effects/roots-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "8b2169690d1402d24c54d2343eaacde7085135c25b5fe5b2a47c3292ea6c80de"
+    },
+    {
+      "file": "effects/roots-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          2,
+          3,
+          30,
+          29
+        ]
+      ],
+      "sha256": "f3659cea3305305633ed7a6b7e8ca8bf1c328872abcfbeba9cff685215c24133"
+    },
+    {
+      "file": "effects/roots-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          4,
+          6,
+          60,
+          58
+        ],
+        [
+          4,
+          5,
+          60,
+          58
+        ],
+        [
+          4,
+          6,
+          60,
+          58
+        ],
+        [
+          4,
+          6,
+          60,
+          58
+        ]
+      ],
+      "sha256": "4bf44448ef016dcfe16320c737c1ed61d81845973d7624b05c95ae7dc2874c3e"
+    },
+    {
+      "file": "effects/mist-field.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          56,
+          60
+        ]
+      ],
+      "sha256": "0490783a88cfc5b6cb874068267acff92c146b62d66624a4f4bb817032bc1473"
+    },
+    {
+      "file": "effects/mist-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          2,
+          22,
+          22
+        ]
+      ],
+      "sha256": "7b36201596e0e9952b7fb7858b1f11385a00bb28dd60dee9b804b2f50b4abc14"
+    },
+    {
+      "file": "effects/mist-hud.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frameBounds": [
+        [
+          4,
+          2,
+          28,
+          30
+        ]
+      ],
+      "sha256": "9a037c95eed47af4bc95d812e140df2a4ee79d1a15f7ffddb4870821b52a2a53"
+    },
+    {
+      "file": "effects/mist-idle.png",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "content": [
+        4,
+        4,
+        56,
+        56
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frameBounds": [
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ],
+        [
+          8,
+          4,
+          56,
+          60
+        ]
+      ],
+      "sha256": "3ec943f817ed136e60c377c573e07db41910de3ed782c0d6a0068227900787d8"
+    },
+    {
+      "file": "food/golden-field.png",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        44,
+        44
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frameBounds": [
+        [
+          2,
+          3,
+          46,
+          45
+        ]
+      ],
+      "sha256": "3bbae6f9fe7197d3ec68e12d8109a5fd456d117992192e7fb6cce29be75f01f8"
+    },
+    {
+      "file": "food/golden-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          4,
+          22,
+          22
+        ]
+      ],
+      "sha256": "f85f70efb56d59c83eda13282ee001bab761325f37cd0cba8be3c5369e6ce67c"
+    },
+    {
+      "file": "food/corrupted-field.png",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        44,
+        44
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frameBounds": [
+        [
+          2,
+          4,
+          46,
+          44
+        ]
+      ],
+      "sha256": "916be81f0dea128170acd1effd9981e44adea9853a692c6164762cce41712f3f"
+    },
+    {
+      "file": "food/corrupted-lod.png",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "content": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "anchor": [
+        12,
+        12
+      ],
+      "frameBounds": [
+        [
+          2,
+          4,
+          22,
+          22
+        ]
+      ],
+      "sha256": "93277350f811e4fc53cf9990dbcf01e887f4bac3ef6b7d41db047fe965f6ea91"
+    }
+  ],
+  "animations": [
+    {
+      "name": "harvest",
+      "changedVsNeutral": [
+        0,
+        5,
+        207,
+        3
+      ],
+      "alphaBoundaryMotionMaxPx": 0,
+      "alphaCentroidDeltaMaxPx": 0.0,
+      "stableOpaqueCoreFraction": 0.8677,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "focus",
+      "changedVsNeutral": [
+        0,
+        12,
+        399,
+        2
+      ],
+      "alphaBoundaryMotionMaxPx": 0,
+      "alphaCentroidDeltaMaxPx": 0.0,
+      "stableOpaqueCoreFraction": 0.5859,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "spores",
+      "changedVsNeutral": [
+        0,
+        444,
+        502,
+        450
+      ],
+      "alphaBoundaryMotionMaxPx": 1,
+      "alphaCentroidDeltaMaxPx": 0.1513,
+      "stableOpaqueCoreFraction": 0.5901,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "guard",
+      "changedVsNeutral": [
+        0,
+        342,
+        166,
+        65
+      ],
+      "alphaBoundaryMotionMaxPx": 0,
+      "alphaCentroidDeltaMaxPx": 0.0,
+      "stableOpaqueCoreFraction": 0.6453,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "portal-plus",
+      "changedVsNeutral": [
+        0,
+        120,
+        139,
+        142
+      ],
+      "alphaBoundaryMotionMaxPx": 0,
+      "alphaCentroidDeltaMaxPx": 0.0,
+      "stableOpaqueCoreFraction": 0.7535,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "rush",
+      "changedVsNeutral": [
+        0,
+        56,
+        49,
+        49
+      ],
+      "alphaBoundaryMotionMaxPx": 1,
+      "alphaCentroidDeltaMaxPx": 0.1305,
+      "stableOpaqueCoreFraction": 0.7914,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "corruption",
+      "changedVsNeutral": [
+        0,
+        201,
+        166,
+        437
+      ],
+      "alphaBoundaryMotionMaxPx": 1,
+      "alphaCentroidDeltaMaxPx": 0.2644,
+      "stableOpaqueCoreFraction": 0.6644,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "roots",
+      "changedVsNeutral": [
+        0,
+        67,
+        46,
+        122
+      ],
+      "alphaBoundaryMotionMaxPx": 1,
+      "alphaCentroidDeltaMaxPx": 0.0684,
+      "stableOpaqueCoreFraction": 0.8445,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    },
+    {
+      "name": "mist",
+      "changedVsNeutral": [
+        0,
+        367,
+        380,
+        367
+      ],
+      "alphaBoundaryMotionMaxPx": 1,
+      "alphaCentroidDeltaMaxPx": 0.1665,
+      "stableOpaqueCoreFraction": 0.661,
+      "fixedAnchor": [
+        32,
+        32
+      ],
+      "neutralEqualsField": true,
+      "lodIndependent": true
+    }
+  ],
+  "foodLodIndependent": true,
+  "limits": {
+    "localSilhouetteMotionPx": 2,
+    "alphaCentroidDeltaPx": 1,
+    "changedPixelsPerPhase": 650,
+    "stableOpaqueCoreFraction": 0.5
+  },
+  "notes": [
+    "Anchor is a fixed canvas coordinate, not alpha centroid. Satellite/root-tip/mist-tail motion is intentional; stationary core is retained.",
+    "Content containment guarantees transparent padding; it does not establish human silhouette quality.",
+    "LOD drawings take no field/master image input.",
+    "No live renderer, mechanics, approvals or deployments changed."
+  ]
+}

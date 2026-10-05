@@ -1,0 +1,13 @@
+{
+  "harvest": "masters/harvest.png",
+  "focus": "masters/focus.png",
+  "spores": "masters/spores.png",
+  "guard": "masters/guard.png",
+  "portal-plus": "masters/portal-plus.png",
+  "rush": "masters/rush.png",
+  "corruption": "masters/corruption.png",
+  "roots": "masters/roots.png",
+  "mist": "masters/mist.png",
+  "food-golden": "masters/food-golden.png",
+  "food-corrupted": "masters/food-corrupted.png"
+}
