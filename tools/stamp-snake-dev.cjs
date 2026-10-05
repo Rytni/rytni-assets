@@ -1,7 +1,7 @@
 // Local DEV metadata generation only. Does not build/publish either channel.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),prefix='arcade/snake-next/';
-const files=['game-feel-lab.html','tuning-lab/lab.js','tuning-lab/boot.js','tuning-lab/build-status.js','tuning-lab/build-status.css','effect-playground/behavior-fixtures.js','effect-playground/production-fixtures.js','effect-playground/visuals.js','effect-playground/vfx-presentation.js','effect-playground/visual-path.js','progressive-run/director.js','progressive-run/adapter.js'];
+const files=['game-feel-lab.html','tuning-lab/lab.js','tuning-lab/boot.js','tuning-lab/build-status.js','tuning-lab/build-status.css','effect-playground/behavior-fixtures.js','effect-playground/production-fixtures.js','effect-playground/visuals.js','effect-playground/vfx-presentation.js','effect-playground/visual-path.js','progressive-run/director.js','progressive-run/adapter.js','product/appearance/effect-ribbon.js','product/appearance/material.js','forest-training/ribbon-raster.js','gate-one/ribbon.js'];
 const normalize=s=>s.replace(/\r\n/g,'\n');
 const git=args=>execFileSync('git',args,{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
 const sourceRevision=git(['rev-parse','HEAD']),hash=crypto.createHash('sha256');let changed=false;

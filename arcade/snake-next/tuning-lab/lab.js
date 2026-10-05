@@ -2,7 +2,7 @@ import {PRESETS,validateProfile,targetSpeed,profileCadence} from './config.js';
 import {ARENAS,designSession} from './arena.js';
 import {arenaMeasurements} from './measure.js';
 import {cabinetSize} from '../forest-training/renderer.js';
-import {RibbonSprites} from '../forest-training/ribbon-sprites.js';
+import {EffectRibbonSprites as RibbonSprites} from '../product/appearance/effect-ribbon.js';
 import {TunnelSession} from '../gate-one/session.js';
 import {installProgression,progressiveEnabled,labConfig} from '../progressive-run/adapter.js';
 import {speedTarget as progressiveSpeedTarget} from '../progressive-run/config.js';

@@ -12,7 +12,7 @@ import {vfxStressSession,vfxReviewSession} from '../effect-playground/vfx-stress
 
 export const progressiveEnabled=()=>document.querySelector('#run-model').value==='progressive';
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
-export function installProgression(game){
+export function installProgression(game,settings={}){
  enableDevVfx().then(()=>{if(game.root.isConnected)game.render();});
  const doc=game.root.ownerDocument,style=doc.createElement('link');style.rel='stylesheet';style.href='/arcade/snake-next/effect-playground/style.css';doc.head.append(style);game.root.classList.add('effect-playground');
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
@@ -22,17 +22,19 @@ export function installProgression(game){
   // DEV fixture only: same state/topology, read-only Forest art comparison.
   const session=game.artFixtureForest&&canonical?.world?Object.assign(Object.create(canonical),{world:{...canonical.world,biome:'forest'},stage:{...canonical.stage,biome:'forest'}}):canonical;
   if(!session?.world)return baseDraw(s,options);
+  game.ribbonV4?.setSession?.(session,{quality:presentation.quality||'full'});
+  presentation.appearanceMode=game.ribbonV4?.setSession?'skin':presentation.appearanceMode;
   // During discontinuities ALL DEV modes must respect the same canonical edge.
   // V2/snap remain unchanged elsewhere; no legacy renderer draws an A→B chord.
   const snapped=!options.motion&&session.portalEdges?snappedTunnelFrame(session,game.motion):null;
   const motion=options.motion||snapped;
   if(motion?.spans){
    tunnelRibbon??=new TunnelRibbon(game.ribbonV4);const old=game.renderer.smoothSprites;game.renderer.smoothSprites=tunnelRibbon;
-   try{return presentation.render(game.renderer,session,{...options,motion},document.querySelector('#camera-debug').checked);}finally{game.renderer.smoothSprites=old;}
+   try{return presentation.render(game.renderer,session,{...options,motion},settings.cameraDebug?.()??document.querySelector('#camera-debug').checked);}finally{game.renderer.smoothSprites=old;}
   }
   // Snap effects need the committed route too, but do NOT give that frame to
   // the Snake draw branch: ordinary GRID SNAP keeps its approved legacy art.
-  return presentation.render(game.renderer,session,{...options,effectMotion:motion},document.querySelector('#camera-debug').checked);
+  return presentation.render(game.renderer,session,{...options,effectMotion:motion},settings.cameraDebug?.()??document.querySelector('#camera-debug').checked);
  };
  game.render=()=>{
   const s=game.session;game.root.classList.toggle('effect-playground',!!s?.world);if(!s?.world){if(game.root.querySelector('#effects').dataset.progressEffects!==undefined){delete game.root.querySelector('#effects').dataset.progressEffects;game.effectKey=null;}baseRender();return;}

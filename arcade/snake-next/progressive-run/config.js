@@ -13,6 +13,7 @@ export const STAGES=Object.freeze([
 ]);
 export function config(input={}){
  const c={...DEFAULTS,...input,speedCaps:[...(input.speedCaps||DEFAULTS.speedCaps)],thresholds:[...(input.thresholds||DEFAULTS.thresholds)]};
+ if(c.maxWorldStage!==undefined&&(!Number.isInteger(c.maxWorldStage)||c.maxWorldStage<0||c.maxWorldStage>3||c.startStage>c.maxWorldStage))throw Error('Invalid product world cap');
  if(c.model==='fit-world-v2'&&(c.startStage>3||![15,25,35].includes(c.freeTrigger??15)))throw Error('Invalid FIT WORLD V2 stage/trigger');
  for(const [key,lo,hi] of [['startStage',0,4],['pressure',-1,1],['positiveInterval',4,60],['negativeInterval',8,90],['portalInterval',24,120],['density',0,6]])if(!Number.isFinite(c[key])||c[key]<lo||c[key]>hi)throw Error('Invalid progressive '+key);
  if(!Number.isInteger(c.startStage)||!Number.isInteger(c.density)||c.speedCaps.length!==5||c.speedCaps.some((v,i)=>!Number.isFinite(v)||v<4.2||v>9||i&&v<c.speedCaps[i-1]))throw Error('Invalid stage/caps');

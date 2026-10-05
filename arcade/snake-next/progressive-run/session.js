@@ -61,7 +61,7 @@ export class ProgressiveSession extends Session {
   if(kind==='brambles')this.director.warn(this);
   this.emit(d.positive?'positive':'negative',cell,{effect:kind,refresh:!!existing});this.feedback.push({kind:d.positive?'positive':'negative',effect:kind,cell,tick:this.tick,label:d.label});return true;
  }
- forceExpansion(){if(this.config.model==='fit-world-v2'){if(this.stage.index<3)this.devCommands.push({tick:this.tick+1,expand:true});return;}const next=this.stage.index<4?this.config.thresholds[this.stage.index+1]:this.config.thresholds[4]+(this.stage.index-3)*this.config.endlessInterval;this.devCommands.push({tick:this.tick+1,progress:next});}
+ forceExpansion(){if(this.config.model==='fit-world-v2'){if(this.stage.index<(this.config.maxWorldStage??3))this.devCommands.push({tick:this.tick+1,expand:true});return;}const next=this.stage.index<4?this.config.thresholds[this.stage.index+1]:this.config.thresholds[4]+(this.stage.index-3)*this.config.endlessInterval;this.devCommands.push({tick:this.tick+1,progress:next});}
  cadence(){let n=this.pacing?this.pacing.cadence(this.tick):super.cadence();if(this.effects.some(e=>e.kind==='focus'))n=Math.round(n*1.22);if(this.effects.some(e=>e.kind==='rush'))n=Math.max(5,Math.round(n*.8));return n;}
  guardCollision(commands){if(this.status!=='playing'||['entering','teleport'].includes(this.portal.phase)||!this.effects.some(e=>e.kind==='guard')||(this.state.movement?!movementDue(this.state):this.state.movePhase<this.cadence()-1))return;
   const clone=structuredClone(this.state);clone.cadence=this.cadence();step(clone,this.arena,this.rules,commands.map(c=>({...c,tick:clone.tick+1})));
@@ -92,7 +92,7 @@ export class ProgressiveSession extends Session {
   this.spores=this.spores.filter(p=>!p.collected);
   if(this.events.some(e=>['portal-head-exit','portal-exit'].includes(e.kind))&&this.effects.some(e=>e.kind==='portalPrize')){const amount=Math.round(300*this.stage.multiplier);this.score+=amount;this.combo=Math.min(8,this.combo+2);this.lastFood=this.tick;this.effects=this.effects.filter(e=>e.kind!=='portalPrize');this.portalRewardMove=this.moves;this.emit('portal-reward',head,{amount});this.feedback.push({kind:'portal-reward',cell:head,tick:this.tick,amount});}
   this.progress=this.foods+this.progressBias;
-  const cap=this.state.movement?capacity(this):null,expand=cap&&(cap.shouldExpand||dev.some(c=>c.expand))&&this.stage.index<3;
+  const cap=this.state.movement?capacity(this):null,expand=cap&&(cap.shouldExpand||dev.some(c=>c.expand))&&this.stage.index<(this.config.maxWorldStage??3);
   const next=cap?(expand?{...stageAt(0,{...this.config,startStage:this.stage.index+1}),at:this.progress}:this.stage):stageAt(this.progress,this.config);
   for(const milestone of [30,100,250])if(previousLength<milestone&&this.state.length>=milestone)this.announcements.push({tick:this.tick,text:'ДЛИНА '+milestone});
   if(next.index!==oldStage&&this.status==='playing'){
