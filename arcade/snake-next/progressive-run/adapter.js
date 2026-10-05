@@ -7,10 +7,12 @@ import {TunnelRibbon} from '../gate-one/ribbon.js';
 import {portalExitCue} from '../gate-one/audio.js';
 import {drawEffectLabels} from '../effect-playground/visuals.js';
 import {installEffectSounds} from '../effect-playground/audio.js';
+import {effectAssets} from '../effect-playground/asset-bank.js';
 
 export const progressiveEnabled=()=>document.querySelector('#run-model').value==='progressive';
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
 export function installProgression(game){
+ effectAssets.preload().then(()=>{if(game.root.isConnected)game.render();});
  const doc=game.root.ownerDocument,style=doc.createElement('link');style.rel='stylesheet';style.href='/arcade/snake-next/effect-playground/style.css';doc.head.append(style);game.root.classList.add('effect-playground');
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;
@@ -35,7 +37,7 @@ export function installProgression(game){
   try{baseRender();presentation.effects(game.root.querySelector('#effects'),s,game.compact);drawHudType(game.root.querySelector('#hud'));drawEffectLabels(game.root.querySelector('#hud'));
    // Approved V3 wood/gold assets, four-direction cross; fixed CSS touch space,
    // never world-cell anchored (FIT WORLD can shrink cells below touch size).
-   const pad=game.root.querySelector('#pad'),l=game.renderer.last;pad.style.left=Math.round(l.arena.x+10)+'px';pad.style.top=Math.round(l.arena.y+l.arena.h-156)+'px';
+   const pad=game.root.querySelector('#pad'),l=game.renderer.last,a=l.controlsArena||l.arena;pad.style.left=Math.round(a.x+10)+'px';pad.style.top=Math.round(a.y+a.h-156)+'px';
   }finally{game.session=s;actual=null;}
  };
  installEffectSounds(game.audio);const play=game.audio.play.bind(game.audio);game.audio.play=(name,loop=false)=>{const e=game.session?.events.findLast(e=>e.effect&&['positive','negative'].includes(e.kind));const key=!loop&&['buff','debuff'].includes(name)&&e&&game.audio.buffers.has('effect-'+e.effect)?'effect-'+e.effect:name;const source=play(key,loop);if(source&&!loop&&['pickup','combo'].includes(name))source.playbackRate.value=1+Math.min(7,Math.max(0,(game.session?.combo||1)-1))*.025;return source;};

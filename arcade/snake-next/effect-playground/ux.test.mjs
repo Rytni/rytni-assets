@@ -12,14 +12,14 @@ const base=geometry(1882,1000,28,12,false,false),frame={head:{x:15,y:6},alpha:0}
 test('all six FIT WORLD dimensions fit uniformly; head/direction never moves viewport',()=>{
  for(const [width,height]of [[28,12],[36,18],[48,24],[64,32],[80,40],[112,56]]){
   const s={world:{width,height},tick:0,state:{cadence:14,movePhase:0}},a=fitWorldLayout(base,s,frame),b=fitWorldLayout(base,s,{...frame,head:{x:width-2,y:height-2,dx:0,dy:1}}),l=a.layout;
-  assert.deepEqual(a.layout,b.layout);assert.equal(a.view.x,0);assert.equal(a.view.y,0);assert.ok(l.field.w<=l.arena.w-8+1e-7);assert.ok(l.field.h<=l.arena.h-8+1e-7);assert.ok(Math.abs(l.field.w/width-l.field.h/height)<1e-9);assert.equal(readability(l.cell).body,l.cell*36/68);
+  assert.deepEqual(a.layout,b.layout);assert.equal(a.view.x,0);assert.equal(a.view.y,0);assert.ok(l.field.w<=l.playfieldRect.w+1e-7);assert.ok(l.field.h<=l.playfieldRect.h+1e-7);assert.ok(Math.abs(l.field.w/width-l.field.h/height)<1e-9);assert.equal(readability(l.cell).body,l.cell*36/68);
  }
 });
 test('expansion starts at old fit, interpolates for one active second, freezes and resets atomically',()=>{
  const s={world:{width:36,height:18},tick:100,state:{cadence:14,movePhase:0},openings:[{tick:100,duration:60,from:{width:28,height:12}}]},old=fitWorldLayout(base,{...s,world:s.openings[0].from,openings:[]},frame).layout;
  const begin=fitWorldLayout(base,s,frame).layout;assert.equal(begin.cell,old.cell);assert.equal(begin.field.x,old.field.x);assert.equal(begin.field.y,old.field.y);
  let previous=begin.cell;for(let t=100;t<=160;t++){s.tick=t;const a=fitWorldLayout(base,s,frame);assert.ok(a.layout.cell<=previous+1e-9);assert.deepEqual(a,fitWorldLayout(base,s,frame));previous=a.layout.cell;}
- const end=fitWorldLayout(base,s,frame).layout;assert.equal(end.fitProgress,1);assert.ok(end.field.w<base.arena.w);assert.ok(end.field.h<base.arena.h);
+ const end=fitWorldLayout(base,s,frame).layout;assert.equal(end.fitProgress,1);assert.ok(end.field.w<end.playfieldRect.w);assert.ok(Math.abs(end.field.h-end.playfieldRect.h)<1e-7);
  assert.equal(fitWorldLayout(base,{...s,tick:0,openings:[]},frame).layout.fitProgress,1);
 });
 test('FIT WORLD readers preserve canonical replay/hash through expansion',()=>{

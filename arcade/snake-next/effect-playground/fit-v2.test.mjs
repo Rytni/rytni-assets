@@ -72,7 +72,7 @@ test('fractional Guard absorbs obstacle without moving and retains queued turn',
  const head=bodyCell(s.state,0);s.advance();assert.equal(s.status,'playing');assert.equal(bodyCell(s.state,0),head);assert.equal(s.state.movement.progress,0);assert.equal(s.effects.length,0);assert.ok(s.events.some(e=>e.kind==='guard-used'));
 });
 test('world fit fills one dimension, centers and preserves square cells at all four worlds',()=>{
- for(const [w,h,compact]of [[1882,900,false],[827,390,true]])for(const [width,height]of WORLDS){const s=session();s.world={...s.world,width,height};const base=geometry(w,h,28,12,compact,compact),l=fitWorldLayout(base,s,{head:{x:10,y:5},alpha:0}).layout;assert.ok(Math.min(Math.abs(l.arena.w-8-l.field.w),Math.abs(l.arena.h-8-l.field.h))<1e-6);assert.ok(Math.abs(l.field.w/width-l.field.h/height)<1e-6);assert.ok(Math.abs(l.field.x+l.field.w/2-l.arena.x-l.arena.w/2)<1e-6);}
+ for(const [w,h,compact]of [[1882,900,false],[827,390,true]])for(const [width,height]of WORLDS){const s=session();s.world={...s.world,width,height};const base=geometry(w,h,28,12,compact,compact),l=fitWorldLayout(base,s,{head:{x:10,y:5},alpha:0}).layout;assert.ok(Math.abs(l.playfieldRect.w-l.field.w)<1e-6);assert.ok(Math.abs(l.playfieldRect.h-l.field.h)<1e-6);assert.ok(Math.abs(l.field.w/width-l.field.h/height)<1e-6);assert.ok(Math.abs(l.field.x+l.field.w/2-l.arena.x-l.arena.w/2)<1e-6);}
 });
 for(const length of [8,30,250])test('new scheduler preserves growth, portal split history and tail traversal at length '+length,()=>{
  const s=session(3),route=[];for(let y=4;y<20;y++)for(let n=0;n<26;n++)route.push(cell(y%2===0?28-n:3+n,y));

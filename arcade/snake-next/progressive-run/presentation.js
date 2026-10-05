@@ -36,7 +36,7 @@ export class ProgressPresentation {
     const edge=s.portalEdges.at(-1);next.portalEdge=edge&&(frame.start??0)<=s.moves-edge.move+1e-9?edge.move+':'+edge.tick:null;}
    this.camera=next;
   }
-  const base=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),fit=this.cameraMode==='fit'?fitWorldLayout(base,s,frame):null;
+  const base=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),fit=this.cameraMode==='fit'?fitWorldLayout(base,s,frame,options.fullscreen):null;
   const view=fit?fit.view:this.camera.update(frame,s,options.touch),l=fit?fit.layout:base,{field,arena,cell}=l;
   this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';ctx.fillRect(0,0,l.w,l.h);
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});
