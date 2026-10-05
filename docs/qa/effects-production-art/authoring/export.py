@@ -24,6 +24,19 @@ def cluster(im,x,y,color,shape=0):
 def lod(name):
     """Each 24px miniature has independent authored coordinates, no source input."""
     im=Image.new('RGBA',(24,24))
+    if name=='harvest':
+        # A.1: symmetric royal crown, a full clear row above the flatter cap.
+        polygon(im,[(3,2),(7,5),(11,2),(12,2),(16,5),(20,2),(19,8),(4,8)],O)
+        polygon(im,[(4,3),(7,6),(11,3),(12,3),(16,6),(19,3),(18,7),(5,7)],GD)
+        rect(im,(5,7,18,7),GH);rect(im,(11,4,12,5),GH)
+        polygon(im,[(7,10),(16,10),(20,12),(21,14),(20,16),(3,16),(2,14),(3,12)],O)
+        polygon(im,[(7,11),(16,11),(19,12),(20,14),(19,15),(4,15),(3,14),(4,12)],GD)
+        polygon(im,[(7,11),(16,11),(18,12),(6,12),(4,14),(3,14),(4,12)],GH)
+        rect(im,(5,15,18,15),GS)
+        polygon(im,[(8,16),(15,16),(15,19),(17,20),(16,21),(7,21),(6,20),(8,19)],O)
+        rect(im,(9,16,14,19),SH);rect(im,(9,16,11,19),IV)
+        rect(im,(8,20,15,20),SH);rect(im,(8,20,11,20),IV)
+        return im
     if name in ('harvest','corruption','food-golden','food-corrupted'):
         harvest=name=='harvest';bad=name in ('corruption','food-corrupted');top=8 if harvest else 4
         # Broad cap, stout flared stem: an object silhouette rather than a badge.

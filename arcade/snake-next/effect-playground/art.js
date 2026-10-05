@@ -65,6 +65,10 @@ export function sprite(kind){if(!cache.has(kind)){const c=document.createElement
 export function spriteURL(kind){return effectAssets.url(kind+'.hud')||sprite(kind).toDataURL();}
 export function drawPickup(ctx,kind,x,y,cell,tick,compact=false){
  if(effectAssets.drawField(ctx,kind,x,y,cell,tick,compact))return;
+ drawFallbackPickup(ctx,kind,x,y,cell,tick,compact);
+}
+// Active-effect VFX remain Pass B fallback, even after pickups are approved.
+export function drawFallbackPickup(ctx,kind,x,y,cell,tick,compact=false){
  if(cell*(compact?.94:.68)<30){drawReadable(ctx,sprite(kind),kind,x,y,cell,compact,compact?.94:.68);return;}
  const positive=POSITIVE.has(kind),size=cell*(compact?.94:.68),t=tick/60;
  const bob=positive?Math.sin(t*1.7)*Math.min(2,cell*.05):Math.sin(t*13)*cell*.012;

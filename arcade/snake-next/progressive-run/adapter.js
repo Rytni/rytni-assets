@@ -17,7 +17,10 @@ export function installProgression(game){
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;
  game.renderer.render=(s,options)=>{
-  const session=actual||s;if(!session?.world)return baseDraw(s,options);
+  const canonical=actual||s;
+  // DEV fixture only: same state/topology, read-only Forest art comparison.
+  const session=game.artFixtureForest&&canonical?.world?Object.assign(Object.create(canonical),{world:{...canonical.world,biome:'forest'},stage:{...canonical.stage,biome:'forest'}}):canonical;
+  if(!session?.world)return baseDraw(s,options);
   // During discontinuities ALL DEV modes must respect the same canonical edge.
   // V2/snap remain unchanged elsewhere; no legacy renderer draws an A→B chord.
   const snapped=!options.motion&&session.portalEdges?.length?snappedTunnelFrame(session,game.motion):null;

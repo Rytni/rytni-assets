@@ -1,0 +1,995 @@
+{
+  "results": [
+    {
+      "fixture": "desktop-30",
+      "world": [
+        30,
+        12
+      ],
+      "cell": 60.17082917082917,
+      "renderSize": [
+        1920,
+        1080
+      ],
+      "status": "paused",
+      "productionKeys": [
+        "harvest.field@1x",
+        "harvest.field-lod",
+        "harvest.hud",
+        "harvest.idle",
+        "focus.field@1x",
+        "focus.field-lod",
+        "focus.hud",
+        "focus.idle",
+        "spores.field@1x",
+        "spores.field-lod",
+        "spores.hud",
+        "spores.idle",
+        "guard.field@1x",
+        "guard.field-lod",
+        "guard.hud",
+        "guard.idle",
+        "portalPrize.field@1x",
+        "portalPrize.field-lod",
+        "portalPrize.hud",
+        "portalPrize.idle",
+        "rush.field@1x",
+        "rush.field-lod",
+        "rush.hud",
+        "rush.idle",
+        "weak.field@1x",
+        "weak.field-lod",
+        "weak.hud",
+        "weak.idle",
+        "brambles.field@1x",
+        "brambles.field-lod",
+        "brambles.hud",
+        "brambles.idle",
+        "mist.field@1x",
+        "mist.field-lod",
+        "mist.hud",
+        "mist.idle",
+        "food-golden.field@1x",
+        "food-corrupted.field@1x",
+        "food-golden.field-lod",
+        "food-corrupted.field-lod"
+      ],
+      "errors": [],
+      "draws": [
+        {
+          "key": "harvest.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "focus.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "spores.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "guard.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "portalPrize.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "rush.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "weak.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "brambles.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "mist.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "harvest.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "focus.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "spores.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "guard.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "portalPrize.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "rush.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "weak.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "brambles.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        },
+        {
+          "key": "mist.idle",
+          "tick": 0,
+          "frame": 0,
+          "size": 35.80164335664336
+        }
+      ],
+      "hashStable": true,
+      "hash": "67ecc011",
+      "frozenTick": 0,
+      "frame": 0,
+      "targets": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "fixtureForest": true,
+      "hud": [
+        {
+          "kind": "harvest",
+          "src": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+          "text": "УРОЖАЙ16С×2"
+        },
+        {
+          "kind": "focus",
+          "src": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+          "text": "ФОКУС15С"
+        },
+        {
+          "kind": "rush",
+          "src": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+          "text": "СПЕШКА10С"
+        }
+      ],
+      "food": {
+        "golden": [
+          "food-golden.field@1x"
+        ],
+        "corrupted": [
+          "food-corrupted.field@1x"
+        ]
+      },
+      "modeHashParity": true,
+      "idleAdvancesOnResume": {
+        "tick": 16,
+        "frame": 1
+      },
+      "normalRunRestored": true,
+      "liveInput": true
+    },
+    {
+      "fixture": "desktop-50",
+      "world": [
+        50,
+        20
+      ],
+      "cell": 35.83045806067817,
+      "renderSize": [
+        1920,
+        1080
+      ],
+      "status": "paused",
+      "productionKeys": [
+        "harvest.field@1x",
+        "harvest.field-lod",
+        "harvest.hud",
+        "harvest.idle",
+        "focus.field@1x",
+        "focus.field-lod",
+        "focus.hud",
+        "focus.idle",
+        "spores.field@1x",
+        "spores.field-lod",
+        "spores.hud",
+        "spores.idle",
+        "guard.field@1x",
+        "guard.field-lod",
+        "guard.hud",
+        "guard.idle",
+        "portalPrize.field@1x",
+        "portalPrize.field-lod",
+        "portalPrize.hud",
+        "portalPrize.idle",
+        "rush.field@1x",
+        "rush.field-lod",
+        "rush.idle",
+        "rush.hud",
+        "weak.field@1x",
+        "weak.field-lod",
+        "weak.hud",
+        "weak.idle",
+        "brambles.field-lod",
+        "brambles.field@1x",
+        "mist.field@1x",
+        "mist.field-lod",
+        "brambles.hud",
+        "brambles.idle",
+        "mist.hud",
+        "food-golden.field-lod",
+        "mist.idle",
+        "food-corrupted.field@1x",
+        "food-golden.field@1x",
+        "food-corrupted.field-lod"
+      ],
+      "errors": [],
+      "draws": [
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 21.31912254610351
+        }
+      ],
+      "hashStable": true,
+      "hash": "a122535f",
+      "frozenTick": 0,
+      "frame": 0,
+      "targets": [
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        },
+        {
+          "w": 0,
+          "h": 0
+        }
+      ],
+      "fixtureForest": true,
+      "modeHashParity": true,
+      "normalRunRestored": true,
+      "liveInput": true
+    },
+    {
+      "fixture": "mobile-30",
+      "world": [
+        30,
+        12
+      ],
+      "cell": 24.998321678321673,
+      "renderSize": [
+        844,
+        390
+      ],
+      "status": "paused",
+      "productionKeys": [
+        "harvest.field@1x",
+        "harvest.hud",
+        "harvest.field-lod",
+        "harvest.idle",
+        "focus.field@1x",
+        "focus.field-lod",
+        "focus.hud",
+        "focus.idle",
+        "spores.field@1x",
+        "spores.field-lod",
+        "spores.hud",
+        "spores.idle",
+        "guard.field@1x",
+        "guard.hud",
+        "guard.field-lod",
+        "guard.idle",
+        "portalPrize.field@1x",
+        "portalPrize.field-lod",
+        "portalPrize.hud",
+        "portalPrize.idle",
+        "rush.field@1x",
+        "rush.field-lod",
+        "rush.hud",
+        "rush.idle",
+        "weak.field@1x",
+        "weak.field-lod",
+        "weak.hud",
+        "brambles.field@1x",
+        "weak.idle",
+        "brambles.field-lod",
+        "brambles.hud",
+        "brambles.idle",
+        "mist.field@1x",
+        "mist.field-lod",
+        "mist.hud",
+        "mist.idle",
+        "food-golden.field@1x",
+        "food-golden.field-lod",
+        "food-corrupted.field@1x",
+        "food-corrupted.field-lod"
+      ],
+      "errors": [],
+      "draws": [
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 20.561119580419575
+        }
+      ],
+      "hashStable": true,
+      "hash": "67ecc011",
+      "frozenTick": 0,
+      "frame": 0,
+      "targets": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        }
+      ],
+      "fixtureForest": true,
+      "modeHashParity": true,
+      "normalRunRestored": true,
+      "liveInput": true
+    },
+    {
+      "fixture": "mobile-40",
+      "world": [
+        40,
+        16
+      ],
+      "cell": 18.66019388516033,
+      "renderSize": [
+        844,
+        390
+      ],
+      "status": "paused",
+      "productionKeys": [
+        "harvest.field@1x",
+        "harvest.field-lod",
+        "harvest.idle",
+        "focus.field-lod",
+        "focus.field@1x",
+        "harvest.hud",
+        "focus.hud",
+        "focus.idle",
+        "spores.field@1x",
+        "spores.field-lod",
+        "spores.idle",
+        "spores.hud",
+        "guard.field@1x",
+        "guard.field-lod",
+        "guard.hud",
+        "guard.idle",
+        "portalPrize.field@1x",
+        "portalPrize.field-lod",
+        "portalPrize.hud",
+        "portalPrize.idle",
+        "rush.field-lod",
+        "rush.field@1x",
+        "rush.hud",
+        "rush.idle",
+        "weak.field-lod",
+        "weak.field@1x",
+        "weak.idle",
+        "weak.hud",
+        "brambles.field@1x",
+        "brambles.field-lod",
+        "brambles.hud",
+        "brambles.idle",
+        "mist.hud",
+        "mist.field-lod",
+        "mist.field@1x",
+        "mist.idle",
+        "food-golden.field@1x",
+        "food-golden.field-lod",
+        "food-corrupted.field@1x",
+        "food-corrupted.field-lod"
+      ],
+      "errors": [],
+      "draws": [
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        }
+      ],
+      "hashStable": true,
+      "hash": "f6b04bd8",
+      "frozenTick": 0,
+      "frame": 0,
+      "targets": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        }
+      ],
+      "fixtureForest": true,
+      "modeHashParity": true,
+      "normalRunRestored": true,
+      "liveInput": true
+    },
+    {
+      "fixture": "mobile-50",
+      "world": [
+        50,
+        20
+      ],
+      "cell": 14.885972635336108,
+      "renderSize": [
+        844,
+        390
+      ],
+      "status": "paused",
+      "productionKeys": [
+        "harvest.field@1x",
+        "harvest.field-lod",
+        "harvest.hud",
+        "harvest.idle",
+        "focus.field@1x",
+        "focus.field-lod",
+        "focus.hud",
+        "focus.idle",
+        "spores.field@1x",
+        "spores.field-lod",
+        "spores.hud",
+        "spores.idle",
+        "guard.field@1x",
+        "guard.field-lod",
+        "guard.hud",
+        "guard.idle",
+        "portalPrize.field@1x",
+        "portalPrize.field-lod",
+        "portalPrize.hud",
+        "portalPrize.idle",
+        "rush.field@1x",
+        "rush.field-lod",
+        "rush.hud",
+        "rush.idle",
+        "weak.field@1x",
+        "weak.field-lod",
+        "weak.hud",
+        "weak.idle",
+        "brambles.field-lod",
+        "brambles.field@1x",
+        "brambles.hud",
+        "brambles.idle",
+        "mist.field@1x",
+        "mist.field-lod",
+        "mist.hud",
+        "mist.idle",
+        "food-golden.field@1x",
+        "food-golden.field-lod",
+        "food-corrupted.field@1x",
+        "food-corrupted.field-lod"
+      ],
+      "errors": [],
+      "draws": [
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "harvest.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "focus.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "spores.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "guard.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "portalPrize.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "rush.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "weak.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "brambles.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        },
+        {
+          "key": "mist.field-lod",
+          "tick": 0,
+          "frame": 0,
+          "size": 19
+        }
+      ],
+      "hashStable": true,
+      "hash": "a122535f",
+      "frozenTick": 0,
+      "frame": 0,
+      "targets": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 48,
+          "h": 48
+        }
+      ],
+      "fixtureForest": true,
+      "modeHashParity": true,
+      "normalRunRestored": true,
+      "liveInput": true
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": []
+}

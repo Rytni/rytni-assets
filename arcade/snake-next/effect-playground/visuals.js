@@ -1,6 +1,6 @@
 import {effectText as pixelText} from './text.js';
 import {drawObject,objectImage} from '../forest-training/objects.js';
-import {drawPickup,spriteURL,LABELS} from './art.js';
+import {drawPickup,drawFallbackPickup,spriteURL,LABELS} from './art.js';
 import {DEFINITIONS} from '../progressive-run/director.js';
 import {drawVfx} from './vfx-art.js';
 import {drawReadable} from './readable-objects.js';
@@ -28,11 +28,11 @@ export function drawMote(ctx,x,y,cell,tick,id=0){
 export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
  const {arena}=l,t=s.tick+frame.alpha,q=cell/68,h={x:l.field.x+(frame.head.x-frame.viewX+.5)*cell,y:l.field.y+(frame.head.y-frame.viewY+.5)*cell};
  if(s.state.food>=0){const p=at(s.state.food);
-  drawFood(ctx,art,s,p.x,p.y+Math.sin(t/67)*2*q,cell,t,l.compact);
+  drawFood(ctx,art,s,p.x,p.y+Math.sin(t/67)*2*q,cell,s.tick,l.compact);
   if(has(s,'harvest'))drawVfx(ctx,'crown',p.x,p.y-cell*.29,Math.max(12,cell*.3),t,.9);
   if(has(s,'harvest')||has(s,'weak'))for(let i=0;i<3;i++){const a=t/70+i*2.1;drawVfx(ctx,has(s,'weak')?'mold':'glint',p.x+Math.cos(a)*cell*.32,p.y+Math.sin(a)*cell*.32,Math.max(7,cell*.16),t+i*8,.65);}
  }
- for(const p of s.pickups)if(DEFINITIONS[p.kind]){const xy=at(p.cell);drawPickup(ctx,p.kind,xy.x,xy.y,cell,t,l.compact);}
+ for(const p of s.pickups)if(DEFINITIONS[p.kind]){const xy=at(p.cell);drawPickup(ctx,p.kind,xy.x,xy.y,cell,s.tick,l.compact);}
  for(const p of s.spores){const xy=at(p.cell),a=p.magnetTick===undefined?0:clamp((t-p.magnetTick)/18),e=a*a*(3-2*a),bend=Math.sin(a*Math.PI)*cell*.18;
   const x=xy.x+(h.x-xy.x)*e+bend,y=xy.y+(h.y-xy.y)*e-bend;
   if(a>0)for(let j=1;j<=3;j++){const back=Math.max(0,a-j*.12),be=back*back*(3-2*back),bb=Math.sin(back*Math.PI)*cell*.18,tx=xy.x+(h.x-xy.x)*be+bb,ty=xy.y+(h.y-xy.y)*be-bb,size=Math.max(5,cell*.12);if(!drawAuthoredVfx(ctx,'spore-trail',tx,ty,size,t+j*4,.4-j*.08,p.magnetTick))drawVfx(ctx,'glint',tx,ty,size,t+j*4,.4-j*.08);}
@@ -43,7 +43,7 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
  for(const k of ['focus','guard'])if(has(s,k)){
   const dx=frame.head.dx,dy=frame.head.dy;
   if(k==='focus')for(let i=0;i<3;i++){const a=t/130+i*2.1,r=cell*.34;drawVfx(ctx,'wisp',h.x+Math.cos(a)*r,h.y+Math.sin(a)*r,Math.max(12,cell*.34),t+i*10,.85);}
-  if(k==='guard'){if(!drawAuthoredVfx(ctx,'guard-charged',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t))drawPickup(ctx,'guard',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t,false);
+  if(k==='guard'){if(!drawAuthoredVfx(ctx,'guard-charged',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t))drawFallbackPickup(ctx,'guard',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t,false);
    for(const side of [-1,1])drawVfx(ctx,'plate',h.x-dy*side*cell*.30+dx*cell*.08,h.y+dx*side*cell*.30+dy*cell*.08,Math.max(13,cell*.34),t);
   }
  }
