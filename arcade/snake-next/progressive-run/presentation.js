@@ -55,7 +55,7 @@ export class ProgressPresentation {
   if(s.portalEdges)drawEnvironment(ctx,s,view,l,frame,document.querySelector('#world-awareness')?.checked);
   // Clean approved stone fallback until complete biome silhouettes are approved.
   for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}
-  const visualFrame={...(options.effectMotion||frame),viewX:view.x,viewY:view.y},layers={...l,compact:options.compact,environmentLayers:true};
+  const visualFrame={...(options.effectMotion||frame),viewX:view.x,viewY:view.y},layers={...l,compact:options.compact,environmentLayers:true,skinAppearance:this.appearanceMode==='skin',eco:this.quality==='eco'};
   drawRoots(ctx,s,at,cell);drawMist(ctx,s,visualFrame,cell,layers);
   if(s.effects.some(e=>e.kind==='mist')){
    for(const o of s.world.obstacles)if(nearMistSafety(frame,o.cell,s.arena.width)){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}

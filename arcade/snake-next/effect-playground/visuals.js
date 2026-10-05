@@ -38,6 +38,7 @@ export function drawRoots(ctx,s,at,cell,predicate=()=>true){
  for(const w of s.world.hazards)if(predicate(w.cell)){const p=at(w.cell);drawVfx(ctx,'roots',p.x,p.y,cell*.96,s.tick);}
 }
 export function drawUnderSnake(ctx,s,frame,cell,l){
+ if(l.skinAppearance)return;
  if(has(s,'rush'))for(const p of rushPositions(frame,cell))drawVfx(ctx,p.kind,l.field.x+(p.x-frame.viewX+.5)*cell+p.offsetX,l.field.y+(p.y-frame.viewY+.5)*cell+p.offsetY,vfxSize('rush',cell),s.tick+frame.alpha+p.phase,p.opacity);
 }
 export function nearMistSafety(frame,c,stride){return Math.hypot(c%stride-frame.head.x,Math.floor(c/stride)-frame.head.y)<=5;}
@@ -47,7 +48,7 @@ export function drawMist(ctx,s,frame,cell,l){
  const {arena}=l,t=s.tick+frame.alpha,h={x:l.field.x+(frame.head.x-frame.viewX+.5)*cell,y:l.field.y+(frame.head.y-frame.viewY+.5)*cell};
  // Environment layer only. Nonzero continuous puff opacity, never a head hole.
  ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.clip();
- for(let side=0;side<4;side++)for(let layer=0;layer<2;layer++)for(let i=0;i<(side<2?8:4);i++){
+ for(let side=0;side<4;side++)for(let layer=0;layer<(l.eco?1:2);layer++)for(let i=0;i<(side<2?8:4);i++){
   const v=mistVariation(side,layer,i),p=(t/(240+layer*45)+i*.137+side*.19+layer*.4)%1,travel=p*cell*3.6,size=cell*v.scale,count=side<2?8:4;
   const x=side<2?arena.x+(i+.5)/count*arena.w+(layer?cell*.35:0):side===2?arena.x+travel:arena.x+arena.w-travel;
   const y=(side>=2?arena.y+(i+.5)/count*arena.h:side===0?arena.y+travel:arena.y+arena.h-travel)+v.offset*cell;
@@ -78,7 +79,7 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
   if(w.phase==='cancel-decay'&&age<6)drawVfx(ctx,'tips',p.x,p.y,size,s.tick,1-age/6,w.starts-36);
   if(!drawAuthoredVfx(ctx,'roots-decay',p.x,p.y,size,s.tick,1,w.starts))drawVfx(ctx,'decay',p.x,p.y,size,s.tick,1-age/18,w.starts);
  }
- for(const k of ['focus','guard'])if(has(s,k)){
+ for(const k of ['focus','guard'])if(!l.skinAppearance&&has(s,k)){
   const dx=frame.head.dx,dy=frame.head.dy;
   if(k==='focus')focusPositions({...h,dx,dy},cell,t).forEach((p,i)=>drawVfx(ctx,'wisp',p.x,p.y,vfxSize('focus',cell),s.tick+i*10,.95));
   if(k==='guard'){

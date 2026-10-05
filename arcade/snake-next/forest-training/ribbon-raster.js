@@ -54,10 +54,13 @@ export class RibbonRaster {
      identities[id]??=variant(id);const table=this.tables[identities[id]],t=(i*CELL+u)*4;
      data[k]=table[t];data[k+1]=table[t+1];data[k+2]=table[t+2];data[k+3]=255;
     }else{const c=material({d,v,radius},sweep,this.sources);data[k]=c[0];data[k+1]=c[1];data[k+2]=c[2];data[k+3]=255;}
+    // Optional product RGB material. The locked field, alpha and overlays own
+    // all geometry; omitting the painter retains the original byte output.
+    this.painter?.(data,k,d,v,radius,frame.start);
    }
   }
   const {dx,dy}=frame.head,dir=dx===1?0:dy===1?1:dx===-1?2:3;
-  for(const p of overlays[dir]){const x=Math.floor(sweep.hx+p.x),y=Math.floor(sweep.hy+p.y),n=y*w+x;if(x>=0&&y>=0&&x<w&&y<h&&mask[n]){const k=n*4;data[k]=p.color[0];data[k+1]=p.color[1];data[k+2]=p.color[2];data[k+3]=255;}}
+  for(const p of overlays[dir]){const x=Math.floor(sweep.hx+p.x),y=Math.floor(sweep.hy+p.y),n=y*w+x;if(x>=0&&y>=0&&x<w&&y<h&&mask[n]){const k=n*4;data[k]=p.color[0];data[k+1]=p.color[1];data[k+2]=p.color[2];data[k+3]=255;this.painter?.overlay?.(data,k,p.color);}}
   return {data,mask,sweep,w,h};
  }
  release(){this.data=this.mask=null;this.sources=[];this.tables=[];this.fields.clear();}

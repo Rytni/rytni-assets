@@ -1,0 +1,10 @@
+{
+  "source": "current fitWorldLayout, geometry and BODY=36/CELL=68; measured in Edge at review fixture scale",
+  "snakeLength": 30,
+  "desktop30": {"viewport": [1920, 1080], "world": [30, 12], "cell": 60.17082917082917, "body": 31.855144855144857},
+  "mobile30": {"viewport": [844, 390], "world": [30, 12], "cell": 24.998321678321673, "body": 13.234405594405592},
+  "mobile40": {"viewport": [844, 390], "world": [40, 16], "cell": 18.66019388516033, "body": 9.878926174496645},
+  "mobile50": {"viewport": [844, 390], "world": [50, 20], "cell": 14.885972635336108, "body": 7.880809042236763},
+  "mobile60": {"viewport": [844, 390], "world": [60, 24], "cell": 12.381652647204353, "body": 6.554992577931716, "diagnosticOnly": true},
+  "browserChecks": {"nineDistinctMobile50": true, "eightPairs": true, "fourTriples": true, "pause": true, "onset": true, "expiry": true, "tunnel": true}
+}

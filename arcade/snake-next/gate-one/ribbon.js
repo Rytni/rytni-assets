@@ -29,7 +29,8 @@ export class TunnelRibbon {
   const x=Math.max(Math.floor(view.x),Math.floor((Math.min(...bounds.map(b=>b.x0))-18)/CELL)),y=Math.max(Math.floor(view.y),Math.floor((Math.min(...bounds.map(b=>b.y0))-18)/CELL));
   const right=Math.min(Math.ceil(view.x+view.cols),Math.ceil((Math.max(...bounds.map(b=>b.x1))+18)/CELL)),bottom=Math.min(Math.ceil(view.y+view.rows),Math.ceil((Math.max(...bounds.map(b=>b.y1))+18)/CELL));
   if(right<=x||bottom<=y)return;
-  const w=(right-x)*CELL,h=(bottom-y)*CELL,key=JSON.stringify([frame,w,h,x,y]);
+  const w=(right-x)*CELL,h=(bottom-y)*CELL,key=JSON.stringify([frame,w,h,x,y,this.v4.materialKey]);
+  this.raster.painter=this.v4.raster?.painter;
   if(key!==this.key){
    const result=this.render(sweep,w,h,x*CELL,y*CELL);
    this.canvas.width=w;this.canvas.height=h;this.context.putImageData(new ImageData(result.data,w,h),0,0);this.key=key;
@@ -64,10 +65,11 @@ export class TunnelRibbon {
      const id=Math.floor(s/CELL),u=Math.floor(s)%CELL,z=v+18,i=Math.floor(z)*2+(Number.isInteger(z)?0:1);ids[id]??=variant(id);
      const table=this.raster.tables[ids[id]],t=(i*CELL+u)*4;data[k]=table[t];data[k+1]=table[t+1];data[k+2]=table[t+2];data[k+3]=255;
     }else data.set([...material({d,v,radius},sweep,this.v4.sources),255],k);
+    this.raster.painter?.(data,k,d,v,radius,frame.start);
    }
   }
   const {dx,dy}=frame.head,dir=dx===1?0:dy===1?1:dx===-1?2:3;
-  for(const p of overlays[dir]){const x=Math.floor(sweep.hx+p.x-ox),y=Math.floor(sweep.hy+p.y-oy),n=y*w+x;if(x>=0&&y>=0&&x<w&&y<h&&mask[n])data.set([...p.color,255],n*4);}
+  for(const p of overlays[dir]){const x=Math.floor(sweep.hx+p.x-ox),y=Math.floor(sweep.hy+p.y-oy),n=y*w+x;if(x>=0&&y>=0&&x<w&&y<h&&mask[n]){data.set([...p.color,255],n*4);this.raster.painter?.overlay?.(data,n*4,p.color);}}
   return {data,mask,sweep,w,h};
  }
  release(){this.raster.release();this.canvas.width=this.canvas.height=1;this.data=this.mask=null;this.key=null;}
