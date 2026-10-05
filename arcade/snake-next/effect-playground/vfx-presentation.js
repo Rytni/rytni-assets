@@ -1,4 +1,5 @@
 // Read-only presentation helpers. No game state, RNG, scheduler or clock owner.
+import {visualPath} from './visual-path.js';
 export function focusPositions(head,cell,tick){
  const dx=head.dx,dy=head.dy;
  return [[-.15,-.65],[-.75,.60],[-1.15,-.50]].map(([along,side],i)=>{
@@ -11,16 +12,14 @@ export function focusPositions(head,cell,tick){
 export const VFX_FLOORS=Object.freeze({focus:17,spore:18,sporeTrail:8,sporeBurst:32,guardPlate:20,guardCharged:25,guardBreak:40,rush:17,portal:30,portalTrail:14,corrupt:11,rootWarning:28,rootSprout:24});
 const SCALES=Object.freeze({focus:.45,spore:.40,sporeTrail:.18,sporeBurst:1.05,guardPlate:.43,guardCharged:.48,guardBreak:1.1,rush:.43,portal:1.05,portalTrail:.30,corrupt:.22,rootWarning:.90,rootSprout:.85});
 export function vfxSize(kind,cell){return Math.max(VFX_FLOORS[kind],cell*SCALES[kind]);}
-export function rushPositions(route,cell){
- const positions=[];
- for(let i=2;i<Math.min(8,route?.length||0);i++){
-  const p=route[i],a=route[i-1],b=route[i+1]||p;
-  // Reject discontinuities; no trail chord across portal endpoints.
-  if(Math.abs(p.x-a.x)+Math.abs(p.y-a.y)>1.01)continue;
-  const next=Math.abs(p.x-b.x)+Math.abs(p.y-b.y)<=1.01?b:p;
-  const dx=a.x-next.x,dy=a.y-next.y,n=Math.hypot(dx,dy)||1,side=i%2?1:-1,offset=Math.max(cell*.39,12);
-  positions.push({x:p.x,y:p.y,offsetX:-dy/n*side*offset,offsetY:dx/n*side*offset,kind:i%2?'thorn':'ember',opacity:.92-(i-2)*.10,phase:i*7});
- }return positions;
+export const RUSH_DISTANCES=Object.freeze([.8,1.45,2.1,2.75,3.4,4.05]);
+export function rushPositions(frame,cell){
+ const sample=visualPath(frame),offset=cell*18/68+vfxSize('rush',cell)*.32;
+ return RUSH_DISTANCES.flatMap((d,i)=>{
+  const p=sample(d);if(!p)return [];
+  const side=i%2?1:-1;
+  return [{...p,offsetX:-p.dy*side*offset,offsetY:p.dx*side*offset,kind:i%2?'thorn':'ember',opacity:(.92-i*.10)*p.visibility,phase:i*7,slot:i}];
+ });
 }
 export function mistVariation(side,layer,index){
  const n=index+side*11+layer*7;

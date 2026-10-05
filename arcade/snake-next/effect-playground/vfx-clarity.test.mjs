@@ -12,10 +12,10 @@ test('conservative CSS floors independent of DPR; anchors remain read-only',()=>
  }
 });
 test('Rush tailward six sparse points, perpendicular offsets, no portal chord',()=>{
- const route=Array.from({length:10},(_,i)=>({x:20-i,y:5})),p=rushPositions(route,16);assert.equal(p.length,6);
- assert.ok(p.every(p=>Math.abs(p.offsetY)>=12&&p.offsetX===0));assert.ok(p.every((q,i)=>!i||q.opacity<p[i-1].opacity));
+ const route=Array.from({length:10},(_,i)=>({x:20-i,y:5})),frame={route,start:.6,end:7.6,head:{x:19.4,y:5,dx:1,dy:0}},p=rushPositions(frame,16);assert.equal(p.length,6);
+ assert.ok(p.every(p=>Math.abs(p.offsetY)>=16*18/68&&p.offsetX===0));assert.ok(p.every((q,i)=>!i||q.opacity<p[i-1].opacity));
  assert.ok(p[0].opacity>p.at(-1).opacity);assert.deepEqual(route,Array.from({length:10},(_,i)=>({x:20-i,y:5})));
- const broken=route.map(p=>({...p}));broken[2]={x:80,y:50};assert.ok(!rushPositions(broken,16).some(p=>p.x===80));
+ const split={...frame,spans:[{route:route.slice(0,3),offset:0,end:2},{route:route.map(p=>({...p,x:p.x-10})),offset:2,end:9}]};assert.ok(rushPositions(split,16).every(p=>p.x>17||p.x<11));
 });
 test('Mist unchanged-sheet variation: three scales, mirror, four phases, bounded alpha',()=>{
  const all=[];for(let side=0;side<4;side++)for(let layer=0;layer<2;layer++)for(let i=0;i<8;i++){

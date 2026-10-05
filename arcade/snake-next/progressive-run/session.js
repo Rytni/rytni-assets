@@ -107,7 +107,7 @@ export class ProgressiveSession extends Session {
   if(this.status==='playing'&&this.state.food<0&&this.foodSpawn.last?.tick!==this.tick&&(this.moves!==previousMoves||this.world.revision!==previousRevision)){
    this.repairFood();if(this.state.status!=='playing'){this.status='dying';this.emit('death',head,{reason:this.state.reason});}
   }
-  if(this.status!=='playing'){if(this.world.hazards.length){this.world.hazards=[];installTopology(this);}this.director.warnings=[];this.spores=[];}
+  if(this.status!=='playing'){if(this.world.hazards.length){this.world.hazards=[];installTopology(this);}this.director.warnings=[];this.director.retracts=[];this.spores=[];}
   // No idle score or progression; only seed/spore/portal-prize awards above.
  }
  portalAvailable(){return !this.director?false:this.tick<this.director.windowEnd;}

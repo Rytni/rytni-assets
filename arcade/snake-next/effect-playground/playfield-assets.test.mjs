@@ -64,7 +64,7 @@ test('authored world routing covers all primary effect families without procedur
   s.effects=Object.keys(EFFECT_NAMES).map(kind=>({kind,started:0,ends:1000}));s.pickups=Object.keys(EFFECT_NAMES).map((kind,i)=>({kind,cell:112*3+i+4}));
   s.spores=[{cell:500,magnetTick:94}];s.director.warnings=[{cell:510,starts:118}];s.world.hazards=[{cell:520}];s.portals=[576,577];s.portalEdges=[{complete:false,move:2}];s.portalRewardMove=2;
   s.feedback=[{kind:'seed',cell:500,tick:98,harvest:true,strong:true,amount:100},{kind:'seed',cell:510,tick:98,spore:true,amount:25},{kind:'guard-used',cell:520,tick:98},{kind:'root-decay',cell:530,tick:98}];
-  const route=Array.from({length:8},(_,i)=>({x:15-i,y:5})),frame={head:{x:15,y:5,dx:1,dy:0},route,alpha:.4,viewX:0,viewY:0},drawn=[],ctx=new Proxy({globalAlpha:1},{get:(o,k)=>k in o?o[k]:k==='drawImage'?(im)=>drawn.push(im.key):()=>{},set:(o,k,v)=>(o[k]=v,true)}),l={arena:{x:0,y:0,w:1920,h:768},field:{x:0,y:0},compact:false},before=s.hash(),feedback=JSON.stringify(s.feedback);
+  const route=Array.from({length:8},(_,i)=>({x:15-i,y:5})),frame={head:{x:15,y:5,dx:1,dy:0},route,start:0,end:6,alpha:.4,viewX:0,viewY:0},drawn=[],ctx=new Proxy({globalAlpha:1},{get:(o,k)=>k in o?o[k]:k==='drawImage'?(im)=>drawn.push(im.key):()=>{},set:(o,k,v)=>(o[k]=v,true)}),l={arena:{x:0,y:0,w:1920,h:768},field:{x:0,y:0},compact:false},before=s.hash(),feedback=JSON.stringify(s.feedback);
   drawEffectsWorld(ctx,s,frame,c=>({x:c%112*68,y:Math.floor(c/112)*68}),68,{},l);
   for(const key of ['food-corrupted.field@1x','vfx.harvest-third-burst','vfx.focus-wisp','vfx.spore-idle','vfx.spore-trail','vfx.spore-burst','vfx.guard-charged','vfx.guard-plate','vfx.guard-break','vfx.portal-charged-ring','vfx.portal-body-trail','vfx.rush-ember','vfx.rush-thorn','vfx.corruption-particle','vfx.roots-crack','vfx.roots-sprout','vfx.roots-root','vfx.roots-decay','vfx.mist-puff'])assert.ok(drawn.includes(key),key);
   for(const kind of Object.keys(EFFECT_NAMES))assert.ok(drawn.includes(kind+'.idle'));
@@ -72,7 +72,7 @@ test('authored world routing covers all primary effect families without procedur
  }finally{effectAssets.ready=previous;}
 });
 test('locked timing/capacity/core/tunnel/V4/mechanics/touch CSS remain byte-identical',()=>{
- const root='arcade/snake-next/';for(const p of ['simulation/timing.js','simulation/step.js','effect-playground/capacity-model.js','gate-one/session.js','gate-one/motion.js','gate-one/ribbon.js','progressive-run/session.js','progressive-run/world.js','progressive-run/food.js','progressive-run/director.js','smooth-v4-proof/ribbon.js','forest-training/ribbon-raster.js','forest-training/ribbon-sprites.js','forest-training/style.css','effect-playground/style.css']){
+ const root='arcade/snake-next/';for(const p of ['simulation/timing.js','simulation/step.js','effect-playground/capacity-model.js','gate-one/session.js','gate-one/motion.js','gate-one/ribbon.js','progressive-run/world.js','progressive-run/food.js','smooth-v4-proof/ribbon.js','forest-training/ribbon-raster.js','forest-training/ribbon-sprites.js','forest-training/style.css','effect-playground/style.css']){
   assert.equal(readFileSync(root+p,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','e097fe2:'+root+p],{encoding:'utf8'}).replace(/\r\n/g,'\n'),p);
  }
  for(const [file,start,end]of [['art.js','export function paintSprite','export function sprite('],['vfx-art.js','const palette=','export function drawVfx'],['readable-objects.js','','']]){

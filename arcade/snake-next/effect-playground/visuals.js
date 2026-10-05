@@ -32,8 +32,32 @@ function frontVfx(ctx,kind,x,y,size,tick,dx,dy,mirror=false){
  ctx.save();ctx.translate(x,y);ctx.transform(-dy,dx,-dx,-dy,0,0);if(mirror)ctx.scale(-1,1);
  drawVfx(ctx,kind,0,0,size,tick);ctx.restore();
 }
+export function drawRoots(ctx,s,at,cell,predicate=()=>true){
+ for(const w of s.world.hazards)if(predicate(w.cell)){const p=at(w.cell);drawVfx(ctx,'roots',p.x,p.y,cell*.96,s.tick);}
+}
+export function drawUnderSnake(ctx,s,frame,cell,l){
+ if(has(s,'rush'))for(const p of rushPositions(frame,cell))drawVfx(ctx,p.kind,l.field.x+(p.x-frame.viewX+.5)*cell+p.offsetX,l.field.y+(p.y-frame.viewY+.5)*cell+p.offsetY,vfxSize('rush',cell),s.tick+frame.alpha+p.phase,p.opacity);
+}
+export function nearMistSafety(frame,c,stride){return Math.hypot(c%stride-frame.head.x,Math.floor(c/stride)-frame.head.y)<=5;}
+export function mistDensity(distance){const a=clamp((distance-3)/3);return .45+.55*a*a*(3-2*a);}
+export function drawMist(ctx,s,frame,cell,l){
+ if(!has(s,'mist'))return;
+ const {arena}=l,t=s.tick+frame.alpha,h={x:l.field.x+(frame.head.x-frame.viewX+.5)*cell,y:l.field.y+(frame.head.y-frame.viewY+.5)*cell};
+ // Environment layer only. Nonzero continuous puff opacity, never a head hole.
+ ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.clip();
+ for(let side=0;side<4;side++)for(let layer=0;layer<2;layer++)for(let i=0;i<(side<2?8:4);i++){
+  const v=mistVariation(side,layer,i),p=(t/(240+layer*45)+i*.137+side*.19+layer*.4)%1,travel=p*cell*3.6,size=cell*v.scale,count=side<2?8:4;
+  const x=side<2?arena.x+(i+.5)/count*arena.w+(layer?cell*.35:0):side===2?arena.x+travel:arena.x+arena.w-travel;
+  const y=(side>=2?arena.y+(i+.5)/count*arena.h:side===0?arena.y+travel:arena.y+arena.h-travel)+v.offset*cell;
+  ctx.globalAlpha=Math.sin(p*Math.PI)*(.42+layer*.12)*mistDensity(Math.hypot(x-h.x,y-h.y)/cell)*v.opacity;
+  ctx.save();ctx.translate(x,y);if(v.mirror)ctx.scale(-1,1);
+  if(!drawAuthoredVfx(ctx,'mist-puff',0,0,size,t,1,0,v.phase))ctx.drawImage(fogCloud(),Math.round(-size/2),Math.round(-size*.3),size,size*.6);ctx.restore();
+ }ctx.restore();
+}
 export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
  const {arena}=l,t=s.tick+frame.alpha,q=cell/68,h={x:l.field.x+(frame.head.x-frame.viewX+.5)*cell,y:l.field.y+(frame.head.y-frame.viewY+.5)*cell};
+ // Standalone asset review compatibility; live gameplay explicitly owns layers.
+ if(!l.environmentLayers){drawRoots(ctx,s,at,cell);drawMist(ctx,s,frame,cell,l);drawUnderSnake(ctx,s,frame,cell,l);}
  if(s.state.food>=0){const p=at(s.state.food);
   drawFood(ctx,art,s,p.x,p.y+Math.sin(t/67)*2*q,cell,s.tick,l.compact);
   if(has(s,'harvest'))drawVfx(ctx,'crown',p.x,p.y-cell*.29,Math.max(12,cell*.3),t,.9);
@@ -45,8 +69,13 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
   if(a>0)for(let j=1;j<=3;j++){const back=Math.max(0,a-j*.12),be=back*back*(3-2*back),bb=Math.sin(back*Math.PI)*cell*.18,tx=xy.x+(h.x-xy.x)*be+bb,ty=xy.y+(h.y-xy.y)*be-bb,size=vfxSize('sporeTrail',cell);if(!drawAuthoredVfx(ctx,'spore-trail',tx,ty,size,t+j*4,.6-j*.10,p.magnetTick))drawVfx(ctx,'glint',tx,ty,size,t+j*4,.6-j*.10);}
   drawMote(ctx,x,y,cell,t,p.cell,p.magnetTick===undefined?-1:t-p.magnetTick);
  }
- for(const w of s.director.warnings){const p=at(w.cell),phase=rootWarningPhase(s.tick,w.starts);drawVfx(ctx,'cracks',p.x,p.y,vfxSize('rootWarning',cell),s.tick,1,phase.crackStart);if(phase.sprout)drawVfx(ctx,'tips',p.x,p.y,vfxSize('rootSprout',cell),s.tick,1,phase.sproutStart);}
- for(const w of s.world.hazards){const p=at(w.cell);drawVfx(ctx,'roots',p.x,p.y,cell*.96,t);}
+ for(const w of s.director.warnings){const p=at(w.cell),phase=rootWarningPhase(s.tick,w.starts);drawVfx(ctx,'cracks',p.x,p.y,vfxSize('rootWarning',cell),s.tick,1,phase.crackStart);if(phase.sprout)drawVfx(ctx,'tips',p.x,p.y,vfxSize('rootSprout',cell),s.tick,w.phase==='pending'?.86+.14*Math.sin((s.tick-w.starts)/8):1,phase.sproutStart);}
+ for(const w of s.director.retracts||[]){const p=at(w.cell),age=s.tick-w.starts,size=w.phase==='cancel-decay'?vfxSize('rootSprout',cell):cell*.96;
+  // Retain the developed sprout during the first decay frames, not an empty
+  // frame at cancellation. Same fixed cell; canonical start drives both sheets.
+  if(w.phase==='cancel-decay'&&age<6)drawVfx(ctx,'tips',p.x,p.y,size,s.tick,1-age/6,w.starts-36);
+  if(!drawAuthoredVfx(ctx,'roots-decay',p.x,p.y,size,s.tick,1,w.starts))drawVfx(ctx,'decay',p.x,p.y,size,s.tick,1-age/18,w.starts);
+ }
  for(const k of ['focus','guard'])if(has(s,k)){
   const dx=frame.head.dx,dy=frame.head.dy;
   if(k==='focus')focusPositions({...h,dx,dy},cell,t).forEach((p,i)=>drawVfx(ctx,'wisp',p.x,p.y,vfxSize('focus',cell),s.tick+i*10,.95));
@@ -57,8 +86,6 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
    const sideOffset=Math.max(cell*.29,9),back=cell*.10;
    for(const side of [-1,1])frontVfx(ctx,'plate',h.x-dy*side*sideOffset-dx*back,h.y+dx*side*sideOffset-dy*back,vfxSize('guardPlate',cell),s.tick,dx,dy,side===1);
   }
- }
- if(has(s,'rush')){for(const span of frame.spans||[{route:frame.route}])for(const p of rushPositions(span.route,cell))drawVfx(ctx,p.kind,l.field.x+(p.x-frame.viewX+.5)*cell+p.offsetX,l.field.y+(p.y-frame.viewY+.5)*cell+p.offsetY,vfxSize('rush',cell),t+p.phase,p.opacity);
  }
  const reward=s.feedback.findLast(f=>f.kind==='portal-reward'),trail=s.portalEdges?.some(e=>e.move===s.portalRewardMove&&!e.complete);
  if(has(s,'portalPrize')&&s.portalAvailable()||trail||reward&&s.tick-reward.tick<120)for(const c of s.portals){const p=at(c);if(!drawAuthoredVfx(ctx,'portal-charged-ring',p.x,p.y,vfxSize('portal',cell),s.tick))drawVfx(ctx,'rune',p.x,p.y,cell*.55,t);}
@@ -74,22 +101,6 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
    if(f.corrupt&&a<.25)drawVfx(ctx,'mold',h.x-frame.head.dx*cell*.2,h.y-cell*.35,Math.max(14,cell*.35),s.tick,.8-a*2);
   }else if(['root-decay','guard-used'].includes(f.kind)){if(!drawAuthoredVfx(ctx,f.kind==='guard-used'?'guard-break':'roots-decay',p.x,p.y,f.kind==='guard-used'?vfxSize('guardBreak',cell):cell*.96,t,1-a/.34,f.tick))for(let i=0;i<4;i++){const theta=i*Math.PI/2;drawVfx(ctx,f.kind==='guard-used'?'cracked':'decay',p.x+Math.cos(theta)*cell*a*2,p.y+Math.sin(theta)*cell*a*2,Math.max(14,cell*.4),t+i*3,1-a/.34,f.tick);}}
   else if(f.effect==='weak'&&a<.3)for(let i=0;i<3;i++)drawVfx(ctx,'mold',h.x+Math.sin(i*2.1)*cell*a*2,h.y+Math.cos(i*2.1)*cell*a*2,Math.max(14,cell*.35),t+i*7,1-a/.3);
- }
- if(has(s,'mist')){
-  // Layered native cloud puffs drift inward from ALL edges. No noise field,
-  // rectangular bands, blur/filter, or extra animation clock. Hard clear disk.
-  ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.moveTo(h.x+4.5*cell,h.y);ctx.arc(h.x,h.y,4.5*cell,0,Math.PI*2);ctx.clip('evenodd');
-  for(let side=0;side<4;side++)for(let layer=0;layer<2;layer++)for(let i=0;i<(side<2?8:4);i++){
-   const v=mistVariation(side,layer,i),p=(t/(240+layer*45)+i*.137+side*.19+layer*.4)%1,travel=p*cell*3.6,size=cell*v.scale,count=side<2?8:4;
-   const x=side<2?arena.x+(i+.5)/count*arena.w+(layer?cell*.35:0):side===2?arena.x+travel:arena.x+arena.w-travel;
-   const y=(side>=2?arena.y+(i+.5)/count*arena.h:side===0?arena.y+travel:arena.y+arena.h-travel)+v.offset*cell;
-   const density=clamp((Math.hypot(x-h.x,y-h.y)/cell-3.5)/5);ctx.globalAlpha=Math.sin(p*Math.PI)*(.42+layer*.12)*density*v.opacity;
-   ctx.save();ctx.translate(x,y);if(v.mirror)ctx.scale(-1,1);
-   if(!drawAuthoredVfx(ctx,'mist-puff',0,0,size,t,1,0,v.phase))ctx.drawImage(fogCloud(),Math.round(-size/2),Math.round(-size*.3),size,size*.6);ctx.restore();
-  }ctx.restore();ctx.globalAlpha=1;
-  // Goals remain discernible beyond the clear safety radius.
-  if(s.state.food>=0){const p=at(s.state.food);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.8;drawFood(ctx,art,s,p.x,p.y+Math.sin(t/67)*2*q,cell,t,l.compact);ctx.globalAlpha=1;sparkle(ctx,p.x,p.y-cell*.27,Math.max(1,q),'#e7d9a6');}}
-  if(s.portalAvailable()||s.portalEdges.some(e=>!e.complete))for(const c of s.portals){const p=at(c);if(Math.hypot(p.x-h.x,p.y-h.y)>4.5*cell){ctx.globalAlpha=.6;drawReadable(ctx,objectImage(art,'portal'),'portal',p.x,p.y,cell,l.compact,1);ctx.globalAlpha=1;}}
  }
  // No effect pickup notice or explanatory prose in the steering area.
  for(const f of feedbackLanes(s,t,at,cell,arena,h))pixelText(ctx,f.text,f.x,f.y,f.size,f.color,'center');

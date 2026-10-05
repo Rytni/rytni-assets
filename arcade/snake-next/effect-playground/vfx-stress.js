@@ -1,4 +1,9 @@
 import {bodyCell} from '../simulation/body.js';
+export function vfxReviewSession(s,mode){
+ if(!s?.world||!['rush','mist'].includes(mode))return s;
+ // Explicit DEV persistent render rehearsal, not a duration/balance change.
+ return Object.assign(Object.create(s),{effects:[{kind:mode,ends:s.tick+1}]});
+}
 // Isolated Lab diagnostic ONLY. A read-only facade, never canonical events,
 // topology, rewards or effects. One active tick drives all transient phases.
 export function vfxStressSession(s,startTick){

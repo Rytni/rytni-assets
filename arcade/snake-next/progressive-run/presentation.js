@@ -9,7 +9,7 @@ import {Camera} from './camera.js';
 import {DEFINITIONS} from './director.js';
 import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
 import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
-import {drawEffectsWorld,effectSlots} from '../effect-playground/visuals.js';
+import {drawEffectsWorld,effectSlots,drawRoots,drawMist,drawUnderSnake,nearMistSafety} from '../effect-playground/visuals.js';
 import {drawWithFoodReaction} from '../effect-playground/food-reaction.js';
 import {fitWorldLayout} from '../effect-playground/fit-world.js';
 import {drawReadable} from '../effect-playground/readable-objects.js';
@@ -55,16 +55,23 @@ export class ProgressPresentation {
   if(s.portalEdges)drawEnvironment(ctx,s,view,l,frame,document.querySelector('#world-awareness')?.checked);
   // Clean approved stone fallback until complete biome silhouettes are approved.
   for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}
-  for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawReadable(ctx,objectImage(this.art,'portal'),'portal',p.x,p.y,cell,options.compact,1);}
+  const visualFrame={...(options.effectMotion||frame),viewX:view.x,viewY:view.y},layers={...l,compact:options.compact,environmentLayers:true};
+  drawRoots(ctx,s,at,cell);drawMist(ctx,s,visualFrame,cell,layers);
+  if(s.effects.some(e=>e.kind==='mist')){
+   for(const o of s.world.obstacles)if(nearMistSafety(frame,o.cell,s.arena.width)){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}
+   drawRoots(ctx,s,at,cell,c=>nearMistSafety(frame,c,s.arena.width));
+  }
   if(s.portal.phase==='entering')ctx.globalAlpha=Math.max(.18,1-s.portal.elapsed/14);if(s.portal.phase==='teleport')ctx.globalAlpha=0;if(s.portal.phase==='exit-grace')ctx.globalAlpha=Math.min(1,.5+s.portal.elapsed/16);
   if(options.status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
+  drawUnderSnake(ctx,s,visualFrame,cell,layers);
   const impact=s.feedback.findLast(f=>f.kind==='guard-used'),hold=impact&&s.tick-impact.tick<5;
   if(!hold||!this.impactMotion)this.impactMotion=options.motion;
   if(options.motion)drawWithFoodReaction(ctx,s,frame,cell,field,view,drawCtx=>renderer.smoothSprites.draw(drawCtx,hold?this.impactMotion:options.motion,cell,field.x,field.y,view,field));
   else drawSnake(ctx,this.art,bodyCells(s.state).map(c=>({x:c%s.arena.width-view.x,y:Math.floor(c/s.arena.width)-view.y})),cell,field.x,field.y,s.moves,field);
   ctx.globalAlpha=1;
+  for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawReadable(ctx,objectImage(this.art,'portal'),'portal',p.x,p.y,cell,options.compact,1);}
   if(s.portalEdges)drawPortalActivity(ctx,s,at,cell,frame);
-  drawEffectsWorld(ctx,s,{...frame,viewX:view.x,viewY:view.y},at,cell,this.art,{...l,compact:options.compact});
+  drawEffectsWorld(ctx,s,visualFrame,at,cell,this.art,layers);
   if(debug&&view.safe){ctx.strokeStyle='#e7be75';ctx.lineWidth=1;ctx.strokeRect(field.x+(view.safe.left+.5)*cell,field.y+(view.safe.top+.5)*cell,(view.safe.right-view.safe.left)*cell,(view.safe.bottom-view.safe.top)*cell);}
   const banner=s.announcements.at(-1);if(banner){const x=arena.x+arena.w/2,y=arena.y+cell*.4,scale=Math.max(1,Math.floor(cell/28));ctx.fillStyle='#06221de8';ctx.fillRect(x-Math.min(arena.w*.45,250),y-10*scale,Math.min(arena.w*.9,500),20*scale);pixelText(ctx,banner.text,Math.round(x),Math.round(y-4*scale),scale,'#ead290','center');}
   ctx.restore();drawFrame(ctx,this.art,l.frame.x,l.frame.y,l.frame.w,l.frame.h,l.scale,!!fit);renderer.last=l;return l;

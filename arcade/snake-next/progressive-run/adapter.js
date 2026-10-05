@@ -8,7 +8,7 @@ import {portalExitCue} from '../gate-one/audio.js';
 import {drawEffectLabels} from '../effect-playground/visuals.js';
 import {installEffectSounds} from '../effect-playground/audio.js';
 import {enableDevVfx} from '../effect-playground/vfx-candidates.js';
-import {vfxStressSession} from '../effect-playground/vfx-stress.js';
+import {vfxStressSession,vfxReviewSession} from '../effect-playground/vfx-stress.js';
 
 export const progressiveEnabled=()=>document.querySelector('#run-model').value==='progressive';
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
@@ -18,19 +18,21 @@ export function installProgression(game){
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;
  game.renderer.render=(s,options)=>{
-  const canonical=vfxStressSession(actual||s,game.vfxStressStart);
+  const canonical=vfxReviewSession(vfxStressSession(actual||s,game.vfxStressStart),game.vfxReviewMode);
   // DEV fixture only: same state/topology, read-only Forest art comparison.
   const session=game.artFixtureForest&&canonical?.world?Object.assign(Object.create(canonical),{world:{...canonical.world,biome:'forest'},stage:{...canonical.stage,biome:'forest'}}):canonical;
   if(!session?.world)return baseDraw(s,options);
   // During discontinuities ALL DEV modes must respect the same canonical edge.
   // V2/snap remain unchanged elsewhere; no legacy renderer draws an A→B chord.
-  const snapped=!options.motion&&session.portalEdges?.length?snappedTunnelFrame(session,game.motion):null;
+  const snapped=!options.motion&&session.portalEdges?snappedTunnelFrame(session,game.motion):null;
   const motion=options.motion||snapped;
   if(motion?.spans){
    tunnelRibbon??=new TunnelRibbon(game.ribbonV4);const old=game.renderer.smoothSprites;game.renderer.smoothSprites=tunnelRibbon;
    try{return presentation.render(game.renderer,session,{...options,motion},document.querySelector('#camera-debug').checked);}finally{game.renderer.smoothSprites=old;}
   }
-  return presentation.render(game.renderer,session,options,document.querySelector('#camera-debug').checked);
+  // Snap effects need the committed route too, but do NOT give that frame to
+  // the Snake draw branch: ordinary GRID SNAP keeps its approved legacy art.
+  return presentation.render(game.renderer,session,{...options,effectMotion:motion},document.querySelector('#camera-debug').checked);
  };
  game.render=()=>{
   const s=game.session;game.root.classList.toggle('effect-playground',!!s?.world);if(!s?.world){if(game.root.querySelector('#effects').dataset.progressEffects!==undefined){delete game.root.querySelector('#effects').dataset.progressEffects;game.effectKey=null;}baseRender();return;}

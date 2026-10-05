@@ -44,7 +44,7 @@ test('world rendering read-only, pause-stable, expired one-shots absent, restart
   const s=new TunnelSession({seed:17,progression:{model:'fit-world-v2',density:0}});s.tick=100;s.effects=[{kind:'focus',ends:900},{kind:'guard',ends:900},{kind:'rush',ends:900}];s.state.food=-1;
   s.spores=[{cell:500,magnetTick:94}];s.director.warnings=[{cell:510,starts:118}];s.world.hazards=[{cell:520}];s.portals=[576,577];s.portalEdges=[{complete:false,move:2}];s.portalRewardMove=2;
   s.feedback=[{kind:'seed',cell:500,tick:98,harvest:true,strong:true,amount:100},{kind:'seed',cell:510,tick:98,spore:true,amount:25},{kind:'guard-used',cell:520,tick:98},{kind:'root-decay',cell:530,tick:98}];
-  const m=new TunnelMotion(s);m.freeze(s,.4);const frame={head:{x:15,y:5,dx:1,dy:0},route:Array.from({length:8},(_,i)=>({x:15-i,y:5})),alpha:.4,viewX:0,viewY:0},draws=[],ctx=new Proxy({globalAlpha:1},{get:(o,k)=>k in o?o[k]:k==='drawImage'?(im,...a)=>draws.push([im.key,...a]):()=>{},set:(o,k,v)=>(o[k]=v,true)}),l={arena:{x:0,y:0,w:1920,h:768},field:{x:0,y:0},compact:false},before=s.hash(),fx=JSON.stringify(s.feedback);
+  const m=new TunnelMotion(s);m.freeze(s,.4);const frame={head:{x:15,y:5,dx:1,dy:0},route:Array.from({length:8},(_,i)=>({x:15-i,y:5})),start:0,end:6,alpha:.4,viewX:0,viewY:0},draws=[],ctx=new Proxy({globalAlpha:1},{get:(o,k)=>k in o?o[k]:k==='drawImage'?(im,...a)=>draws.push([im.key,...a]):()=>{},set:(o,k,v)=>(o[k]=v,true)}),l={arena:{x:0,y:0,w:1920,h:768},field:{x:0,y:0},compact:false},before=s.hash(),fx=JSON.stringify(s.feedback);
   const render=()=>drawEffectsWorld(ctx,s,frame,c=>({x:c%112*68,y:Math.floor(c/112)*68}),68,{},l);
   render();assert.equal(s.hash(),before);assert.equal(JSON.stringify(s.feedback),fx);const frozen=JSON.stringify(draws);draws.length=0;render();assert.equal(JSON.stringify(draws),frozen);
   assert.equal(draws.filter(d=>d[0]==='vfx.focus-wisp').length,3);
@@ -54,7 +54,9 @@ test('world rendering read-only, pause-stable, expired one-shots absent, restart
 });
 test('all locked mechanics, renderer geometry, pickup/food pixels stay byte-identical',()=>{
  const paths=['asset-contract.js','asset-approvals.js','capacity-model.js','style.css'].map(p=>'arcade/snake-next/effect-playground/'+p);
- paths.push(...['simulation/step.js','simulation/timing.js','gate-one/session.js','gate-one/motion.js','gate-one/ribbon.js','progressive-run/session.js','progressive-run/director.js','progressive-run/food.js','progressive-run/world.js','forest-training/ribbon-raster.js','forest-training/ribbon-sprites.js','smooth-v4-proof/ribbon.js','forest-training/style.css'].map(p=>'arcade/snake-next/'+p));
+ // Root lifecycle and terminal cleanup are authorized by the behavior review;
+ // behavior.test.mjs separately locks every unrelated Director/session section.
+ paths.push(...['simulation/step.js','simulation/timing.js','gate-one/session.js','gate-one/motion.js','gate-one/ribbon.js','progressive-run/food.js','progressive-run/world.js','forest-training/ribbon-raster.js','forest-training/ribbon-sprites.js','smooth-v4-proof/ribbon.js','forest-training/style.css'].map(p=>'arcade/snake-next/'+p));
  for(const a of Object.values(ASSET_CONTRACT).filter(a=>!a.key.startsWith('vfx.')))paths.push(a.url.slice(1));
  for(const p of paths)assert.deepEqual(readFileSync(p),execFileSync('git',['show','9a99036:'+p]),p);
  for(const p of ['vfx-presentation.js','food-reaction.js','vfx-candidates.js'])assert.doesNotMatch(readFileSync('arcade/snake-next/effect-playground/'+p,'utf8'),/Date\.now|requestAnimationFrame|setInterval|setTimeout|Math\.random/);

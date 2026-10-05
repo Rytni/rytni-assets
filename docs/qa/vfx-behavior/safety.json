@@ -1,0 +1,25 @@
+{
+  "near": {
+    "tick": 0,
+    "near": true,
+    "opaque": 2148,
+    "changed": 1049,
+    "maxAlpha": 254,
+    "maxDelta": 2,
+    "meanDelta": 0.5093109869646183,
+    "stone": 1022,
+    "hash": "ffc5c725"
+  },
+  "far": {
+    "tick": 186,
+    "near": false,
+    "opaque": 2148,
+    "changed": 724,
+    "maxAlpha": 254,
+    "maxDelta": 74,
+    "meanDelta": 6.699720670391062,
+    "stone": 1022,
+    "hash": "de6b6a82"
+  },
+  "dpadInput": true
+}
