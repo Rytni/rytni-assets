@@ -42,9 +42,12 @@ export class ProgressPresentation {
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});
   ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.clip();
   const tr=s.transitions.at(-1),blend=tr?Math.min(1,(s.tick-tr.tick)/120):1,oldTiles=this.board(tr?.from||s.stage.biome),tiles=this.board(s.stage.biome);
-  for(let y=Math.floor(view.y)+1;y<Math.ceil(view.y)+view.rows-1;y++)for(let x=Math.floor(view.x)+1;x<Math.ceil(view.x)+view.cols-1;x++){
+  // Existing tile underpaint continues behind the relocated outer wall. The
+  // blocked-cell band stays non-playable; no black transparent-padding seam.
+  const inset=fit?0:1;
+  for(let y=Math.floor(view.y)+inset;y<Math.ceil(view.y)+view.rows-inset;y++)for(let x=Math.floor(view.x)+inset;x<Math.ceil(view.x)+view.cols-inset;x++){
    const left=field.x+(x-view.x)*cell,top=field.y+(y-view.y)*cell,index=boardVariant(x,y);
-   if(x<1||y<1||x>=s.world.width-1||y>=s.world.height-1){ctx.fillStyle='#021512';ctx.fillRect(left,top,cell+1,cell+1);continue;}
+   if(x<inset||y<inset||x>=s.world.width-inset||y>=s.world.height-inset){ctx.fillStyle='#021512';ctx.fillRect(left,top,cell+1,cell+1);continue;}
    const px=Math.round(left),py=Math.round(top),pw=Math.round(left+cell)-px,ph=Math.round(top+cell)-py;
    ctx.drawImage(oldTiles[index],px,py,pw,ph);if(blend>0){ctx.globalAlpha=blend;ctx.drawImage(tiles[index],px,py,pw,ph);ctx.globalAlpha=1;}
   }

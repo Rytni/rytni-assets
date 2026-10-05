@@ -78,7 +78,12 @@ test('canonical 30-second loop replay/hash identical across stable, old and no-c
 });
 
 test('Gate 1.1 art stays unchanged; viewport extent substitution only for FIT WORLD',()=>{
- const env=readFileSync('arcade/snake-next/gate-one/environment.js','utf8').replace(/\r\n/g,'\n').replaceAll('view.cols','28').replaceAll('view.rows','12').replace('y<Math.ceil(view.y)+12-1','y<=Math.ceil(view.y)+10').replace('x<Math.ceil(view.x)+28-1','x<=Math.ceil(view.x)+26');
+ const raw=readFileSync('arcade/snake-next/gate-one/environment.js','utf8').replace(/\r\n/g,'\n'),prior=execFileSync('git',['show','310faf0:arcade/snake-next/gate-one/environment.js'],{encoding:'utf8'}).replace(/\r\n/g,'\n');
+ // Outer-wall placement/corner tiling is explicitly unlocked in Gate 2.3.1.
+ // Native painter, historical opening walls, portal activity and reveal art are not.
+ assert.equal(raw.split('function wallCell')[1].split('function borderCells')[0],prior.split('function wallCell')[1].split('function borderCells')[0]);
+ assert.equal(raw.split(' if(opening&&p<1){')[1],prior.split(' if(opening&&p<1){')[1]);
+ const env=prior.replaceAll('view.cols','28').replaceAll('view.rows','12').replace('y<Math.ceil(view.y)+12-1','y<=Math.ceil(view.y)+10').replace('x<Math.ceil(view.x)+28-1','x<=Math.ceil(view.x)+26');
  assert.equal(createHash('sha256').update(env).digest('hex'),'1c02aa395013c6fd6b5ae4aa43c52ce33245c9e4b4a54e3464d280bf7ac7c51f');
  const path='arcade/snake-next/gate-one/camera.js',old=execFileSync('git',['show','a85a2ff:'+path],{encoding:'utf8'}).split('export class LookAheadCamera')[1];
  assert.equal(readFileSync(path,'utf8').split('export class LookAheadCamera')[1].replace(/\r\n/g,'\n'),old.replace(/\r\n/g,'\n'));

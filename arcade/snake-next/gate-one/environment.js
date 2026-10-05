@@ -68,7 +68,7 @@ function wallCell(ctx,x,y,cell,biome,index,side,{crack=0,retract=0,near=0,time=0
  }
  ctx.restore();
 }
-function borderCells(width,height){const cells=[];for(let x=0;x<width;x++)cells.push([x,0,'top'],[x,height-1,'bottom']);for(let y=1;y<height-1;y++)cells.push([0,y,'left'],[width-1,y,'right']);return cells;}
+function borderCells(width,height,sideCorners=false){const cells=[];for(let x=0;x<width;x++)cells.push([x,0,'top'],[x,height-1,'bottom']);for(let y=sideCorners?0:1;y<height-(sideCorners?0:1);y++)cells.push([0,y,'left'],[width-1,y,'right']);return cells;}
 
 export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  const {field,arena,cell}=l,xy=(x,y)=>[field.x+(x-view.x)*cell,field.y+(y-view.y)*cell];
@@ -77,9 +77,13 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  // opening/wave; no modal, movement freeze, or hidden temporary collision mask.
  const width=s.world.width,height=s.world.height,biome=s.world.biome;
  const edge=(x,y,side)=>xy(x+(side==='left'?1:0),y+(side==='top'?1:0));
- for(const [x,y,side]of borderCells(width,height)){
+ for(const [x,y,side]of borderCells(width,height,!!l.wallOffsets)){
   if(x+1<view.x||y+1<view.y||x>view.x+view.cols||y>view.y+view.rows)continue;
-  const [a,b]=edge(x,y,side),distance=view.wallDistance?.[side]??99;
+  const pos=edge(x,y,side),offset=l.wallOffsets?.[side]||0;
+  // FIT-only presentation placement. Painter/source geometry is unchanged;
+  // old opening walls still use their canonical historical position below.
+  pos[side==='left'||side==='right'?0:1]+=offset;
+  const [a,b]=pos,distance=view.wallDistance?.[side]??99;
   const along=side==='left'||side==='right'?Math.abs(y-frame.head.y):Math.abs(x-frame.head.x);
   const near=distance<=6&&along<3?clamp((7-distance)/3):0;
   wallCell(ctx,a,b,cell,biome,x+y,side,{near,time:s.tick+frame.alpha});

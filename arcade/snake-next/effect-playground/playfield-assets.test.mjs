@@ -5,7 +5,7 @@ import {readFileSync} from 'node:fs';
 import {ASSET_CONTRACT,EFFECT_NAMES,PICKUP_RULE,VFX_ALIASES} from './asset-contract.js';
 import {AssetBank,assetFrame,effectAssets} from './asset-bank.js';
 import {drawEffectsWorld} from './visuals.js';
-import {cabinetPlayfield,fitCabinetSize,fitWorldLayout,playfieldUtilization} from './fit-world.js';
+import {cabinetPlayfield,fitCabinetSize,fitWorldLayout,WALL_OUTER_NATIVE} from './fit-world.js';
 import {geometry} from '../forest-training/renderer.js';
 import {TunnelSession} from '../gate-one/session.js';
 import {TunnelMotion} from '../gate-one/motion.js';
@@ -15,20 +15,21 @@ test('playfield derives from physical rails, independent of legacy arena/cells',
  for(const [w,h,mobile]of [[1920,1080,false],[1366,768,false],[844,390,true]]){
   const base=geometry(w,h,28,12,true,mobile),a=cabinetPlayfield(base,true),b=cabinetPlayfield({...base,arena:{x:1,y:2,w:3,h:4},scale:7,header:900,cell:123,cols:99,rows:3},true);
   assert.deepEqual(a.playfieldRect,b.playfieldRect);const p=a.playfieldRect;
-  assert.ok(Math.abs(p.x-a.frame.x-57*a.scale-a.gutter)<1e-6);assert.ok(Math.abs(p.y-a.frame.y-66*a.scale-a.gutter)<1e-6);
+  assert.equal(a.gutter,0);assert.deepEqual(p,a.cabinetAperture);assert.ok(Math.abs(p.x-a.frame.x-57*a.scale)<1e-6);assert.ok(Math.abs(p.y-a.frame.y-66*a.scale)<1e-6);
   assert.ok(Math.abs(a.frame.x+a.frame.w-57*a.scale-a.gutter-p.x-p.w)<1e-6);
   assert.ok(Math.abs(a.frame.y+a.frame.h-66*a.scale-a.gutter-p.y-p.h)<1e-6);
-  assert.ok(Math.abs(p.w/p.h-2.5)<1e-6);assert.ok(a.cabinet.x>=0&&a.cabinet.y>=0);assert.ok(a.cabinet.y+a.cabinet.h<=h+1e-6);
+  assert.ok(a.cabinet.x>=0&&a.cabinet.y>=0);assert.ok(a.cabinet.y+a.cabinet.h<=h+1e-6);
   assert.deepEqual(a.controlsArena,base.arena);
  }
  const size=fitCabinetSize(1366),base=geometry(size.w,size.h,28,12,false,false),l=cabinetPlayfield(base);
  assert.equal(l.cabinet.y,0);assert.ok(Math.abs(l.cabinet.h-size.h)<1e-6);
 });
-test('four square-cell worlds fill rect; visible wall envelope exceeds 95% both axes',()=>{
+test('four square-cell grids fit inside the real aperture with native wall reserve',()=>{
  for(const mobile of [false,true])for(const [width,height]of WORLDS){
   const s=new TunnelSession({seed:17,progression:{model:'fit-world-v2',density:0}});s.world={...s.world,width,height};
-  const base=geometry(mobile?844:1920,mobile?390:1080,28,12,true,mobile),l=fitWorldLayout(base,s,{head:{x:10,y:5},alpha:0},true).layout,u=playfieldUtilization(l);
-  assert.ok(Math.abs(l.cell-l.field.w/width)<1e-6);assert.ok(Math.abs(l.cell-l.field.h/height)<1e-6);assert.ok(u.width>=.95&&u.height>=.95);assert.ok(Math.abs(u.logicalWidth-1)<1e-6);assert.ok(Math.abs(u.logicalHeight-1)<1e-6);
+  const base=geometry(mobile?844:1920,mobile?390:1080,28,12,true,mobile),l=fitWorldLayout(base,s,{head:{x:10,y:5},alpha:0},true).layout,a=l.cabinetAperture,g=l.playableGrid;
+  assert.ok(Math.abs(l.cell-l.field.w/width)<1e-6);assert.ok(Math.abs(l.cell-l.field.h/height)<1e-6);assert.ok(g.x>=a.x&&g.y>=a.y&&g.x+g.w<=a.x+a.w&&g.y+g.h<=a.y+a.h);
+  assert.equal(l.cell,Math.min(a.w/(width-2+2*WALL_OUTER_NATIVE/68),a.h/(height-2+2*WALL_OUTER_NATIVE/68)));
  }
 });
 test('nine pickup contracts plus semantic VFX, PNG-only, explicit pending approval',()=>{

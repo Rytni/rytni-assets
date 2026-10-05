@@ -16,18 +16,16 @@ async page=>{
    await p.waitForFunction(()=>tuningLab.game.root.ownerDocument.fullscreenElement===tuningLab.game.root);
    await p.waitForFunction(()=>{const g=tuningLab.game;return g.renderer.w===g.root.ownerDocument.defaultView.innerWidth&&g.renderer.last.playfieldRect;});
    const data=await p.evaluate(async()=>{
-    const g=tuningLab.game,s=g.session,{playfieldUtilization}=await import('./effect-playground/fit-world.js'),{drawEnvironment}=await import('./gate-one/environment.js'),{sprite,KINDS}=await import('./effect-playground/art.js'),{objectImage}=await import('./forest-training/objects.js'),{objectPresentation}=await import('./effect-playground/readable-objects.js'),{effectAssets}=await import('./effect-playground/asset-bank.js');
+    const g=tuningLab.game,s=g.session,{apertureEdgeGaps}=await import('./effect-playground/aperture-qa.js'),{drawEnvironment}=await import('./gate-one/environment.js'),{sprite,KINDS}=await import('./effect-playground/art.js'),{objectImage}=await import('./forest-training/objects.js'),{objectPresentation}=await import('./effect-playground/readable-objects.js'),{effectAssets}=await import('./effect-playground/asset-bank.js');
     s.pickups=[{kind:'focus',cell:3*112+8,ends:99999},{kind:'harvest',cell:3*112+14,ends:99999},{kind:'rush',cell:3*112+20,ends:99999}];s.state.food=7*112+19;s.portal.phase='armed';s.director.windowEnd=99999;s.preparePortals();g.render();
     const l=g.renderer.last,h=s.hash();g.render();if(s.hash()!==h)throw Error('render mutated hash');
     const b=document.createElement('canvas');b.width=l.w;b.height=l.h;const x=b.getContext('2d'),f=g.motion.frame(s),view=tuningLab.camera;
     x.beginPath();x.rect(l.playfieldRect.x,l.playfieldRect.y,l.playfieldRect.w,l.playfieldRect.h);x.clip();drawEnvironment(x,s,view,l,f,false);
-    const a=x.getImageData(0,0,b.width,b.height).data;let left=b.width,top=b.height,right=-1,bottom=-1;
-    for(let y=0;y<b.height;y++)for(let col=0;col<b.width;col++)if(a[(y*b.width+col)*4+3]){left=Math.min(left,col);top=Math.min(top,y);right=Math.max(right,col);bottom=Math.max(bottom,y);}
-    const borderInk={x:left,y:top,w:right-left+1,h:bottom-top+1,width:(right-left+1)/l.playfieldRect.w,height:(bottom-top+1)/l.playfieldRect.h};
+    const edgeGaps=apertureEdgeGaps(x.getImageData(0,0,b.width,b.height),l.cabinetAperture);
     const objects=[['food',objectImage(g.art,'food-red'),.7],...KINDS.map(k=>[k,sprite(k),g.compact?.94:.68])].map(([kind,im,scale])=>{const r=objectPresentation(im,kind,l.cell,g.compact,scale);return {kind,lod:r.lod,footprint:r.footprint,w:r.w,h:r.h,uniform:r.uniform};});
-    return {world:[s.world.width,s.world.height],fullscreen:true,renderer:[l.w,l.h],cell:l.cell,body:l.cell*36/68,playfield:l.playfieldRect,frame:l.frame,field:l.field,gutter:l.gutter,utilization:playfieldUtilization(l),borderInk,objects,hash:h,pendingAssetRequests:effectAssets.cache.size,touchTargets:[...g.root.querySelectorAll('#pad button')].map(b=>({w:b.getBoundingClientRect().width,h:b.getBoundingClientRect().height})),pad:g.root.querySelector('#pad').getBoundingClientRect().toJSON()};
+    return {world:[s.world.width,s.world.height],fullscreen:true,renderer:[l.w,l.h],cell:l.cell,body:l.cell*36/68,cabinetAperture:l.cabinetAperture,frame:l.frame,field:l.field,edgeGaps,objects,hash:h,pendingAssetRequests:effectAssets.cache.size,touchTargets:[...g.root.querySelectorAll('#pad button')].map(b=>({w:b.getBoundingClientRect().width,h:b.getBoundingClientRect().height})),pad:g.root.querySelector('#pad').getBoundingClientRect().toJSON()};
    });
-   if(data.borderInk.width<.95||data.borderInk.height<.95)throw Error('Visible border underfills rect');
+   if(!data.edgeGaps.pass)throw Error('Visible border does not meet cabinet aperture');
    if(data.pendingAssetRequests!==0)throw Error('Pending art requested');
    if(mobile&&data.touchTargets.some(b=>b.w<44||b.h<44))throw Error('D-pad shrunk');
    data.embedded=embedded;const prefix=mobile?'mobile':'desktop',world=data.world.join('x');

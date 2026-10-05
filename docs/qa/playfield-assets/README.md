@@ -1,5 +1,7 @@
 # Full playfield / authored-effect readiness
 
+Historical diagnostic: human rejected the inset-relative utilization gate. Cabinet aperture geometry acceptance is superseded by [Gate 2.3.1 direct raster edge gaps](../aperture-zero-gap/README.md). The asset contract remains unchanged.
+
 Base: `e097fe2`. Local diagnostic only. No new production art, benchmark, TEST/Production manifest update or deployment.
 
 ## Presentation change
