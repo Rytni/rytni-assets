@@ -1,0 +1,24 @@
+{
+  "transfers": 1,
+  "rewards": 1,
+  "splitFrames": 9,
+  "draws": [
+    "vfx.portal-charged-ring",
+    "vfx.portal-body-trail"
+  ],
+  "renderHashStable": true,
+  "hashes": [
+    "7e9424d5",
+    "a560b79d",
+    "512803f8",
+    "d5dcca4a",
+    "26c08f00",
+    "b4f22177",
+    "96b862fb",
+    "82d99cd1",
+    "ef7a07c1",
+    "8266d4c1",
+    "4da53e74",
+    "1f18e35e"
+  ]
+}

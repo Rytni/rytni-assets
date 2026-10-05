@@ -5,6 +5,7 @@ import {DEFINITIONS} from '../progressive-run/director.js';
 import {drawVfx} from './vfx-art.js';
 import {drawReadable} from './readable-objects.js';
 import {effectAssets,drawAuthoredVfx,drawAuthoredFood} from './asset-bank.js';
+import {focusPositions,foodSquash,rootWarningPhase} from './vfx-presentation.js';
 export const DETAILS={harvest:'ГРИБЫ ×2 · 16 С',focus:'СПОКОЙНЕЕ · КОМБО ЗАМОРОЖЕНО · 15 С',spores:'СОБИРАЙ СВЕТЯЩИЕСЯ СПОРЫ',guard:'ЩИТ · 1 ЗАРЯД',portalPrize:'НАЙДИ ПОРТАЛ · БОНУС',rush:'СКОРОСТЬ ↑ · 10 С',weak:'ОЧКИ −40% · 12 С',brambles:'КОРНИ · СЛЕДИ ЗА ТРЕЩИНАМИ',mist:'ОБЗОР СУЖЕН · 10 С'};
 const has=(s,k)=>s.effects.some(e=>e.kind===k),clamp=n=>Math.max(0,Math.min(1,n));
 const corruptCache=new WeakMap();
@@ -38,30 +39,30 @@ export function drawEffectsWorld(ctx,s,frame,at,cell,art,l){
   if(a>0)for(let j=1;j<=3;j++){const back=Math.max(0,a-j*.12),be=back*back*(3-2*back),bb=Math.sin(back*Math.PI)*cell*.18,tx=xy.x+(h.x-xy.x)*be+bb,ty=xy.y+(h.y-xy.y)*be-bb,size=Math.max(5,cell*.12);if(!drawAuthoredVfx(ctx,'spore-trail',tx,ty,size,t+j*4,.4-j*.08,p.magnetTick))drawVfx(ctx,'glint',tx,ty,size,t+j*4,.4-j*.08);}
   drawMote(ctx,x,y,cell,t,p.cell);
  }
- for(const w of s.director.warnings){const p=at(w.cell),growth=clamp((t-w.starts+36)/36);drawVfx(ctx,'cracks',p.x,p.y,cell*.9,t,.75+.2*Math.sin(t/9),w.starts-36);if(growth>0)drawVfx(ctx,'tips',p.x,p.y,cell*.85,t,growth,w.starts-36);}
+ for(const w of s.director.warnings){const p=at(w.cell),phase=rootWarningPhase(s.tick,w.starts);drawVfx(ctx,'cracks',p.x,p.y,cell*.9,s.tick,.9,phase.crackStart);if(phase.sprout)drawVfx(ctx,'tips',p.x,p.y,cell*.85,s.tick,1,phase.sproutStart);}
  for(const w of s.world.hazards){const p=at(w.cell);drawVfx(ctx,'roots',p.x,p.y,cell*.96,t);}
  for(const k of ['focus','guard'])if(has(s,k)){
   const dx=frame.head.dx,dy=frame.head.dy;
-  if(k==='focus')for(let i=0;i<3;i++){const a=t/130+i*2.1,r=cell*.34;drawVfx(ctx,'wisp',h.x+Math.cos(a)*r,h.y+Math.sin(a)*r,Math.max(12,cell*.34),t+i*10,.85);}
-  if(k==='guard'){if(!drawAuthoredVfx(ctx,'guard-charged',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t))drawFallbackPickup(ctx,'guard',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t,false);
-   for(const side of [-1,1])drawVfx(ctx,'plate',h.x-dy*side*cell*.30+dx*cell*.08,h.y+dx*side*cell*.30+dy*cell*.08,Math.max(13,cell*.34),t);
+  if(k==='focus')focusPositions({...h,dx,dy},cell,t).forEach((p,i)=>drawVfx(ctx,'wisp',p.x,p.y,Math.max(12,cell*.34),s.tick+i*10,.95));
+  if(k==='guard'){if(!drawAuthoredVfx(ctx,'guard-charged',h.x-dx*cell*.72,h.y-dy*cell*.72,Math.max(24,cell*.52),s.tick))drawFallbackPickup(ctx,'guard',h.x-dx*cell*.38,h.y-dy*cell*.38,Math.max(24,cell*.52),t,false);
+   for(const side of [-1,1])drawVfx(ctx,'plate',h.x-dy*side*cell*.42-dx*cell*.25,h.y+dx*side*cell*.42-dy*cell*.25,Math.max(13,cell*.34),s.tick);
   }
  }
  if(has(s,'rush')){for(let i=1;i<5;i++){const p=frame.route?.[Math.min(frame.route.length-1,i)];if(!p)continue;drawVfx(ctx,i%2?'ember':'thorn',l.field.x+(p.x-frame.viewX+.5)*cell+(i%2?16:-16)*q,l.field.y+(p.y-frame.viewY+.5)*cell,Math.max(10,cell*.3),t+i*7,.75-i*.1);}
  }
  const reward=s.feedback.findLast(f=>f.kind==='portal-reward'),trail=s.portalEdges?.some(e=>e.move===s.portalRewardMove&&!e.complete);
- if(has(s,'portalPrize')&&s.portalAvailable()||trail||reward&&s.tick-reward.tick<120)for(const c of s.portals){const p=at(c);if(!drawAuthoredVfx(ctx,'portal-charged-ring',p.x,p.y,cell,t))drawVfx(ctx,'rune',p.x,p.y,cell*.55,t);for(let i=0;i<3;i++)drawVfx(ctx,i%2?'glint':'wisp',p.x+Math.sin(t/85+i*2.1)*cell*.28,p.y+Math.cos(t/85+i*2.1)*cell*.28,Math.max(7,cell*.2),t+i*5,.6);}
+ if(has(s,'portalPrize')&&s.portalAvailable()||trail||reward&&s.tick-reward.tick<120)for(const c of s.portals){const p=at(c);if(!drawAuthoredVfx(ctx,'portal-charged-ring',p.x,p.y,cell,s.tick))drawVfx(ctx,'rune',p.x,p.y,cell*.55,t);}
  if(trail||reward&&s.tick-reward.tick<120)for(const span of frame.spans||[{route:frame.route}])for(let i=1;i<Math.min(6,span.route?.length||0);i++){const p=span.route[i],xy=at(p.y*s.arena.width+p.x),size=Math.max(10,cell*.25);if(!drawAuthoredVfx(ctx,'portal-body-trail',xy.x,xy.y,size,t+i*6,.65))drawVfx(ctx,'rune',xy.x,xy.y,size,t+i*6,.65);}
  for(const f of s.feedback){const a=(t-f.tick)/60;if(a<0||a>.34)continue;const p=at(f.cell);
   if(['seed','portal-reward'].includes(f.kind)){
-   const burst=f.spore?'spore-burst':f.strong&&f.harvest?'harvest-third-burst':null;
-   if(burst)drawAuthoredVfx(ctx,burst,p.x,p.y,Math.max(24,cell*.95),t,1-a/.34,f.tick);
+   const burst=f.strong&&f.harvest?'harvest-third-burst':f.harvest?'harvest-sparkle':f.kind==='seed'?'spore-burst':null;
+   const authored=burst&&s.tick-f.tick<18&&drawAuthoredVfx(ctx,burst,p.x,p.y,Math.max(24,cell*(.75+Math.min(8,f.combo||1)*.025)),s.tick,1,f.tick);
    const color=f.corrupt?'#c998d4':f.harvest||f.kind==='portal-reward'?'#ffdf72':'#f7efb5',count=f.strong?12:Math.min(10,4+(f.combo||1));
-   if(f.kind==='seed'&&!f.spore&&a<.08&&!((f.corrupt||f.harvest)&&drawAuthoredFood(ctx,f.corrupt?'corrupted':'golden',p.x,p.y,cell,t,l.compact))){const im=foodSprite(art,s),w=cell*.65,height=cell*.30;ctx.drawImage(im,p.x-w/2,p.y-height/2,w,height);}
-   for(let i=0;i<count;i++){const theta=i*Math.PI*2/count,r=cell*(.14+a*1.4);drawVfx(ctx,f.corrupt?'mold':'glint',p.x+Math.cos(theta)*r,p.y+Math.sin(theta)*r,Math.max(5,cell*(f.strong?.16:.10)),t+i*5,(1-a/.34)*.8);}
+   if(f.kind==='seed'&&!f.spore&&s.tick-f.tick<5){ctx.save();ctx.translate(p.x,p.y);ctx.scale(1,foodSquash(t-f.tick));if(!((f.corrupt||f.harvest)&&drawAuthoredFood(ctx,f.corrupt?'corrupted':'golden',0,0,cell,s.tick,l.compact)))drawReadable(ctx,objectImage(art,'food-red'),'food',0,0,cell,l.compact,.70);ctx.restore();}
+   // Once an authored burst is present, only tiny secondary clusters remain.
+   if(!authored&&s.tick-f.tick<18)for(let i=0;i<count;i++){const theta=i*Math.PI*2/count,r=cell*(.14+a*1.4);drawVfx(ctx,f.corrupt?'mold':'glint',p.x+Math.cos(theta)*r,p.y+Math.sin(theta)*r,Math.max(5,cell*(f.strong?.16:.10)),s.tick+i*5,(1-a/.34)*.8);}
    pixelText(ctx,'+'+f.amount,Math.round(p.x),Math.round(p.y-cell*(.5+a)),Math.max(1,Math.floor(cell/28)+(f.combo>=6?1:0)),color,'center');
-   // Decorative reaction only; the locked V4 silhouette/mask is untouched.
-   ctx.fillStyle=color;ctx.fillRect(h.x-frame.head.dy*7*q,h.y+frame.head.dx*7*q,2*q,2*q);
+   if(f.corrupt){pixelText(ctx,'-40%',Math.round(p.x),Math.round(p.y-cell*(.2+a)),Math.max(1,Math.floor(cell/40)),color,'center');if(a<.25)drawVfx(ctx,'mold',h.x-frame.head.dx*cell*.2,h.y-cell*.35,Math.max(14,cell*.35),s.tick,.8-a*2);}
   }else if(['root-decay','guard-used'].includes(f.kind)){if(!drawAuthoredVfx(ctx,f.kind==='guard-used'?'guard-break':'roots-decay',p.x,p.y,cell*.96,t,1-a/.34,f.tick))for(let i=0;i<4;i++){const theta=i*Math.PI/2;drawVfx(ctx,f.kind==='guard-used'?'cracked':'decay',p.x+Math.cos(theta)*cell*a*2,p.y+Math.sin(theta)*cell*a*2,Math.max(14,cell*.4),t+i*3,1-a/.34,f.tick);}}
   else if(f.effect==='weak'&&a<.3)for(let i=0;i<3;i++)drawVfx(ctx,'mold',h.x+Math.sin(i*2.1)*cell*a*2,h.y+Math.cos(i*2.1)*cell*a*2,Math.max(14,cell*.35),t+i*7,1-a/.3);
  }
@@ -88,7 +89,7 @@ export function effectSlots(root,s,compact=false){
  if(root.dataset.progressEffects!==key||!root.children.length){root.dataset.progressEffects=key;root.innerHTML=slots.map((e,i)=>e?`<div class="effect ${i===2?'negative':'positive'}" data-effect="${e.kind}" aria-label="${LABELS[e.kind]}"><img alt="" src="${spriteURL(e.kind)}"><span>${LABELS[e.kind]}</span><b></b><i>${e.kind==='harvest'?'×2':''}</i></div>`:`<div class="effect-vacant ${i===2?'negative':'positive'}" aria-label="${i===2?'Дебафф':'Бонус'}: пусто"></div>`).join('');}
  for(const e of s.effects){const card=root.querySelector(`[data-effect="${e.kind}"]`),d=DEFINITIONS[e.kind];if(!card)continue;const remaining=Math.max(0,e.ends-s.tick);card.querySelector('b').textContent=d.charge?'1 ◆':Math.ceil(remaining/60)+'С';card.setAttribute('aria-label',`${LABELS[e.kind]} · ${card.querySelector('b').textContent}`);
   const age=s.tick-(e.started??-100),p=age>=0&&age<27?age/27:1,glow=p<1?Math.sin(p*Math.PI):0;
-  card.dataset.pickupGlow=glow;card.style.boxShadow=glow?`inset 0 0 ${Math.round(3+glow*7)}px ${d.positive?'#d9e2a0':'#d18aab'}`:'';card.querySelector('img').style.transform=glow?`scale(${1+glow*.15})`:'';
+  card.dataset.pickupGlow=glow;card.style.boxShadow=e.kind==='focus'?`inset 0 0 ${7+Math.round(Math.sin(s.tick/15)*2)}px #49aca6`:glow?`inset 0 0 ${Math.round(3+glow*7)}px ${d.positive?'#d9e2a0':'#d18aab'}`:'';card.querySelector('img').style.transform=glow?`scale(${1+glow*.15})`:'';
  }
  const game=root.closest('#game'),combo=game?.querySelector('#combo')?.parentElement;if(combo){combo.style.boxShadow=has(s,'focus')?`inset 0 0 ${10+Math.round(Math.sin(s.tick/15)*2)}px #49aca6`:s.feedback.some(f=>f.kind==='seed'&&s.tick-f.tick<18)?'inset 0 0 12px #ac8c3c':'';}
 }

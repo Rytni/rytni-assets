@@ -7,12 +7,12 @@ import {TunnelRibbon} from '../gate-one/ribbon.js';
 import {portalExitCue} from '../gate-one/audio.js';
 import {drawEffectLabels} from '../effect-playground/visuals.js';
 import {installEffectSounds} from '../effect-playground/audio.js';
-import {effectAssets} from '../effect-playground/asset-bank.js';
+import {enableDevVfx} from '../effect-playground/vfx-candidates.js';
 
 export const progressiveEnabled=()=>document.querySelector('#run-model').value==='progressive';
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
 export function installProgression(game){
- effectAssets.preload().then(()=>{if(game.root.isConnected)game.render();});
+ enableDevVfx().then(()=>{if(game.root.isConnected)game.render();});
  const doc=game.root.ownerDocument,style=doc.createElement('link');style.rel='stylesheet';style.href='/arcade/snake-next/effect-playground/style.css';doc.head.append(style);game.root.classList.add('effect-playground');
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;

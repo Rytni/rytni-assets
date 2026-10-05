@@ -10,6 +10,7 @@ import {DEFINITIONS} from './director.js';
 import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
 import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
 import {drawEffectsWorld,effectSlots} from '../effect-playground/visuals.js';
+import {drawWithFoodReaction} from '../effect-playground/food-reaction.js';
 import {fitWorldLayout} from '../effect-playground/fit-world.js';
 import {drawReadable} from '../effect-playground/readable-objects.js';
 import {objectImage} from '../forest-training/objects.js';
@@ -59,7 +60,7 @@ export class ProgressPresentation {
   if(options.status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
   const impact=s.feedback.findLast(f=>f.kind==='guard-used'),hold=impact&&s.tick-impact.tick<5;
   if(!hold||!this.impactMotion)this.impactMotion=options.motion;
-  if(options.motion)renderer.smoothSprites.draw(ctx,hold?this.impactMotion:options.motion,cell,field.x,field.y,view,field);
+  if(options.motion)drawWithFoodReaction(ctx,s,frame,cell,field,view,drawCtx=>renderer.smoothSprites.draw(drawCtx,hold?this.impactMotion:options.motion,cell,field.x,field.y,view,field));
   else drawSnake(ctx,this.art,bodyCells(s.state).map(c=>({x:c%s.arena.width-view.x,y:Math.floor(c/s.arena.width)-view.y})),cell,field.x,field.y,s.moves,field);
   ctx.globalAlpha=1;
   if(s.portalEdges)drawPortalActivity(ctx,s,at,cell,frame);

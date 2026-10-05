@@ -1,0 +1,886 @@
+[
+  {
+    "key": "vfx.harvest-sparkle",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/harvest-sparkle.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        7,
+        7,
+        26,
+        28
+      ],
+      [
+        7,
+        6,
+        27,
+        28
+      ],
+      [
+        7,
+        7,
+        26,
+        28
+      ],
+      [
+        7,
+        6,
+        27,
+        28
+      ]
+    ],
+    "sha256": "3c30fe2cf3fd94203edae2b5fb72a0629aa4b24fd69ea6ebf6e8f11630ece79e"
+  },
+  {
+    "key": "vfx.harvest-third-burst",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/harvest-third-burst.png",
+    "frame": [
+      64,
+      64
+    ],
+    "frames": 6,
+    "sheet": [
+      384,
+      64
+    ],
+    "anchor": [
+      32.0,
+      32.0
+    ],
+    "bounds": [
+      [
+        23,
+        21,
+        42,
+        36
+      ],
+      [
+        22,
+        20,
+        43,
+        41
+      ],
+      [
+        18,
+        18,
+        47,
+        45
+      ],
+      [
+        14,
+        14,
+        51,
+        49
+      ],
+      [
+        12,
+        15,
+        53,
+        53
+      ],
+      [
+        9,
+        13,
+        56,
+        56
+      ]
+    ],
+    "sha256": "88def9ba1f05dfd1debc2c055b27025f212409155a54f36abaf3bd7760bc99cf"
+  },
+  {
+    "key": "vfx.focus-wisp",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/focus-wisp.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        7,
+        3,
+        27,
+        28
+      ],
+      [
+        7,
+        2,
+        26,
+        27
+      ],
+      [
+        7,
+        3,
+        27,
+        28
+      ],
+      [
+        7,
+        4,
+        26,
+        29
+      ]
+    ],
+    "sha256": "7732ad823ee1a9557d30d9a5907d41937a3205a48c5c2b1f683f10b4f308a6d8"
+  },
+  {
+    "key": "vfx.spore-idle",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/spore-idle.png",
+    "frame": [
+      24,
+      24
+    ],
+    "frames": 4,
+    "sheet": [
+      96,
+      24
+    ],
+    "anchor": [
+      12.0,
+      12.0
+    ],
+    "bounds": [
+      [
+        4,
+        3,
+        21,
+        19
+      ],
+      [
+        4,
+        2,
+        21,
+        18
+      ],
+      [
+        4,
+        3,
+        21,
+        19
+      ],
+      [
+        4,
+        4,
+        21,
+        20
+      ]
+    ],
+    "sha256": "8561745ba8d6f26bd5a46c23cbd3442283325054d260b90b60a0afd035f253dd"
+  },
+  {
+    "key": "vfx.spore-trail",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/spore-trail.png",
+    "frame": [
+      32,
+      16
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      16
+    ],
+    "anchor": [
+      16.0,
+      8.0
+    ],
+    "bounds": [
+      [
+        2,
+        2,
+        30,
+        15
+      ],
+      [
+        2,
+        2,
+        30,
+        15
+      ],
+      [
+        2,
+        2,
+        30,
+        15
+      ],
+      [
+        2,
+        2,
+        30,
+        15
+      ]
+    ],
+    "sha256": "c2737cbab02def25034c6b52ca61ef82fc1c9e81b9875b660b8ea1f01ebb323f"
+  },
+  {
+    "key": "vfx.spore-burst",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/spore-burst.png",
+    "frame": [
+      48,
+      48
+    ],
+    "frames": 6,
+    "sheet": [
+      288,
+      48
+    ],
+    "anchor": [
+      24.0,
+      24.0
+    ],
+    "bounds": [
+      [
+        17,
+        16,
+        31,
+        27
+      ],
+      [
+        15,
+        15,
+        34,
+        34
+      ],
+      [
+        11,
+        9,
+        37,
+        36
+      ],
+      [
+        7,
+        5,
+        41,
+        40
+      ],
+      [
+        5,
+        3,
+        43,
+        42
+      ],
+      [
+        4,
+        5,
+        44,
+        44
+      ]
+    ],
+    "sha256": "cbfeccf96cf582c655bb3fd2bb911528ab9c2b2700c9840c1deebea220c80496"
+  },
+  {
+    "key": "vfx.guard-plate",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/guard-plate.png",
+    "frame": [
+      40,
+      40
+    ],
+    "frames": 4,
+    "sheet": [
+      160,
+      40
+    ],
+    "anchor": [
+      20.0,
+      20.0
+    ],
+    "bounds": [
+      [
+        7,
+        5,
+        32,
+        37
+      ],
+      [
+        7,
+        4,
+        32,
+        36
+      ],
+      [
+        7,
+        5,
+        32,
+        37
+      ],
+      [
+        7,
+        6,
+        32,
+        38
+      ]
+    ],
+    "sha256": "cd36c80625ae6cd36b5d3b9dc64bd1aadf3edc6be04a3725b626a177eb559d76"
+  },
+  {
+    "key": "vfx.guard-charged",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/guard-charged.png",
+    "frame": [
+      48,
+      48
+    ],
+    "frames": 4,
+    "sheet": [
+      192,
+      48
+    ],
+    "anchor": [
+      24.0,
+      24.0
+    ],
+    "bounds": [
+      [
+        11,
+        9,
+        40,
+        38
+      ],
+      [
+        11,
+        9,
+        40,
+        38
+      ],
+      [
+        11,
+        9,
+        40,
+        38
+      ],
+      [
+        11,
+        9,
+        40,
+        38
+      ]
+    ],
+    "sha256": "6ba7654e870bf6b73d7b9ae7bf3e47c9eecdf7c5f84ed18b9f38b08f287d0994"
+  },
+  {
+    "key": "vfx.guard-break",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/guard-break.png",
+    "frame": [
+      64,
+      64
+    ],
+    "frames": 6,
+    "sheet": [
+      384,
+      64
+    ],
+    "anchor": [
+      32.0,
+      32.0
+    ],
+    "bounds": [
+      [
+        23,
+        21,
+        41,
+        45
+      ],
+      [
+        19,
+        16,
+        44,
+        49
+      ],
+      [
+        17,
+        19,
+        48,
+        49
+      ],
+      [
+        12,
+        15,
+        53,
+        54
+      ],
+      [
+        9,
+        12,
+        56,
+        57
+      ],
+      [
+        5,
+        9,
+        60,
+        61
+      ]
+    ],
+    "sha256": "62cecd1fb7da34f3a099a49fa96cd6847ef33f2f3db0c50e66d736758a603126"
+  },
+  {
+    "key": "vfx.portal-charged-ring",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/portal-charged-ring.png",
+    "frame": [
+      68,
+      68
+    ],
+    "frames": 4,
+    "sheet": [
+      272,
+      68
+    ],
+    "anchor": [
+      34.0,
+      34.0
+    ],
+    "bounds": [
+      [
+        2,
+        3,
+        67,
+        66
+      ],
+      [
+        2,
+        3,
+        67,
+        66
+      ],
+      [
+        2,
+        3,
+        67,
+        66
+      ],
+      [
+        2,
+        3,
+        67,
+        66
+      ]
+    ],
+    "sha256": "781f6d92185bab7a01af9da93ea444d0403f8d60765229f04b4eb3ec776a8d6a"
+  },
+  {
+    "key": "vfx.portal-body-trail",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/portal-body-trail.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        5,
+        6,
+        28,
+        27
+      ],
+      [
+        5,
+        5,
+        28,
+        27
+      ],
+      [
+        5,
+        6,
+        28,
+        27
+      ],
+      [
+        5,
+        6,
+        28,
+        27
+      ]
+    ],
+    "sha256": "1e3e352f990b558ad098db5177fcc8bcf547d9c88100cd73dae8b81bdc3160de"
+  },
+  {
+    "key": "vfx.rush-ember",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/rush-ember.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        5,
+        3,
+        27,
+        29
+      ],
+      [
+        5,
+        2,
+        27,
+        28
+      ],
+      [
+        5,
+        3,
+        27,
+        29
+      ],
+      [
+        5,
+        4,
+        27,
+        30
+      ]
+    ],
+    "sha256": "5db5c52540f26cfb9597c182289aa586c4f28d127c473559c90e62574b70b3f2"
+  },
+  {
+    "key": "vfx.rush-thorn",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/rush-thorn.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        4,
+        4,
+        29,
+        28
+      ],
+      [
+        4,
+        4,
+        29,
+        28
+      ],
+      [
+        4,
+        4,
+        29,
+        28
+      ],
+      [
+        4,
+        4,
+        29,
+        28
+      ]
+    ],
+    "sha256": "19bdcf89b6727f440ad808775e2910b2264072e028263d1ce1dc0170c46cfd4e"
+  },
+  {
+    "key": "vfx.corruption-particle",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/corruption-particle.png",
+    "frame": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "sheet": [
+      128,
+      32
+    ],
+    "anchor": [
+      16.0,
+      16.0
+    ],
+    "bounds": [
+      [
+        9,
+        9,
+        24,
+        24
+      ],
+      [
+        9,
+        8,
+        24,
+        23
+      ],
+      [
+        9,
+        9,
+        24,
+        24
+      ],
+      [
+        9,
+        10,
+        24,
+        25
+      ]
+    ],
+    "sha256": "59a8e3f81cb4bf94ed8cc85b7703ffd5c8a4bdb872bdf639610247a0ead58889"
+  },
+  {
+    "key": "vfx.roots-crack",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/roots-crack.png",
+    "frame": [
+      68,
+      68
+    ],
+    "frames": 4,
+    "sheet": [
+      272,
+      68
+    ],
+    "anchor": [
+      34.0,
+      34.0
+    ],
+    "bounds": [
+      [
+        18,
+        30,
+        54,
+        54
+      ],
+      [
+        15,
+        23,
+        54,
+        54
+      ],
+      [
+        9,
+        15,
+        58,
+        54
+      ],
+      [
+        9,
+        8,
+        58,
+        54
+      ]
+    ],
+    "sha256": "8b64b05e4a53fc2bc7ab5ce5467957627dcc9084ecd307c72a349cb8f6ca07b0"
+  },
+  {
+    "key": "vfx.roots-sprout",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/roots-sprout.png",
+    "frame": [
+      68,
+      68
+    ],
+    "frames": 4,
+    "sheet": [
+      272,
+      68
+    ],
+    "anchor": [
+      34.0,
+      34.0
+    ],
+    "bounds": [
+      [
+        14,
+        23,
+        59,
+        58
+      ],
+      [
+        14,
+        17,
+        59,
+        58
+      ],
+      [
+        7,
+        8,
+        59,
+        58
+      ],
+      [
+        7,
+        1,
+        59,
+        58
+      ]
+    ],
+    "sha256": "3e241a74e57c3d32fa625fabb669f54ab452497eeb3b6bed9af1890a9b1b4e51"
+  },
+  {
+    "key": "vfx.roots-root",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/roots-root.png",
+    "frame": [
+      68,
+      68
+    ],
+    "frames": 4,
+    "sheet": [
+      272,
+      68
+    ],
+    "anchor": [
+      34.0,
+      34.0
+    ],
+    "bounds": [
+      [
+        7,
+        6,
+        60,
+        58
+      ],
+      [
+        7,
+        6,
+        60,
+        58
+      ],
+      [
+        7,
+        6,
+        60,
+        58
+      ],
+      [
+        7,
+        6,
+        60,
+        58
+      ]
+    ],
+    "sha256": "e2203c91d500632f92b60b33cce21eb0ec42bf6efa5ba2f1720e7106453e147a"
+  },
+  {
+    "key": "vfx.roots-decay",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/roots-decay.png",
+    "frame": [
+      68,
+      68
+    ],
+    "frames": 6,
+    "sheet": [
+      408,
+      68
+    ],
+    "anchor": [
+      34.0,
+      34.0
+    ],
+    "bounds": [
+      [
+        7,
+        6,
+        60,
+        58
+      ],
+      [
+        7,
+        6,
+        60,
+        58
+      ],
+      [
+        13,
+        18,
+        56,
+        52
+      ],
+      [
+        14,
+        21,
+        55,
+        55
+      ],
+      [
+        15,
+        24,
+        54,
+        58
+      ],
+      [
+        19,
+        29,
+        51,
+        58
+      ]
+    ],
+    "sha256": "c5140ed98b1db04fb9f4a183e34a0579f3f0f1b3280643370fb683be8413304f"
+  },
+  {
+    "key": "vfx.mist-puff",
+    "file": "grib/mushroom-snake-effects-v1/assets/vfx/mist-puff.png",
+    "frame": [
+      96,
+      64
+    ],
+    "frames": 4,
+    "sheet": [
+      384,
+      64
+    ],
+    "anchor": [
+      48.0,
+      32.0
+    ],
+    "bounds": [
+      [
+        2,
+        11,
+        94,
+        55
+      ],
+      [
+        2,
+        10,
+        94,
+        54
+      ],
+      [
+        2,
+        11,
+        94,
+        55
+      ],
+      [
+        2,
+        12,
+        94,
+        56
+      ]
+    ],
+    "sha256": "a7dc005f3e77277590c7248b5c014286cdb260ef895ffeeecdbf342be56d8602"
+  }
+]
