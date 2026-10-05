@@ -32,7 +32,11 @@ export function installProgression(game){
   // before its FIRST render, preserving the runtime's single timer/RAF owner.
   if(s.portalEdges&&!(game.motion instanceof TunnelMotion))game.motion=new TunnelMotion(s);
   actual=s;const facade=Object.assign(Object.create(s),{effects:[]});game.session=facade;
-  try{baseRender();presentation.effects(game.root.querySelector('#effects'),s,game.compact);drawHudType(game.root.querySelector('#hud'));drawEffectLabels(game.root.querySelector('#hud'));}finally{game.session=s;actual=null;}
+  try{baseRender();presentation.effects(game.root.querySelector('#effects'),s,game.compact);drawHudType(game.root.querySelector('#hud'));drawEffectLabels(game.root.querySelector('#hud'));
+   // Approved V3 wood/gold assets, four-direction cross; fixed CSS touch space,
+   // never world-cell anchored (FIT WORLD can shrink cells below touch size).
+   const pad=game.root.querySelector('#pad'),l=game.renderer.last;pad.style.left=Math.round(l.arena.x+10)+'px';pad.style.top=Math.round(l.arena.y+l.arena.h-156)+'px';
+  }finally{game.session=s;actual=null;}
  };
  installEffectSounds(game.audio);const play=game.audio.play.bind(game.audio);game.audio.play=(name,loop=false)=>{const e=game.session?.events.findLast(e=>e.effect&&['positive','negative'].includes(e.kind));const key=!loop&&['buff','debuff'].includes(name)&&e&&game.audio.buffers.has('effect-'+e.effect)?'effect-'+e.effect:name;const source=play(key,loop);if(source&&!loop&&['pickup','combo'].includes(name))source.playbackRate.value=1+Math.min(7,Math.max(0,(game.session?.combo||1)-1))*.025;return source;};
  game.tick=()=>{baseTick();const s=game.session;if(s?.world){if(game.status==='playing')music.sync(s);for(const e of s.events){if(['spore','portal-reward'].includes(e.kind))game.audio.play('combo');if(e.kind==='guard-used')game.audio.play('debuff');if(e.kind==='portal-head-exit')portalExitCue(game.audio,e.cell,s.arena.width,presentation.lastView);if(e.kind==='expansion')play('buff');}}};

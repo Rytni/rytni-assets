@@ -78,7 +78,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  const width=s.world.width,height=s.world.height,biome=s.world.biome;
  const edge=(x,y,side)=>xy(x+(side==='left'?1:0),y+(side==='top'?1:0));
  for(const [x,y,side]of borderCells(width,height)){
-  if(x+1<view.x||y+1<view.y||x>view.x+28||y>view.y+12)continue;
+  if(x+1<view.x||y+1<view.y||x>view.x+view.cols||y>view.y+view.rows)continue;
   const [a,b]=edge(x,y,side),distance=view.wallDistance?.[side]??99;
   const along=side==='left'||side==='right'?Math.abs(y-frame.head.y):Math.abs(x-frame.head.x);
   const near=distance<=6&&along<3?clamp((7-distance)/3):0;
@@ -90,7 +90,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  if(opening&&p<1){
   // Reveal newly active floor behind the outward wave. The floor is dimmed,
   // never collision-blocked, and gameplay entities are drawn on top afterwards.
-  for(let y=Math.floor(view.y)+1;y<=Math.ceil(view.y)+10;y++)for(let x=Math.floor(view.x)+1;x<=Math.ceil(view.x)+26;x++){
+  for(let y=Math.floor(view.y)+1;y<Math.ceil(view.y)+view.rows-1;y++)for(let x=Math.floor(view.x)+1;x<Math.ceil(view.x)+view.cols-1;x++){
    if(x<1||y<1||x>=width-1||y>=height-1)continue;
    const reveal=territoryReveal(x,y,opening,phase.travel);if(!reveal.new)continue;
    const [a,b]=xy(x,y),u=cell/68;ctx.fillStyle='#021512';ctx.globalAlpha=(1-reveal.reveal)*.78;ctx.fillRect(a,b,cell+1,cell+1);
@@ -105,7 +105,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
   // The actual old wall holds, fractures, then withdraws in staggered chunks.
   for(const [x,y,side]of borderCells(opening.from.width,opening.from.height)){
    if(!(side==='right'&&width>opening.from.width||side==='bottom'&&height>opening.from.height)||x===0||y===0)continue;
-   if(x+1<view.x||y+1<view.y||x>view.x+28||y>view.y+12)continue;
+   if(x+1<view.x||y+1<view.y||x>view.x+view.cols||y>view.y+view.rows)continue;
    const local=clamp((p-.20-((x+y)%4)*.06)/.46),[a,b]=edge(x,y,side);
    wallCell(ctx,a,b,cell,opening.from.biome,x+y,side,{crack:phase.crack,retract:local});
    if(p>.13&&p<.76&&(x+y)%3===0){
@@ -119,7 +119,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  if(walls){
   ctx.fillStyle=BORDER_COLORS[biome][3];
   for(const [side,d]of Object.entries(walls))if(d<9){
-   const offscreen=side==='left'?view.x>0:side==='right'?view.x+28<width:side==='top'?view.y>0:view.y+12<height;
+   const offscreen=side==='left'?view.x>0:side==='right'?view.x+view.cols<width:side==='top'?view.y>0:view.y+view.rows<height;
    if(!offscreen)continue;
    for(let i=0;i<3;i++){
     const thick=Math.max(2,cell*.07),length=cell*.2,a=side==='left'?arena.x:side==='right'?arena.x+arena.w-thick:arena.x+arena.w*.5+(i-1)*cell*.3,b=side==='top'?arena.y:side==='bottom'?arena.y+arena.h-thick:arena.y+arena.h*.5+(i-1)*cell*.3;
@@ -130,7 +130,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  if(indicator){
   const w=Math.min(92,arena.w*.12),h=w*height/width,x=arena.x+arena.w-w-5,y=arena.y+5;
   ctx.fillStyle='#071e1ce8';ctx.fillRect(x-3,y-3,w+6,h+6);ctx.strokeStyle='#7d9973';ctx.lineWidth=1;ctx.strokeRect(x,y,w,h);
-  ctx.strokeStyle='#bdc49a';ctx.strokeRect(x+view.x/width*w,y+view.y/height*h,28/width*w,12/height*h);
+  ctx.strokeStyle='#bdc49a';ctx.strokeRect(x+view.x/width*w,y+view.y/height*h,view.cols/width*w,view.rows/height*h);
   ctx.fillStyle='#f7e6bb';ctx.fillRect(x+frame.head.x/width*w-1.5,y+frame.head.y/height*h-1.5,3,3);
  }
 }

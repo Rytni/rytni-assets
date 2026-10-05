@@ -1,5 +1,6 @@
 // Original, manually authored native pixel art. 28×28 logical paint cells at
 // 2 native pixels each; no reference pixels, arbitrary rotation or X/Y stretch.
+import {drawVfx} from './vfx-art.js';
 export const KINDS=['harvest','focus','spores','guard','portalPrize','rush','weak','brambles','mist'];
 export const LABELS={harvest:'УРОЖАЙ',focus:'ФОКУС',spores:'СПОРЫ',guard:'ЩИТ',portalPrize:'ПОРТАЛ+',rush:'СПЕШКА',weak:'ПОРЧА',brambles:'КОРНИ',mist:'ТУМАН'};
 export const POSITIVE=new Set(KINDS.slice(0,5));
@@ -63,6 +64,7 @@ export function spriteURL(kind){return sprite(kind).toDataURL();}
 export function drawPickup(ctx,kind,x,y,cell,tick,compact=false){
  const positive=POSITIVE.has(kind),size=cell*(compact?.94:.68),t=tick/60;
  const bob=positive?Math.sin(t*1.7)*Math.min(2,cell*.05):Math.sin(t*13)*cell*.012;
+ for(let i=0;i<2;i++)drawVfx(ctx,positive?'glint':'mold',x+(i?1:-1)*size*.4,y+Math.sin(t+i*2)*size*.2,Math.max(6,size*.22),tick+i*9,positive?.35:.25+.15*Math.sin(t*3));
  ctx.drawImage(sprite(kind),Math.round(x-size/2),Math.round(y-size/2+bob),size,size);
  ctx.fillStyle=positive?'#d7f7b7':'#ab6381';
  for(let i=0;i<3;i++){const p=(t*.35+i/3)%1,a=i*2.1,r=cell*(positive?.27+p*.16:.48-p*.19),q=Math.max(1,cell*.025);ctx.globalAlpha=(1-p)*.65;ctx.fillRect(Math.round(x+Math.cos(a)*r),Math.round(y+Math.sin(a)*r-p*(positive?cell*.12:0)),q,q);}ctx.globalAlpha=1;

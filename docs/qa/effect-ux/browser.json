@@ -1,0 +1,434 @@
+{
+  "viewports": [
+    {
+      "mobile": false,
+      "checks": {
+        "hashUnchanged": true,
+        "mode": "fit",
+        "hud": {
+          "x": 19.203125,
+          "y": 0,
+          "width": 1882,
+          "height": 128,
+          "top": 0,
+          "right": 1901.203125,
+          "bottom": 128,
+          "left": 19.203125
+        },
+        "slots": [
+          {
+            "text": "УРОЖАЙ16С×2",
+            "prose": 0,
+            "width": 111.421875,
+            "icon": 20
+          },
+          {
+            "text": "ЩИТ1 ◆",
+            "prose": 0,
+            "width": 111.421875,
+            "icon": 20
+          },
+          {
+            "text": "СПЕШКА10С",
+            "prose": 0,
+            "width": 111.4375,
+            "icon": 20
+          }
+        ],
+        "targets": [
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          }
+        ],
+        "pad": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "cell": 54.72115384615384
+      },
+      "sizes": [
+        {
+          "world": [
+            28,
+            12
+          ],
+          "cell": 54.72115384615384,
+          "body": 28.970022624434385,
+          "food": 38.30480769230768,
+          "pickupBox": 37.21038461538461,
+          "foodInk": 38.30480769230768,
+          "pickupInk": [
+            31.89461538461538,
+            35.8814423076923
+          ]
+        },
+        {
+          "world": [
+            36,
+            18
+          ],
+          "cell": 36.480769230769226,
+          "body": 19.31334841628959,
+          "food": 25.536538461538456,
+          "pickupBox": 24.806923076923077,
+          "foodInk": 25.536538461538456,
+          "pickupInk": [
+            21.263076923076923,
+            23.92096153846154
+          ]
+        },
+        {
+          "world": [
+            48,
+            24
+          ],
+          "cell": 27.36057692307692,
+          "body": 14.485011312217193,
+          "food": 19.15240384615384,
+          "pickupBox": 18.605192307692306,
+          "foodInk": 19.15240384615384,
+          "pickupInk": [
+            15.94730769230769,
+            17.94072115384615
+          ]
+        },
+        {
+          "world": [
+            64,
+            32
+          ],
+          "cell": 20.52043269230769,
+          "body": 10.863758484162894,
+          "food": 14.364302884615382,
+          "pickupBox": 13.95389423076923,
+          "foodInk": 14.364302884615382,
+          "pickupInk": [
+            11.960480769230767,
+            13.455540865384615
+          ]
+        },
+        {
+          "world": [
+            80,
+            40
+          ],
+          "cell": 16.416346153846153,
+          "body": 8.691006787330316,
+          "food": 11.491442307692306,
+          "pickupBox": 11.163115384615384,
+          "foodInk": 11.491442307692306,
+          "pickupInk": [
+            9.568384615384614,
+            10.764432692307691
+          ]
+        },
+        {
+          "world": [
+            112,
+            56
+          ],
+          "cell": 11.725961538461537,
+          "body": 6.207861990950225,
+          "food": 8.208173076923075,
+          "pickupBox": 7.973653846153845,
+          "foodInk": 8.208173076923075,
+          "pickupInk": [
+            6.8345604395604385,
+            7.688880494505494
+          ]
+        }
+      ],
+      "individual": [
+        {
+          "kind": "harvest",
+          "active": true,
+          "slot": "УРОЖАЙ16С×2",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "focus",
+          "active": true,
+          "slot": "ФОКУС15С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "spores",
+          "active": true,
+          "slot": "СПОРЫ15С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "guard",
+          "active": true,
+          "slot": "ЩИТ1 ◆",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "portalPrize",
+          "active": true,
+          "slot": "ПОРТАЛ+1 ◆",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "rush",
+          "active": true,
+          "slot": "СПЕШКА10С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "weak",
+          "active": true,
+          "slot": "ПОРЧА12С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "brambles",
+          "active": true,
+          "slot": "КОРНИ8С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "mist",
+          "active": true,
+          "slot": "ТУМАН10С",
+          "renderHashUnchanged": true
+        }
+      ]
+    },
+    {
+      "mobile": true,
+      "checks": {
+        "hashUnchanged": true,
+        "mode": "fit",
+        "hud": {
+          "x": 8.140625,
+          "y": 0,
+          "width": 827.6875,
+          "height": 50.984375,
+          "top": 0,
+          "right": 835.828125,
+          "bottom": 50.984375,
+          "left": 8.140625
+        },
+        "slots": [
+          {
+            "text": "УРОЖАЙ16С×2",
+            "prose": 0,
+            "width": 68.1875,
+            "icon": 14
+          },
+          {
+            "text": "ЩИТ1 ◆",
+            "prose": 0,
+            "width": 68.203125,
+            "icon": 14
+          },
+          {
+            "text": "СПЕШКА10С",
+            "prose": 0,
+            "width": 68.1875,
+            "icon": 14
+          }
+        ],
+        "targets": [
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          }
+        ],
+        "pad": {
+          "x": 42,
+          "y": 207,
+          "width": 148,
+          "height": 148,
+          "top": 207,
+          "right": 190,
+          "bottom": 355,
+          "left": 42
+        },
+        "cell": 24.357221886944277
+      },
+      "sizes": [
+        {
+          "world": [
+            28,
+            12
+          ],
+          "cell": 24.357221886944277,
+          "body": 12.894999822499912,
+          "food": 17.05005532086099,
+          "pickupBox": 22.895788573727618,
+          "foodInk": 17.05005532086099,
+          "pickupInk": [
+            19.62496163462367,
+            22.078081838951633
+          ]
+        },
+        {
+          "world": [
+            36,
+            18
+          ],
+          "cell": 16.23814792462952,
+          "body": 8.596666548333275,
+          "food": 11.366703547240663,
+          "pickupBox": 15.263859049151748,
+          "foodInk": 11.366703547240663,
+          "pickupInk": [
+            13.083307756415783,
+            14.718721225967757
+          ]
+        },
+        {
+          "world": [
+            48,
+            24
+          ],
+          "cell": 12.178610943472139,
+          "body": 6.447499911249956,
+          "food": 8.525027660430496,
+          "pickupBox": 11.447894286863809,
+          "foodInk": 8.525027660430496,
+          "pickupInk": [
+            9.812480817311835,
+            11.039040919475816
+          ]
+        },
+        {
+          "world": [
+            64,
+            32
+          ],
+          "cell": 9.133958207604104,
+          "body": 4.835624933437467,
+          "food": 6.393770745322873,
+          "pickupBox": 8.585920715147857,
+          "foodInk": 6.393770745322873,
+          "pickupInk": [
+            7.359360612983878,
+            8.279280689606862
+          ]
+        },
+        {
+          "world": [
+            80,
+            40
+          ],
+          "cell": 7.307166566083284,
+          "body": 3.868499946749974,
+          "food": 5.1150165962582985,
+          "pickupBox": 6.868736572118286,
+          "foodInk": 5.1150165962582985,
+          "pickupInk": [
+            5.887488490387102,
+            6.62342455168549
+          ]
+        },
+        {
+          "world": [
+            112,
+            56
+          ],
+          "cell": 5.219404690059489,
+          "body": 2.763214247678553,
+          "food": 3.653583283041642,
+          "pickupBox": 4.906240408655919,
+          "foodInk": 3.653583283041642,
+          "pickupInk": [
+            4.205348921705073,
+            4.731017536918208
+          ]
+        }
+      ],
+      "individual": [
+        {
+          "kind": "harvest",
+          "active": true,
+          "slot": "УРОЖАЙ16С×2",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "focus",
+          "active": true,
+          "slot": "ФОКУС15С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "spores",
+          "active": true,
+          "slot": "СПОРЫ15С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "guard",
+          "active": true,
+          "slot": "ЩИТ1 ◆",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "portalPrize",
+          "active": true,
+          "slot": "ПОРТАЛ+1 ◆",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "rush",
+          "active": true,
+          "slot": "СПЕШКА10С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "weak",
+          "active": true,
+          "slot": "ПОРЧА12С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "brambles",
+          "active": true,
+          "slot": "КОРНИ8С",
+          "renderHashUnchanged": true
+        },
+        {
+          "kind": "mist",
+          "active": true,
+          "slot": "ТУМАН10С",
+          "renderHashUnchanged": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "network": []
+}

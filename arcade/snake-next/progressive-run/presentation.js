@@ -10,6 +10,7 @@ import {DEFINITIONS} from './director.js';
 import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
 import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
 import {drawEffectsWorld,effectSlots} from '../effect-playground/visuals.js';
+import {fitWorldLayout} from '../effect-playground/fit-world.js';
 
 const COLORS={anchor:'#e8cf73',spores:'#eaa2d5',guard:'#72bce6',portalPrize:'#b9a0f3',weak:'#c87192',decay:'#f59d56',brambles:'#aabe65',mist:'#adbcd0'};
 const PIXELS={anchor:['..####..','.##..##.','##..#.##','#...#..#','#...##.#','##....##','.##..##.','..####..'],spores:['...##...','.######.','########','..####..','########','.######.','...##...','...##...'],guard:['.######.','########','##....##','##.##.##','.######.','..####..','...##...','........'],portalPrize:['..####..','.##..##.','##.##.##','#..##..#','#......#','##.##.##','.##..##.','..####..'],weak:['#......#','.##..##.','..####..','...##...','..####..','.##..##.','#......#','........'],decay:['########','.######.','..####..','...##...','..####..','.######.','########','........'],brambles:['#..##..#','.#.##.#.','..####..','########','..####..','.#.##.#.','#..##..#','........'],mist:['..####..','.######.','########','########','.######.','........','##..##..','..##..##']};
@@ -19,33 +20,35 @@ function symbol(ctx,kind,x,y,size){const pixels=PIXELS[kind],unit=Math.max(1,Mat
 /** World/camera presentation only. Snake silhouette/material stays the locked
  * RibbonSprites adapter; no geometry implementation is duplicated here. */
 export class ProgressPresentation {
- constructor(art){this.art=art;this.tiles=new Map();this.cameraMode='stable';this.reset();}
- reset(){this.camera=new Camera();this.session=null;this.lastView=null;}
+ constructor(art){this.art=art;this.tiles=new Map();this.cameraMode='fit';this.reset();}
+ reset(){this.camera=new Camera();this.session=null;this.lastView=null;this.impactMotion=null;}
  board(biome){if(this.tiles.has(biome))return this.tiles.get(biome);const tiles=this.art.board.map(im=>{const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const ctx=c.getContext('2d');ctx.drawImage(im,0,0);if(biome!=='forest'){const data=ctx.getImageData(0,0,c.width,c.height);for(let i=0;i<data.data.length;i+=4){const [r,g,b]=data.data.slice(i,i+3);if(biome==='caves'){data.data[i]=Math.round(g*.43);data.data[i+1]=Math.round(g*.65);data.data[i+2]=Math.round(g*.9);}else{data.data[i]=Math.round(g*.47);data.data[i+1]=Math.round(g*.77);data.data[i+2]=Math.round(b*.6);}}ctx.putImageData(data,0,0);}return c;});this.tiles.set(biome,tiles);return tiles;}
  render(renderer,s,options,debug=false){
   if(this.session!==s.state.seed+':'+s.startsKey){this.reset();this.session=s.state.seed+':'+s.startsKey;}
   const frame=options.motion||{head:{x:bodyCells(s.state)[0]%s.arena.width,y:Math.floor(bodyCells(s.state)[0]/s.arena.width),dx:[0,1,0,-1][s.state.direction],dy:[-1,0,1,0][s.state.direction]},alpha:1};
   const CameraType=this.cameraMode==='old'?LookAheadCamera:StableCamera;
-  if(s.portalEdges&&!(this.camera instanceof CameraType)){
+  if(this.cameraMode!=='fit'&&s.portalEdges&&!(this.camera instanceof CameraType)){
    const old=this.camera,next=new CameraType();
    // A/B switching retains the current viewport; no artificial initial rebase.
    if(this.lastView){next.x=old.x;next.y=old.y;next.initialized=true;next.time=old.time??s.tick;next.head=old.head;
     const edge=s.portalEdges.at(-1);next.portalEdge=edge&&(frame.start??0)<=s.moves-edge.move+1e-9?edge.move+':'+edge.tick:null;}
    this.camera=next;
   }
-  const view=this.camera.update(frame,s,options.touch),l=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),{field,arena,cell}=l;
+  const base=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),fit=this.cameraMode==='fit'?fitWorldLayout(base,s,frame):null;
+  const view=fit?fit.view:this.camera.update(frame,s,options.touch),l=fit?fit.layout:base,{field,arena,cell}=l;
   this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';ctx.fillRect(0,0,l.w,l.h);
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});
   ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.clip();
   const tr=s.transitions.at(-1),blend=tr?Math.min(1,(s.tick-tr.tick)/120):1,oldTiles=this.board(tr?.from||s.stage.biome),tiles=this.board(s.stage.biome);
-  for(let y=Math.floor(view.y)+1;y<=Math.ceil(view.y)+10;y++)for(let x=Math.floor(view.x)+1;x<=Math.ceil(view.x)+26;x++){
+  for(let y=Math.floor(view.y)+1;y<Math.ceil(view.y)+view.rows-1;y++)for(let x=Math.floor(view.x)+1;x<Math.ceil(view.x)+view.cols-1;x++){
    const left=field.x+(x-view.x)*cell,top=field.y+(y-view.y)*cell,index=boardVariant(x,y);
    if(x<1||y<1||x>=s.world.width-1||y>=s.world.height-1){ctx.fillStyle='#021512';ctx.fillRect(left,top,cell+1,cell+1);continue;}
    const px=Math.round(left),py=Math.round(top),pw=Math.round(left+cell)-px,ph=Math.round(top+cell)-py;
    ctx.drawImage(oldTiles[index],px,py,pw,ph);if(blend>0){ctx.globalAlpha=blend;ctx.drawImage(tiles[index],px,py,pw,ph);ctx.globalAlpha=1;}
   }
   if(s.portalEdges)drawEnvironment(ctx,s,view,l,frame,document.querySelector('#world-awareness')?.checked);
-  for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);if(o.kind==='crystal'){ctx.fillStyle='#a4c9ec';ctx.fillRect(p.x-2,p.y-cell*.25,4,cell*.4);}else if(o.kind==='root'||o.kind==='stump'){ctx.fillStyle=o.kind==='root'?'#567c35':'#755c30';ctx.fillRect(p.x-cell*.15,p.y-cell*.25,cell*.3,cell*.4);}}
+  // Clean approved stone fallback until complete biome silhouettes are approved.
+  for(const o of s.world.obstacles){const p=at(o.cell);drawObject(ctx,this.art,'stone',p.x,p.y,cell);}
   for(const c of s.portals)if(s.portalEdges?.some(e=>!e.complete)||['entering','teleport','exit-grace'].includes(s.portal.phase)||s.portal.phase==='armed'&&s.portalAvailable()){const p=at(c);drawObject(ctx,this.art,'portal',p.x,p.y,cell);}
   if(s.portal.phase==='entering')ctx.globalAlpha=Math.max(.18,1-s.portal.elapsed/14);if(s.portal.phase==='teleport')ctx.globalAlpha=0;if(s.portal.phase==='exit-grace')ctx.globalAlpha=Math.min(1,.5+s.portal.elapsed/16);
   if(options.status==='dying')ctx.globalAlpha=Math.max(.55,1-s.deathTicks/60);
@@ -56,8 +59,8 @@ export class ProgressPresentation {
   ctx.globalAlpha=1;
   if(s.portalEdges)drawPortalActivity(ctx,s,at,cell,frame);
   drawEffectsWorld(ctx,s,{...frame,viewX:view.x,viewY:view.y},at,cell,this.art,{...l,compact:options.compact});
-  if(debug){ctx.strokeStyle='#e7be75';ctx.lineWidth=1;ctx.strokeRect(field.x+(view.safe.left+.5)*cell,field.y+(view.safe.top+.5)*cell,(view.safe.right-view.safe.left)*cell,(view.safe.bottom-view.safe.top)*cell);}
-  const banner=s.announcements.at(-1);if(banner&&(!s.effectNotices.at(-1)||s.tick-s.effectNotices.at(-1).tick>=78)){const x=arena.x+arena.w/2,y=arena.y+cell*.4,scale=Math.max(1,Math.floor(cell/28));ctx.fillStyle='#06221de8';ctx.fillRect(x-Math.min(arena.w*.45,250),y-10*scale,Math.min(arena.w*.9,500),20*scale);pixelText(ctx,banner.text,Math.round(x),Math.round(y-4*scale),scale,'#ead290','center');}
+  if(debug&&view.safe){ctx.strokeStyle='#e7be75';ctx.lineWidth=1;ctx.strokeRect(field.x+(view.safe.left+.5)*cell,field.y+(view.safe.top+.5)*cell,(view.safe.right-view.safe.left)*cell,(view.safe.bottom-view.safe.top)*cell);}
+  const banner=s.announcements.at(-1);if(banner){const x=arena.x+arena.w/2,y=arena.y+cell*.4,scale=Math.max(1,Math.floor(cell/28));ctx.fillStyle='#06221de8';ctx.fillRect(x-Math.min(arena.w*.45,250),y-10*scale,Math.min(arena.w*.9,500),20*scale);pixelText(ctx,banner.text,Math.round(x),Math.round(y-4*scale),scale,'#ead290','center');}
   ctx.restore();drawFrame(ctx,this.art,l.frame.x,l.frame.y,l.frame.w,l.frame.h,l.scale);renderer.last=l;return l;
  }
  effects(root,s,compact){effectSlots(root,s,compact);}
