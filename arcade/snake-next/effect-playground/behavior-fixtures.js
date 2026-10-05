@@ -17,14 +17,14 @@ export function seedRootReview(s){
  s.devCommands.push({kind:'root-lifecycle-review',tick:s.tick,normal:normal??null,blocked:blocked??null});
  return {normal,blocked};
 }
-export function installVfxReview(root,getGame,clear,focus){
+export function installVfxReview(root,startReview,focus){
  for(const [mode,label]of [['rush','RUSH MOTION'],['roots','ROOT LIFECYCLE'],['mist','MIST']]){
   const b=document.createElement('button');b.dataset.vfxReview=mode;b.textContent=label;b.setAttribute('aria-pressed','false');
-  b.addEventListener('pointerdown',e=>e.preventDefault());b.addEventListener('click',()=>{
-   const g=getGame(),s=g?.session;if(!s?.world)return;clear();g.vfxReviewMode=mode;b.setAttribute('aria-pressed','true');
+  b.addEventListener('pointerdown',e=>e.preventDefault());b.addEventListener('click',()=>startReview(g=>{
+   const s=g.session;g.vfxReviewMode=mode;b.setAttribute('aria-pressed','true');
    const roots=mode==='roots'?seedRootReview(s):null;
    root.querySelector('#effect-playground-status').textContent=roots?`DEV canonical Roots · normal ${roots.normal??'unavailable'} / blocked near food ${roots.blocked??'unavailable'} · fixed cells; collect food to release pending`:`DEV ${label} · persistent render-only rehearsal · B mechanics/durations unchanged`;
    g.render();focus();
-  });root.querySelector('.toolbar').append(b);
+  }));root.querySelector('.toolbar').append(b);
  }
 }

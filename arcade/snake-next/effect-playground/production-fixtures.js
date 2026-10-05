@@ -30,7 +30,7 @@ export function installArtFixtures(playground,{getGame,start}){
  const note=document.createElement('p');note.textContent='Art fixtures use canonical world previews; all nine legal pickups are staged and initially paused. Space resumes play. Forest appearance is a read-only presentation override for comparison. NORMAL RUN restores natural spawning.';
  playground.append(row,note);
  if(selected){document.querySelector('#progress-stage').value=ART_FIXTURES[selected].stage;}
- return {get selected(){return selected?ART_FIXTURES[selected]:null;},bind(g){
+ return {get selected(){return selected?ART_FIXTURES[selected]:null;},clearSelection(){selected=null;const g=getGame();if(g)g.artFixtureForest=false;},bind(g){
   const original=g.start.bind(g),hardwareTouch=g.touch;
   g.start=()=>{g.artFixtureForest=!!selected;g.touch=selected?selected.startsWith('mobile'):hardwareTouch;original();if(selected&&g.session?.world){placeAllPickups(g.session);g.pause();g.render();document.querySelector('#effect-playground-status').textContent=ART_FIXTURES[selected].label+' · all nine approved PNG pickups · paused';}};
  }};

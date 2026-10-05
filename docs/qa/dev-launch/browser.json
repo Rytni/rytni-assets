@@ -1,0 +1,398 @@
+{
+  "reports": [
+    {
+      "id": "desktop",
+      "zeroClicks": true,
+      "fresh": {
+        "implementation": {
+          "model": "PROGRESSIVE",
+          "preset": "B",
+          "world": [
+            30,
+            12
+          ],
+          "camera": "FIT WORLD V2",
+          "motion": "SMOOTH V4",
+          "vfx": "VFX B.2",
+          "currentFactory": true,
+          "sourcesMatch": true
+        },
+        "build": {
+          "revision": "c426cfb+",
+          "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+          "uncommittedSources": true,
+          "fingerprint": "d1355eb212cf",
+          "expectedVfx": "vfx-b2-c426cfb",
+          "modules": {
+            "visuals": "vfx-b2-c426cfb",
+            "presentation": "vfx-b2-c426cfb",
+            "director": "vfx-b2-c426cfb"
+          }
+        },
+        "status": "playing",
+        "starts": 1,
+        "tick": 0,
+        "world": [
+          30,
+          12
+        ],
+        "session": "TunnelSession",
+        "mode": null,
+        "warnings": 0,
+        "overlay": true,
+        "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+        "badgeVisible": true,
+        "sourceState": "ready"
+      },
+      "reviews": [
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 1,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "rush",
+          "warnings": 0,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        },
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 1,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "roots",
+          "warnings": 2,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        },
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 0,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "mist",
+          "warnings": 0,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "zeroClicks": true,
+      "fresh": {
+        "implementation": {
+          "model": "PROGRESSIVE",
+          "preset": "B",
+          "world": [
+            30,
+            12
+          ],
+          "camera": "FIT WORLD V2",
+          "motion": "SMOOTH V4",
+          "vfx": "VFX B.2",
+          "currentFactory": true,
+          "sourcesMatch": true
+        },
+        "build": {
+          "revision": "c426cfb+",
+          "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+          "uncommittedSources": true,
+          "fingerprint": "d1355eb212cf",
+          "expectedVfx": "vfx-b2-c426cfb",
+          "modules": {
+            "visuals": "vfx-b2-c426cfb",
+            "presentation": "vfx-b2-c426cfb",
+            "director": "vfx-b2-c426cfb"
+          }
+        },
+        "status": "playing",
+        "starts": 1,
+        "tick": 0,
+        "world": [
+          30,
+          12
+        ],
+        "session": "TunnelSession",
+        "mode": null,
+        "warnings": 0,
+        "overlay": true,
+        "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+        "badgeVisible": true,
+        "sourceState": "ready"
+      },
+      "reviews": [
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 0,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "rush",
+          "warnings": 0,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        },
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 1,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "roots",
+          "warnings": 2,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        },
+        {
+          "implementation": {
+            "model": "PROGRESSIVE",
+            "preset": "B",
+            "world": [
+              30,
+              12
+            ],
+            "camera": "FIT WORLD V2",
+            "motion": "SMOOTH V4",
+            "vfx": "VFX B.2",
+            "currentFactory": true,
+            "sourcesMatch": true
+          },
+          "build": {
+            "revision": "c426cfb+",
+            "sourceRevision": "c426cfb0ad82b84f8ff288616d709523ba0b220d",
+            "uncommittedSources": true,
+            "fingerprint": "d1355eb212cf",
+            "expectedVfx": "vfx-b2-c426cfb",
+            "modules": {
+              "visuals": "vfx-b2-c426cfb",
+              "presentation": "vfx-b2-c426cfb",
+              "director": "vfx-b2-c426cfb"
+            }
+          },
+          "status": "playing",
+          "starts": 2,
+          "tick": 1,
+          "world": [
+            30,
+            12
+          ],
+          "session": "TunnelSession",
+          "mode": "mist",
+          "warnings": 0,
+          "overlay": true,
+          "badge": "DEV BUILD c426cfb+PROGRESSIVE · B · 30×12 · FIT WORLD V2 · SMOOTH V4 · VFX B.2source d1355eb212cf · B.2 stamps verified",
+          "badgeVisible": true,
+          "sourceState": "ready"
+        }
+      ]
+    },
+    {
+      "staleFile": "effect-playground/visuals.js",
+      "badge": "STALE DEV MODULES — HARD RELOAD",
+      "status": "stale",
+      "starts": 0,
+      "session": false,
+      "frameVisible": "hidden",
+      "stamps": {
+        "visuals": "MISSING",
+        "presentation": "vfx-b2-c426cfb",
+        "director": "vfx-b2-c426cfb"
+      }
+    },
+    {
+      "staleFile": "effect-playground/vfx-presentation.js",
+      "badge": "STALE DEV MODULES — HARD RELOAD",
+      "status": "stale",
+      "starts": 0,
+      "session": false,
+      "frameVisible": "hidden",
+      "stamps": {
+        "visuals": "vfx-b2-c426cfb",
+        "presentation": "MISSING",
+        "director": "vfx-b2-c426cfb"
+      }
+    },
+    {
+      "staleFile": "progressive-run/director.js",
+      "badge": "STALE DEV MODULES — HARD RELOAD",
+      "status": "stale",
+      "starts": 0,
+      "session": false,
+      "frameVisible": "hidden",
+      "stamps": {
+        "visuals": "vfx-b2-c426cfb",
+        "presentation": "vfx-b2-c426cfb",
+        "director": "MISSING"
+      }
+    },
+    {
+      "linkingFailure": {
+        "badge": "STALE DEV MODULES — HARD RELOAD",
+        "detail": "The requested module '../progressive-run/director.js' does not provide an export named 'ROOT_LIFECYCLE'",
+        "hidden": true
+      }
+    },
+    {
+      "standalone": {
+        "status": "main",
+        "session": false
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}

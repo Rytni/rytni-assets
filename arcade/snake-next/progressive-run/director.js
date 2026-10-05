@@ -5,6 +5,7 @@ import {hazardSafe,installTopology} from './world.js';
 import {bodyCell} from '../simulation/body.js';
 import {manhattan} from '../tuning-lab/measure.js';
 import {reachableFoodCells} from '../simulation/food.js';
+export const DEV_VFX_REVISION='vfx-b2-c426cfb';
 
 export const DEFINITIONS=Object.freeze({...EFFECTS,
  focus:{positive:true,duration:900,label:'ФОКУС'},

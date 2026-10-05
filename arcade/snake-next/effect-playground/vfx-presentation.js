@@ -1,5 +1,6 @@
 // Read-only presentation helpers. No game state, RNG, scheduler or clock owner.
 import {visualPath} from './visual-path.js';
+export const DEV_VFX_REVISION='vfx-b2-c426cfb';
 export function focusPositions(head,cell,tick){
  const dx=head.dx,dy=head.dy;
  return [[-.15,-.65],[-.75,.60],[-1.15,-.50]].map(([along,side],i)=>{

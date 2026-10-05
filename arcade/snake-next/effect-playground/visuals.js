@@ -6,6 +6,8 @@ import {drawVfx} from './vfx-art.js';
 import {drawReadable} from './readable-objects.js';
 import {effectAssets,drawAuthoredVfx,drawAuthoredFood} from './asset-bank.js';
 import {focusPositions,foodSquash,rootWarningPhase,vfxSize,rushPositions,mistVariation,feedbackLanes} from './vfx-presentation.js';
+// Passive source identity; only the isolated DEV Lab checks this export.
+export const DEV_VFX_REVISION='vfx-b2-c426cfb';
 export const DETAILS={harvest:'ГРИБЫ ×2 · 16 С',focus:'СПОКОЙНЕЕ · КОМБО ЗАМОРОЖЕНО · 15 С',spores:'СОБИРАЙ СВЕТЯЩИЕСЯ СПОРЫ',guard:'ЩИТ · 1 ЗАРЯД',portalPrize:'НАЙДИ ПОРТАЛ · БОНУС',rush:'СКОРОСТЬ ↑ · 10 С',weak:'ОЧКИ −40% · 12 С',brambles:'КОРНИ · СЛЕДИ ЗА ТРЕЩИНАМИ',mist:'ОБЗОР СУЖЕН · 10 С'};
 const has=(s,k)=>s.effects.some(e=>e.kind===k),clamp=n=>Math.max(0,Math.min(1,n));
 const corruptCache=new WeakMap();
