@@ -1,7 +1,7 @@
 /** Product lifecycle only: authoritative attempts are owned by the adapter;
  * score and movement are owned by the canonical session behind the bridge. */
 export class ProductController {
- constructor({backend,bridge,gate,release}){Object.assign(this,{backend,bridge,gate,release});this.screen='loading';this.hub=null;this.run=null;this.result=null;this.pending=null;this.listeners=new Set();this.serial=0;this.epoch=0;this.trainingSeed=79000;this.back='main';this.message='';this.tab='basics';this.disposed=false;}
+ constructor({backend,bridge,gate,release}){Object.assign(this,{backend,bridge,gate,release});this.requestPrefix=globalThis.crypto.randomUUID();this.screen='loading';this.hub=null;this.run=null;this.result=null;this.pending=null;this.listeners=new Set();this.serial=0;this.epoch=0;this.trainingSeed=79000;this.back='main';this.message='';this.tab='basics';this.disposed=false;}
  subscribe(fn){this.listeners.add(fn);return()=>this.listeners.delete(fn);}
  emit(){if(!this.disposed)for(const fn of this.listeners)fn(this);}
  show(screen){this.screen=screen;this.emit();}
@@ -19,12 +19,12 @@ export class ProductController {
    else{
     if(!this.hub?.success||this.hub.available!==true){this.message='Рейтинговая игра пока недоступна. Обновите сессию или выберите тренировку.';this.show('error');return;}
     if(!this.startRequest&&!this.hub.attempts_remaining&&!this.hub.sponsor_attempt_credits){this.show('no-attempts');return;}
-    this.startRequest??=this.release+'-start-'+(++this.serial);
+    this.startRequest??=this.requestPrefix+'-start-'+(++this.serial);
     attempt=await this.backend.start({release:this.release,requestId:this.startRequest});
    }
    if(epoch!==this.epoch||this.disposed)return;
    if(!attempt.success){const limit=['no_attempts','limit'].includes(attempt.status);this.message=limit?'Все попытки использованы.':attempt.status==='not_authenticated'?'Сессия закончилась. Войдите снова.':'Не удалось подтвердить старт. Повтор использует тот же запрос — двойного списания не будет.';this.show(limit?'no-attempts':'error');return;}
-   this.startRequest=null;this.run=Object.freeze({...attempt,mode,release:this.release});this.result=null;this.submission=null;this.message='';
+   if(mode==='ranked')this.startRequest=null;this.run=Object.freeze({...attempt,mode,release:this.release});this.result=null;this.submission=null;this.message='';
    if(!this.gate.ready()){this.gateMode='accepted-start';this.show('mobile-gate');}
    else{this.bridge.start(this.run.seed);this.show('playing');}
    // Hub reads must not hold the write lock while the canonical game runs.
@@ -39,7 +39,7 @@ export class ProductController {
   if(!this.hub?.sponsor_attempt_available){this.message='Попытки от спонсора восстановятся '+formatReset(this.hub?.next_sponsor_attempt_at)+'.';this.emit();return;}
   if(!this.gate.ready()){this.gateMode='sponsor';this.show('mobile-gate');return;}
   this.pending='claim';this.emit();const epoch=this.epoch;
-  try{this.claimRequest??=this.release+'-sponsor-'+(++this.serial);const r=await this.backend.claim({release:this.release,requestId:this.claimRequest});if(epoch!==this.epoch||this.disposed)return;
+  try{this.claimRequest??=this.requestPrefix+'-sponsor-'+(++this.serial);const r=await this.backend.claim({release:this.release,requestId:this.claimRequest});if(epoch!==this.epoch||this.disposed)return;
    if(r.success){this.claimRequest=null;await this.refresh(true);this.message='Попытка от спонсора зачислена. Нажмите «Играть», когда будете готовы.';this.sponsorCredited=true;this.show('main');}
    else{this.message=r.status==='cooldown'?'Лимит спонсорских попыток достигнут. Следующая '+formatReset(r.next_sponsor_attempt_at)+'.':'Зачисление не подтверждено. Обычные попытки не затронуты; повтор безопасен.';this.show('error');}
   }catch{if(epoch===this.epoch){this.message='Не удалось подтвердить спонсорскую попытку. Повтор не зачислит её дважды.';this.show('error');}}finally{this.pending=null;this.emit();}
@@ -71,9 +71,14 @@ export class ProductController {
   else if(action==='refresh'){this.message='';await this.refresh();}
   else if(action==='retry-finish'){await this.finish(this.submission);}
   else if(action==='gate-confirm'){
-   if(await this.gate.request()){const mode=this.gateMode;this.gateMode=null;if(mode==='accepted-start'&&this.run){this.bridge.start(this.run.seed);this.show('playing');}else if(mode==='resume')await this.resume();else if(mode==='restart'){this.show('confirm-restart');await this.action('confirm');}else if(mode==='sponsor')await this.claim();else await this.start(mode);}
-   else{this.message='Нужен полный экран и горизонтальное положение. Попытка ещё не тратится.';this.emit();}
-  }else if(action==='gate-cancel'){if(this.gateMode==='accepted-start'){this.abandon();}else{this.gateMode=null;this.show(this.run&&!this.result?'pause':'main');}}
+   if(this.gatePending||!this.gateMode||this.screen!=='mobile-gate'||this.disposed)return;
+   const mode=this.gateMode,epoch=this.epoch,request=this.gateRequest=(this.gateRequest||0)+1;this.gatePending=true;
+   try{const ready=await this.gate.request();
+    if(request!==this.gateRequest||epoch!==this.epoch||this.disposed||this.screen!=='mobile-gate'||this.gateMode!==mode)return;
+    if(ready){this.gateMode=null;if(mode==='accepted-start'&&this.run){this.bridge.start(this.run.seed);this.show('playing');}else if(mode==='resume')await this.resume();else if(mode==='restart'){this.show('confirm-restart');await this.action('confirm');}else if(mode==='sponsor')await this.claim();else await this.start(mode);}
+    else{this.message='Нужен полный экран и горизонтальное положение.'+(this.run?' Текущая попытка сохранена.':' Попытка ещё не тратится.');this.emit();}
+   }finally{if(request===this.gateRequest)this.gatePending=false;}
+  }else if(action==='gate-cancel'){this.gateRequest=(this.gateRequest||0)+1;this.gatePending=false;if(this.gateMode==='accepted-start'){this.abandon();}else{this.gateMode=null;this.show(this.run&&!this.result?'pause':'main');}}
  }
  abandon(){this.epoch++;this.bridge.stop();this.run=null;this.result=null;this.submission=null;this.back='main';this.message='';this.show('main');void this.refresh(true);}
  dispose(){this.epoch++;this.disposed=true;this.bridge.stop();this.listeners.clear();}

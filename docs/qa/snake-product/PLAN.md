@@ -31,18 +31,18 @@ before debit; terminal state returning to Pause; cross-game leaderboard leakage.
 
 ## Milestones
 
-1. [ ] Audit Fly, record parity, create separate cabinet product shell.
-2. [ ] Test first: menu back routes, confirmation cancel, clean terminal routes;
+1. [x] Audit Fly, record parity, create separate cabinet product shell.
+2. [x] Test first: menu back routes, confirmation cancel, clean terminal routes;
    implement controller and tabbed UI.
-3. [ ] Audit SQL; test mock double clicks/idempotency/isolated counters; implement
+3. [x] Audit SQL; test mock double clicks/idempotency/isolated counters; implement
    mock and fail-closed real adapter; prepare unapplied migration.
-4. [ ] Test result refresh/retry/new record/share/escaped top10; add result and
+4. [x] Test result refresh/retry/new record/share/escaped top10; add result and
    attempt routing using canonical stats.
-5. [ ] Test identical masks/hash and pause-stable material; integrate nine skins
+5. [x] Test identical masks/hash and pause-stable material; integrate nine skins
    with explicit channels and remove product floating active effects.
-6. [ ] Test landscape/fullscreen gate before spending, rotation pause, pagehide,
+6. [x] Test landscape/fullscreen gate before spending, rotation pause, pagehide,
    audio persistence, restored D-pad; measure mobile50/60 body readability.
-7. [ ] Targeted desktop/mobile flows, meaningful captures and direct previews;
+7. [x] Targeted desktop/mobile flows, meaningful captures and direct previews;
    complete README/BACKEND/EFFECT_SKINS/QA/review; final local checkpoint.
 
 Interfaces: backend `hub/start/finish/claim` returns Fly-like values; bridge
