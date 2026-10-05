@@ -1,6 +1,5 @@
 // Isolated visual proof. No simulation, host, gameplay input or integration imports.
-import {pixelText,textWidth} from './pixel-text.js';
-import {FRAME_VISIBLE_TRIM,TOP_STRIP_END_NATIVE,jointVisibleImage} from './frame-ink.js';
+import {pixelText,textWidth} from '/arcade/snake-next/retro-v3/pixel-text.js';
 export const ART_ROOT='/grib/mushroom-snake-retro-v3/';
 export const names=['up','right','down','left'];
 export const hash=n=>{let x=Math.imul(n+1,2654435761);x=Math.imul(x^(x>>>16),2246822519);return(x^(x>>>13))>>>0;};
@@ -59,26 +58,14 @@ export function nineSlice(ctx,img,x,y,w,h,corner=22,slice=64){
  const dx=[x,x+corner,x+w-corner],dy=[y,y+corner,y+h-corner],dw=[corner,w-2*corner,corner],dh=[corner,h-2*corner,corner];
  for(let yy=0;yy<3;yy++)for(let xx=0;xx<3;xx++)ctx.drawImage(img,srcX[xx],srcY[yy],srcW[xx],srcH[yy],dx[xx],dy[yy],dw[xx],dh[yy]);
 }
-export function drawFrame(ctx,kit,x,y,w,h,s,visibleTrim=false){
+export function drawFrame(ctx,kit,x,y,w,h,s){
  const c=128*s,im=kit.images;
- const t=visibleTrim?FRAME_VISIBLE_TRIM:{topBottom:0,bottomTop:0,leftRight:0,rightLeft:0};
- const top=im.get('frame-top'),bottom=im.get('frame-bottom'),left=im.get('frame-left'),right=im.get('frame-right');
- // Native normal scale and tangent-only stretching are retained. No artwork
- // rescale to refill a cropped destination, and no world hidden under wood.
- if(visibleTrim){
-  const e=TOP_STRIP_END_NATIVE,hh=28-t.topBottom;
-  // Authored decorative endpoints belong under the fixed corner ornaments,
-  // not in the axis-stretched rail. All source pixels are retained.
-  ctx.drawImage(top,0,0,e,hh,x+c-e*s,y+38*s,e*s,hh*s);
-  ctx.drawImage(top,e,0,top.width-2*e,hh,x+c,y+38*s,w-2*c,hh*s);
-  ctx.drawImage(top,top.width-e,0,e,hh,x+w-c,y+38*s,e*s,hh*s);
- }else ctx.drawImage(top,0,0,top.width,28,x+c,y+38*s,w-2*c,28*s);
- ctx.drawImage(bottom,0,t.bottomTop,bottom.width,28-t.bottomTop,x+c,y+h-(66-t.bottomTop)*s,w-2*c,(28-t.bottomTop)*s);
- ctx.drawImage(left,0,0,32-t.leftRight,left.height,x+25*s,y+c,(32-t.leftRight)*s,h-2*c);
- ctx.drawImage(right,t.rightLeft,0,32-t.rightLeft,right.height,x+w-(57-t.rightLeft)*s,y+c,(32-t.rightLeft)*s,h-2*c);
- const jl=im.get('frame-joint-left'),jr=im.get('frame-joint-right');
- ctx.drawImage(visibleTrim?jointVisibleImage(jl,'left'):jl,x+18*s,y+h/2-32*s,46*s,64*s);
- ctx.drawImage(visibleTrim?jointVisibleImage(jr,'right'):jr,x+w-64*s,y+h/2-32*s,46*s,64*s);
+ ctx.drawImage(im.get('frame-top'),x+c,y+38*s,w-2*c,28*s);
+ ctx.drawImage(im.get('frame-bottom'),x+c,y+h-66*s,w-2*c,28*s);
+ ctx.drawImage(im.get('frame-left'),x+25*s,y+c,32*s,h-2*c);
+ ctx.drawImage(im.get('frame-right'),x+w-57*s,y+c,32*s,h-2*c);
+ ctx.drawImage(im.get('frame-joint-left'),x+18*s,y+h/2-32*s,46*s,64*s);
+ ctx.drawImage(im.get('frame-joint-right'),x+w-64*s,y+h/2-32*s,46*s,64*s);
  for(const [key,px,py]of [['top-left',x,y],['top-right',x+w-c,y],['bottom-left',x,y+h-c],['bottom-right',x+w-c,y+h-c]])ctx.drawImage(im.get('frame-'+key),px,py,c,c);
 }
 export function layout(w,h){

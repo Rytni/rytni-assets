@@ -1,12 +1,11 @@
 // DEV presentation only. No simulation, head-follow, RNG or wall ownership.
-import {FRAME_VISIBLE_TRIM,WORLD_VISIBLE_OUTER_NATIVE} from '../retro-v3/frame-ink.js';
 const clamp=n=>Math.max(0,Math.min(1,n));
 const ASPECT=2.5;
 // Retain 310faf0's OUTER cabinet size; this allowance is not an aperture inset.
 const cabinetMetrics=(w,mobile)=>({scale:mobile?.42:Math.min(1.35,w/1800*1.35),header:mobile?52:Math.max(96,Math.round(w*.068)),cabinetAllowance:mobile?4:8});
-export const WALL_OUTER_NATIVE=WORLD_VISIBLE_OUTER_NATIVE;
-// Rail canvas inner edges are 57/66; measured visible source trim is applied
-// below. No extra arbitrary gutter or logical cell-count inset.
+export const WALL_OUTER_NATIVE=54;
+// Native rail dimensions match drawFrame(): side inner edges at 57, top
+// inner edge at frame.y+66, bottom at frame.bottom-66. No cell-count inset.
 export function fitCabinetSize(w,mobile=false){
  const {scale,header,cabinetAllowance:allowance}=cabinetMetrics(w,mobile);
  return {w,h:header+94*scale+2*allowance+(w-114*scale-2*allowance)/ASPECT};
@@ -18,8 +17,7 @@ export function cabinetPlayfield(base,fullscreen=false){
  const cw=pw+114*scale+2*allowance,ch=ph+header+94*scale+2*allowance;
  const x=(w-cw)/2,y=fullscreen||mobile?(h-ch)/2:0;
  const frame={x,y:y+header-38*scale,w:cw,h:ch-header+38*scale};
- const t=FRAME_VISIBLE_TRIM,left=57-t.leftRight,right=57-t.rightLeft,top=66-t.topBottom,bottom=66-t.bottomTop;
- const cabinetAperture={x:frame.x+left*scale,y:frame.y+top*scale,w:frame.w-(left+right)*scale,h:frame.h-(top+bottom)*scale};
+ const cabinetAperture={x:frame.x+57*scale,y:frame.y+66*scale,w:frame.w-114*scale,h:frame.h-132*scale};
  return {...base,scale,header,cabinetAperture,arena:cabinetAperture,playfieldRect:cabinetAperture,controlsArena:base.arena,gutter:0,frame,cabinet:{x,y,w:cw,h:ch},hud:{x,y,w:cw,h:header}};
 }
 export function activeTime(frame,s){return s.tick+clamp(s.state.movement?((frame.alpha||0)*60_000_000-s.state.movement.progress)/s.state.movement.rate:(frame.alpha||0)*s.state.cadence-s.state.movePhase);}

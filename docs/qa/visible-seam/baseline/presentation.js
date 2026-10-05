@@ -1,18 +1,18 @@
-import {geometry} from '../forest-training/renderer.js';
-import {drawFrame} from '../retro-v3/renderer.js';
-import {drawSnake} from '../retro-v5/renderer.js';
-import {pixelText} from '../retro-v5/pixel-text.js';
-import {boardVariant} from '../forest-training/board.js';
-import {drawObject,foodKey,foodBob,drawFoodFeedback} from '../forest-training/objects.js';
-import {bodyCells} from '../simulation/body.js';
-import {Camera} from './camera.js';
-import {DEFINITIONS} from './director.js';
-import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
-import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
-import {drawEffectsWorld,effectSlots} from '../effect-playground/visuals.js';
-import {fitWorldLayout} from '../effect-playground/fit-world.js';
-import {drawReadable} from '../effect-playground/readable-objects.js';
-import {objectImage} from '../forest-training/objects.js';
+import {geometry} from '/arcade/snake-next/forest-training/renderer.js';
+import {drawFrame} from './frame.js';
+import {drawSnake} from '/arcade/snake-next/retro-v5/renderer.js';
+import {pixelText} from '/arcade/snake-next/retro-v5/pixel-text.js';
+import {boardVariant} from '/arcade/snake-next/forest-training/board.js';
+import {drawObject,foodKey,foodBob,drawFoodFeedback} from '/arcade/snake-next/forest-training/objects.js';
+import {bodyCells} from '/arcade/snake-next/simulation/body.js';
+import {Camera} from '/arcade/snake-next/progressive-run/camera.js';
+import {DEFINITIONS} from '/arcade/snake-next/progressive-run/director.js';
+import {LookAheadCamera,StableCamera} from '/arcade/snake-next/gate-one/camera.js';
+import {drawEnvironment,drawPortalActivity} from '/arcade/snake-next/gate-one/environment.js';
+import {drawEffectsWorld,effectSlots} from '/arcade/snake-next/effect-playground/visuals.js';
+import {fitWorldLayout} from './fit.js';
+import {drawReadable} from '/arcade/snake-next/effect-playground/readable-objects.js';
+import {objectImage} from '/arcade/snake-next/forest-training/objects.js';
 
 const COLORS={anchor:'#e8cf73',spores:'#eaa2d5',guard:'#72bce6',portalPrize:'#b9a0f3',weak:'#c87192',decay:'#f59d56',brambles:'#aabe65',mist:'#adbcd0'};
 const PIXELS={anchor:['..####..','.##..##.','##..#.##','#...#..#','#...##.#','##....##','.##..##.','..####..'],spores:['...##...','.######.','########','..####..','########','.######.','...##...','...##...'],guard:['.######.','########','##....##','##.##.##','.######.','..####..','...##...','........'],portalPrize:['..####..','.##..##.','##.##.##','#..##..#','#......#','##.##.##','.##..##.','..####..'],weak:['#......#','.##..##.','..####..','...##...','..####..','.##..##.','#......#','........'],decay:['########','.######.','..####..','...##...','..####..','.######.','########','........'],brambles:['#..##..#','.#.##.#.','..####..','########','..####..','.#.##.#.','#..##..#','........'],mist:['..####..','.######.','########','########','.######.','........','##..##..','..##..##']};
@@ -66,7 +66,7 @@ export class ProgressPresentation {
   drawEffectsWorld(ctx,s,{...frame,viewX:view.x,viewY:view.y},at,cell,this.art,{...l,compact:options.compact});
   if(debug&&view.safe){ctx.strokeStyle='#e7be75';ctx.lineWidth=1;ctx.strokeRect(field.x+(view.safe.left+.5)*cell,field.y+(view.safe.top+.5)*cell,(view.safe.right-view.safe.left)*cell,(view.safe.bottom-view.safe.top)*cell);}
   const banner=s.announcements.at(-1);if(banner){const x=arena.x+arena.w/2,y=arena.y+cell*.4,scale=Math.max(1,Math.floor(cell/28));ctx.fillStyle='#06221de8';ctx.fillRect(x-Math.min(arena.w*.45,250),y-10*scale,Math.min(arena.w*.9,500),20*scale);pixelText(ctx,banner.text,Math.round(x),Math.round(y-4*scale),scale,'#ead290','center');}
-  ctx.restore();drawFrame(ctx,this.art,l.frame.x,l.frame.y,l.frame.w,l.frame.h,l.scale,!!fit);renderer.last=l;return l;
+  ctx.restore();drawFrame(ctx,this.art,l.frame.x,l.frame.y,l.frame.w,l.frame.h,l.scale);renderer.last=l;return l;
  }
  effects(root,s,compact){effectSlots(root,s,compact);}
  release(){this.tiles.clear();this.reset();}

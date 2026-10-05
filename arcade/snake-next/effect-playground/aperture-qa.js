@@ -1,4 +1,5 @@
-// QA only: visible alpha, not logical bounds or an inset utilization ratio.
+// GEOMETRY QA ONLY: alpha bounds. This cannot detect opaque dark art padding.
+// Visual acceptance is the FINAL COMPOSITE gate in visible-seam-qa.js.
 export function apertureEdgeGaps(image,aperture,pixelScale=1){
  const {width,height,data}=image,s=pixelScale,a=aperture;
  const x0=Math.max(0,Math.floor(a.x*s)),x1=Math.min(width-1,Math.ceil((a.x+a.w)*s)-1),y0=Math.max(0,Math.floor(a.y*s)),y1=Math.min(height-1,Math.ceil((a.y+a.h)*s)-1);

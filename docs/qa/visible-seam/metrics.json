@@ -1,0 +1,1438 @@
+{
+  "baseline": false,
+  "cases": [
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "dpr": 1,
+      "requestedDpr": 1,
+      "aperture": {
+        "x": 74.25,
+        "y": 219.13000000000002,
+        "w": 1771.5,
+        "h": 718.7399999999999
+      },
+      "railSpans": {
+        "Left": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Right": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Top": [
+          172.8,
+          1747.2
+        ],
+        "Bottom": [
+          172.8,
+          1747.2
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 1,
+      "visualGapRight": 1,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 1,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 328,
+              "wood": 73,
+              "wall": 75,
+              "gap": 1
+            },
+            {
+              "t": 365,
+              "wood": 73,
+              "wall": 75,
+              "gap": 1
+            },
+            {
+              "t": 388,
+              "wood": 73,
+              "wall": 75,
+              "gap": 1
+            }
+          ]
+        },
+        "Right": {
+          "gap": 1,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 328,
+              "wood": 1846,
+              "wall": 1844,
+              "gap": 1
+            },
+            {
+              "t": 365,
+              "wood": 1846,
+              "wall": 1844,
+              "gap": 1
+            },
+            {
+              "t": 388,
+              "wood": 1846,
+              "wall": 1844,
+              "gap": 1
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 173,
+              "wood": 218,
+              "wall": 219,
+              "gap": 0
+            },
+            {
+              "t": 174,
+              "wood": 218,
+              "wall": 219,
+              "gap": 0
+            },
+            {
+              "t": 175,
+              "wood": 218,
+              "wall": 219,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 173,
+              "wood": 938,
+              "wall": 937,
+              "gap": 0
+            },
+            {
+              "t": 174,
+              "wood": 938,
+              "wall": 937,
+              "gap": 0
+            },
+            {
+              "t": 175,
+              "wood": 938,
+              "wall": 937,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            null,
+            null,
+            21,
+            21
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "dpr": 1.5,
+      "requestedDpr": 1.5,
+      "aperture": {
+        "x": 74.25,
+        "y": 219.13000000000002,
+        "w": 1771.5,
+        "h": 718.7399999999999
+      },
+      "railSpans": {
+        "Left": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Right": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Top": [
+          172.8,
+          1747.2
+        ],
+        "Bottom": [
+          172.8,
+          1747.2
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0.6666666666666666,
+      "visualGapRight": 0.6666666666666666,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0.6666666666666666,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 491,
+              "wood": 110,
+              "wall": 112,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 492,
+              "wood": 110,
+              "wall": 112,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 493,
+              "wood": 110,
+              "wall": 112,
+              "gap": 0.6666666666666666
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0.6666666666666666,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 491,
+              "wood": 2769,
+              "wall": 2767,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 492,
+              "wood": 2769,
+              "wall": 2767,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 493,
+              "wood": 2769,
+              "wall": 2767,
+              "gap": 0.6666666666666666
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 260,
+              "wood": 328,
+              "wall": 329,
+              "gap": 0
+            },
+            {
+              "t": 261,
+              "wood": 328,
+              "wall": 329,
+              "gap": 0
+            },
+            {
+              "t": 262,
+              "wood": 328,
+              "wall": 329,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 260,
+              "wood": 1407,
+              "wall": 1406,
+              "gap": 0
+            },
+            {
+              "t": 261,
+              "wood": 1407,
+              "wall": 1406,
+              "gap": 0
+            },
+            {
+              "t": 262,
+              "wood": 1407,
+              "wall": 1406,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            null,
+            null,
+            20.666666666666668,
+            0
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "dpr": 2,
+      "requestedDpr": 2,
+      "aperture": {
+        "x": 74.25,
+        "y": 219.13000000000002,
+        "w": 1771.5,
+        "h": 718.7399999999999
+      },
+      "railSpans": {
+        "Left": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Right": [
+          305.53000000000003,
+          854.1699999999998
+        ],
+        "Top": [
+          172.8,
+          1747.2
+        ],
+        "Bottom": [
+          172.8,
+          1747.2
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0.5,
+      "visualGapRight": 0.5,
+      "visualGapTop": 0.5,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0.5,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 655,
+              "wood": 147,
+              "wall": 149,
+              "gap": 0.5
+            },
+            {
+              "t": 656,
+              "wood": 147,
+              "wall": 149,
+              "gap": 0.5
+            },
+            {
+              "t": 657,
+              "wood": 147,
+              "wall": 149,
+              "gap": 0.5
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0.5,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 655,
+              "wood": 3692,
+              "wall": 3690,
+              "gap": 0.5
+            },
+            {
+              "t": 656,
+              "wood": 3692,
+              "wall": 3690,
+              "gap": 0.5
+            },
+            {
+              "t": 657,
+              "wood": 3692,
+              "wall": 3690,
+              "gap": 0.5
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0.5,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 409,
+              "wood": 437,
+              "wall": 439,
+              "gap": 0.5
+            },
+            {
+              "t": 410,
+              "wood": 437,
+              "wall": 439,
+              "gap": 0.5
+            },
+            {
+              "t": 411,
+              "wood": 437,
+              "wall": 439,
+              "gap": 0.5
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 346,
+              "wood": 1876,
+              "wall": 1875,
+              "gap": 0
+            },
+            {
+              "t": 347,
+              "wood": 1876,
+              "wall": 1875,
+              "gap": 0
+            },
+            {
+              "t": 348,
+              "wood": 1876,
+              "wall": 1875,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0.5,
+            0.5,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            null,
+            null,
+            21,
+            0
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "dpr": 1,
+      "requestedDpr": 1,
+      "aperture": {
+        "x": 56.3475,
+        "y": 155.84409999999997,
+        "w": 1253.305,
+        "h": 511.3318000000001
+      },
+      "railSpans": {
+        "Left": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Right": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Top": [
+          131.136,
+          1234.864
+        ],
+        "Bottom": [
+          131.136,
+          1234.864
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 1,
+      "visualGapRight": 1,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 1,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 234,
+              "wood": 55,
+              "wall": 57,
+              "gap": 1
+            },
+            {
+              "t": 260,
+              "wood": 55,
+              "wall": 57,
+              "gap": 1
+            },
+            {
+              "t": 277,
+              "wood": 55,
+              "wall": 57,
+              "gap": 1
+            }
+          ]
+        },
+        "Right": {
+          "gap": 1,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 234,
+              "wood": 1310,
+              "wall": 1308,
+              "gap": 1
+            },
+            {
+              "t": 260,
+              "wood": 1310,
+              "wall": 1308,
+              "gap": 1
+            },
+            {
+              "t": 277,
+              "wood": 1310,
+              "wall": 1308,
+              "gap": 1
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 132,
+              "wood": 155,
+              "wall": 156,
+              "gap": 0
+            },
+            {
+              "t": 133,
+              "wood": 155,
+              "wall": 156,
+              "gap": 0
+            },
+            {
+              "t": 134,
+              "wood": 155,
+              "wall": 156,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 132,
+              "wood": 667,
+              "wall": 666,
+              "gap": 0
+            },
+            {
+              "t": 133,
+              "wood": 667,
+              "wall": 666,
+              "gap": 0
+            },
+            {
+              "t": 134,
+              "wood": 667,
+              "wall": 666,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            15,
+            17,
+            14,
+            14
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "dpr": 1.5,
+      "requestedDpr": 1.5,
+      "aperture": {
+        "x": 56.3475,
+        "y": 155.84409999999997,
+        "w": 1253.305,
+        "h": 511.3318000000001
+      },
+      "railSpans": {
+        "Left": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Right": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Top": [
+          131.136,
+          1234.864
+        ],
+        "Bottom": [
+          131.136,
+          1234.864
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0,
+      "visualGapRight": 0,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 333,
+              "wood": 84,
+              "wall": 85,
+              "gap": 0
+            },
+            {
+              "t": 334,
+              "wood": 84,
+              "wall": 85,
+              "gap": 0
+            },
+            {
+              "t": 335,
+              "wood": 84,
+              "wall": 85,
+              "gap": 0
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 333,
+              "wood": 1964,
+              "wall": 1963,
+              "gap": 0
+            },
+            {
+              "t": 334,
+              "wood": 1964,
+              "wall": 1963,
+              "gap": 0
+            },
+            {
+              "t": 335,
+              "wood": 1964,
+              "wall": 1963,
+              "gap": 0
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 197,
+              "wood": 233,
+              "wall": 234,
+              "gap": 0
+            },
+            {
+              "t": 198,
+              "wood": 233,
+              "wall": 234,
+              "gap": 0
+            },
+            {
+              "t": 199,
+              "wood": 233,
+              "wall": 234,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 197,
+              "wood": 1001,
+              "wall": 1000,
+              "gap": 0
+            },
+            {
+              "t": 198,
+              "wood": 1001,
+              "wall": 1000,
+              "gap": 0
+            },
+            {
+              "t": 199,
+              "wood": 1001,
+              "wall": 1000,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            18,
+            18,
+            14.666666666666666,
+            0
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "dpr": 2,
+      "requestedDpr": 2,
+      "aperture": {
+        "x": 56.3475,
+        "y": 155.84409999999997,
+        "w": 1253.305,
+        "h": 511.3318000000001
+      },
+      "railSpans": {
+        "Left": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Right": [
+          221.41209999999995,
+          603.6569000000001
+        ],
+        "Top": [
+          131.136,
+          1234.864
+        ],
+        "Bottom": [
+          131.136,
+          1234.864
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0,
+      "visualGapRight": 0,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 443,
+              "wood": 112,
+              "wall": 113,
+              "gap": 0
+            },
+            {
+              "t": 444,
+              "wood": 112,
+              "wall": 113,
+              "gap": 0
+            },
+            {
+              "t": 445,
+              "wood": 112,
+              "wall": 113,
+              "gap": 0
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 443,
+              "wood": 2619,
+              "wall": 2618,
+              "gap": 0
+            },
+            {
+              "t": 444,
+              "wood": 2619,
+              "wall": 2618,
+              "gap": 0
+            },
+            {
+              "t": 445,
+              "wood": 2619,
+              "wall": 2618,
+              "gap": 0
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 263,
+              "wood": 311,
+              "wall": 312,
+              "gap": 0
+            },
+            {
+              "t": 264,
+              "wood": 311,
+              "wall": 312,
+              "gap": 0
+            },
+            {
+              "t": 265,
+              "wood": 311,
+              "wall": 312,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 263,
+              "wood": 1334,
+              "wall": 1333,
+              "gap": 0
+            },
+            {
+              "t": 264,
+              "wood": 1334,
+              "wall": 1333,
+              "gap": 0
+            },
+            {
+              "t": 265,
+              "wood": 1334,
+              "wall": 1333,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            18,
+            18,
+            14.5,
+            14.5
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1,
+      "requestedDpr": 1,
+      "aperture": {
+        "x": 54.01000000000002,
+        "y": 62.92,
+        "w": 735.9799999999999,
+        "h": 299.35999999999996
+      },
+      "railSpans": {
+        "Left": [
+          89.8,
+          336.24
+        ],
+        "Right": [
+          89.8,
+          336.24
+        ],
+        "Top": [
+          84.67000000000002,
+          759.3299999999999
+        ],
+        "Bottom": [
+          84.67000000000002,
+          759.3299999999999
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0,
+      "visualGapRight": 0,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 90,
+              "wood": 53,
+              "wall": 54,
+              "gap": 0
+            },
+            {
+              "t": 91,
+              "wood": 53,
+              "wall": 54,
+              "gap": 0
+            },
+            {
+              "t": 92,
+              "wood": 53,
+              "wall": 54,
+              "gap": 0
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 90,
+              "wood": 790,
+              "wall": 789,
+              "gap": 0
+            },
+            {
+              "t": 91,
+              "wood": 790,
+              "wall": 789,
+              "gap": 0
+            },
+            {
+              "t": 92,
+              "wood": 790,
+              "wall": 789,
+              "gap": 0
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 85,
+              "wood": 62,
+              "wall": 63,
+              "gap": 0
+            },
+            {
+              "t": 86,
+              "wood": 62,
+              "wall": 63,
+              "gap": 0
+            },
+            {
+              "t": 87,
+              "wood": 62,
+              "wall": 63,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 85,
+              "wood": 362,
+              "wall": 361,
+              "gap": 0
+            },
+            {
+              "t": 86,
+              "wood": 362,
+              "wall": 361,
+              "gap": 0
+            },
+            {
+              "t": 87,
+              "wood": 362,
+              "wall": 361,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 1.5,
+      "requestedDpr": 1.5,
+      "aperture": {
+        "x": 54.01000000000002,
+        "y": 62.92,
+        "w": 735.9799999999999,
+        "h": 299.35999999999996
+      },
+      "railSpans": {
+        "Left": [
+          89.8,
+          336.24
+        ],
+        "Right": [
+          89.8,
+          336.24
+        ],
+        "Top": [
+          84.67000000000002,
+          759.3299999999999
+        ],
+        "Bottom": [
+          84.67000000000002,
+          759.3299999999999
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0,
+      "visualGapRight": 0,
+      "visualGapTop": 0.6666666666666666,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 135,
+              "wood": 80,
+              "wall": 81,
+              "gap": 0
+            },
+            {
+              "t": 136,
+              "wood": 80,
+              "wall": 81,
+              "gap": 0
+            },
+            {
+              "t": 137,
+              "wood": 80,
+              "wall": 81,
+              "gap": 0
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 135,
+              "wood": 1185,
+              "wall": 1184,
+              "gap": 0
+            },
+            {
+              "t": 136,
+              "wood": 1185,
+              "wall": 1184,
+              "gap": 0
+            },
+            {
+              "t": 137,
+              "wood": 1185,
+              "wall": 1184,
+              "gap": 0
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0.6666666666666666,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 139,
+              "wood": 93,
+              "wall": 95,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 140,
+              "wood": 93,
+              "wall": 95,
+              "gap": 0.6666666666666666
+            },
+            {
+              "t": 141,
+              "wood": 93,
+              "wall": 95,
+              "gap": 0.6666666666666666
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 128,
+              "wood": 543,
+              "wall": 542,
+              "gap": 0
+            },
+            {
+              "t": 129,
+              "wood": 543,
+              "wall": 542,
+              "gap": 0
+            },
+            {
+              "t": 130,
+              "wood": 543,
+              "wall": 542,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0.6666666666666666,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            9.333333333333334,
+            8.666666666666666,
+            8.666666666666666,
+            8
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "dpr": 2,
+      "requestedDpr": 2,
+      "aperture": {
+        "x": 54.01000000000002,
+        "y": 62.92,
+        "w": 735.9799999999999,
+        "h": 299.35999999999996
+      },
+      "railSpans": {
+        "Left": [
+          89.8,
+          336.24
+        ],
+        "Right": [
+          89.8,
+          336.24
+        ],
+        "Top": [
+          84.67000000000002,
+          759.3299999999999
+        ],
+        "Bottom": [
+          84.67000000000002,
+          759.3299999999999
+        ]
+      },
+      "hash": "eefa0ae6",
+      "visualGapLeft": 0,
+      "visualGapRight": 0,
+      "visualGapTop": 0,
+      "visualGapBottom": 0,
+      "pass": true,
+      "edges": {
+        "Left": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 180,
+              "wood": 107,
+              "wall": 108,
+              "gap": 0
+            },
+            {
+              "t": 181,
+              "wood": 107,
+              "wall": 108,
+              "gap": 0
+            },
+            {
+              "t": 182,
+              "wood": 107,
+              "wall": 108,
+              "gap": 0
+            }
+          ]
+        },
+        "Right": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 180,
+              "wood": 1580,
+              "wall": 1579,
+              "gap": 0
+            },
+            {
+              "t": 181,
+              "wood": 1580,
+              "wall": 1579,
+              "gap": 0
+            },
+            {
+              "t": 182,
+              "wood": 1580,
+              "wall": 1579,
+              "gap": 0
+            }
+          ]
+        },
+        "Top": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 170,
+              "wood": 125,
+              "wall": 126,
+              "gap": 0
+            },
+            {
+              "t": 171,
+              "wood": 125,
+              "wall": 126,
+              "gap": 0
+            },
+            {
+              "t": 172,
+              "wood": 125,
+              "wall": 126,
+              "gap": 0
+            }
+          ]
+        },
+        "Bottom": {
+          "gap": 0,
+          "minGap": 0,
+          "worst": [
+            {
+              "t": 170,
+              "wood": 725,
+              "wall": 724,
+              "gap": 0
+            },
+            {
+              "t": 171,
+              "wood": 725,
+              "wall": 724,
+              "gap": 0
+            },
+            {
+              "t": 172,
+              "wood": 725,
+              "wall": 724,
+              "gap": 0
+            }
+          ]
+        }
+      },
+      "sensitivity": [
+        {
+          "threshold": 32,
+          "gaps": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "pass": true
+        },
+        {
+          "threshold": 48,
+          "gaps": [
+            11.5,
+            9,
+            8.5,
+            0
+          ],
+          "pass": false
+        }
+      ],
+      "failurePixels": {}
+    }
+  ],
+  "errors": [],
+  "network": []
+}

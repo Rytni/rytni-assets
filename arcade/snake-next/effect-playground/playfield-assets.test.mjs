@@ -15,8 +15,8 @@ test('playfield derives from physical rails, independent of legacy arena/cells',
  for(const [w,h,mobile]of [[1920,1080,false],[1366,768,false],[844,390,true]]){
   const base=geometry(w,h,28,12,true,mobile),a=cabinetPlayfield(base,true),b=cabinetPlayfield({...base,arena:{x:1,y:2,w:3,h:4},scale:7,header:900,cell:123,cols:99,rows:3},true);
   assert.deepEqual(a.playfieldRect,b.playfieldRect);const p=a.playfieldRect;
-  assert.equal(a.gutter,0);assert.deepEqual(p,a.cabinetAperture);assert.ok(Math.abs(p.x-a.frame.x-57*a.scale)<1e-6);assert.ok(Math.abs(p.y-a.frame.y-66*a.scale)<1e-6);
-  assert.ok(Math.abs(a.frame.x+a.frame.w-57*a.scale-a.gutter-p.x-p.w)<1e-6);
+  assert.equal(a.gutter,0);assert.deepEqual(p,a.cabinetAperture);assert.ok(Math.abs(p.x-a.frame.x-55*a.scale)<1e-6);assert.ok(Math.abs(p.y-a.frame.y-64*a.scale)<1e-6);
+  assert.ok(Math.abs(a.frame.x+a.frame.w-55*a.scale-a.gutter-p.x-p.w)<1e-6);
   assert.ok(Math.abs(a.frame.y+a.frame.h-66*a.scale-a.gutter-p.y-p.h)<1e-6);
   assert.ok(a.cabinet.x>=0&&a.cabinet.y>=0);assert.ok(a.cabinet.y+a.cabinet.h<=h+1e-6);
   assert.deepEqual(a.controlsArena,base.arena);
