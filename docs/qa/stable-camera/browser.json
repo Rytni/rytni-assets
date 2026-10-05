@@ -1,0 +1,252 @@
+{
+  "results": [
+    {
+      "mobile": false,
+      "turns": 44,
+      "run": {
+        "started": 763.5,
+        "samples": 2493,
+        "variation": 0,
+        "axisLeak": 0,
+        "restoreError": 0,
+        "last": {
+          "x": 2.5,
+          "y": 1.5,
+          "hx": 18.23076923076923,
+          "hy": 7
+        },
+        "directions": [],
+        "hash": "718d5704",
+        "elapsed": 30.680599999964237,
+        "moves": 135,
+        "camera": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "pad": [
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          }
+        ]
+      },
+      "lifecycle": {
+        "before": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "after": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "resumed": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 7,
+            "right": 20,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "hash": "718d5704"
+      },
+      "restarted": {
+        "x": 0,
+        "y": 0,
+        "mode": "stable"
+      }
+    },
+    {
+      "mobile": true,
+      "turns": 44,
+      "run": {
+        "started": 718.5,
+        "samples": 2245,
+        "variation": 0,
+        "axisLeak": 0,
+        "restoreError": 0,
+        "last": {
+          "x": 2.5,
+          "y": 1.5,
+          "hx": 18.23076923076923,
+          "hy": 7
+        },
+        "directions": [],
+        "hash": "cad2fb78",
+        "elapsed": 30.67380000001192,
+        "moves": 135,
+        "camera": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "pad": [
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          }
+        ]
+      },
+      "lifecycle": {
+        "before": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "after": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "resumed": {
+          "x": 2.5,
+          "y": 1.5,
+          "cols": 28,
+          "rows": 12,
+          "safe": {
+            "left": 8,
+            "right": 19,
+            "top": 3,
+            "bottom": 8
+          },
+          "mode": "stable",
+          "wallDistance": {
+            "left": 17.23076923076923,
+            "right": 15.76923076923077,
+            "top": 6,
+            "bottom": 9
+          }
+        },
+        "hash": "cad2fb78"
+      },
+      "restarted": {
+        "x": 0,
+        "y": 0,
+        "mode": "stable"
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}

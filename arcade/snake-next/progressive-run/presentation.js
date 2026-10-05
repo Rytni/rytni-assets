@@ -7,7 +7,7 @@ import {drawObject,foodKey,foodBob,drawFoodFeedback} from '../forest-training/ob
 import {bodyCells} from '../simulation/body.js';
 import {Camera} from './camera.js';
 import {DEFINITIONS} from './director.js';
-import {LookAheadCamera} from '../gate-one/camera.js';
+import {LookAheadCamera,StableCamera} from '../gate-one/camera.js';
 import {drawEnvironment,drawPortalActivity} from '../gate-one/environment.js';
 
 const COLORS={anchor:'#e8cf73',spores:'#eaa2d5',guard:'#72bce6',portalPrize:'#b9a0f3',weak:'#c87192',decay:'#f59d56',brambles:'#aabe65',mist:'#adbcd0'};
@@ -18,13 +18,20 @@ function symbol(ctx,kind,x,y,size){const pixels=PIXELS[kind],unit=Math.max(1,Mat
 /** World/camera presentation only. Snake silhouette/material stays the locked
  * RibbonSprites adapter; no geometry implementation is duplicated here. */
 export class ProgressPresentation {
- constructor(art){this.art=art;this.tiles=new Map();this.reset();}
- reset(){this.camera=new Camera();this.session=null;}
+ constructor(art){this.art=art;this.tiles=new Map();this.cameraMode='stable';this.reset();}
+ reset(){this.camera=new Camera();this.session=null;this.lastView=null;}
  board(biome){if(this.tiles.has(biome))return this.tiles.get(biome);const tiles=this.art.board.map(im=>{const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const ctx=c.getContext('2d');ctx.drawImage(im,0,0);if(biome!=='forest'){const data=ctx.getImageData(0,0,c.width,c.height);for(let i=0;i<data.data.length;i+=4){const [r,g,b]=data.data.slice(i,i+3);if(biome==='caves'){data.data[i]=Math.round(g*.43);data.data[i+1]=Math.round(g*.65);data.data[i+2]=Math.round(g*.9);}else{data.data[i]=Math.round(g*.47);data.data[i+1]=Math.round(g*.77);data.data[i+2]=Math.round(b*.6);}}ctx.putImageData(data,0,0);}return c;});this.tiles.set(biome,tiles);return tiles;}
  render(renderer,s,options,debug=false){
   if(this.session!==s.state.seed+':'+s.startsKey){this.reset();this.session=s.state.seed+':'+s.startsKey;}
-  if(s.portalEdges&&!(this.camera instanceof LookAheadCamera))this.camera=new LookAheadCamera();
   const frame=options.motion||{head:{x:bodyCells(s.state)[0]%s.arena.width,y:Math.floor(bodyCells(s.state)[0]/s.arena.width),dx:[0,1,0,-1][s.state.direction],dy:[-1,0,1,0][s.state.direction]},alpha:1};
+  const CameraType=this.cameraMode==='old'?LookAheadCamera:StableCamera;
+  if(s.portalEdges&&!(this.camera instanceof CameraType)){
+   const old=this.camera,next=new CameraType();
+   // A/B switching retains the current viewport; no artificial initial rebase.
+   if(this.lastView){next.x=old.x;next.y=old.y;next.initialized=true;next.time=old.time??s.tick;next.head=old.head;
+    const edge=s.portalEdges.at(-1);next.portalEdge=edge&&(frame.start??0)<=s.moves-edge.move+1e-9?edge.move+':'+edge.tick:null;}
+   this.camera=next;
+  }
   const view=this.camera.update(frame,s,options.touch),l=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),{field,arena,cell}=l;
   this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';ctx.fillRect(0,0,l.w,l.h);
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});

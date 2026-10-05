@@ -45,6 +45,10 @@ document.querySelector('#expand-world').addEventListener('click',()=>{if(current
 document.querySelector('#camera-debug').addEventListener('change',()=>game?.render());
 const awareness=document.createElement('label');awareness.innerHTML='<input id="world-awareness" type="checkbox" checked> DEV world bounds / viewport / head indicator';document.querySelector('#camera-debug').parentElement.after(awareness);
 awareness.querySelector('input').addEventListener('change',()=>game?.render());
+// Temporary camera A/B control lives ONLY in the isolated DEV Lab.
+const cameraToggle=document.createElement('button');cameraToggle.id='camera-toggle';cameraToggle.textContent='STABLE CAMERA';cameraToggle.setAttribute('aria-pressed','true');awareness.after(cameraToggle);
+cameraToggle.addEventListener('pointerdown',e=>e.preventDefault());
+cameraToggle.addEventListener('click',()=>{if(!progressAdapter)return;const p=progressAdapter.presentation;p.cameraMode=p.cameraMode==='stable'?'old':'stable';cameraToggle.textContent=p.cameraMode==='stable'?'STABLE CAMERA':'OLD LOOK-AHEAD';cameraToggle.setAttribute('aria-pressed',String(p.cameraMode==='stable'));game.render();frame.contentWindow.focus();});
 function controlsMode(){const progressive=progressiveEnabled();for(const b of document.querySelectorAll('[data-preset]'))b.disabled=progressive&&b.dataset.preset!=='B';arenaSelect.disabled=densitySelect.disabled=progressive;document.querySelector('[aria-label="DEV Forest design"]').hidden=progressive;for(const n of fields.querySelectorAll('input'))n.disabled=progressive;}
 document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{profile=PRESETS[b.dataset.preset];fill();start();}));
 document.querySelector('#controls').addEventListener('submit',e=>e.preventDefault());

@@ -1,64 +1,119 @@
 import {DX,DY} from '../simulation/rules.js';
 
-export const BORDER_COLORS={forest:['#13271c','#345232','#698147','#a8a066'],caves:['#15202d','#334452','#618496','#a0c8d4'],swamp:['#101f23','#23493d','#466d52','#829d69']};
-
-/** Native pixel ornaments on the OUTER logical wall cells, not arena clutter. */
-function borderTile(ctx,x,y,cell,biome,index,amount=1){
- const colors=BORDER_COLORS[biome],u=cell/68;
- ctx.save();ctx.translate(x,y);ctx.scale(u,u);ctx.globalAlpha*=amount;
- ctx.fillStyle=colors[0];ctx.fillRect(0,0,68,68);
- ctx.fillStyle=colors[1];ctx.fillRect(3,7,62,54);ctx.fillRect(0,22,68,24);
- ctx.fillStyle=colors[2];
- if(biome==='caves'){
-  for(const [a,b,w,h]of [[7,13,16,28],[29,6,14,34],[48,22,14,23]]){ctx.fillRect(a,b,w,h);ctx.fillStyle=colors[3];ctx.fillRect(a+2,b,3,h-7);ctx.fillStyle=colors[2];}
- }else if(biome==='swamp'){
-  ctx.fillRect(0,50,68,3);ctx.fillRect(10,42,23,2);ctx.fillRect(43,57,18,2);
-  for(let i=0;i<5;i++){const a=(i*13+index*7)%62;ctx.fillRect(a,14+i%3*6,3,32);ctx.fillRect(a-3,20+i%3*6,9,3);}
- }else{
-  ctx.fillRect(0,27,68,9);ctx.fillRect(8,10,8,48);ctx.fillRect(32,18,7,45);ctx.fillRect(53,7,7,48);
-  ctx.fillStyle=colors[3];ctx.fillRect(0,27,68,2);ctx.fillRect(9,12,2,21);ctx.fillRect(33,20,2,18);
-  ctx.fillStyle=colors[1];for(let i=0;i<4;i++)ctx.fillRect((i*17+index*11)%59,8+(i%2)*36,9,6);
- }
- ctx.fillStyle=colors[0];ctx.fillRect(0,64,68,4);ctx.restore();
+export const BORDER_COLORS={forest:['#18251b','#4a4930','#6d8450','#b6c685'],caves:['#15202d','#42566b','#7396aa','#b6d6dc'],swamp:['#101f23','#315a45','#688356','#a2b87c']};
+const clamp=n=>Math.max(0,Math.min(1,n));
+export function openingPhase(age,duration=60){const p=clamp(age/duration);return {p,crack:clamp(p/.18),retract:clamp((p-.20)/.46),travel:clamp((p-.24)/.70)};}
+export function territoryReveal(x,y,opening,travel){
+ const {from,to}=opening,east=x>=from.width-1,south=y>=from.height-1;
+ if(!east&&!south)return {new:false,reveal:1,wave:0};
+ const d=Math.max(east?(x-from.width+1)/Math.max(1,to.width-from.width):0,south?(y-from.height+1)/Math.max(1,to.height-from.height):0);
+ return {new:true,reveal:clamp((travel-d+.08)/.16),wave:Math.max(0,1-Math.abs(travel-d)/.12)};
 }
-function borderCells(width,height){const cells=[];for(let x=0;x<width;x++)cells.push([x,0],[x,height-1]);for(let y=1;y<height-1;y++)cells.push([0,y],[width-1,y]);return cells;}
+
+/** Solid environmental wall in native tangent/normal coordinates. Most of it
+ * occupies the blocked cell; an 18 px fringe with sparse 24 px moss tips reaches
+ * into the playable edge, leaving at least 44 px of the edge cell unobscured. */
+function wallCell(ctx,x,y,cell,biome,index,side,{crack=0,retract=0,near=0,time=0}={}){
+ const c=BORDER_COLORS[biome],u=cell/68,vertical=side==='left'||side==='right',sign=side==='left'||side==='top'?1:-1;
+ ctx.save();ctx.translate(x,y);ctx.scale(u,u);
+ const rect=(t,n,w,h,color)=>{
+  if(retract>=1)return;ctx.fillStyle=color;
+  // Root/rock fragments withdraw and shrink, not just become transparent.
+  n=n*(1-retract)-54*retract;h*=1-retract;
+  if(vertical)ctx.fillRect(sign>0?n:-n-h,t,h,w);else ctx.fillRect(t,sign>0?n:-n-h,w,h);
+ };
+ rect(0,-54,68,68,c[0]);rect(0,-49,68,58,c[1]);
+ if(biome==='forest'){
+  for(const [t,n,w,h]of [[5,-43,19,29],[32,-51,24,24],[52,-29,16,23]]){
+   rect(t-2,n-2,w+4,h+4,'#232c23');rect(t,n,w,h,'#687057');rect(t+2,n,w-4,3,'#959b73');rect(t+w-4,n+4,4,h-4,'#414d38');
+  }
+  rect(0,-10,68,19,'#302d20');rect(0,-7,68,10,'#746346');rect(0,-7,68,2,'#a0905d');
+  for(let i=0;i<4;i++){const t=i*17;rect(t,-18+(i+index)%2*6,12,8,'#4e482e');rect(t+5,-13,5,17,'#8b7851');}
+ }else if(biome==='caves'){
+  for(const [t,n,w,h]of [[3,-43,17,35],[25,-50,15,39],[45,-35,20,28]]){rect(t,n,w,h,c[2]);rect(t+2,n,3,h-5,c[3]);rect(t+w-4,n+5,4,h-5,c[1]);}
+  rect(0,-8,68,16,'#526e7d');rect(0,-7,68,3,'#90b0b9');
+ }else{
+  rect(0,-48,68,25,'#123b36');rect(0,-35,68,2,'#4a7164');
+  for(let i=0;i<5;i++){const t=(i*13+index*7)%62;rect(t,-32+i%3*4,5,34,c[2]);rect(t-3,-22+i%3*4,11,4,c[1]);}
+  rect(0,-9,68,17,'#35553c');rect(0,-6,68,3,'#7f945b');
+ }
+ rect(0,5,68,7,c[2]);
+ for(let i=0;i<5;i++){const t=(i*15+index*9)%64;rect(t,7,7,5,i%2?c[1]:c[3]);rect(t+2,10,4,3,c[2]);}
+ if(biome==='forest'){
+  // Visible root knots and worn stones also occupy the cabinet-facing fringe,
+  // so a boundary at the viewport edge is still environmental, not just trim.
+  const t=7+(index*13)%24;
+  rect(t,-3,13,14,'#343c2a');rect(t+2,-3,9,11,'#848568');rect(t+3,-3,7,2,'#b3ac7e');rect(t+4,8,7,3,'#4c5940');
+  rect(t+23,0,15,7,'#453c28');rect(t+25,0,10,3,'#9b8555');rect(t+30,3,5,6,'#776340');
+ }
+ rect(0,12,68,2,c[0]);
+ if(biome==='forest'){
+  // Contrast against the emerald floor, rather than resembling cabinet trim.
+  // Continuous dark root lip and irregular moss clumps remain readable even
+  // when the blocked-cell portion is outside the cabinet's viewport clip.
+  const t=7+(index*13)%24;
+  rect(0,9,68,9,'#172b1c');
+  rect(t+1,10,11,9,'#555d41');rect(t+3,10,7,2,'#999875');
+  rect(t+25,9,4,13,'#796440');rect(t+25,9,2,12,'#ad9157');
+  for(let i=0;i<4;i++){
+   const t=(i*17+index*5)%62,n=12+(i+index)%3;
+   rect(t,n,10,7,'#365337');rect(t+2,n,6,3,'#83974f');
+   rect(t+4,n+5,4,5,'#526d38');
+  }
+ }
+ if(near>0){ctx.globalAlpha=.15+near*(.16+.04*Math.sin(time/45));rect(0,6,68,4,c[3]);ctx.globalAlpha=1;}
+ if(crack>0&&retract<1){
+  const t=24+(index*7)%15,lit=crack>.4?c[3]:c[2];
+  for(let i=0;i<6;i++){const n=-49+i*10;rect(t+(i%2?-4:0),n,3,11,c[0]);if(crack>.2)rect(t+(i%2?-3:1),n,2,9,lit);}
+ }
+ ctx.restore();
+}
+function borderCells(width,height){const cells=[];for(let x=0;x<width;x++)cells.push([x,0,'top'],[x,height-1,'bottom']);for(let y=1;y<height-1;y++)cells.push([0,y,'left'],[width-1,y,'right']);return cells;}
 
 export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  const {field,arena,cell}=l,xy=(x,y)=>[field.x+(x-view.x)*cell,field.y+(y-view.y)*cell];
- const opening=s.openings?.at(-1),age=opening?Math.max(0,s.tick-opening.tick+(frame.alpha||0)):60,p=opening?Math.min(1,age/opening.duration):1;
+ const opening=s.openings?.at(-1),age=opening?Math.max(0,s.tick-opening.tick+(frame.alpha||0)):60,phase=openingPhase(age,opening?.duration),{p}=phase;
  // The logical expansion is atomic. Its presentation is a one-second boundary
  // opening/wave; no modal, movement freeze, or hidden temporary collision mask.
  const width=s.world.width,height=s.world.height,biome=s.world.biome;
- for(const [x,y]of borderCells(width,height)){
-  if(x<view.x||y<view.y||x>view.x+27||y>view.y+11)continue;
-  const [a,b]=xy(x,y),inset=cell*.25;
-  // The cabinet covers the blocked outer row. An inward root/crystal/water
-  // fringe makes that SAME logical boundary visible without another frame.
-  borderTile(ctx,a+(x===0?inset:x===width-1?-inset:0),b+(y===0?inset:y===height-1?-inset:0),cell,biome,x+y);
+ const edge=(x,y,side)=>xy(x+(side==='left'?1:0),y+(side==='top'?1:0));
+ for(const [x,y,side]of borderCells(width,height)){
+  if(x+1<view.x||y+1<view.y||x>view.x+28||y>view.y+12)continue;
+  const [a,b]=edge(x,y,side),distance=view.wallDistance?.[side]??99;
+  const along=side==='left'||side==='right'?Math.abs(y-frame.head.y):Math.abs(x-frame.head.x);
+  const near=distance<=6&&along<3?clamp((7-distance)/3):0;
+  wallCell(ctx,a,b,cell,biome,x+y,side,{near,time:s.tick+frame.alpha});
+  // A few slow, tiny moss spores at the nearby physical wall, not warning UI.
+  if(near>.2&&(x+y)%3===0){const t=(s.tick%90)/90,q=cell/68;ctx.fillStyle=BORDER_COLORS[biome][3];ctx.globalAlpha=near*(1-t)*.45;
+   ctx.fillRect(a+(side==='right'?-1:side==='left'?1:0)*(14+t*5)*q+(side==='top'||side==='bottom'?cell*.4:0),b+(side==='bottom'?-1:side==='top'?1:0)*(14+t*5)*q+(side==='left'||side==='right'?cell*.4:0),2*q,2*q);ctx.globalAlpha=1;}
  }
  if(opening&&p<1){
   // Reveal newly active floor behind the outward wave. The floor is dimmed,
   // never collision-blocked, and gameplay entities are drawn on top afterwards.
   for(let y=Math.floor(view.y)+1;y<=Math.ceil(view.y)+10;y++)for(let x=Math.floor(view.x)+1;x<=Math.ceil(view.x)+26;x++){
-   if(x<opening.from.width-1&&y<opening.from.height-1||x<1||y<1||x>=width-1||y>=height-1)continue;
-   const distance=Math.max((x-opening.from.width+2)/Math.max(1,width-opening.from.width),(y-opening.from.height+2)/Math.max(1,height-opening.from.height)),reveal=Math.max(0,Math.min(1,(p-distance*.55)*3));
-   const [a,b]=xy(x,y);ctx.fillStyle='#021512';ctx.globalAlpha=(1-reveal)*.65;ctx.fillRect(a,b,cell+1,cell+1);
+   if(x<1||y<1||x>=width-1||y>=height-1)continue;
+   const reveal=territoryReveal(x,y,opening,phase.travel);if(!reveal.new)continue;
+   const [a,b]=xy(x,y),u=cell/68;ctx.fillStyle='#021512';ctx.globalAlpha=(1-reveal.reveal)*.78;ctx.fillRect(a,b,cell+1,cell+1);
+   if(reveal.wave>0&&phase.travel>0){
+    ctx.fillStyle=BORDER_COLORS[biome][3];ctx.globalAlpha=reveal.wave*.15;ctx.fillRect(a+u*3,b+u*3,cell-u*6,cell-u*6);
+    // Short tile-edge shimmer and sparse body-free spores follow the reveal.
+    ctx.globalAlpha=reveal.wave*.6;ctx.fillRect(a+u*5,b+u*3,u*22,u*2);ctx.fillRect(a+u*3,b+u*5,u*2,u*13);
+    if((x*7+y*11)%4===0){ctx.fillRect(a+cell*.42,b+cell*(.6-p*.25),2*u,2*u);ctx.fillRect(a+cell*.65,b+cell*(.8-p*.3),2*u,2*u);}
+   }
   }
   ctx.globalAlpha=1;
-  // Old east/south root/rock walls retract outward in staggered pixel chunks.
-  for(const [x,y]of borderCells(opening.from.width,opening.from.height)){
-   if(!(x===opening.from.width-1||y===opening.from.height-1)||x===0||y===0)continue;
-   const local=Math.max(0,Math.min(1,p*1.35-((x+y)%5)*.06));
-   if(local>=1)continue;
-   const [a,b]=xy(x,y),scale=1-local;
-   ctx.save();ctx.beginPath();ctx.rect(a,b,cell,cell);ctx.clip();
-   // Receding fragments, not an apparently solid wall over newly legal floor.
-   const shift=x===opening.from.width-1?cell*local:0,fall=y===opening.from.height-1?cell*local:0;
-   borderTile(ctx,a+shift,b+fall,cell,opening.from.biome,x+y,scale*.7);ctx.restore();
+  // The actual old wall holds, fractures, then withdraws in staggered chunks.
+  for(const [x,y,side]of borderCells(opening.from.width,opening.from.height)){
+   if(!(side==='right'&&width>opening.from.width||side==='bottom'&&height>opening.from.height)||x===0||y===0)continue;
+   if(x+1<view.x||y+1<view.y||x>view.x+28||y>view.y+12)continue;
+   const local=clamp((p-.20-((x+y)%4)*.06)/.46),[a,b]=edge(x,y,side);
+   wallCell(ctx,a,b,cell,opening.from.biome,x+y,side,{crack:phase.crack,retract:local});
+   if(p>.13&&p<.76&&(x+y)%3===0){
+    const t=clamp((p-.13)/.63),u=cell/68,dx=side==='right'?1:0,dy=side==='bottom'?1:0;
+    ctx.fillStyle=BORDER_COLORS[opening.from.biome][2];ctx.globalAlpha=(1-t)*.8;
+    for(let i=0;i<3;i++)ctx.fillRect(a+dx*cell*t*.85+(dy?cell*(.2+i*.2):0),b+dy*cell*t*.85+(dx?cell*(.2+i*.2):0)+t*t*cell*.2,(3+i%2)*u,3*u);ctx.globalAlpha=1;
+   }
   }
-  const waveX=opening.from.width-1+(width-opening.from.width)*p,waveY=opening.from.height-1+(height-opening.from.height)*p;
-  ctx.fillStyle=BORDER_COLORS[biome][3];ctx.globalAlpha=.28*(1-p);
-  const [wx,wy]=xy(waveX,waveY);ctx.fillRect(wx,arena.y,Math.max(2,cell*.07),arena.h);ctx.fillRect(arena.x,wy,arena.w,Math.max(2,cell*.07));ctx.globalAlpha=1;
  }
  const walls=view.wallDistance;
  if(walls){
