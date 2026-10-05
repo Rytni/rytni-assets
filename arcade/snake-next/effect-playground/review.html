@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>Effect pickup language — native review</title>
+<style>body{background:#071e1b;color:#ead8aa;font:16px monospace;margin:24px}canvas{image-rendering:pixelated;display:block;margin:16px 0}a{color:#d5eeba}.row{display:flex;gap:24px}h2{font-size:18px}</style>
+<h1>Pickup language · DEV</h1><a href="../game-feel-lab.html">Playable Effect Playground</a>
+<h2>Native 56×56 sprites · open/bright positive vs hostile negative</h2><canvas id="native" width="1008" height="112"></canvas>
+<h2>Silhouettes only</h2><canvas id="silhouettes" width="1008" height="112"></canvas>
+<h2>Actual desktop / mobile footprints (38 / 26 px)</h2><canvas id="runtime" width="1008" height="140"></canvas>
+<h2>Positive outward float / negative inward jitter</h2><canvas id="animation" width="560" height="140"></canvas>
+<h2>Same-area HUD slots · two positives + one negative</h2><canvas id="slots" width="450" height="90"></canvas>
+<script type="module">
+import {KINDS,LABELS,paintSprite,sprite,drawPickup} from './art.js';
+for(const id of ['native','silhouettes']){const c=document.querySelector('#'+id).getContext('2d');c.imageSmoothingEnabled=false;KINDS.forEach((k,i)=>{c.save();c.translate(i*112+28,8);paintSprite(c,k,id==='silhouettes');c.restore();c.fillStyle='#f3e6be';c.font='12px monospace';c.textAlign='center';c.fillText(LABELS[k],i*112+56,94);});}
+const r=document.querySelector('#runtime').getContext('2d');r.imageSmoothingEnabled=false;KINDS.forEach((k,i)=>{r.drawImage(sprite(k),i*112+37,8,38,38);r.drawImage(sprite(k),i*112+43,70,26,26);r.fillStyle='#e3d5b1';r.font='12px monospace';r.textAlign='center';r.fillText(LABELS[k],i*112+56,128);});
+const h=document.querySelector('#slots').getContext('2d');h.imageSmoothingEnabled=false;['harvest','guard','mist'].forEach((k,i)=>{h.fillStyle=i===2?'#3b1b32':'#193d2c';h.fillRect(i*150+4,4,142,80);h.strokeStyle=i===2?'#ad637d':'#cebf73';h.lineWidth=3;h.strokeRect(i*150+5,5,140,78);h.drawImage(sprite(k),i*150+12,18,40,40);h.fillStyle='#fff0be';h.font='15px monospace';h.fillText(LABELS[k],i*150+57,30);h.fillText(k==='guard'?'1 ◆':k==='harvest'?'×2 · 16С':'10С',i*150+57,55);});
+let start;function loop(now){start??=now;const c=document.querySelector('#animation').getContext('2d');c.clearRect(0,0,560,140);c.imageSmoothingEnabled=false;['harvest','guard','rush','mist'].forEach((k,i)=>drawPickup(c,k,70+i*140,70,68,(now-start)*.06));requestAnimationFrame(loop);}requestAnimationFrame(loop);
+window.pickupReview={KINDS,sprite};
+</script>

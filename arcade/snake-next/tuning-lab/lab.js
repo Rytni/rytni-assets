@@ -6,6 +6,10 @@ import {RibbonSprites} from '../forest-training/ribbon-sprites.js';
 import {TunnelSession} from '../gate-one/session.js';
 import {installProgression,progressiveEnabled,labConfig} from '../progressive-run/adapter.js';
 import {speedTarget as progressiveSpeedTarget} from '../progressive-run/config.js';
+import {KINDS} from '../effect-playground/art.js';
+import {DEFINITIONS} from '../progressive-run/director.js';
+import {installTopology} from '../progressive-run/world.js';
+import {bodyCell} from '../simulation/body.js';
 const frame=document.querySelector('#training'),status=document.querySelector('#lab-status'),fields=document.querySelector('#fields');
 const arenaSelect=document.querySelector('#arena-preset'),densitySelect=document.querySelector('#obstacle-density');
 const labels={startSpeed:'Start speed · cells/s',maxSpeed:'Max base speed · cells/s',acceleration:'Acceleration · cells/s per second',grace:'Calm start · seconds',foodMin:'Food preferred min · Manhattan cells',foodMax:'Food preferred max · Manhattan cells',positiveInterval:'Positive interval · seconds',negativeInterval:'Negative interval · seconds',portalFirst:'First portal window · seconds',portalInterval:'Portal window interval · seconds',portalWindow:'Portal visible window · seconds',portalCooldown:'Portal cooldown · seconds',comboTimeout:'Combo timeout · seconds',comboStep:'Combo reward step'};
@@ -49,6 +53,14 @@ awareness.querySelector('input').addEventListener('change',()=>game?.render());
 const cameraToggle=document.createElement('button');cameraToggle.id='camera-toggle';cameraToggle.textContent='STABLE CAMERA';cameraToggle.setAttribute('aria-pressed','true');awareness.after(cameraToggle);
 cameraToggle.addEventListener('pointerdown',e=>e.preventDefault());
 cameraToggle.addEventListener('click',()=>{if(!progressAdapter)return;const p=progressAdapter.presentation;p.cameraMode=p.cameraMode==='stable'?'old':'stable';cameraToggle.textContent=p.cameraMode==='stable'?'STABLE CAMERA':'OLD LOOK-AHEAD';cameraToggle.setAttribute('aria-pressed',String(p.cameraMode==='stable'));game.render();frame.contentWindow.focus();});
+const playground=document.createElement('section');playground.id='effect-playground';playground.innerHTML='<h2>Effect Playground · DEV only</h2><p>Immediate activation · 2 positive + 1 negative. Use CLEAR EFFECTS between comparisons. <a href="effect-playground/review.html">Pickup / silhouette / animation / HUD review</a></p><div class="toolbar"></div><p id="effect-playground-status" aria-live="polite"></p>';document.querySelector('[aria-label="DEV progressive run"]').after(playground);
+const names=['HARVEST','FOCUS','SPORES','GUARD','PORTAL+','RUSH','CORRUPTION','ROOTS','MIST'];
+function clearEffects(){if(!current?.world)return;current.effects=[];current.spores=[];current.effectNotices=[];current.pickups=[];current.portalRewardMove=null;current.feedback=[];current.director.warnings=[];current.director.hazardCooldown=0;current.world.hazards=[];installTopology(current);game.render();}
+KINDS.forEach((kind,i)=>{const b=document.createElement('button');b.dataset.effect=kind;b.textContent=names[i];b.addEventListener('pointerdown',e=>e.preventDefault());b.addEventListener('click',()=>{if(!current?.world){status.textContent='Start a progressive DEV run first';return;}
+ // Explicit DEV replacement only; natural collection still enforces 2+1.
+ const positive=DEFINITIONS[kind].positive,same=current.effects.filter(e=>DEFINITIONS[e.kind].positive===positive);if(!same.some(e=>e.kind===kind)&&same.length>=(positive?2:1))current.effects=current.effects.filter(e=>e!==same[0]);
+ current.collect(kind,bodyCell(current.state,0));if(kind==='portalPrize'){current.director.windowEnd=current.tick+600;current.portal.phase='armed';current.preparePortals();}game.audio.play(positive?'buff':'debuff');document.querySelector('#effect-playground-status').textContent=DEFINITIONS[kind].label+' active · DEV';game.render();frame.contentWindow.focus();});playground.querySelector('.toolbar').append(b);});
+const clear=document.createElement('button');clear.textContent='CLEAR EFFECTS';clear.id='clear-effects';clear.addEventListener('pointerdown',e=>e.preventDefault());clear.addEventListener('click',()=>{clearEffects();frame.contentWindow.focus();});playground.querySelector('.toolbar').append(clear);
 function controlsMode(){const progressive=progressiveEnabled();for(const b of document.querySelectorAll('[data-preset]'))b.disabled=progressive&&b.dataset.preset!=='B';arenaSelect.disabled=densitySelect.disabled=progressive;document.querySelector('[aria-label="DEV Forest design"]').hidden=progressive;for(const n of fields.querySelectorAll('input'))n.disabled=progressive;}
 document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{profile=PRESETS[b.dataset.preset];fill();start();}));
 document.querySelector('#controls').addEventListener('submit',e=>e.preventDefault());

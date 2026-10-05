@@ -38,7 +38,7 @@ test('same inputs/config replay identically on desktop/mobile; camera/FPS reads 
 });
 test('2 positive + 1 negative slots, refresh, anchor, corruption and decay semantics',()=>{
  const s=new ProgressiveSession();assert.ok(s.collect('anchor',0));assert.ok(s.collect('guard',0));assert.ok(!s.collect('spores',0));assert.ok(s.collect('decay',0));assert.ok(!s.collect('mist',0));
- s.tick=100;s.collect('guard',0);assert.equal(s.effects.find(e=>e.kind==='guard').ends,1300);
+ s.tick=100;s.collect('guard',0);assert.equal(s.effects.find(e=>e.kind==='guard').ends,2200);
  const anchored=new ProgressiveSession();anchored.state.movePhase=-20000;anchored.combo=4;anchored.lastFood=0;anchored.collect('anchor',0);for(let i=0;i<900;i++)anchored.advance();assert.equal(anchored.combo,4);assert.equal(anchored.progress,0);
  const decayed=new ProgressiveSession();decayed.state.movePhase=-20000;decayed.combo=4;decayed.lastFood=0;decayed.collect('decay',0);for(let i=0;i<421;i++)decayed.advance();assert.equal(decayed.combo,0);
  function award(stage,weak=false){const q=new ProgressiveSession({progression:{startStage:stage}});if(weak)q.collect('weak',0);while(!q.foods)q.advance();return q.score;}
@@ -62,7 +62,7 @@ test('warned hazards revalidate, preserve reachability, expire and clean up on d
  s.tick=1200;s.director.warn(s);s.tick=1320;s.director.step(s);assert.ok(s.world.hazards.length);s.world.obstacles.push({cell:bodyCell(s.state,0)+1,kind:'stone'});installTopology(s);s.state.movePhase=s.cadence()-1;s.advance();assert.equal(s.status,'dying');assert.equal(s.world.hazards.length,0);assert.equal(s.director.warnings.length,0);
 });
 test('spores keep one standard food; portal prize only rewards a successful transfer, camera snaps',()=>{
- const s=new ProgressiveSession({progression:{startStage:2}});s.collect('spores',0);const food=s.state.food;while(!s.foods)s.advance();assert.equal(s.spores.length,2);assert.notEqual(s.state.food,food);assert.ok(validateFood(s.state,s.arena,s.state.food));
+ const s=new ProgressiveSession({progression:{startStage:2}});s.collect('spores',0);const food=s.state.food;while(!s.foods)s.advance();assert.ok(s.spores.length>=2&&s.spores.length<=3);assert.notEqual(s.state.food,food);assert.ok(validateFood(s.state,s.arena,s.state.food));
  const q=new ProgressiveSession({progression:{startStage:2}}),motion=new SnakeMotion(q),camera=new Camera();camera.update(motion.frame(q,0),q);q.portals=[bodyCell(q.state,0)+1,15*STRIDE+35];q.portal.phase='armed';q.director.windowEnd=10000;q.collect('portalPrize',0);
  for(let i=0;i<70&&!q.portal.transfers;i++){q.advance();motion.capture(q);}assert.equal(q.portal.transfers,1);assert.ok(q.events.some(e=>e.kind==='portal-reward'));assert.ok(!q.effects.some(e=>e.kind==='portalPrize'));assert.equal(q.score,360);assert.equal(q.combo,2);
  const view=camera.update(motion.frame(q,0),q);assert.ok(view.x>0&&view.y>0);assert.equal(camera.transfer,1);

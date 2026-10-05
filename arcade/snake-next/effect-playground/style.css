@@ -1,0 +1,13 @@
+.effect-playground #effects .effect,.effect-playground #effects .effect-vacant{border:2px solid #9dad66;background:#09271e;box-shadow:inset 0 1px #d1cb84,inset 0 -2px #020e0b}
+.effect-playground #effects .negative{border-color:#995a74;background:#281928;box-shadow:inset 0 1px #bd8293,inset 0 -2px #130d1c}
+.effect-playground #effects .effect img{width:24px;height:24px;flex-shrink:0;object-fit:contain}
+.effect-playground #effects .effect span{font-size:7px;line-height:7px}
+.effect-playground #effects .effect em{font:normal 8px/9px monospace;color:#e7d79e;white-space:nowrap}
+.effect-playground #effects .effect b{font-size:14px;line-height:14px}
+.effect-playground.compact #effects .effect{height:29px;grid-template-columns:14px minmax(0,1fr);grid-template-rows:7px 14px 2px}
+.effect-playground.compact #effects .effect img{width:14px;height:14px;grid-column:1;grid-row:2}
+.effect-playground.compact #effects .effect span{grid-column:1/-1;grid-row:1;font-size:7px;line-height:7px}
+.effect-playground.compact #effects .effect b{grid-column:2;grid-row:2;font-size:14px;line-height:14px}
+.effect-playground.compact #effects .effect em{display:none}
+.effect-playground.compact #effects .effect progress{grid-row:3;height:2px}
+@media(min-width:1600px) and (min-height:501px){.effect-playground #effects .effect span{font-size:14px;line-height:14px}.effect-playground #effects .effect img{width:24px;height:24px}.effect-playground #effects .effect em{font-size:10px;line-height:10px}}

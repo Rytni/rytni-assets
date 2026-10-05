@@ -1,0 +1,456 @@
+{
+  "results": [
+    {
+      "mobile": false,
+      "dimensions": {
+        "hud": {
+          "x": 19.203125,
+          "y": 0,
+          "width": 1882,
+          "height": 128,
+          "top": 0,
+          "right": 1901.203125,
+          "bottom": 128,
+          "left": 19.203125
+        },
+        "game": {
+          "x": 19.203125,
+          "y": 0,
+          "width": 1881.59375,
+          "height": 919.546875,
+          "top": 0,
+          "right": 1900.796875,
+          "bottom": 919.546875,
+          "left": 19.203125
+        },
+        "cell": 66.46538461538461
+      },
+      "effects": [
+        {
+          "kind": "harvest",
+          "active": true,
+          "text": "УРОЖАЙ16СГРИБЫ ×2",
+          "notice": {
+            "kind": "harvest",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "focus",
+          "active": true,
+          "text": "ФОКУС15С",
+          "notice": {
+            "kind": "focus",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "spores",
+          "active": true,
+          "text": "СПОРЫ15С",
+          "notice": {
+            "kind": "spores",
+            "tick": 0,
+            "tutorial": true
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "guard",
+          "active": true,
+          "text": "ЩИТ1 ◆",
+          "notice": {
+            "kind": "guard",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "portalPrize",
+          "active": true,
+          "text": "ПОРТАЛ+1 ◆",
+          "notice": {
+            "kind": "portalPrize",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "rush",
+          "active": true,
+          "text": "СПЕШКА10С",
+          "notice": {
+            "kind": "rush",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "weak",
+          "active": true,
+          "text": "ПОРЧА12СОЧКИ −40%",
+          "notice": {
+            "kind": "weak",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "brambles",
+          "active": true,
+          "text": "КОРНИ8С",
+          "notice": {
+            "kind": "brambles",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "mist",
+          "active": true,
+          "text": "ТУМАН10С",
+          "notice": {
+            "kind": "mist",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        }
+      ],
+      "after": {
+        "hud": {
+          "x": 19.203125,
+          "y": 0,
+          "width": 1882,
+          "height": 128,
+          "top": 0,
+          "right": 1901.203125,
+          "bottom": 128,
+          "left": 19.203125
+        },
+        "mode": "stable",
+        "preset": "B",
+        "slots": [
+          {
+            "text": "ФОКУС15С",
+            "negative": false,
+            "rect": {
+              "x": 1265.921875,
+              "y": 33.328125,
+              "width": 111.421875,
+              "height": 68,
+              "top": 33.328125,
+              "right": 1377.34375,
+              "bottom": 101.328125,
+              "left": 1265.921875
+            }
+          },
+          {
+            "text": "ЩИТ1 ◆",
+            "negative": false,
+            "rect": {
+              "x": 1383.34375,
+              "y": 33.328125,
+              "width": 111.421875,
+              "height": 68,
+              "top": 33.328125,
+              "right": 1494.765625,
+              "bottom": 101.328125,
+              "left": 1383.34375
+            }
+          },
+          {
+            "text": "ТУМАН10С",
+            "negative": true,
+            "rect": {
+              "x": 1500.765625,
+              "y": 33.328125,
+              "width": 111.4375,
+              "height": 68,
+              "top": 33.328125,
+              "right": 1612.203125,
+              "bottom": 101.328125,
+              "left": 1500.765625
+            }
+          }
+        ],
+        "targets": [
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          }
+        ]
+      },
+      "fog": {
+        "changedInside4Cells": 0,
+        "changedOutside": 57438
+      }
+    },
+    {
+      "mobile": true,
+      "dimensions": {
+        "hud": {
+          "x": 8.140625,
+          "y": 0,
+          "width": 827.6875,
+          "height": 50.984375,
+          "top": 0,
+          "right": 835.828125,
+          "bottom": 50.984375,
+          "left": 8.140625
+        },
+        "game": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 390,
+          "top": 0,
+          "right": 844,
+          "bottom": 390,
+          "left": 0
+        },
+        "cell": 30.028666264333133
+      },
+      "effects": [
+        {
+          "kind": "harvest",
+          "active": true,
+          "text": "УРОЖАЙ ×216СГРИБЫ ×2",
+          "notice": {
+            "kind": "harvest",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "focus",
+          "active": true,
+          "text": "ФОКУС15С",
+          "notice": {
+            "kind": "focus",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "spores",
+          "active": true,
+          "text": "СПОРЫ15С",
+          "notice": {
+            "kind": "spores",
+            "tick": 0,
+            "tutorial": true
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "guard",
+          "active": true,
+          "text": "ЩИТ1 ◆",
+          "notice": {
+            "kind": "guard",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "portalPrize",
+          "active": true,
+          "text": "ПОРТАЛ+1 ◆",
+          "notice": {
+            "kind": "portalPrize",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 0
+        },
+        {
+          "kind": "rush",
+          "active": true,
+          "text": "СПЕШКА10С",
+          "notice": {
+            "kind": "rush",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "weak",
+          "active": true,
+          "text": "ПОРЧА −40%12СОЧКИ −40%",
+          "notice": {
+            "kind": "weak",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "brambles",
+          "active": true,
+          "text": "КОРНИ8С",
+          "notice": {
+            "kind": "brambles",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        },
+        {
+          "kind": "mist",
+          "active": true,
+          "text": "ТУМАН10С",
+          "notice": {
+            "kind": "mist",
+            "tick": 0,
+            "tutorial": false
+          },
+          "hash": true,
+          "children": 3,
+          "slot": 2
+        }
+      ],
+      "after": {
+        "hud": {
+          "x": 8.140625,
+          "y": 0,
+          "width": 827.6875,
+          "height": 50.984375,
+          "top": 0,
+          "right": 835.828125,
+          "bottom": 50.984375,
+          "left": 8.140625
+        },
+        "mode": "stable",
+        "preset": "B",
+        "slots": [
+          {
+            "text": "ФОКУС15С",
+            "negative": false,
+            "rect": {
+              "x": 521.21875,
+              "y": 14.5,
+              "width": 68.1875,
+              "height": 29,
+              "top": 14.5,
+              "right": 589.40625,
+              "bottom": 43.5,
+              "left": 521.21875
+            }
+          },
+          {
+            "text": "ЩИТ1 ◆",
+            "negative": false,
+            "rect": {
+              "x": 591.40625,
+              "y": 14.5,
+              "width": 68.203125,
+              "height": 29,
+              "top": 14.5,
+              "right": 659.609375,
+              "bottom": 43.5,
+              "left": 591.40625
+            }
+          },
+          {
+            "text": "ТУМАН10С",
+            "negative": true,
+            "rect": {
+              "x": 661.609375,
+              "y": 14.5,
+              "width": 68.1875,
+              "height": 29,
+              "top": 14.5,
+              "right": 729.796875,
+              "bottom": 43.5,
+              "left": 661.609375
+            }
+          }
+        ],
+        "targets": [
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          },
+          {
+            "w": 44,
+            "h": 44
+          }
+        ]
+      },
+      "fog": {
+        "changedInside4Cells": 0,
+        "changedOutside": 47005
+      }
+    }
+  ],
+  "errors": [],
+  "network": []
+}
