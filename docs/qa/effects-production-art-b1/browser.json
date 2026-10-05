@@ -1,0 +1,5770 @@
+{
+  "results": [
+    {
+      "id": "desktop-30",
+      "inventory": {
+        "ready": 59,
+        "errors": [],
+        "preset": "B"
+      },
+      "fx": [
+        {
+          "kind": "harvest",
+          "keys": [
+            "food-golden.field@1x",
+            "vfx.harvest-sparkle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-golden.field@1x",
+              "args": [
+                970.44005994006,
+                487.15823626145254,
+                37.78141025641025,
+                100
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                970.44005994006,
+                468.35470529470524,
+                17.664035964035964,
+                101,
+                {
+                  "opacity": 0.9,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                972.8440729087587,
+                504.11758458238023,
+                9.42081918081918,
+                101,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                953.09505356503,
+                478.0707220307653,
+                9.42081918081918,
+                109,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                985.5491647767485,
+                474.1728406473596,
+                9.42081918081918,
+                117,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "harvest",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+              "rect": {
+                "x": 1265.921875,
+                "y": 42.828125,
+                "width": 111.421875,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1377.34375,
+                "bottom": 91.828125,
+                "left": 1265.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "focus",
+          "keys": [
+            "vfx.focus-wisp"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                729.8682390236954,
+                450.6835863889477,
+                26.496053946053944,
+                100,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                688.784257904928,
+                523.3232135248657,
+                26.496053946053944,
+                110,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                663.9051081545542,
+                455.82516040470375,
+                26.496053946053944,
+                120,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "focus",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+              "rect": {
+                "x": 1265.921875,
+                "y": 42.828125,
+                "width": 111.421875,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1377.34375,
+                "bottom": 91.828125,
+                "left": 1265.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "spores",
+          "keys": [
+            "vfx.spore-trail",
+            "vfx.spore-idle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                597.6505184484847,
+                525.9026411045438,
+                10.598421578421577,
+                105,
+                {
+                  "opacity": 0.5,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                573.639027019245,
+                536.0043976890728,
+                10.598421578421577,
+                109,
+                {
+                  "opacity": 0.39999999999999997,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                559.6735206894862,
+                543.204918440854,
+                10.598421578421577,
+                113,
+                {
+                  "opacity": 0.29999999999999993,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                627.6032092487272,
+                512.8751741314338,
+                23.552047952047953,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                734.9195804195805,
+                250.0414117978659,
+                23.552047952047953,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "spores",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/spores-hud.png",
+              "rect": {
+                "x": 1265.921875,
+                "y": 42.828125,
+                "width": 111.421875,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1377.34375,
+                "bottom": 91.828125,
+                "left": 1265.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "guard",
+          "keys": [
+            "vfx.guard-charged",
+            "vfx.guard-plate"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.guard-charged",
+              "args": [
+                0,
+                0,
+                28.26245754245754,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                25.31845154845155,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                25.31845154845155,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "guard",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/guard-hud.png",
+              "rect": {
+                "x": 1265.921875,
+                "y": 42.828125,
+                "width": 111.421875,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1377.34375,
+                "bottom": 91.828125,
+                "left": 1265.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "portalPrize",
+          "keys": [
+            "vfx.portal-charged-ring"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                676.0394605394605,
+                367.66970029970025,
+                61.824125874125876,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                1147.0804195804194,
+                662.0702997002996,
+                61.824125874125876,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "portalPrize",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/portal-plus-hud.png",
+              "rect": {
+                "x": 1265.921875,
+                "y": 42.828125,
+                "width": 111.421875,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1377.34375,
+                "bottom": 91.828125,
+                "left": 1265.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "rush",
+          "keys": [
+            "vfx.rush-ember",
+            "vfx.rush-thorn"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                617.1593406593407,
+                462.46669330669323,
+                25.31845154845155,
+                115,
+                {
+                  "opacity": 0.92,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                558.2792207792209,
+                508.3931868131868,
+                25.31845154845155,
+                122,
+                {
+                  "opacity": 0.8200000000000001,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                499.3991008991009,
+                462.46669330669323,
+                25.31845154845155,
+                129,
+                {
+                  "opacity": 0.72,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                440.51898101898104,
+                508.3931868131868,
+                25.31845154845155,
+                136,
+                {
+                  "opacity": 0.62,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                381.63886113886116,
+                462.46669330669323,
+                25.31845154845155,
+                143,
+                {
+                  "opacity": 0.52,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                322.7587412587413,
+                508.3931868131868,
+                25.31845154845155,
+                150,
+                {
+                  "opacity": 0.42000000000000004,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "rush",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+              "rect": {
+                "x": 1500.765625,
+                "y": 42.828125,
+                "width": 111.4375,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1612.203125,
+                "bottom": 91.828125,
+                "left": 1500.765625
+              }
+            }
+          ]
+        },
+        {
+          "kind": "weak",
+          "keys": [
+            "food-corrupted.field@1x",
+            "vfx.corruption-particle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-corrupted.field@1x",
+              "args": [
+                970.44005994006,
+                487.15823626145254,
+                37.78141025641025,
+                100
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                973.0694491245742,
+                505.86955125635905,
+                12.953626373626372,
+                101,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                951.4689592173709,
+                477.38079534053014,
+                12.953626373626372,
+                109,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                986.965643355188,
+                473.11748757743015,
+                12.953626373626372,
+                117,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "weak",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/corruption-hud.png",
+              "rect": {
+                "x": 1500.765625,
+                "y": 42.828125,
+                "width": 111.4375,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1612.203125,
+                "bottom": 91.828125,
+                "left": 1500.765625
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brambles",
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                558.2792207792209,
+                720.9504195804195,
+                52.99210789210789,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                558.2792207792209,
+                720.9504195804195,
+                50.0481018981019,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                381.63886113886116,
+                720.9504195804195,
+                52.99210789210789,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                381.63886113886116,
+                720.9504195804195,
+                50.0481018981019,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "brambles",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/roots-hud.png",
+              "rect": {
+                "x": 1500.765625,
+                "y": 42.828125,
+                "width": 111.4375,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1612.203125,
+                "bottom": 91.828125,
+                "left": 1500.765625
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mist",
+          "keys": [
+            "vfx.mist-puff"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                229.63246753246753,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                182.52837162837162,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                206.08041958041957,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            }
+          ],
+          "cell": 58.88011988011988,
+          "hud": [
+            {
+              "kind": "mist",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/mist-hud.png",
+              "rect": {
+                "x": 1500.765625,
+                "y": 42.828125,
+                "width": 111.4375,
+                "height": 49,
+                "top": 42.828125,
+                "right": 1612.203125,
+                "bottom": 91.828125,
+                "left": 1500.765625
+              }
+            }
+          ]
+        }
+      ],
+      "events": {
+        "keys": [
+          "food-golden.field@1x",
+          "vfx.harvest-sparkle",
+          "vfx.focus-wisp",
+          "vfx.rush-ember",
+          "vfx.rush-thorn",
+          "vfx.harvest-third-burst",
+          "vfx.spore-burst",
+          "vfx.guard-break",
+          "vfx.roots-decay"
+        ],
+        "hashStable": true,
+        "targets": [
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          },
+          {
+            "w": 0,
+            "h": 0
+          }
+        ]
+      },
+      "stress": {
+        "hashStable": true,
+        "lanes": [
+          {
+            "text": "MAX COMBO",
+            "color": "#f4df8e",
+            "size": 2,
+            "x": 941,
+            "y": 169,
+            "box": {
+              "x": 887,
+              "y": 169,
+              "w": 108,
+              "h": 16
+            }
+          },
+          {
+            "text": "+200",
+            "color": "#ffdf72",
+            "size": 2,
+            "x": 912,
+            "y": 505,
+            "box": {
+              "x": 888,
+              "y": 505,
+              "w": 48,
+              "h": 16
+            }
+          },
+          {
+            "text": "+25",
+            "color": "#b9f5df",
+            "size": 2,
+            "x": 794,
+            "y": 446,
+            "box": {
+              "x": 776,
+              "y": 446,
+              "w": 36,
+              "h": 16
+            }
+          }
+        ]
+      },
+      "pause": true,
+      "restart": true,
+      "expiry": true,
+      "liveInput": true,
+      "modeHashParity": true
+    },
+    {
+      "id": "mobile-30",
+      "inventory": {
+        "ready": 59,
+        "errors": [],
+        "preset": "B"
+      },
+      "fx": [
+        {
+          "kind": "harvest",
+          "keys": [
+            "food-golden.field-lod",
+            "vfx.harvest-sparkle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-golden.field-lod",
+              "args": [
+                434.4991608391608,
+                200.83460982042334,
+                16.040589743589738,
+                100
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                434.4991608391608,
+                192.85132587412585,
+                12,
+                101,
+                {
+                  "opacity": 0.9,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                435.51981585196893,
+                208.03492200804166,
+                7,
+                101,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                427.13511250233097,
+                196.9763873090295,
+                7,
+                109,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                440.91392806022,
+                195.32149100642846,
+                7,
+                117,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "harvest",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "focus",
+          "keys": [
+            "vfx.focus-wisp"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                332.36126135371177,
+                185.34882221548182,
+                17,
+                100,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                314.9185221418338,
+                216.18892188637474,
+                17,
+                110,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                304.3557551194628,
+                186.10083916083914,
+                17,
+                120,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "focus",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "spores",
+          "keys": [
+            "vfx.spore-trail",
+            "vfx.spore-idle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                276.2265062403898,
+                217.2840514566612,
+                8,
+                105,
+                {
+                  "opacity": 0.5,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                266.0321148575851,
+                221.5728837676399,
+                8,
+                109,
+                {
+                  "opacity": 0.39999999999999997,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                260.10287727548194,
+                224.62995862365136,
+                8,
+                113,
+                {
+                  "opacity": 0.29999999999999993,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                288.9433111871233,
+                211.7312906110918,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                334.50587412587413,
+                100.16527724761332,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "spores",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/spores-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "guard",
+          "keys": [
+            "vfx.guard-charged",
+            "vfx.guard-plate"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.guard-charged",
+              "args": [
+                0,
+                0,
+                25,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "guard",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/guard-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "portalPrize",
+          "keys": [
+            "vfx.portal-charged-ring"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                309.50755244755237,
+                150.1041958041958,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                509.49412587412576,
+                275.09580419580413,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "portalPrize",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/portal-plus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "rush",
+          "keys": [
+            "vfx.rush-ember",
+            "vfx.rush-thorn"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                284.5092307692307,
+                188.10083916083914,
+                17,
+                115,
+                {
+                  "opacity": 0.92,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                259.5109090909091,
+                212.10083916083914,
+                17,
+                122,
+                {
+                  "opacity": 0.8200000000000001,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                234.5125874125874,
+                188.10083916083914,
+                17,
+                129,
+                {
+                  "opacity": 0.72,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                209.5142657342657,
+                212.10083916083914,
+                17,
+                136,
+                {
+                  "opacity": 0.62,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                184.51594405594406,
+                188.10083916083914,
+                17,
+                143,
+                {
+                  "opacity": 0.52,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                159.5176223776224,
+                212.10083916083914,
+                17,
+                150,
+                {
+                  "opacity": 0.42000000000000004,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "rush",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "weak",
+          "keys": [
+            "food-corrupted.field-lod",
+            "vfx.corruption-particle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-corrupted.field-lod",
+              "args": [
+                434.4991608391608,
+                200.83460982042334,
+                16.040589743589738,
+                100
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                435.77506526029293,
+                210.01910856170417,
+                11,
+                101,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                425.2934824145369,
+                196.19501213671043,
+                11,
+                109,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                442.51815820376936,
+                194.12625287671858,
+                11,
+                117,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "weak",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/corruption-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brambles",
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                259.5109090909091,
+                300.09412587412584,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                259.5109090909091,
+                300.09412587412584,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                184.51594405594406,
+                300.09412587412584,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                184.51594405594406,
+                300.09412587412584,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "brambles",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/roots-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mist",
+          "keys": [
+            "vfx.mist-puff"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                97.49345454545453,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                77.49479720279719,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                87.49412587412586,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            }
+          ],
+          "cell": 24.998321678321673,
+          "hud": [
+            {
+              "kind": "mist",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/mist-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        }
+      ],
+      "events": {
+        "keys": [
+          "food-golden.field-lod",
+          "vfx.harvest-sparkle",
+          "vfx.focus-wisp",
+          "vfx.rush-ember",
+          "vfx.rush-thorn",
+          "vfx.harvest-third-burst",
+          "vfx.spore-burst",
+          "vfx.guard-break",
+          "vfx.roots-decay"
+        ],
+        "hashStable": true,
+        "targets": [
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          }
+        ]
+      },
+      "stress": {
+        "hashStable": true,
+        "lanes": [
+          {
+            "text": "MAX COMBO",
+            "color": "#f4df8e",
+            "size": 1,
+            "x": 422,
+            "y": 69,
+            "box": {
+              "x": 395,
+              "y": 69,
+              "w": 54,
+              "h": 8
+            }
+          },
+          {
+            "text": "+200",
+            "color": "#ffdf72",
+            "size": 1,
+            "x": 410,
+            "y": 208,
+            "box": {
+              "x": 398,
+              "y": 208,
+              "w": 24,
+              "h": 8
+            }
+          },
+          {
+            "text": "+25",
+            "color": "#b9f5df",
+            "size": 1,
+            "x": 376,
+            "y": 183,
+            "box": {
+              "x": 367,
+              "y": 183,
+              "w": 18,
+              "h": 8
+            }
+          }
+        ]
+      },
+      "pause": true,
+      "restart": true,
+      "expiry": true,
+      "liveInput": true,
+      "modeHashParity": true
+    },
+    {
+      "id": "mobile-40",
+      "inventory": {
+        "ready": 59,
+        "errors": [],
+        "preset": "B"
+      },
+      "fx": [
+        {
+          "kind": "harvest",
+          "keys": [
+            "food-golden.field-lod",
+            "vfx.harvest-sparkle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-golden.field-lod",
+              "args": [
+                338.02912751677854,
+                166.4972441687127,
+                14,
+                100
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                338.02912751677854,
+                160.53805906040267,
+                12,
+                101,
+                {
+                  "opacity": 0.9,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                338.7910034808508,
+                171.8719738479118,
+                7,
+                101,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                332.53217570084513,
+                163.61724362143067,
+                7,
+                109,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                342.81748097560046,
+                162.38193325684927,
+                7,
+                117,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "harvest",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "focus",
+          "keys": [
+            "vfx.focus-wisp"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                261.7874889001234,
+                151.94951528709916,
+                17,
+                100,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                248.76721898879612,
+                179.94951528709916,
+                17,
+                110,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                240.8825584448786,
+                151.94951528709916,
+                17,
+                120,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "focus",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "spores",
+          "keys": [
+            "vfx.spore-trail",
+            "vfx.spore-idle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                219.885259318889,
+                178.77605929016994,
+                8,
+                105,
+                {
+                  "opacity": 0.5,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                212.27557566923392,
+                181.97749191007279,
+                8,
+                109,
+                {
+                  "opacity": 0.39999999999999997,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                207.84964962920014,
+                184.25946948715517,
+                8,
+                113,
+                {
+                  "opacity": 0.29999999999999993,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                229.37781841783024,
+                174.6311572719634,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                263.3883519761372,
+                91.35182887759947,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "spores",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/spores-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "guard",
+          "keys": [
+            "vfx.guard-charged",
+            "vfx.guard-plate"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.guard-charged",
+              "args": [
+                0,
+                0,
+                25,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "guard",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/guard-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "portalPrize",
+          "keys": [
+            "vfx.portal-charged-ring"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                244.72815809097688,
+                128.6291275167785,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                394.0097091722595,
+                221.93009694258012,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "portalPrize",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/portal-plus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "rush",
+          "keys": [
+            "vfx.rush-ember",
+            "vfx.rush-thorn"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                226.06796420581654,
+                153.94951528709916,
+                17,
+                115,
+                {
+                  "opacity": 0.92,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                207.4077703206562,
+                177.94951528709916,
+                17,
+                122,
+                {
+                  "opacity": 0.8200000000000001,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                188.7475764354959,
+                153.94951528709916,
+                17,
+                129,
+                {
+                  "opacity": 0.72,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                170.08738255033555,
+                177.94951528709916,
+                17,
+                136,
+                {
+                  "opacity": 0.62,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                151.4271886651752,
+                153.94951528709916,
+                17,
+                143,
+                {
+                  "opacity": 0.52,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                132.7669947800149,
+                177.94951528709916,
+                17,
+                150,
+                {
+                  "opacity": 0.42000000000000004,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "rush",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "weak",
+          "keys": [
+            "food-corrupted.field-lod",
+            "vfx.corruption-particle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-corrupted.field-lod",
+              "args": [
+                338.02912751677854,
+                166.4972441687127,
+                14,
+                100
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                339.30503193791066,
+                175.8677846879642,
+                11,
+                101,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                328.82344909215465,
+                162.04368826297045,
+                11,
+                109,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                346.0481248813871,
+                159.9749290029786,
+                11,
+                117,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "weak",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/corruption-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brambles",
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                244.72815809097688,
+                259.2504847129008,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                244.72815809097688,
+                259.2504847129008,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                524.6310663683818,
+                296.5708724832215,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                524.6310663683818,
+                296.5708724832215,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "brambles",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/roots-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mist",
+          "keys": [
+            "vfx.mist-puff"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                72.77475615212528,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                57.84660104399702,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                65.31067859806114,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            }
+          ],
+          "cell": 18.66019388516033,
+          "hud": [
+            {
+              "kind": "mist",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/mist-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        }
+      ],
+      "events": {
+        "keys": [
+          "food-golden.field-lod",
+          "vfx.harvest-sparkle",
+          "vfx.focus-wisp",
+          "vfx.rush-ember",
+          "vfx.rush-thorn",
+          "vfx.harvest-third-burst",
+          "vfx.spore-burst",
+          "vfx.guard-break",
+          "vfx.roots-decay"
+        ],
+        "hashStable": true,
+        "targets": [
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          }
+        ]
+      },
+      "stress": {
+        "hashStable": true,
+        "lanes": [
+          {
+            "text": "MAX COMBO",
+            "color": "#f4df8e",
+            "size": 1,
+            "x": 422,
+            "y": 69,
+            "box": {
+              "x": 395,
+              "y": 69,
+              "w": 54,
+              "h": 8
+            }
+          },
+          {
+            "text": "+200",
+            "color": "#ffdf72",
+            "size": 1,
+            "x": 319,
+            "y": 172,
+            "box": {
+              "x": 307,
+              "y": 172,
+              "w": 24,
+              "h": 8
+            }
+          },
+          {
+            "text": "+25",
+            "color": "#b9f5df",
+            "size": 1,
+            "x": 294,
+            "y": 154,
+            "box": {
+              "x": 285,
+              "y": 154,
+              "w": 18,
+              "h": 8
+            }
+          }
+        ]
+      },
+      "pause": true,
+      "restart": true,
+      "expiry": true,
+      "liveInput": true,
+      "modeHashParity": true
+    },
+    {
+      "id": "mobile-50",
+      "inventory": {
+        "ready": 59,
+        "errors": [],
+        "preset": "B"
+      },
+      "fx": [
+        {
+          "kind": "harvest",
+          "keys": [
+            "food-golden.field-lod",
+            "vfx.harvest-sparkle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-golden.field-lod",
+              "args": [
+                280.58325996430693,
+                146.05006807272088,
+                14,
+                100
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                280.58325996430693,
+                141.29619107674003,
+                12,
+                101,
+                {
+                  "opacity": 0.9,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                281.1910384698518,
+                150.3377019215049,
+                7,
+                101,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                276.19812469651,
+                143.75257804660237,
+                7,
+                109,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.harvest-sparkle",
+              "args": [
+                284.4031183749436,
+                142.76712224713557,
+                7,
+                117,
+                {
+                  "opacity": 0.65,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "harvest",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "focus",
+          "keys": [
+            "vfx.focus-wisp"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                219.7622978078914,
+                131.6131231409875,
+                17,
+                100,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                209.3755149696464,
+                159.6131231409875,
+                17,
+                110,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.focus-wisp",
+              "args": [
+                203.0856102763725,
+                131.6131231409875,
+                17,
+                120,
+                {
+                  "opacity": 0.95,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "focus",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "spores",
+          "keys": [
+            "vfx.spore-trail",
+            "vfx.spore-idle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                186.3352366131054,
+                155.84536318150973,
+                8,
+                105,
+                {
+                  "opacity": 0.5,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                180.26469183369582,
+                158.39927224949886,
+                8,
+                109,
+                {
+                  "opacity": 0.39999999999999997,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-trail",
+              "args": [
+                176.73395606945712,
+                160.21969576577933,
+                8,
+                113,
+                {
+                  "opacity": 0.29999999999999993,
+                  "startTick": 94,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                193.90782540054155,
+                152.5388113632974,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.spore-idle",
+              "args": [
+                221.0393694229625,
+                86.10360649902493,
+                18,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "spores",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/spores-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "guard",
+          "keys": [
+            "vfx.guard-charged",
+            "vfx.guard-plate"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.guard-charged",
+              "args": [
+                0,
+                0,
+                25,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.guard-plate",
+              "args": [
+                0,
+                0,
+                20,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "guard",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/guard-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "portalPrize",
+          "keys": [
+            "vfx.portal-charged-ring"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                206.15339678762638,
+                115.84117787031528,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.portal-charged-ring",
+              "args": [
+                325.24117787031525,
+                190.27104104699583,
+                30,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "portalPrize",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/portal-plus-hud.png",
+              "rect": {
+                "x": 512.921875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 576.296875,
+                "bottom": 44,
+                "left": 512.921875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "rush",
+          "keys": [
+            "vfx.rush-ember",
+            "vfx.rush-thorn"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                191.2674241522903,
+                133.6131231409875,
+                17,
+                115,
+                {
+                  "opacity": 0.92,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                176.38145151695417,
+                157.6131231409875,
+                17,
+                122,
+                {
+                  "opacity": 0.8200000000000001,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                161.49547888161806,
+                133.6131231409875,
+                17,
+                129,
+                {
+                  "opacity": 0.72,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                146.60950624628197,
+                157.6131231409875,
+                17,
+                136,
+                {
+                  "opacity": 0.62,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-ember",
+              "args": [
+                131.72353361094585,
+                133.6131231409875,
+                17,
+                143,
+                {
+                  "opacity": 0.52,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.rush-thorn",
+              "args": [
+                116.83756097560973,
+                157.6131231409875,
+                17,
+                150,
+                {
+                  "opacity": 0.42000000000000004,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "rush",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "weak",
+          "keys": [
+            "food-corrupted.field-lod",
+            "vfx.corruption-particle"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "food-corrupted.field-lod",
+              "args": [
+                280.58325996430693,
+                146.05006807272088,
+                14,
+                100
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                281.85916438543904,
+                155.53139254185254,
+                11,
+                101,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                271.37758153968304,
+                141.7072961168588,
+                11,
+                109,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.corruption-particle",
+              "args": [
+                288.60225732891547,
+                139.63853685686695,
+                11,
+                117,
+                {
+                  "opacity": 0.85,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "weak",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/corruption-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brambles",
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                369.8990957763235,
+                294.47284949434857,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                369.8990957763235,
+                294.47284949434857,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-crack",
+              "args": [
+                101.95158834027363,
+                294.47284949434857,
+                28,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 46,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.roots-sprout",
+              "args": [
+                101.95158834027363,
+                294.47284949434857,
+                24,
+                100,
+                {
+                  "opacity": 1,
+                  "startTick": 82,
+                  "phase": 0
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "brambles",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/roots-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        },
+        {
+          "kind": "mist",
+          "keys": [
+            "vfx.mist-puff"
+          ],
+          "hashStable": true,
+          "draws": [
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 0
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                58.05529327781082,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 1
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                46.146515169541935,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 2
+                }
+              ]
+            },
+            {
+              "key": "vfx.mist-puff",
+              "args": [
+                0,
+                0,
+                52.10090422367638,
+                101,
+                {
+                  "opacity": 1,
+                  "startTick": 0,
+                  "phase": 3
+                }
+              ]
+            }
+          ],
+          "cell": 14.885972635336108,
+          "hud": [
+            {
+              "kind": "mist",
+              "url": "http://127.0.0.1:8775/grib/mushroom-snake-effects-v1/assets/effects/mist-hud.png",
+              "rect": {
+                "x": 643.671875,
+                "y": 14,
+                "width": 63.375,
+                "height": 30,
+                "top": 14,
+                "right": 707.046875,
+                "bottom": 44,
+                "left": 643.671875
+              }
+            }
+          ]
+        }
+      ],
+      "events": {
+        "keys": [
+          "food-golden.field-lod",
+          "vfx.harvest-sparkle",
+          "vfx.focus-wisp",
+          "vfx.rush-ember",
+          "vfx.rush-thorn",
+          "vfx.harvest-third-burst",
+          "vfx.spore-burst",
+          "vfx.guard-break",
+          "vfx.roots-decay"
+        ],
+        "hashStable": true,
+        "targets": [
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          },
+          {
+            "w": 48,
+            "h": 48
+          }
+        ]
+      },
+      "stress": {
+        "hashStable": true,
+        "lanes": [
+          {
+            "text": "MAX COMBO",
+            "color": "#f4df8e",
+            "size": 1,
+            "x": 422,
+            "y": 69,
+            "box": {
+              "x": 395,
+              "y": 69,
+              "w": 54,
+              "h": 8
+            }
+          },
+          {
+            "text": "+200",
+            "color": "#ffdf72",
+            "size": 1,
+            "x": 266,
+            "y": 151,
+            "box": {
+              "x": 254,
+              "y": 151,
+              "w": 24,
+              "h": 8
+            }
+          },
+          {
+            "text": "+25",
+            "color": "#b9f5df",
+            "size": 1,
+            "x": 254,
+            "y": 128,
+            "box": {
+              "x": 245,
+              "y": 128,
+              "w": 18,
+              "h": 8
+            }
+          }
+        ]
+      },
+      "pause": true,
+      "restart": true,
+      "expiry": true,
+      "liveInput": true,
+      "modeHashParity": true
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": []
+}

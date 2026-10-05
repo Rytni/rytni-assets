@@ -1,0 +1,1016 @@
+{
+  "results": [
+    {
+      "id": "desktop-30",
+      "kind": "mist",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 234.66623376623377,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 186.52957042957044,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 210.5979020979021,
+          "tick": 431
+        }
+      ],
+      "C": 60.17082917082917
+    },
+    {
+      "id": "desktop-30",
+      "kind": "stress",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.spore-idle",
+          "size": 24.06833166833167,
+          "tick": 101
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 10.83074925074925,
+          "tick": 105
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 10.83074925074925,
+          "tick": 109
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 10.83074925074925,
+          "tick": 113
+        },
+        {
+          "key": "vfx.spore-idle",
+          "size": 24.06833166833167,
+          "tick": 0
+        },
+        {
+          "key": "vfx.roots-crack",
+          "size": 54.153746253746256,
+          "tick": 100
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 27.076873126873128,
+          "tick": 100
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 27.076873126873128,
+          "tick": 110
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 27.076873126873128,
+          "tick": 120
+        },
+        {
+          "key": "vfx.guard-charged",
+          "size": 28.881998001998003,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-plate",
+          "size": 25.873456543456545,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-plate",
+          "size": 25.873456543456545,
+          "tick": 100
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 25.873456543456545,
+          "tick": 115
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 25.873456543456545,
+          "tick": 122
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 25.873456543456545,
+          "tick": 129
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 25.873456543456545,
+          "tick": 136
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 25.873456543456545,
+          "tick": 143
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 25.873456543456545,
+          "tick": 150
+        },
+        {
+          "key": "vfx.portal-charged-ring",
+          "size": 63.17937062937063,
+          "tick": 100
+        },
+        {
+          "key": "vfx.portal-charged-ring",
+          "size": 63.17937062937063,
+          "tick": 100
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 18.05124875124875,
+          "tick": 107
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 18.05124875124875,
+          "tick": 113
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 18.05124875124875,
+          "tick": 119
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 18.05124875124875,
+          "tick": 125
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 18.05124875124875,
+          "tick": 131
+        },
+        {
+          "key": "vfx.harvest-third-burst",
+          "size": 57.162287712287714,
+          "tick": 100
+        },
+        {
+          "key": "vfx.spore-burst",
+          "size": 63.17937062937063,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-break",
+          "size": 66.1879120879121,
+          "tick": 101
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 6.017082917082917,
+          "tick": 100
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 6.017082917082917,
+          "tick": 105
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 6.017082917082917,
+          "tick": 110
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 6.017082917082917,
+          "tick": 115
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 6.017082917082917,
+          "tick": 120
+        }
+      ],
+      "C": 60.17082917082917
+    },
+    {
+      "id": "desktop-30",
+      "kind": "roots",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.roots-crack",
+          "size": 54.153746253746256,
+          "tick": 100
+        },
+        {
+          "key": "vfx.roots-sprout",
+          "size": 51.1452047952048,
+          "tick": 100
+        }
+      ],
+      "C": 60.17082917082917,
+      "lifecycle": [
+        {
+          "tick": 100,
+          "warning": 1,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ]
+        },
+        {
+          "tick": 117,
+          "warning": 1,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ]
+        },
+        {
+          "tick": 118,
+          "warning": 0,
+          "solid": 1,
+          "keys": [
+            "vfx.roots-root"
+          ]
+        },
+        {
+          "tick": 477,
+          "warning": 0,
+          "solid": 1,
+          "keys": [
+            "vfx.roots-root"
+          ]
+        },
+        {
+          "tick": 478,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 481,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 496,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 500,
+          "warning": 0,
+          "solid": 0,
+          "keys": []
+        }
+      ]
+    },
+    {
+      "id": "mobile-50",
+      "kind": "mist",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 58.05529327781082,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 46.146515169541935,
+          "tick": 431
+        },
+        {
+          "key": "vfx.mist-puff",
+          "size": 52.10090422367638,
+          "tick": 431
+        }
+      ],
+      "C": 14.885972635336108
+    },
+    {
+      "id": "mobile-50",
+      "kind": "stress",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.spore-idle",
+          "size": 18,
+          "tick": 101
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 8,
+          "tick": 105
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 8,
+          "tick": 109
+        },
+        {
+          "key": "vfx.spore-trail",
+          "size": 8,
+          "tick": 113
+        },
+        {
+          "key": "vfx.spore-idle",
+          "size": 18,
+          "tick": 0
+        },
+        {
+          "key": "vfx.roots-crack",
+          "size": 28,
+          "tick": 100
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 17,
+          "tick": 100
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 17,
+          "tick": 110
+        },
+        {
+          "key": "vfx.focus-wisp",
+          "size": 17,
+          "tick": 120
+        },
+        {
+          "key": "vfx.guard-charged",
+          "size": 25,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-plate",
+          "size": 20,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-plate",
+          "size": 20,
+          "tick": 100
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 17,
+          "tick": 115
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 17,
+          "tick": 122
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 17,
+          "tick": 129
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 17,
+          "tick": 136
+        },
+        {
+          "key": "vfx.rush-ember",
+          "size": 17,
+          "tick": 143
+        },
+        {
+          "key": "vfx.rush-thorn",
+          "size": 17,
+          "tick": 150
+        },
+        {
+          "key": "vfx.portal-charged-ring",
+          "size": 30,
+          "tick": 100
+        },
+        {
+          "key": "vfx.portal-charged-ring",
+          "size": 30,
+          "tick": 100
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 14,
+          "tick": 107
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 14,
+          "tick": 113
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 14,
+          "tick": 119
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 14,
+          "tick": 125
+        },
+        {
+          "key": "vfx.portal-body-trail",
+          "size": 14,
+          "tick": 131
+        },
+        {
+          "key": "vfx.harvest-third-burst",
+          "size": 24,
+          "tick": 100
+        },
+        {
+          "key": "vfx.spore-burst",
+          "size": 32,
+          "tick": 100
+        },
+        {
+          "key": "vfx.guard-break",
+          "size": 40,
+          "tick": 101
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 5,
+          "tick": 100
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 5,
+          "tick": 105
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 5,
+          "tick": 110
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 5,
+          "tick": 115
+        },
+        {
+          "key": "vfx.harvest-sparkle",
+          "size": 5,
+          "tick": 120
+        }
+      ],
+      "C": 14.885972635336108
+    },
+    {
+      "id": "mobile-50",
+      "kind": "roots",
+      "hashStable": true,
+      "calls": [
+        {
+          "key": "vfx.roots-crack",
+          "size": 28,
+          "tick": 100
+        },
+        {
+          "key": "vfx.roots-sprout",
+          "size": 24,
+          "tick": 100
+        }
+      ],
+      "C": 14.885972635336108,
+      "lifecycle": [
+        {
+          "tick": 100,
+          "warning": 1,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ]
+        },
+        {
+          "tick": 117,
+          "warning": 1,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-crack",
+            "vfx.roots-sprout"
+          ]
+        },
+        {
+          "tick": 118,
+          "warning": 0,
+          "solid": 1,
+          "keys": [
+            "vfx.roots-root"
+          ]
+        },
+        {
+          "tick": 477,
+          "warning": 0,
+          "solid": 1,
+          "keys": [
+            "vfx.roots-root"
+          ]
+        },
+        {
+          "tick": 478,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 481,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 496,
+          "warning": 0,
+          "solid": 0,
+          "keys": [
+            "vfx.roots-decay"
+          ]
+        },
+        {
+          "tick": 500,
+          "warning": 0,
+          "solid": 0,
+          "keys": []
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "network": []
+}

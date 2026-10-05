@@ -1,0 +1,233 @@
+{
+  "note": "Maximum authored-frame ink axis \u00d7 runtime uniform contain scale; not area or hitbox. Spores compares solid collectible core; prior 22%-opacity outer echo is reported separately, now removed. Capture canonical hashes equal before/after. Guard envelope is a redesigned open shell, not simple icon scaling.",
+  "comparisons": [
+    {
+      "fixture": "desktop-30",
+      "effect": "focus",
+      "cellCSS": 60.17082917082917,
+      "beforeBoxCSS": 20.45808191808192,
+      "afterBoxCSS": 27.076873126873128,
+      "beforeMaxInkCSS": 15.9828764985015,
+      "afterMaxInkCSS": 21.999959415584417,
+      "maxAxisFootprintRatio": 1.3764705882352941,
+      "identicalCanonicalHash": "ce9a3f31"
+    },
+    {
+      "fixture": "desktop-30",
+      "effect": "spores",
+      "cellCSS": 60.17082917082917,
+      "beforeBoxCSS": 19.254665334665336,
+      "afterBoxCSS": 24.06833166833167,
+      "beforeMaxInkCSS": 13.638721278721281,
+      "afterMaxInkCSS": 21.05979020979021,
+      "maxAxisFootprintRatio": 1.5441176470588234,
+      "identicalCanonicalHash": "70e59484",
+      "beforeSoftEchoMaxInkCSS": 19.776145854145856,
+      "beforeSoftEchoOpacity": 0.22
+    },
+    {
+      "fixture": "desktop-30",
+      "effect": "guard",
+      "cellCSS": 60.17082917082917,
+      "beforeBoxCSS": 20.45808191808192,
+      "afterBoxCSS": 25.873456543456545,
+      "beforeMaxInkCSS": 16.366465534465537,
+      "afterMaxInkCSS": 21.992438061938063,
+      "maxAxisFootprintRatio": 1.34375,
+      "identicalCanonicalHash": "139792b9"
+    },
+    {
+      "fixture": "desktop-30",
+      "effect": "portalPrize",
+      "cellCSS": 60.17082917082917,
+      "beforeBoxCSS": 60.17082917082917,
+      "afterBoxCSS": 63.17937062937063,
+      "beforeMaxInkCSS": 57.51623376623377,
+      "afterMaxInkCSS": 61.32115384615385,
+      "maxAxisFootprintRatio": 1.0661538461538462,
+      "identicalCanonicalHash": "1801fe30"
+    },
+    {
+      "fixture": "desktop-30",
+      "effect": "rush",
+      "cellCSS": 60.17082917082917,
+      "beforeBoxCSS": 18.05124875124875,
+      "afterBoxCSS": 25.873456543456545,
+      "beforeMaxInkCSS": 14.666639610389609,
+      "afterMaxInkCSS": 21.022183441558443,
+      "maxAxisFootprintRatio": 1.4333333333333336,
+      "identicalCanonicalHash": "eea52b1c"
+    },
+    {
+      "fixture": "mobile-30",
+      "effect": "focus",
+      "cellCSS": 24.998321678321673,
+      "beforeBoxCSS": 12,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 9.375,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.4733333333333334,
+      "identicalCanonicalHash": "ce9a3f31"
+    },
+    {
+      "fixture": "mobile-30",
+      "effect": "spores",
+      "cellCSS": 24.998321678321673,
+      "beforeBoxCSS": 14,
+      "afterBoxCSS": 18,
+      "beforeMaxInkCSS": 9.916666666666668,
+      "afterMaxInkCSS": 15.75,
+      "maxAxisFootprintRatio": 1.588235294117647,
+      "identicalCanonicalHash": "70e59484",
+      "beforeSoftEchoMaxInkCSS": 14.379166666666668,
+      "beforeSoftEchoOpacity": 0.22
+    },
+    {
+      "fixture": "mobile-30",
+      "effect": "guard",
+      "cellCSS": 24.998321678321673,
+      "beforeBoxCSS": 13,
+      "afterBoxCSS": 20,
+      "beforeMaxInkCSS": 10.4,
+      "afterMaxInkCSS": 17.0,
+      "maxAxisFootprintRatio": 1.6346153846153846,
+      "identicalCanonicalHash": "139792b9"
+    },
+    {
+      "fixture": "mobile-30",
+      "effect": "portalPrize",
+      "cellCSS": 24.998321678321673,
+      "beforeBoxCSS": 24.998321678321673,
+      "afterBoxCSS": 30,
+      "beforeMaxInkCSS": 23.89545454545454,
+      "afterMaxInkCSS": 29.11764705882353,
+      "maxAxisFootprintRatio": 1.2185433427698644,
+      "identicalCanonicalHash": "1801fe30"
+    },
+    {
+      "fixture": "mobile-30",
+      "effect": "rush",
+      "cellCSS": 24.998321678321673,
+      "beforeBoxCSS": 10,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 8.125,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.7,
+      "identicalCanonicalHash": "eea52b1c"
+    },
+    {
+      "fixture": "mobile-40",
+      "effect": "focus",
+      "cellCSS": 18.66019388516033,
+      "beforeBoxCSS": 12,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 9.375,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.4733333333333334,
+      "identicalCanonicalHash": "5fc908de"
+    },
+    {
+      "fixture": "mobile-40",
+      "effect": "spores",
+      "cellCSS": 18.66019388516033,
+      "beforeBoxCSS": 14,
+      "afterBoxCSS": 18,
+      "beforeMaxInkCSS": 9.916666666666668,
+      "afterMaxInkCSS": 15.75,
+      "maxAxisFootprintRatio": 1.588235294117647,
+      "identicalCanonicalHash": "8a7086d8",
+      "beforeSoftEchoMaxInkCSS": 14.379166666666668,
+      "beforeSoftEchoOpacity": 0.22
+    },
+    {
+      "fixture": "mobile-40",
+      "effect": "guard",
+      "cellCSS": 18.66019388516033,
+      "beforeBoxCSS": 13,
+      "afterBoxCSS": 20,
+      "beforeMaxInkCSS": 10.4,
+      "afterMaxInkCSS": 17.0,
+      "maxAxisFootprintRatio": 1.6346153846153846,
+      "identicalCanonicalHash": "7126ca3d"
+    },
+    {
+      "fixture": "mobile-40",
+      "effect": "portalPrize",
+      "cellCSS": 18.66019388516033,
+      "beforeBoxCSS": 18.66019388516033,
+      "afterBoxCSS": 30,
+      "beforeMaxInkCSS": 17.836950037285607,
+      "afterMaxInkCSS": 29.11764705882353,
+      "maxAxisFootprintRatio": 1.6324341884659221,
+      "identicalCanonicalHash": "923547d7"
+    },
+    {
+      "fixture": "mobile-40",
+      "effect": "rush",
+      "cellCSS": 18.66019388516033,
+      "beforeBoxCSS": 10,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 8.125,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.7,
+      "identicalCanonicalHash": "f9ab5b0e"
+    },
+    {
+      "fixture": "mobile-50",
+      "effect": "focus",
+      "cellCSS": 14.885972635336108,
+      "beforeBoxCSS": 12,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 9.375,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.4733333333333334,
+      "identicalCanonicalHash": "c92f688e"
+    },
+    {
+      "fixture": "mobile-50",
+      "effect": "spores",
+      "cellCSS": 14.885972635336108,
+      "beforeBoxCSS": 14,
+      "afterBoxCSS": 18,
+      "beforeMaxInkCSS": 9.916666666666668,
+      "afterMaxInkCSS": 15.75,
+      "maxAxisFootprintRatio": 1.588235294117647,
+      "identicalCanonicalHash": "b372439a",
+      "beforeSoftEchoMaxInkCSS": 14.379166666666668,
+      "beforeSoftEchoOpacity": 0.22
+    },
+    {
+      "fixture": "mobile-50",
+      "effect": "guard",
+      "cellCSS": 14.885972635336108,
+      "beforeBoxCSS": 13,
+      "afterBoxCSS": 20,
+      "beforeMaxInkCSS": 10.4,
+      "afterMaxInkCSS": 17.0,
+      "maxAxisFootprintRatio": 1.6346153846153846,
+      "identicalCanonicalHash": "edf12631"
+    },
+    {
+      "fixture": "mobile-50",
+      "effect": "portalPrize",
+      "cellCSS": 14.885972635336108,
+      "beforeBoxCSS": 14.885972635336108,
+      "afterBoxCSS": 30,
+      "beforeMaxInkCSS": 14.229238548483044,
+      "afterMaxInkCSS": 29.11764705882353,
+      "maxAxisFootprintRatio": 2.04632503416198,
+      "identicalCanonicalHash": "8c5ebc54"
+    },
+    {
+      "fixture": "mobile-50",
+      "effect": "rush",
+      "cellCSS": 14.885972635336108,
+      "beforeBoxCSS": 10,
+      "afterBoxCSS": 17,
+      "beforeMaxInkCSS": 8.125,
+      "afterMaxInkCSS": 13.8125,
+      "maxAxisFootprintRatio": 1.7,
+      "identicalCanonicalHash": "a7c0873b"
+    }
+  ]
+}

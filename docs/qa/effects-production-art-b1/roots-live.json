@@ -1,0 +1,31 @@
+{
+  "native60HzClock": true,
+  "legalDpadTurns": true,
+  "tick": 502,
+  "status": "playing",
+  "samples": [
+    {
+      "key": "vfx.roots-crack",
+      "tick": 0,
+      "solid": 0
+    },
+    {
+      "key": "vfx.roots-sprout",
+      "tick": 84,
+      "solid": 0
+    },
+    {
+      "key": "vfx.roots-root",
+      "tick": 121,
+      "solid": 1
+    },
+    {
+      "key": "vfx.roots-decay",
+      "tick": 480,
+      "solid": 0
+    }
+  ],
+  "hazards": 0,
+  "warnings": 0,
+  "errors": []
+}

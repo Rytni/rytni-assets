@@ -8,6 +8,7 @@ import {portalExitCue} from '../gate-one/audio.js';
 import {drawEffectLabels} from '../effect-playground/visuals.js';
 import {installEffectSounds} from '../effect-playground/audio.js';
 import {enableDevVfx} from '../effect-playground/vfx-candidates.js';
+import {vfxStressSession} from '../effect-playground/vfx-stress.js';
 
 export const progressiveEnabled=()=>document.querySelector('#run-model').value==='progressive';
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
@@ -17,7 +18,7 @@ export function installProgression(game){
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;
  game.renderer.render=(s,options)=>{
-  const canonical=actual||s;
+  const canonical=vfxStressSession(actual||s,game.vfxStressStart);
   // DEV fixture only: same state/topology, read-only Forest art comparison.
   const session=game.artFixtureForest&&canonical?.world?Object.assign(Object.create(canonical),{world:{...canonical.world,biome:'forest'},stage:{...canonical.stage,biome:'forest'}}):canonical;
   if(!session?.world)return baseDraw(s,options);

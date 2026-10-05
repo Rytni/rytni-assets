@@ -1,0 +1,618 @@
+{
+  "status": "PASS targeted export; not final human VFX approval",
+  "sheets": [
+    {
+      "key": "vfx.focus-wisp",
+      "frames": [
+        {
+          "bounds": [
+            4,
+            3,
+            29,
+            29
+          ],
+          "ink": 376,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            4,
+            2,
+            29,
+            28
+          ],
+          "ink": 376,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            4,
+            3,
+            29,
+            29
+          ],
+          "ink": 376,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            4,
+            4,
+            29,
+            30
+          ],
+          "ink": 376,
+          "paletteColors": 6
+        }
+      ],
+      "sha256": "cf0d5644ef68d22893336b57af9fadae9ca92f50783a8a3ad7306bb64c39c18a"
+    },
+    {
+      "key": "vfx.spore-idle",
+      "frames": [
+        {
+          "bounds": [
+            2,
+            2,
+            23,
+            22
+          ],
+          "ink": 276,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            23,
+            22
+          ],
+          "ink": 276,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            23,
+            22
+          ],
+          "ink": 276,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            23,
+            22
+          ],
+          "ink": 276,
+          "paletteColors": 6
+        }
+      ],
+      "sha256": "66e71812f9c3ae25f4f16d22b99238a54056a1d1e03199c5c92bf8175ef7bc03"
+    },
+    {
+      "key": "vfx.spore-trail",
+      "frames": [
+        {
+          "bounds": [
+            2,
+            2,
+            30,
+            15
+          ],
+          "ink": 156,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            30,
+            15
+          ],
+          "ink": 156,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            30,
+            15
+          ],
+          "ink": 156,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            2,
+            2,
+            30,
+            15
+          ],
+          "ink": 156,
+          "paletteColors": 5
+        }
+      ],
+      "sha256": "b2abba39c2518da96039a7c97eda308e3c221a6e8e221061259299e00755a735"
+    },
+    {
+      "key": "vfx.spore-burst",
+      "frames": [
+        {
+          "bounds": [
+            14,
+            14,
+            35,
+            34
+          ],
+          "ink": 276,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            13,
+            13,
+            36,
+            36
+          ],
+          "ink": 65,
+          "paletteColors": 3
+        },
+        {
+          "bounds": [
+            11,
+            9,
+            37,
+            36
+          ],
+          "ink": 263,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            8,
+            6,
+            40,
+            39
+          ],
+          "ink": 264,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            5,
+            3,
+            43,
+            42
+          ],
+          "ink": 264,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            5,
+            6,
+            43,
+            43
+          ],
+          "ink": 78,
+          "paletteColors": 2
+        }
+      ],
+      "sha256": "6db410b54d165bd56af05160f0f38182ce2f157f1a701b26bd8930a3dffb1901"
+    },
+    {
+      "key": "vfx.guard-plate",
+      "frames": [
+        {
+          "bounds": [
+            4,
+            3,
+            22,
+            37
+          ],
+          "ink": 340,
+          "paletteColors": 7
+        },
+        {
+          "bounds": [
+            4,
+            3,
+            22,
+            37
+          ],
+          "ink": 339,
+          "paletteColors": 7
+        },
+        {
+          "bounds": [
+            4,
+            3,
+            22,
+            37
+          ],
+          "ink": 340,
+          "paletteColors": 7
+        },
+        {
+          "bounds": [
+            4,
+            3,
+            22,
+            37
+          ],
+          "ink": 339,
+          "paletteColors": 7
+        }
+      ],
+      "sha256": "b19715f35fd3833f87f42a208d548c803f9ff24a0500b6d6fc8593e57b3528ee"
+    },
+    {
+      "key": "vfx.guard-charged",
+      "frames": [
+        {
+          "bounds": [
+            6,
+            5,
+            43,
+            26
+          ],
+          "ink": 277,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            6,
+            5,
+            43,
+            26
+          ],
+          "ink": 273,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            6,
+            5,
+            43,
+            26
+          ],
+          "ink": 277,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            6,
+            5,
+            43,
+            26
+          ],
+          "ink": 273,
+          "paletteColors": 6
+        }
+      ],
+      "sha256": "e06205d1a79a0f716efb7f22c8fd7907f38ca3ec26bec620242fc2c59fccb59a"
+    },
+    {
+      "key": "vfx.guard-break",
+      "frames": [
+        {
+          "bounds": [
+            16,
+            14,
+            48,
+            50
+          ],
+          "ink": 772,
+          "paletteColors": 7
+        },
+        {
+          "bounds": [
+            16,
+            14,
+            48,
+            50
+          ],
+          "ink": 774,
+          "paletteColors": 7
+        },
+        {
+          "bounds": [
+            14,
+            17,
+            50,
+            51
+          ],
+          "ink": 372,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            10,
+            13,
+            54,
+            55
+          ],
+          "ink": 372,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            6,
+            10,
+            58,
+            59
+          ],
+          "ink": 372,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            3,
+            7,
+            61,
+            62
+          ],
+          "ink": 372,
+          "paletteColors": 4
+        }
+      ],
+      "sha256": "4cdb7373bcaf83f66c0a6a078225f86470d7628c3395ffddaf7fa100ff2cce65"
+    },
+    {
+      "key": "vfx.portal-charged-ring",
+      "frames": [
+        {
+          "bounds": [
+            1,
+            3,
+            67,
+            66
+          ],
+          "ink": 895,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            1,
+            3,
+            67,
+            66
+          ],
+          "ink": 895,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            1,
+            3,
+            67,
+            66
+          ],
+          "ink": 895,
+          "paletteColors": 6
+        },
+        {
+          "bounds": [
+            1,
+            3,
+            67,
+            66
+          ],
+          "ink": 895,
+          "paletteColors": 6
+        }
+      ],
+      "sha256": "73219d3895680305bd8cfaf18617aab518824333ffe0970890e3e1eafb6330dc"
+    },
+    {
+      "key": "vfx.portal-body-trail",
+      "frames": [
+        {
+          "bounds": [
+            4,
+            4,
+            30,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            4,
+            3,
+            30,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            4,
+            4,
+            30,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 5
+        },
+        {
+          "bounds": [
+            4,
+            5,
+            30,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 5
+        }
+      ],
+      "sha256": "73268228af04ab57a2b820b59da0f761355049b67a231c80f07b6e842f32f718"
+    },
+    {
+      "key": "vfx.rush-ember",
+      "frames": [
+        {
+          "bounds": [
+            5,
+            3,
+            27,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            5,
+            2,
+            27,
+            28
+          ],
+          "ink": 342,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            5,
+            3,
+            27,
+            29
+          ],
+          "ink": 342,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            5,
+            4,
+            27,
+            30
+          ],
+          "ink": 342,
+          "paletteColors": 4
+        }
+      ],
+      "sha256": "145d05fe89ce00296b986bb434215bf90623feb531f96f799d0e5f9090189435"
+    },
+    {
+      "key": "vfx.rush-thorn",
+      "frames": [
+        {
+          "bounds": [
+            4,
+            4,
+            29,
+            28
+          ],
+          "ink": 243,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            4,
+            4,
+            29,
+            28
+          ],
+          "ink": 243,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            4,
+            4,
+            29,
+            28
+          ],
+          "ink": 243,
+          "paletteColors": 4
+        },
+        {
+          "bounds": [
+            4,
+            4,
+            29,
+            28
+          ],
+          "ink": 243,
+          "paletteColors": 4
+        }
+      ],
+      "sha256": "1f0fa66d76fe77d23bdc971ca8ba21285695af228bf8a77431841eb2fdb5a61f"
+    }
+  ],
+  "locked": [
+    "grib/mushroom-snake-effects-v1/assets/effects/corruption-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/corruption-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/corruption-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/corruption-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/focus-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/focus-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/focus-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/focus-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/guard-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/guard-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/guard-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/guard-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/harvest-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/harvest-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/harvest-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/harvest-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/mist-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/mist-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/mist-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/mist-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/portal-plus-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/portal-plus-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/portal-plus-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/portal-plus-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/roots-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/roots-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/roots-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/roots-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/rush-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/rush-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/rush-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/rush-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/spores-field.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/spores-hud.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/spores-idle.png",
+    "grib/mushroom-snake-effects-v1/assets/effects/spores-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/food/corrupted-field.png",
+    "grib/mushroom-snake-effects-v1/assets/food/corrupted-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/food/golden-field.png",
+    "grib/mushroom-snake-effects-v1/assets/food/golden-lod.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/corruption-particle.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/harvest-sparkle.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/harvest-third-burst.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/mist-puff.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/roots-crack.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/roots-decay.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/roots-root.png",
+    "grib/mushroom-snake-effects-v1/assets/vfx/roots-sprout.png",
+    "arcade/snake-next/simulation/step.js",
+    "arcade/snake-next/simulation/timing.js",
+    "arcade/snake-next/gate-one/session.js",
+    "arcade/snake-next/gate-one/motion.js",
+    "arcade/snake-next/gate-one/ribbon.js",
+    "arcade/snake-next/progressive-run/session.js",
+    "arcade/snake-next/progressive-run/director.js",
+    "arcade/snake-next/progressive-run/food.js",
+    "arcade/snake-next/progressive-run/world.js",
+    "arcade/snake-next/forest-training/ribbon-raster.js",
+    "arcade/snake-next/forest-training/ribbon-sprites.js",
+    "arcade/snake-next/forest-training/style.css",
+    "arcade/snake-next/effect-playground/fit-world.js",
+    "arcade/snake-next/effect-playground/capacity-model.js",
+    "arcade/snake-next/effect-playground/asset-contract.js",
+    "arcade/snake-next/effect-playground/asset-approvals.js",
+    "arcade/snake-next/effect-playground/food-reaction.js"
+  ]
+}
