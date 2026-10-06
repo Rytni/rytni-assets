@@ -1,0 +1,11 @@
+✔ mirror admits only validated TEST candidate bytes, JavaScript MIME, manifest last (305.7012ms)
+✔ failed asset verification cannot promote TEST manifest (132.1613ms)
+✔ signer rejects Production keys and alternative buckets before any request (0.2989ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 495.2041

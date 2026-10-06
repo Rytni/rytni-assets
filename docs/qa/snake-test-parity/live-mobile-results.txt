@@ -1,0 +1,17 @@
+### Result
+[{"viewport":{"width":844,"height":390},"browserScale":{"width":844,"height":390,"dpr":3},"stage":{"x":28,"y":-216.109375,"width":780,"height":438.75},"checks":["no default QA tooling","TEST top-ten","no product horizontal overflow","expected immutable runtime snake-next-6822599860b1","real page Rules/Settings routing","real page mobile native fullscreen","real page mobile Dpad visible","real page Dpad changes canonical direction","live gameplay pause","exit cancel preserves run","real page close returns Hub","no new console or page errors []","no missing candidate assets []"],"errors":[],"failed":[],"baseline":["HTTP 401 auth health","Failed to load resource: the server responded with a status of 401 ()"]},{"viewport":{"width":390,"height":844},"browserScale":{"width":390,"height":844,"dpr":3},"stage":{"x":17,"y":31.328125,"width":348,"height":618.65625},"checks":["no default QA tooling","TEST top-ten","no product horizontal overflow","expected immutable runtime snake-next-6822599860b1","real page Rules/Settings routing","portrait cannot play","real page close returns Hub","no new console or page errors []","no missing candidate assets []"],"errors":[],"failed":[],"baseline":[]}]
+### Ran Playwright code
+```js
+await (async page => {
+ const response=await page.request.get('http://127.0.0.1:8775/docs/qa/snake-test-parity/site-candidate-qa.js');
+ const run=eval('('+await response.text()+')');
+ return run(page,{live:true,runtime:'snake-next-6822599860b1'});
+}
+)(page);
+```
+### Page
+- Page URL: https://rytni.live/testpodari?progression_preview=1&ttq_preview=1&arcade_preview=1&snake_candidate=1
+- Page Title: Test
+- Console: 0 errors, 3 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-10-06T09-51-49-183Z.log#L1-L7

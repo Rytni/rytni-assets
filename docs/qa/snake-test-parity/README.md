@@ -7,7 +7,7 @@ Task base: `2c7a6d4`; functional product base: `9656138`.
 - Paired visual review: http://127.0.0.1:8775/docs/qa/snake-test-parity/review.html
 - Target TEST: https://rytni.live/testpodari
 
-Current candidate: `2.15.33-eaf73478e2df`; immutable runtime: `snake-next-6822599860b1`. Deployed rollback retained: `2.15.33-451886dbbce4`. Publication acceptance is recorded separately in QA.md; a local build is not a deployment.
+Published and verified TEST: `2.15.33-eaf73478e2df`; immutable runtime: `snake-next-6822599860b1`; publication checkpoint `f890a12`. Pages/S3 match and real live desktop/mobile QA passes. Deployed rollback retained: `2.15.33-451886dbbce4`. Full evidence is in QA.md. STOP for human review.
 
 ## Changes
 

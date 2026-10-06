@@ -1,0 +1,86 @@
+[
+  {
+    "base": "https://rytni.github.io/rytni-assets/giveaway-test/",
+    "current": "2.15.33-eaf73478e2df",
+    "previous": "2.15.33-451886dbbce4",
+    "runtime": "snake-next-6822599860b1",
+    "appHash": "eaf73478e2dfb693ca6c4502ec9b40a77943eef48d5e4ae5b75cf4bf641a1a51",
+    "runtimeHash": "1a2e37a3845c7b9f2dcc3609ae40534ec13f7d676b9f37a004bde1945cecdff9",
+    "checks": [
+      {
+        "file": "snake/product/index.html",
+        "type": "text/html; charset=utf-8"
+      },
+      {
+        "file": "snake/product/app.js",
+        "type": "application/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/product/frame-runtime.js",
+        "type": "application/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/product/parity.css",
+        "type": "text/css; charset=utf-8"
+      },
+      {
+        "file": "snake/retro-v5/geometry.mjs",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/retro-v5/material.mjs",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/effect-playground/style.css",
+        "type": "text/css; charset=utf-8"
+      },
+      {
+        "file": "grib/mushroom-snake-menu-v1/snake-hero.png",
+        "type": "image/png"
+      }
+    ]
+  },
+  {
+    "base": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/",
+    "current": "2.15.33-eaf73478e2df",
+    "previous": "2.15.33-451886dbbce4",
+    "runtime": "snake-next-6822599860b1",
+    "appHash": "eaf73478e2dfb693ca6c4502ec9b40a77943eef48d5e4ae5b75cf4bf641a1a51",
+    "runtimeHash": "1a2e37a3845c7b9f2dcc3609ae40534ec13f7d676b9f37a004bde1945cecdff9",
+    "checks": [
+      {
+        "file": "snake/product/index.html",
+        "type": "text/html; charset=utf-8"
+      },
+      {
+        "file": "snake/product/app.js",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/product/frame-runtime.js",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/product/parity.css",
+        "type": "text/css; charset=utf-8"
+      },
+      {
+        "file": "snake/retro-v5/geometry.mjs",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/retro-v5/material.mjs",
+        "type": "text/javascript; charset=utf-8"
+      },
+      {
+        "file": "snake/effect-playground/style.css",
+        "type": "text/css; charset=utf-8"
+      },
+      {
+        "file": "grib/mushroom-snake-menu-v1/snake-hero.png",
+        "type": "image/png"
+      }
+    ]
+  }
+]
