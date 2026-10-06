@@ -10,6 +10,7 @@ async page => {
    return {screen:document.querySelector('#product').dataset.screen,viewport:[innerWidth,innerHeight],ornaments,buttons,overflow:document.documentElement.scrollWidth>innerWidth+1,panel:document.querySelector('.fantasy-panel')?rect(document.querySelector('.fantasy-panel')):null};
   });
   check(!metrics.overflow,label+': no horizontal overflow');
+  check(await page.evaluate(()=>[...document.querySelectorAll('.button-cap')].filter(e=>e.getBoundingClientRect().width).every(e=>{const r=e.getBoundingClientRect(),b=e.closest('button').getBoundingClientRect();return r.left>=b.left-1&&r.right<=b.right+1;})),label+': cap ink contained in own button');
   for(const a of metrics.ornaments){check(a.nw>0&&a.ratioError<=.02,label+': native aspect '+a.kind);if(a.kind.includes('skin-crest'))check(a.y>=0&&a.y+a.h<=metrics.viewport[1],label+': crest in safe area');}
   for(const b of metrics.buttons){check(b.w>=44&&b.h>=44,label+': touch '+b.action);if(b.close)check(Math.abs(b.w-48)<.1&&Math.abs(b.h-48)<.1,label+': Close exactly 48x48');check(!b.overflow,label+': glyph safe '+b.action);check(b.x>=-1&&b.x+b.w<=metrics.viewport[0]+1,label+': horizontal control bounds '+b.action);check(b.y>=-1&&b.y+b.h<=metrics.viewport[1]+1,label+': controls in viewport '+b.action);if(b.label)check(b.label.x>=b.x+15&&b.label.x+b.label.w<=b.x+b.w-15||b.w===48,label+': label in art '+b.action);}
   await page.screenshot({path:dir+label+'.png',scale:'css'});captures.push({label,...metrics});

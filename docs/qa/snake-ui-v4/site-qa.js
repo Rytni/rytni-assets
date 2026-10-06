@@ -12,12 +12,18 @@ async (page,options={}) => {
  const baseMetrics=metrics;
  metrics=async name=>{
   const result=await baseMetrics(name);
+  check(await f.evaluate(()=>[...document.querySelectorAll('.button-cap')].filter(e=>e.getBoundingClientRect().width).every(e=>{const r=e.getBoundingClientRect(),b=e.closest('button').getBoundingClientRect();return r.left>=b.left-1&&r.right<=b.right+1;})),name+' cap ownership');
   const bounds=await f.evaluate(()=>[...document.querySelectorAll('#menu button,.skin-crest')].filter(e=>e.getBoundingClientRect().width).map(e=>{const r=e.getBoundingClientRect();return {key:e.dataset.action||'crest',x:r.x,y:r.y,right:r.right,bottom:r.bottom};}));
   for(const b of bounds){check(b.x>=-1&&b.right<=result.size[0]+1,name+' horizontal bounds '+b.key);if(b.key==='crest')check(b.y>=0&&b.bottom<=result.size[1],name+' crest safe area');}
   return result;
  };
  const m=[];m.push(await metrics('Main embedded'));if(!mobile)await page.screenshot({path:dir+mode+'-main-embedded.png',scale:'css'});
- await action('fullscreen');await page.waitForFunction(()=>!!document.fullscreenElement);m.push(await metrics('Main fullscreen'));if(!mobile)await page.screenshot({path:dir+mode+'-main-fullscreen.png',scale:'css'});
+ await action('fullscreen');await page.waitForFunction(()=>!!document.fullscreenElement);
+ const fullscreenSize=await page.evaluate(()=>[innerWidth,innerHeight]);
+ await f.waitForFunction(([w,h])=>Math.abs(innerWidth-w)<1&&Math.abs(innerHeight-h)<1&&Math.abs(document.querySelector('#cabinet').getBoundingClientRect().width-w)<1,fullscreenSize);
+ await f.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ check(true,'fullscreen iframe and cabinet match outer viewport after layout settles');
+ m.push(await metrics('Main fullscreen'));if(!mobile)await page.screenshot({path:dir+mode+'-main-fullscreen.png',scale:'css'});
  await action('training');await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='playing');const gf=f.childFrames().find(f=>f.url().includes('/product/frame.html'));
  if(mobile){check(await gf.locator('#pad').isVisible(),'D-pad visible');await gf.locator('[data-dir="0"]').tap();await gf.waitForFunction(()=>snakeProductGame.session.state.direction===0);check(true,'D-pad canonical turn');}
  await gf.evaluate(()=>snakeProductGame.pause());await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='pause');m.push(await metrics('Pause'));

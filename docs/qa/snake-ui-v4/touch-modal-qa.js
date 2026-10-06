@@ -1,8 +1,8 @@
 async page=>{
  const context=await page.context().browser().newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true}),p=await context.newPage(),errors=[],checks=[];
- p.on('pageerror',e=>errors.push(e.message));const check=(ok,label)=>{if(!ok)throw Error(label);checks.push(label);};
+ p.on('pageerror',e=>errors.push(e.message));await p.emulateMedia({reducedMotion:'reduce'});const check=(ok,label)=>{if(!ok)throw Error(label);checks.push(label);};
  await p.goto('http://127.0.0.1:8776/arcade/snake-next/product/index.html?qa=1');await p.waitForFunction(()=>window.snakeProduct?.controller.screen==='main');await p.locator('[data-action=fullscreen]').tap();
- await p.waitForFunction(()=>!!document.fullscreenElement);await p.evaluate(()=>{document.documentElement.classList.remove('dev-qa');snakeProduct.fixture('settings');});
+ await p.waitForFunction(()=>!!document.fullscreenElement);await p.evaluate(async()=>{document.documentElement.classList.remove('dev-qa');await snakeProduct.fixture('settings');});
  await p.locator('.sound-mix>summary').tap();
  for(const key of ['master','music','sfx']){
   const input=p.locator('[data-setting="'+key+'"]');await input.scrollIntoViewIfNeeded();
@@ -10,7 +10,7 @@ async page=>{
   await input.evaluate(e=>{e.value='.35';e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));});
  }
  check(await p.evaluate(()=>['master','music','sfx'].every(k=>snakeProduct.settings[k]===.35)),'all sound channels retained');
- await p.locator('.sound-mix>summary').scrollIntoViewIfNeeded();await p.locator('.sound-mix>summary').tap();await p.screenshot({path:'docs/qa/snake-ui-v4/mobile-settings.png',scale:'css'});
- for(const [state,file]of [['rules-basics','mobile-guide'],['result-training','mobile-result']]){await p.evaluate(state=>snakeProduct.fixture(state),state);await p.screenshot({path:'docs/qa/snake-ui-v4/'+file+'.png',scale:'css'});}
+ await p.locator('.sound-mix>summary').scrollIntoViewIfNeeded();await p.locator('.sound-mix>summary').tap();await p.locator('.panel-heading h1').tap();await p.evaluate(()=>document.querySelector('.panel-body')?.scrollTo(0,0));await p.screenshot({path:'docs/qa/snake-ui-v4/mobile-settings.png',scale:'css'});
+ for(const [state,file]of [['rules-basics','mobile-guide'],['result-training','mobile-result']]){await p.evaluate(state=>snakeProduct.fixture(state),state);await p.waitForFunction(()=>[...document.querySelectorAll('#menu img')].every(e=>e.complete&&e.naturalWidth));await p.screenshot({path:'docs/qa/snake-ui-v4/'+file+'.png',scale:'css'});}
  check(errors.length===0,'no mobile modal page errors');await context.close();return {checks:checks.length,errors};
 }

@@ -1,0 +1,22 @@
+{
+  "start": "99c9961",
+  "source_checkpoint": "ee10dde",
+  "test_checkpoint": "db2297e",
+  "release": "2.15.33-a4a833b79202",
+  "runtime": "snake-next-325e9e5de225",
+  "rollback": "2.15.33-a67c23267bc6",
+  "node": {"passed": 55, "failed": 0},
+  "native": {"checks": 457, "page_errors": []},
+  "host": {"checks": 40, "page_errors": [], "network_errors": [], "fly_ranked_rpcs": []},
+  "touch_modal": {"checks": 5, "errors": []},
+  "live_desktop": {"checks": 212, "fullscreen": [1920,1080], "page_errors": [], "failed_assets": [], "route_overrides": false},
+  "live_mobile": {"checks": 205, "fullscreen": [844,390], "page_errors": [], "failed_assets": [], "route_overrides": false},
+  "dual_cdn": {"origins": 2, "dependencies_per_origin": 433, "sha_size_mime_errors": [], "manifest_equal": true},
+  "known_anonymous_site_baseline": "auth/v1/health 401",
+  "fly_smoke": "Training, Pause, Result, Hub return PASS",
+  "locked_files_unchanged": 915,
+  "production_digest": "5003cfcd190b3e2071e422bf4b12ca597fcf0fdcb16c1109f9e4186e0fa356ed",
+  "production_changed": false,
+  "sql_changed": false,
+  "human_visual_approval": "PENDING"
+}

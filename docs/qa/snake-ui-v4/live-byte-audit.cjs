@@ -5,7 +5,7 @@ const bases=['https://rytni.github.io/rytni-assets/','https://storage-1090.s3hos
 async function bytes(url){const r=await fetch(url);assert.equal(r.status,200,url);return {body:Buffer.from(await r.arrayBuffer()),type:r.headers.get('content-type')||''};}
 (async()=>{const results=[];for(const base of bases){
  const manifest=JSON.parse((await bytes(base+'giveaway-test/manifest.json?verify='+Date.now())).body);
- assert.equal(manifest.current.id,m.current.id);assert.equal(manifest.current.snake_runtime.id,rt.id);assert.equal(manifest.previous.id,'2.15.33-a67c23267bc6');
+ assert.equal(manifest.current.id,m.current.id);assert.equal(manifest.current.snake_runtime.id,rt.id);assert.equal(manifest.previous.id,m.previous.id);
  const app=await bytes(base+'giveaway-test/'+m.current.file);assert.equal(sha(app.body),m.current.sha256);assert.equal(app.body.length,m.current.size);assert.match(app.type,/text\/html/);
  const runtime=await bytes(base+'giveaway-test/'+m.current.snake_runtime.file);assert.equal(sha(runtime.body),m.current.snake_runtime.sha256);assert.match(runtime.type,/application\/json/);
  let i=0;const errors=[];

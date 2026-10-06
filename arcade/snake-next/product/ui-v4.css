@@ -50,6 +50,7 @@
  .main-identity{display:flex;grid-column:1;grid-row:1}
  .main-choices{display:flex;grid-column:2;grid-row:1}
  .main-choices>.actions{grid-column:auto;grid-row:auto;flex-direction:column}
+ .pause-secondary .btn{height:44px;min-height:44px;padding-block:4px;font-size:13px}
 }
 /* Keep independent crest artwork inside the mobile safe area. */
 @container snake-stage (max-width:1100px) or (max-height:600px){
