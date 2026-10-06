@@ -15,3 +15,5 @@ Implemented: native sliced panels/capped buttons,20 authored48px icons, state cr
 Review: `http://127.0.0.1:8775/docs/qa/snake-ui-v3/review.html`. Architecture/provenance: `ART.md`; scoped verification: `QA.md`; exact54-PNG inventory: `grib/mushroom-snake-ui-v3/inventory.json`.
 
 Candidate before publication: `2.15.33-a10ca16878b7`, runtime `snake-next-958664f591a6`.61 targeted Node tests;362 native,112 desktop-container,107 mobile-container and40 host functional assertions. Production/Fly/860 locked files unchanged.
+
+Final TEST: `2.15.33-a67c23267bc6` / `snake-next-3b755d3f0351`. A post-publication exhaustive byte audit caught Git newline normalization of UI inventory metadata; assembler now freezes LF before hashing, regression test added (62 total). UI/gameplay/PNG bytes did not change. Final LIVE112 desktop/107 mobile, dual-CDN431-file byte/MIME audit and canonical live deployment check PASS. See `REPORT.md`; `review.html` now defaults to final LIVE captures.

@@ -1,0 +1,16 @@
+[
+  {
+    "base": "https://rytni.github.io/rytni-assets/",
+    "release": "2.15.33-a67c23267bc6",
+    "runtime": "snake-next-3b755d3f0351",
+    "files": 431,
+    "errors": []
+  },
+  {
+    "base": "https://storage-1090.s3hoster.by/rytnistatictest/",
+    "release": "2.15.33-a67c23267bc6",
+    "runtime": "snake-next-3b755d3f0351",
+    "files": 431,
+    "errors": []
+  }
+]
