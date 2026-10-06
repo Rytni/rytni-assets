@@ -18,15 +18,13 @@ test('primary/danger Russian actions use real caps and plain centers, never comp
   const html=view({screen,run:{mode:'training'}},{});assert.ok(html.includes('/buttons/'+kind+'-left.png'));assert.ok(html.includes('/buttons/'+kind+'-right.png'));assert.ok(html.includes('button-center'));assert.ok(!html.includes('button-play.png'));
  }
 });
-test('lower cabinet rail reads canonical state without a clock, write, or geometry change',()=>{
- const elements=new Map(),styles={};
- const rail={setAttribute(){},querySelector(key){if(!elements.has(key))elements.set(key,{});return elements.get(key);},style:{setProperty(k,v){styles[k]=v;}}};
- const session=new TunnelSession({seed:17,progression:{model:'fit-world-v2',density:0}});
- const game={root:{ownerDocument:{createElement:()=>rail},append(){}},session,portrait:false,renderer:{h:1080,last:{cabinet:{x:0,y:0,w:1920,h:974},scale:1.33}},render(){}};
+test('product shell has no lower rail and preserves canonical layout/hash without another clock',()=>{
+ const session=new TunnelSession({seed:17,progression:{model:'fit-world-v2',density:0}}),canvas={style:{}};
+ let appended=0;const root={append(){appended++;}};
+ const game={root,session,renderer:{canvas,h:1080,last:{cabinet:{x:0,y:0,w:1920,h:974},scale:1.33}},render(){}};
  const before=session.hash(),layout=JSON.stringify(game.renderer.last);
- installProductShell(game);game.render();
- assert.equal(session.hash(),before);assert.equal(JSON.stringify(game.renderer.last),layout);
- assert.equal(rail.hidden,false);assert.equal(rail.style.height,'64px');assert.equal(styles['--rail-bridge'],'93px');
- game.renderer.h=990;game.render();assert.equal(rail.hidden,true);
- const source=readFileSync(new URL('./cabinet-shell.js',import.meta.url),'utf8');assert.ok(!/requestAnimationFrame|setTimeout|setInterval|Date\.now/.test(source));
+ assert.equal(installProductShell(game),root);game.render();
+ assert.equal(appended,0);assert.equal(session.hash(),before);assert.equal(JSON.stringify(game.renderer.last),layout);
+ assert.ok(canvas.style.clipPath.startsWith('polygon('));
+ const source=readFileSync(new URL('./cabinet-shell.js',import.meta.url),'utf8');assert.ok(!/requestAnimationFrame|setTimeout|setInterval|Date\\.now|createElement/.test(source));
 });

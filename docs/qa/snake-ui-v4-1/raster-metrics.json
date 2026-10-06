@@ -1,0 +1,25 @@
+{
+  "root_cause": "disconnected17px atlas-export residue in source PNG, not a CSS border or runtime scale seam",
+  "changed_pixels": 17,
+  "removed_source_bounds": [
+    4,
+    26,
+    5,
+    39
+  ],
+  "retained_main_pixels": 953,
+  "retained_pixels_byte_identical": true,
+  "dpr_crops": [
+    1,
+    1.5,
+    2
+  ],
+  "known_good_fly": {
+    "source": "grib/mushroom-snake-v1/fly-card.png",
+    "historical_commit": "e4b203c",
+    "sha256": "66bb95fb7bdd815770a1a4a36fbb718f4cef5e3474ae76e86f247c706580e7df",
+    "restored": "grib/mushroom-snake-ui-v4-1/fly-cover.png",
+    "restored_sha256": "66bb95fb7bdd815770a1a4a36fbb718f4cef5e3474ae76e86f247c706580e7df",
+    "reported_toolbar": "not reproduced in fresh TEST raster or either CDN asset; current old TEST asset already has known-good hash"
+  }
+}
