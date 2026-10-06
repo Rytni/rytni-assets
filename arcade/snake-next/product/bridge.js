@@ -1,6 +1,7 @@
 import {TunnelSession} from '../gate-one/session.js';
 import {installProgression} from '../progressive-run/adapter.js';
 import {EffectRibbonSprites} from './appearance/effect-ribbon.js';
+import {installProductShell} from './cabinet-shell.js';
 
 /** One existing TrainingGame owns input/clock/audio/rendering. This bridge
  * replaces only product routing and the seeded session factory. */
@@ -25,6 +26,7 @@ export class ProductBridge {
   game.render=()=>{if(game.session){game.ribbonV4.setSession(game.session,{quality:this.settings.quality});this.progression.presentation.quality=this.settings.quality;}render();};
   game.tick=()=>{const active=game.status==='playing';tick();const s=game.session;if(!s)return;if(active)this.metrics.activeTicks++;this.metrics.maxCombo=Math.max(this.metrics.maxCombo,s.combo||0);this.metrics.bonusCount+=s.events.filter(e=>e.kind==='positive'||e.kind==='negative').length;if(game.status==='result'&&!this.completed){this.completed=true;void this.onResult(this.stats());}};
   game.fullscreen=()=>this.onAction('fullscreen');
+  installProductShell(game);
   this.applySettings();game.main();game.show();
   // Parent fullscreen changes resize the iframe; normal viewport geometry is
   // still computed by the current FIT WORLD renderer and square-cell scale.

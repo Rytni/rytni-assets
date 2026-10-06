@@ -89,3 +89,24 @@ test('module-relative dynamic stylesheets are included in immutable source closu
  put('arcade/snake-next/runtime/theme.css','body{color:ivory}');
  assert.ok(assembler.prepareRuntime({root}).manifest.files.some(f=>f.file==='snake/runtime/theme.css'));
 });
+test('native UI nested inventories remain bounded and reject traversal or missing assets', t => {
+ const {root,put}=fixture(t),{prepareRuntime}=api();
+ put('arcade/snake-next/product/app.js',"export const art='/grib/mushroom-snake-ui-v3/';");
+ put('grib/mushroom-snake-ui-v3/icons/close-48.png',Buffer.from([1,2]));
+ put('grib/mushroom-snake-ui-v3/inventory.json',JSON.stringify({assets:[{file:'icons/close-48.png'}]}));
+ assert.ok(prepareRuntime({root}).files.has('grib/mushroom-snake-ui-v3/icons/close-48.png'));
+ for(const file of ['icons/../icons/close-48.png','/icons/close-48.png','icons/missing.png','../mushroom-snake-menu-v1/a.png']){
+  put('grib/mushroom-snake-ui-v3/inventory.json',JSON.stringify({assets:[{file}]}));
+  assert.throws(()=>prepareRuntime({root}),/inventory dependency/);
+ }
+});
+test('premium Snake selector cover is frozen in the same runtime; Fly cover stays unchanged', t => {
+ const {root,put}=fixture(t),assembler=api();
+ put('arcade/snake-next/product/app.js',"export const art='/grib/mushroom-snake-ui-v3/';");
+ put('grib/mushroom-snake-ui-v3/snake-cover.png',Buffer.from([4,5,6]));
+ const fly='https://rytni.github.io/rytni-assets/grib/mushroom-snake-v1/fly-card.png';
+ put('arcade/snake-next/test-host.html',`<img src="${fly}"><img src="https://rytni.github.io/rytni-assets/grib/mushroom-snake-ui-v3/snake-cover.png"><script>window.runtime="__SNAKE_NEXT_RUNTIME_URL__";</script>`);
+ const candidate=assembler.assembleCandidate({root});
+ assert.ok(candidate.bundle.includes(fly));
+ assert.ok(candidate.bundle.includes('giveaway-test/releases/'+candidate.runtime.id+'/grib/mushroom-snake-ui-v3/snake-cover.png'));
+});

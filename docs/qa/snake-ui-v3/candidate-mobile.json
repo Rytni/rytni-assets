@@ -1,0 +1,604 @@
+{
+  "mode": "candidate",
+  "mobile": true,
+  "runtime": "https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-958664f591a6/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=bd0b926a-1e48-4b51-8517-f4755f74ec64",
+  "checks": 107,
+  "metrics": [
+    {
+      "screen": "main",
+      "size": [
+        780,
+        439
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "play",
+          "close": false,
+          "w": 320,
+          "h": 64,
+          "bottom": 201.484375,
+          "y": 137.484375
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 240,
+          "h": 48,
+          "bottom": 257.484375,
+          "y": 209.484375
+        },
+        {
+          "action": "rules",
+          "close": false,
+          "w": 78.015625,
+          "h": 65.296875,
+          "bottom": 350.96875,
+          "y": 285.671875
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 70.21875,
+          "h": 65.296875,
+          "bottom": 350.96875,
+          "y": 285.671875
+        },
+        {
+          "action": "rating",
+          "close": false,
+          "w": 54.609375,
+          "h": 65.296875,
+          "bottom": 350.96875,
+          "y": 285.671875
+        },
+        {
+          "action": "mute",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 403.96875,
+          "y": 355.96875
+        },
+        {
+          "action": "fullscreen",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 403.96875,
+          "y": 355.96875
+        },
+        {
+          "action": "other-game",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 403.96875,
+          "y": 355.96875
+        }
+      ]
+    },
+    {
+      "screen": "main",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "play",
+          "close": false,
+          "w": 320,
+          "h": 64,
+          "bottom": 178.171875,
+          "y": 114.171875
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 240,
+          "h": 48,
+          "bottom": 234.171875,
+          "y": 186.171875
+        },
+        {
+          "action": "rules",
+          "close": false,
+          "w": 78.015625,
+          "h": 65.296875,
+          "bottom": 327.65625,
+          "y": 262.359375
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 70.21875,
+          "h": 65.296875,
+          "bottom": 327.65625,
+          "y": 262.359375
+        },
+        {
+          "action": "rating",
+          "close": false,
+          "w": 54.609375,
+          "h": 65.296875,
+          "bottom": 327.65625,
+          "y": 262.359375
+        },
+        {
+          "action": "mute",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 380.65625,
+          "y": 332.65625
+        },
+        {
+          "action": "fullscreen",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 380.65625,
+          "y": 332.65625
+        },
+        {
+          "action": "other-game",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 380.65625,
+          "y": 332.65625
+        }
+      ]
+    },
+    {
+      "screen": "pause",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "resume",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 87.59375,
+          "y": 39.59375
+        },
+        {
+          "action": "resume",
+          "close": false,
+          "w": 360,
+          "h": 64,
+          "bottom": 222.40625,
+          "y": 158.40625
+        },
+        {
+          "action": "restart",
+          "close": false,
+          "w": 226,
+          "h": 56,
+          "bottom": 288.40625,
+          "y": 232.40625
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 226,
+          "h": 56,
+          "bottom": 288.40625,
+          "y": 232.40625
+        },
+        {
+          "action": "exit",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 352.40625,
+          "y": 296.40625
+        }
+      ]
+    },
+    {
+      "screen": "confirm-restart",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "cancel",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 153.765625,
+          "y": 105.765625
+        },
+        {
+          "action": "confirm",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 286.21875,
+          "y": 230.21875
+        },
+        {
+          "action": "cancel",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 286.21875,
+          "y": 230.21875
+        }
+      ]
+    },
+    {
+      "screen": "settings",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "back",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 83.703125,
+          "y": 35.703125
+        },
+        {
+          "close": false,
+          "w": 65.609375,
+          "h": 48,
+          "bottom": 165.65625,
+          "y": 117.65625
+        },
+        {
+          "close": false,
+          "w": 65.609375,
+          "h": 48,
+          "bottom": 165.65625,
+          "y": 117.65625
+        },
+        {
+          "action": "back",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 356.296875,
+          "y": 300.296875
+        }
+      ]
+    },
+    {
+      "screen": "result",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "main",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 83.703125,
+          "y": 35.703125
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 300,
+          "h": 64,
+          "bottom": 356.296875,
+          "y": 292.296875
+        },
+        {
+          "action": "main",
+          "close": false,
+          "w": 180,
+          "h": 56,
+          "bottom": 352.296875,
+          "y": 296.296875
+        }
+      ]
+    },
+    {
+      "screen": "rules",
+      "size": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "back",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 83.703125,
+          "y": 35.703125
+        },
+        {
+          "close": false,
+          "w": 82.421875,
+          "h": 48,
+          "bottom": 165.65625,
+          "y": 117.65625
+        },
+        {
+          "close": false,
+          "w": 82.421875,
+          "h": 48,
+          "bottom": 165.65625,
+          "y": 117.65625
+        },
+        {
+          "close": false,
+          "w": 107.625,
+          "h": 48,
+          "bottom": 165.65625,
+          "y": 117.65625
+        },
+        {
+          "action": "back",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 356.296875,
+          "y": 300.296875
+        }
+      ]
+    }
+  ],
+  "shell": {
+    "cabinet": {
+      "x": 30.910000000000025,
+      "y": 0,
+      "w": 782.18,
+      "h": 390
+    },
+    "viewport": [
+      844,
+      390
+    ],
+    "rail": null
+  },
+  "errors": [],
+  "failed": [],
+  "baseline": [],
+  "forbidden": []
+}

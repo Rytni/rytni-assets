@@ -1,0 +1,31 @@
+async page => {
+ const mobile=await page.evaluate(()=>navigator.maxTouchPoints>0),out='docs/qa/snake-ui-v3/',errors=[];
+ await page.setViewportSize(mobile?{width:844,height:390}:{width:1920,height:1080});
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('https://rytni.live/testpodari?progression_preview=1&ttq_preview=1&arcade_preview=1&snake_ui_baseline=1');
+ await page.waitForSelector('#rytniProgressionHub',{state:'attached'});
+ await page.evaluate(()=>{let e=document.querySelector('#rytniProgressionHub');while(e&&e!==document.body){e.hidden=false;if(getComputedStyle(e).display==='none')e.style.display='block';e=e.parentElement;}});
+ await page.locator('[data-progression-tab="arcade"]').click();
+ if(!mobile)await page.screenshot({path:out+'baseline-selector.png'});
+ await page.locator('[data-ms-action="game-snake"]').click();await page.waitForFunction(()=>RytniArcadeHub.snakeScreen==='main');
+ const f=page.frames().find(f=>f.url().includes('/snake/product/index.html'));
+ const action=async a=>{const b=f.locator('[data-action="'+a+'"]').first();if(mobile)await b.tap();else await b.click();};
+ if(!mobile){await page.screenshot({path:out+'baseline-embedded-main.png'});await action('fullscreen');await page.waitForFunction(()=>!!document.fullscreenElement);await page.screenshot({path:out+'baseline-fullscreen-main.png'});await f.locator('.tournament-board').screenshot({path:out+'baseline-leaderboard.png'});}
+ else{await action('fullscreen');await page.waitForFunction(()=>!!document.fullscreenElement);}
+ await action('training');await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='playing');
+ const gf=f.childFrames().find(f=>f.url().includes('/product/frame.html'));await gf.evaluate(()=>snakeProductGame.pause());await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='pause');
+ await action('restart');await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='confirm-restart');
+ if(!mobile)await page.screenshot({path:out+'baseline-restart.png'});
+ // After screenshot, DOM actions avoid Edge's cross-origin/DPR screenshot input artifact.
+ await f.locator('[data-action="cancel"]').first().evaluate(e=>e.click());
+ await page.screenshot({path:out+(mobile?'baseline-mobile-pause.png':'baseline-pause.png')});
+ // Frozen canonical pose, presentation-only hiding of Pause for this still.
+ await f.evaluate(()=>document.querySelector('#product-overlay').style.visibility='hidden');
+ await page.screenshot({path:out+(mobile?'baseline-mobile-gameplay.png':'baseline-fullscreen-gameplay.png')});
+ await f.evaluate(()=>document.querySelector('#product-overlay').style.visibility='');await f.locator('[data-action="resume"]').first().evaluate(e=>e.click());
+ await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='result',{},{timeout:15000});
+ if(!mobile)await page.screenshot({path:out+'baseline-training-result.png'});
+ await f.locator('[data-action="main"]').first().evaluate(e=>e.click());
+ if(mobile)await page.screenshot({path:out+'baseline-mobile-main.png'});
+ await page.evaluate(()=>RytniArcadeHub.leave());return {mobile,errors,runtime:f.url()};
+}

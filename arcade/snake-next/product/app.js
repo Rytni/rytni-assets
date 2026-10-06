@@ -17,6 +17,7 @@ const bridge=new ProductBridge(frame,{settings,onPause:()=>controller?.pause(),o
 controller=new ProductController({backend,bridge,gate,release});
 controller.hostSwitch=typeof window.RytniArcadeHub?.leave==='function';
 function render(){
+ controller.fullscreenActive=document.fullscreenElement===cabinet||cabinet.classList.contains('pseudo-fullscreen');
  document.querySelector('#product').dataset.screen=controller.screen;
  window.SnakeTestHost?.state(controller.screen);
  cabinet.classList.toggle('playing',controller.screen==='playing');
@@ -43,9 +44,10 @@ async function dispatch(action){
 menu.addEventListener('click',e=>{const tab=e.target.closest('[data-tab]');if(tab){controller.tab=tab.dataset.tab;bridge.sound('button');render();return;}const action=e.target.closest('[data-action]')?.dataset.action;if(action)void dispatch(action);});
 menu.addEventListener('input',e=>{const key=e.target.dataset.setting;if(!['master','music','sfx'].includes(key))return;settings[key]=Number(e.target.value);e.target.nextElementSibling.textContent=Math.round(settings[key]*100)+'%';saveSettings();bridge.applySettings();});
 async function fullscreen(force=false){
- if(!force&&cabinet.classList.contains('pseudo-fullscreen')){cabinet.classList.remove('pseudo-fullscreen');await window.SnakeTestHost?.fullscreen(false);return;}
+ if(!force&&cabinet.classList.contains('pseudo-fullscreen')){cabinet.classList.remove('pseudo-fullscreen');await window.SnakeTestHost?.fullscreen(false);if(controller.screen!=='playing')controller.emit();return;}
  try{if(document.fullscreenElement&&!force)await document.exitFullscreen();else if(!document.fullscreenElement)await cabinet.requestFullscreen();}
  catch{if(mobile()){const active=force||!cabinet.classList.contains('pseudo-fullscreen'),accepted=window.SnakeTestHost?await window.SnakeTestHost.fullscreen(active):true;cabinet.classList.toggle('pseudo-fullscreen',active&&accepted);}else{controller.message='Полный экран недоступен в этом браузере. Можно играть в окне.';controller.emit();}}
+ if(controller.screen!=='playing')controller.emit();
 }
 async function share(){if(!controller.result?.accepted)return;const message=`Мой рекорд в Mushroom Snake — ${Number(controller.hub.best_score).toLocaleString('ru-RU')} очков!`;try{if(navigator.share)await navigator.share({title:'Mushroom Snake',text:message});else{await navigator.clipboard.writeText(message);controller.message='Результат скопирован.';const n=document.createElement('p');n.className='note';n.textContent=controller.message;menu.append(n);}}catch(error){if(error.name!=='AbortError'){const field=document.createElement('textarea');field.value=message;field.readOnly=true;field.setAttribute('aria-label','Текст для копирования');menu.append(field);field.select();}}}
 function loadSettings(){let saved={};try{saved=JSON.parse(localStorage.getItem('mushroom_snake_settings_v1')||'{}');}catch{}return {master:volume(saved.master,.75),music:volume(saved.music,.5),sfx:volume(saved.sfx,.65),muted:saved.muted===true,quality:saved.quality==='eco'?'eco':'full'};}

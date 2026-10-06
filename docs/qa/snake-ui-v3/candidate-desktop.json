@@ -1,0 +1,625 @@
+{
+  "mode": "candidate",
+  "mobile": false,
+  "runtime": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-958664f591a6/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=c7e5eb88-4f8b-4744-b770-5192471fbfd3",
+  "checks": 112,
+  "metrics": [
+    {
+      "screen": "main",
+      "size": [
+        720,
+        405
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "play",
+          "close": false,
+          "w": 320,
+          "h": 64,
+          "bottom": 184.484375,
+          "y": 120.484375
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 240,
+          "h": 48,
+          "bottom": 240.484375,
+          "y": 192.484375
+        },
+        {
+          "action": "rules",
+          "close": false,
+          "w": 78.015625,
+          "h": 65.296875,
+          "bottom": 333.96875,
+          "y": 268.671875
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 70.21875,
+          "h": 65.296875,
+          "bottom": 333.96875,
+          "y": 268.671875
+        },
+        {
+          "action": "rating",
+          "close": false,
+          "w": 54.609375,
+          "h": 65.296875,
+          "bottom": 333.96875,
+          "y": 268.671875
+        },
+        {
+          "action": "mute",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 386.96875,
+          "y": 338.96875
+        },
+        {
+          "action": "fullscreen",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 386.96875,
+          "y": 338.96875
+        },
+        {
+          "action": "other-game",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 386.96875,
+          "y": 338.96875
+        }
+      ]
+    },
+    {
+      "screen": "main",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "play",
+          "close": false,
+          "w": 400,
+          "h": 64,
+          "bottom": 555.96875,
+          "y": 491.96875
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 240,
+          "h": 56,
+          "bottom": 619.96875,
+          "y": 563.96875
+        },
+        {
+          "action": "rules",
+          "close": false,
+          "w": 84.015625,
+          "h": 72,
+          "bottom": 744.96875,
+          "y": 672.96875
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 75.625,
+          "h": 72,
+          "bottom": 744.96875,
+          "y": 672.96875
+        },
+        {
+          "action": "mute",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 812.96875,
+          "y": 764.96875
+        },
+        {
+          "action": "fullscreen",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 812.96875,
+          "y": 764.96875
+        },
+        {
+          "action": "other-game",
+          "close": false,
+          "w": 48,
+          "h": 48,
+          "bottom": 812.96875,
+          "y": 764.96875
+        }
+      ]
+    },
+    {
+      "screen": "pause",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "resume",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 421.28125,
+          "y": 373.28125
+        },
+        {
+          "action": "resume",
+          "close": false,
+          "w": 360,
+          "h": 64,
+          "bottom": 578.71875,
+          "y": 514.71875
+        },
+        {
+          "action": "restart",
+          "close": false,
+          "w": 226,
+          "h": 56,
+          "bottom": 644.71875,
+          "y": 588.71875
+        },
+        {
+          "action": "settings",
+          "close": false,
+          "w": 226,
+          "h": 56,
+          "bottom": 644.71875,
+          "y": 588.71875
+        },
+        {
+          "action": "exit",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 708.71875,
+          "y": 652.71875
+        }
+      ]
+    },
+    {
+      "screen": "confirm-restart",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "cancel",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 488.015625,
+          "y": 440.015625
+        },
+        {
+          "action": "confirm",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 641.984375,
+          "y": 585.984375
+        },
+        {
+          "action": "cancel",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 641.984375,
+          "y": 585.984375
+        }
+      ]
+    },
+    {
+      "screen": "settings",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "back",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 382.515625,
+          "y": 334.515625
+        },
+        {
+          "close": false,
+          "w": 65.609375,
+          "h": 48,
+          "bottom": 478.484375,
+          "y": 430.484375
+        },
+        {
+          "close": false,
+          "w": 65.609375,
+          "h": 48,
+          "bottom": 478.484375,
+          "y": 430.484375
+        },
+        {
+          "action": "back",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 747.484375,
+          "y": 691.484375
+        }
+      ]
+    },
+    {
+      "screen": "result",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "main",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 261.59375,
+          "y": 213.59375
+        },
+        {
+          "action": "training",
+          "close": false,
+          "w": 380,
+          "h": 64,
+          "bottom": 802.390625,
+          "y": 738.390625
+        },
+        {
+          "action": "main",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 868.390625,
+          "y": 812.390625
+        }
+      ]
+    },
+    {
+      "screen": "rules",
+      "size": [
+        1920,
+        1080
+      ],
+      "overflow": false,
+      "ornaments": [
+        {
+          "class": "skin-corner skin-tl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-tr",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-bl",
+          "error": 0
+        },
+        {
+          "class": "skin-corner skin-br",
+          "error": 0
+        },
+        {
+          "class": "skin-crest",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-left",
+          "error": 0
+        },
+        {
+          "class": "button-cap cap-right",
+          "error": 0
+        }
+      ],
+      "buttons": [
+        {
+          "action": "back",
+          "close": true,
+          "w": 48,
+          "h": 48,
+          "bottom": 313.65625,
+          "y": 265.65625
+        },
+        {
+          "close": false,
+          "w": 82.421875,
+          "h": 48,
+          "bottom": 409.625,
+          "y": 361.625
+        },
+        {
+          "close": false,
+          "w": 82.421875,
+          "h": 48,
+          "bottom": 409.625,
+          "y": 361.625
+        },
+        {
+          "close": false,
+          "w": 107.625,
+          "h": 48,
+          "bottom": 409.625,
+          "y": 361.625
+        },
+        {
+          "action": "back",
+          "close": false,
+          "w": 220,
+          "h": 56,
+          "bottom": 816.328125,
+          "y": 760.328125
+        }
+      ]
+    }
+  ],
+  "shell": {
+    "cabinet": {
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 973.9399999999999
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "rail": {
+      "x": 0,
+      "y": 974,
+      "width": 1920,
+      "height": 106,
+      "top": 974,
+      "right": 1920,
+      "bottom": 1080,
+      "left": 0
+    }
+  },
+  "errors": [],
+  "failed": [],
+  "baseline": [],
+  "forbidden": []
+}

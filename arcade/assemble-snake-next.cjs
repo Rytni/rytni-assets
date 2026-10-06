@@ -1,7 +1,7 @@
 // TEST-only immutable dependency snapshot. No gameplay is inlined into Tilda.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const DEFAULT_ROOT=path.resolve(__dirname,'..');
-const ASSET_FAMILIES=['mushroom-snake-menu-v1','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
+const ASSET_FAMILIES=['mushroom-snake-menu-v1','mushroom-snake-ui-v3','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const posix=value=>value.split(path.sep).join('/');
 function readSafe(root,file){
@@ -66,7 +66,7 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
  for(const [file,bytes]of files)if(file.endsWith('/inventory.json')){
   const inventory=JSON.parse(bytes);
   if(!Array.isArray(inventory.assets))throw Error('Invalid runtime asset inventory: '+file);
-  for(const asset of inventory.assets)if(typeof asset.file!=='string'||!/^[A-Za-z0-9_-]+\.png$/.test(asset.file)||!files.has(path.posix.dirname(file)+'/'+asset.file))throw Error('Invalid or missing inventory dependency: '+file+' / '+asset.file);
+  for(const asset of inventory.assets)if(typeof asset.file!=='string'||!/^(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+\.png$/.test(asset.file)||!files.has(path.posix.dirname(file)+'/'+asset.file))throw Error('Invalid or missing inventory dependency: '+file+' / '+asset.file);
  }
  // Check literal paths as well as family presence. Template-derived paths use
  // the reviewed, bounded families above; their inventories are snapshotted.
@@ -91,7 +91,7 @@ function assembleCandidate({root=DEFAULT_ROOT}={}){
  const tokens=host.match(/__SNAKE_NEXT_RUNTIME_URL__/g)||[];
  if(tokens.length!==1)throw Error('Snake Next host needs exactly one immutable runtime URL token.');
  const base='https://rytni.github.io/rytni-assets/giveaway-test/releases/'+runtime.id+'/';
- const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/giveaway-test/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/mushroom-snake-menu-v1\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
+ const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/giveaway-test/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/mushroom-snake-(?:menu-v1|ui-v3)\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
   if(!snapshot.files.has(file))throw Error('Host artwork missing from Snake snapshot: '+file);
   return base+file;
  });
