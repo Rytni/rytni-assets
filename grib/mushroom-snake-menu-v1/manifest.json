@@ -1,0 +1,282 @@
+{
+  "version": "menu-art-v1",
+  "sourcePolicy": "Original menu-only art; no concept crops; gameplay PNGs unchanged",
+  "assets": [
+    {
+      "file": "title-forest.png",
+      "size": [
+        1008,
+        567
+      ],
+      "mode": "RGB",
+      "source": "forest-title.png",
+      "sourceRect": null,
+      "sha256": "803d239c755f137b778919038e5979279ce8e8cb34c15e60d17c6ec83dd6665e"
+    },
+    {
+      "file": "snake-hero.png",
+      "size": [
+        512,
+        262
+      ],
+      "mode": "RGBA",
+      "source": "snake-hero.png",
+      "sourceRect": null,
+      "sha256": "340e818b27d9159ffcdc5f39f03640c89fe6db7bf32936894834eab901a2a606"
+    },
+    {
+      "file": "button-play.png",
+      "size": [
+        320,
+        163
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        0,
+        118,
+        438,
+        352
+      ],
+      "sha256": "72e80a942420cebc0384103b14afb1c33f7b82a0ba92821ea1a5eaf125e694bc"
+    },
+    {
+      "file": "button-wood.png",
+      "size": [
+        256,
+        111
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        440,
+        150,
+        816,
+        326
+      ],
+      "sha256": "6874d0a1f55d76e19c79b466ca818168debf8c0b79a9e409b8087768bd43101e"
+    },
+    {
+      "file": "button-danger.png",
+      "size": [
+        256,
+        121
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        816,
+        130,
+        1254,
+        354
+      ],
+      "sha256": "73344ff59c3f4822b51f7116ac477d469b7899e1dbb900cb018f3812199f8d93"
+    },
+    {
+      "file": "record-plaque.png",
+      "size": [
+        320,
+        154
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        0,
+        495,
+        516,
+        758
+      ],
+      "sha256": "6f01a53bb8f67603f78a3c62707e8914dc263fc29c1f3a0752b57cfb177dc127"
+    },
+    {
+      "file": "icon-bezel.png",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        518,
+        465,
+        814,
+        758
+      ],
+      "sha256": "ed9d20c9e5aeed3ce09a7f0582073763b3eee1c20206d43287a1ee88abf71880"
+    },
+    {
+      "file": "guide-book.png",
+      "size": [
+        256,
+        218
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        818,
+        415,
+        1254,
+        795
+      ],
+      "sha256": "4fa570495eedad73649e53005b390ce1259964bbd6d7f97a9d1a23854a56a622"
+    },
+    {
+      "file": "attempt-mushroom.png",
+      "size": [
+        64,
+        77
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        65,
+        820,
+        368,
+        1195
+      ],
+      "sha256": "e55bbd1b4cf39f133b3cf10bd529631700425f7b4ec8a1f44f82851d1a1cc404"
+    },
+    {
+      "file": "attempt-sponsor.png",
+      "size": [
+        64,
+        66
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        435,
+        820,
+        802,
+        1195
+      ],
+      "sha256": "6c41ef09fba81a351cd04a4fa9d1a8d95e7f5a58fec1607c3ce42ea6b25621ce"
+    },
+    {
+      "file": "record-trophy.png",
+      "size": [
+        256,
+        248
+      ],
+      "mode": "RGBA",
+      "source": "ui-sheet.png",
+      "sourceRect": [
+        818,
+        784,
+        1254,
+        1215
+      ],
+      "sha256": "cbdd553c74d2597388dd65c0b559c0aa937c685f071f3a092f90dc8b5fcb80c3"
+    },
+    {
+      "file": "board-frame.png",
+      "size": [
+        512,
+        673
+      ],
+      "mode": "RGBA",
+      "source": "board-frame.png",
+      "sourceRect": null,
+      "sha256": "7030f5904a1d89081b26172f0e0182880c99e1818e4ae3a5ba1df9fab5abf112"
+    },
+    {
+      "file": "icon-sound.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "915c77b4e763e90b61f2adc27a9dfe0477646cfaf7aea42c390a3be08f18324a"
+    },
+    {
+      "file": "icon-music.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "35868f0098f1bffdc1ad22258daf32d3b4e24bf9ad94e4c9399a5e7eff051be9"
+    },
+    {
+      "file": "icon-sfx.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "992ca9b7e7b56d5826620f07b80c27bb71a93ed24a9ef5ebec5dd07c18b29afc"
+    },
+    {
+      "file": "icon-settings.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "f5d37839a4d306de53b233375c80bf31dc803489669d8686230b58c185c83f15"
+    },
+    {
+      "file": "icon-fullscreen.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "37ef8e1161ae0b3293a199ae7586678d6dfb38a4b2b631067a508d3f2c81ca32"
+    },
+    {
+      "file": "icon-back.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "3d7e85a9394ab5f99764b519b243b05457a96a783757c8e628237f102954901d"
+    },
+    {
+      "file": "icon-play.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "99a2f7a82892a4a86eb454d7b7b3634628c78ee5d9d5beaf44e5e3b7a6cc317d"
+    },
+    {
+      "file": "icon-combo.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "8bebaba660c529b77b8d49cd0b4ab681f11a072beec913882086b944b8ec46a2"
+    },
+    {
+      "file": "icon-keys.png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "source": "offline pixel authoring",
+      "sourceRect": null,
+      "sha256": "09fe4db95430d0e547b0df50c10a26819220f534ea2f9ff94da646b282d74cc0"
+    }
+  ]
+}
