@@ -33,6 +33,7 @@ The product accesses the existing TrainingGame through an exported binding, not 
 - `arcade/snake-next/forest-training/runtime.js`: exported binding only
 - `arcade/snake-next/progressive-run/adapter.js`: module-relative stylesheet URL
 - `tools/{build_tilda_test,test_tilda_test,deploy_tilda_test,test-deploy-guard,test-snake-runtime-deploy-guard,test-snake-candidate-staging}.ps1`
+- `tools/{sync-snake-test-mirror.cjs,sync-snake-test-mirror.ps1,test-snake-test-mirror.cjs}`: exact TEST mirror; no shared/Production uploads
 - `tilda-test/README.md`, this QA/review directory
 - Generated `giveaway-test/manifest.json`, selected app release and exact immutable runtime closure are publication outputs, not hand-edited application code.
 

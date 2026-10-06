@@ -14,7 +14,7 @@
 | Existing portal/effect behavior | 25/25 behavioral tests; `gameplay-behavior-results.txt` |
 | Production / locked code / artwork | `safety-check.cjs`; original Production aggregate `5003cfcd190b3e2071e422bf4b12ca597fcf0fdcb16c1109f9e4186e0fa356ed`; Fly SHA `1c76cc728a16ab87ff0c7f122884154f7fa63edc27630b0e1930cc949681e506` |
 | Build/source/loader/runtime | `build_tilda_test.ps1` and `test_tilda_test.ps1` pass; 376 exact immutable runtime paths |
-| Guard unit fixtures | Original Production/index/path guard, exact-runtime/tampering guard and 600-path stdin staging regression pass |
+| Guard unit fixtures | Original Production/index/path guard, exact-runtime/tampering guard, 600-path stdin staging and exact TEST mirror/manifest-last regressions pass |
 | Canonical deployment CheckOnly | PASS after source checkpoint `62a6d55` |
 
 ## Evidence limitations / historical failures
@@ -31,4 +31,6 @@ Geometry and artwork are not redesigned. Review screenshots are fixtures where s
 
 ## Publication
 
-Not yet accepted. First canonical Publish stopped before staging/push because the 376-file argument list exceeded Windows' command-line limit. The canonical staging helper now feeds the same validated literal paths through stdin; a 600-file regression proves no lost paths or Production admission. No manual publication staging or push was used. Required remaining evidence: Publish, matching Pages/S3 manifests/runtime hashes and MIME, mandatory live deployment check, then real unmodified TEST desktop/mobile/Fly smoke. Production snapshot must remain identical throughout.
+GitHub Pages publication `f890a12` selects `2.15.33-eaf73478e2df`; Pages build 37444793840 succeeded. Acceptance is still pending S3 and public browser verification. First canonical Publish stopped before staging/push because the 376-file argument list exceeded Windows' command-line limit. The canonical staging helper now feeds the same validated literal paths through stdin; a 600-file regression proves no lost paths or Production admission. No manual publication staging or push was used.
+
+S3 has a separate historical uploader, not an automatic mirror. Its media-only dependency discovery cannot mirror the new module runtime. Canonical Publish now calls an exact TEST-only sync helper: validate the current source closure and bytes; verify the deployed rollback; upload/verify only current immutable runtime/app files; promote `giveaway-test/manifest.json` last. Correct JS/MJS/CSS/HTML MIME is explicit. Existing immutable objects must match, never get silently overwritten. No generic asset, Fly, loader, vendor, Production or DB targets are written. Credentials use the existing local DPAPI loader, never committed or printed; absence fails closed. Required remaining evidence: matching mirrors, mandatory live deployment check and real unmodified TEST desktop/mobile/Fly smoke.

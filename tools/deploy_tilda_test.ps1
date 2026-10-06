@@ -22,11 +22,13 @@ Stage-TestCandidatePaths $AssetsRepo $paths
 Assert-TestDeployState $AssetsRepo $snapshot
 $staged=Invoke-DeployGit $AssetsRepo @('diff','--cached','--name-only','--no-renames')
 foreach($path in $staged) { if ($path -notin $paths) { throw "Unrelated TEST artifact in index: $path" } }
-if (!$staged.Count) { Write-Output 'Candidate already committed; nothing published.'; return }
+if (!$staged.Count) { & (Join-Path $PSScriptRoot 'sync-snake-test-mirror.ps1'); Assert-TestDeployState $AssetsRepo $snapshot; Write-Output 'Candidate already committed; exact TEST mirror verified.'; return }
 $id=(Get-Content -LiteralPath (Join-Path $AssetsRepo 'giveaway-test/manifest.json') -Raw | ConvertFrom-Json).current.id
 & git -C $AssetsRepo commit -m "Publish TEST candidate $id"
 if ($LASTEXITCODE -ne 0) { throw 'TEST commit failed.' }
 Assert-TestDeployState $AssetsRepo $snapshot
 & git -C $AssetsRepo push origin main
 if ($LASTEXITCODE -ne 0) { throw 'TEST push failed.' }
+& (Join-Path $PSScriptRoot 'sync-snake-test-mirror.ps1')
+Assert-TestDeployState $AssetsRepo $snapshot
 Write-Output "Pushed TEST $id. Publication is NOT accepted until Pages/S3 manifest and public browser QA agree."
