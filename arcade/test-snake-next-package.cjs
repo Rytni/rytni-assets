@@ -110,3 +110,11 @@ test('premium Snake selector cover is frozen in the same runtime; Fly cover stay
  assert.ok(candidate.bundle.includes(fly));
  assert.ok(candidate.bundle.includes('giveaway-test/releases/'+candidate.runtime.id+'/grib/mushroom-snake-ui-v3/snake-cover.png'));
 });
+test('inventory metadata is canonical LF before identity hashing and Git publication', t => {
+ const {root,put}=fixture(t),{prepareRuntime}=api();
+ put('grib/mushroom-snake-menu-v1/inventory.json','{\r\n  "assets": [{"file":"a.png"}]\r\n}\r\n');
+ const first=prepareRuntime({root}),name='grib/mushroom-snake-menu-v1/inventory.json';
+ assert.equal(first.files.get(name).toString(),'{\n  "assets": [{"file":"a.png"}]\n}\n');
+ put(name,'{\n  "assets": [{"file":"a.png"}]\n}\n');
+ assert.equal(prepareRuntime({root}).manifest.id,first.manifest.id);
+});

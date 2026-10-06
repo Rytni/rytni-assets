@@ -30,4 +30,6 @@ Console/page/asset/Fly-ranked-RPC failures in candidate runs: zero. Initial unau
 
 No SQL, backend, skins, progression, portals, collision, speed, input or standalone Training changes. New family only; old approved artwork preserved. Packaging accepts safe nested PNG inventory names, rejects traversal/missing files, snapshots cover and leaves Fly cover URL unchanged.
 
-TEST publication/live verification: pending canonical source checkpoint and guard. Production readiness is NOT claimed. Human visual review remains required.
+First publication `a10ca16878b7` passed visible LIVE UI (112 desktop/107 mobile) and the canonical loader check, but an additional exhaustive runtime SHA audit caught Git line-ending normalization of the new UI inventory JSON on Pages. S3 matched. This is an integrity FAIL, not a gameplay/art change. The old immutable snapshot is retained, never overwritten.
+
+Packaging now canonicalizes inventory metadata to LF BEFORE hashing (PNG/audio unchanged), with a CRLF/LF identity regression test.62 Node tests. Corrected candidate `2.15.33-a67c23267bc6` / `snake-next-3b755d3f0351`; the ONLY changed runtime dependency is UI `inventory.json`. Rollback stays the fully verified starting `eaf73478e2df`. Final dual-CDN audit/live captures pending corrected publication. Production readiness is NOT claimed.

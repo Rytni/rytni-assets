@@ -40,7 +40,12 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
  }
  visit('product/index.html');visit('product/frame.html');
  const combined=[...sources.values()].join('\n');
- function addAsset(file){files.set(file,readSafe(root,file));}
+ function addAsset(file){
+  const bytes=readSafe(root,file);
+  // JSON metadata must survive Git's Windows text normalization unchanged.
+  // PNG/audio artwork stays byte-identical. Freeze canonical LF before hashing.
+  files.set(file,file.endsWith('/inventory.json')?Buffer.from(bytes.toString('utf8').replace(/\r\n?/g,'\n')):bytes);
+ }
  function walkAssets(relative){
   const dir=path.join(root,relative);
   if(!fs.existsSync(dir))throw Error('Missing runtime asset family: '+relative);
