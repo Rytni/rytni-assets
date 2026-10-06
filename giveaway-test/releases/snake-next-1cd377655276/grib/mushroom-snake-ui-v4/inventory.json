@@ -1,0 +1,555 @@
+{
+  "schema": 1,
+  "authoring": "native pixel raster48/64; no reference source pixels",
+  "icons": [
+    "settings",
+    "guide",
+    "sound-on",
+    "sound-off",
+    "fullscreen",
+    "exit-fullscreen",
+    "close",
+    "back",
+    "home",
+    "restart",
+    "share",
+    "trophy",
+    "rank",
+    "attempt",
+    "sponsor",
+    "leaderboard",
+    "music",
+    "sfx",
+    "keys",
+    "combo"
+  ],
+  "assets": [
+    {
+      "file": "buttons/control.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.9079861111111112,
+      "sha256": "fdb76b95734e3d4c5272e68ffdff789e5d620621ebad6bf27031819d81bb0b5f"
+    },
+    {
+      "file": "buttons/danger-center.png",
+      "size": [
+        24,
+        64
+      ],
+      "alpha_ratio": 0.734375,
+      "sha256": "c6ebc4e0983a169a60d22e03a877bd6136407e33a74f0ae90739b015650349c7"
+    },
+    {
+      "file": "buttons/danger-left.png",
+      "size": [
+        80,
+        64
+      ],
+      "alpha_ratio": 0.7716796875,
+      "sha256": "abbca3c6c4dd384dcc95c9998030155e8de8b4ebca54e606b976bbfa3886fd6c"
+    },
+    {
+      "file": "buttons/danger-right.png",
+      "size": [
+        80,
+        64
+      ],
+      "alpha_ratio": 0.7716796875,
+      "sha256": "53b6d0b40809e9ab1040737cdfd1be88d615b5626f1c5f715ac2ee78c0553de6"
+    },
+    {
+      "file": "buttons/play-center.png",
+      "size": [
+        24,
+        64
+      ],
+      "alpha_ratio": 0.734375,
+      "sha256": "40fc40ea25bbf353c3785ec5b4ac5d5c401fce55fdb695aecb847dc6e80c57ea"
+    },
+    {
+      "file": "buttons/play-jewel.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_ratio": 0.6318359375,
+      "sha256": "0ae5d7d5c7ca145d40a602583703fbd5d33eb27957c1fb1698bb444fb76e2d19"
+    },
+    {
+      "file": "buttons/play-left.png",
+      "size": [
+        80,
+        64
+      ],
+      "alpha_ratio": 0.7716796875,
+      "sha256": "8e85782bab5f0bc60150fc612284efbd328846559c59c237bc6ccd1fa98b2c56"
+    },
+    {
+      "file": "buttons/play-right.png",
+      "size": [
+        80,
+        64
+      ],
+      "alpha_ratio": 0.7716796875,
+      "sha256": "0736af7c2e3abdaa4c4e6b99b0a3104e2fc41a60175789de1143c0823b910070"
+    },
+    {
+      "file": "buttons/wood-center.png",
+      "size": [
+        24,
+        64
+      ],
+      "alpha_ratio": 0.765625,
+      "sha256": "779148a5c527bdce00952985bd4b0a5ebbe3f4e543a1833b79d26bfb3dcb71d0"
+    },
+    {
+      "file": "buttons/wood-left.png",
+      "size": [
+        87,
+        64
+      ],
+      "alpha_ratio": 0.7568247126436781,
+      "sha256": "5fa548689036f109155b63d87dfbb070383b37d180082a996e8341ca3b1c6944"
+    },
+    {
+      "file": "buttons/wood-right.png",
+      "size": [
+        87,
+        64
+      ],
+      "alpha_ratio": 0.7568247126436781,
+      "sha256": "e92a5cad5180bfdcef16cac760ee793b320bd64533122e421277943470f601f8"
+    },
+    {
+      "file": "forest-backdrop.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "alpha_ratio": 1.0,
+      "sha256": "6ce021b3d317f96fdd6d42abc2fbd1bd5510e6e64205a8614d42e96b8f19ecf9"
+    },
+    {
+      "file": "hero.png",
+      "size": [
+        640,
+        409
+      ],
+      "alpha_ratio": 0.47667328850855745,
+      "sha256": "7e30c602449b61eb7f65eea2895dbdd015b6dd8d533ffe48b77edf1e1c7766b6"
+    },
+    {
+      "file": "icons/attempt-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4210069444444444,
+      "sha256": "d745bef0a2a6c7076d66747aa443c329a491cd47f23f90fe6d2ee671346f78a0"
+    },
+    {
+      "file": "icons/attempt-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha_ratio": 0.468505859375,
+      "sha256": "d5c47cad792d39f6b26b8b9301de1d60e12e1f657390a7569c912e0b0cc42315"
+    },
+    {
+      "file": "icons/back-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.2894965277777778,
+      "sha256": "e3965856a8a6c23944e3beadb0b8b7c52e018b478087091744d093271918d7b6"
+    },
+    {
+      "file": "icons/close-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4756944444444444,
+      "sha256": "64581e6f65c25d9ee18223db6379e6c7cedb766c4ee12d9bb7cc6f08591ef4f3"
+    },
+    {
+      "file": "icons/combo-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.17491319444444445,
+      "sha256": "3fe35f32c3f1ea2de92faf092d98e6b6fc7d542c34bba2253e5282871599bc60"
+    },
+    {
+      "file": "icons/exit-fullscreen-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.2703993055555556,
+      "sha256": "8d64214972da60d35d6c0fea5be0aa185da3b9e3112ce66246d351cd17594081"
+    },
+    {
+      "file": "icons/fullscreen-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3463541666666667,
+      "sha256": "d604172c69a471797aae7a7ecf86c35eab103f17864a22482e1d0888a4e6199e"
+    },
+    {
+      "file": "icons/guide-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4474826388888889,
+      "sha256": "52c007ead28fae4150154d31d63bc1dd0b0e9d80288d8dd5ed75732167f26600"
+    },
+    {
+      "file": "icons/guide-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha_ratio": 0.49658203125,
+      "sha256": "7b08d21205c8c8587638c105c7496b3faadc492db0beffd4cf7c09bd665cb731"
+    },
+    {
+      "file": "icons/home-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3910590277777778,
+      "sha256": "74f445360c5f6189d42c9a31742073f2cab52050d9f51c11a80fc23de0a227ac"
+    },
+    {
+      "file": "icons/keys-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3333333333333333,
+      "sha256": "871c070089f215e430349864accbc4d049ebda0d6bb63c18322651403dd8345c"
+    },
+    {
+      "file": "icons/leaderboard-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.5503472222222222,
+      "sha256": "c81976b9088e7326ce981a5b4951887f9b5f28967002ea9286cdb98545be9881"
+    },
+    {
+      "file": "icons/music-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.20008680555555555,
+      "sha256": "c403f091906287f1f55a371471c264256f9e7a635ea2ee09102119ec873c5684"
+    },
+    {
+      "file": "icons/rank-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4253472222222222,
+      "sha256": "58fd687088a849d738007113ec243e37891e24dd565fdda1c753071c161797ed"
+    },
+    {
+      "file": "icons/rank-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha_ratio": 0.477294921875,
+      "sha256": "0b6a44a524e2b9f04b7aa771f1c1bd4a7352c1a8c28177e13781f4ca3185b407"
+    },
+    {
+      "file": "icons/restart-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4674479166666667,
+      "sha256": "6052f8c4b71ad509fe965e7b9e2cbaeafa3f3bd92ef8bf0ef92ca41a592fd450"
+    },
+    {
+      "file": "icons/settings-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4891493055555556,
+      "sha256": "a6184a3b9b289ebbe232bd140ea7836b8cf10e80559e3ee87939feb225f4ac00"
+    },
+    {
+      "file": "icons/settings-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha_ratio": 0.541015625,
+      "sha256": "d939f65ec654be2413e59254da82c977351d59f24d4e6b50663616a7745bb013"
+    },
+    {
+      "file": "icons/sfx-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.18055555555555555,
+      "sha256": "49b4d3d66af274e83ceaddf166130e10f37043a1e7db5e8dbf9116565a5dd8cf"
+    },
+    {
+      "file": "icons/share-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.4019097222222222,
+      "sha256": "8d8c39986411cfea59a0afb708f7f7c8b808a5c53dd8c025a7da721ca3688601"
+    },
+    {
+      "file": "icons/sound-off-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3723958333333333,
+      "sha256": "9344e4c91bf4ff348722c888fcb95d57ce2a5470e36d9c61c972ef586f88f9c1"
+    },
+    {
+      "file": "icons/sound-on-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3337673611111111,
+      "sha256": "d3f70cce72f333504bd2b1ca9489504ab2e741d98499bb3e493183bd38c38b3f"
+    },
+    {
+      "file": "icons/sponsor-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.5646701388888888,
+      "sha256": "162effb25ff942e10a9192a174eee7dc5ae0bd4800a6f69bca9d628267118544"
+    },
+    {
+      "file": "icons/trophy-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3190104166666667,
+      "sha256": "71808888875bd9b2a456a746dff1b3e2a78967deb119bf29a6b0d350b3b4d3c2"
+    },
+    {
+      "file": "icons/trophy-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "alpha_ratio": 0.34326171875,
+      "sha256": "9a3ca1a4653e007509458c7668f90a62a46a119f233db2562196d5795fdaf9d8"
+    },
+    {
+      "file": "ornaments/crest-confirm.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.249755859375,
+      "sha256": "5f7a17548dfe1915f8e7b591b656b30f3cd295d4f57609cf0f663ca0f4d93ccd"
+    },
+    {
+      "file": "ornaments/crest-guide.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.3167724609375,
+      "sha256": "4f352693e408f11eea5e18ae553105988cb1a879f8618a29e788d90517e90979"
+    },
+    {
+      "file": "ornaments/crest-pause.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.2708740234375,
+      "sha256": "ca93d7c1aef7610c6dd6179efffaead60bb3fdec29668c4c2379bea2f5057de7"
+    },
+    {
+      "file": "ornaments/crest-result.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.3167724609375,
+      "sha256": "4f352693e408f11eea5e18ae553105988cb1a879f8618a29e788d90517e90979"
+    },
+    {
+      "file": "ornaments/crest-settings.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.2708740234375,
+      "sha256": "ca93d7c1aef7610c6dd6179efffaead60bb3fdec29668c4c2379bea2f5057de7"
+    },
+    {
+      "file": "ornaments/crest-tournament.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 0.3167724609375,
+      "sha256": "4f352693e408f11eea5e18ae553105988cb1a879f8618a29e788d90517e90979"
+    },
+    {
+      "file": "ornaments/trophy.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_ratio": 0.549560546875,
+      "sha256": "c40196261619eaeda8823eff3cf5c8e3461fe7734010e92ce60bfd88c9652328"
+    },
+    {
+      "file": "panels/bl.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.35546875,
+      "sha256": "a31f302e3c9a9353839a1feb80c74ccfb615f40d6e5d79c1155deb8bf1f439f1"
+    },
+    {
+      "file": "panels/bottom.png",
+      "size": [
+        24,
+        48
+      ],
+      "alpha_ratio": 0.10416666666666667,
+      "sha256": "94397f89dd839ba12130fd614666e06be72f19bd09433e426e2e441054f98ef5"
+    },
+    {
+      "file": "panels/br.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3585069444444444,
+      "sha256": "77af90352839d82f1605d84f2bcb036b3cf1dd8a15b2e3b50e64447bac7fab7d"
+    },
+    {
+      "file": "panels/left.png",
+      "size": [
+        48,
+        24
+      ],
+      "alpha_ratio": 0.10416666666666667,
+      "sha256": "40845d91b499d7543c7ded1da276bfaf8e989a8e69695161d6619102c9c4ef2c"
+    },
+    {
+      "file": "panels/lower-rail.png",
+      "size": [
+        128,
+        64
+      ],
+      "alpha_ratio": 1.0,
+      "sha256": "d614abd11e9babd4378a4e070233272a8558161a27ed27f1485f2ea259c56684"
+    },
+    {
+      "file": "panels/right.png",
+      "size": [
+        48,
+        24
+      ],
+      "alpha_ratio": 0.10416666666666667,
+      "sha256": "8a0e74cdec16bf952dfcf49cced435903b353aeaa11597f519b3af5001c21f39"
+    },
+    {
+      "file": "panels/tl.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.3307291666666667,
+      "sha256": "93da80631a961b8de02e44c9e8c0839244872a5ebbbe294513f379c81093621b"
+    },
+    {
+      "file": "panels/top.png",
+      "size": [
+        24,
+        48
+      ],
+      "alpha_ratio": 0.10416666666666667,
+      "sha256": "e0b2eb4042214ad577b676aa58249108e85c65cdaedc7ddd77a6212d6a610294"
+    },
+    {
+      "file": "panels/tr.png",
+      "size": [
+        48,
+        48
+      ],
+      "alpha_ratio": 0.34765625,
+      "sha256": "463ed8ca72611ca8c2c9e9d96404b4bca358ba46f554fa8773d2250ee7ed2610"
+    },
+    {
+      "file": "panels/wood.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_ratio": 1.0,
+      "sha256": "392d737af1c94449c1f8e9f096226abb10e5315ce93f9937ef38f6d17043451c"
+    },
+    {
+      "file": "snake-cover.png",
+      "size": [
+        1024,
+        640
+      ],
+      "alpha_ratio": 1.0,
+      "sha256": "314185df71975114c77ac5559d3b7cb5eb6169df5385d181b27597ffadf0c2c6"
+    }
+  ],
+  "generated": {
+    "forest-backdrop.png": [
+      "exec-6c26c79d-9a65-4f7c-9df9-7c2489201481.png",
+      [
+        1920,
+        1080
+      ]
+    ],
+    "hero.png": [
+      "exec-8d6ea50f-3357-46dd-9051-c19a3f42455f.png",
+      [
+        640,
+        432
+      ]
+    ],
+    "snake-cover.png": [
+      "exec-6fd81a0d-b747-45cf-a1a3-3263234e1697.png",
+      [
+        1024,
+        640
+      ]
+    ]
+  }
+}
