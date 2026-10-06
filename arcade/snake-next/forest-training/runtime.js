@@ -129,10 +129,13 @@ export class TrainingGame {
   summary(){return {status:this.status,session:this.session?.summary()||null,starts:this.starts,raf:Number(!!this.raf),timers:Number(!!this.cancelTimer),activeSessions:Number(!!this.session),audio:this.audio.summary(),raster:{decodedBytes:this.art.bytes,...this.renderer.memory()},fullscreenError:this.fullscreenError||''};}
   dispose(){this.stop();this.status='disposed';this.session=null;this.motion=null;this.clock=null;this.renderer.release();this.renderer.smoothSprites.release();for(const off of this.listeners.splice(0))off();this.audio.dispose();}
 }
+// Product embeds import this binding; standalone QA globals remain opt-in.
+export let trainingGame;
 const root=document.querySelector('#game');
 try{
   const audio=new ForestAudio(),[art,board,objects]=await Promise.all([loadArt(),loadBoard(),loadObjects(),audio.load()]);art.board=board;art.objects=objects;art.bytes+=objects.bytes;
   root.hidden=false;document.querySelector('#loading').hidden=true;
   const game=new TrainingGame(root,art,audio);
+  trainingGame=game;
   if(new URLSearchParams(location.search).has('qa'))window.forestTraining=game;
 }catch(error){document.querySelector('#loading').textContent='Не удалось загрузить лес. Обновите страницу.';console.error(error);}

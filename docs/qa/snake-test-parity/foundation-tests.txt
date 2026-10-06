@@ -1,0 +1,30 @@
+✔ Independent PRNG known vectors, zero seed, range and no zero cycle (3.7176ms)
+✔ Arena deterministic seeds, immutable topology, independent decor/theme (167.4792ms)
+✔ Arena rejects blocked runway, sealed regions, inadequate area and discontinuous body (1.5822ms)
+✔ RIGHT → DOWN → LEFT accepts two future turns, one per boundary (3.9125ms)
+✔ Reversal, DOWN→UP, repeat/down spam, four commands/interval and keyboard mapping (4.2159ms)
+✔ Straight, U and S path; one canonical cardinal body (8.7796ms)
+✔ Food consumed and replaced atomically, +100/+1, reachable and non-overlapping (3.7629ms)
+✔ Self and obstacle collision have deterministic terminal result and no partial move (0.4868ms)
+✔ Current tail cell entry legal only when that tail actually vacates (0.3012ms)
+✔ Near-full arena consumes the only legal food then explicit full-arena terminal (0.3953ms)
+✔ No reachable legal food is explicit terminal, not a silent missing pickup (0.1444ms)
+✔ Replay/events/hash identical; structured clone is Worker-compatible data (8.2305ms)
+✔ 30/60/90/120/144 FPS + artificial CPU×4 delay: identical hashes at every sim tick (262.7347ms)
+✔ No catch-up spiral; explicit recovery freezes simulation until resume; timer cleanup (0.2748ms)
+✔ 8/100/250/500/1200 long sessions, occupancy and cardinal continuity (36.9566ms)
+✔ Reachability/growth across repeated real food pickups; replay event stream agrees (208.7283ms)
+✔ Shared cardinal centerline: orientations, U/S, growth and all phases (4.6098ms)
+✔ No popping across consecutive moves/growth, lengths 8/100/250/500/1200 (57.8761ms)
+✔ Training runway food, no passive score, ten calm seconds and deterministic quantized curve (53.0484ms)
+✔ Training cadence and queue remain FPS-independent; pause changes no state (9.3969ms)
+✔ Actual authoritative growth: terminal stays fixed and food uses the same presentation interval (3.4823ms)
+✔ Entire 250s difficulty curve: 30/60/90/120/144 FPS and CPU-delay hashes match each tick (454.7904ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 794.9705

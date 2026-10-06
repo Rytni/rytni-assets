@@ -18,9 +18,10 @@ controller=new ProductController({backend,bridge,gate,release});
 controller.hostSwitch=typeof window.RytniArcadeHub?.leave==='function';
 function render(){
  document.querySelector('#product').dataset.screen=controller.screen;
+ window.SnakeTestHost?.state(controller.screen);
  cabinet.classList.toggle('playing',controller.screen==='playing');
  cabinet.classList.toggle('paused-game',!!controller.run&&['pause','rules','settings','confirm-restart','confirm-exit','mobile-gate'].includes(controller.screen));
- const label=document.querySelector('#run-label');label.hidden=controller.screen!=='playing';label.textContent=controller.run?.mode==='training'?'ТРЕНИРОВКА · БЕЗ РЕЙТИНГА':'РЕЙТИНГ · LOCAL MOCK';
+ const label=document.querySelector('#run-label');label.hidden=controller.screen!=='playing';label.textContent=controller.run?.mode==='training'?'ТРЕНИРОВКА · БЕЗ РЕЙТИНГА':params.get('test')==='1'?'TEST · рейтинг демонстрационный':'РЕЙТИНГ · LOCAL MOCK';
  menu.innerHTML=view(controller,settings);menu.setAttribute('aria-busy',String(!!controller.pending));
  if(controller.pending)menu.querySelectorAll('button').forEach(b=>b.disabled=true);
 }
@@ -42,8 +43,9 @@ async function dispatch(action){
 menu.addEventListener('click',e=>{const tab=e.target.closest('[data-tab]');if(tab){controller.tab=tab.dataset.tab;bridge.sound('button');render();return;}const action=e.target.closest('[data-action]')?.dataset.action;if(action)void dispatch(action);});
 menu.addEventListener('input',e=>{const key=e.target.dataset.setting;if(!['master','music','sfx'].includes(key))return;settings[key]=Number(e.target.value);e.target.nextElementSibling.textContent=Math.round(settings[key]*100)+'%';saveSettings();bridge.applySettings();});
 async function fullscreen(force=false){
+ if(!force&&cabinet.classList.contains('pseudo-fullscreen')){cabinet.classList.remove('pseudo-fullscreen');await window.SnakeTestHost?.fullscreen(false);return;}
  try{if(document.fullscreenElement&&!force)await document.exitFullscreen();else if(!document.fullscreenElement)await cabinet.requestFullscreen();}
- catch{if(mobile()){cabinet.classList.toggle('pseudo-fullscreen',force||!cabinet.classList.contains('pseudo-fullscreen'));}else{controller.message='Полный экран недоступен в этом браузере. Можно играть в окне.';controller.emit();}}
+ catch{if(mobile()){const active=force||!cabinet.classList.contains('pseudo-fullscreen'),accepted=window.SnakeTestHost?await window.SnakeTestHost.fullscreen(active):true;cabinet.classList.toggle('pseudo-fullscreen',active&&accepted);}else{controller.message='Полный экран недоступен в этом браузере. Можно играть в окне.';controller.emit();}}
 }
 async function share(){if(!controller.result?.accepted)return;const message=`Мой рекорд в Mushroom Snake — ${Number(controller.hub.best_score).toLocaleString('ru-RU')} очков!`;try{if(navigator.share)await navigator.share({title:'Mushroom Snake',text:message});else{await navigator.clipboard.writeText(message);controller.message='Результат скопирован.';const n=document.createElement('p');n.className='note';n.textContent=controller.message;menu.append(n);}}catch(error){if(error.name!=='AbortError'){const field=document.createElement('textarea');field.value=message;field.readOnly=true;field.setAttribute('aria-label','Текст для копирования');menu.append(field);field.select();}}}
 function loadSettings(){let saved={};try{saved=JSON.parse(localStorage.getItem('mushroom_snake_settings_v1')||'{}');}catch{}return {master:volume(saved.master,.75),music:volume(saved.music,.5),sfx:volume(saved.sfx,.65),muted:saved.muted===true,quality:saved.quality==='eco'?'eco':'full'};}
@@ -51,11 +53,15 @@ function volume(v,d){return Number.isFinite(v)?Math.max(0,Math.min(1,v)):d;}
 function saveSettings(){try{localStorage.setItem('mushroom_snake_settings_v1',JSON.stringify(settings));}catch{}}
 function lifecyclePause(){controller.pause();bridge.game?.audio.stopAll();}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)lifecyclePause();else if(!controller.run)void controller.refresh(true);});
-window.addEventListener('blur',lifecyclePause);
+// Focusing the nested game also emits blur on this window; the document still
+// owns focus in that case. Only leaving the product/page should pause the run.
+window.addEventListener('blur',()=>{if(!document.hasFocus())lifecyclePause();});
 window.addEventListener('resize',()=>{if(controller.screen==='playing'&&!gate.ready()){lifecyclePause();controller.gateMode='resume';controller.show('mobile-gate');}});
 document.addEventListener('fullscreenchange',()=>{if(controller.screen==='playing'&&!gate.ready()){lifecyclePause();controller.gateMode='resume';controller.show('mobile-gate');}});
 window.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if(e.code==='Escape'&&controller.screen!=='playing'){e.preventDefault();if(controller.screen==='pause')void controller.resume();else if(controller.screen.startsWith('confirm-'))void controller.action('cancel');else if(['rules','settings','rating'].includes(controller.screen))void controller.action('back');}else if(e.code==='Space'&&controller.screen==='pause'){e.preventDefault();void controller.resume();}});
-window.addEventListener('pagehide',()=>{controller.dispose();bridge.dispose();},{once:true});
+let disposed=false;
+function dispose(){if(disposed)return;disposed=true;controller.dispose();bridge.dispose();}
+window.addEventListener('pagehide',dispose,{once:true});
 window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});
 
 async function fixture(name){
@@ -72,7 +78,7 @@ async function fixture(name){
  }
  else if(name==='leaderboard-empty'){controller.show('rating');}
 }
-try{await bridge.ready();await controller.refresh();if(local)await fixture(preview);}catch(error){controller.message=error.message;controller.show('error');}
+try{await bridge.ready();await controller.refresh();window.SnakeTestHost?.bind(dispose,active=>{if(!active){cabinet.classList.remove('pseudo-fullscreen');lifecyclePause();}});if(local)await fixture(preview);}catch(error){controller.message=error.message;controller.show('error');}
 if(local&&(params.has('qa')||params.has('preview'))){
  function activate(kind){const s=bridge.game?.session;if(!s)return;if(kind==='clear')s.effects=[];else{const positive=EFFECTS.slice(0,5).some(e=>e[0]===kind),same=s.effects.filter(e=>EFFECTS.slice(0,5).some(p=>p[0]===e.kind)===positive);if(!same.some(e=>e.kind===kind)&&same.length>=(positive?2:1))s.effects=s.effects.filter(e=>e!==same[0]);s.collect(kind,bodyCell(s.state,0));}bridge.game.render();}
  window.snakeProduct={controller,bridge,backend,settings,dispatch,fixture,gate,release,activate,stats:()=>bridge.stats(),get game(){return bridge.game;}};

@@ -1,0 +1,116 @@
+[
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "browserScale": {
+      "width": 1093,
+      "height": 614,
+      "dpr": 1.25
+    },
+    "stage": {
+      "x": 39.60000228881836,
+      "y": -204.10000610351562,
+      "width": 614.3125343322754,
+      "height": 345.5500030517578
+    },
+    "checks": [
+      "actual browser zoom 1.25",
+      "no default QA tooling",
+      "TEST top-ten",
+      "no product horizontal overflow",
+      "real page Rules/Settings routing",
+      "desktop native fullscreen fills viewport",
+      "desktop fullscreen exit preserves Main",
+      "live gameplay pause",
+      "exit cancel preserves run",
+      "pause/resume advances canonical tick",
+      "real page close returns Hub",
+      "real page current Fly Training/Pause",
+      "real page Fly Result",
+      "no new console or page errors []",
+      "no missing candidate assets []"
+    ],
+    "errors": [],
+    "failed": [],
+    "baseline": [
+      "HTTP 401 auth health",
+      "Failed to load resource: the server responded with a status of 401 ()"
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "browserScale": {
+      "width": 1536,
+      "height": 864,
+      "dpr": 1.25
+    },
+    "stage": {
+      "x": 35.60000228881836,
+      "y": 25,
+      "width": 720.9125099182129,
+      "height": 405.51251220703125
+    },
+    "checks": [
+      "actual browser zoom 1.25",
+      "no default QA tooling",
+      "TEST top-ten",
+      "no product horizontal overflow",
+      "real page Rules/Settings routing",
+      "desktop native fullscreen fills viewport",
+      "desktop fullscreen exit preserves Main",
+      "live gameplay pause",
+      "exit cancel preserves run",
+      "pause/resume advances canonical tick",
+      "real page close returns Hub",
+      "real page current Fly Training/Pause",
+      "real page Fly Result",
+      "no new console or page errors []",
+      "no missing candidate assets []"
+    ],
+    "errors": [],
+    "failed": [],
+    "baseline": []
+  },
+  {
+    "viewport": {
+      "width": 2560,
+      "height": 1440
+    },
+    "browserScale": {
+      "width": 2048,
+      "height": 1152,
+      "dpr": 1.25
+    },
+    "stage": {
+      "x": 35.60000228881836,
+      "y": 169,
+      "width": 720.9125099182129,
+      "height": 405.51251220703125
+    },
+    "checks": [
+      "actual browser zoom 1.25",
+      "no default QA tooling",
+      "TEST top-ten",
+      "no product horizontal overflow",
+      "real page Rules/Settings routing",
+      "desktop native fullscreen fills viewport",
+      "desktop fullscreen exit preserves Main",
+      "live gameplay pause",
+      "exit cancel preserves run",
+      "pause/resume advances canonical tick",
+      "real page close returns Hub",
+      "real page current Fly Training/Pause",
+      "real page Fly Result",
+      "no new console or page errors []",
+      "no missing candidate assets []"
+    ],
+    "errors": [],
+    "failed": [],
+    "baseline": []
+  }
+]

@@ -11,14 +11,16 @@
 7. `07_T123_TIKTOK_КВЕСТ_2.12.html`
 8. `08_T123_BROWSER_ARCADE_2.15.34.html` (Mushroom Fly and shared Arcade runtime)
 
-It then appends the strict Snake bundle from `arcade/assemble-snake-v2.cjs`, which reads `arcade/snake-{rules,world,core,segments,forest,controller}.js`, `arcade/09_T123_ARCADE_HUB_SNAKE.html`, and `arcade/snake-ui.html`. Snake production assets in `grib/mushroom-snake-v2/` are gated by the assembler. `blocks/00_T123_ТЕСТОВЫЙ_ЗАГРУЗЧИК.html` is read by loader verification, not included in the app bundle.
+It then appends the thin Snake Next TEST host from `arcade/assemble-snake-next.cjs` and `arcade/snake-next/test-host.html`. The assembler snapshots the static import closure rooted at `arcade/snake-next/product/index.html` and `frame.html`, plus the bounded artwork families and audio cues used by that product. Legacy Snake v2 source and releases remain available for rollback/reference; they are not appended to new TEST candidates. `blocks/00_T123_ТЕСТОВЫЙ_ЗАГРУЗЧИК.html` is read by loader verification, not included in the app bundle.
 
 From a clean clone on Windows with Node and PowerShell:
 
 ```powershell
-node arcade/test-snake-core.cjs
+node --test arcade/test-snake-next-package.cjs
 & .\tools\build_tilda_test.ps1
 & .\tools\test_tilda_test.ps1
 ```
 
-The build writes `giveaway-test/releases/<version>-<sha12>/app.html`, a local candidate `giveaway-test/manifest.json`, and `.last_tilda_test_release.json`. The content-addressed app is generated; edit the source blocks, not the release. Building or changing the local manifest does **not** publish TEST. Publication requires a separate authorized deployment and live mirror verification. Production (`giveaway/`) is not an input or output of this build.
+The build writes `giveaway-test/releases/<version>-<sha12>/app.html`, a local candidate `giveaway-test/manifest.json`, and `.last_tilda_test_release.json`. It also creates `giveaway-test/releases/snake-next-<sha12>/runtime.json`, `snake/` modules, and `grib/` artwork. The runtime manifest records the exact relative paths, SHA-256 values, and sizes of every dependency. `current.snake_runtime` records the runtime manifest hash, size, and entry point; the host references that immutable entry. Artwork URLs remain relative to that same snapshot and work on GitHub Pages and the S3 mirror without mutable source dependencies.
+
+Both content-addressed outputs are generated; edit source blocks/product files, not releases. Rebuilding identical inputs reuses the existing runtime; conflicting existing bytes cause a hard failure. Local badges and automatic `qa=1` iframe flags are removed from the TEST snapshot. Building or changing the local manifest does **not** publish TEST. Publication requires a separate authorized deployment, exact hash-verified candidate staging, and live mirror verification. Production (`giveaway/`) is not an input or output of this build.

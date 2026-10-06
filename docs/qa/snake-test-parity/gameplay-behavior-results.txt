@@ -1,0 +1,33 @@
+✔ Rush exactly samples locked V4 line/arc primitives, all cardinal mirrors; immutable (5.9893ms)
+✔ Rush bracket reindex has no cell jump through straight/S/U or a new head turn (0.4251ms)
+✔ portal primitives are reused verbatim: fade at cut, no world chord (2.2069ms)
+✔ normal and blocked Roots have explicit non-solid pending -> retract lifecycle (10.173ms)
+✔ delayed safe activation keeps its cell and full lifetime; snapshots/hash include deadlines (10.0885ms)
+✔ a safe telegraph becoming unsafe while sprouting remains visible, fixed and non-solid (6.9572ms)
+✔ same seed/commands root replay; rendering modes read-only; pause/restart states (43.6698ms)
+✔ native canonical tick replay/command hashes identical across V4/V2/snap presentation sampling (125.1342ms)
+✔ unsafe head, portal, mandatory food and blocked cells never become solid (2.7429ms)
+✔ Mist uses rect clip only, nonzero smooth density; nearby safety objects and layers (2.023ms)
+✔ progressive tunnel, half body, length 8 (14.7294ms)
+✔ progressive tunnel, half body, length 30 (6.1123ms)
+✔ progressive tunnel, half body, length 250 (10.4686ms)
+✔ shared alpha splits the portal instead of sampling/rendering a world bridge (4.7302ms)
+✔ split adapter reuses exact V4 raster/material; corrected local BODY gate passes (2393.2621ms)
+✔ all cardinal entry/exit directions retain orthogonal history sampling (54.2343ms)
+✔ growth preserves portal history/phase, food and terrain validation on split ring (8.9961ms)
+✔ fixed facing with 3 legal cells, queue maps relative turns, illegal reversals stay rejected (6.89ms)
+✔ exit occupancy and terrain use normal collision; post-crossing pre/post-body self collision (9.689ms)
+✔ repeated portals compose by path distance without segment loss (3.3569ms)
+✔ pause/resume is exact, death freezes split history; restart removes it (4.1576ms)
+✔ renderer/FPS/mobile reads cannot change replay hash (49.8557ms)
+✔ directional camera exposes 5+ forward cells, early walls, freeze and portal snap (2.5905ms)
+✔ expansion keeps moving and opening lasts exactly one active second (0.9816ms)
+✔ spatial portal cue retains SFX bus, one source and ended/stop cleanup (0.206ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2665.732

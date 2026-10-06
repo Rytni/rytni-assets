@@ -1,0 +1,9 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Actual Fly + Snake Next TEST host fixture</title>
+<style>body{margin:0;background:#15231d;color:#fff}#applicationPopup{width:min(94vw,1280px);margin:20px auto}#progressionPanelArcade{width:100%}body.tiny #applicationPopup{width:436px;margin:0}body.mobile #applicationPopup{width:100%;margin:0}</style>
+<div id="applicationPopup"><section id="progressionPanelArcade"><div id="rytniArcadeHost"></div></section></div>
+<script>
+(async()=>{const query=new URLSearchParams(location.search);document.body.classList.toggle('tiny',query.has('tiny'));document.body.classList.toggle('mobile',query.has('mobile'));window.currentParticipant={id:'preview'};
+ for(const file of ['/tilda-test/blocks/08_T123_BROWSER_ARCADE_2.15.34.html','/arcade/snake-next/test-host.html']){let html=await(await fetch(file)).text();html=html.replace('__SNAKE_NEXT_RUNTIME_URL__',query.get('runtime')||'/arcade/snake-next/product/index.html');const t=document.createElement('template');t.innerHTML=html;const scripts=[...t.content.querySelectorAll('script')];scripts.forEach(s=>s.remove());document.body.append(t.content);for(const s of scripts){const live=document.createElement('script');live.textContent=s.textContent;document.body.append(live);}}
+ window.hostFixtureReady=true;
+})();
+</script></html>

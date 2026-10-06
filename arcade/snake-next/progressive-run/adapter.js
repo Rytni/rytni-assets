@@ -14,7 +14,7 @@ export const progressiveEnabled=()=>document.querySelector('#run-model').value==
 export function labConfig(){return config({model:'fit-world-v2',freeTrigger:Number(document.querySelector('#free-trigger').value),startStage:Number(document.querySelector('#progress-stage').value),pressure:Number(document.querySelector('#event-pressure').value),positiveInterval:Number(document.querySelector('#director-positive').value),negativeInterval:Number(document.querySelector('#director-negative').value),portalInterval:Number(document.querySelector('#director-portal').value),density:Number(document.querySelector('#progress-density').value),candidates:document.querySelector('#dev-candidates').checked});}
 export function installProgression(game,settings={}){
  enableDevVfx().then(()=>{if(game.root.isConnected)game.render();});
- const doc=game.root.ownerDocument,style=doc.createElement('link');style.rel='stylesheet';style.href='/arcade/snake-next/effect-playground/style.css';doc.head.append(style);game.root.classList.add('effect-playground');
+ const doc=game.root.ownerDocument,style=doc.createElement('link');style.rel='stylesheet';style.href=new URL('../effect-playground/style.css',import.meta.url).href;doc.head.append(style);game.root.classList.add('effect-playground');
  const presentation=new ProgressPresentation(game.art),baseRender=game.render.bind(game),baseDraw=game.renderer.render.bind(game.renderer),baseTick=game.tick.bind(game),music=installBiomeAudio(game.audio,()=>game.session);let actual=null;
  let tunnelRibbon=null;
  game.renderer.render=(s,options)=>{

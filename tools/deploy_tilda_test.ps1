@@ -17,7 +17,7 @@ Assert-TestDeployState $AssetsRepo $snapshot
 & (Join-Path $PSScriptRoot 'test_tilda_test.ps1') -AssetsRepo $AssetsRepo
 Assert-TestDeployState $AssetsRepo $snapshot
 $paths=Get-TestCandidatePaths $AssetsRepo
-Assert-TestOnlyPaths $paths
+Assert-TestOnlyPaths $paths $AssetsRepo
 & git -C $AssetsRepo add -- @paths
 if ($LASTEXITCODE -ne 0) { throw 'Failed to stage TEST candidate.' }
 Assert-TestDeployState $AssetsRepo $snapshot

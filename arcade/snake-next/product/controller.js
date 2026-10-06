@@ -33,7 +33,7 @@ export class ProductController {
   finally{this.pending=null;this.emit();}
  }
  pause(){if(this.screen!=='playing')return;this.bridge.pause();this.back='pause';this.show('pause');}
- async resume(){if(!this.run||this.result||!['pause','mobile-gate'].includes(this.screen))return;if(!this.gate.ready()){this.gateMode='resume';this.show('mobile-gate');return;}this.bridge.resume();this.show('playing');}
+ async resume(){if(!this.run||this.result||!['pause','mobile-gate'].includes(this.screen))return;if(!this.gate.ready()){this.gateMode='resume';this.show('mobile-gate');return;}this.show('playing');this.bridge.resume();}
  async claim(){
   if(this.pending||this.disposed||this.run&&!this.result)return;
   if(!this.hub?.sponsor_attempt_available){this.message='Попытки от спонсора восстановятся '+formatReset(this.hub?.next_sponsor_attempt_at)+'.';this.emit();return;}

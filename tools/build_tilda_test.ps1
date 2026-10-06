@@ -34,9 +34,11 @@ $parts = foreach ($name in $blocks) {
   if (-not (Test-Path -LiteralPath $path)) { throw "Не найден блок: $name" }
   ([System.IO.File]::ReadAllText($path) -replace "`r`n?", "`n").TrimEnd()
 }
-$snakeBundle = & node (Join-Path $AssetsRepo 'arcade/assemble-snake-v2.cjs') --bundle
-if ($LASTEXITCODE -ne 0) { throw 'Snake v2 strict assembly failed.' }
-$parts += (($snakeBundle -join "`n") -replace "`r`n?", "`n").TrimEnd()
+$snakeCandidateJson = & node (Join-Path $AssetsRepo 'arcade/assemble-snake-next.cjs') --candidate
+if ($LASTEXITCODE -ne 0) { throw 'Snake Next immutable runtime/host assembly failed.' }
+$snakeCandidate = ($snakeCandidateJson -join "`n") | ConvertFrom-Json
+$snakeRuntime = $snakeCandidate.runtime
+$parts += ($snakeCandidate.bundle -replace "`r`n?", "`n").TrimEnd()
 $bundle = ($parts -join "`n`n") + "`n"
 $utf8 = [System.Text.UTF8Encoding]::new($false)
 $bytes = $utf8.GetBytes($bundle)
@@ -70,6 +72,7 @@ $current = [ordered]@{
   file = $relativeFile
   sha256 = $hash
   size = $bytes.Length
+  snake_runtime = $snakeRuntime
 }
 
 $previous = $null
@@ -97,6 +100,7 @@ if ($sameRelease -and $oldManifest.previous) {
     file = $fallbackRelativeFile
     sha256 = $hash
     size = $bytes.Length
+    snake_runtime = $snakeRuntime
   }
 }
 
@@ -116,7 +120,8 @@ $result = [ordered]@{
   manifest = $manifestPath
   sha256 = $hash
   size = $bytes.Length
+  snake_runtime = $snakeRuntime
 }
 $resultPath = Join-Path $projectRoot '.last_tilda_test_release.json'
-[System.IO.File]::WriteAllText($resultPath, (($result | ConvertTo-Json -Depth 4) + "`n"), $utf8)
-$result | ConvertTo-Json -Depth 4
+[System.IO.File]::WriteAllText($resultPath, (($result | ConvertTo-Json -Depth 8) + "`n"), $utf8)
+$result | ConvertTo-Json -Depth 8
