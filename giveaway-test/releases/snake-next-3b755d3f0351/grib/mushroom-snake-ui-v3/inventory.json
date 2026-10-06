@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "authoring": "offline pixel authoring; approved material slices; fixed-aspect ornaments",
+  "icons": [
+    "settings",
+    "guide",
+    "sound-on",
+    "sound-off",
+    "fullscreen",
+    "exit-fullscreen",
+    "close",
+    "back",
+    "home",
+    "restart",
+    "share",
+    "trophy",
+    "rank",
+    "attempt",
+    "sponsor",
+    "leaderboard",
+    "music",
+    "sfx",
+    "keys",
+    "combo"
+  ],
+  "assets": [
+    {
+      "file": "buttons/control.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "843fb1c14a11583d17a8ac9f846eb326cd90effe83e45b2fb605b9909d9443a8"
+    },
+    {
+      "file": "buttons/danger-center.png",
+      "size": [
+        16,
+        64
+      ],
+      "sha256": "5d6fdc451763f105d2e385f4ce0295b9c15f5b87563ec745e3f7b742d8f427d6"
+    },
+    {
+      "file": "buttons/danger-left.png",
+      "size": [
+        30,
+        64
+      ],
+      "sha256": "7f138eb91f41bc713eec41c62df4465cff0865670249fb414d9091faf1eef587"
+    },
+    {
+      "file": "buttons/danger-right.png",
+      "size": [
+        30,
+        64
+      ],
+      "sha256": "a9466986a461bf8b782a962e57f9ea4a3fbcf63bba537e3de553d7bbf8569c51"
+    },
+    {
+      "file": "buttons/play-center.png",
+      "size": [
+        16,
+        64
+      ],
+      "sha256": "7feb5afbd22e6f4b9cf7e7959d96bec7f6a245e9188e1072c9be867a52e77eaa"
+    },
+    {
+      "file": "buttons/play-jewel.png",
+      "size": [
+        28,
+        26
+      ],
+      "sha256": "5525ad8dd5e333e72445f5086423d0d7ed00eb286651ee90f7b1caedfe0e0fcd"
+    },
+    {
+      "file": "buttons/play-left.png",
+      "size": [
+        38,
+        64
+      ],
+      "sha256": "f04b951e6d082232c115f62efd28cd9092de33c645a228a5672ea912780368be"
+    },
+    {
+      "file": "buttons/play-right.png",
+      "size": [
+        38,
+        64
+      ],
+      "sha256": "97dee88514285b6823fac86d8edb837ebcceaeb6f10d6ef3fe07d903988f31af"
+    },
+    {
+      "file": "buttons/wood-center.png",
+      "size": [
+        16,
+        64
+      ],
+      "sha256": "3a66c6f7e5311f71e0a5637c6589241e759b3a79d77c3676d29d809a8e951052"
+    },
+    {
+      "file": "buttons/wood-left.png",
+      "size": [
+        30,
+        64
+      ],
+      "sha256": "991509a77709c79b470687e11477d9a0ef904f067fd78379bc288e1d34921d08"
+    },
+    {
+      "file": "buttons/wood-right.png",
+      "size": [
+        30,
+        64
+      ],
+      "sha256": "2ec90853b8a8c814a9a227e535a24dd7a81c2e5392d10600a14f20279d655d06"
+    },
+    {
+      "file": "icons/attempt-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "433bf2349a7792e146bc82791c3c8f5caa8d25623faab4245f16297eb39bfd68"
+    },
+    {
+      "file": "icons/back-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "d44b9b2fe81d51a296df2c999a4481de751e78496cc92d9dbabd00c1ffc14f55"
+    },
+    {
+      "file": "icons/close-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "22900b7c21512ff1e3c561741fe66e97fcaa0bb664a1508d140811a655afb00a"
+    },
+    {
+      "file": "icons/combo-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "55aa12cb40758b010c578e17c57de28d47e9cd3e64cd6792da246930481347f8"
+    },
+    {
+      "file": "icons/exit-fullscreen-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "883563e985e8f7735b7b5e9e22cd1aa4bf632be4ecb9e89b76076429ac97417c"
+    },
+    {
+      "file": "icons/fullscreen-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "833e4a92d5ee1bb5b03bb10cb1a0816a7a6eb6dacca8cb3ec0a3c811f9461a3f"
+    },
+    {
+      "file": "icons/guide-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "b6aee66f0c7ffb4d165fc24be5b2ea34dc048d4f6361c0945c2016fd2c6f8498"
+    },
+    {
+      "file": "icons/guide-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "aa3547d1f1c38bfe54473b5f6fcfbc8bfbb1e82858be3a0bcf5bdd1ccf38727b"
+    },
+    {
+      "file": "icons/home-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "ba598bc813aef8477fad0e97d896b6ce778f40c43fbe11f10fc49ce256566d47"
+    },
+    {
+      "file": "icons/keys-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "72bcc5f5de753d504727082cde7ad523119946b886c1a823e33afd4a316639cb"
+    },
+    {
+      "file": "icons/leaderboard-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "e38acbaf7fb1be1715de95ba897e35731d897204e08bb58ae8c1feff23734d07"
+    },
+    {
+      "file": "icons/leaderboard-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1392767aa809ce1b207e62cd3be496b8f552221e879b64b61989c02526c13b26"
+    },
+    {
+      "file": "icons/music-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "3ebd1bc289fd34f2693231f657680c77efe0f9476e78fd21bc6e7ab9335423a7"
+    },
+    {
+      "file": "icons/rank-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "62e12b06a70504941a42d0212a3a55a8a3c69b023f2276203848cfd041e4cd30"
+    },
+    {
+      "file": "icons/restart-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "bd46b2b92fb052c24332113bc8e2d9df158b9a96cf6122b8efb96d2c9562e6b1"
+    },
+    {
+      "file": "icons/settings-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "e0598c08bfca2c6694a1b55cc7ae44fcbbf86115852e5ab3aeb41e0a2f5eafc6"
+    },
+    {
+      "file": "icons/settings-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "fe845c92767544c856be7fb9a5ceb3d8d3656c0e38f176d422dadfddd32e762b"
+    },
+    {
+      "file": "icons/sfx-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "f5235b800cd14955626cd96eb955583f326c0635bf2c158d3d3b51ad0186ecd0"
+    },
+    {
+      "file": "icons/share-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "b88ce7ae614880f0632cd81bd88ffeba26c04debb2324dedfe23b94e00667e59"
+    },
+    {
+      "file": "icons/sound-off-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "705e08dae7bfd43c4ec358c23567725305874f760ef46dd787da57629d0638a9"
+    },
+    {
+      "file": "icons/sound-on-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "f5235b800cd14955626cd96eb955583f326c0635bf2c158d3d3b51ad0186ecd0"
+    },
+    {
+      "file": "icons/sponsor-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "582461480c80692506492bda4303baa8d1f4e86c58f85ed327a6cafcc3a99493"
+    },
+    {
+      "file": "icons/trophy-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "83150cc07b7246578e43bf2997a526ed26bbde7b071ce6e9351ebf0ad98e17be"
+    },
+    {
+      "file": "icons/trophy-64.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ca1c33479571e22c25c39792206acfe1ad4f9d301ddefb825d63dbd689b4590a"
+    },
+    {
+      "file": "ornaments/crest-confirm.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "efb19e537edd23506ce8821e622468ff603fdb1d29d36caf8345696ba0f9689c"
+    },
+    {
+      "file": "ornaments/crest-gold.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "10b85828566e0cbc728ed385a3cf1233844b27bc72ddb4a824556f7c8d673912"
+    },
+    {
+      "file": "ornaments/crest-guide.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "10b85828566e0cbc728ed385a3cf1233844b27bc72ddb4a824556f7c8d673912"
+    },
+    {
+      "file": "ornaments/crest-pause.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "125acf9bbb301abaa5330ba1f17aa086b134e3284e541448501d83c19531e42f"
+    },
+    {
+      "file": "ornaments/crest-result.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "10b85828566e0cbc728ed385a3cf1233844b27bc72ddb4a824556f7c8d673912"
+    },
+    {
+      "file": "ornaments/crest-settings.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "10b85828566e0cbc728ed385a3cf1233844b27bc72ddb4a824556f7c8d673912"
+    },
+    {
+      "file": "ornaments/crest-tournament.png",
+      "size": [
+        96,
+        50
+      ],
+      "sha256": "10b85828566e0cbc728ed385a3cf1233844b27bc72ddb4a824556f7c8d673912"
+    },
+    {
+      "file": "panels/bl.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "00f2ad5db0b77066cd400a6ff16794cb276a845a4a189bcfa9f9944933bc65b5"
+    },
+    {
+      "file": "panels/bottom.png",
+      "size": [
+        32,
+        24
+      ],
+      "sha256": "68f6e1d4470662c191b2195406af1f538520e2b7b9295ddb616cad187574321a"
+    },
+    {
+      "file": "panels/br.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "48d94436653cc8d6e0542a82da7a3ef618a69359732b49d4acb152b00fce2e1c"
+    },
+    {
+      "file": "panels/left.png",
+      "size": [
+        24,
+        48
+      ],
+      "sha256": "d3245cfb327a94943caf582257b4e1071aa657b765044c43dc0800bbf1c37c31"
+    },
+    {
+      "file": "panels/lower-rail.png",
+      "size": [
+        128,
+        96
+      ],
+      "sha256": "22534197f92542afe24c9dc55e90532d48b1b2bbb7e6b54a6031f0f8a9e0b646"
+    },
+    {
+      "file": "panels/right.png",
+      "size": [
+        24,
+        48
+      ],
+      "sha256": "84a12f1c862ee9be58baa7e35d6881ccde1fd84db3cbd5597631a5265f542afb"
+    },
+    {
+      "file": "panels/tl.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "b7d13ee637c396de5be2cccbef207689fb2a7fa28e77f64a9748c952b880260b"
+    },
+    {
+      "file": "panels/top.png",
+      "size": [
+        38,
+        24
+      ],
+      "sha256": "a9fec46fa2efb913d9aba6bb61fd1286898942cc3f69fd1d2cc6e49805790951"
+    },
+    {
+      "file": "panels/tr.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "f907be3ef7edf7adfa9d7dd1db361336607a1f76f3f113aa3ba92cc67cb752f5"
+    },
+    {
+      "file": "panels/wood.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5d927bc27ebb3b6c11e28b5f844b610d54585e70465b75f906bea090bb0c0fe1"
+    },
+    {
+      "file": "result-hero.png",
+      "size": [
+        512,
+        336
+      ],
+      "sha256": "20978be2a30e38a2bf9f52b5119e5fc5b8817d45fbf4acfd2bb3c680b948e8a6"
+    },
+    {
+      "file": "snake-cover.png",
+      "size": [
+        1024,
+        640
+      ],
+      "sha256": "beed93bd95ac3622ea577d76ac58cf855cc593b2b794b648518230891fb8a741"
+    }
+  ],
+  "generated": {
+    "tool": "built-in ImageGen",
+    "cover": "enchanted forest cover; approved Snake identity reference; no text",
+    "result": "transparent authored ivory Snake result hero; same face/red mushroom/moss; no runtime screenshot"
+  }
+}
