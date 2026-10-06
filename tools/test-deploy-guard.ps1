@@ -16,6 +16,14 @@ function Assert-TestOnlyPaths([string[]]$Paths,[string]$Repo='') {
     }
   }
 }
+function Stage-TestCandidatePaths([string]$Repo,[string[]]$Paths) {
+  if (!$Paths.Count) { throw 'Empty TEST candidate staging list.' }
+  Assert-TestOnlyPaths $Paths $Repo
+  # Immutable module closures exceed Windows' argv limit. Feed the same exact
+  # validated paths through stdin; literal pathspecs cannot expand to globs.
+  $Paths | & git --literal-pathspecs -C $Repo add --pathspec-from-file=-
+  if ($LASTEXITCODE -ne 0) { throw 'Failed to stage exact TEST candidate.' }
+}
 function Get-ProductionSnapshot([string]$Repo) {
   $root = Join-Path $Repo 'giveaway'
   if (-not (Test-Path -LiteralPath $root)) { throw 'Production directory missing; fail closed.' }

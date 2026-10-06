@@ -18,8 +18,7 @@ Assert-TestDeployState $AssetsRepo $snapshot
 Assert-TestDeployState $AssetsRepo $snapshot
 $paths=Get-TestCandidatePaths $AssetsRepo
 Assert-TestOnlyPaths $paths $AssetsRepo
-& git -C $AssetsRepo add -- @paths
-if ($LASTEXITCODE -ne 0) { throw 'Failed to stage TEST candidate.' }
+Stage-TestCandidatePaths $AssetsRepo $paths
 Assert-TestDeployState $AssetsRepo $snapshot
 $staged=Invoke-DeployGit $AssetsRepo @('diff','--cached','--name-only','--no-renames')
 foreach($path in $staged) { if ($path -notin $paths) { throw "Unrelated TEST artifact in index: $path" } }

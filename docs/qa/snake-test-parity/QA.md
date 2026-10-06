@@ -14,8 +14,8 @@
 | Existing portal/effect behavior | 25/25 behavioral tests; `gameplay-behavior-results.txt` |
 | Production / locked code / artwork | `safety-check.cjs`; original Production aggregate `5003cfcd190b3e2071e422bf4b12ca597fcf0fdcb16c1109f9e4186e0fa356ed`; Fly SHA `1c76cc728a16ab87ff0c7f122884154f7fa63edc27630b0e1930cc949681e506` |
 | Build/source/loader/runtime | `build_tilda_test.ps1` and `test_tilda_test.ps1` pass; 376 exact immutable runtime paths |
-| Guard unit fixtures | Original Production/index/path guard and new exact-runtime/tampering guard pass |
-| Canonical deployment CheckOnly | Pending source checkpoint |
+| Guard unit fixtures | Original Production/index/path guard, exact-runtime/tampering guard and 600-path stdin staging regression pass |
+| Canonical deployment CheckOnly | PASS after source checkpoint `62a6d55` |
 
 ## Evidence limitations / historical failures
 
@@ -31,4 +31,4 @@ Geometry and artwork are not redesigned. Review screenshots are fixtures where s
 
 ## Publication
 
-Not yet accepted. Required remaining evidence: canonical CheckOnly, Publish, matching Pages/S3 manifests/runtime hashes and MIME, mandatory live deployment check, then real unmodified TEST desktop/mobile/Fly smoke. Production snapshot must remain identical throughout.
+Not yet accepted. First canonical Publish stopped before staging/push because the 376-file argument list exceeded Windows' command-line limit. The canonical staging helper now feeds the same validated literal paths through stdin; a 600-file regression proves no lost paths or Production admission. No manual publication staging or push was used. Required remaining evidence: Publish, matching Pages/S3 manifests/runtime hashes and MIME, mandatory live deployment check, then real unmodified TEST desktop/mobile/Fly smoke. Production snapshot must remain identical throughout.
