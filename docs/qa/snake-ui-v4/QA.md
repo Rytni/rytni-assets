@@ -8,8 +8,8 @@ Initial verified/published candidate: `2.15.33-a4a833b79202` / `snake-next-325e9
 | --- | --- |
 | Product + appearance Node tests | 55 passed,0 failed |
 | Native UI browser checks | 470 passed;1920×1080,720×405,436×245,844×390, including cap ownership |
-| Real TEST container, local candidate desktop | 212 passed (includes fullscreen resize settling gate) |
-| Real TEST container, local candidate touch mobile | 204 passed |
+| Real TEST container, final local candidate desktop | 219 passed (fullscreen resize + cap ownership) |
+| Real TEST container, final local candidate touch mobile | 212 passed |
 | Host functional/lifecycle/sponsor/attempt checks | 40 passed |
 | Touch modal/sound controls | 5 passed; all three channel bindings retained |
 | Locked source/art byte comparison | 915 files unchanged |
@@ -40,18 +40,24 @@ Clean native and actual TEST-container stills were inspected, including compact 
 
 Canonical `build_tilda_test.ps1`, `test_tilda_test.ps1`, `deploy_tilda_test.ps1 -CheckOnly`, `deploy_tilda_test.ps1 -Publish` completed.
 
-- Source checkpoint: `ee10dde`.
-- TEST publication checkpoint: `db2297e`.
-- Published release: `2.15.33-a4a833b79202`.
-- Runtime: `snake-next-325e9e5de225`.
-- App SHA-256: `a4a833b79202cac26056d9cbb296c371f52108beb93ba725f7f408adf9fe9cc1`.
-- Runtime manifest SHA-256: `efba81f6f50c977236ae54ac34c7e2ce125e73c2866c3f8e02e73b6e609271ce`.
-- Pages and S3 agree on release, runtime and actual published rollback. All433 runtime dependencies match SHA-256/size/MIME on BOTH origins; plus runtime manifest =434 immutable files. GitHub Pages deployment of `db2297e` completed successfully.
-- Fresh LIVE desktop context:212 checks; Main iframe settles at1920×1080, all subsequent dialogs also1920×1080.
-- Fresh LIVE touch context:205 checks; fullscreen Main/game/dialogs844×390. Mobile D-pad is visible and sends a canonical turn.
+- Source checkpoint: `ee10dde`; compact-cap/QA follow-up: `ee282bd`.
+- First TEST publication: `db2297e`; final TEST publication: `d643552`.
+- Published release: `2.15.33-ef53fa3846f5`.
+- Runtime: `snake-next-1cd377655276`.
+- App SHA-256: `ef53fa3846f5be7a20ed30f53fbcb0fee245007c44ab6fa77b91eafd60ef5cba`.
+- Runtime manifest SHA-256: `89cbbdd12120eef88c90e820365c6a7dcf8fa3352ca3bf49d5ae5865199934b0`.
+- Pages and S3 agree on release, runtime and actual published rollback `2.15.33-a4a833b79202`. All433 runtime dependencies match SHA-256/size/MIME on BOTH origins; plus runtime manifest =434 immutable files.
+- Fresh LIVE desktop context:220 checks; expected runtime identity asserted; Main iframe settles at1920×1080, all subsequent dialogs also1920×1080.
+- Fresh LIVE touch context:213 checks; expected runtime identity asserted; fullscreen Main/game/dialogs844×390. Mobile D-pad is visible and sends a canonical turn.
 - No new page/console errors or failed assets. Known anonymous auth health401 is separate baseline. No Fly ranked RPCs.
 - Real LIVE Fly Training/Pause/Result/Hub-return smoke passes.
 - Required external `test_live_deployment.js test`: `TEST: OK, 2.15.33, участников=1904, S3=53, GitHub=0`.
 - Final915-file lock/Fly/Production safety check passes. Production and SQL untouched.
 
-`live-*.png` are screenshots from the published site, with NO runtime/asset route overrides. Local New Record remains a clearly labelled fixture; LIVE Result is an actual canonical Training result. Final reports/screenshots are saved in a separate local review checkpoint; the published gameplay candidate remains `db2297e`. No production-readiness or human-art-approval claim.
+`live-*.png` are screenshots from final published runtime `snake-next-1cd377655276`, with NO runtime/asset route overrides. Local New Record remains a clearly labelled fixture; LIVE Result is an actual canonical Training result. Final reports/screenshots are saved in a separate review checkpoint; the published gameplay candidate remains `d643552`. No production-readiness or human-art-approval claim.
+
+Mobile Guide/Settings intentionally use internal scrolling at844×390 rather than shrinking text/controls. The review includes their default native stills; all controls remain reachable. This usability and the new artwork still require human approval.
+
+## Changed source scope
+
+`arcade/assemble-snake-next.cjs`; product `app.js`, `cabinet-shell.js`, `frame-product.css`, `index.html`, `ui.js`, new `ui-v4.css` and `ui-v4.test.mjs`, updated `menu-art.test.mjs` / `ui-v3.test.mjs`; `arcade/snake-next/test-host.html`; new56-PNG family + inventory; this QA/review folder; canonical generated TEST manifest/app/runtime closure. No other existing gameplay/product-contract source was edited.
