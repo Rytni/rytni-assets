@@ -1,5 +1,5 @@
 import {capacity,effectiveRate} from '../effect-playground/capacity-model.js';
-const UI='/grib/mushroom-snake-ui-v3/';
+const UI='/grib/mushroom-snake-ui-v4/';
 // Read-only presentation: no world/FIT geometry change and no extra RAF/timer.
 export function installProductShell(game){
  const rail=game.root.ownerDocument.createElement('footer');rail.className='product-lower-rail';rail.hidden=true;rail.setAttribute('aria-label','Состояние леса');
@@ -7,13 +7,14 @@ export function installProductShell(game){
  game.root.append(rail);
  const render=game.render.bind(game);game.render=()=>{render();const l=game.renderer.last,s=game.session;
   if(!l||!s?.world){rail.hidden=true;return;}
-  const top=Math.round(l.cabinet.y+l.cabinet.h),remaining=Math.max(0,game.renderer.h-top);
+  const cabinetBottom=Math.round(l.cabinet.y+l.cabinet.h),remaining=Math.max(0,game.renderer.h-cabinetBottom),height=Math.min(64,remaining),top=game.renderer.h-height;
   rail.hidden=remaining<=32||game.portrait;
   if(rail.hidden)return;
-  Object.assign(rail.style,{top:top+'px',height:remaining+'px',left:Math.round(l.cabinet.x)+'px',width:Math.round(l.cabinet.w)+'px'});
+  Object.assign(rail.style,{top:top+'px',height:height+'px',left:Math.round(l.cabinet.x)+'px',width:Math.round(l.cabinet.w)+'px'});
   // The approved straight bottom strip ends 38 native px above the corner
   // canvas bottom. Bridge ONLY that empty center; keep corner mushrooms intact.
-  rail.style.setProperty('--rail-bridge',Math.round(38*l.scale)+'px');
+  rail.style.setProperty('--rail-bridge',Math.round(38*l.scale+Math.max(0,remaining-height))+'px');
+  rail.style.setProperty('--rail-surplus',Math.max(0,remaining-height)+'px');
   rail.style.setProperty('--rail-corner',Math.round(128*l.scale)+'px');
   rail.querySelector('[data-rail-biome]').textContent={forest:'ЛЕС',caves:'ПЕЩЕРЫ',swamp:'БОЛОТО'}[s.world.biome]||'ЛЕС';
   rail.querySelector('[data-rail-world]').textContent=`${s.world.width} × ${s.world.height}`;

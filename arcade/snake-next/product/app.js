@@ -22,7 +22,7 @@ function render(){
  window.SnakeTestHost?.state(controller.screen);
  cabinet.classList.toggle('playing',controller.screen==='playing');
  cabinet.classList.toggle('paused-game',!!controller.run&&['pause','rules','settings','confirm-restart','confirm-exit','mobile-gate'].includes(controller.screen));
- const label=document.querySelector('#run-label');label.hidden=controller.screen!=='playing';label.textContent=controller.run?.mode==='training'?'ТРЕНИРОВКА · БЕЗ РЕЙТИНГА':params.get('test')==='1'?'TEST · рейтинг демонстрационный':'РЕЙТИНГ · LOCAL MOCK';
+ const label=document.querySelector('#run-label');label.hidden=controller.screen!=='playing';label.textContent=controller.run?.mode==='training'?'ТРЕНИРОВКА · БЕЗ РЕЙТИНГА':params.get('test')==='1'?'РЕЙТИНГ · ДЕМО':'РЕЙТИНГ · LOCAL MOCK';
  menu.innerHTML=view(controller,settings);menu.setAttribute('aria-busy',String(!!controller.pending));
  if(controller.pending)menu.querySelectorAll('button').forEach(b=>b.disabled=true);
 }

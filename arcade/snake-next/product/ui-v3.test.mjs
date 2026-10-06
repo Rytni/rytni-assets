@@ -26,7 +26,7 @@ test('lower cabinet rail reads canonical state without a clock, write, or geomet
  const before=session.hash(),layout=JSON.stringify(game.renderer.last);
  installProductShell(game);game.render();
  assert.equal(session.hash(),before);assert.equal(JSON.stringify(game.renderer.last),layout);
- assert.equal(rail.hidden,false);assert.equal(rail.style.height,'106px');assert.equal(styles['--rail-bridge'],'51px');
+ assert.equal(rail.hidden,false);assert.equal(rail.style.height,'64px');assert.equal(styles['--rail-bridge'],'93px');
  game.renderer.h=990;game.render();assert.equal(rail.hidden,true);
  const source=readFileSync(new URL('./cabinet-shell.js',import.meta.url),'utf8');assert.ok(!/requestAnimationFrame|setTimeout|setInterval|Date\.now/.test(source));
 });

@@ -32,7 +32,7 @@ test('record result promotes only foods length combo and retains subordinate det
  assert.ok(html.includes('Порталы 2'));
  assert.ok(html.includes('Расширения 1'));
  assert.ok(html.includes('Бонусы 9'));
- assert.ok(html.includes('result-hero.png'));
+ assert.ok(html.includes('mushroom-snake-ui-v4/hero.png'));
  for(const action of ['play-again','share','main'])assert.ok(html.includes('data-action="'+action+'"'));
 });
 
