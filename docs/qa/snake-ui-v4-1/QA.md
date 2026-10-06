@@ -30,4 +30,15 @@ Desktop/mobile Main, all book tabs, token crops and one-cabinet gameplay were vi
 
 ## Publication / LIVE
 
-Pending canonical TEST publication and fresh LIVE verification. Production and SQL forbidden.
+Canonical build → strict test → CheckOnly → Publish completed. Source checkpoint `2c4c69e`; TEST publication checkpoint `f0f8f78`.
+
+- Published TEST: `2.15.33-90eee5abff64` / `snake-next-8d20d4ba2174`.
+- GitHub Pages + S3 agree on current/rollback. All453 dependency files pass SHA-256, size and MIME on BOTH origins; plus runtime manifest =454 immutable files.
+- Fresh LIVE contexts, no route overrides: desktop248 / touch mobile237 checks passed. All three guide tabs captured; both pages present. Dedicated TOP10 and no-lower-rail assertions pass.
+- Selector explicitly verifies the Fly source URL is inside this exact immutable runtime and natural image width1536. Byte audit proves the PNG hash matches historical source; clean selector screenshot inspected.
+- Fly Training/Pause/Result/Hub-return smoke passes, no Fly ranked RPCs.
+- Required external LIVE tool: `TEST: OK, 2.15.33, участников=1904, S3=53, GitHub=0`.
+- No new page/console errors or failed assets; anonymous auth health401 remains the known baseline.
+- Final972-file lock/Production/Fly check passes. Production/SQL untouched.
+
+Actual LIVE stills use `live-*.png`. Review defaults to LIVE for Main, Guide, fullscreen gameplay and selector; embedded gameplay pair remains explicitly labelled native/canonical fixture. Final QA-only checkpoint does not create another gameplay release. Human visual approval is PENDING.
