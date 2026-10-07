@@ -48,4 +48,17 @@ These are not counted as passes and were not silently rewritten. Current-base pr
 
 ## Publication / LIVE
 
-Pending canonical source checkpoint → TEST-only publication → final both-origin byte audit and fresh LIVE checks. Human visual review remains the final authority.
+Source checkpoint: `24ddd96`. TEST publication: `51d3abd`, corrected rollback manifest checkpoint: `6f4dfd1`.
+
+Published app: `2.15.33-148eb3c56595`; runtime: `snake-next-7cb676c44096`. Rollback: actual published V4.1 `2.15.33-90eee5abff64` / `snake-next-8d20d4ba2174`.
+
+The first mirror synchronization correctly refused a local intermediate build in `previous`. Repeated local candidate builds had advanced that pointer. Replaced only the TEST rollback descriptor with the verified previous public release; reran canonical CheckOnly → Publish without weakening the guard. GitHub Pages then completed its normal build/deployment. Both origins now agree.
+
+- Both-origin byte audit PASS: manifest current/previous identity, app SHA/size/MIME, runtime SHA/MIME, all455 dependency files SHA/size/MIME on GitHub Pages AND S3.456 immutable runtime objects includes the runtime manifest.
+- Fresh LIVE contexts with **no candidate routes**: desktop256 /mobile245 checks PASS, exact runtime identity above. Includes Guide tabs embedded/fullscreen, D-pad/fullscreen lifecycle, normal gameplay label hidden, no perimeter and no clip polygon. One initial desktop retry timed out waiting for a Guide tab; complete fresh rerun passed without changing product source. This is disclosed rather than counted as a successful run.
+- No new page/console errors or failed assets. Baseline anonymous `/auth/v1/health`401 remains separately recorded; no Fly ranked RPCs.
+- External canonical live verifier: `TEST: OK, 2.15.33`.
+- Post-publication protected-source audit:1024 files unchanged against5810758; Production, Fly, art, gameplay, skins and backend untouched.
+- Review page:84 images loaded,0 broken. Final LIVE desktop/mobile captures inspected. Screenshots show canonical gameplay paused for stable captures, not proof of continuous play by themselves.
+
+Live: [TEST](https://rytni.live/testpodari?arcade_preview=1). Comparison package: [review.html](review.html). Human visual approval remains **PENDING**. No Production publication or database operation.
