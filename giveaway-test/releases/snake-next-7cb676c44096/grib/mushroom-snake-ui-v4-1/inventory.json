@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "file": "book/bl.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bf451299a0124a1bc42ffca0e513e0cc3b141ec4addf814a0bd1dbc3a1b428c4"
+    },
+    {
+      "file": "book/bottom.png",
+      "size": [
+        32,
+        96
+      ],
+      "sha256": "ee00a96cf8463cb0eaeb608a93b434dee934b04f5e548ed225f1e926ecfe65cc"
+    },
+    {
+      "file": "book/br.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "9c8ac6dd8e15f32026e166ff203dce6482687ec1587379eef526f3795cc8b58a"
+    },
+    {
+      "file": "book/left.png",
+      "size": [
+        96,
+        32
+      ],
+      "sha256": "a9ff8064e2b23a627a4ce33310bca8c3c452092f5acfc9af76b079cd37d2b12a"
+    },
+    {
+      "file": "book/paper.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "1399b1e95d233072ab3fb23e0d8cab51a0ecb0697eedab1b9fd4969a51368657"
+    },
+    {
+      "file": "book/right.png",
+      "size": [
+        96,
+        32
+      ],
+      "sha256": "4dd2245bdd9907e265aa1acb7c48803c16f3f0b6fa9492652fb34dcc7dca2491"
+    },
+    {
+      "file": "book/spine.png",
+      "size": [
+        16,
+        416
+      ],
+      "sha256": "79e95ece3657fc4e59594a58324f7a2b1c37c45b4ba944046c78f5a12927a4ae"
+    },
+    {
+      "file": "book/tl.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "bb8a84218349623a094812824f54a743dc1d3cbd09e1f0ed18bd9b6ece39df18"
+    },
+    {
+      "file": "book/top.png",
+      "size": [
+        32,
+        96
+      ],
+      "sha256": "c2deb4036049077236f7b199a14e6d10fd3ce3924234c56b23e2635620dd0fc1"
+    },
+    {
+      "file": "book/tr.png",
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "80e85eaa6c90710f5ecd137d1d83a82ff64db1f860a777c23beb4a724d0e3159"
+    },
+    {
+      "file": "fly-cover.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "66bb95fb7bdd815770a1a4a36fbb718f4cef5e3474ae76e86f247c706580e7df"
+    },
+    {
+      "file": "icons/attempt-48.png",
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "77c226dcddc67280a05c43cf9ee0d9e0bfaf629cd3c1ba8e5c1885838ccbb0b0"
+    },
+    {
+      "file": "icons/dpad.png",
+      "size": [
+        92,
+        92
+      ],
+      "sha256": "b0d043061900020adfe83b9232b80b23395709c376517ecd50ef5375aa58ac5c"
+    },
+    {
+      "file": "icons/keyboard.png",
+      "size": [
+        168,
+        92
+      ],
+      "sha256": "55dd6db0c94423a8ccf10aee240cff650e14e58afceac0ad35c461d5c70a0d38"
+    },
+    {
+      "file": "icons/medal-1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "51b2c5220b680cec8e65cf56a6452a492cc9fb96ea3a05300241aa1accff0e21"
+    },
+    {
+      "file": "icons/medal-2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1c73252460c78e475ac287a34e80856bdfe929233e4a02e5d4739c9d99a19632"
+    },
+    {
+      "file": "icons/medal-3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "10758631298378e0991311f13d954b0642f7d834f4a40d847a2b8d1dcbe208e2"
+    },
+    {
+      "file": "icons/medal-rank.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5534ac99480be2f3a8f079bfe455a7736963251fd836635430af0fa666e28b82"
+    }
+  ],
+  "book_source": "exec-fda7a9a6-6132-470f-9443-fc9bffed0b3f.png",
+  "attempt_components": [
+    953,
+    17
+  ],
+  "attempt_removed_bounds": [
+    4,
+    26,
+    5,
+    39
+  ]
+}

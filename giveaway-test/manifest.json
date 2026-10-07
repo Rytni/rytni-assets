@@ -1,34 +1,34 @@
 {
   "schema": 1,
-  "published_at": "2026-10-06T20:00:49.4335149Z",
+  "published_at": "2026-10-07T13:51:59.1287402Z",
   "current": {
-    "id": "2.15.33-90eee5abff64",
+    "id": "2.15.33-148eb3c56595",
     "version": "2.15.33",
     "loader_schema": 2,
-    "file": "releases/2.15.33-90eee5abff64/app.html",
-    "sha256": "90eee5abff64aa39dd5904c87ce553bee5113e62dbda0e087bb557a843ece8ee",
+    "file": "releases/2.15.33-148eb3c56595/app.html",
+    "sha256": "148eb3c565952caec685e71071059c626bfd3ee7ce571e76f56066f4cc0a4a01",
     "size": 1183272,
     "snake_runtime": {
-      "id": "snake-next-8d20d4ba2174",
-      "file": "releases/snake-next-8d20d4ba2174/runtime.json",
-      "sha256": "c9d6f5f2b8edb54e3aef4fde5758f80acc3003aa0ad474fd679c5ef089f06716",
-      "size": 80347,
-      "entry": "releases/snake-next-8d20d4ba2174/snake/product/index.html"
+      "id": "snake-next-7cb676c44096",
+      "file": "releases/snake-next-7cb676c44096/runtime.json",
+      "sha256": "a079e026ff3ed829a0208a5e8277574e8adc03c2b8e48659bd44f6bcaa7f7505",
+      "size": 80669,
+      "entry": "releases/snake-next-7cb676c44096/snake/product/index.html"
     }
   },
   "previous": {
-    "id": "2.15.33-ef53fa3846f5",
+    "id": "2.15.33-f237fa0720d8",
     "version": "2.15.33",
     "loader_schema": 2,
-    "file": "releases/2.15.33-ef53fa3846f5/app.html",
-    "sha256": "ef53fa3846f5be7a20ed30f53fbcb0fee245007c44ab6fa77b91eafd60ef5cba",
-    "size": 1183219,
+    "file": "releases/2.15.33-f237fa0720d8/app.html",
+    "sha256": "f237fa0720d82c08702cba7cc2a6a2fc4c3d225d15aec808e4759d2c20192a45",
+    "size": 1183272,
     "snake_runtime": {
-      "id": "snake-next-1cd377655276",
-      "file": "releases/snake-next-1cd377655276/runtime.json",
-      "sha256": "89cbbdd12120eef88c90e820365c6a7dcf8fa3352ca3bf49d5ae5865199934b0",
-      "size": 76828,
-      "entry": "releases/snake-next-1cd377655276/snake/product/index.html"
+      "id": "snake-next-7cf7777489ca",
+      "file": "releases/snake-next-7cf7777489ca/runtime.json",
+      "sha256": "8b42b5b4858851bc030031ce101918e5d4d47361d1f9a5cafe4ca06c46f61c49",
+      "size": 80669,
+      "entry": "releases/snake-next-7cf7777489ca/snake/product/index.html"
     }
   }
 }
