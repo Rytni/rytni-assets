@@ -77,7 +77,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
  // opening/wave; no modal, movement freeze, or hidden temporary collision mask.
  const width=s.world.width,height=s.world.height,biome=s.world.biome;
  const edge=(x,y,side)=>xy(x+(side==='left'?1:0),y+(side==='top'?1:0));
- for(const [x,y,side]of borderCells(width,height,!!l.wallOffsets)){
+ for(const [x,y,side]of l.perimeter===false?[]:borderCells(width,height,!!l.wallOffsets)){
   if(x+1<view.x||y+1<view.y||x>view.x+view.cols||y>view.y+view.rows)continue;
   const pos=edge(x,y,side),offset=l.wallOffsets?.[side]||0;
   // FIT-only presentation placement. Painter/source geometry is unchanged;
@@ -107,7 +107,7 @@ export function drawEnvironment(ctx,s,view,l,frame,indicator=false){
   }
   ctx.globalAlpha=1;
   // The actual old wall holds, fractures, then withdraws in staggered chunks.
-  for(const [x,y,side]of borderCells(opening.from.width,opening.from.height)){
+  for(const [x,y,side]of l.perimeter===false?[]:borderCells(opening.from.width,opening.from.height)){
    if(!(side==='right'&&width>opening.from.width||side==='bottom'&&height>opening.from.height)||x===0||y===0)continue;
    if(x+1<view.x||y+1<view.y||x>view.x+view.cols||y>view.y+view.rows)continue;
    const local=clamp((p-.20-((x+y)%4)*.06)/.46),[a,b]=edge(x,y,side);

@@ -2,6 +2,7 @@ import {TunnelSession} from '../gate-one/session.js';
 import {installProgression} from '../progressive-run/adapter.js';
 import {EffectRibbonSprites} from './appearance/effect-ribbon.js';
 import {installProductShell} from './cabinet-shell.js';
+import {productWorldLayout} from './world-layout.js';
 
 /** One existing TrainingGame owns input/clock/audio/rendering. This bridge
  * replaces only product routing and the seeded session factory. */
@@ -13,6 +14,7 @@ export class ProductBridge {
   this.game=game;const win=this.frame.contentWindow;this.oldSprites=game.renderer.smoothSprites;
   game.ribbonV4=new EffectRibbonSprites(game.art);game.renderer.smoothSprites=game.ribbonV4;
   this.progression=installProgression(game,{cameraDebug:()=>false});this.progression.presentation.appearanceMode='skin';this.progression.presentation.quality=this.settings.quality;
+  this.progression.presentation.fitLayout=productWorldLayout;this.progression.presentation.ambientBackdrop=true;
   game.sessionFactory=options=>{this.metrics={maxCombo:0,bonusCount:0,activeTicks:0};this.progression.reset();const s=new TunnelSession({...options,seed:this.seed,progression:{model:'fit-world-v2',freeTrigger:15,startStage:this.previewStage||0,maxWorldStage:2}});s.startsKey=game.starts+1;return s;};
   const originalStart=game.start.bind(game),show=game.show.bind(game),pause=game.pause.bind(game),render=game.render.bind(game),tick=game.tick.bind(game);
   this.engineStart=originalStart;

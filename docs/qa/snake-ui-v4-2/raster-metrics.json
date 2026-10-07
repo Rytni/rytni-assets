@@ -1,0 +1,21 @@
+{
+  "button_sources": [
+    {
+      "kind": "play",
+      "source_join_identical": true,
+      "alpha_padding_identical": true
+    },
+    {
+      "kind": "wood",
+      "source_join_identical": true,
+      "alpha_padding_identical": true
+    },
+    {
+      "kind": "danger",
+      "source_join_identical": true,
+      "alpha_padding_identical": true
+    }
+  ],
+  "root_cause": "V4.1 independent CSS filters: wood center brightness .8 vs caps none; play center1.28/saturation1.08 vs caps1.1. Source join is exact; no source PNG edit required.",
+  "corner_cause": "stepped canvas clipPath plus opaque full-viewport/full-cabinet backing; transparent residual presentation now exposes unchanged ambient art, no image zoom."
+}

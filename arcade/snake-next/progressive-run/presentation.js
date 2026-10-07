@@ -37,9 +37,10 @@ export class ProgressPresentation {
     const edge=s.portalEdges.at(-1);next.portalEdge=edge&&(frame.start??0)<=s.moves-edge.move+1e-9?edge.move+':'+edge.tick:null;}
    this.camera=next;
   }
-  const base=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),fit=this.cameraMode==='fit'?fitWorldLayout(base,s,frame,options.fullscreen):null;
+  const base=geometry(renderer.w,renderer.h,28,12,options.fullscreen,options.compact),fit=this.cameraMode==='fit'?(this.fitLayout||fitWorldLayout)(base,s,frame,options.fullscreen):null;
   const view=fit?fit.view:this.camera.update(frame,s,options.touch),l=fit?fit.layout:base,{field,arena,cell}=l;
-  this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';ctx.fillRect(0,0,l.w,l.h);
+  this.lastView=view;const ctx=renderer.canvas.getContext('2d');ctx.setTransform(renderer.dpr,0,0,renderer.dpr,0,0);ctx.imageSmoothingEnabled=false;ctx.fillStyle='#021512';
+  if(this.ambientBackdrop){ctx.clearRect(0,0,l.w,l.h);ctx.fillRect(l.hud.x,l.hud.y,l.hud.w,l.hud.h);ctx.fillRect(arena.x,arena.y,arena.w,arena.h);}else ctx.fillRect(0,0,l.w,l.h);
   const at=c=>({x:field.x+(c%s.arena.width-view.x+.5)*cell,y:field.y+(Math.floor(c/s.arena.width)-view.y+.5)*cell});
   ctx.save();ctx.beginPath();ctx.rect(arena.x,arena.y,arena.w,arena.h);ctx.clip();
   const tr=s.transitions.at(-1),blend=tr?Math.min(1,(s.tick-tr.tick)/120):1,oldTiles=this.board(tr?.from||s.stage.biome),tiles=this.board(s.stage.biome);

@@ -25,6 +25,6 @@ test('product shell has no lower rail and preserves canonical layout/hash withou
  const before=session.hash(),layout=JSON.stringify(game.renderer.last);
  assert.equal(installProductShell(game),root);game.render();
  assert.equal(appended,0);assert.equal(session.hash(),before);assert.equal(JSON.stringify(game.renderer.last),layout);
- assert.ok(canvas.style.clipPath.startsWith('polygon('));
+ assert.equal(canvas.style.clipPath,'none');
  const source=readFileSync(new URL('./cabinet-shell.js',import.meta.url),'utf8');assert.ok(!/requestAnimationFrame|setTimeout|setInterval|Date\\.now|createElement/.test(source));
 });
