@@ -1,0 +1,59 @@
+/* V4.3 hierarchy/material only. All gameplay/frame/grid geometry stays V4.2. */
+:root{--button-label-optical-y:1px;--glass-base:#071918;--glass-edge:#776747}
+.cabinet:not(.playing):not(.paused-game){background-image:url('../../grib/mushroom-snake-ui-v4-3/menu-forest.png')}
+.cabinet:not(.playing):not(.paused-game):before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,#061a1c00 18%,#04141438 80%,#020d105c 100%);z-index:0}
+#product-overlay{z-index:1}
+/* Calm smoked-emerald surfaces; wood is retained only at physical edges. */
+.fantasy-panel:not(.panel-rules) .skin-wood,.tournament-preview .skin-wood{background:radial-gradient(ellipse at 45% 0%,#20423980,transparent 70%),repeating-linear-gradient(125deg,#aacabb03 0 1px,transparent 1px 5px),linear-gradient(180deg,#0c2422f5,#071918f7);background-blend-mode:normal;box-shadow:inset 0 1px #d8c38b16,inset 0 -20px 35px #0005,0 10px 24px #0005}
+.attempt-tray,.record-plaque{background:radial-gradient(ellipse at 50% 0%,#23413a80,transparent 85%),repeating-linear-gradient(125deg,#a7c5b703 0 1px,transparent 1px 5px),linear-gradient(#0a211ef5,#071918f7);border:1px solid var(--glass-edge);box-shadow:inset 0 1px #dfcea522,inset 0 -10px 18px #0004,0 4px 10px #0004}
+.record-plaque strong,.count{color:#fff1cf}.record-plaque small,.attempt-tray small{color:#c9bb94}.rank-safe{border-left-color:#8b7a4c66}
+.tournament-preview .board-own{background:#051716a6;border-color:#8c79553d;color:#e5dbc0}
+.control-family{background:#061b1ae8;border-color:#7b70523b;box-shadow:inset 0 1px #99baad12,0 3px 8px #0004}
+.menu-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shortcut{width:100%;min-width:0;min-height:84px;gap:6px}.shortcut>span{display:block;background:none;padding:0;font:700 11px/1.1 'Trebuchet MS',sans-serif;white-space:nowrap;color:#e4dcc2}
+.shortcut-icon{width:56px;height:56px;padding:6px;background:linear-gradient(#122b28,#061817);border:1px solid #81704a;border-radius:7px;box-shadow:inset 0 1px #e1c68c1c}
+.ui-symbol{image-rendering:auto!important;object-fit:contain}
+.btn-icon{background:linear-gradient(#142d29,#061817);border:1px solid #81704a;border-radius:7px;box-shadow:inset 0 1px #e1c68c20}
+.btn-icon .button-icon{width:100%;height:100%;padding:7px}
+.btn:not(.btn-icon) .button-icon{image-rendering:auto}
+/* One optical baseline, shared by ALL cap/center buttons and fonts. */
+.btn:not(.btn-icon){padding-block:0}
+.button-label{display:grid;place-items:center;align-self:stretch;line-height:1;transform:translateY(var(--button-label-optical-y))}
+/* Fill under native ink; no transparent island between tiled rail and fill. */
+.fantasy-panel:not(.panel-rules) .skin-wood,.tournament-preview .skin-wood{inset:16px 12px 9px}
+/* Result: a focused surface behind title + hero + stats, not another scene. */
+.panel-result{height:min(700px,calc(100cqh - 72px));max-height:calc(100% - 40px);min-height:0!important;gap:14px}
+.panel-result>.panel-skin>.skin-crest{top:-24px;width:96px;height:48px}
+.panel-result .skin-wood,.panel-result.record .skin-wood{background:radial-gradient(ellipse at 50% 14%,#102e2bed 0%,#061b19f5 58%,#061b19d9 90%);box-shadow:inset 0 0 28px #0008}
+.panel-result>.panel-heading{isolation:isolate;padding-bottom:12px;text-align:center}
+.panel-result>.panel-heading:before{content:'';position:absolute;inset:-14px -10px -10px;background:radial-gradient(ellipse,#061c1cf5 25%,#061c1cbb 60%,transparent 75%);z-index:-1}
+.panel-result .panel-heading h1{color:#fff0c9;text-shadow:0 2px 2px #000b;-webkit-text-stroke:.25px #e8d7a0}
+.panel-result .eyebrow{color:#d6c69b}.result-story{background:linear-gradient(#0c2520e8,#061716ed);border:1px solid #8c795547;box-shadow:inset 0 1px #d9cca517,inset 0 -16px 25px #0003;border-radius:10px}
+.result-ornament p{color:#dccb9c}.result-score{color:#fff0c6;text-shadow:0 2px #0008}
+/* Full Ranking owns the host safe budget. ONLY rows4–10 may scroll. */
+.panel-rating[data-size=large]{width:min(860px,94cqw);height:min(760px,calc(100cqh - 72px));max-height:calc(100% - 40px);min-height:0;padding:38px 26px 22px;gap:10px;border-radius:0;background:none}
+.panel-rating>.panel-skin{display:block}.panel-rating>.panel-heading{flex:none;text-align:center;padding:8px 48px 0}
+.panel-rating>.panel-skin>.skin-crest{top:-24px;width:96px;height:48px}
+.panel-rating .panel-body{overflow:hidden;flex:1;min-height:0;display:flex;padding:0}
+.panel-rating .rating-scene .board{width:100%;height:100%;margin:0;min-height:0;padding:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px}
+.ranking-podium{flex:none;padding-bottom:8px;border-bottom:1px solid #89784d66}
+.leaderboard.ranking-podium li.podium{min-height:142px;padding:6px 5px;gap:6px;justify-content:center;border:0;border-radius:5px;background:linear-gradient(#2d382721,#66532926)}
+.leaderboard.ranking-podium li.podium-1{background:linear-gradient(#9c79442d,#40321d3d)}
+.ranking-podium .place{display:flex;align-items:center;gap:4px}.medal-number{font:700 21px Georgia;color:#ded2aa}.ranking-podium .leader-badge{width:56px;height:56px}
+.leaderboard.ranking-list{min-height:0;overflow:auto;overscroll-behavior:contain;display:block;scrollbar-width:thin;scrollbar-color:#82714a #071918}
+.ranking-list li{min-height:42px;border-bottom-color:#8b7a4c33}.ranking-list li.is-me{background:#c8b37622;box-shadow:inset 3px 0 #c6bb86}
+.ranking-summary{margin:0;padding:7px 0;font:14px/1.4 'Trebuchet MS',sans-serif;border-top:1px solid #89784d55;white-space:nowrap;color:#ebe1c5}
+.panel-rating>.actions{flex:none;margin:0}.panel-rating .empty-board{display:block;text-align:center}.empty-board img{image-rendering:auto}
+@container snake-stage (max-width:1100px) or (max-height:600px){
+ .shortcut{min-height:70px;gap:3px}.shortcut-icon{width:44px;height:44px;padding:4px}.menu-shortcuts{gap:6px}.shortcut>span{font-size:10px}.control-family{padding:4px 8px}.control-family .compact-actions{margin-top:4px}
+ .panel-result{height:calc(100cqh - 32px);max-height:calc(100% - 4px);min-height:0!important;padding-top:18px;gap:6px}.panel-result>.panel-heading{padding-top:4px;padding-bottom:6px}.panel-result>.panel-skin>.skin-crest{top:0;left:42px;transform:none;width:64px;height:32px}
+ .panel-result .panel-heading h1{font-size:25px}.panel-result>.actions{margin-top:auto}.panel-result .result-layout{gap:10px}
+ .panel-rating[data-size=large]{height:calc(100cqh - 32px);max-height:calc(100% - 4px);padding:16px 20px 12px;gap:6px}
+ .panel-rating>.panel-skin>.skin-crest{top:0;left:42px;transform:none;width:64px;height:32px}
+ .panel-rating>.panel-heading{padding-top:4px}.panel-rating .panel-heading h1{font-size:25px}.panel-rating .eyebrow{margin-bottom:1px;font-size:11px}
+ .panel-rating .rating-scene .board{gap:5px}.leaderboard.ranking-podium li.podium{min-height:87px;padding:2px 4px;gap:2px}.ranking-podium{padding-bottom:4px}.ranking-podium .leader-badge{width:38px;height:38px}.medal-number{font-size:17px}.ranking-podium .name{font-size:12px}.leaderboard.ranking-podium .score{font-size:16px}.ranking-summary{font-size:12px;padding:4px 0}.ranking-list li{min-height:32px;font-size:13px}.panel-rating>.actions .btn{height:44px;min-height:44px}
+}
+@container snake-stage (max-height:310px){
+ .shortcut{min-height:44px;gap:0}.shortcut-icon{width:44px;height:44px}.shortcut>span{display:none}.panel-result .panel-heading h1{font-size:22px}.panel-result .eyebrow{font-size:10px;margin:0}
+ .panel-rating[data-size=large]{padding-top:12px;padding-bottom:8px;gap:3px}.panel-rating>.panel-heading{padding-top:0}.panel-rating .eyebrow{display:none}.leaderboard.ranking-podium li.podium{min-height:72px}.ranking-podium .leader-badge{width:30px;height:30px}.panel-rating .ranking-summary{font-size:11px}
+}
