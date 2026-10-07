@@ -1,7 +1,7 @@
 // TEST-only immutable dependency snapshot. No gameplay is inlined into Tilda.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const DEFAULT_ROOT=path.resolve(__dirname,'..');
-const ASSET_FAMILIES=['mushroom-snake-menu-v1','mushroom-snake-ui-v3','mushroom-snake-ui-v4','mushroom-snake-ui-v4-1','mushroom-snake-ui-v4-3','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
+const ASSET_FAMILIES=['mushroom-snake-menu-v1','mushroom-snake-ui-v3','mushroom-snake-ui-v4','mushroom-snake-ui-v4-1','mushroom-snake-ui-v4-3','mushroom-snake-ui-v5','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const posix=value=>value.split(path.sep).join('/');
 function readSafe(root,file){

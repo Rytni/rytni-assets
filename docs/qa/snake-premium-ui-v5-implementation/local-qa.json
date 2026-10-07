@@ -1,0 +1,490 @@
+{
+  "results": [
+    {
+      "name": "main 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "ranking 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "rating",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-training 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-record 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-normal 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1920",
+      "size": [
+        1920,
+        1080
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "main 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "ranking 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "rating",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-training 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-record 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-normal 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1366",
+      "size": [
+        1366,
+        768
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "main 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "ranking 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "rating",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-training 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-record 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-normal 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 1280",
+      "size": [
+        1280,
+        720
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "main 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "ranking 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "rating",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-training 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-record 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "result-normal 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large result 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "result",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    },
+    {
+      "name": "large main 844",
+      "size": [
+        844,
+        390
+      ],
+      "screen": "main",
+      "scroll": false,
+      "outside": [],
+      "tiny": []
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

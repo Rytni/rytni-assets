@@ -28,7 +28,7 @@ test('top three receive podium treatment while all ten stay in backend order',()
 test('record result promotes only foods length combo and retains subordinate details',()=>{
  const html=view({screen:'result',hub:{best_score:12480,success:true,attempts_remaining:2},backend:{mode:'mock'},result:{accepted:true,record:true,response:{score:12480},stats:{score:12480,foods:24,length:32,max_combo:5,portal_uses:2,expansions:1,bonuses:9,world:[40,16],active_ticks:6840}}},{});
  assert.ok(html.includes('primary-stats'));
- assert.ok(html.includes('<details'));
+ assert.ok(html.includes('result-audit'));
  assert.ok(html.includes('Порталы 2'));
  assert.ok(html.includes('Расширения 1'));
  assert.ok(html.includes('Бонусы 9'));
