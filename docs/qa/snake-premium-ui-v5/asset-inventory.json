@@ -1,0 +1,399 @@
+{
+  "mode": "built-in image_gen + authorized offline raster composition",
+  "runtimeAssetsApproved": false,
+  "authored": [
+    {
+      "file": "icons-concept.png",
+      "size": [
+        1536,
+        1410
+      ],
+      "mode": "RGB",
+      "sha256": "9af6e96030571fdf18dd0121e04467e3a57d337f8a31b3aa4296d3798888fa75",
+      "bytes": 3125205
+    },
+    {
+      "file": "main-premium-1366.png",
+      "size": [
+        1366,
+        768
+      ],
+      "mode": "RGB",
+      "sha256": "e3c45fa68a0a1009a5552a86f38486beaa105cb55dba2db2ab7530af2060b8da",
+      "bytes": 1972241
+    },
+    {
+      "file": "main-premium-desktop.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "sha256": "7638f86809fe5c034b0d9b5332cbb9be0e19f9df5c58253affe56211556173b4",
+      "bytes": 3214626
+    },
+    {
+      "file": "masters/attempts.png",
+      "size": [
+        493,
+        172
+      ],
+      "mode": "RGBA",
+      "sha256": "a22e2bf899514def8794915b65b8dbfe67cb81f5f36dc3edf1bf14a0b005f4d1",
+      "bytes": 136086
+    },
+    {
+      "file": "masters/back.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "2900f84f68b160821992ecc343e041a0a34e56d1a8f7080e5701e459f76b150d",
+      "bytes": 55056
+    },
+    {
+      "file": "masters/close.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "54c3dc3ed73c4c3c89d7abbed95c52c6d2f2e5fe8daaa966ba872581f8ad89c5",
+      "bytes": 92977
+    },
+    {
+      "file": "masters/control.png",
+      "size": [
+        221,
+        225
+      ],
+      "mode": "RGBA",
+      "sha256": "4874cc7d0bbbcaaa66a6317949aa08f0154bcfbe4458d9f1b287e5cb7e78aada",
+      "bytes": 82441
+    },
+    {
+      "file": "masters/exit-fullscreen.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "66487eea05006ff3982783da98a7b00adeb0b64710ca5bd367236462a9731dad",
+      "bytes": 78612
+    },
+    {
+      "file": "masters/fullscreen.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "bfea5d5f3b0abb91cc7ca512b1c6c74140e401b646b1a7abfa8ae178cafd983a",
+      "bytes": 69131
+    },
+    {
+      "file": "masters/guide.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "172e8d77f626f57dff250694c815869373d1b84e4e27994676e1b06f50e6ca69",
+      "bytes": 97019
+    },
+    {
+      "file": "masters/home.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "53d356a4259938668261a3bede84db73b31cbda9861e1c3afd566acb28ac421a",
+      "bytes": 88586
+    },
+    {
+      "file": "masters/material-brass.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "4a18d82f06b896ed222a28a81e0add73766d021ff853292b0d154b87b687ead8",
+      "bytes": 344662
+    },
+    {
+      "file": "masters/material-enamel.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "74d888470bbf14870c33806debcc44257d409ead837bdfca368a98cd6a856b77",
+      "bytes": 279031
+    },
+    {
+      "file": "masters/material-glass.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "b418ce9b989926be2fa0587fc0605dd1861d6a565a6e357963831edd89ec2a3b",
+      "bytes": 171134
+    },
+    {
+      "file": "masters/material-parchment.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "261cae787d864f7d41564234c7d735a5525779274b980d85a8b7025754ec313f",
+      "bytes": 302467
+    },
+    {
+      "file": "masters/material-resin.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "f5716a17401d71ef220c03b84a5d7b3b4637bb5ecb11e0eff95bd2e43beb7a6b",
+      "bytes": 336033
+    },
+    {
+      "file": "masters/material-wood.png",
+      "size": [
+        438,
+        330
+      ],
+      "mode": "RGBA",
+      "sha256": "54bb12d3a5749b342e2063af400ba50f71c72fb5a566b0f0bb4ae02994e11503",
+      "bytes": 307436
+    },
+    {
+      "file": "masters/ranking-board.png",
+      "size": [
+        1466,
+        680
+      ],
+      "mode": "RGBA",
+      "sha256": "9ef84579bf5d7d44365f2dc1deb072b685c45990e5eb9e130b0188197cc8844a",
+      "bytes": 1149259
+    },
+    {
+      "file": "masters/ranking.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "abb48b4fdc9607cc4bb7fc6517c731ad7a9cc8c902195d5d6144dfa4f5b84cca",
+      "bytes": 83231
+    },
+    {
+      "file": "masters/record-rank.png",
+      "size": [
+        455,
+        228
+      ],
+      "mode": "RGBA",
+      "sha256": "b4e242a2eb3da19cff4748d4c585bccbb1381e16d4bd418e5b0e1c28fbbb8466",
+      "bytes": 180889
+    },
+    {
+      "file": "masters/restart.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "fb162fcd7f9e1b0bb85e765cab443df63a1a6a0a9c96f9446d94fe2bad9f8f93",
+      "bytes": 101763
+    },
+    {
+      "file": "masters/settings.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "64eb0765e4e8c72240e741d8c88a4bba3ecb509743bcae4dd9dde55aef12bc9d",
+      "bytes": 98203
+    },
+    {
+      "file": "masters/share.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "67347d8ed4aecfd67dcd1316d2f0d73546fec45a92b2e17f4b363fd35a4950a1",
+      "bytes": 80978
+    },
+    {
+      "file": "masters/sound-off.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "ae5dde66f26a13a9dcfa08d83e30b56128785d8cd32ca639d54ee18f43eb7c0c",
+      "bytes": 93356
+    },
+    {
+      "file": "masters/sound-on.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "26ec577a46be1ad9ab4853244c6c76cd1833a501918d9def9ee2890cf48465c9",
+      "bytes": 88267
+    },
+    {
+      "file": "masters/stat-combo.png",
+      "size": [
+        165,
+        322
+      ],
+      "mode": "RGBA",
+      "sha256": "54298915cf7711534398ffd45e48841a825f7f18dd4822ee37859a18e79545ae",
+      "bytes": 80749
+    },
+    {
+      "file": "masters/stat-food.png",
+      "size": [
+        184,
+        298
+      ],
+      "mode": "RGBA",
+      "sha256": "79ab19ef5ae9939b6502487122f2eca42a11050768dc931d4098bfa3fef90f1e",
+      "bytes": 98187
+    },
+    {
+      "file": "masters/stat-length.png",
+      "size": [
+        174,
+        363
+      ],
+      "mode": "RGBA",
+      "sha256": "f3550476d7ec98eff9e7cf55346878082b42bb903aed530e4a1d714fb9eabfd7",
+      "bytes": 67930
+    },
+    {
+      "file": "masters/top-three.png",
+      "size": [
+        353,
+        350
+      ],
+      "mode": "RGBA",
+      "sha256": "ca04f7985def090bc0f49f83321a609ed57cbfa0a936a6bdc63eb404de1f9146",
+      "bytes": 207917
+    },
+    {
+      "file": "materials.png",
+      "size": [
+        1536,
+        780
+      ],
+      "mode": "RGB",
+      "sha256": "8cf630de71baab01deb1aae659b1956a56a92cf156bc9a52b7a7ba8c4e5d5e16",
+      "bytes": 1884269
+    },
+    {
+      "file": "ranking-premium.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "sha256": "c721221ef29fff30188a60f12564f061ccb0990a4c79ea18d3c835b11522bc36",
+      "bytes": 2918009
+    },
+    {
+      "file": "result-premium-1366.png",
+      "size": [
+        1366,
+        768
+      ],
+      "mode": "RGB",
+      "sha256": "ffe631a2e273253150ea93b44b6da8f18863e983edacd7c64f7337fd06e719fb",
+      "bytes": 1848718
+    },
+    {
+      "file": "result-premium-desktop.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGB",
+      "sha256": "9f113ac3a0858e54504af18547980852e14767394ef42fef658a63a6d7259da7",
+      "bytes": 2968939
+    },
+    {
+      "file": "result-premium-mobile.png",
+      "size": [
+        844,
+        390
+      ],
+      "mode": "RGB",
+      "sha256": "140bf59b5682791f6e5510f6142cef6cb8a4d3e2c29b4aac5c6bf6f0201daad9",
+      "bytes": 621794
+    },
+    {
+      "file": "sources/icons-atlas.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "sha256": "a54c713dd201752d45f55aaba637b6e9c9547f0b8231e7e7d42db43b25d5b0fc",
+      "bytes": 1735489
+    },
+    {
+      "file": "sources/materials-source.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "fc1b4b56d477241dc3847a381cd27fea379d155a870ec0e6d45e9a0066b29597",
+      "bytes": 2401863
+    },
+    {
+      "file": "sources/physical-objects.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "sha256": "4eddc60d470cee78caea5fff532a1e4b90a1b61db4872a7c6a614aa2987621d5",
+      "bytes": 1296503
+    },
+    {
+      "file": "sources/ranking-source.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "5894a7c25bfe0b1682b6921165e96f8678f7fdb098a30a3c28dafe60ca06dea7",
+      "bytes": 1550201
+    }
+  ],
+  "reusedReferenceOnly": [
+    "grib/mushroom-snake-ui-v4-3/menu-forest.png",
+    "grib/mushroom-snake-ui-v4/hero.png",
+    "grib/mushroom-snake-retro-v5/logo.png",
+    "grib/mushroom-snake-ui-v4-1/icons/attempt-48.png",
+    "grib/mushroom-snake-ui-v4/icons/sponsor-48.png",
+    "grib/mushroom-snake-ui-v4/buttons/play-left.png",
+    "grib/mushroom-snake-ui-v4/buttons/play-center.png",
+    "grib/mushroom-snake-ui-v4/buttons/play-right.png",
+    "grib/mushroom-snake-ui-v4/buttons/wood-left.png",
+    "grib/mushroom-snake-ui-v4/buttons/wood-center.png",
+    "grib/mushroom-snake-ui-v4/buttons/wood-right.png"
+  ]
+}

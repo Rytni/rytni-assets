@@ -1,0 +1,9 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:,"><title>Mushroom Snake · STATIC art reference · not gameplay</title>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080f12}img{display:block;width:100%;height:100%;object-fit:contain}</style>
+<img id="art" alt="Статическая иллюстрация Mushroom Snake — не работающий экран игры">
+<script>
+const allowed=['main-premium-desktop','main-premium-1366','result-premium-desktop','result-premium-1366','result-premium-mobile','ranking-premium'];
+const name=new URLSearchParams(location.search).get('name');
+if(allowed.includes(name)){document.querySelector('#art').src=name+'.png';document.title='STATIC ART · '+name+' · human approval pending';}
+else{document.querySelector('#art').remove();document.body.textContent='Выберите кадр на review.html';document.body.style.color='#fff0cd';}
+</script></html>

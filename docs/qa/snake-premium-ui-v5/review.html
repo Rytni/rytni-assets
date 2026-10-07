@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<link rel="icon" href="data:,"><title>Mushroom Snake · Premium UI V5 · static art approval</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11191b;color:#e8ddc5;font:16px/1.5 system-ui;padding:24px}h1,h2{font-family:Georgia,serif;font-weight:400}h1{margin:0 0 8px}p{max-width:1040px}a{color:#e3c488}nav{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0}button{font:inherit;color:inherit;background:#293236;border:1px solid #877047;border-radius:5px;padding:9px 14px;cursor:pointer}section{margin:40px 0}.compare{display:flex;gap:20px}.compare figure{flex:1;min-width:0}figure{margin:14px 0;border:1px solid #495353;padding:12px;background:#171f21}.raster{overflow:auto;max-height:none}.raster img{display:block;max-width:none;height:auto}figcaption{margin:12px 0 0;color:#cabc9f}body.fit .raster img{max-width:100%}.note{color:#cabc9f}summary{cursor:pointer;padding:10px 0}code{font-size:.95em}.links{display:flex;flex-wrap:wrap;gap:16px}@media(max-width:900px){body{padding:16px}.compare{display:block}}
+</style>
+<h1>Mushroom Snake · Premium UI V5</h1>
+<p>Статический арт-проход. <strong>V4.3 НЕ утверждён. V5 требует человеческого арт-одобрения.</strong> Ни один концепт здесь не является работающим игровым экраном. Продукт, gameplay и опубликованный TEST не изменялись.</p>
+<p class="note">По умолчанию PNG показываются в native 1×. Горизонтальная прокрутка относится только к документу сравнения. Сам Result — один полностью готовый кадр 1920×1080 / 1366×768 / 844×390, без модального контейнера и без прокрутки содержимого.</p>
+<nav><a href="#main">Main</a><a href="#result">Result</a><a href="#icons">Icons</a><a href="#ranking">Ranking</a><a href="#materials">Materials</a><a href="README.md">Source inventory / checks</a><a href="asset-inventory.json">PNG inventory + hashes</a><a href="PROMPTS.json">ImageGen prompts</a></nav>
+<button id="scale" type="button" aria-pressed="false">Вместить сравнения в окно</button>
+<section id="main"><h2>01 / Main · V4.3 → proposed premium</h2>
+<div class="compare">
+<figure><div class="raster"><img src="../snake-ui-v4-3/after-main-1920.png" width="1920" height="1080" alt="Текущий V4.3 Main, отклонённый человеком"></div><figcaption>Current V4.3 · reference only · NOT approved</figcaption></figure>
+<figure><div class="raster"><img src="main-premium-desktop.png" width="1920" height="1080" alt="Предложенный Main из отдельных физических элементов на лесном фоне"></div><figcaption>Proposed · 1920×1080 · <a href="scene.html?name=main-premium-desktop">Открыть один кадр</a></figcaption></figure>
+</div>
+<details><summary>Main · 1366×768 native</summary><figure><div class="raster"><img src="main-premium-1366.png" width="1366" height="768" alt="Статический Main 1366×768"></div><figcaption><a href="scene.html?name=main-premium-1366">Открыть кадр 1366×768</a></figcaption></figure></details>
+</section>
+<section id="result"><h2>02 / Result · V4.3 → full-scene proposal</h2>
+<div class="compare">
+<figure><div class="raster"><img src="../snake-ui-v4-3/after-result-training-1920.png" width="1920" height="1080" alt="Текущий V4.3 Result, отклонённый человеком"></div><figcaption>Current V4.3 · reference only · NOT approved</figcaption></figure>
+<figure><div class="raster"><img src="result-premium-desktop.png" width="1920" height="1080" alt="Полноэкранный Result без модальной панели: герой, 215 очков и три отдельных предмета статистики"></div><figcaption>Proposed · 1920×1080 · <a href="scene.html?name=result-premium-desktop">Открыть один кадр</a></figcaption></figure>
+</div>
+<details><summary>Result · 1366×768 native · весь экран без scroll</summary><figure><div class="raster"><img src="result-premium-1366.png" width="1366" height="768" alt="Полный Result 1366×768"></div><figcaption><a href="scene.html?name=result-premium-1366">Открыть кадр 1366×768</a></figcaption></figure></details>
+<figure><div class="raster"><img src="result-premium-mobile.png" width="844" height="390" alt="Отдельная компактная мобильная композиция Result 844×390"></div><figcaption>Mobile · отдельная композиция 844×390, не уменьшенный desktop · <a href="scene.html?name=result-premium-mobile">Открыть один мобильный кадр</a></figcaption></figure>
+</section>
+<section id="icons"><h2>03 / Icons · vector direction rejected → dimensional objects</h2>
+<div class="compare">
+<figure><div class="raster"><img src="../snake-ui-v4-3/icons-v2-review.png" alt="Отклонённые V4.3 линейные иконки"></div><figcaption>Current V4.3 · НЕ утверждено</figcaption></figure>
+<figure><div class="raster"><img src="icons-concept.png" width="1536" height="1410" alt="Двенадцать объёмных игровых иконок: master 256×256, previews 64 и 48 пикселей на фактическом лесном фоне"></div><figcaption>Proposed · PNG master 256×256 RGBA → 64 → 48 px · <a href="sources/icons-atlas.png">Исходный ImageGen atlas</a></figcaption></figure>
+</div>
+</section>
+<section id="ranking"><h2>04 / Proposed Ranking · smoked glass / dark metal / aged brass</h2>
+<figure><div class="raster"><img src="ranking-premium.png" width="1920" height="1080" alt="Статическая премиальная таблица TOP-3 и мест 4–10, собственное место №7, кнопка Назад"></div><figcaption>1920×1080 · forest visible through glass · <a href="scene.html?name=ranking-premium">Открыть один кадр</a></figcaption></figure>
+</section>
+<section id="materials"><h2>05 / Six-material vocabulary</h2>
+<figure><div class="raster"><img src="materials.png" width="1536" height="780" alt="Латунь, изумрудная эмаль, дымчатое стекло, лесная смола, резное дерево и ivory-пергамент в runtime-size образцах"></div><figcaption>Шесть согласованных материалов · реальные samples 128×96 px · <a href="sources/materials-source.png">Полный source board</a></figcaption></figure>
+</section>
+<p class="note">Generated raster + разрешённая offline-композиция; точная типографика набрана отдельно. Лес, герой, логотип, кнопки и токены взяты из собственных существующих исходников проекта, не из человеческих скриншотов. Эти PNG — visual references, не новые production/runtime assets.</p>
+<script>document.querySelector('#scale').addEventListener('click',e=>{const fit=document.body.classList.toggle('fit');e.currentTarget.setAttribute('aria-pressed',String(fit));e.currentTarget.textContent=fit?'Вернуть native 1×':'Вместить сравнения в окно';});</script>
+</html>
