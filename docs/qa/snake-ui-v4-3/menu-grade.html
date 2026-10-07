@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><link rel="icon" href="data:,"><title>Offline menu grade</title><style>html,body{margin:0;background:transparent}canvas{display:block}</style><canvas></canvas>
+<script>
+// Offline export only, never loaded by the game. Same source, same dimensions.
+const source=new Image();source.src='/grib/mushroom-snake-ui-v4/forest-backdrop.png';
+source.onload=()=>{const canvas=document.querySelector('canvas');canvas.width=source.naturalWidth;canvas.height=source.naturalHeight;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0);const pixels=ctx.getImageData(0,0,canvas.width,canvas.height),p=pixels.data;
+ for(let i=0;i<p.length;i+=4){const r=p[i],g=p[i+1],b=p[i+2],l=.2126*r+.7152*g+.0722*b,warm=r>g*1.22&&r>140&&g>55,exposure=warm?.86:.83;const shadow=Math.max(0,1-l/75);p[i]=Math.max(0,(l+(r-l)*.76)*exposure-shadow*2);p[i+1]=(l+(g-l)*.76)*exposure+shadow*1.5;p[i+2]=(l+(b-l)*.76)*exposure+shadow*2;}
+ ctx.putImageData(pixels,0,0);window.gradeReady=true;window.gradeInfo={source:source.src,size:[canvas.width,canvas.height],chroma:.76,exposure:.83,selectiveWarmExposure:.86,blur:false};};
+</script>

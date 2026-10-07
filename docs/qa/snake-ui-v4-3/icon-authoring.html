@@ -1,0 +1,28 @@
+<!doctype html><meta charset="utf-8"><title>Snake clean functional icons · vector source</title>
+<style>html,body{margin:0;background:#071918;color:#edddb7;font:14px Arial}h1,p{margin:24px}.sheet{display:grid;grid-template-columns:repeat(4,290px);gap:12px;padding:24px}.card{border:1px solid #73603b;padding:12px;background:#0c2221;border-radius:8px}.views{display:flex;gap:14px;align-items:center}.glyph{display:block;width:128px;height:128px;flex:none}.runtime{width:56px;height:56px}.small{width:44px;height:44px}.gray{width:44px;height:44px;filter:brightness(0) invert(.85)}.label{margin:10px 0 0;font-size:13px}body.export,body.export .card{background:transparent!important}body.export .card{border-color:transparent}.note{color:#b6c5bd}</style>
+<h1>Mushroom Snake · ICONS V2</h1><p class="note">128px vector-authored source → transparent RGBA PNG · 56px · 44px · monochrome silhouette. Symbol only; backing belongs to the control.</p><div class="sheet"></div>
+<script>
+const shapes={
+ guide:'<path d="M18 30Q42 22 64 36Q86 22 110 30V96Q86 88 64 100Q42 88 18 96Z"/><path d="M64 37V97"/><path class="ivory" d="M78 44Q78 33 88 33Q99 33 99 43Q99 49 90 53V58"/><path class="ivory" d="M90 66V67"/>',
+ trophy:'<path d="M38 23H90V47Q90 76 64 80Q38 76 38 47Z"/><path d="M38 30H21V45Q21 60 40 60M90 30H107V45Q107 60 88 60M64 80V99M43 106H85M49 99H79"/><path class="jade" d="M51 40L60 49L77 33"/>',
+ leaderboard:'<path d="M18 104V76H46V104M46 104V54H82V104M82 104V84H110V104M14 106H114"/><path d="M48 23L57 33L64 17L71 33L80 23L77 43H51Z"/>',
+ settings:'<path d="M55 15H73L77 29L87 35L101 31L110 47L100 57V71L110 81L101 97L87 93L77 99L73 113H55L51 99L41 93L27 97L18 81L28 71V57L18 47L27 31L41 35L51 29Z"/><circle cx="64" cy="64" r="20" class="cut"/>',
+ 'sound-on':'<path d="M18 49H36L59 29V99L36 79H18Z"/><path class="ivory" d="M75 46Q94 64 75 82M89 32Q122 64 89 96"/>',
+ 'sound-off':'<path d="M18 49H36L59 29V99L36 79H18Z"/><path class="ivory" d="M84 90L107 36"/>',
+ fullscreen:'<path d="M47 24H24V47M81 24H104V47M24 81V104H47M104 81V104H81"/>',
+ 'exit-fullscreen':'<path d="M23 45H45V23M83 23V45H105M45 105V83H23M105 83H83V105"/>',
+ back:'<path d="M67 29L31 64L67 99M33 64H107"/>',
+ close:'<path d="M32 32L96 96M96 32L32 96"/>',
+ home:'<path d="M16 59L64 20L112 59M29 51V105H99V51M53 105V72H75V105"/><path class="ivory" d="M89 34V22H101V45"/>',
+ restart:'<path d="M99 49A39 39 0 1 1 74 26M101 22V51H73"/>',
+ share:'<path d="M41 64L83 34M41 64L83 94"/><circle cx="28" cy="64" r="14"/><circle cx="97" cy="26" r="14"/><circle cx="97" cy="102" r="14"/>',
+ rank:'<path d="M22 99V78H47V56H72V34H99V15M17 107H110"/><path class="jade" d="M34 33H60M47 20V46"/>',
+ combo:'<path d="M69 15L28 72H59L53 113L102 54H72Z"/>',
+ 'medal-1':'<path d="M42 53L34 17L55 23L64 13L73 23L94 17L86 53"/><circle cx="64" cy="76" r="33"/><path class="ivory" d="M49 77L59 87L79 65"/>',
+ 'medal-2':'<path d="M34 17H51L64 43L77 17H94L82 58H46Z"/><circle cx="64" cy="76" r="33"/><path class="ivory" d="M49 77L59 87L79 65"/>',
+ 'medal-3':'<path d="M34 17H51L64 43L77 17H94L82 58H46Z"/><circle cx="64" cy="76" r="33"/><path class="ivory" d="M49 77L59 87L79 65"/>'
+};
+const defs='<defs><linearGradient id="gold" x1="0" x2="0.5" y2="1"><stop stop-color="#f4df9a"/><stop offset=".45" stop-color="#c4a366"/><stop offset="1" stop-color="#80603a"/></linearGradient></defs>';
+const svg=(key)=>{const silver=key==='medal-2',bronze=key==='medal-3';return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" data-key="${key}" class="glyph"><style>svg[data-key="${key}"] path,svg[data-key="${key}"] circle{fill:none;stroke:${silver?'#b8c7c7':bronze?'#b38a61':'url(#gold)'};stroke-width:8;stroke-linecap:round;stroke-linejoin:round}svg[data-key="${key}"] .ivory{stroke:#f2e9cf;stroke-width:6}svg[data-key="${key}"] .jade{stroke:#78af9e;stroke-width:6}svg[data-key="${key}"] .cut{stroke:#eadbb2;fill:#142e29}</style>${defs}<g>${shapes[key]}</g></svg>`;};
+document.querySelector('.sheet').innerHTML=Object.keys(shapes).map(k=>`<section class="card"><div class="views">${svg(k)}<div>${svg(k).replace('class="glyph"','class="glyph runtime"')}${svg(k).replace('class="glyph"','class="glyph small"')}${svg(k).replace('class="glyph"','class="glyph gray"')}</div></div><p class="label">${k} · 128 / 56 / 44 / silhouette</p></section>`).join('');window.iconKeys=Object.keys(shapes);
+</script>

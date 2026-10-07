@@ -1,0 +1,210 @@
+{
+  "seams": [
+    {
+      "phase": "before",
+      "dpr": 1,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 6.0,
+        "left": 3.0,
+        "right": 3.0
+      }
+    },
+    {
+      "phase": "before",
+      "dpr": 1.5,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 6.0,
+        "left": 2.6666666666666665,
+        "right": 3.3333333333333335
+      }
+    },
+    {
+      "phase": "before",
+      "dpr": 2,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 6.0,
+        "left": 3.0,
+        "right": 3.0
+      }
+    },
+    {
+      "phase": "after",
+      "dpr": 1,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 0.0,
+        "left": 0.0,
+        "right": 0.0
+      }
+    },
+    {
+      "phase": "after",
+      "dpr": 1.5,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 0.0,
+        "left": 0.0,
+        "right": 0.0
+      }
+    },
+    {
+      "phase": "after",
+      "dpr": 2,
+      "visible_scene_gap_css_px": {
+        "top": 0.0,
+        "bottom": 0.0,
+        "left": 0.0,
+        "right": 0.0
+      }
+    }
+  ],
+  "icons": [
+    {
+      "file": "back.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "close.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "combo.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "exit-fullscreen.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "fullscreen.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "guide.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "home.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "leaderboard.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "medal-1.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "medal-2.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "medal-3.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "rank.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "restart.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "settings.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "share.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "sound-off.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "sound-on.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    },
+    {
+      "file": "trophy.png",
+      "size": [
+        128,
+        128
+      ],
+      "transparent_exterior": true
+    }
+  ]
+}

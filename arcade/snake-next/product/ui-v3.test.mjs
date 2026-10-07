@@ -11,7 +11,10 @@ test('each product panel owns fixed corners and an independent themed crest',()=
   const html=view({screen,tab:screen==='settings'?'sound':'basics',run:{mode:'training'}},{master:.5,music:.5,sfx:.5});
   for(const c of ['tl','tr','bl','br'])assert.ok(html.includes('skin-'+c));assert.ok(html.includes('crest-'+theme+'.png'));assert.ok(!html.includes('board-frame.png'));
  }
- assert.ok(board({leaderboard:[]}).includes('crest-tournament.png'));
+ // V4.3 Ranking keeps ONE outer illustrated frame; rows no longer own a
+ // second scroll-clipped panel/crest inside that frame.
+ assert.ok(view({screen:'rating',hub:{leaderboard:[]}},{}).includes('crest-tournament.png'));
+ assert.ok(!board({leaderboard:[]}).includes('panel-skin'));
 });
 test('primary/danger Russian actions use real caps and plain centers, never complete buttons',()=>{
  for(const [screen,kind] of [['pause','play'],['confirm-restart','danger']]){

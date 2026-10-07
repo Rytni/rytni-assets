@@ -1,0 +1,1 @@
+async page=>{await page.goto('http://127.0.0.1:8776/docs/qa/snake-ui-v4-3/menu-grade.html');await page.waitForFunction(()=>gradeReady);const r=await page.evaluate(()=>gradeInfo);await page.setViewportSize({width:r.size[0],height:r.size[1]});await page.locator('canvas').screenshot({path:'grib/mushroom-snake-ui-v4-3/menu-forest.png',omitBackground:true,scale:'css'});return r;}
