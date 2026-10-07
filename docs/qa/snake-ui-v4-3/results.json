@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-07",
+  "base": "b624986",
+  "sourceCheckpoint": "6452f98",
+  "publicationCheckpoint": "7a60531",
+  "pagesRun": 37645787431,
+  "release": "2.15.33-1a9ac1a0018c",
+  "runtime": "snake-next-480660bcb2d8",
+  "previousRelease": "2.15.33-148eb3c56595",
+  "previousRuntime": "snake-next-7cb676c44096",
+  "nodeTests": {"passed": 73, "failed": 0},
+  "nativeLayoutChecks": {"passed": 126, "failed": 0},
+  "largeNumberChecks": {"passed": 480, "failed": 0},
+  "visibleSeamGapsCss": [
+    {"dpr": 1, "left": 0, "right": 0, "top": 0, "bottom": 0},
+    {"dpr": 1.5, "left": 0, "right": 0, "top": 0, "bottom": 0},
+    {"dpr": 2, "left": 0, "right": 0, "top": 0, "bottom": 0}
+  ],
+  "live": {
+    "url": "https://rytni.live/testpodari?arcade_preview=1",
+    "resourceOverrides": false,
+    "cases": [
+      {"width": 1920, "height": 1080, "checks": 258, "errors": [], "failedAssets": [], "flyRankedCalls": 0},
+      {"width": 1366, "height": 768, "checks": 260, "errors": [], "failedAssets": [], "flyRankedCalls": 0},
+      {"width": 1280, "height": 720, "checks": 260, "errors": [], "failedAssets": [], "flyRankedCalls": 0},
+      {"width": 844, "height": 390, "checks": 249, "errors": [], "failedAssets": [], "flyRankedCalls": 0}
+    ],
+    "baseline": "Existing anonymous auth-health HTTP 401, separately classified",
+    "bothCdnAudit": {"dependenciesPerOrigin": 474, "runtimeAndAppHashes": "PASS", "finalErrors": [], "initialTransientGithub503s": 2},
+    "canonicalExternalVerifier": "PASS",
+    "reviewImagesDecoded": 87,
+    "reviewBrokenImages": 0
+  },
+  "protectedTrackedFilesUnchanged": 1022,
+  "productionChanged": false,
+  "databaseChanged": false,
+  "humanVisualApproval": "PENDING"
+}

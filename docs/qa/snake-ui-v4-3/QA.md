@@ -24,4 +24,18 @@ Base `b624986` and actual V4.2 TEST runtime `snake-next-7cb676c44096`. Structure
 
 ## Publication / LIVE
 
-Pending source checkpoint → canonical CheckOnly/Publish → both-CDN byte audit → fresh LIVE without route overrides → final screenshot/review checkpoint. Backend remains unapplied; no DB or Production operations.
+Source checkpoint `6452f98`; canonical CheckOnly passed, then `tools/deploy_tilda_test.ps1 -Publish` built/validated the exact candidate, staged TEST artifacts only, committed `7a60531`, pushed main and synchronized the TEST S3 mirror. GitHub Pages run `37645787431` completed successfully. No guard bypass.
+
+- App: `2.15.33-1a9ac1a0018c`, SHA-256 `1a9ac1a0018c20ebf585a64bf5c627110565328e8dff7dcb6d24ed6401a50519`.
+- Runtime: `snake-next-480660bcb2d8`, manifest SHA-256 `d549dce95f217fc97d84466df07430a97c9b04f912372cf98de77cb2ea231ff5`.
+- Rollback preserved: published V4.2 `2.15.33-148eb3c56595` / `snake-next-7cb676c44096`, not an intermediate local candidate.
+- Both GitHub Pages and S3 return the correct current/previous identities. All 474 current dependencies plus runtime manifest and app match local SHA-256/size; MIME checks pass. Previous V4.2 app and runtime manifest bytes also match their original SHA-256/size on BOTH origins. First GitHub sweep received two transient HTTP 503s (neck-3-v6 PNG/material.js); complete repeat passed with zero errors. These were reported, not ignored.
+- External canonical `test_live_deployment.js test`: PASS, TEST version 2.15.33, 1904 participants, 53 S3 resources, zero page errors/broken visible images.
+- Fresh Edge contexts, NO candidate routing/resource overrides: 1920×1080 **258**, 1366×768 **260**, 1280×720 **260**, mobile 844×390 **249** checks PASS (**1027 total**). Verified exact published runtime URL, embedded/fullscreen Ranking and Guide safe bounds, row 10 reachability, only list scrolling, Training → Pause → confirmation/cancel → Settings → Result, mobile D-pad, fullscreen layout, host switching and Fly Training/Pause/Result smoke. No Fly ranked RPCs, new console/page errors or failed asset responses. The existing anonymous `/auth/v1/health` 401 remains baseline, NOT a new Snake error.
+- LIVE screenshots visually reviewed: Main embedded/fullscreen, Result, Ranking desktop/mobile and mobile Guide. Result heading has independent contrast; Ranking crest/footer/Back stay visible. Preview scores/leaderboards are explicitly demonstration data, not production ranked results.
+- Review page: **87 images decoded, zero broken**, including expanded native comparisons, baseline ×4, seams ×8 and LIVE evidence.
+- Protected-source audit rerun after publication: **1022 tracked files unchanged** against `b624986`; Production manifest/releases, Fly source, gameplay, geometry, attempts/sponsor/backend and old art unchanged. Backend remains unapplied; no database operations.
+
+Reproduce LIVE UI checks with `playwright-cli -s=snakev43 run-code --filename=docs/qa/snake-ui-v4-3/live-qa.js` while the local read-only preview server is running on port 8776. Byte audit: `node docs/qa/snake-ui-v4/live-byte-audit.cjs`. Machine-readable summary: [results.json](results.json).
+
+**Technical/local and publication gates: PASS. Human visual approval: PENDING. STOP FOR HUMAN VISUAL REVIEW.**

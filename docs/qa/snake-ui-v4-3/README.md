@@ -11,3 +11,5 @@ Authoring: [icon-authoring.html](icon-authoring.html), [menu-grade.html](menu-gr
 Targeted workflow: pinned immutable BEFORE → native/DPR raster diagnostics → source assertions → numeric regression → exact canonical candidate in real TEST host at desktop/mobile sizes → canonical publish only after gates → both-CDN byte audit → fresh LIVE → final review checkpoint. Preserve the verified published V4.2 rollback descriptor while making local candidates.
 
 Review: [review.html](review.html). Human acceptance remains PENDING.
+
+Published TEST candidate: `2.15.33-1a9ac1a0018c` / `snake-next-480660bcb2d8`. Source `6452f98`, publication `7a60531`. Both-CDN byte audit and fresh LIVE desktop/mobile checks PASS; details in [QA.md](QA.md), machine-readable [results.json](results.json). Production/DB/Fly/gameplay unchanged. STOP for human visual review.
