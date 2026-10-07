@@ -1,0 +1,29 @@
+{
+  "runtime": "snake-next-5259c7bef436",
+  "viewport": [1366, 768],
+  "environment": "Playwright CLI / headless Edge / fresh context / real TEST host",
+  "observed": "Intermittent Resume to automatic Pause; Result wait timed out after 20000ms",
+  "automaticPause": {
+    "timeMs": 3978,
+    "gameStatus": "playing",
+    "clockStatus": "recovery",
+    "clockReason": "scheduler-lag",
+    "clockLastMs": 3977.5999999996275,
+    "documentHasFocus": true,
+    "documentHidden": false,
+    "caller": "forest-training/runtime.js:69:47 / frame"
+  },
+  "clockPolicy": "60 Hz; more than 5 catch-up ticks triggers recovery, discards debt and pauses",
+  "provenCause": "Existing scheduler recovery guard, not a final blur/hidden event",
+  "notProven": "Exact source of main-thread delay or prevalence in human/headed play",
+  "protectedRuntimeModified": false,
+  "successfulEvidence": "live-qa.json: four contexts and 888 checks; additional desktop diagnostic reached Result with decoded artwork",
+  "minimalRepeat": {
+    "script": "resume-qa.js",
+    "screenshotsDuringMotion": false,
+    "completedCycles": [{"status":"result","hash":"3334d9ee"},{"status":"result","hash":"8c7a3746"}],
+    "thirdCycle": "Timed out after 12000ms in Pause; scheduler-lag/recovery; focused and not hidden",
+    "interpretation": "Not attributable solely to screenshot capture; exact stall origin still unproven"
+  },
+  "status": "Documented QA limitation; do not treat all repeats as passing or disable safety guard"
+}
