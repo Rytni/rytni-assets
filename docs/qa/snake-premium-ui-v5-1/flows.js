@@ -1,0 +1,1 @@
+async page=>{const source=await(await page.request.get('http://127.0.0.1:8776/docs/qa/snake-premium-ui-v5-implementation/flow-qa.js')).text();return await eval('('+source.replaceAll('snake-premium-ui-v5-implementation/','snake-premium-ui-v5-1/')+')')(page);}

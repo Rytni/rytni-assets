@@ -24,14 +24,15 @@ test('top three receive podium treatment while all ten stay in backend order',()
  assert.ok(html.includes('is-me'));
 });
 
-// Catch accidental nine-equal-stats result or losing the canonical secondary data.
-test('record result promotes only foods length combo and retains subordinate details',()=>{
+// Canonical stats remain in the controller; V5.1 removes permanent telemetry.
+test('record result promotes foods length combo and one readable status without telemetry',()=>{
  const html=view({screen:'result',hub:{best_score:12480,success:true,attempts_remaining:2},backend:{mode:'mock'},result:{accepted:true,record:true,response:{score:12480},stats:{score:12480,foods:24,length:32,max_combo:5,portal_uses:2,expansions:1,bonuses:9,world:[40,16],active_ticks:6840}}},{});
  assert.ok(html.includes('primary-stats'));
- assert.ok(html.includes('result-audit'));
- assert.ok(html.includes('Порталы 2'));
- assert.ok(html.includes('Расширения 1'));
- assert.ok(html.includes('Бонусы 9'));
+ assert.ok(!html.includes('result-audit'));
+ assert.ok(!html.includes('Порталы 2'));
+ assert.ok(!html.includes('Расширения 1'));
+ assert.ok(!html.includes('Бонусы 9'));
+ assert.ok(html.includes('Сохранён · Рекорд: 12 480'));
  assert.ok(html.includes('mushroom-snake-ui-v4/hero.png'));
  for(const action of ['play-again','share','main'])assert.ok(html.includes('data-action="'+action+'"'));
 });

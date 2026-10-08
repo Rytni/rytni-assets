@@ -1,0 +1,4 @@
+const cp=require('node:child_process'),assert=require('node:assert/strict');
+const paths=['giveaway','grib','tilda-test/blocks/08_T123_BROWSER_ARCADE_2.15.34.html','arcade/snake-next/simulation','arcade/snake-next/forest-training','arcade/snake-next/gate-one','arcade/snake-next/progressive-run','arcade/snake-next/effect-playground','arcade/snake-next/product/appearance','arcade/snake-next/product/app.js','arcade/snake-next/product/controller.js','arcade/snake-next/product/bridge.js','arcade/snake-next/product/backend.js','arcade/snake-next/product/host-bridge.js','arcade/snake-next/product/world-layout.js','arcade/snake-next/product/cabinet-shell.js'];
+assert.equal(cp.execFileSync('git',['diff','--name-only','6a729c8','--',...paths],{encoding:'utf8'}).trim(),'');
+console.log(JSON.stringify({base:'6a729c8',approvedArtGameplayGeometryProgressionPortalInputAudioBackendFlyProductionUnchanged:true}));

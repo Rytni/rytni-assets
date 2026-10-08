@@ -1,0 +1,146 @@
+{
+  "rows": [
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        1000,
+        563
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        999,
+        562
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        720,
+        405
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        560,
+        315
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        480,
+        270
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "sceneDisplay": "block",
+      "icons": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/guide.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/ranking.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/settings.png"
+      ],
+      "attempts": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/attempts.png\")",
+      "record": "url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/record-rank.png\")"
+    }
+  ],
+  "pass": true,
+  "finding": "Current source uses Premium V5 in every tested breakpoint; referenced screenshot cannot be dated or attributed without the original capture/build stamp."
+}
