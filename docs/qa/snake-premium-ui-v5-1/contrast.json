@@ -225,18 +225,18 @@
   },
   {
     "selector": "result-note",
-    "text": "Результат сохранён · Рекорд: 6 840",
+    "text": "Сохранён · Рекорд: 6 840",
     "rect": {
-      "x": 66.265625,
+      "x": 99.546875,
       "y": 351.09375,
-      "w": 230.375,
+      "w": 163.8125,
       "h": 16
     },
     "color": "rgb(255, 240, 206)",
     "image": "after-mobile-result-normal-contrast.png",
-    "meanContrast": 11.33,
-    "brightP90Contrast": 6.53,
-    "brightFractionBelow3": 0.003,
+    "meanContrast": 11.73,
+    "brightP90Contrast": 7.1,
+    "brightFractionBelow3": 0.002,
     "pass": true
   },
   {
@@ -282,9 +282,9 @@
     },
     "color": "rgb(255, 240, 206)",
     "image": "after-mobile-rating-contrast.png",
-    "meanContrast": 14.85,
-    "brightP90Contrast": 13.47,
-    "brightFractionBelow3": 0.0,
+    "meanContrast": 11.99,
+    "brightP90Contrast": 8.14,
+    "brightFractionBelow3": 0.001,
     "pass": true
   }
 ]

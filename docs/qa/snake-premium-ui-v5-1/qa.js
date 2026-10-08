@@ -28,6 +28,9 @@ async (page,{phase='after'}={})=>{
    const labels=[...document.querySelectorAll('.shortcut-label')];for(let i=1;i<labels.length;i++)if(overlap(labels[i-1].getBoundingClientRect(),labels[i].getBoundingClientRect()))extra.push('shortcut label overlap');
    for(const e of document.querySelectorAll('.btn-icon .button-label'))if(getComputedStyle(e).display!=='none')extra.push('icon-only text exposed');
    for(const li of document.querySelectorAll('.ranking-list li')){const n=li.querySelector('.name'),score=li.querySelector('.score');if(n&&score&&overlap(n.getBoundingClientRect(),score.getBoundingClientRect()))extra.push('ranking name score overlap');}
+   // Physical glass slots, measured from the locked top-three PNG. A text
+   // node fitting its own DOM box must still not cross the painted divider.
+   const board=document.querySelector('.tournament-preview');if(board&&board.getBoundingClientRect().width){const b=board.getBoundingClientRect(),slots=[[.35,.56],[.56,.78],[.78,.95]];[...board.querySelectorAll('.preview-leaders li')].forEach((li,i)=>{for(const e of li.querySelectorAll('span,b')){const r=document.createRange();r.selectNodeContents(e);const t=r.getBoundingClientRect();if(t.top<b.top+slots[i][0]*b.height+3||t.bottom>b.top+slots[i][1]*b.height-3)extra.push('TOP3 painted divider overlap row '+(i+1));}});}
    return {rows,shortcuts,extra,scroll:document.documentElement.scrollHeight>innerHeight+1||document.documentElement.scrollWidth>innerWidth+1};
   });inventory.push({name,...data});checks.push({name,failures:[...data.rows.filter(r=>!r.fit).map(r=>({text:r.text,selector:r.selector,textRect:r.textRect,safe:r.safeTextRect})),...data.extra.map(text=>({text}))],scroll:data.scroll});
   legacy.push({name,premium:data.shortcuts.every(r=>r.src?.includes('/mushroom-snake-ui-v5/')),shortcuts:data.shortcuts});return data;
@@ -54,6 +57,7 @@ async (page,{phase='after'}={})=>{
   await page.evaluate(()=>{const c=snakeProduct.controller;c.hub.attempts_remaining=3;c.emit();});
   for(const score of scores)for(const rank of ranks){await page.evaluate(([score,rank])=>{const c=snakeProduct.controller;c.hub.best_score=score;c.hub.my_rank=rank;c.emit();},[score,rank]);await measure('Main '+width+' '+score+' '+rank);}
   if(width===1366)await capture('main-stress');
+  await page.evaluate(()=>{const c=snakeProduct.controller;c.hub.leaderboard=Array.from({length:3},(_,i)=>({place:i+1,name:'Хранитель_волшебного_леса_2026',score:99999999,is_me:i===2}));c.emit();});await measure('Main TOP3 long names max scores '+width);
   await page.evaluate(()=>{const c=snakeProduct.controller;const names=['Вы','Лесной гость','Грибная королева','Хранитель волшебного леса','Повелитель_Изумрудного_Леса_2026'];c.hub.leaderboard=Array.from({length:10},(_,i)=>({place:i+1,name:names[i%5],score:99999999,is_me:i===3}));c.show('rating');});
   await measure('Ranking stress '+width);if([1366,844].includes(width))await capture('ranking-'+width);
   await page.locator('.ranking-list').evaluate(e=>e.scrollTop=e.scrollHeight);await measure('Ranking last rows '+width);

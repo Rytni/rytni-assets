@@ -3,6 +3,7 @@ test('V5.1 declares eight shared typography roles and one optical correction wit
  const css=readFileSync(new URL('./ui-v5-1.css',import.meta.url),'utf8');
  for(const role of ['score','screen','section','button','ui','value','secondary','micro'])assert.ok(css.includes('--type-'+role+':'));
  assert.ok(css.includes('--button-label-optical-y:3px'));assert.ok(css.includes('place-items:center'));assert.ok(css.includes('.btn.btn-icon .button-label{display:none}'));
+ assert.ok(css.includes('grid-template-rows:repeat(3,minmax(0,1fr))'));assert.ok(css.includes('.preview-leaders li{align-self:center}'));
  assert.ok(!/url\(|image-rendering|scale\(|blur\(|Date\.now|requestAnimationFrame/.test(css));
 });
 test('V5.1 keeps one status and valid result actions; no debug-like telemetry or misleading success',()=>{

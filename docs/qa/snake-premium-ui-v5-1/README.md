@@ -36,6 +36,10 @@ variants are bounded, based on numeric length, never ellipsized.
   baseline, equal maximum width, font and alignment. Small label slots receive
   clearance, not a new Main layout. Record/rank text columns and padding change
   inside the same physical plaque; its art, outer anchor and size are unchanged.
+- TOP3 text is centered inside the three painted glass compartments rather
+  than flex-spaced across the whole list. The final clean 1920px capture caught
+  the third name crossing the existing last divider; a targeted physical-slot
+  gate now supplements DOM text-box checks. Board art/position/size are unchanged.
 - Ranking preserves board/header/footer/podium and row ordering/escaping. Names
   may ellipsize; score is a max-content column, never ellipsized. Stress includes
   realistic32-character usernames and scores99,999,999.
@@ -54,15 +58,16 @@ variants are bounded, based on numeric length, never ellipsized.
 
 - [BEFORE → AFTER review](review.html): nine matched visual sections + fallback
   investigation. Stress and Result captures are explicit local fixtures.
-- `before.json`: original V5 text inventory; `after.json`: **431 scenarios**,
-  **1337 distinct rendered text records**, zero text-fit failures, document
+- `before.json`: original V5 text inventory; `after.json`: **436 scenarios**,
+  **1394 distinct rendered text records**, zero text-fit failures, document
   overflow, new page errors or failed local assets. Identical repeated text
   records are deduplicated; scenario outcomes remain complete.
 - Each record includes container/text/safe bounds, font/size/line-height,
   alignment, foreground/background/shadow contrast treatment, wrap/overflow and
   scroll-region ownership. Critical labels also check icon/neighbor overlap.
 - Sizes:1920×1080,1366×768,1280×720,844×390,720×405 (embedded-size local fixture).
-  Eight score magnitudes × five ranks in Main; three Result variants; failed
+  Eight score magnitudes × five ranks in Main; TOP3 long names/max scores;
+  three Result variants; failed
   submission; long-name Ranking; Guide3tabs; Pause; both confirmations; Settings
   including sliders/game; no-attempts; mobile gate; sponsor/exhausted CTA.
 - `contrast.json`: actual text-free composite beneath tagline, icon captions,
@@ -90,6 +95,20 @@ ranked/demo semantics remain. The prior intermittent headless scheduler-recovery
 autopause is outside this text-only pass and is not claimed fixed; native OS
 share dialog and physical-device/browser-font variations require human review.
 
-TEST publication and final LIVE identifiers/evidence: pending final canonical
-publish. Rollback must remain the already published Premium V5, not an
-unpublished intermediate local candidate. Production publication is forbidden.
+## TEST publication
+
+Initial source/typography checkpoint: `2e0ae83`. Initial TEST publication:
+`89ad2be` passed 888 LIVE checks but exposed a manual TOP3 divider issue.
+The final corrected candidate supersedes that interim publication.
+Release: `2.15.33-4f26b949910b`; runtime: `snake-next-07afb2c15b05`.
+The application SHA-256 is
+`4f26b949910b5ecf1787935d793d0e47de45cef7a33d6a3fb2c037d968651ecb`.
+The runtime descriptor SHA-256 is
+`c4e1e3d47f46598357c5e9b4828255ba6868df61ad2e923d61858058e0e2e6b7`.
+There are 505 immutable runtime files, including the descriptor.
+Rollback is the actually published Premium V5 `2.15.33-b6f68b158ca0` /
+`snake-next-5259c7bef436`, not an unpublished intermediate candidate.
+The canonical build and local text/physical-slot gates passed.
+Final corrected TEST publication and Pages/LIVE acceptance: pending.
+
+Production publication is forbidden and Production files remain unchanged.
