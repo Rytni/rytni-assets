@@ -73,6 +73,9 @@ variants are bounded, based on numeric length, never ellipsized.
 - `contrast.json`: actual text-free composite beneath tagline, icon captions,
   Result status, Share and Ranking footer (desktop and mobile). Approximate
   mean-luminance and bright90th-percentile checks, not a full WCAG certification.
+- `top3.json`: the physical-slot validator rejects the old third-row placement
+  at 1920,1366,1280px and accepts the corrected text in all three. This gate is
+  independent of text fitting its own DOM box and does not alter the board art.
 - **64 product tests** and **11 immutable package tests** passed. Only obsolete
   permanent-telemetry/copy assertions were updated; ownership, attempts, seed,
   routing, retry, share, escaping and ordering tests remain.
@@ -108,7 +111,44 @@ The runtime descriptor SHA-256 is
 There are 505 immutable runtime files, including the descriptor.
 Rollback is the actually published Premium V5 `2.15.33-b6f68b158ca0` /
 `snake-next-5259c7bef436`, not an unpublished intermediate candidate.
-The canonical build and local text/physical-slot gates passed.
-Final corrected TEST publication and Pages/LIVE acceptance: pending.
+Final text-slot source checkpoint: `2633ef9`; canonical TEST publication:
+`cd3de71`. The canonical build, loader verification and TEST-only guard passed;
+the exact TEST closure was pushed and S3 synchronization completed with manifest last.
+Pages workflow [37757919587](https://github.com/Rytni/rytni-assets/actions/runs/37757919587)
+completed successfully. Both public Pages and S3 manifests select this exact
+release/runtime and approved V5 rollback. The application, descriptor and all
+504 descriptor-listed files passed byte/SHA/size/MIME verification on both
+origins with no errors (`node docs/qa/snake-ui-v4/live-byte-audit.cjs`). The
+external TEST loader verifier also passed.
+
+### Final LIVE typography / functional evidence
+
+- `live-typography.json`: **888 checks PASS**, **32 loaded-font text probes** /
+  **215 text records**, no text-safe errors, new page/console errors, failed
+  assets or Fly ranked RPCs. Four fresh contexts:1920×1080,1366×768,1280×720,
+  touch/mobile844×390. Every context loaded `snake-next-07afb2c15b05`.
+- This separate capture runner allows one normal Resume pointer action only
+  after the known startup scheduler-recovery pause. **Zero such recoveries
+  occurred in the successful final run** (`startupRecoveries: []`). No clock,
+  simulation, recovery guard or timer was overridden.
+- Strict repeat evidence remains in `live.json` and
+  `live-attempt-2-failure.json`: the run entered Pause after Training start and
+  the strict wait timed out. Final diagnostic: `scheduler-lag`, paused clock,
+  landscape, visible document, focus true, no new page errors/failed resources.
+  An earlier repeat timed out between selector and Main before detailed capture
+  existed; its exact cause is not established. These repeats are **not PASS**.
+  The same recovery guard/limitation was documented before this text pass in
+  `snake-premium-ui-v5-implementation/README.md`; it is not claimed fixed.
+- Anonymous `/auth/v1/health`401 remains recorded separately as a baseline in
+  each successful context, not silently counted as zero raw network errors.
+- Clean final screenshots (actual TEST Main and completed Training, not ranked
+  fixtures) were inspected: `live-1920-main-fullscreen.png`,
+  `live-1366-result.png`, `live-844-mobile-main.png`,
+  `live-844-mobile-result.png`. Local review includes these and all nine
+  BEFORE→AFTER pairs. Native OS share/physical device/font variation and
+  runtime recovery prevalence still require human review.
+
+Final typography gates pass; this is not an unconditional all-repeats
+performance/lifecycle certification. **STOP FOR HUMAN TYPOGRAPHY REVIEW.**
 
 Production publication is forbidden and Production files remain unchanged.
