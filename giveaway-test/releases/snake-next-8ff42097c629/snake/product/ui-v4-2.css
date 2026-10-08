@@ -1,0 +1,52 @@
+/* V4.2 focused polish. Original art, fixed corners and Main composition retained. */
+html,body{height:100%;overflow:hidden}
+#run-label{display:none}html.dev-qa #run-label:not([hidden]){display:block;position:fixed;bottom:0;right:0;padding:4px 8px;background:#091b15e8;z-index:21}
+/* The extruded source center is byte-identical to the cap join. Never grade
+   those parts independently: doing so creates a central rectangular plaque. */
+.btn .button-cap,.btn .button-center,.btn-play:active .button-center{filter:none}
+.btn-play .button-skin{filter:brightness(1.12) drop-shadow(0 4px 1px #000b)}
+.btn-wood .button-skin{filter:brightness(.95)}
+.btn-play:active .button-skin{filter:brightness(.9)}
+/* Intrinsic numeric columns: score cannot wrap/ellipsis or take icon space. */
+.record-plaque{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px;padding-inline:12px}
+.record-safe,.rank-safe{min-width:0;gap:8px}.rank-safe{padding-left:10px}
+.value-box{min-width:0}.record-plaque strong{font-family:'Arial Narrow','Trebuchet MS',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.5px;font-size:clamp(20px,1.9cqw,28px)}
+.record-plaque .value-wide{font-size:clamp(18px,1.6cqw,24px)}.rank-safe strong{font-size:clamp(19px,1.65cqw,26px)}
+.preview-leaders li{grid-template-columns:48px minmax(0,1fr);gap:2px 10px}.preview-leaders img{width:48px;height:48px;grid-row:1/3}.preview-leaders span{min-width:0}.preview-leaders b{grid-column:2;white-space:nowrap;font-size:19px;font-variant-numeric:tabular-nums}
+.leaderboard .score{font-family:'Arial Narrow','Trebuchet MS',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.35px}.podium .score{font-size:clamp(16px,1.6cqw,21px)}
+.panel-rating{height:min(92cqh,780px)}.panel-rating .panel-body{flex:1}
+/* Budget from the real host's menu area (safe insets already deducted), not
+   only 100dvh. The complete frame/book/footer stays fixed. Only page CONTENT
+   can scroll; no authored book edge or bookmark enters a scrolling parent. */
+.panel-rules[data-size=large]{width:min(860px,94cqw);height:min(760px,calc(100cqh - 72px));max-height:min(860px,calc(100% - 40px));min-height:0;padding:38px 26px 22px;gap:8px}
+.panel-rules .panel-body{min-height:0;overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px}
+.panel-rules .tabs{margin:0;flex-wrap:nowrap;min-width:0}.panel-rules .tabs button{min-width:0;flex:1;max-width:170px}
+.manual-book{height:100%;min-height:0;min-width:0;flex:none}
+.book-page{min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:26px 24px 24px}
+.page-content{min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#927145 #e9d8ae;flex:1}
+.effect-page{justify-content:normal}.effect-page .page-content{display:flex;flex-direction:column;gap:18px;justify-content:safe center}
+.panel-rules .skin-crest{top:-24px;height:48px;width:96px}
+.panel-rules>.panel-heading{padding-top:8px}
+@container snake-stage (max-width:1100px) or (max-height:600px){
+ .record-plaque{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:8px;padding-inline:9px}
+ .record-safe,.rank-safe{grid-template-columns:32px minmax(0,1fr);gap:5px}.rank-safe{padding-left:7px}
+ .plaque-trophy,.rank-medallion{width:32px;height:32px}.record-plaque strong,.rank-safe strong{font-size:21px}.record-plaque .value-wide{font-size:18px}
+ .panel-rules[data-size=large]{width:min(860px,94cqw);height:calc(100cqh - 32px);max-height:calc(100% - 4px);padding:18px 16px 12px;gap:4px}
+ .panel-rules .skin-crest{left:42px;top:0;width:64px;height:32px}.panel-rules>.panel-heading{padding-top:4px}.panel-rules .panel-body{gap:4px}
+ .panel-rules .tabs button{max-width:160px;height:44px;min-height:44px}
+ .book-page{padding:12px 18px 14px}.page-content{padding-right:2px}
+ .effect-page .page-content{gap:8px}.control-page .guide-snake{width:140px;max-height:72px;margin:0 auto}
+ .control-page .page-content>h3,.rules-page .page-content>h3{display:none}.control-illustrations img{height:54px}
+ .rules-page .page-content>.control-note{display:none}.rule-entries{gap:4px}.rule-entries p{font-size:13px}
+ .leaderboard .podium .score{font-size:17px}
+ .panel-rating .tournament-board{padding:24px 18px 18px}.panel-rating .tournament-board header{margin-bottom:12px}.panel-rating .tournament-board h2{font-size:26px}.panel-rating .leaderboard li.podium{min-height:100px}
+}
+@container snake-stage (max-height:310px){
+ .record-safe,.rank-safe{grid-template-columns:24px minmax(0,1fr);gap:3px}.plaque-trophy,.rank-medallion{width:24px;height:24px}
+ .record-plaque strong,.rank-safe strong,.record-plaque .value-wide{font-size:16px;letter-spacing:-.5px}
+ .panel-rules[data-size=large]{padding-top:12px;padding-bottom:9px}.panel-rules>.panel-heading{padding-top:0}.panel-rules .eyebrow{display:none}
+}
+@container snake-stage (max-width:700px){
+ .record-safe,.rank-safe{grid-template-columns:24px minmax(0,1fr);gap:4px}.plaque-trophy,.rank-medallion{width:24px;height:24px}
+ .rank-safe strong{font-size:18px}.record-plaque .value-wide{font-size:16px}
+}

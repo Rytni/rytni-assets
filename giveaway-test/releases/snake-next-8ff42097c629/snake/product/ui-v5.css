@@ -1,0 +1,107 @@
+/* Approved V5: normalized native anchors from composition-metrics.json.
+   No world, grid, gameplay or cabinet-aperture changes. */
+#product[data-screen=main] #product-overlay,#product[data-screen=result] #product-overlay,#product[data-screen=rating] #product-overlay{padding:0}
+.cabinet:not(.playing):not(.paused-game):before{background:none}
+.ui-symbol,.primary-stats img,.result-hero,.menu-hero{image-rendering:auto!important}
+.title-scene{position:absolute;inset:0;display:block;width:100%;height:100%;max-height:none;animation:v5-settle .24s ease-out both}
+.main-identity,.main-choices,.main-info,.main-choices>.actions,.control-family{display:contents}
+.main-identity .brand-wrap{position:absolute;left:5.208%;top:9.722%;width:30.729%;height:16.667%;margin:0}
+.main-identity .brand{width:100%;height:100%;max-height:none;object-fit:contain}
+.main-identity .motto{position:absolute;left:3.2%;top:27.037%;width:34.5%;padding:0;margin:0;background:none;border:0;text-align:center;font:italic clamp(12px,1.146cqw,22px)/1.2 Georgia;color:#e5d6b8;white-space:nowrap;text-shadow:0 2px 3px #000}
+.main-identity .menu-hero{position:absolute;left:4.427%;top:35.185%;width:34.896%;height:39.722%;max-height:none;object-fit:contain}
+.title-scene:before,.result-scene:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 28% 44% at 55% 48%,#00121499,transparent),radial-gradient(ellipse 30% 22% at 22% 20%,#00121255,transparent)}
+.main-choices .actions>.btn{position:absolute;max-width:none;margin:0}
+.main-choices .actions>.btn-play{left:41.406%;top:30.185%;width:26.563%;height:8.148cqh;min-height:44px;font-size:clamp(16px,1.6cqw,30px);padding-inline:3cqw}
+.main-choices .actions>.btn-wood{left:43.906%;top:41.111%;width:21.563%;height:6.481cqh;min-height:44px;font-size:clamp(13px,1.04cqw,20px);padding-inline:2.5cqw}
+.main-choices .training-note{position:absolute;left:43.9%;top:49.81%;width:21.56%;padding:0;background:none;text-align:center;font-size:clamp(11px,1.04cqw,20px)}
+.main-choices .notice{position:absolute;left:41%;top:82%;width:27%;font-size:clamp(12px,1cqw,18px)}
+.menu-shortcuts{position:absolute;left:45.833%;top:55.833%;width:17.5%;display:flex;justify-content:space-between;gap:0;margin:0}
+.shortcut{width:auto;min-width:0;min-height:0;gap:.5cqh;overflow:visible}
+.shortcut-icon{display:block;width:max(48px,3.333cqw);height:max(48px,3.333cqw);padding:0;border:0;border-radius:0;box-shadow:none;background:none;object-fit:contain}
+.shortcut:before{content:'';position:absolute;top:-.74cqh;width:max(64px,4.167cqw);height:max(64px,4.167cqw);background:url('../../grib/mushroom-snake-ui-v5/control.png') center/contain no-repeat;z-index:-1}
+.shortcut>span{display:block;padding:0;background:none;font:700 clamp(10px,.833cqw,16px)/1.2 'Trebuchet MS',sans-serif;color:#eadfc3;white-space:nowrap;text-shadow:0 2px 2px #000}
+.control-family .compact-actions{position:absolute;left:50.833%;top:70.926%;margin:0;gap:1.354cqw}
+.btn-icon{background:url('../../grib/mushroom-snake-ui-v5/control.png') center/100% 100% no-repeat;border:0;border-radius:0;box-shadow:none}
+.btn-icon .button-icon{padding:6px;width:100%;height:100%}
+.compact-actions .btn-icon{width:max(48px,3.125cqw);height:max(48px,5.556cqh);min-height:48px}
+.compact-actions .button-icon{width:100%;height:100%}
+.title-scene .attempt-tray{position:absolute;left:6.51%;top:82.315%;width:17.969%;height:12.037%;min-height:0;max-width:none;padding:1.3cqh 2.3cqw 1.2cqh;grid-template-columns:1.1fr 1fr;gap:1cqw;background:url('../../grib/mushroom-snake-ui-v5/attempts.png') center/100% 100% no-repeat;border:0;box-shadow:none;border-radius:0}
+.title-scene .attempt-tray .full-label{display:none}.title-scene .attempt-tray small{font-size:clamp(10px,.9375cqw,18px)}
+.title-scene .normal-tokens,.title-scene .sponsor-tokens{gap:.3cqh;justify-content:center}
+.title-scene .token-line{height:2.778cqh;gap:.417cqw}.title-scene .token img{width:1.563cqw;height:2.778cqh;min-width:16px;min-height:16px}
+.title-scene .count{font:700 clamp(11px,1.146cqw,22px)/1 Georgia}.token.claimable{opacity:.7}.token.spent{opacity:.2}
+.title-scene .record-plaque{position:absolute;left:25.833%;top:82.037%;width:14.271%;height:12.685%;min-height:0;max-width:none;gap:.6cqw;padding:3.1cqh 1.4cqw 3cqh;background:url('../../grib/mushroom-snake-ui-v5/record-rank.png') center/100% 100% no-repeat;border:0;box-shadow:none;border-radius:0;grid-template-columns:1fr 1fr;text-align:center}
+.title-scene .record-safe,.title-scene .rank-safe{display:block;min-width:0;border:0;padding:0}
+.title-scene .record-plaque small{font-size:clamp(10px,.885cqw,17px);margin:0 0 .3cqh}
+.title-scene .record-plaque strong{font-size:clamp(12px,1.354cqw,26px);line-height:1.1}
+.title-scene .record-plaque .value-wide{font-size:clamp(10px,.9cqw,18px);letter-spacing:-.5px}
+.tournament-preview{display:flex;position:absolute;left:72.396%;top:24.074%;width:22.813%;height:44.444%;min-height:0!important;padding:5.7cqh 3.7cqw 2.4cqh;gap:1.5cqh;background:url('../../grib/mushroom-snake-ui-v5/top-three.png') center/100% 100% no-repeat;text-align:center;overflow:visible}
+.tournament-preview header{margin:0}.tournament-preview .eyebrow{font-size:clamp(10px,.9375cqw,18px);margin:0}.tournament-preview h2{font-size:clamp(20px,1.719cqw,33px)}
+.preview-leaders{flex:1;gap:0;justify-content:space-evenly}.preview-leaders li{position:relative;display:grid;grid-template-columns:1.6cqw minmax(0,1fr);grid-template-rows:auto auto;gap:0 .45cqw;padding:0;border:0;min-width:0}
+.preview-leaders .preview-place{grid-row:1/3;font:700 clamp(17px,1.563cqw,30px) Georgia;color:#dfbf70;align-self:center}
+.preview-leaders span:not(.preview-place){font-size:clamp(11px,1.04cqw,20px)}.preview-leaders b{grid-column:2;font-size:clamp(14px,1.354cqw,26px)}
+.preview-leaders li.is-me{color:#ffdb7c;background:#050d1238}
+.tournament-preview .board-own{position:absolute;top:103.5%;left:-3%;width:106%;padding:0;background:none;border:0;font-size:clamp(11px,1.04cqw,20px);white-space:nowrap;line-height:1.35}
+.tournament-preview .board-own br{display:none}.tournament-preview .board-own br:after{content:' · '}
+.tournament-preview>.btn{position:absolute;left:8%;top:115%;width:84%;height:5.556cqh;min-height:44px;font-size:clamp(12px,.833cqw,16px);padding-inline:1.8cqw}
+/* Full scene, not a panel. Exact native reference ratios; never scroll. */
+.result-scene{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;isolation:isolate}
+.result-scene:before{z-index:-1;background:radial-gradient(ellipse 32% 48% at 68% 49%,#001218cc,transparent),radial-gradient(ellipse 28% 37% at 25% 56%,#00151440,transparent)}
+.result-scene>.result-hero{position:absolute;left:4.688%;top:30.093%;width:42.708%;height:48.611%;max-width:none;max-height:none;margin:0;object-fit:contain;animation:v5-settle .25s ease-out both}
+.result-scene>.panel-heading{position:absolute;left:41.5%;top:17.13%;width:53.46%;padding:0;text-align:center;margin:0}
+.result-scene .eyebrow{font-size:clamp(12px,1.146cqw,22px);color:#e4c27a;margin:0 0 1.1cqh}
+.result-scene .panel-heading h1{font-size:clamp(20px,2.083cqw,40px);line-height:1.12;text-transform:uppercase;text-wrap:balance;color:#fff0c5}
+.result-scene>.result-score{position:absolute;left:43.75%;top:28.7%;width:48.96%;padding:0;margin:0;border:0;background:none;font:700 8.333cqw/1.12 Georgia;color:#fff0c5;white-space:nowrap;text-align:center;text-shadow:0 4px 5px #000;animation:v5-score .28s ease-out both}
+.result-scene>.result-score.score-wide{font-size:6cqw}
+.result-scene .primary-stats{position:absolute;left:52.083%;top:48.7%;width:32.292%;height:19.5%;display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:none;padding:0;border:0}
+.result-scene .primary-stats>div{position:relative;display:flex;flex-direction:column;align-items:center;padding:0;background:none;border:0;box-shadow:none;animation:v5-settle .28s ease-out both}
+.result-scene .primary-stats>div:nth-child(2){animation-delay:.06s}.result-scene .primary-stats>div:nth-child(3){animation-delay:.12s}
+.result-scene .primary-stats small{font:clamp(11px,.9375cqw,18px)/1.2 'Trebuchet MS',sans-serif;color:#e1cba5}
+.result-scene .primary-stats img{position:absolute;top:3.704cqh;width:5.417cqw;height:15.556cqh;object-fit:fill;margin:0}
+.result-scene .primary-stats b{position:absolute;top:16.5cqh;min-width:3cqw;background:#040c0bd9;color:#fff0c5;font:700 clamp(14px,1.25cqw,24px)/1 Georgia;text-align:center}
+.result-note{position:absolute;left:43%;top:69.907%;width:50.46%;text-align:center;color:#d6c39d;font-size:clamp(11px,.9375cqw,18px);line-height:1.3}
+.result-audit{position:absolute;left:43%;top:73%;width:50.46%;text-align:center;color:#bcba9e;font-size:clamp(10px,.72cqw,14px);white-space:nowrap}
+.result-actions{display:contents}.result-actions>.btn{position:absolute;max-width:none;margin:0}
+.result-actions>.btn-play{left:54.688%;top:75.278%;width:27.083%;height:7.222cqh;min-height:44px;font-size:clamp(16px,1.354cqw,26px);padding-inline:2.5cqw}
+.result-actions>.btn-wood{left:58.073%;top:84.815%;width:20.313%;height:5.741cqh;min-height:44px;font-size:clamp(13px,1.04cqw,20px);padding-inline:2cqw}
+.result-share{position:absolute;left:86%;top:83%;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px}
+/* Approved wide glass object; only the seven regular rows can scroll. */
+.panel-rating[data-size=large]{position:absolute;left:12.24%;top:15.741%;width:75.521%;height:66.667%;min-height:0;max-height:none;padding:6.48cqh 15cqw 3cqh;gap:2.3cqh;background:url('../../grib/mushroom-snake-ui-v5/ranking-board.png') center/100% 100% no-repeat;border:0}
+.panel-rating>.panel-skin{display:none}.panel-rating>.panel-heading{padding:0;text-align:center}.panel-rating .eyebrow{font-size:clamp(11px,.9375cqw,18px);margin:0 0 1.7cqh}.panel-rating .panel-heading h1{font-size:clamp(22px,1.979cqw,38px)}
+.panel-rating>.panel-close{top:2.2cqh;right:2cqw}
+.panel-rating .rating-scene .board{gap:.5cqh;grid-template-rows:auto minmax(0,1fr) auto}
+.ranking-podium{border:0;padding:0;gap:2cqw;display:grid;grid-template-columns:repeat(3,1fr)}
+.leaderboard.ranking-podium li.podium{display:flex;flex-direction:column;grid-column:auto;min-height:0;height:11cqh;padding:.5cqh 0;gap:.2cqh;border:0;background:none}
+.ranking-podium .podium-2{order:-1}.ranking-podium .leader-badge{width:clamp(32px,2.292cqw,48px);height:clamp(32px,2.292cqw,48px)}
+.ranking-podium .name{font-size:clamp(11px,.9375cqw,18px);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.leaderboard.ranking-podium .score{font:700 clamp(16px,1.25cqw,24px)/1 Georgia}.medal-number{font-size:clamp(14px,1.146cqw,22px)}
+.ranking-list{padding-top:2cqh}.ranking-list li{min-height:3.148cqh;height:3.148cqh;font-size:clamp(12px,1.04cqw,20px);padding:0 .5cqw;border:0;grid-template-columns:2.1cqw minmax(0,1fr) auto}
+.ranking-list .score{font-size:clamp(15px,1.198cqw,23px)}.ranking-list .is-me{color:#efd181;background:#030b10a8!important;box-shadow:none!important}
+.ranking-summary{font-size:clamp(11px,1.04cqw,20px);border:0;padding:.2cqh 0;background:none!important;text-align:center}
+.panel-rating>.actions{margin:0}.panel-rating>.actions .btn{height:5cqh;min-height:44px;width:16.667cqw;font-size:clamp(13px,.833cqw,16px)}
+.fantasy-panel:not(.panel-rules):not(.panel-rating) .skin-wood{background:#0a141bd9 url('../../grib/mushroom-snake-ui-v5/material-glass.png') center/cover;box-shadow:inset 0 0 26px #0006}
+/* Dedicated compact landscape layout. Not a scaled desktop Result. */
+@container snake-stage (max-width:1000px){
+ .main-identity .brand-wrap{left:3%;top:4%;width:36%;height:20%}.main-identity .motto{left:2%;top:25%;width:38%;font-size:12px;white-space:normal}.main-identity .menu-hero{left:2%;top:33%;width:38%;height:44%}
+ .main-choices .actions>.btn-play{left:48%;top:15%;width:44%;height:52px;font-size:23px}.main-choices .actions>.btn-wood{left:52%;top:32%;width:36%;height:44px;font-size:14px}
+ .main-choices .training-note{display:none}.menu-shortcuts{left:53%;top:49%;width:34%;gap:10px}.shortcut-icon{width:48px;height:48px}.shortcut:before{width:64px;height:64px;top:-8px}.shortcut>span{font-size:10px}
+ .control-family .compact-actions{left:62%;top:73%;gap:12px}.compact-actions .btn-icon{width:48px;height:48px}
+ .title-scene .attempt-tray{left:3%;top:80%;width:22%;height:18%;padding:6px 16px;gap:6px}.title-scene .record-plaque{left:25%;top:80%;width:20%;height:18%;padding:16px 14px;gap:10px}.title-scene .token-line{height:20px;gap:4px}.title-scene .token img{width:20px;height:20px}.title-scene .attempt-tray small{font-size:10px}.title-scene .record-plaque small{font-size:10px}.title-scene .record-plaque strong{font-size:16px}.title-scene .record-plaque .value-wide{font-size:10px}.title-scene .count{font-size:12px}
+ .tournament-preview{display:none}
+ .result-scene{inset:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);width:auto;height:auto}
+ .result-scene>.result-hero{left:2.607%;top:30.513%;width:38.507%;height:54.872%}
+ .result-scene>.panel-heading{left:42.72%;top:5.64%;width:52.73%;padding:0}.result-scene .eyebrow{font-size:13px;margin:0 0 2cqh}.result-scene .panel-heading h1{font-size:clamp(17px,2.725cqw,23px);line-height:1;white-space:nowrap;letter-spacing:-.4px}
+ .result-scene>.result-score{left:43%;top:22.6%;width:52%;font-size:9.479cqw;line-height:1.05}.result-scene>.result-score.score-wide{font-size:6.5cqw}
+ .result-scene .primary-stats{left:50%;top:46.923%;width:38%;height:25.128%}.result-scene .primary-stats small{font-size:12px}.result-scene .primary-stats img{top:5.128cqh;width:6.161cqw;height:20cqh}.result-scene .primary-stats b{top:21.3cqh;font-size:14px;min-width:28px}
+ .result-note,.result-audit{left:3%;width:36%;font-size:10px;line-height:1.2;text-align:center;white-space:normal}.result-note{top:87%}.result-audit{top:93%;font-size:9px}
+ .result-actions>.btn-play{left:46.445%;top:73.59%;width:45.024%;height:48px;font-size:clamp(16px,2.4cqw,22px);padding-inline:28px}.result-actions>.btn-wood{left:53.91%;top:86.667%;width:30.213%;height:44px;font-size:16px;padding-inline:24px}
+ .result-share{left:92%;top:85%;font-size:9px;gap:0}.result-share .btn-icon{width:44px;height:44px;min-height:44px}.result-share>span{display:none}
+ .panel-rating[data-size=large]{left:3%;top:3%;width:94%;height:94%;padding:14px 60px 10px;gap:3px}.panel-rating .eyebrow{font-size:10px;margin:0 0 3px}.panel-rating .panel-heading h1{font-size:23px}.panel-rating>.panel-close{top:12px;right:20px}
+ .leaderboard.ranking-podium li.podium{height:82px;gap:1px}.ranking-podium .leader-badge{width:32px;height:32px}.ranking-podium .name{font-size:11px}.leaderboard.ranking-podium .score{font-size:16px}.ranking-list{padding-top:0}.ranking-list li{height:24px;min-height:24px;font-size:12px;grid-template-columns:24px minmax(0,1fr) auto}.ranking-list .score{font-size:15px}.ranking-summary{font-size:12px;padding:2px 0}.panel-rating>.actions .btn{height:44px;width:190px}
+}
+@container snake-stage (max-height:310px){
+ .main-identity .motto{display:none}.main-choices .actions>.btn-play{top:6%;height:44px;font-size:18px}.main-choices .actions>.btn-wood{top:27%;height:44px}.menu-shortcuts{top:52%}.shortcut>span{display:none}.control-family .compact-actions{top:78%}.title-scene .attempt-tray{top:75%;height:24%}.title-scene .record-plaque{top:75%;height:24%}
+ .result-scene .eyebrow{font-size:10px;margin:0 0 3px}.result-scene .panel-heading h1{font-size:18px}.result-scene>.result-score{top:23%;font-size:7cqw}.result-scene .primary-stats{top:43%;height:24%}.result-scene .primary-stats small{font-size:10px}.result-scene .primary-stats img{height:17cqh;top:5cqh}.result-scene .primary-stats b{top:18cqh;font-size:12px}.result-actions>.btn-play{top:68%;height:44px;font-size:16px}.result-actions>.btn-wood{top:85%;height:44px;font-size:14px}.result-audit{display:none}.result-note{top:86%;font-size:10px}
+}
+@keyframes v5-settle{from{opacity:0;translate:0 4px}to{opacity:1;translate:0 0}}@keyframes v5-score{from{opacity:0;scale:.98}to{opacity:1;scale:1}}
+@media(prefers-reduced-motion:reduce){.title-scene,.result-scene *{animation:none!important}}
