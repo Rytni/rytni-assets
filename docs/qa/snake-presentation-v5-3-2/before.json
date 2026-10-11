@@ -1,0 +1,18 @@
+{
+  "checks": 2,
+  "errors": [],
+  "failures": [],
+  "rows": [
+    {
+      "html": "<div class=\"primary-stats\"><div><small>ГРИБЫ</small><img src=\"/grib/mushroom-snake-ui-v5/stat-food.png\" width=\"104\" height=\"168\" alt=\"\"><b>24</b></div><div><small>ДЛИНА</small><img src=\"/grib/mushroom-snake-ui-v5/stat-length.png\" width=\"104\" height=\"168\" alt=\"\"><b>32</b></div><div><small>КОМБО</small><img src=\"/grib/mushroom-snake-ui-v5/stat-combo.png\" width=\"104\" height=\"168\" alt=\"\"><b>×5</b></div></div>",
+      "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+      "before": "",
+      "after": "none",
+      "images": [
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/stat-food.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/stat-length.png",
+        "http://127.0.0.1:8776/grib/mushroom-snake-ui-v5/stat-combo.png"
+      ]
+    }
+  ]
+}

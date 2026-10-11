@@ -1,7 +1,7 @@
 // TEST-only immutable dependency snapshot. No gameplay is inlined into Tilda.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const DEFAULT_ROOT=path.resolve(__dirname,'..');
-const ASSET_FAMILIES=['mushroom-snake-menu-v1','mushroom-snake-ui-v3','mushroom-snake-ui-v4','mushroom-snake-ui-v4-1','mushroom-snake-ui-v4-3','mushroom-snake-ui-v5','mushroom-snake-ui-v5-3','mushroom-snake-ui-v5-3-1','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
+const ASSET_FAMILIES=['arcade-v2','mushroom-snake-menu-v1','mushroom-snake-ui-v3','mushroom-snake-ui-v4','mushroom-snake-ui-v4-1','mushroom-snake-ui-v4-3','mushroom-snake-ui-v5','mushroom-snake-ui-v5-3','mushroom-snake-ui-v5-3-1','mushroom-snake-retro-v5','mushroom-snake-effects-v1/assets','mushroom-snake-forest-cabinet-v2','mushroom-snake-forest-final-v3','mushroom-snake-forest-food'];
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const posix=value=>value.split(path.sep).join('/');
 function readSafe(root,file){
@@ -40,6 +40,10 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
  }
  visit('product/index.html');visit('product/frame.html');
  const combined=[...sources.values()].join('\n');
+ // Standalone source-closure fixtures need not have a host. When present,
+ // freeze the bounded chooser family without pulling other games into Snake.
+ const hostPath=path.join(root,'arcade/snake-next/test-host.html');
+ const chooserSource=fs.existsSync(hostPath)?readSafe(root,'arcade/snake-next/test-host.html').toString('utf8'):'';
  function addAsset(file){
   const bytes=readSafe(root,file);
   // JSON metadata must survive Git's Windows text normalization unchanged.
@@ -58,7 +62,7 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
  }
  for(const family of ASSET_FAMILIES){
   const dynamicForest=combined.includes('/grib/mushroom-snake-${')&&family.startsWith('mushroom-snake-forest-')&&!family.endsWith('food');
-  if(combined.includes('/grib/'+family)||dynamicForest)walkAssets('grib/'+family);
+  if(combined.includes('/grib/'+family)||dynamicForest||family==='arcade-v2'&&chooserSource.includes('/grib/arcade-v2/'))walkAssets('grib/'+family);
  }
  // Shared podium icon is a read-only artwork dependency, never Fly runtime.
  const leader='grib/mushroom-fly-v2/ui/icons-recovery-v1/leader-first-v1.png';
@@ -96,7 +100,7 @@ function assembleCandidate({root=DEFAULT_ROOT}={}){
  const tokens=host.match(/__SNAKE_NEXT_RUNTIME_URL__/g)||[];
  if(tokens.length!==1)throw Error('Snake Next host needs exactly one immutable runtime URL token.');
  const base='https://rytni.github.io/rytni-assets/giveaway-test/releases/'+runtime.id+'/';
- const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/giveaway-test/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/mushroom-snake-(?:menu-v1|ui-v3|ui-v4|ui-v4-1)\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
+ const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/giveaway-test/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/(?:arcade-v2|mushroom-snake-(?:menu-v1|ui-v3|ui-v4|ui-v4-1))\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
   if(!snapshot.files.has(file))throw Error('Host artwork missing from Snake snapshot: '+file);
   return base+file;
  });

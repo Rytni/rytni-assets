@@ -83,6 +83,18 @@ test('Snake Hub artwork selects the same immutable artwork snapshot as the game'
   const candidate=assembler.assembleCandidate({root});
   assert.ok(candidate.bundle.includes('https://rytni.github.io/rytni-assets/giveaway-test/releases/'+candidate.runtime.id+'/grib/mushroom-snake-menu-v1/a.png'));
 });
+test('chooser-only authored backgrounds are frozen and rewritten without importing Fly runtime', t => {
+ const {root,put}=fixture(t),assembler=api();
+ put('arcade/snake-next/test-host.html','<style>x{background:url(https://rytni.github.io/rytni-assets/grib/arcade-v2/arcade-backdrop-desktop.png)}</style><script>window.runtime="__SNAKE_NEXT_RUNTIME_URL__";</script>');
+ put('grib/arcade-v2/arcade-backdrop-desktop.png','desktop-source');put('grib/arcade-v2/arcade-backdrop-mobile.png','independent-mobile-source');
+ put('grib/arcade-v2/inventory.json',JSON.stringify({assets:[{file:'arcade-backdrop-desktop.png'},{file:'arcade-backdrop-mobile.png'}]}));
+ const snapshot=assembler.prepareRuntime({root}),candidate=assembler.assembleCandidate({root});
+ assert(snapshot.files.has('grib/arcade-v2/arcade-backdrop-mobile.png'));
+ assert(candidate.bundle.includes('/giveaway-test/releases/'+candidate.runtime.id+'/grib/arcade-v2/arcade-backdrop-desktop.png'));
+ assert(![...snapshot.files.keys()].some(f=>f.includes('BROWSER_ARCADE')));
+ put('arcade/snake-next/test-host.html','<img src="https://rytni.github.io/rytni-assets/grib/arcade-v2/missing.png">__SNAKE_NEXT_RUNTIME_URL__');
+ assert.throws(()=>assembler.assembleCandidate({root}),/Host artwork missing/);
+});
 test('module-relative dynamic stylesheets are included in immutable source closure', t => {
  const {root,put}=fixture(t),assembler=api();
  put('arcade/snake-next/product/app.js',"export const stylesheet=new URL('../runtime/theme.css',import.meta.url).href;");

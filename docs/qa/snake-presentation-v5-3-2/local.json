@@ -1,0 +1,661 @@
+{
+  "checks": 21,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "tab": "sound",
+      "layout": "cabinet",
+      "ranges": [
+        {
+          "key": "master",
+          "visible": true,
+          "height": 44,
+          "value": "0.75"
+        },
+        {
+          "key": "music",
+          "visible": true,
+          "height": 44,
+          "value": "0.5"
+        },
+        {
+          "key": "sfx",
+          "visible": true,
+          "height": 44,
+          "value": "0.65"
+        }
+      ],
+      "quality": false,
+      "fullscreen": false,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 714,
+            "y": 434.734375,
+            "width": 48,
+            "height": 48,
+            "top": 434.734375,
+            "right": 762,
+            "bottom": 482.734375,
+            "left": 714
+          },
+          "sourceY": 95.77886267064461,
+          "sourceX": 32,
+          "visibleMetalX": 666.1921875,
+          "clearance": 47.80781249999999,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 620,
+        "y": 268.25,
+        "width": 680,
+        "height": 543.484375,
+        "top": 268.25,
+        "right": 1300,
+        "bottom": 811.734375,
+        "left": 620
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "tab": "game",
+      "layout": "cabinet",
+      "ranges": [],
+      "quality": true,
+      "fullscreen": true,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 714,
+            "y": 451.484375,
+            "width": 48,
+            "height": 48,
+            "top": 451.484375,
+            "right": 762,
+            "bottom": 499.484375,
+            "left": 714
+          },
+          "sourceY": 103.56273818597562,
+          "sourceX": 32,
+          "visibleMetalX": 679.9269406392694,
+          "clearance": 34.073059360730596,
+          "method": "raster-traced inner bevel; final cover transform"
+        },
+        {
+          "icon": {
+            "x": 714,
+            "y": 522.484375,
+            "width": 48,
+            "height": 48,
+            "top": 522.484375,
+            "right": 762,
+            "bottom": 570.484375,
+            "left": 714
+          },
+          "sourceY": 150.96822599085365,
+          "sourceX": 32,
+          "visibleMetalX": 679.9269406392694,
+          "clearance": 34.073059360730596,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 620,
+        "y": 285,
+        "width": 680,
+        "height": 510,
+        "top": 285,
+        "right": 1300,
+        "bottom": 795,
+        "left": 620
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "tab": "sound",
+      "layout": "cabinet",
+      "ranges": [
+        {
+          "key": "master",
+          "visible": true,
+          "height": 44,
+          "value": "0.75"
+        },
+        {
+          "key": "music",
+          "visible": true,
+          "height": 44,
+          "value": "0.5"
+        },
+        {
+          "key": "sfx",
+          "visible": true,
+          "height": 44,
+          "value": "0.65"
+        }
+      ],
+      "quality": false,
+      "fullscreen": false,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 436.984375,
+            "y": 277.296875,
+            "width": 48,
+            "height": 48,
+            "top": 277.296875,
+            "right": 484.984375,
+            "bottom": 325.296875,
+            "left": 436.984375
+          },
+          "sourceY": 94.48,
+          "sourceX": 32.50266666666666,
+          "visibleMetalX": 391.58229166666666,
+          "clearance": 45.40208333333334,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 342.984375,
+        "y": 113.671875,
+        "width": 680,
+        "height": 540.625,
+        "top": 113.671875,
+        "right": 1022.984375,
+        "bottom": 654.296875,
+        "left": 342.984375
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "tab": "game",
+      "layout": "cabinet",
+      "ranges": [],
+      "quality": true,
+      "fullscreen": true,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 436.984375,
+            "y": 292.609375,
+            "width": 48,
+            "height": 48,
+            "top": 292.609375,
+            "right": 484.984375,
+            "bottom": 340.609375,
+            "left": 436.984375
+          },
+          "sourceY": 101.65358231707317,
+          "sourceX": 32,
+          "visibleMetalX": 402.9113156392694,
+          "clearance": 34.073059360730596,
+          "method": "raster-traced inner bevel; final cover transform"
+        },
+        {
+          "icon": {
+            "x": 436.984375,
+            "y": 363.609375,
+            "width": 48,
+            "height": 48,
+            "top": 363.609375,
+            "right": 484.984375,
+            "bottom": 411.609375,
+            "left": 436.984375
+          },
+          "sourceY": 149.05907012195124,
+          "sourceX": 32,
+          "visibleMetalX": 402.9113156392694,
+          "clearance": 34.073059360730596,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 342.984375,
+        "y": 128.984375,
+        "width": 680,
+        "height": 510,
+        "top": 128.984375,
+        "right": 1022.984375,
+        "bottom": 638.984375,
+        "left": 342.984375
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "tab": "sound",
+      "layout": "cabinet",
+      "ranges": [
+        {
+          "key": "master",
+          "visible": true,
+          "height": 44,
+          "value": "0.75"
+        },
+        {
+          "key": "music",
+          "visible": true,
+          "height": 44,
+          "value": "0.5"
+        },
+        {
+          "key": "sfx",
+          "visible": true,
+          "height": 44,
+          "value": "0.65"
+        }
+      ],
+      "quality": false,
+      "fullscreen": false,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 107.59375,
+            "y": 142.890625,
+            "width": 40,
+            "height": 40,
+            "top": 142.890625,
+            "right": 147.59375,
+            "bottom": 182.890625,
+            "left": 107.59375
+          },
+          "sourceY": 122.6561909093085,
+          "sourceX": 32,
+          "visibleMetalX": 81.28667237442923,
+          "clearance": 26.307077625570777,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 21.59375,
+        "y": 12.15625,
+        "width": 676.796875,
+        "height": 380.6875,
+        "top": 12.15625,
+        "right": 698.390625,
+        "bottom": 392.84375,
+        "left": 21.59375
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "tab": "game",
+      "layout": "cabinet",
+      "ranges": [],
+      "quality": true,
+      "fullscreen": true,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 107.59375,
+            "y": 149.890625,
+            "width": 40,
+            "height": 40,
+            "top": 149.890625,
+            "right": 147.59375,
+            "bottom": 189.890625,
+            "left": 107.59375
+          },
+          "sourceY": 127.35290456928121,
+          "sourceX": 32,
+          "visibleMetalX": 81.28667237442923,
+          "clearance": 26.307077625570777,
+          "method": "raster-traced inner bevel; final cover transform"
+        },
+        {
+          "icon": {
+            "x": 107.59375,
+            "y": 220.890625,
+            "width": 40,
+            "height": 40,
+            "top": 220.890625,
+            "right": 147.59375,
+            "bottom": 260.890625,
+            "left": 107.59375
+          },
+          "sourceY": 174.99100026329015,
+          "sourceX": 32,
+          "visibleMetalX": 81.28667237442923,
+          "clearance": 26.307077625570777,
+          "method": "raster-traced inner bevel; final cover transform"
+        }
+      ],
+      "panel": {
+        "x": 21.59375,
+        "y": 12.15625,
+        "width": 676.796875,
+        "height": 380.6875,
+        "top": 12.15625,
+        "right": 698.390625,
+        "bottom": 392.84375,
+        "left": 21.59375
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "tab": "sound",
+      "layout": "cabinet layout-mobile-portrait",
+      "ranges": [
+        {
+          "key": "master",
+          "visible": true,
+          "height": 44,
+          "value": "0.75"
+        },
+        {
+          "key": "music",
+          "visible": true,
+          "height": 44,
+          "value": "0.5"
+        },
+        {
+          "key": "sfx",
+          "visible": true,
+          "height": 44,
+          "value": "0.65"
+        }
+      ],
+      "quality": false,
+      "fullscreen": false,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 46,
+            "y": 177.1875,
+            "width": 36,
+            "height": 36,
+            "top": 177.1875,
+            "right": 82,
+            "bottom": 213.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 302.578125,
+            "width": 36,
+            "height": 36,
+            "top": 302.578125,
+            "right": 82,
+            "bottom": 338.578125,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 427.96875,
+            "width": 36,
+            "height": 36,
+            "top": 427.96875,
+            "right": 82,
+            "bottom": 463.96875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        }
+      ],
+      "panel": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 820,
+        "top": 12,
+        "right": 378,
+        "bottom": 832,
+        "left": 12
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "tab": "game",
+      "layout": "cabinet layout-mobile-portrait",
+      "ranges": [],
+      "quality": true,
+      "fullscreen": true,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 46,
+            "y": 177.1875,
+            "width": 36,
+            "height": 36,
+            "top": 177.1875,
+            "right": 82,
+            "bottom": 213.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 306.1875,
+            "width": 36,
+            "height": 36,
+            "top": 306.1875,
+            "right": 82,
+            "bottom": 342.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        }
+      ],
+      "panel": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 820,
+        "top": 12,
+        "right": 378,
+        "bottom": 832,
+        "left": 12
+      }
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "tab": "sound",
+      "layout": "cabinet layout-mobile-portrait",
+      "ranges": [
+        {
+          "key": "master",
+          "visible": true,
+          "height": 44,
+          "value": "0.75"
+        },
+        {
+          "key": "music",
+          "visible": true,
+          "height": 44,
+          "value": "0.5"
+        },
+        {
+          "key": "sfx",
+          "visible": true,
+          "height": 44,
+          "value": "0.65"
+        }
+      ],
+      "quality": false,
+      "fullscreen": false,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 46,
+            "y": 177.1875,
+            "width": 36,
+            "height": 36,
+            "top": 177.1875,
+            "right": 82,
+            "bottom": 213.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 302.578125,
+            "width": 36,
+            "height": 36,
+            "top": 302.578125,
+            "right": 82,
+            "bottom": 338.578125,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 427.96875,
+            "width": 36,
+            "height": 36,
+            "top": 427.96875,
+            "right": 82,
+            "bottom": 463.96875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        }
+      ],
+      "panel": {
+        "x": 12,
+        "y": 12,
+        "width": 388,
+        "height": 891,
+        "top": 12,
+        "right": 400,
+        "bottom": 903,
+        "left": 12
+      }
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "tab": "game",
+      "layout": "cabinet layout-mobile-portrait",
+      "ranges": [],
+      "quality": true,
+      "fullscreen": true,
+      "details": false,
+      "overflow": false,
+      "samples": [
+        {
+          "icon": {
+            "x": 46,
+            "y": 177.1875,
+            "width": 36,
+            "height": 36,
+            "top": 177.1875,
+            "right": 82,
+            "bottom": 213.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        },
+        {
+          "icon": {
+            "x": 46,
+            "y": 306.1875,
+            "width": 36,
+            "height": 36,
+            "top": 306.1875,
+            "right": 82,
+            "bottom": 342.1875,
+            "left": 46
+          },
+          "visibleMetalX": 17,
+          "clearance": 29
+        }
+      ],
+      "panel": {
+        "x": 12,
+        "y": 12,
+        "width": 388,
+        "height": 891,
+        "top": 12,
+        "right": 400,
+        "bottom": 903,
+        "left": 12
+      }
+    },
+    {
+      "width": 1920,
+      "result": {
+        "clips": [
+          "inset(0px 0px 20%)",
+          "inset(0px 0px 17%)",
+          "inset(0px 0px 20%)"
+        ],
+        "backing": "rgba(0, 0, 0, 0)",
+        "overflow": false
+      }
+    },
+    {
+      "width": 1366,
+      "result": {
+        "clips": [
+          "inset(0px 0px 20%)",
+          "inset(0px 0px 17%)",
+          "inset(0px 0px 20%)"
+        ],
+        "backing": "rgba(0, 0, 0, 0)",
+        "overflow": false
+      }
+    },
+    {
+      "width": 844,
+      "result": {
+        "clips": [
+          "inset(0px 0px 20%)",
+          "inset(0px 0px 17%)",
+          "inset(0px 0px 20%)"
+        ],
+        "backing": "rgba(0, 0, 0, 0)",
+        "overflow": false
+      }
+    }
+  ]
+}

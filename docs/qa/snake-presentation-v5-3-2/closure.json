@@ -1,0 +1,15 @@
+{
+  "base": "e750631",
+  "runtime": "snake-next-78436309631c",
+  "changed": [
+    "grib/arcade-v2/arcade-backdrop-desktop.png",
+    "grib/arcade-v2/arcade-backdrop-mobile.png",
+    "grib/arcade-v2/inventory.json",
+    "snake/product/index.html",
+    "snake/product/ui-v5-3-2.css",
+    "snake/product/ui.js"
+  ],
+  "removed": [],
+  "productionSha256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591",
+  "protectedGameplayGeometryBackendFlyInputLifecycleUnchanged": true
+}

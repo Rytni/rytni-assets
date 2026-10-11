@@ -1,0 +1,31 @@
+{
+  "checks": 1,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "tag": "SECTION",
+      "cls": "result-scene record",
+      "pseudo": "::before",
+      "background": "radial-gradient(32% 48% at 68% 49%, rgba(0, 18, 24, 0.8), rgba(0, 0, 0, 0)) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) radial-gradient(28% 37% at 25% 56%, rgba(0, 21, 20, 0.25), rgba(0, 0, 0, 0)) repeat scroll 0% 0% / auto padding-box border-box",
+      "shadow": "none",
+      "content": "\"\""
+    },
+    {
+      "tag": "SPAN",
+      "cls": "button-skin",
+      "pseudo": "::after",
+      "background": "rgba(0, 0, 0, 0) url(\"http://127.0.0.1:8776/grib/mushroom-snake-ui-v4/buttons/play-jewel.png\") no-repeat scroll 50% 50% / 28px 26px padding-box border-box",
+      "shadow": "none",
+      "content": "\"\""
+    },
+    {
+      "tag": "SPAN",
+      "cls": "",
+      "pseudo": "",
+      "background": "rgba(4, 17, 15, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+      "shadow": "none",
+      "content": "normal"
+    }
+  ]
+}

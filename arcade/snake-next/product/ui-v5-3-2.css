@@ -1,0 +1,43 @@
+/* V5.3.2 presentation only. Same panel/artwork, explicit ink-safe content. */
+.panel-settings .settings-stack{padding-inline:42px 24px}
+.panel-settings .setting-title{grid-template-columns:56px minmax(0,1fr) auto;gap:12px}
+.panel-settings .sound-title{grid-template-columns:56px minmax(0,1fr)}
+.panel-settings .setting-title .btn{width:128px}
+.panel-settings .sound-controls{padding:4px 0 0 68px}
+.panel-settings .settings-row{grid-template-columns:minmax(0,1fr) 48px;gap:0 12px;min-height:60px;margin:0}
+.panel-settings .settings-row label{grid-column:1/-1;font-size:14px;line-height:16px}
+.panel-settings .settings-row output{font:bold 14px 'Trebuchet MS';color:#ecd491;text-align:right}
+.panel-settings .sound-toggle{text-align:center;padding-top:6px}
+.panel-settings .sound-toggle .btn{height:44px;min-height:44px;font-size:13px}
+.panel-settings input[type=range],.mobile-settings input[type=range]{appearance:none;width:100%;height:44px;min-height:44px;margin:0;background:transparent;cursor:pointer}
+.panel-settings input::-webkit-slider-runnable-track,.mobile-settings input::-webkit-slider-runnable-track{height:10px;border:1px solid #967849;border-radius:6px;background:linear-gradient(to right,#376e5a var(--volume),#101c1b var(--volume));box-shadow:inset 0 2px 3px #000b}
+.panel-settings input::-webkit-slider-thumb,.mobile-settings input::-webkit-slider-thumb{appearance:none;width:24px;height:24px;margin-top:-8px;border:2px solid #c4a36a;border-radius:50%;background:radial-gradient(circle,#8cba9e,#2d5b49 55%,#9f7e46 60%,#49361d 85%);box-shadow:0 2px 4px #0009}
+.panel-settings input::-moz-range-track,.mobile-settings input::-moz-range-track{height:8px;border:1px solid #967849;border-radius:6px;background:linear-gradient(to right,#376e5a var(--volume),#101c1b var(--volume))}
+.panel-settings input::-moz-range-thumb,.mobile-settings input::-moz-range-thumb{width:20px;height:20px;border:2px solid #c4a36a;border-radius:50%;background:#376e5a}
+.panel-settings input:focus-visible,.mobile-settings input:focus-visible{outline:2px solid #dbc58c;outline-offset:2px;border-radius:6px}
+/* The unwanted number plaques are baked into the trophy PNG bottoms,
+ * not a live metrics-wrapper background. Clip only those old plaques;
+ * retain the complete trophies, bronze pedestals and readable live values. */
+.result-scene .primary-stats img{clip-path:inset(0 0 20% 0)}
+.result-scene .primary-stats>div:nth-child(2) img{clip-path:inset(0 0 17% 0)}
+@container snake-stage (max-width:1000px){
+ .panel-settings .settings-stack{padding-inline:42px 18px}
+ .panel-settings .setting-title{grid-template-columns:40px minmax(0,1fr) auto;gap:10px}
+ .panel-settings .sound-title{grid-template-columns:40px minmax(0,1fr)}
+ .panel-settings .sound-controls{padding-left:50px}
+}
+@container snake-stage (max-height:500px){
+ .panel-settings{padding-top:24px;padding-bottom:18px;gap:6px}
+ .panel-settings .panel-heading{padding-top:0}
+ .panel-settings .tabs{margin-bottom:6px}
+ .panel-settings .setting-line:has(.sound-controls){display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:0 10px;padding:0}
+ .panel-settings .sound-title{grid-column:1/3;grid-row:1}
+ .panel-settings .sound-title p{display:none}
+ .panel-settings .sound-toggle{grid-column:3;grid-row:1;padding:0}
+ .panel-settings .sound-toggle .btn{width:156px}
+ .panel-settings .sound-controls{grid-column:1/-1;grid-row:2;padding:0}
+ .panel-settings .settings-row{grid-template-columns:130px minmax(0,1fr) 48px;min-height:44px}
+ .panel-settings .settings-row label{grid-column:auto}
+}
+.layout-mobile-portrait .mobile-settings .mobile-content{padding-inline:10px}
+.layout-mobile-portrait .mobile-settings .mobile-setting{padding-inline:8px}
