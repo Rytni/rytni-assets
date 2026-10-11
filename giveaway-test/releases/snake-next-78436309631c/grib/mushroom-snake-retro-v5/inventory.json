@@ -1,0 +1,1332 @@
+{
+  "version": "retro-v5.6-art-review",
+  "imageGenOperations": 0,
+  "cell": 68,
+  "body": 36,
+  "head": 42,
+  "terminal": 68,
+  "geometryHash": "6a3fc44525bdc51368823a12dc5be1060cfc752ab258aedf4bbd1c38557abba5",
+  "maskMismatch": 0,
+  "assets": [
+    {
+      "id": "straight-0-v0",
+      "file": "straight-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "69c75d7dbd5e9c40ee6d0209a51f711bc8077ad25b1c420d1e586abfcf1dad02",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v1",
+      "file": "straight-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "12a450c1086e22958270eb25fe831b758dd8d48ecbae4334bce3ce977518891d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v2",
+      "file": "straight-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1eaac5757323d2951ca5d5bec8f18c3feb83700ec9f2ab584a26650e5b4b1e0d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v3",
+      "file": "straight-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "5ba1ea3b9e15dd9a7bcc75e762c1059a97e722b37d7931734b0d64e9642f9e03",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v4",
+      "file": "straight-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1f4a6c4da303ad11a9b49170ef9ec7e0a18259795ead8ff8f4a2d197f58ea252",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v5",
+      "file": "straight-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "066c05a415f274ffc30a4999eedaf79ab6a9c08d80d64152fd4046795200c362",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v6",
+      "file": "straight-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2d4af120a106cd681f867ac828d619e2624410b52640ed5c6c8c908fb6103595",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-0-v7",
+      "file": "straight-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b09e0baa276022ddd8a6574cb8240029bdff3c0717b6bf0f0afc3f75e09232b4",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v0",
+      "file": "neck-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4cf2291b8f41ca234871a079baee18fef782859928b8f999ae6e9462dcaafddd",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v1",
+      "file": "neck-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4adbeea1b924deb10bad949e583e865f4b9eb1913192db35fc5fd667dfac5bae",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v2",
+      "file": "neck-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "724604cfbb29d76186dd2a60fb60cab4b47b6ccd4ac6263f6d560609c4293692",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v3",
+      "file": "neck-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ce9416e31a3ef272941e9934c289e19a54d148316dce98016bd993a27120f0cb",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v4",
+      "file": "neck-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8c3e968d1328aaeb2a3eaf9e34a39d40e50748f3c5bd2c11793ae4313e8cd5aa",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v5",
+      "file": "neck-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "cd3065f9ae1e81707a3b7bcce204a9f00d483cb4c4349bdb0547a98b4fe57c61",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v6",
+      "file": "neck-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "94c7c8dc1184c0106bc18452ca7d61653dfefff2961ae9e428d535a69c72c1a1",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-0-v7",
+      "file": "neck-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f7f4a58f6c6f35adc3582a5a3fe505704b188753562d23514fdad65deea3c1ee",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "head-0-v0",
+      "file": "head-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b514931066166a28f85640734b3ff30b1602cd98644e094adb0ad8b029719185",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "corner-0-v0",
+      "file": "corner-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c58a01d66962662e80c8865f7f32ed96f4d2d66dfc2f39ec3064c8fcc2b7f3d3",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v1",
+      "file": "corner-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "43a63fb0d5e9a2fbe4af4863af34159cb9da340bf1a7fe9ec80f16312d8785f7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v2",
+      "file": "corner-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d0aa3fc92dcf82871ec7945e54a6811a8b8d0afc63a5b492b81703f450f036b5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v3",
+      "file": "corner-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c0169024f55c2f500351b3bca1f577a2b40680865a97a69c7397fd0a9d8e9eba",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v4",
+      "file": "corner-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c1dea772dbdd6b0f4e975f2d841b61ec3600ae17a1112ce44fa0349185287ed3",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v5",
+      "file": "corner-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "091fef7e8d005382bb5c6d764f386a87a9aed6f02ef1896d7ea09b74e84a47ec",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v6",
+      "file": "corner-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9218236e7ccec5d1dccd1724fa9a509ef92abf07c896e6eda6eb9641b0eac3c7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-0-v7",
+      "file": "corner-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8858a6a130f778287925637bf54adf382aa34b0ce55a0e855543ee9398b74038",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "terminal-0-v0",
+      "file": "terminal-0-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0848bbdeb85087da2561e49e8b2116ea125d8f50acf99dc58b6a1c48217cab62",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v1",
+      "file": "terminal-0-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6a80d469539d1f6f260a7b315969360060e24cfbf08baa7bbaabfaf6c7fc151d",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v2",
+      "file": "terminal-0-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "fbefd1908fcf076986486933c869d52b8bc8e988e18c601adfe6b38179dc8988",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v3",
+      "file": "terminal-0-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ee15140cb298bec8f6f24dd14b8be139cbef27e4eee667e88155656d398fccaf",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v4",
+      "file": "terminal-0-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "5bd4bbf02f16e00ef87a109b45f584ef07096d3eb8e47124b73b24f057ea8a90",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v5",
+      "file": "terminal-0-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "59c165b2f1befda234dd8b434f7f6706f5656ce0cd28711abe626587faaf4b83",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v6",
+      "file": "terminal-0-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "824d39c66a14be63e2765a8653d052318dd791f39e4944ad777df1dbb5e56e3c",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-0-v7",
+      "file": "terminal-0-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4dcaff8653576011ad0ec7256879124da73893471d5fd413677b43bd4a3a45ba",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "straight-1-v0",
+      "file": "straight-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "afa04c70a82a7c20888fa97bbf68ae28159badf3d1a7b4fdb1a78affd516b01b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v1",
+      "file": "straight-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "055fab1aefa8551cd2841f17743a3a81da9062429ec7f191d4e26ecf2f99cb65",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v2",
+      "file": "straight-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a75bffcd03539216a4daa32191bc0802a7929d88ee5d97361212729e6f1f934d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v3",
+      "file": "straight-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b9a822efcb0d2cd0ef3535a53a73abb97d33382932efb3d01f99a08cf622b77b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v4",
+      "file": "straight-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "e16c47fcbef759f9982ad02246b745fa477d6160067d63c86a851d9b57f23fb7",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v5",
+      "file": "straight-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "31d28f20a37b7c27e86cd5bb3e60e1f268b3477b41c930529769b06114ec0e99",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v6",
+      "file": "straight-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "5b9b113cb428ba50b5bb615a4e52a6c47757fde35e43771cbf4c45f9cea1b36b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-1-v7",
+      "file": "straight-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "66e1216e65b7692e8eebe0cb7c7b59e676601a81206fa0eac9ac256f0591c70d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v0",
+      "file": "neck-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8648c62dafeca03c7ca4acc8e9ad69af11e14678b9027701076ee0c3294b1b7d",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v1",
+      "file": "neck-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c3583d4a6a12a3262d873fe55d814fe946be957a57a400771791ec5bbd5aae1b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v2",
+      "file": "neck-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8ce0685dc9b8321ae7fd5b28de8ac6da48a206cca171ef8ef621692172ab3ac6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v3",
+      "file": "neck-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2b9d265fe97f778aa1f75c9545d86dd612bf68d8cb7f3ffc6d76c13c306a0dd6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v4",
+      "file": "neck-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3cc5c15c0c2a02b295adad56a71c50be89086b0e40af83eb963689bc0410869c",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v5",
+      "file": "neck-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "193f4e4557ead3d902a47b51a07df0a60d32d38b8a08d29e8705711642e8f080",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v6",
+      "file": "neck-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "bc19081165571ac1a3ec872670692143685c84ab2a537ece2bf6f4a6ca388959",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-1-v7",
+      "file": "neck-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3d318b5c016e9272218935d82604e5001270afb6f25d885b40ff03fe61f1f435",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "head-1-v0",
+      "file": "head-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "58c62dfb3d580219eb63780524aac3b59812fe1637c4243ae4f7876f501e1366",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "corner-1-v0",
+      "file": "corner-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2be06b5d9229b6a9cc91b9051d6df21847288315af4436e595fe3eb3c6f2d5a1",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v1",
+      "file": "corner-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d1cdf129f51813634476b83d207d97af83b75f0bfe71c5fe2f80ac9b684df82a",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v2",
+      "file": "corner-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b0235e528eddb7d03320a834727cd9e1a1fd5ec1bd5f9131129a17ba9757dbf8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v3",
+      "file": "corner-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "cf1aff27d85978a4da5821ce89fb85918e8e843da95ff90ae956786579652388",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v4",
+      "file": "corner-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ba1d48f86e16b56fb1d05c1b6f3b8595fd2106a203122887bd4f78fe8efe6628",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v5",
+      "file": "corner-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "154bfe8cc66e4f673e685e8e6780bc87b8f5814c13ee66da2c3c726482052c6b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v6",
+      "file": "corner-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c762dd6478550aec3a3960dde0c7ed81d4fc0ab0c44c4304667f51ec3e9c3cdf",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-1-v7",
+      "file": "corner-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a3171dbd73bee18bf0c1ef75ba1f1dd8c48f6b12fed0e9f2b6a4242d10345089",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "terminal-1-v0",
+      "file": "terminal-1-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "e21a24e04057b73fa01edc8d981bd4d708a56446cb18ff88946e0c1d84fc7c84",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v1",
+      "file": "terminal-1-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "88826be2c4beaf0a0f3946aa3f73860788159cf8f717e80a966669da0de0fd05",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v2",
+      "file": "terminal-1-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d40b8b32db83a43ca486b888523c7963c68fc9c6cb38cb364db9a3a2b765efa1",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v3",
+      "file": "terminal-1-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "423745ab62506e0cb4caa1315cde17a87115dcc8674b22607898698bc0aea2dc",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v4",
+      "file": "terminal-1-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "32cd03b5a9a441c75a4f08949b315f4f22b8e5d88503af8a5fb307c68d003da9",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v5",
+      "file": "terminal-1-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "129cade5100942ef60beba0d9eadbd6d508c1f67a76e358d9f3546e672af9211",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v6",
+      "file": "terminal-1-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ccb52a2a57ac57b9bc87633f150001fc1ee205ae387bd2a38be589de91bde8ff",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-1-v7",
+      "file": "terminal-1-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3a89bcb6b8145d1c25e2a266eed6d4ce72b5b07bf4ef69f23d9a9c526cd04a63",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "straight-2-v0",
+      "file": "straight-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "48aa71eb44040aa07ad5ed37bb669f7bcdb66b2e13fbbb13e113e71dff11e5a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v1",
+      "file": "straight-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8bafc7cb51feb70a9c5be6d9d10eac70382656e5646373247cd5754ee752ebab",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v2",
+      "file": "straight-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "cc8e37f9a3bb37668e7319137365b13a6ba96f0bf94e22377a4113b21e04f64f",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v3",
+      "file": "straight-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "32b987b11c95cc396a80f15f46de139b76b966c39debf049c674101fad1d4e55",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v4",
+      "file": "straight-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d2504bfa2357986b0547efe1db019e6ad3c26a76c4d46cb23b6915f91bcec0ca",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v5",
+      "file": "straight-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "77b5e0200a0b3e62c62a0702e464017b3f62b71243a109f32b0bf3a4c2e35b94",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v6",
+      "file": "straight-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "83a48d9b21e819280de7461137dea803ee99ea7b5937e63dabf89abb82d130fc",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-2-v7",
+      "file": "straight-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6b1df08c7e572d184fe9f80c4ade8540462655ff8c14a674ab79172fe5f5a4e0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v0",
+      "file": "neck-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6ffb829eb18a51ef6cf4ed5e3d9ae72c012bf457e70af233a3a7d05dfca827a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v1",
+      "file": "neck-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0fdd437be40a8d86315497f6c796c34084225e09be12b968eecd25b3cf852c43",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v2",
+      "file": "neck-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "132a3a20bc7cb7a8ac5691b852e03a7f1cae117e74b4c5c10ce5fdf71b1c1d6e",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v3",
+      "file": "neck-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "023e71eb3338da48dc8038f5bdf0eaaa973ebd5148ae95d7d74ab8f5029b8281",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v4",
+      "file": "neck-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c9cc61ea913bc89f8dde1d1d8992d9ee93c640a23c0a439fa563a184620898f5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v5",
+      "file": "neck-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "70984c467af23151dc8238b62e2b36fdc4a70fb03c3f61a95b91ac50302b9afd",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v6",
+      "file": "neck-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f8744d5d36a3b42895176b1325a9c25312088bd1db57fc5db52d9d67a7f004a9",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-2-v7",
+      "file": "neck-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6d63dd645e58655b5b403ea028b94671e4fed0c709b6f69e6ad884a0ffa9ea39",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "head-2-v0",
+      "file": "head-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4f49e42499fff08ab0c2a5b5fb5f9164720c866efe5d35a978af793148a05cb4",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "corner-2-v0",
+      "file": "corner-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "37f97a0f5966279e90ee1ea5289b270712f586a730272df5c0bd5b1f992d9ec0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v1",
+      "file": "corner-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ee33f0ab5a4c727081052e1a2028357e54e3a7f99eb1fbc35a1aa45451413fce",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v2",
+      "file": "corner-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "2f4b3fa56a3df4295cb0a9497a2d461f5545ab7dd3b3b08e82e469f5a64c6364",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v3",
+      "file": "corner-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a5812ab0eef611ae7f966169e9ca7e7b53339b436350ff0cfbfe00471eae8b3b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v4",
+      "file": "corner-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "69df4c7ad6498127466f06b9e84505908a69a097c7564ac4c489ef8210b08a19",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v5",
+      "file": "corner-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7c6ab4514adf29983fe8c5dec26db185ab3a54cd5cba8578521be65fd76c6a5b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v6",
+      "file": "corner-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "8e446046d61108476b729874d575b3bdcf0e3ef64eff170b708d6151a3c185b0",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-2-v7",
+      "file": "corner-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "92e3b0ccb98a17b2f9d6d60c657bb74eb700b5ee8015100912500ad7052bc272",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "terminal-2-v0",
+      "file": "terminal-2-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a78c1dd5adcd5d9535f7598ff665ff964c1c604c45d39d7977953c14e7903833",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v1",
+      "file": "terminal-2-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "69fb389a13e0c6822c611362a9b35bf0f936c2361820778a10996938df9da872",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v2",
+      "file": "terminal-2-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "55069c5e6e1d900fbedd21c995e34067387a3a455b4d9e9701f65537d86acbd9",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v3",
+      "file": "terminal-2-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "859a1d0f69f540e23ebd7c2e177b1e16f094ce0aacfe78fba453c92c6a3519c3",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v4",
+      "file": "terminal-2-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a822e84cdd47892d0916265ffaf3a65d46178c663a2c03328d55e0df55129f8e",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v5",
+      "file": "terminal-2-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "b9f7b53579d7795743429b65da1946ae9f3e9052b5a8552fa18186ecce1b9957",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v6",
+      "file": "terminal-2-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "d045230340661caacc11bebc535d928a50df1ad0e4aa4aedc7a02c787f590299",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-2-v7",
+      "file": "terminal-2-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "6b41166ca2bc512157fd960927de8561dc2a31e03a32ecdb77859b8379067949",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "straight-3-v0",
+      "file": "straight-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "62b9979567484aeb06b40ac53e6de427bf1d20a73c058a3447c3fc0d18a64183",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v1",
+      "file": "straight-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f666b8cc4064dfc5b40c0e4c94fb5ed55f2e8d925823bdb8302ba8fa02a0ea14",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v2",
+      "file": "straight-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ffd13ea42bc186f0f7aa5e5bd0711aca27e7948020cacc4b8910382ccfb32aa6",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v3",
+      "file": "straight-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "fecdb350087c53664964c08536104727f6ac3054075fb371c4b99f9e23c8ff43",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v4",
+      "file": "straight-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "546a358349402b9dc73db36b17a038d82bf63240166f2cab60d486587de68772",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v5",
+      "file": "straight-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "e2008f56a6f51ce4de2555f43f25f3941c3da935d6a0b555e239567cb5f28e61",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v6",
+      "file": "straight-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "205cde01e580f47274f4344d1af17edf002557f10ebed1512b370312936545a5",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "straight-3-v7",
+      "file": "straight-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "95874a81f26ce63554c851942a795d043ca7aa9d05ee5e763e3d37823486522e",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v0",
+      "file": "neck-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "5c5c772e49e06da6d5aac9476b258228bbb57052cf9c427635b45f139189c52b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v1",
+      "file": "neck-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0e32515591dcd452719e875fa26b465dfe9c60742c06ca487f24e3ad12993715",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v2",
+      "file": "neck-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "0d8d7bd1730b679e3a12c127af8d023e85ee3f171770026e76958478423adf65",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v3",
+      "file": "neck-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "224779fb8f09c59026853cd5eadbac2b5e56d626512d42aa9af79dfe77891014",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v4",
+      "file": "neck-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "e30b37902f8becfbfd59d1d679b5882b65703f2f3f6c00e5f93b872e3ef9a908",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v5",
+      "file": "neck-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "40004a002c0022dad5e9882f8893d2aa37a42f7844c02228c22687765afd2883",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v6",
+      "file": "neck-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7931d6d808c7b6bf7ca7ff6b8434253931b6e0675e1b0087a97fa8411662e408",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "neck-3-v7",
+      "file": "neck-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "06e0a14b8eb07b0ad9d01a5b828aa868a2815de8f15b37b345c98a60a6a5d0b8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "head-3-v0",
+      "file": "head-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "160fb6b5a46be1928fa7ab80f0ab7002e7315f77edaa8e27adcc0bd4a98b3eaf",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "corner-3-v0",
+      "file": "corner-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f4bbc1895ef3d3d3c0e4691c0250e0558e73d075833c277099fae50b1ab073eb",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v1",
+      "file": "corner-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "7b2432eeb6a54c6ded80e8705b4fe0350e38f1b30e5f708f9195227b0e8ab94b",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v2",
+      "file": "corner-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "38dd8f35ab0ed17adab3462d670289407ca70c39f8adf36236e1f2b692cf4824",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v3",
+      "file": "corner-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "1408d26f40d9d863bbd68bd056d1960b6e9090e8bc37946b7cc5e5493f0bdbaf",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v4",
+      "file": "corner-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "a1ad07ad65b1f0c5f2a3a49685293268e109164ca6ba571c69c4998da22b6267",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v5",
+      "file": "corner-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "92a6d4c01d8c6cef39bfbe3bf90466213fff09b528957eeef51a1207e6b67e97",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v6",
+      "file": "corner-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "f52b48b4ad94c6bf6b1a176126a0a4f7dc23bd181bb83057a7581985459b7f85",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "corner-3-v7",
+      "file": "corner-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "16decae1c98af177b6778130908780f05cf35b2decb54aa69b4e2bbc35641db8",
+      "provenance": "Original V5.5 pixel material and face; locked masks unchanged; no reference pixels reused"
+    },
+    {
+      "id": "terminal-3-v0",
+      "file": "terminal-3-v0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "360b42eb6ba91c1bfc864336a9d69e94c3a8c9c2f5838535c6e5af6551a43696",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v1",
+      "file": "terminal-3-v1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "19df63364ebc2bb6cd608704a5497ab27f8bf1c869887d16fd4fc386f1d52201",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v2",
+      "file": "terminal-3-v2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "3dd42428021b7fef0d8a0a7cd782213d55134fbbcf88847866603b5906b22ec0",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v3",
+      "file": "terminal-3-v3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "699b911bbedb1f8d64ba44ff8c717c0e5005fecd386fee0fa2842b284e975ca0",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v4",
+      "file": "terminal-3-v4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "492e8c88c13cece6b260e38c14d292b2191c11514bd50a7b8fedf7d66e0aebcb",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v5",
+      "file": "terminal-3-v5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c61224866947fa491a974e9cfdafc30c4450fd6ca4e969c0ed8f932d5c86010e",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v6",
+      "file": "terminal-3-v6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "461f58a27f794505456f928cfb28b62e7d88a3da9de6ac0d9c42e31d662345e3",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "terminal-3-v7",
+      "file": "terminal-3-v7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "ed9319b48e214c72f3b9868dae588d43309902f4da2f5f78d7a2e525256b7c43",
+      "provenance": "Original V5.6 head/terminal micro polish inside unchanged V5.5 masks"
+    },
+    {
+      "id": "floor-0",
+      "file": "floor-0.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "19db3d84ac2f164d173e82038c8d640de60614cf11979c173f0d64d7147167ac",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-1",
+      "file": "floor-1.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "461f9202299792b75440d9aefa33c32038747e0b96ec87924c9dd8b4e5a84c28",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-2",
+      "file": "floor-2.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "25622ba3d0a83edad6ca963b99c16d6f5c8dcfd5cb9575d34b3153362e0c4622",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-3",
+      "file": "floor-3.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "331985d4ef08035e75681ed0bace4f2b1b69334d12cf563fb521ede053afcef5",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-4",
+      "file": "floor-4.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "dfef3cbeb76d19f181048acc80b1877733c2eac9c8a26da0137b474fef080dee",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-5",
+      "file": "floor-5.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "c900c6b4d00094fcfa978e98d51de1af5072d6a662894855cc47a99aaf02988f",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-6",
+      "file": "floor-6.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9e054ecf160d7da5154db52b26c45c3b0e9cdb714c336e95e3d083a5eb9bca82",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-7",
+      "file": "floor-7.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "4dc6f52977fc19f9166fa74942d05a6331614192ab08900e33ce94601dba6141",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-8",
+      "file": "floor-8.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "9d4364fbd2fa05e8301655b51a4590b22af3585cb344ce72857054c0c4bb6fd6",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "floor-9",
+      "file": "floor-9.png",
+      "width": 68,
+      "height": 68,
+      "sha256": "06c6709113d1f0f6489d23a3991e5191baa1766ed99457e25ceeab45d83c16e4",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "dpad-normal",
+      "file": "dpad-normal.png",
+      "width": 44,
+      "height": 44,
+      "sha256": "15d9ad6e4fe6254a4247a38766475f7998813ea59c5cffb8a37b94427b6c1fcc",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "dpad-pressed",
+      "file": "dpad-pressed.png",
+      "width": 44,
+      "height": 44,
+      "sha256": "35a1de17de13124f9bb6b251d89d91e4149b1dd8d245a3143fc491d09cae0bd4",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-seed",
+      "file": "vfx-seed.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "94a9d7825db1bdeee747d9d648df2a874ba37920330bb3b9d3ccf54a3da2ccd9",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-positive",
+      "file": "vfx-positive.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "f437919241c564626549afb867e9c153daf5b2a85e54802c170f38526be1d7a1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-negative",
+      "file": "vfx-negative.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "94ccb4b9df00e67e690673ab0db978708323a9b529e1aa73e5b5fc2f68994b5b",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "vfx-portal",
+      "file": "vfx-portal.png",
+      "width": 192,
+      "height": 48,
+      "sha256": "0ed60425ffe4724037dd1d5f191c8f74debcea2283439a8a9035bd6020ef62f1",
+      "provenance": "Original manually authored raster"
+    },
+    {
+      "id": "logo",
+      "file": "logo.png",
+      "width": 480,
+      "height": 151,
+      "sha256": "a09a8a36186d8a472dc492ab1ec0baab192059dc4a0971b5fc6ea1565cc6e05d",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "hud",
+      "file": "hud.png",
+      "width": 512,
+      "height": 154,
+      "sha256": "490090caf2a21274e8c15fed8d280d98b080eb62c7254ad241c8f73cdb2d2dc7",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "seed",
+      "file": "seed.png",
+      "width": 44,
+      "height": 64,
+      "sha256": "486eb4a3d62c1f4dd45dbf304c2d7240ebe34026ac0971b9211c1d839ec274ff",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "positive",
+      "file": "positive.png",
+      "width": 88,
+      "height": 54,
+      "sha256": "059b736f32bb112025cb9ddce25a7f962511e8fc9e68a5377ffb66c00cb6e978",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "negative",
+      "file": "negative.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "28a63fe981a9efb468096a86bd28f1550acc4d1e3809992faa18e1f2a7f97a70",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "portal",
+      "file": "portal.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "7d4de247bb1d5b3fbcb847632fdb864e896a49cdde55ea78be3fab52eaf69389",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "stone",
+      "file": "stone.png",
+      "width": 64,
+      "height": 64,
+      "sha256": "6938be1bd4651f2683b75228d87c1559494bad8292643809203da39685a97ecb",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top",
+      "file": "frame-top.png",
+      "width": 512,
+      "height": 28,
+      "sha256": "230b27fc7bab867c13cb09534284a1dbb70db8e4060887fd8aa3c7983f632526",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom",
+      "file": "frame-bottom.png",
+      "width": 512,
+      "height": 28,
+      "sha256": "02608b25a0cdc4cd267599206d63b36aa37217860714a62dac9dad69fe582072",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-left",
+      "file": "frame-left.png",
+      "width": 32,
+      "height": 70,
+      "sha256": "f61fa15255220d5a6a97393843c4cb1ffeefff6b5541058de331562fc1aa21ad",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-right",
+      "file": "frame-right.png",
+      "width": 32,
+      "height": 70,
+      "sha256": "077ddfca222f98357a0c1307906eef50932058e8a2ba1188f3029386c8f93543",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top-left",
+      "file": "frame-top-left.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "4283f3a23c55cd99840bd86aab0bdfeb271ef5754ff6b6aec063491404b5dba8",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-top-right",
+      "file": "frame-top-right.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "0a6f2d415cbe03ad20c399839ece88e712640d542e6ce88bba9ef00191df051c",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom-left",
+      "file": "frame-bottom-left.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "9678cf341f08fe7b70317ca2919012c667f35d7cd058f3cb086cf387c70ef3c8",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-bottom-right",
+      "file": "frame-bottom-right.png",
+      "width": 128,
+      "height": 128,
+      "sha256": "6334f572ae5ac438fdbd2106abc70df20444ec91cd570ae12cda7538f0eef23d",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-joint-left",
+      "file": "frame-joint-left.png",
+      "width": 46,
+      "height": 64,
+      "sha256": "5667e62aed9351367c2586036ea381614431a50ae333bff9b79006842d9d3041",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    },
+    {
+      "id": "frame-joint-right",
+      "file": "frame-joint-right.png",
+      "width": 46,
+      "height": 64,
+      "sha256": "1b383ceb19a9336eb69345935dc9569993fc17dc1ba6df96407ff78249b0767b",
+      "provenance": "Unchanged existing Retro V3 cabinet/object raster; no concept extraction"
+    }
+  ]
+}
