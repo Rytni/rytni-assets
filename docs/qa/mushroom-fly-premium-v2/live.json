@@ -1,0 +1,91 @@
+{
+  "checks": 56,
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    },
+    "Failed to load resource: the server responded with a status of 401 ()",
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    },
+    "Failed to load resource: the server responded with a status of 401 ()",
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    },
+    "Failed to load resource: the server responded with a status of 401 ()"
+  ],
+  "rows": [
+    {
+      "w": 1366,
+      "h": 768,
+      "mobile": false,
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=8b95ab34-4705-4d1f-89a4-31874716f400",
+      "requests": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/manifest.json?t=1791755202319",
+        "https://rytni.github.io/rytni-assets/giveaway-test/manifest.json?t=1791755202320",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/manifest.json?t=1791755202320",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4-1/fly-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4/snake-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-desktop-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-journal-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/play-amber-trimmed-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/celebration-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=8b95ab34-4705-4d1f-89a4-31874716f400"
+      ]
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "mobile": true,
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=f284636d-facb-486a-a70b-2aaa2b68db1d",
+      "requests": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/manifest.json?t=1791755211124",
+        "https://rytni.github.io/rytni-assets/giveaway-test/manifest.json?t=1791755211125",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/manifest.json?t=1791755211125",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4-1/fly-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4/snake-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-mobile.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-mobile-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-journal-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/play-amber-trimmed-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/celebration-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=f284636d-facb-486a-a70b-2aaa2b68db1d"
+      ]
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "mobile": true,
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=33d2f0b6-af49-4b1d-b35a-cf9e31575a1c",
+      "requests": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/manifest.json?t=1791755219336",
+        "https://rytni.github.io/rytni-assets/giveaway-test/manifest.json?t=1791755219337",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/manifest.json?t=1791755219337",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4-1/fly-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/mushroom-snake-ui-v4/snake-cover.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-desktop-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-journal-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/play-amber-trimmed-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/sky-mobile-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2/celebration-v2.png",
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=33d2f0b6-af49-4b1d-b35a-cf9e31575a1c"
+      ]
+    }
+  ]
+}

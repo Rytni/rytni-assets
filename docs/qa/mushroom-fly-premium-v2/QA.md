@@ -25,3 +25,5 @@ Low landscape initially clipped the mute control and status labels. Targeted che
 No gameplay tuning, benchmark, SQL or Production deploy. Authenticated participant/accounting behavior is preserved by protected source and local mocked contracts; anonymous preview does not prove a real user's balance. Native Web Share and real-device orientation lock still require human/device review; desktop clipboard fallback and existing mobile contracts are exercised locally.
 
 TEST publication and fresh public Pages/S3/live evidence are recorded in `PUBLIC.md` after deployment. STOP for human visual review only after that gate.
+
+TEST media delivery safety: 7 passing tests across `tools/test-fly-premium-test-mirror.cjs` and `tools/test-snake-test-mirror.cjs`. The optional Fly transport scope admits only six exact newly authored PNG keys in the TEST bucket. Existing differing bytes refuse overwrite; default Snake closure-only behavior and Production/path-traversal rejection remain intact.

@@ -2,6 +2,8 @@
 
 Base `a9aa81c` / TEST `2.15.33-e56b72a011df`. Art-first checkpoint `3e4c885`.
 
+Published TEST: `2.15.33-3e5257288eb3`, Fly presentation `premium-v2`; unchanged Snake `snake-next-78436309631c`. Final evidence: 127 local checks, 7 mirror safety tests, 20 public byte/hash checks, 56 LIVE checks; no failures/new errors. [Publication proof](PUBLIC.md) · [Final LIVE images](live-review.html).
+
 Fly-only product presentation rebuild. The approved Snake V5.3.2, chooser V2, shared participant header, original Fly game art, mechanics, audio mixer, RPC contracts and lifecycle are protected. No Production/backend/SQL changes.
 
 - [Native review](review.html)
