@@ -31,10 +31,12 @@ Native BEFORE/AFTER, actual TEST host, stress, dock rectangles, Result details a
 - `node docs/qa/snake-premium-ui-v5-2-1/run.cjs before|after`: native repro, font-ready score/rank matrix, Result and Settings.
 - `python docs/qa/snake-premium-ui-v5-2-1/raster-review.py`: QA crops/overlays only; never edits assets.
 - `... run.cjs host`: fresh actual TEST host with exact local immutable candidate routing, embedded + native fullscreen 1920/1366/1280/844, normal + stress, Settings entry/return and Arcade return.
-- `... run.cjs live`: fresh published host, no source route replacement. Existing site `/auth/v1/health` 401 is recorded separately; no new Snake console/page/network failures permitted.
+- Host: 20/20 checks. `... run.cjs live`: 22/22 checks in fresh published contexts, no source route replacement. Includes real Training → Pause → Resume → canonical wall collision → Result at 1920/1366, with transparent stat/status backgrounds and no scroll. No ranked RPC or presentation result injection. Existing site `/auth/v1/health` 401 is recorded separately; zero new Snake console/page/network failures.
 - Canonical build → bundle validator → CheckOnly → Publish; rollback remains the genuinely published V5.2.
 
-Candidate: `2.15.33-e21b593b2116`, runtime `snake-next-4542e6f6ae7d`. Publication/LIVE results recorded after the final narrow gates. Production is forbidden and unchanged. No backend, Fly, DEV effect candidate, gameplay, Smooth V4, art or sound edits.
+Published TEST: `2.15.33-e21b593b2116`, runtime `snake-next-4542e6f6ae7d`. Pages and S3 agree on manifest, app size/hash, runtime hash and all three changed modules (`public.json`). Rollback: `2.15.33-bc52be687115`. Source checkpoint `948b47f`; publication checkpoint `0648425`. Production is forbidden and unchanged. No backend, Fly, DEV effect candidate, gameplay, Smooth V4, art or sound edits.
+
+LIVE screenshots: [embedded stress](live-1366-embedded-stress.png), [desktop fullscreen](live-1920-fullscreen-normal.png), [mobile fullscreen stress](live-844-fullscreen-stress.png), [actual Training Result](live-1920-result.png). [Fresh-context LIVE measurements](live.json).
 
 `closure.json`: the immutable dependency set is unchanged (506 dependencies + runtime descriptor). Exactly three files differ from V5.2: `ui.js`, `ui-v5-2.css`, `record-place-value.js`. All assets, effect appearance, simulation, game geometry and Fly source remain byte-identical. Production manifest SHA-256: `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`.
 

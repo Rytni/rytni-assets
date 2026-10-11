@@ -9,7 +9,7 @@ async(page,{live=false,before=false}={})=>{
   await p.evaluate(()=>{let e=document.querySelector('#rytniProgressionHub');while(e&&e!==document.body){e.hidden=false;if(getComputedStyle(e).display==='none')e.style.display='block';e=e.parentElement;}});await p.locator('[data-progression-tab=arcade]').click();await p.locator('#msHub').scrollIntoViewIfNeeded();await p.locator('[data-ms-action=game-snake]').click();await p.waitForFunction(()=>RytniArcadeHub.snakeScreen==='main');
   const f=p.frames().find(f=>f.url().includes('/snake/product/index.html'));
   if(!f.url().includes('/'+expected.snake_runtime.id+'/'))failures.push({name:'runtime identity',url:f.url()});
-  const settle=async()=>{await f.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll('#menu img')].map(e=>e.decode()));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});await f.waitForFunction(()=>[...document.querySelectorAll('.title-scene,.fantasy-panel')].every(e=>Number(getComputedStyle(e).opacity)>=.999));};
+  const settle=async()=>{await f.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll('#menu img')].map(e=>e.decode()));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});await f.waitForFunction(()=>[...document.querySelectorAll('.title-scene,.fantasy-panel,.result-scene,.primary-stats>div')].every(e=>Number(getComputedStyle(e).opacity)>=.999));};
   const metric=()=>f.evaluate(()=>{const b=e=>e.getBoundingClientRect().toJSON(),scene=b(document.querySelector('.title-scene')),dock=document.querySelector('.lower-status-dock');return {size:[innerWidth,innerHeight],scene,dock:dock?b(dock):null,children:[...document.querySelectorAll('.attempt-tray,.record-safe,.rank-safe')].map(b),values:[...document.querySelectorAll('[data-record-place]')].map(e=>({box:b(e),owner:b(e.closest('.value-box')),text:e.textContent,font:parseFloat(getComputedStyle(e).fontSize)}))};});
   const gate=m=>{checks++;const inside=b=>b.left>=m.scene.left+8-.1&&b.right<=m.scene.right-8+.1&&b.bottom<=m.scene.bottom-8+.1,overlap=(a,b)=>Math.min(a.right,b.right)-Math.max(a.left,b.left)>.5&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>.5;if(!before&&(!m.dock||!inside(m.dock)||!m.children.every(inside)||!m.children.every((a,i)=>m.children.slice(i+1).every(b=>!overlap(a,b)))||!m.values.every(v=>v.font>=16&&v.box.left>=v.owner.left-.5&&v.box.right<=v.owner.right+.5)))failures.push({viewport,m});};
   for(const full of [false,true]){
@@ -21,6 +21,14 @@ async(page,{live=false,before=false}={})=>{
   }
   // Verify real Settings entry/return within the current host and fullscreen.
   await f.locator('[data-action=settings]').first().click();await settle();await p.screenshot({path:dir+tag+'-'+viewport.width+'-settings.png',scale:'css'});await f.locator('.fantasy-panel>.actions [data-action=back]').click();await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='main');
+  if(live&&viewport.width>=1366){
+   // Unlimited Training only. A canonical queued down input reaches the wall;
+   // no presentation score/result injection and no ranked/backend write.
+   await f.locator('[data-action=training]').click();await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='playing');const gf=f.childFrames().find(f=>f.url().includes('/product/frame.html'));
+   await gf.waitForFunction(()=>window.snakeProductGame?.session);await gf.evaluate(()=>snakeProductGame.pause());await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='pause');
+   await gf.evaluate(()=>snakeProductGame.commands=[{tick:snakeProductGame.session.tick+1,sequence:200,direction:1}]);await f.locator('[data-action=resume]').first().click();await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='result',{},{timeout:20000});await settle();
+   const result=await f.evaluate(()=>({backgrounds:[...document.querySelectorAll('.primary-stats,.primary-stats b,.result-note')].map(e=>getComputedStyle(e).background),scroll:document.documentElement.scrollHeight>innerHeight+1}));checks++;if(result.scroll||result.backgrounds.some(b=>!b.startsWith('rgba(0, 0, 0, 0) none')))failures.push({name:'LIVE Result backing',viewport,result});rows.push({viewport,result});await p.screenshot({path:dir+tag+'-'+viewport.width+'-result.png',scale:'css'});await f.locator('[data-action=main]').click();
+  }
   await p.evaluate(()=>document.exitFullscreen());await p.evaluate(()=>RytniArcadeHub.leave());checks++;if(!await p.locator('#msHub').isVisible())failures.push({name:'return to host',viewport});await ctx.close();
  }
  return {checks,failures,errors,failed,baseline,expected:expected.id,rows};

@@ -1,0 +1,23 @@
+{
+  "pass": true,
+  "rows": [
+    {
+      "base": "https://rytni.github.io/rytni-assets/giveaway-test/",
+      "current": "2.15.33-e21b593b2116",
+      "runtime": "snake-next-4542e6f6ae7d",
+      "previous": "2.15.33-bc52be687115",
+      "appSha256": "e21b593b21166c22bb21afd87197cdf346fc0a74b20d5070287a95e514efed11",
+      "appSize": 1186223,
+      "changedModulesVerified": 3
+    },
+    {
+      "base": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/",
+      "current": "2.15.33-e21b593b2116",
+      "runtime": "snake-next-4542e6f6ae7d",
+      "previous": "2.15.33-bc52be687115",
+      "appSha256": "e21b593b21166c22bb21afd87197cdf346fc0a74b20d5070287a95e514efed11",
+      "appSize": 1186223,
+      "changedModulesVerified": 3
+    }
+  ]
+}
