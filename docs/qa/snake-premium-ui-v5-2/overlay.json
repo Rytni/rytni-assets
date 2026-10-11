@@ -1,0 +1,23 @@
+{
+  "align": [
+    {
+      "text": "КАК ИГРАТЬ",
+      "iconCenter": 649.59375,
+      "labelCenter": 649.59375,
+      "delta": 0
+    },
+    {
+      "text": "РЕЙТИНГ",
+      "iconCenter": 745.59375,
+      "labelCenter": 745.59375,
+      "delta": 0
+    },
+    {
+      "text": "НАСТРОЙКИ",
+      "iconCenter": 841.59375,
+      "labelCenter": 841.59375,
+      "delta": 0
+    }
+  ],
+  "failures": []
+}

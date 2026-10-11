@@ -1,0 +1,436 @@
+{
+  "checks": 86,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "fixture": "desktop30",
+      "kinds": [],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "harvest"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "focus"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "spores"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "guard"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "portalPrize"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "rush"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "brambles"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "mist"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "focus",
+        "guard"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "harvest",
+        "rush"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "desktop30",
+      "kinds": [
+        "harvest",
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.9081810776213197,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 60.17082917082917
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "harvest"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "focus"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "spores"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "guard"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "portalPrize"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "rush"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "brambles"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "mist"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "focus",
+        "guard"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "harvest",
+        "rush"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile30",
+      "kinds": [
+        "harvest",
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.9081810776213197,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 24.998321678321673
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "harvest"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "focus"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "spores"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "guard"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "portalPrize"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "rush"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "brambles"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "mist"
+      ],
+      "unchanged": 1,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "focus",
+        "guard"
+      ],
+      "unchanged": 0.9254043989293611,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "harvest",
+        "rush"
+      ],
+      "unchanged": 0.924298847899453,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.983533108344001,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    },
+    {
+      "fixture": "mobile50",
+      "kinds": [
+        "harvest",
+        "guard",
+        "weak"
+      ],
+      "unchanged": 0.9081810776213197,
+      "alpha": 0,
+      "body": 17186,
+      "cell": 14.885972635336108
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import {ProductController} from './controller.js';
 import {ProductBridge} from './bridge.js';
 import {view,EFFECTS} from './ui.js';
 import {bodyCell} from '../simulation/body.js';
+import {RecordPlaceValue} from './record-place-value.js';
 
 const params=new URLSearchParams(location.search),preview=params.get('preview'),local=['localhost','127.0.0.1','[::1]'].includes(location.hostname);
 const previewStates={'main-ready':'ready','main-one-attempt':'one-attempt-left','main-sponsor':'sponsor-available','no-attempts':'no-attempts','network-error':'network-error','leaderboard-empty':'leaderboard-empty','result-record':'record-result'};
@@ -11,6 +12,7 @@ const previewStates={'main-ready':'ready','main-one-attempt':'one-attempt-left',
 const backend=createMockBackend(params.get('mock')||previewStates[preview]||'ready');
 const release='snake-product-local-v1',settings=loadSettings(),cabinet=document.querySelector('#cabinet'),menu=document.querySelector('#menu'),frame=document.querySelector('#game-frame');
 let controller;
+const values=new RecordPlaceValue(menu,cabinet);
 const mobile=()=>matchMedia('(pointer:coarse)').matches||navigator.maxTouchPoints>0;
 const gate={ready:()=>!mobile()||innerWidth>innerHeight&&(document.fullscreenElement===cabinet||cabinet.classList.contains('pseudo-fullscreen')),async request(){await fullscreen(true);try{await screen.orientation?.lock?.('landscape');}catch{}return this.ready();}};
 const bridge=new ProductBridge(frame,{settings,onPause:()=>controller?.pause(),onResult:stats=>controller?.finish(stats),onAction:action=>dispatch(action)});
@@ -24,6 +26,8 @@ function render(){
  cabinet.classList.toggle('paused-game',!!controller.run&&['pause','rules','settings','confirm-restart','confirm-exit','mobile-gate'].includes(controller.screen));
  const label=document.querySelector('#run-label');label.hidden=!params.has('qa')||controller.screen!=='playing';label.textContent=controller.run?.mode==='training'?'ТРЕНИРОВКА · БЕЗ РЕЙТИНГА':params.get('test')==='1'?'РЕЙТИНГ · ДЕМО':'РЕЙТИНГ · LOCAL MOCK';
  menu.innerHTML=view(controller,settings);menu.setAttribute('aria-busy',String(!!controller.pending));
+ values.schedule();
+ for(const b of menu.querySelectorAll('.setting-title [data-action]')){const a=b.dataset.action;b.setAttribute('aria-pressed',String(a==='mute'?!settings.muted:a==='quality'?settings.quality!=='eco':controller.fullscreenActive));}
  if(controller.pending)menu.querySelectorAll('button').forEach(b=>b.disabled=true);
 }
 controller.subscribe(render);render();
