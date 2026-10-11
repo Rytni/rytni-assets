@@ -1,6 +1,6 @@
 # FLY PREMIUM V2.1 CANDIDATE — READY FOR HUMAN REVIEW
 
-Base `22624f2`; candidate bundle `2.15.33-b69d50373f30`; Fly presentation `premium-v2-1`; unchanged Snake `snake-next-78436309631c`. See `PUBLIC.md` for actual publication state.
+Base `22624f2`; candidate bundle `2.15.33-34c745c03987`; Fly presentation `premium-v2-1`; unchanged Snake `snake-next-78436309631c`. See `PUBLIC.md` for actual publication state.
 
 - [Native visual review](review.html)
 - [LIVE review](live-review.html)
