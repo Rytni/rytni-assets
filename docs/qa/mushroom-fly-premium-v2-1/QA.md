@@ -31,3 +31,5 @@ Pause matrix captures are presentation fixtures on the actual renderer; `actual-
 Remaining human/device checks: native OS Share sheet, physical-device browser chrome/safe-area/orientation handling. Existing anonymous `/auth/v1/health` 401 is disclosed separately in actual-host/live evidence, not a newly introduced error.
 
 TEST publication only after local and mirror safety gates; exact public evidence in `PUBLIC.md`. No Production/backend/SQL changes.
+
+Public acceptance evidence: 20 exact Pages/S3 checks + 174 fresh LIVE checks, zero failures/new errors. Four primary public viewports; the full nine-viewport matrix remains local. Source/runtime/asset hashes, real menu flows and actual Training are checked independently. No native-OS Share or physical-device safe-area guarantee is inferred from desktop emulation.

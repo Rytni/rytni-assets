@@ -18,3 +18,5 @@ Sponsor token: original 1254×1254 (1,213,073 bytes; ~6.29MB RGBA) retained only
 Unused authoring sources: original untrimmed V2 button, V2.1 secondary source, large sponsor source and portrait PNG. They are not runtime dependencies. Original V2 sky PNGs are retained as immutable reference/fallback sources, not fetched by the candidate scene declarations. The six candidate runtime files are mirrored explicitly, no source/gallery wildcard.
 
 Actual public resource usage/first-use timings, repeat-entry counts and delivery hashes are recorded by the LIVE pass. Repeated resource timing entries do not automatically mean duplicate network bytes; cross-origin timing fields can be restricted. No benchmark marathon or unsupported weak-device FPS claim.
+
+`live.json` retains per-viewport public resource timing entries and scene decode checks (after initialization, potentially warm). These are not called cold decode timings. Shared URLs serve all repeated button/token bindings; large source PNGs and untrimmed button are absent from the candidate resource family. All six preferred files match public hashes on both mirrors.

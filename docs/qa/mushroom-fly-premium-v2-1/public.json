@@ -1,0 +1,171 @@
+{
+  "checkedAt": "2026-10-11T23:20:54.506Z",
+  "release": "2.15.33-34c745c03987",
+  "runtime": "snake-next-78436309631c",
+  "rollback": "2.15.33-3e5257288eb3",
+  "checks": 20,
+  "rows": [
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/manifest.json",
+      "status": 200,
+      "size": 1213,
+      "sha256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "expectedSHA256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
+      "status": 200,
+      "size": 1240942,
+      "sha256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
+      "expectedSHA256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+      "status": 200,
+      "size": 1221711,
+      "sha256": "3e5257288eb3ad9f27b1751a330256824bf0827d2ad826877699e41f9635bd5b",
+      "expectedSHA256": "3e5257288eb3ad9f27b1751a330256824bf0827d2ad826877699e41f9635bd5b",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-78436309631c/runtime.json",
+      "status": 200,
+      "size": 91907,
+      "sha256": "420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855",
+      "expectedSHA256": "420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+      "status": 200,
+      "size": 427042,
+      "sha256": "c9f76dfa2b0939038879daa62bf4ad2dcaeae2dad468eb115e1f99adb732a407",
+      "expectedSHA256": "c9f76dfa2b0939038879daa62bf4ad2dcaeae2dad468eb115e1f99adb732a407",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+      "status": 200,
+      "size": 361890,
+      "sha256": "ddcc9863657147e59f76fddcf701d88e5229d34f8635a2770062bfda4d2c50e9",
+      "expectedSHA256": "ddcc9863657147e59f76fddcf701d88e5229d34f8635a2770062bfda4d2c50e9",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+      "status": 200,
+      "size": 359914,
+      "sha256": "05db7be4028743f921677a8015c70cb0fdf5725b8401ca8f50ff3b2fb341305b",
+      "expectedSHA256": "05db7be4028743f921677a8015c70cb0fdf5725b8401ca8f50ff3b2fb341305b",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+      "status": 200,
+      "size": 339834,
+      "sha256": "57a3216fb272b52a6ba725151bbef400c514baa3192b23fa96ef06552c843e86",
+      "expectedSHA256": "57a3216fb272b52a6ba725151bbef400c514baa3192b23fa96ef06552c843e86",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+      "status": 200,
+      "size": 1410914,
+      "sha256": "e71a8afbb010803e3199c4035aed9dc851a8a8b36bb9a6abd64b4d2725204d21",
+      "expectedSHA256": "e71a8afbb010803e3199c4035aed9dc851a8a8b36bb9a6abd64b4d2725204d21",
+      "ok": true
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+      "status": 200,
+      "size": 25409,
+      "sha256": "f14003636d785a3bc0352d96d0c9533656e4bea55914ca8c1901b5a942e8fce4",
+      "expectedSHA256": "f14003636d785a3bc0352d96d0c9533656e4bea55914ca8c1901b5a942e8fce4",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/manifest.json",
+      "status": 200,
+      "size": 1213,
+      "sha256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "expectedSHA256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
+      "status": 200,
+      "size": 1240942,
+      "sha256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
+      "expectedSHA256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
+      "status": 200,
+      "size": 1221711,
+      "sha256": "3e5257288eb3ad9f27b1751a330256824bf0827d2ad826877699e41f9635bd5b",
+      "expectedSHA256": "3e5257288eb3ad9f27b1751a330256824bf0827d2ad826877699e41f9635bd5b",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/runtime.json",
+      "status": 200,
+      "size": 91907,
+      "sha256": "420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855",
+      "expectedSHA256": "420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+      "status": 200,
+      "size": 427042,
+      "sha256": "c9f76dfa2b0939038879daa62bf4ad2dcaeae2dad468eb115e1f99adb732a407",
+      "expectedSHA256": "c9f76dfa2b0939038879daa62bf4ad2dcaeae2dad468eb115e1f99adb732a407",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+      "status": 200,
+      "size": 361890,
+      "sha256": "ddcc9863657147e59f76fddcf701d88e5229d34f8635a2770062bfda4d2c50e9",
+      "expectedSHA256": "ddcc9863657147e59f76fddcf701d88e5229d34f8635a2770062bfda4d2c50e9",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+      "status": 200,
+      "size": 359914,
+      "sha256": "05db7be4028743f921677a8015c70cb0fdf5725b8401ca8f50ff3b2fb341305b",
+      "expectedSHA256": "05db7be4028743f921677a8015c70cb0fdf5725b8401ca8f50ff3b2fb341305b",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+      "status": 200,
+      "size": 339834,
+      "sha256": "57a3216fb272b52a6ba725151bbef400c514baa3192b23fa96ef06552c843e86",
+      "expectedSHA256": "57a3216fb272b52a6ba725151bbef400c514baa3192b23fa96ef06552c843e86",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+      "status": 200,
+      "size": 1410914,
+      "sha256": "e71a8afbb010803e3199c4035aed9dc851a8a8b36bb9a6abd64b4d2725204d21",
+      "expectedSHA256": "e71a8afbb010803e3199c4035aed9dc851a8a8b36bb9a6abd64b4d2725204d21",
+      "ok": true
+    },
+    {
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+      "status": 200,
+      "size": 25409,
+      "sha256": "f14003636d785a3bc0352d96d0c9533656e4bea55914ca8c1901b5a942e8fce4",
+      "expectedSHA256": "f14003636d785a3bc0352d96d0c9533656e4bea55914ca8c1901b5a942e8fce4",
+      "ok": true
+    }
+  ],
+  "failures": [],
+  "productionSHA256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591"
+}
