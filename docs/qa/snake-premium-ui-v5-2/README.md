@@ -17,16 +17,18 @@ Base: `c9421dc` (current V5.1 source), published TEST `2.15.33-4f26b949910b`. No
 ## QA
 
 - `node docs/qa/snake-premium-ui-v5-2/run.cjs after`: 346 targeted checks, zero failures/errors (font-ready, value matrix, Settings, centers, zoom/DPR).
-- `... run.cjs host`: 33 checks, four actual TEST-site contexts with local candidate routing; no new errors or asset failures. Embedded main/stress/ranking/settings, data omission/population, Fly card, Arcade return.
+- `... run.cjs host`: 38 checks, four actual TEST-site contexts with local candidate routing; no new errors or asset failures. Embedded main/stress/ranking/settings, data omission/population, Fly card, Arcade return; real landscape fullscreen on mobile.
+- `... run.cjs live`: 38 checks, fresh real `https://rytni.live/testpodari?arcade_preview=1` loading the published immutable runtime at all four viewports. Zero new console/page errors and failed assets. The existing auth-health 401 is classified separately, not suppressed as a Snake failure.
 - `... run.cjs flows`: 442 existing host-flow checks at 1366×768 and 844×390: embedded/fullscreen, Training/pause/settings/result, guide tabs, TOP10, D-pad, host exit and Fly Training/Pause/Result. Zero failures, no Fly ranked RPC calls.
 - `... run.cjs effects`: 86 checks, 42 native gameplay-size crops; primary alpha exact, ≥80% (observed ≥91%) original RGB, pause byte-stable, tick-driven motion. No production effect gate claimed.
 - Unit tests: V5.2 / V5.1 / V5 art identity, controller, host bridge and DEV material. Canonical bundle validator and TEST deployment guard.
 - Viewports: 1920×1080, 1366×768, 1280×720, 844×390. Zoom testing uses explicit CSS content zoom 1/1.25 crossed with actual deviceScaleFactor 1/1.5/2; it is not claimed as a physical browser toolbar interaction.
 - Existing `/auth/v1/health` 401 from site diagnostics is recorded separately (`baseline`), not a new Snake/asset error. No scheduler recovery was needed in the targeted 442-check run.
+- The first LIVE capture raced Pages propagation and recorded one bundle 404 while S3 was already current. After both endpoints exposed the exact SHA/size, a fresh repeat passed with no failed requests. Mobile element screenshots taller than the viewport produced a clipped iframe capture artifact; native viewport diagnostics showed correct 780×439 iframe/cabinet geometry. The final review uses actual 844×390 landscape fullscreen capture, not that malformed element screenshot.
 
 ## Publication / safety
 
-UI-only candidate: `2.15.33-bc52be687115`, Snake runtime `snake-next-8d3f1e254a4b`. Rollback points to the actually published V5.1, not an intermediate local build. Canonical build → test → CheckOnly → Publish; LIVE evidence recorded separately in `live.json` after publication.
+UI-only published TEST: `2.15.33-bc52be687115`, Snake runtime `snake-next-8d3f1e254a4b`. Source checkpoint `cc73a62`; publication checkpoint `a8afd6d`. Rollback points to the actually published V5.1, not an intermediate local build. Canonical build → test → CheckOnly → Publish. Pages and S3 each return exact app SHA256 `bc52be6871159139da2c751939de1f546ee3e612e36f9b1d7c67344c846e90f4`, size 1,186,223 bytes. LIVE evidence recorded separately in `live.json` after publication.
 
 Production `giveaway/**`, Fly game block, backend/SQL, gameplay scheduler/simulation, Smooth V4, FIT WORLD, scoring/collision/expansion and approved art are unchanged. TEST still uses deterministic demo ranking; this pass does not activate backend contracts. All source changes and exact release artifacts use explicit staging; pre-existing untracked files are preserved.
 
@@ -38,4 +40,4 @@ Production `giveaway/**`, Fly game block, backend/SQL, gameplay scheduler/simula
 - This review/QA directory and `docs/qa/snake-v5-2-effects/`.
 - Generated TEST manifest and exact immutable candidate closure, not hand-edited app bundles.
 
-Final human visual review remains required. Effects are explicitly held out of TEST.
+30 unit tests pass. Review page: 12 sections (11 required comparisons + LIVE), 24 image references; no missing assets in the final local review check. Final human visual review remains required. Effects are explicitly held out of TEST.

@@ -1,5 +1,5 @@
 {
-  "checks": 33,
+  "checks": 38,
   "failures": [],
   "errors": [],
   "failed": [],
@@ -8,18 +8,22 @@
       401,
       "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health"
     ],
+    "Failed to load resource: the server responded with a status of 401 ()",
     [
       401,
       "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health"
     ],
+    "Failed to load resource: the server responded with a status of 401 ()",
     [
       401,
       "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health"
     ],
+    "Failed to load resource: the server responded with a status of 401 ()",
     [
       401,
       "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health"
-    ]
+    ],
+    "Failed to load resource: the server responded with a status of 401 ()"
   ],
   "expected": "2.15.33-bc52be687115",
   "rows": [
@@ -87,6 +91,26 @@
     },
     {
       "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "stress": [
+        {
+          "text": "99 999 999",
+          "plate": true,
+          "font": 16,
+          "fits": true
+        },
+        {
+          "text": "№9999",
+          "plate": false,
+          "font": 16,
+          "fits": true
+        }
+      ]
+    },
+    {
+      "viewport": {
         "width": 1366,
         "height": 768
       },
@@ -146,6 +170,26 @@
         ],
         "text": "← АркадаTEST"
       }
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "stress": [
+        {
+          "text": "99 999 999",
+          "plate": true,
+          "font": 16,
+          "fits": true
+        },
+        {
+          "text": "№9999",
+          "plate": false,
+          "font": 16,
+          "fits": true
+        }
+      ]
     },
     {
       "viewport": {
@@ -211,6 +255,26 @@
     },
     {
       "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "stress": [
+        {
+          "text": "99 999 999",
+          "plate": true,
+          "font": 16,
+          "fits": true
+        },
+        {
+          "text": "№9999",
+          "plate": false,
+          "font": 16,
+          "fits": true
+        }
+      ]
+    },
+    {
+      "viewport": {
         "width": 844,
         "height": 390
       },
@@ -229,7 +293,7 @@
         },
         "fit": "cover",
         "position": "50% 50%",
-        "src": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v4-1/fly-cover.png"
+        "src": "https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v4-1/fly-cover.png"
       }
     },
     {
@@ -269,6 +333,43 @@
           }
         ],
         "text": "← АркадаTEST"
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "stress": [
+        {
+          "text": "99 999 999",
+          "plate": true,
+          "font": 16,
+          "fits": true
+        },
+        {
+          "text": "№9999",
+          "plate": false,
+          "font": 16,
+          "fits": true
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "mobileFullscreen": {
+        "size": [
+          844,
+          390
+        ],
+        "centers": [
+          0,
+          0,
+          0
+        ]
       }
     }
   ]
