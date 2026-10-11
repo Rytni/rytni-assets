@@ -1,0 +1,250 @@
+{
+  "checks": 33,
+  "failures": [],
+  "errors": [],
+  "results": [
+    {
+      "phase": "contracts",
+      "checks": 24,
+      "failures": [],
+      "errors": [],
+      "rows": [
+        {
+          "score": 0,
+          "rank": 1,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "0",
+              "overflow": false
+            },
+            {
+              "text": "№1",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "score": 6840,
+          "rank": 99,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "6 840",
+              "overflow": false
+            },
+            {
+              "text": "№99",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "score": 99999,
+          "rank": 999,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "99 999",
+              "overflow": false
+            },
+            {
+              "text": "№999",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "score": 999999,
+          "rank": 3000,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "999 999",
+              "overflow": false
+            },
+            {
+              "text": "№3000",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "score": 9999999,
+          "rank": 9999,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "9 999 999",
+              "overflow": false
+            },
+            {
+              "text": "№9999",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "score": 99999999,
+          "rank": 9999,
+          "values": [
+            {
+              "text": "3 / 3",
+              "overflow": false
+            },
+            {
+              "text": "0 / 2",
+              "overflow": false
+            },
+            {
+              "text": "99 999 999",
+              "overflow": false
+            },
+            {
+              "text": "№9999",
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "sharedText": "Мой рекорд в Mushroom Fly — 999 999 999 очков! http://127.0.0.1:8776/docs/qa/snake-test-parity/host-fixture.html?arcade_preview=1"
+        }
+      ]
+    },
+    {
+      "phase": "regression",
+      "checks": 9,
+      "failures": [],
+      "errors": [],
+      "rows": [
+        {
+          "mechanics": [
+            {
+              "perfect": {
+                "streak": 3,
+                "best": 3,
+                "reward": 198
+              },
+              "reset": 0,
+              "ghostPass": true,
+              "normalHit": true,
+              "timeScale": 0.64,
+              "mode": "BONUS_DIMENSION",
+              "bonusCoins": 8
+            },
+            {
+              "perfect": {
+                "streak": 3,
+                "best": 3,
+                "reward": 198
+              },
+              "reset": 0,
+              "ghostPass": true,
+              "normalHit": true,
+              "timeScale": 0.64,
+              "mode": "BONUS_DIMENSION",
+              "bonusCoins": 8
+            }
+          ]
+        },
+        {
+          "mobile": {
+            "run": {
+              "seed": 19123,
+              "running": false,
+              "paused": false,
+              "elapsed": 0,
+              "worldClock": 0,
+              "score": 0,
+              "location": 0,
+              "objects": 0,
+              "particles": 0,
+              "runMode": "NORMAL",
+              "perfectStreak": 0,
+              "effects": {
+                "ghost": 0,
+                "ghostPending": 0,
+                "time": 0
+              }
+            },
+            "audio": {
+              "master": 0.82,
+              "music": 0.5,
+              "sfx": 0.9,
+              "muted": false,
+              "mixVersion": 2,
+              "bonusMode": false,
+              "voices": 0,
+              "active": false,
+              "context": "suspended",
+              "sources": 0,
+              "musicTimer": false,
+              "buffers": 6,
+              "signatures": [
+                {
+                  "name": "clover",
+                  "energy": 271.9747305985358
+                },
+                {
+                  "name": "star",
+                  "energy": 160.2690224353135
+                },
+                {
+                  "name": "magnet",
+                  "energy": 404.05697002398364
+                },
+                {
+                  "name": "ghost_pickup",
+                  "energy": 155.69503248504375
+                },
+                {
+                  "name": "time_bloom_pickup",
+                  "energy": 83.29507657821009
+                },
+                {
+                  "name": "portal_enter",
+                  "energy": 223.45357717626138
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

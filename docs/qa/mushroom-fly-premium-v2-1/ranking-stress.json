@@ -1,0 +1,77 @@
+{
+  "checks": 25,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "w": 1366,
+      "horizontal": false,
+      "bodyBottom": 673.53125,
+      "footerTop": 685.53125,
+      "footerBottom": 780.71875,
+      "dialogBottom": 812.71875,
+      "summary": "Ваше место: №9999 · Рекорд: 99 999 999",
+      "opacity": "1",
+      "color": "rgb(84, 51, 15)",
+      "scoreOverflow": false,
+      "rowCount": 10,
+      "own": 1
+    },
+    {
+      "w": 390,
+      "horizontal": false,
+      "bodyBottom": 681.328125,
+      "footerTop": 693.328125,
+      "footerBottom": 801.515625,
+      "dialogBottom": 827.515625,
+      "summary": "Ваше место: №9999 · Рекорд: 99 999 999",
+      "opacity": "1",
+      "color": "rgb(84, 51, 15)",
+      "scoreOverflow": false,
+      "rowCount": 10,
+      "own": 1
+    },
+    {
+      "w": 360,
+      "horizontal": false,
+      "bodyBottom": 638.203125,
+      "footerTop": 650.203125,
+      "footerBottom": 758.390625,
+      "dialogBottom": 784.390625,
+      "summary": "Ваше место: №9999 · Рекорд: 99 999 999",
+      "opacity": "1",
+      "color": "rgb(84, 51, 15)",
+      "scoreOverflow": false,
+      "rowCount": 10,
+      "own": 1
+    },
+    {
+      "w": 844,
+      "horizontal": false,
+      "bodyBottom": 278.5625,
+      "footerTop": 282.5625,
+      "footerBottom": 368.75,
+      "dialogBottom": 382.75,
+      "summary": "Ваше место: №9999 · Рекорд: 99 999 999",
+      "opacity": "1",
+      "color": "rgb(84, 51, 15)",
+      "scoreOverflow": false,
+      "rowCount": 10,
+      "own": 1
+    },
+    {
+      "w": 800,
+      "horizontal": false,
+      "bodyBottom": 249.53125,
+      "footerTop": 253.53125,
+      "footerBottom": 339.71875,
+      "dialogBottom": 353.71875,
+      "summary": "Ваше место: №9999 · Рекорд: 99 999 999",
+      "opacity": "1",
+      "color": "rgb(84, 51, 15)",
+      "scoreOverflow": false,
+      "rowCount": 10,
+      "own": 1
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "checks": 6,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "w": 1366,
+      "m": {
+        "bounds": [
+          14,
+          90,
+          1338,
+          50.59375
+        ],
+        "buttons": [
+          {
+            "id": "arcadePause",
+            "w": 46,
+            "h": 46,
+            "x": 14,
+            "y": 90
+          },
+          {
+            "id": "arcadeFullscreen",
+            "w": 46,
+            "h": 46,
+            "x": 67,
+            "y": 90
+          }
+        ],
+        "score": "4"
+      }
+    },
+    {
+      "w": 844,
+      "m": {
+        "bounds": [
+          13,
+          13,
+          818,
+          50.59375
+        ],
+        "buttons": [
+          {
+            "id": "arcadePause",
+            "w": 46,
+            "h": 46,
+            "x": 13,
+            "y": 13
+          },
+          {
+            "id": "arcadeFullscreen",
+            "w": 46,
+            "h": 46,
+            "x": 66,
+            "y": 13
+          }
+        ],
+        "score": "3"
+      }
+    }
+  ]
+}

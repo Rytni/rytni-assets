@@ -1,0 +1,692 @@
+{
+  "base": "22624f2",
+  "protectedCount": 114,
+  "functions": [
+    {
+      "name": "ensureFlyAssets",
+      "before": "07236f475c6f4095b4b4fe35cf9287ea066d84ea5a5051f7cf80902da96fa8c9",
+      "after": "07236f475c6f4095b4b4fe35cf9287ea066d84ea5a5051f7cf80902da96fa8c9",
+      "identical": true
+    },
+    {
+      "name": "saveBlurGate",
+      "before": "b4d0f3985e155ecc1f60b826da0342c16036b72efed43ad70d974ddbde88c271",
+      "after": "b4d0f3985e155ecc1f60b826da0342c16036b72efed43ad70d974ddbde88c271",
+      "identical": true
+    },
+    {
+      "name": "desiredBlurMode",
+      "before": "57e8cb28040a28d28481c1354e7b7565bb73817a2a988d0a3e8edfd79b8450f2",
+      "after": "57e8cb28040a28d28481c1354e7b7565bb73817a2a988d0a3e8edfd79b8450f2",
+      "identical": true
+    },
+    {
+      "name": "syncBlurMode",
+      "before": "f728244b11231596bcae7f4d490d283fed1631a667b0269ac42f6bf2031a9415",
+      "after": "f728244b11231596bcae7f4d490d283fed1631a667b0269ac42f6bf2031a9415",
+      "identical": true
+    },
+    {
+      "name": "assessBlurCost",
+      "before": "a12e2ed472343d6662eeaed797540eab67d7e52db892b713edd468dace19edfb",
+      "after": "a12e2ed472343d6662eeaed797540eab67d7e52db892b713edd468dace19edfb",
+      "identical": true
+    },
+    {
+      "name": "captureHudBlurCache",
+      "before": "12038574c14f82ba7551bf375700d9a6ad4d27b83747b2bb0a9884a6cf786f8d",
+      "after": "12038574c14f82ba7551bf375700d9a6ad4d27b83747b2bb0a9884a6cf786f8d",
+      "identical": true
+    },
+    {
+      "name": "saveQualityGate",
+      "before": "58f3911336632eb1b70dfbdf2ec29317e4391b45ad0dc2b77972e8bd29472816",
+      "after": "58f3911336632eb1b70dfbdf2ec29317e4391b45ad0dc2b77972e8bd29472816",
+      "identical": true
+    },
+    {
+      "name": "nextQuality",
+      "before": "198ddf6d0913dd93b45d8429409375d07f6323836a5bedf16738dddce50286e4",
+      "after": "198ddf6d0913dd93b45d8429409375d07f6323836a5bedf16738dddce50286e4",
+      "identical": true
+    },
+    {
+      "name": "canNominateQuality",
+      "before": "0df77529112eb767193d8660b5576a40107191d7d48776baadb09737e17892d6",
+      "after": "0df77529112eb767193d8660b5576a40107191d7d48776baadb09737e17892d6",
+      "identical": true
+    },
+    {
+      "name": "nominateNextRun",
+      "before": "bcbcbeaaf35faab5232d598ed5c0e1466de54d943c949efc5127643f624c416e",
+      "after": "bcbcbeaaf35faab5232d598ed5c0e1466de54d943c949efc5127643f624c416e",
+      "identical": true
+    },
+    {
+      "name": "setQuality",
+      "before": "0da40825ae74277c4794f3bdbb43ea7cc8d86a4101bba23fd3e408bc2966e6f5",
+      "after": "0da40825ae74277c4794f3bdbb43ea7cc8d86a4101bba23fd3e408bc2966e6f5",
+      "identical": true
+    },
+    {
+      "name": "beginPerformanceRun",
+      "before": "8d8daa3a306011b97955dfcf612c56d8170303bcddd3888d04c7c9e6fb5835aa",
+      "after": "8d8daa3a306011b97955dfcf612c56d8170303bcddd3888d04c7c9e6fb5835aa",
+      "identical": true
+    },
+    {
+      "name": "completePerformanceRun",
+      "before": "6f88470b4f416340e4c3af75100de2b1b5127fad2e489a2906f012b43c9c6009",
+      "after": "6f88470b4f416340e4c3af75100de2b1b5127fad2e489a2906f012b43c9c6009",
+      "identical": true
+    },
+    {
+      "name": "samplePerformance",
+      "before": "a11ae9a9ff59c5ff19cffe397c73999ac94da2d4869b74273ba373ef9db5864b",
+      "after": "a11ae9a9ff59c5ff19cffe397c73999ac94da2d4869b74273ba373ef9db5864b",
+      "identical": true
+    },
+    {
+      "name": "perfSnapshot",
+      "before": "f712db76662e4f791eab7b5d0771058432f8a77aee32f88c23b83a0a8b5778ed",
+      "after": "f712db76662e4f791eab7b5d0771058432f8a77aee32f88c23b83a0a8b5778ed",
+      "identical": true
+    },
+    {
+      "name": "updatePerfOverlay",
+      "before": "a331670cea0efb8de334e94c39d753a747f69d2a6ed2ec504b96b7f026be9c7b",
+      "after": "a331670cea0efb8de334e94c39d753a747f69d2a6ed2ec504b96b7f026be9c7b",
+      "identical": true
+    },
+    {
+      "name": "whenArcadeActive",
+      "before": "45f7789d5a3ce13e1770ada4f66ec018e999e69946de4162e8047368208427a6",
+      "after": "45f7789d5a3ce13e1770ada4f66ec018e999e69946de4162e8047368208427a6",
+      "identical": true
+    },
+    {
+      "name": "warmYield",
+      "before": "6cd401f1304f1a3fd70b2d3c88ea10b414264dc2aef4e167a8e7a8bb02a1d29f",
+      "after": "6cd401f1304f1a3fd70b2d3c88ea10b414264dc2aef4e167a8e7a8bb02a1d29f",
+      "identical": true
+    },
+    {
+      "name": "runTimeout",
+      "before": "9577a3db0e4012a9a26b6cd0a0b48b71da3f13c71ed3cdf902fb0c9348c69fb5",
+      "after": "9577a3db0e4012a9a26b6cd0a0b48b71da3f13c71ed3cdf902fb0c9348c69fb5",
+      "identical": true
+    },
+    {
+      "name": "clearRun",
+      "before": "9c856aa2370c6a4c8921284c02c23c28ff2099c412a807bdba90ac3695904490",
+      "after": "9c856aa2370c6a4c8921284c02c23c28ff2099c412a807bdba90ac3695904490",
+      "identical": true
+    },
+    {
+      "name": "activateArcade",
+      "before": "d3e4817f7b0d548ace03a895c59bc491d78a31eed0c5e988f1419b7ac01d6811",
+      "after": "d3e4817f7b0d548ace03a895c59bc491d78a31eed0c5e988f1419b7ac01d6811",
+      "identical": true
+    },
+    {
+      "name": "deactivateArcade",
+      "before": "52712360ef7c6ae30ac692e29d9b3268ce0877846eee534f2911a81596e3f504",
+      "after": "52712360ef7c6ae30ac692e29d9b3268ce0877846eee534f2911a81596e3f504",
+      "identical": true
+    },
+    {
+      "name": "syncHost",
+      "before": "2757cd7e9830b8232f7648fe0bab217ea2c6937cef435dc70ceb2c85777a7af4",
+      "after": "2757cd7e9830b8232f7648fe0bab217ea2c6937cef435dc70ceb2c85777a7af4",
+      "identical": true
+    },
+    {
+      "name": "isArcadeVisible",
+      "before": "24e53db633e2131c67e9b6f49232caeab7d026d91b89a738eaef3aa51f49e3ff",
+      "after": "24e53db633e2131c67e9b6f49232caeab7d026d91b89a738eaef3aa51f49e3ff",
+      "identical": true
+    },
+    {
+      "name": "idleAnimation",
+      "before": "a09fd085cdef6ef55d60895d05a2326031cda71dec9214b2aed6a02c57faa7d1",
+      "after": "a09fd085cdef6ef55d60895d05a2326031cda71dec9214b2aed6a02c57faa7d1",
+      "identical": true
+    },
+    {
+      "name": "wakeAnimation",
+      "before": "fbdab7be630eb54d780ef8bb0957c204696551d2be419e0f6577402cf89c8c55",
+      "after": "fbdab7be630eb54d780ef8bb0957c204696551d2be419e0f6577402cf89c8c55",
+      "identical": true
+    },
+    {
+      "name": "fitCanvas",
+      "before": "ab32628637c083a2b6e829bee4e0dc4d7ed03242050ab6aa8199eacfa2251bd9",
+      "after": "ab32628637c083a2b6e829bee4e0dc4d7ed03242050ab6aa8199eacfa2251bd9",
+      "identical": true
+    },
+    {
+      "name": "gameCamera",
+      "before": "e6334a29cb4b31c016f01c3fbbe3cee4fc79632459cb72f49934103cf9d04b3c",
+      "after": "e6334a29cb4b31c016f01c3fbbe3cee4fc79632459cb72f49934103cf9d04b3c",
+      "identical": true
+    },
+    {
+      "name": "coverViewport",
+      "before": "5e5d9c5561b0ed7b922f162cd4e797ae8f7029c28657c0e63276d3ac44c611ed",
+      "after": "5e5d9c5561b0ed7b922f162cd4e797ae8f7029c28657c0e63276d3ac44c611ed",
+      "identical": true
+    },
+    {
+      "name": "queueViewport",
+      "before": "c999ccf6da3c003d72b4eab3daeb820021a3a10b3f1959618bd7d43ca3ddffc1",
+      "after": "c999ccf6da3c003d72b4eab3daeb820021a3a10b3f1959618bd7d43ca3ddffc1",
+      "identical": true
+    },
+    {
+      "name": "requireMobileMode",
+      "before": "f437fe110cc937a06f1e88e3b3814f181e0bbbedf02463c56d4be79faff045ed",
+      "after": "f437fe110cc937a06f1e88e3b3814f181e0bbbedf02463c56d4be79faff045ed",
+      "identical": true
+    },
+    {
+      "name": "renderMobileGate",
+      "before": "bac48ed5fdba3ef73648914cc010f5a31585bd562963bbff140e9869a393792f",
+      "after": "bac48ed5fdba3ef73648914cc010f5a31585bd562963bbff140e9869a393792f",
+      "identical": true
+    },
+    {
+      "name": "cancelMobileGate",
+      "before": "5dc9ae0ed9965d8b7360d34536dcc40188cf19196cfa2b45a8d89986ad1de1ee",
+      "after": "5dc9ae0ed9965d8b7360d34536dcc40188cf19196cfa2b45a8d89986ad1de1ee",
+      "identical": true
+    },
+    {
+      "name": "continueMobileGate",
+      "before": "1c1c73ab81c5615f7ed9fc024fff627d906ee265e8cc331f2ebbf752c617cf0c",
+      "after": "1c1c73ab81c5615f7ed9fc024fff627d906ee265e8cc331f2ebbf752c617cf0c",
+      "identical": true
+    },
+    {
+      "name": "confirmMobileMode",
+      "before": "e80c7b729b4e39e94ce6ca41e188a09b468ab357a13b1f0b5992029c57817243",
+      "after": "e80c7b729b4e39e94ce6ca41e188a09b468ab357a13b1f0b5992029c57817243",
+      "identical": true
+    },
+    {
+      "name": "enterFullscreen",
+      "before": "6962da4e754e5631b1fcf9571ec545f88df90bba82790c18c90419513d998073",
+      "after": "6962da4e754e5631b1fcf9571ec545f88df90bba82790c18c90419513d998073",
+      "identical": true
+    },
+    {
+      "name": "toggleFullscreen",
+      "before": "6f7a9055e5d0a88fadcd987b081e332113dab6a897ebf210453fc2466e7a1dfb",
+      "after": "6f7a9055e5d0a88fadcd987b081e332113dab6a897ebf210453fc2466e7a1dfb",
+      "identical": true
+    },
+    {
+      "name": "syncFullscreenState",
+      "before": "6a374913b22632ff55ef358a4a0d1a2b64200c135bc561513b4fe42d813719a3",
+      "after": "6a374913b22632ff55ef358a4a0d1a2b64200c135bc561513b4fe42d813719a3",
+      "identical": true
+    },
+    {
+      "name": "escapeHtml",
+      "before": "1b017fc35cc5d89c1ee97ecde4f06425ebe3d789736c92ed2c0f0ad63b85fc14",
+      "after": "1b017fc35cc5d89c1ee97ecde4f06425ebe3d789736c92ed2c0f0ad63b85fc14",
+      "identical": true
+    },
+    {
+      "name": "renderResultActions",
+      "before": "aa3bf5e4564f90b71b15868f54ad98f0c90e12e7ea340f1f0fd7fb9147cc0270",
+      "after": "aa3bf5e4564f90b71b15868f54ad98f0c90e12e7ea340f1f0fd7fb9147cc0270",
+      "identical": true
+    },
+    {
+      "name": "fitMenuFrame",
+      "before": "bce62abfebef675a8b43116e6d824dee1b68d178e30098f1677eda535ab533c4",
+      "after": "bce62abfebef675a8b43116e6d824dee1b68d178e30098f1677eda535ab533c4",
+      "identical": true
+    },
+    {
+      "name": "shareScore",
+      "before": "ef1de7d3bf2b7ffc9898a8f19a259702a82718290bf31bdc805eb78e5142613d",
+      "after": "ef1de7d3bf2b7ffc9898a8f19a259702a82718290bf31bdc805eb78e5142613d",
+      "identical": true
+    },
+    {
+      "name": "pauseGame",
+      "before": "58e3d92ebe9250d158fac94411fc36f4d01fea3cb028335e7acbed5cc6cf49d5",
+      "after": "58e3d92ebe9250d158fac94411fc36f4d01fea3cb028335e7acbed5cc6cf49d5",
+      "identical": true
+    },
+    {
+      "name": "resumeGame",
+      "before": "6d871ddd4ba599d5b490ce56b1d8f11f62dc8c0e95865e152cf77935b9cd7060",
+      "after": "6d871ddd4ba599d5b490ce56b1d8f11f62dc8c0e95865e152cf77935b9cd7060",
+      "identical": true
+    },
+    {
+      "name": "restartRun",
+      "before": "8fdf9d24f97dbbee6ab5c50791b0d8147385740ca1e1737e316e1c6d19867df7",
+      "after": "8fdf9d24f97dbbee6ab5c50791b0d8147385740ca1e1737e316e1c6d19867df7",
+      "identical": true
+    },
+    {
+      "name": "goHome",
+      "before": "53aecd8cd026775127b4b5da1656f652c0b2b885c706bac3073dc65e9cc8cd4f",
+      "after": "53aecd8cd026775127b4b5da1656f652c0b2b885c706bac3073dc65e9cc8cd4f",
+      "identical": true
+    },
+    {
+      "name": "mockHub",
+      "before": "06e6f7045d960e6c24a760b44f988cc4f7bd20bf3b79fdc0580b85b57c8f26a6",
+      "after": "06e6f7045d960e6c24a760b44f988cc4f7bd20bf3b79fdc0580b85b57c8f26a6",
+      "identical": true
+    },
+    {
+      "name": "loadHub",
+      "before": "ad177379dfa3a4bb931ffcbe3ceb696b0ca0e85f080645251079c9f6d57b3b94",
+      "after": "ad177379dfa3a4bb931ffcbe3ceb696b0ca0e85f080645251079c9f6d57b3b94",
+      "identical": true
+    },
+    {
+      "name": "formatReset",
+      "before": "2004c541a894c36d11909a90f238197e2748b9de0fc2d0e41da5e9430991a3df",
+      "after": "2004c541a894c36d11909a90f238197e2748b9de0fc2d0e41da5e9430991a3df",
+      "identical": true
+    },
+    {
+      "name": "start",
+      "before": "673a00087230c891dd08ca1b11228522dd3b75141243743d457448726d47ced4",
+      "after": "673a00087230c891dd08ca1b11228522dd3b75141243743d457448726d47ced4",
+      "identical": true
+    },
+    {
+      "name": "startSponsorAttempt",
+      "before": "46fe5da58f65073cdf5d6df894d166c5c4242db47a23e609efe59ef39f1d8ca5",
+      "after": "46fe5da58f65073cdf5d6df894d166c5c4242db47a23e609efe59ef39f1d8ca5",
+      "identical": true
+    },
+    {
+      "name": "showStartError",
+      "before": "f23dbf9781b21e9181bf291344e9b83b31ce71b31d4738efed61ed416d5f2a9d",
+      "after": "f23dbf9781b21e9181bf291344e9b83b31ce71b31d4738efed61ed416d5f2a9d",
+      "identical": true
+    },
+    {
+      "name": "resetGame",
+      "before": "98825a0f503b0edd382dd45cc8461637f9969a2f48d24193d580f0d8203f90c0",
+      "after": "98825a0f503b0edd382dd45cc8461637f9969a2f48d24193d580f0d8203f90c0",
+      "identical": true
+    },
+    {
+      "name": "mulberry32",
+      "before": "1981aa960595868a9b3f13eeaef61deed4db7d52135d5ed77bd7dcadc1a4c46d",
+      "after": "1981aa960595868a9b3f13eeaef61deed4db7d52135d5ed77bd7dcadc1a4c46d",
+      "identical": true
+    },
+    {
+      "name": "buildStars",
+      "before": "1dc4133c736549b5d83f762b145fac7ecfaebd408c7e36cc72619a363027e395",
+      "after": "1dc4133c736549b5d83f762b145fac7ecfaebd408c7e36cc72619a363027e395",
+      "identical": true
+    },
+    {
+      "name": "boost",
+      "before": "e52a9bdcc29e5630344a5485010141fa01c79f087fdb30465d16774f6e1c717d",
+      "after": "e52a9bdcc29e5630344a5485010141fa01c79f087fdb30465d16774f6e1c717d",
+      "identical": true
+    },
+    {
+      "name": "frame",
+      "before": "a597e0d846b131eaf9836daa806538a00027e468a7121f7e12ad23cfb5578edc",
+      "after": "a597e0d846b131eaf9836daa806538a00027e468a7121f7e12ad23cfb5578edc",
+      "identical": true
+    },
+    {
+      "name": "advanceSimulation",
+      "before": "bd2fbb01c432ad9b6fcc9218577b9ab6c05cb82f36cd00af17464e98faadc869",
+      "after": "bd2fbb01c432ad9b6fcc9218577b9ab6c05cb82f36cd00af17464e98faadc869",
+      "identical": true
+    },
+    {
+      "name": "update",
+      "before": "8566ecdebdbac3a1a9b7694ba51cd02b2d47eb1f93f1a00f279c03a8c9312f9b",
+      "after": "8566ecdebdbac3a1a9b7694ba51cd02b2d47eb1f93f1a00f279c03a8c9312f9b",
+      "identical": true
+    },
+    {
+      "name": "difficultyAt",
+      "before": "b2f54c0d5406cabcea926e986197eab4602f53c4ccf0fb81b318cb16be06b0e2",
+      "after": "b2f54c0d5406cabcea926e986197eab4602f53c4ccf0fb81b318cb16be06b0e2",
+      "identical": true
+    },
+    {
+      "name": "gapAt",
+      "before": "421b943cfe2bc536b190a122b89ebcf07019fbf679d9c7b4b946d869e5994530",
+      "after": "421b943cfe2bc536b190a122b89ebcf07019fbf679d9c7b4b946d869e5994530",
+      "identical": true
+    },
+    {
+      "name": "spawn",
+      "before": "430c760e1724130bdb53f266ddff8addb1a52f6c23c77e149c22a6df3428fbee",
+      "after": "430c760e1724130bdb53f266ddff8addb1a52f6c23c77e149c22a6df3428fbee",
+      "identical": true
+    },
+    {
+      "name": "spawnConeThreat",
+      "before": "b483f7fb7d83a13f7eff3bf3268cb1f1e6dd2f7d42cc91883611d8930dd4be5a",
+      "after": "b483f7fb7d83a13f7eff3bf3268cb1f1e6dd2f7d42cc91883611d8930dd4be5a",
+      "identical": true
+    },
+    {
+      "name": "directBonusSpawn",
+      "before": "5b6a0e43a3d3312462654297fc8fa5782d97904397eab5ffae499b017d906d00",
+      "after": "5b6a0e43a3d3312462654297fc8fa5782d97904397eab5ffae499b017d906d00",
+      "identical": true
+    },
+    {
+      "name": "spawnPortal",
+      "before": "67ce314dfc5c1b3ebe62e82d5c410f76b0ba9ed0b2f845eb594f7bf2d6a08231",
+      "after": "67ce314dfc5c1b3ebe62e82d5c410f76b0ba9ed0b2f845eb594f7bf2d6a08231",
+      "identical": true
+    },
+    {
+      "name": "enterPortal",
+      "before": "264512780de6ee400be340b744a2d92509ed586999609980ca2f27b8087f8d04",
+      "after": "264512780de6ee400be340b744a2d92509ed586999609980ca2f27b8087f8d04",
+      "identical": true
+    },
+    {
+      "name": "updateRunMode",
+      "before": "040da1e085ad31d000d768660684b92abb15949355a5a4695cf764c15411ec00",
+      "after": "040da1e085ad31d000d768660684b92abb15949355a5a4695cf764c15411ec00",
+      "identical": true
+    },
+    {
+      "name": "spawnBonusPattern",
+      "before": "3689f1e23ebbcf787790bbbd1ca80dbf45f1f6a5de83fc17721fc0a39b6580ab",
+      "after": "3689f1e23ebbcf787790bbbd1ca80dbf45f1f6a5de83fc17721fc0a39b6580ab",
+      "identical": true
+    },
+    {
+      "name": "insideLethalObstacle",
+      "before": "cfef1bb971b65ea71f5e692a01bac55795bd6b2c151dda835230eda17f9fd182",
+      "after": "cfef1bb971b65ea71f5e692a01bac55795bd6b2c151dda835230eda17f9fd182",
+      "identical": true
+    },
+    {
+      "name": "updateGhost",
+      "before": "48cfd0f7ca87b941ae4682a0beb29c3536335af73751776a7a4283de4558676e",
+      "after": "48cfd0f7ca87b941ae4682a0beb29c3536335af73751776a7a4283de4558676e",
+      "identical": true
+    },
+    {
+      "name": "applyRareBonus",
+      "before": "b13b8476722a10cce1c4881ef311bed4cfdfa552cc4ec5f471d91e8817b47ccb",
+      "after": "b13b8476722a10cce1c4881ef311bed4cfdfa552cc4ec5f471d91e8817b47ccb",
+      "identical": true
+    },
+    {
+      "name": "evaluatePerfect",
+      "before": "e110d030f1757474d107f6469b2e653c43af1c3ad0585c87b976f854ea68057d",
+      "after": "e110d030f1757474d107f6469b2e653c43af1c3ad0585c87b976f854ea68057d",
+      "identical": true
+    },
+    {
+      "name": "collides",
+      "before": "dda7ccc322940cf46faf4cf6a64f51f1fc6f51c89f6cf1e74940c6edf0c03224",
+      "after": "dda7ccc322940cf46faf4cf6a64f51f1fc6f51c89f6cf1e74940c6edf0c03224",
+      "identical": true
+    },
+    {
+      "name": "applyBonus",
+      "before": "f5c4e8bff3f331c06937c9c72605dc79fd71f4099b1e546ad9ee532839302ced",
+      "after": "f5c4e8bff3f331c06937c9c72605dc79fd71f4099b1e546ad9ee532839302ced",
+      "identical": true
+    },
+    {
+      "name": "hit",
+      "before": "8328072bd2d8ff8373212e26f8dc94df7d56e25ec230b0d8184f76eddd91be7f",
+      "after": "8328072bd2d8ff8373212e26f8dc94df7d56e25ec230b0d8184f76eddd91be7f",
+      "identical": true
+    },
+    {
+      "name": "addPopup",
+      "before": "aac917bcd7b196574f7ef280c23cdb096760e87a353e0d040a6c3c5b3d3f9597",
+      "after": "aac917bcd7b196574f7ef280c23cdb096760e87a353e0d040a6c3c5b3d3f9597",
+      "identical": true
+    },
+    {
+      "name": "burst",
+      "before": "1ff318f6a2ce34e83ed7beb1c61ebd6f46f0e52274fbec0b0456316d575b494d",
+      "after": "1ff318f6a2ce34e83ed7beb1c61ebd6f46f0e52274fbec0b0456316d575b494d",
+      "identical": true
+    },
+    {
+      "name": "showScoreDelta",
+      "before": "217f35402a1e7cc6817ed765b9e9fdda8bb4a46718b65f80b48a017b2063bbd4",
+      "after": "217f35402a1e7cc6817ed765b9e9fdda8bb4a46718b65f80b48a017b2063bbd4",
+      "identical": true
+    },
+    {
+      "name": "syncHud",
+      "before": "17e22f693de2ea94ddbc5da9384e22ac9b9762e6edccaf589ca6aadeeed2f451",
+      "after": "17e22f693de2ea94ddbc5da9384e22ac9b9762e6edccaf589ca6aadeeed2f451",
+      "identical": true
+    },
+    {
+      "name": "formatRunTime",
+      "before": "6f7ba6d5efd2e8ebf61cf2b307f4014a36b5680a34c8a1507a66dd0e0a9a544c",
+      "after": "6f7ba6d5efd2e8ebf61cf2b307f4014a36b5680a34c8a1507a66dd0e0a9a544c",
+      "identical": true
+    },
+    {
+      "name": "drawAttract",
+      "before": "cc219987e366db9c0db79e2d97fcbb2b1b8aab113502663c24cfc7a0a97f99de",
+      "after": "cc219987e366db9c0db79e2d97fcbb2b1b8aab113502663c24cfc7a0a97f99de",
+      "identical": true
+    },
+    {
+      "name": "draw",
+      "before": "31a2b65ae70abe10e3fa4d37ad9e32997bd959c31e593308f2c801ed3c94efeb",
+      "after": "31a2b65ae70abe10e3fa4d37ad9e32997bd959c31e593308f2c801ed3c94efeb",
+      "identical": true
+    },
+    {
+      "name": "drawScene",
+      "before": "f33d62f15883c6a2fe75aa1e6dab651c730ec774f0a6865e048fa0635e5705ae",
+      "after": "f33d62f15883c6a2fe75aa1e6dab651c730ec774f0a6865e048fa0635e5705ae",
+      "identical": true
+    },
+    {
+      "name": "drawMountains",
+      "before": "7bec6ab34351254ab81321cd6f149be3f8924c94d1166524c15cf7f2d7772bf3",
+      "after": "7bec6ab34351254ab81321cd6f149be3f8924c94d1166524c15cf7f2d7772bf3",
+      "identical": true
+    },
+    {
+      "name": "drawWorld",
+      "before": "9a6a73d44e536614a0a673c0e3474f4ff5a7847d2ded1181fbd117d4e1196e80",
+      "after": "9a6a73d44e536614a0a673c0e3474f4ff5a7847d2ded1181fbd117d4e1196e80",
+      "identical": true
+    },
+    {
+      "name": "drawAtmosphere",
+      "before": "696287e08cc6afa876241f4ef5041e80ec54e865048ca2c94910aae9258f8309",
+      "after": "696287e08cc6afa876241f4ef5041e80ec54e865048ca2c94910aae9258f8309",
+      "identical": true
+    },
+    {
+      "name": "drawFloor",
+      "before": "c054116f5f0bc9146703ab64a96d23a90f0dd3b1ba3ea7428df3f241fae8aa93",
+      "after": "c054116f5f0bc9146703ab64a96d23a90f0dd3b1ba3ea7428df3f241fae8aa93",
+      "identical": true
+    },
+    {
+      "name": "drawObject",
+      "before": "73a085ce9b604090a2674ecc681b6c9a2c8d8485c20bc4c41915a9a976fea478",
+      "after": "73a085ce9b604090a2674ecc681b6c9a2c8d8485c20bc4c41915a9a976fea478",
+      "identical": true
+    },
+    {
+      "name": "drawPlayer",
+      "before": "adc9e8e2c3a897dc160f09a31c3f8b371757ec3702991833c5b348db1f9b96da",
+      "after": "adc9e8e2c3a897dc160f09a31c3f8b371757ec3702991833c5b348db1f9b96da",
+      "identical": true
+    },
+    {
+      "name": "finish",
+      "before": "56e195bb4b69b22b6b3c5f02c23a31c323851b1da4ff626e8cc4d471d9fab59b",
+      "after": "56e195bb4b69b22b6b3c5f02c23a31c323851b1da4ff626e8cc4d471d9fab59b",
+      "identical": true
+    },
+    {
+      "name": "showResult",
+      "before": "52520c7912a164465e17767b8f53aa17760ffe5bbe7d028ec54c163fa6c99597",
+      "after": "52520c7912a164465e17767b8f53aa17760ffe5bbe7d028ec54c163fa6c99597",
+      "identical": true
+    },
+    {
+      "name": "convexHull",
+      "before": "df0548da51a88671d398f7687c1cab8c4190dbb3205b94d2b9fc99d8e28d1f19",
+      "after": "df0548da51a88671d398f7687c1cab8c4190dbb3205b94d2b9fc99d8e28d1f19",
+      "identical": true
+    },
+    {
+      "name": "solidProfile",
+      "before": "5774bd77bfe9f6e6520a71f55f109cd4c53385abb15f43b1709416a133b2fe7e",
+      "after": "5774bd77bfe9f6e6520a71f55f109cd4c53385abb15f43b1709416a133b2fe7e",
+      "identical": true
+    },
+    {
+      "name": "gateGeometry",
+      "before": "737b631619f58a8b4709c9a4ec981202f4b6fee5e1c91c207ce4cb2f3c79a8de",
+      "after": "737b631619f58a8b4709c9a4ec981202f4b6fee5e1c91c207ce4cb2f3c79a8de",
+      "identical": true
+    },
+    {
+      "name": "gateContact",
+      "before": "36097ab3e7d938c240cee7b9358e229a6b0903f87d5e78d0cfebc6ceedeac92b",
+      "after": "36097ab3e7d938c240cee7b9358e229a6b0903f87d5e78d0cfebc6ceedeac92b",
+      "identical": true
+    },
+    {
+      "name": "playerPose",
+      "before": "00182fda484e8f874e59bf13125c9cf294d1abc3892b472a54bb3174baf6848b",
+      "after": "00182fda484e8f874e59bf13125c9cf294d1abc3892b472a54bb3174baf6848b",
+      "identical": true
+    },
+    {
+      "name": "playerVerticalBounds",
+      "before": "8566ba0aedbcfdab6b381739405065aad3730ec2243353f67a8c714336809408",
+      "after": "8566ba0aedbcfdab6b381739405065aad3730ec2243353f67a8c714336809408",
+      "identical": true
+    },
+    {
+      "name": "drawCollisionDebug",
+      "before": "78d4e32c5688de82dcf5317caf043fe75876ba48cbbea4c8114483a58d6d76fe",
+      "after": "78d4e32c5688de82dcf5317caf043fe75876ba48cbbea4c8114483a58d6d76fe",
+      "identical": true
+    },
+    {
+      "name": "drawConeWarning",
+      "before": "013286eae173e3ac30716d0f39767e35b3ccd5c06d8f7f364d36cd33122eadb8",
+      "after": "013286eae173e3ac30716d0f39767e35b3ccd5c06d8f7f364d36cd33122eadb8",
+      "identical": true
+    },
+    {
+      "name": "drawFlightMotes",
+      "before": "0128e34b7f2400d1f740d73392a13f94e97d11dfa2fa58fcac0bc8f761f7231a",
+      "after": "0128e34b7f2400d1f740d73392a13f94e97d11dfa2fa58fcac0bc8f761f7231a",
+      "identical": true
+    },
+    {
+      "name": "drawPortalTransition",
+      "before": "8fb86bdc0618031adb2570144e490525661c6ef5924a9eed254b84437ecc87b3",
+      "after": "8fb86bdc0618031adb2570144e490525661c6ef5924a9eed254b84437ecc87b3",
+      "identical": true
+    },
+    {
+      "name": "drawPerfectFx",
+      "before": "be6ba21e00728d7a0f3d1d8a204b3ce43d4403ce6cf93475542a04272ec8dc58",
+      "after": "be6ba21e00728d7a0f3d1d8a204b3ce43d4403ce6cf93475542a04272ec8dc58",
+      "identical": true
+    },
+    {
+      "name": "wingGeometry",
+      "before": "2147b47eea755491035e2c8fcc745fb8f6ef8adf309ff2edd852455f8a3670bf",
+      "after": "2147b47eea755491035e2c8fcc745fb8f6ef8adf309ff2edd852455f8a3670bf",
+      "identical": true
+    },
+    {
+      "name": "drawRigWing",
+      "before": "51684fb0522963c0f800c4d0dd9eeacc0985d204292552e6673d8c48a06c0bc4",
+      "after": "51684fb0522963c0f800c4d0dd9eeacc0985d204292552e6673d8c48a06c0bc4",
+      "identical": true
+    },
+    {
+      "name": "activePlayerPower",
+      "before": "9ebe065735d361c437940ddf76b0f4809c99d05b878e7557310e15928c66df10",
+      "after": "9ebe065735d361c437940ddf76b0f4809c99d05b878e7557310e15928c66df10",
+      "identical": true
+    },
+    {
+      "name": "makeAura",
+      "before": "04b33c306e03b0e55e6e89ea2a4fff99bd1282cd859ca4af9ccd1dd8f4254da2",
+      "after": "04b33c306e03b0e55e6e89ea2a4fff99bd1282cd859ca4af9ccd1dd8f4254da2",
+      "identical": true
+    },
+    {
+      "name": "bakeParticle",
+      "before": "17eaa0695714ec27eb08aefb58ab9d0bafe41fc1663357e77035620091f7ead9",
+      "after": "17eaa0695714ec27eb08aefb58ab9d0bafe41fc1663357e77035620091f7ead9",
+      "identical": true
+    },
+    {
+      "name": "bakeSprite",
+      "before": "4d15ccefed8bdaf2edf443ac190c33f8a82604085262bf2f1b9e7be77a33521a",
+      "after": "4d15ccefed8bdaf2edf443ac190c33f8a82604085262bf2f1b9e7be77a33521a",
+      "identical": true
+    },
+    {
+      "name": "drawWarmSprite",
+      "before": "c5abd9e152503c3099464998f95bf2a33376b98de1f61d8075023d8809e4e887",
+      "after": "c5abd9e152503c3099464998f95bf2a33376b98de1f61d8075023d8809e4e887",
+      "identical": true
+    },
+    {
+      "name": "activeVisualBonuses",
+      "before": "488c6839f286750cd8b53afb2f6efa50ca78802e41086a1a8af3c5735133fd1f",
+      "after": "488c6839f286750cd8b53afb2f6efa50ca78802e41086a1a8af3c5735133fd1f",
+      "identical": true
+    },
+    {
+      "name": "drawPlayerAura",
+      "before": "920f56dd4b4ebb09efe7cbea38361af900766206859a2c5dfad33d1145faed00",
+      "after": "920f56dd4b4ebb09efe7cbea38361af900766206859a2c5dfad33d1145faed00",
+      "identical": true
+    },
+    {
+      "name": "markBonus",
+      "before": "a278c46d0d2b138a4cd2579b8adff98e716699d151d4e6f2bb7d613e21aad58b",
+      "after": "a278c46d0d2b138a4cd2579b8adff98e716699d151d4e6f2bb7d613e21aad58b",
+      "identical": true
+    },
+    {
+      "name": "mountUiQa",
+      "before": "1e01b0edfad5ca12a68286d7a0b819a7646da83f0e482261e82c12e84d787a3d",
+      "after": "1e01b0edfad5ca12a68286d7a0b819a7646da83f0e482261e82c12e84d787a3d",
+      "identical": true
+    },
+    {
+      "name": "observe",
+      "before": "10ef7044a07045dfdca1cde6ebaa1b7155f3bef814ad31d3dcf82eb3a02b40db",
+      "after": "10ef7044a07045dfdca1cde6ebaa1b7155f3bef814ad31d3dcf82eb3a02b40db",
+      "identical": true
+    }
+  ],
+  "failures": [],
+  "productionSHA256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591"
+}

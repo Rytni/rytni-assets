@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "original": "grib/mushroom-fly-premium-v2/sky-desktop-v2.png",
+      "variant": "sky-desktop-v2-1.webp",
+      "w": 1280,
+      "h": 720,
+      "meanRGBError": 1.7248582175925926,
+      "maxRGBError": 66,
+      "dimensionsUnchanged": true
+    },
+    {
+      "original": "grib/mushroom-fly-premium-v2/sky-mobile-v2.png",
+      "variant": "sky-mobile-v2-1.webp",
+      "w": 390,
+      "h": 778,
+      "meanRGBError": 1.4619702063146793,
+      "maxRGBError": 63,
+      "dimensionsUnchanged": true
+    },
+    {
+      "original": "grib/mushroom-fly-premium-v2/celebration-v2.png",
+      "variant": "celebration-v2-1.webp",
+      "w": 844,
+      "h": 390,
+      "meanRGBError": 1.5284380443148216,
+      "maxRGBError": 49,
+      "dimensionsUnchanged": true
+    },
+    {
+      "original": "grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.png",
+      "variant": "celebration-portrait-v2-1.webp",
+      "w": 390,
+      "h": 778,
+      "meanRGBError": 1.3465877881044976,
+      "maxRGBError": 52,
+      "dimensionsUnchanged": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+async page=>{
+ const dir='docs/qa/mushroom-fly-premium-v2-1/',failures=[],errors=[],rows=[];let checks=0;const check=(ok,name,data)=>{checks++;if(!ok)failures.push({name,data});};
+ const viewports=[[1920,1080],[1366,768],[1280,720],[390,844],[393,873],[360,800],[844,390],[873,393],[800,360]];
+ const metrics=async p=>p.evaluate(()=>{const d=document.querySelector('#arcadeDialog'),s=d.closest('.rytni-arcade-stage'),b=d.querySelector('.rytni-arcade-modal-body'),rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,bottom:r.bottom,right:r.right};},bounds=rect(d);return {mode:d.dataset.menu,viewport:[innerWidth,innerHeight],stage:rect(s),dialog:bounds,body:rect(b),bodyScroll:b.scrollHeight>b.clientHeight+1,overflow:d.scrollWidth>d.clientWidth+1,controls:[...d.querySelectorAll('button,input[type=range]')].filter(e=>e.getClientRects().length&&getComputedStyle(e).display!=='none').map(e=>({action:e.dataset.menuAction||e.dataset.uiTab||e.dataset.audioVolume,...rect(e)})),outerScroll:[scrollX,scrollY],fixed:getComputedStyle(document.querySelector('#msFlyWrap')).position};});
+ const open=async(p,before=false)=>{
+  p.on('pageerror',e=>errors.push(e.message));p.on('console',e=>{if(e.type()==='error')errors.push(e.text());});
+  await p.route('**/grib/**',async r=>{const n=/\/grib\/([^?]+)/.exec(r.request().url())[1];const resp=await p.request.get('http://127.0.0.1:8776/grib/'+n);await r.fulfill({response:resp});});
+  if(before)await p.route('**/08_T123_BROWSER_ARCADE_2.15.34.html',async r=>r.fulfill({response:await p.request.get('http://127.0.0.1:8776/'+dir+'baseline-fly.html')}));
+  await p.goto('http://127.0.0.1:8776/docs/qa/snake-test-parity/host-fixture.html?arcade_preview=1'+(p.viewportSize().width<1000?'&mobile=1':''));await p.waitForFunction(()=>window.hostFixtureReady);await p.locator('[data-ms-action=game-fly]').click();await p.evaluate(()=>RytniBrowserArcade.qaReady());await p.waitForTimeout(120);
+ };
+ const show=async(p,state)=>{if(state==='sponsor')await p.evaluate(()=>RytniBrowserArcade.qaSponsorState());else if(state==='record'||state==='result')await p.evaluate(k=>RytniBrowserArcade.qaResult(k==='record'?'record':'ranked'),state);else if(state==='pause'){await p.evaluate(()=>{RytniBrowserArcade.qaScene('ghost');RytniBrowserArcade.qaShowMenu('pause');});}else if(state==='mobile-gate')await p.evaluate(()=>RytniBrowserArcade.qaShowMenu('mobileMode',{rotate:true}));else if(state.startsWith('guide-')){await p.evaluate(()=>RytniBrowserArcade.qaShowMenu('rules'));await p.locator('[data-ui-tab='+({'guide-basics':'basics','guide-bonuses':'powerups','guide-hazards':'hazards'}[state])+']').click();}else if(state.startsWith('settings-')){await p.evaluate(()=>RytniBrowserArcade.qaShowMenu('settings'));if(state==='settings-game')await p.locator('[data-ui-tab=game]').click();}else await p.evaluate(k=>RytniBrowserArcade.qaShowMenu(k),state);};
+ const states=['main','ranking','guide-basics','guide-bonuses','guide-hazards','settings-sound','settings-game','pause','result','record','noAttempts','sponsor','error','mobile-gate'];
+ for(const [w,h]of viewports){const c=await page.context().browser().newContext({viewport:{width:w,height:h},isMobile:w<1000,hasTouch:w<1000}),p=await c.newPage();await open(p);
+  for(const state of states){await show(p,state);const m=await metrics(p);rows.push({w,h,state,...m});check(!m.overflow,state+' no horizontal overflow '+w,m);check(m.controls.every(e=>e.x>=m.dialog.x-1&&e.right<=m.dialog.right+1&&e.y>=m.dialog.y-1&&e.bottom<=m.dialog.bottom+1),state+' controls contained '+w,m);check(m.controls.every(e=>e.w>=43&&e.h>=43),state+' touch targets '+w,m.controls.filter(e=>e.w<43||e.h<43));
+   if(['main','pause','result','record'].includes(state))check(!m.bodyScroll,state+' no internal page scroll '+w,m);
+   if(w<1000){check(m.stage.y>=-1&&m.stage.bottom<=h+1,state+' bounded mobile stage '+w,m);if(h<500)check(h-m.stage.bottom<=8,state+' no lower dead band '+w,m);}
+   if(state==='ranking'){const footer=await p.locator('.rytni-arcade-modal-footer').evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom};});check(m.body.bottom<=footer.top+1&&footer.bottom<=m.dialog.bottom+1,'ranking rows not under footer '+w,{m,footer});await p.locator('.rytni-arcade-modal-body').evaluate(e=>{e.scrollTop=e.scrollHeight;});check(await p.locator('#arcadeFullLeaderboard li').last().evaluate(e=>{const a=e.getBoundingClientRect(),b=e.closest('.rytni-arcade-modal-body').getBoundingClientRect();return a.bottom<=b.bottom+1&&a.top>=b.top-1;}),'last ranking entry accessible '+w);}
+   if([1920,1366,390,844].includes(w)){
+    const name=state==='main'?`main-${w}${w===844?'-landscape':w===390?'-portrait':''}`:state.startsWith('guide-')&&w===390?'guide-390':state+'-'+w;
+    if(!(['guide-basics','guide-bonuses'].includes(state)&&w===390)){if(w<1000)await p.screenshot({path:dir+name+'.png',scale:'css',animations:'disabled'});else await p.locator('#msFlyWrap').screenshot({path:dir+name+'.png',scale:'css',animations:'disabled'});}
+   }
+  }
+  // Source scene coverage in native fullscreen, not an offscreen parent screenshot.
+  if(h<500){await show(p,'main');await p.locator('[data-menu-action=fullscreen]').click();const m=await metrics(p);check(Math.abs(m.stage.y)<=1&&Math.abs(m.stage.h-h)<=1,'native fullscreen aperture '+w,m);await p.locator('.rytni-arcade-stage').screenshot({path:dir+'main-fullscreen-'+w+'.png',scale:'css'});}
+  await c.close();
+ }
+ // Paired BEFORE captures for materially changed states, same fixture and viewport.
+ for(const [w,h]of [[1366,768],[390,844],[844,390]]){const c=await page.context().browser().newContext({viewport:{width:w,height:h},isMobile:w<1000,hasTouch:w<1000}),p=await c.newPage();await open(p,true);for(const state of ['main','ranking','guide-basics','guide-bonuses','guide-hazards','settings-sound','settings-game','pause','result','record']){await show(p,state);await p.locator('#msFlyWrap').screenshot({path:dir+'before-'+state+'-'+w+'.png',scale:'css',animations:'disabled'});}await c.close();}
+ return {checks,failures,errors,rows};
+}

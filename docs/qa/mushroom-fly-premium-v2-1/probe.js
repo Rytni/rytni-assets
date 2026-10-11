@@ -1,0 +1,4 @@
+async page=>{
+ const p=await page.context().newPage();await p.route('**/grib/**',async r=>r.fulfill({response:await p.request.get('http://127.0.0.1:8776/grib/'+/\/grib\/([^?]+)/.exec(r.request().url())[1])}));await p.setViewportSize({width:844,height:390});await p.goto('http://127.0.0.1:8776/docs/qa/snake-test-parity/host-fixture.html?arcade_preview=1&mobile=1');await p.waitForFunction(()=>window.hostFixtureReady);await p.locator('[data-ms-action=game-fly]').click();await p.evaluate(()=>RytniBrowserArcade.qaReady());
+ const rows=await p.locator('.rytni-arcade-modal-body').evaluate(e=>[e,...e.querySelectorAll('*')].filter(e=>e.getClientRects().length).map(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return {tag:e.tagName,id:e.id,cls:e.className,y:r.y,h:r.height,client:e.clientHeight,scroll:e.scrollHeight,box:s.boxSizing,min:s.minHeight,pad:s.padding,margin:s.margin,gap:s.gap,display:s.display};}));await p.close();return {rows};
+}

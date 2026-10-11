@@ -1,0 +1,4 @@
+const fs=require('node:fs'),cp=require('node:child_process'),path=require('node:path');
+const r=cp.spawnSync('cmd.exe',['/d','/s','/c','playwright-cli -s=flypremium run-code --filename=docs/qa/mushroom-fly-premium-v2-1/assets.js'],{encoding:'utf8',maxBuffer:24e6,timeout:120000});const m=/### Result\r?\n([\s\S]*?)\r?\n###/.exec(r.stdout||'');if(!m)throw Error(r.stdout+r.stderr);const d=JSON.parse(m[1]);
+for(const asset of d.derivatives){if(!/^grib\/mushroom-fly-premium-v2-1\/[a-z0-9-]+\.webp$/.test(asset.file))throw Error('Unsafe derivative path');fs.writeFileSync(asset.file,Buffer.from(asset.data,'base64'));}
+delete d.derivatives;fs.writeFileSync(path.join(__dirname,'assets.json'),JSON.stringify(d,null,2)+'\n');console.log(d.rows.map(({file,bytes,webPBytes,width,height})=>({file,bytes,webPBytes,width,height})));

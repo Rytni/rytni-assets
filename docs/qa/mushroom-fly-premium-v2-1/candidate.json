@@ -1,0 +1,80 @@
+{
+  "release": "2.15.33-b69d50373f30",
+  "runtime": "snake-next-78436309631c",
+  "checks": 9,
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "Failed to load resource: the server responded with a status of 401 ()"
+  ],
+  "rows": [
+    {
+      "w": 1920,
+      "main": {
+        "width": 720.25,
+        "height": 481.140625,
+        "stageWidth": 720.25,
+        "stageHeight": 405.140625,
+        "overflow": false,
+        "top3": 3,
+        "note": "none"
+      }
+    },
+    {
+      "w": 1920,
+      "snakeRaster": {
+        "rawPngEqual": false,
+        "beforeBytes": 577014,
+        "afterBytes": 577011
+      },
+      "snakeGeometryIdentical": true
+    },
+    {
+      "w": 1366,
+      "main": {
+        "width": 720.25,
+        "height": 481.140625,
+        "stageWidth": 720.25,
+        "stageHeight": 405.140625,
+        "overflow": false,
+        "top3": 3,
+        "note": "none"
+      }
+    },
+    {
+      "w": 1366,
+      "snakeRaster": {
+        "rawPngEqual": false,
+        "beforeBytes": 577120,
+        "afterBytes": 577119
+      },
+      "snakeGeometryIdentical": true
+    },
+    {
+      "w": 390,
+      "main": {
+        "width": 390,
+        "height": 844,
+        "stageWidth": 390,
+        "stageHeight": 776,
+        "overflow": false,
+        "top3": 3,
+        "note": "none"
+      }
+    },
+    {
+      "w": 390,
+      "snakeRaster": {
+        "rawPngEqual": false,
+        "beforeBytes": 455963,
+        "afterBytes": 455961
+      },
+      "snakeGeometryIdentical": true
+    }
+  ]
+}
