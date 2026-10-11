@@ -1,0 +1,1098 @@
+{
+  "rows": [
+    {
+      "local": true,
+      "mode": "embedded",
+      "metrics": {
+        "viewport": [
+          844,
+          390
+        ],
+        "visualViewport": [
+          844,
+          390,
+          0
+        ],
+        "scroll": [
+          0,
+          161
+        ],
+        "ancestors": [
+          {
+            "tag": "ARTICLE",
+            "id": "",
+            "classes": "rytni-arcade-stage has-menu is-title-scene",
+            "rect": [
+              0,
+              -85,
+              844,
+              474.75
+            ],
+            "height": "474.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-arcade-layout",
+            "rect": [
+              0,
+              -85,
+              844,
+              474.75
+            ],
+            "height": "474.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "start",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "",
+            "classes": "rytni-arcade mf-premium",
+            "rect": [
+              0,
+              -85,
+              844,
+              474.75
+            ],
+            "height": "474.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytniArcadeHost",
+            "classes": "",
+            "rect": [
+              0,
+              -85,
+              844,
+              474.75
+            ],
+            "height": "474.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "msFlyWrap",
+            "classes": "",
+            "rect": [
+              0,
+              -161,
+              844,
+              550.75
+            ],
+            "height": "550.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "progressionPanelArcade",
+            "classes": "",
+            "rect": [
+              0,
+              -161,
+              844,
+              550.75
+            ],
+            "height": "550.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationPopup",
+            "classes": "",
+            "rect": [
+              0,
+              -161,
+              844,
+              550.75
+            ],
+            "height": "550.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "BODY",
+            "id": "",
+            "classes": "mobile",
+            "rect": [
+              0,
+              -161,
+              844,
+              550.75
+            ],
+            "height": "550.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "HTML",
+            "id": "",
+            "classes": "",
+            "rect": [
+              0,
+              -161,
+              844,
+              550.75
+            ],
+            "height": "550.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "local": true,
+      "mode": "fullscreen",
+      "metrics": {
+        "viewport": [
+          844,
+          390
+        ],
+        "visualViewport": [
+          844,
+          390,
+          0
+        ],
+        "scroll": [
+          0,
+          0
+        ],
+        "fullscreen": "rytni-arcade-stage has-menu is-title-scene",
+        "ancestors": [
+          {
+            "tag": "ARTICLE",
+            "id": "",
+            "classes": "rytni-arcade-stage has-menu is-title-scene",
+            "rect": [
+              0,
+              0,
+              844,
+              390
+            ],
+            "height": "390px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "fixed",
+            "overflow": "hidden",
+            "display": "flex",
+            "align": "center",
+            "justify": "center",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-arcade-layout",
+            "rect": [
+              0,
+              76,
+              844,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "start",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "",
+            "classes": "rytni-arcade mf-premium",
+            "rect": [
+              0,
+              76,
+              844,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytniArcadeHost",
+            "classes": "",
+            "rect": [
+              0,
+              76,
+              844,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "msFlyWrap",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "progressionPanelArcade",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationPopup",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "BODY",
+            "id": "",
+            "classes": "mobile",
+            "rect": [
+              0,
+              0,
+              844,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "HTML",
+            "id": "",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "local": false,
+      "mode": "embedded",
+      "metrics": {
+        "viewport": [
+          844,
+          390
+        ],
+        "visualViewport": [
+          844,
+          390,
+          0
+        ],
+        "scroll": [
+          0,
+          0
+        ],
+        "ancestors": [
+          {
+            "tag": "ARTICLE",
+            "id": "",
+            "classes": "rytni-arcade-stage has-menu is-title-scene",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              438.75
+            ],
+            "height": "438.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-arcade-layout",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              438.75
+            ],
+            "height": "438.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "start",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "",
+            "classes": "rytni-arcade mf-premium",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              438.75
+            ],
+            "height": "438.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytniArcadeHost",
+            "classes": "",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              438.75
+            ],
+            "height": "438.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "msFlyWrap",
+            "classes": "",
+            "rect": [
+              28,
+              -296.109375,
+              780,
+              514.75
+            ],
+            "height": "514.75px",
+            "minHeight": "auto",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "progressionPanelArcade",
+            "classes": "rytni-progression-panel rytni-arcade-panel is-active",
+            "rect": [
+              28,
+              -296.109375,
+              780,
+              514.75
+            ],
+            "height": "514.75px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-progression-panels",
+            "rect": [
+              27,
+              -297.109375,
+              782,
+              516.75
+            ],
+            "height": "516.75px",
+            "minHeight": "420px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "rytniProgressionHub",
+            "classes": "rytni-progression-hub",
+            "rect": [
+              27,
+              -495.109375,
+              782,
+              714.75
+            ],
+            "height": "714.75px",
+            "minHeight": "auto",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "visible",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationBoostPanel",
+            "classes": "application-boost-panel",
+            "rect": [
+              8,
+              -698.109375,
+              820,
+              3052.015625
+            ],
+            "height": "3052.02px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "14px 0px 0px",
+            "padding": "18px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationProfile",
+            "classes": "application-profile",
+            "rect": [
+              8,
+              -747.109375,
+              820,
+              3129.015625
+            ],
+            "height": "3129.02px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "16px 0px 0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "popup application-popup",
+            "rect": [
+              8,
+              8,
+              820,
+              354
+            ],
+            "height": "354px",
+            "minHeight": "0px",
+            "maxHeight": "354px",
+            "position": "static",
+            "overflow": "auto",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationPopup",
+            "classes": "popup-overlay",
+            "rect": [
+              0,
+              0,
+              844,
+              390
+            ],
+            "height": "390px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "fixed",
+            "overflow": "visible",
+            "display": "block",
+            "align": "flex-start",
+            "justify": "center",
+            "margin": "0px",
+            "padding": "8px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytni-event-page",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "390px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "clip visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "BODY",
+            "id": "",
+            "classes": "t-body",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "390px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "HTML",
+            "id": "",
+            "classes": "rytni-low-power",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "local": false,
+      "mode": "fullscreen",
+      "metrics": {
+        "viewport": [
+          844,
+          390
+        ],
+        "visualViewport": [
+          844,
+          390,
+          0
+        ],
+        "scroll": [
+          0,
+          0
+        ],
+        "fullscreen": "rytni-arcade-stage has-menu is-title-scene",
+        "ancestors": [
+          {
+            "tag": "ARTICLE",
+            "id": "",
+            "classes": "rytni-arcade-stage has-menu is-title-scene",
+            "rect": [
+              0,
+              0,
+              844,
+              390
+            ],
+            "height": "390px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "fixed",
+            "overflow": "hidden",
+            "display": "flex",
+            "align": "center",
+            "justify": "center",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-arcade-layout",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "start",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "",
+            "classes": "rytni-arcade mf-premium",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytniArcadeHost",
+            "classes": "",
+            "rect": [
+              28,
+              -220.109375,
+              780,
+              0
+            ],
+            "height": "0px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "msFlyWrap",
+            "classes": "",
+            "rect": [
+              28,
+              -296.109375,
+              780,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "auto",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "progressionPanelArcade",
+            "classes": "rytni-progression-panel rytni-arcade-panel is-active",
+            "rect": [
+              28,
+              -296.109375,
+              780,
+              76
+            ],
+            "height": "76px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "rytni-progression-panels",
+            "rect": [
+              27,
+              -297.109375,
+              782,
+              420
+            ],
+            "height": "420px",
+            "minHeight": "420px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "SECTION",
+            "id": "rytniProgressionHub",
+            "classes": "rytni-progression-hub",
+            "rect": [
+              27,
+              -495.109375,
+              782,
+              618
+            ],
+            "height": "618px",
+            "minHeight": "auto",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "visible",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationBoostPanel",
+            "classes": "application-boost-panel",
+            "rect": [
+              8,
+              -698.109375,
+              820,
+              2955.265625
+            ],
+            "height": "2955.27px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "hidden",
+            "display": "grid",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "14px 0px 0px",
+            "padding": "18px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationProfile",
+            "classes": "application-profile",
+            "rect": [
+              8,
+              -747.109375,
+              820,
+              3032.265625
+            ],
+            "height": "3032.27px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "16px 0px 0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "",
+            "classes": "popup application-popup",
+            "rect": [
+              8,
+              8,
+              820,
+              354
+            ],
+            "height": "354px",
+            "minHeight": "0px",
+            "maxHeight": "354px",
+            "position": "static",
+            "overflow": "auto",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "DIV",
+            "id": "applicationPopup",
+            "classes": "popup-overlay",
+            "rect": [
+              0,
+              0,
+              844,
+              390
+            ],
+            "height": "390px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "fixed",
+            "overflow": "visible",
+            "display": "block",
+            "align": "flex-start",
+            "justify": "center",
+            "margin": "0px",
+            "padding": "8px"
+          },
+          {
+            "tag": "DIV",
+            "id": "rytni-event-page",
+            "classes": "",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "390px",
+            "maxHeight": "none",
+            "position": "relative",
+            "overflow": "clip visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "BODY",
+            "id": "",
+            "classes": "t-body",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "390px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "visible",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          },
+          {
+            "tag": "HTML",
+            "id": "",
+            "classes": "rytni-low-power",
+            "rect": [
+              0,
+              0,
+              844,
+              3723.375
+            ],
+            "height": "3723.38px",
+            "minHeight": "0px",
+            "maxHeight": "none",
+            "position": "static",
+            "overflow": "hidden",
+            "display": "block",
+            "align": "normal",
+            "justify": "normal",
+            "margin": "0px",
+            "padding": "0px"
+          }
+        ]
+      }
+    }
+  ]
+}

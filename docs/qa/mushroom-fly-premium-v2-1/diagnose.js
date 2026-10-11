@@ -1,0 +1,10 @@
+async page=>{
+ const rows=[],dir='docs/qa/mushroom-fly-premium-v2-1/';
+ const measure=async p=>p.evaluate(()=>{const stage=document.querySelector('.rytni-arcade-stage'),r=e=>{const b=e.getBoundingClientRect(),s=getComputedStyle(e);return {tag:e.tagName,id:e.id,classes:e.className,rect:[b.x,b.y,b.width,b.height],height:s.height,minHeight:s.minHeight,maxHeight:s.maxHeight,position:s.position,overflow:s.overflow,display:s.display,align:s.alignItems,justify:s.justifyContent,margin:s.margin,padding:s.padding};};const ancestors=[];let e=stage;while(e){ancestors.push(r(e));e=e.parentElement;}return {viewport:[innerWidth,innerHeight],visualViewport:[visualViewport.width,visualViewport.height,visualViewport.offsetTop],scroll:[scrollX,scrollY],fullscreen:document.fullscreenElement?.className,ancestors};});
+ for(const local of [true,false]){const c=await page.context().browser().newContext({viewport:{width:844,height:390},isMobile:true,hasTouch:true}),p=await c.newPage();
+  if(local){await p.goto('http://127.0.0.1:8776/docs/qa/snake-test-parity/host-fixture.html?arcade_preview=1&mobile=1');await p.waitForFunction(()=>window.hostFixtureReady);}else{await p.goto('https://rytni.live/testpodari?arcade_preview=1&progression_preview=1&ttq_preview=1');await p.locator('#rytni-app-loader').waitFor({state:'detached'});await p.evaluate(()=>{let e=document.querySelector('#rytniProgressionHub');while(e&&e!==document.body){e.hidden=false;if(getComputedStyle(e).display==='none')e.style.display='block';e=e.parentElement;}});await p.locator('[data-progression-tab=arcade]').click();}
+  await p.locator('[data-ms-action=game-fly]').click();await p.evaluate(()=>RytniBrowserArcade.qaReady());await p.waitForTimeout(250);rows.push({local,mode:'embedded',metrics:await measure(p)});await p.screenshot({path:dir+'before-'+(local?'fixture':'host')+'-844.png',scale:'css'});
+  await p.locator('[data-menu-action=fullscreen]').click();await p.waitForTimeout(150);rows.push({local,mode:'fullscreen',metrics:await measure(p)});await p.screenshot({path:dir+'before-'+(local?'fixture':'host')+'-844-fullscreen.png',scale:'css'});await c.close();
+ }
+ return {rows};
+}
