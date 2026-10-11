@@ -1,0 +1,95 @@
+{
+  "checks": 12,
+  "failures": [
+    {
+      "width": 1366,
+      "screen": "rating",
+      "reason": "desktop raster changed"
+    },
+    {
+      "width": 1366,
+      "screen": "rules",
+      "reason": "desktop raster changed"
+    },
+    {
+      "width": 1920,
+      "screen": "main",
+      "reason": "desktop raster changed"
+    }
+  ],
+  "errors": [],
+  "rows": [
+    {
+      "width": 720,
+      "height": 405,
+      "screen": "main",
+      "byteIdentical": true
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "screen": "settings",
+      "byteIdentical": true
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "screen": "rating",
+      "byteIdentical": true
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "screen": "rules",
+      "byteIdentical": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "screen": "main",
+      "byteIdentical": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "screen": "settings",
+      "byteIdentical": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "screen": "rating",
+      "byteIdentical": false
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "screen": "rules",
+      "byteIdentical": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "screen": "main",
+      "byteIdentical": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "screen": "settings",
+      "byteIdentical": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "screen": "rating",
+      "byteIdentical": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "screen": "rules",
+      "byteIdentical": true
+    }
+  ]
+}

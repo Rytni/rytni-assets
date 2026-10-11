@@ -1,0 +1,32 @@
+{
+  "checks": 3,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "blur": {
+        "screen": "playing",
+        "counts": {}
+      }
+    },
+    {
+      "transient": {
+        "screen": "playing",
+        "game": "playing",
+        "clock": "running",
+        "counts": {}
+      }
+    },
+    {
+      "exit": {
+        "screen": "mobile-gate",
+        "game": "paused",
+        "clock": "paused",
+        "reason": "fullscreen-exit",
+        "counts": {
+          "fullscreen-exit": 1
+        }
+      }
+    }
+  ]
+}

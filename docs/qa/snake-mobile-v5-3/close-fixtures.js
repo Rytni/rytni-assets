@@ -1,0 +1,1 @@
+async page=>{for(const c of page.context().browser().contexts())if(c!==page.context()&&c.pages().some(p=>p.url().includes('/product/index.html?qa=1')))await c.close();return 'closed only owned failed QA fixture contexts';}

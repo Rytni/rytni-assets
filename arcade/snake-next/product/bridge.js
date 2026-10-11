@@ -7,7 +7,7 @@ import {productWorldLayout} from './world-layout.js';
 /** One existing TrainingGame owns input/clock/audio/rendering. This bridge
  * replaces only product routing and the seeded session factory. */
 export class ProductBridge {
- constructor(frame,{onPause,onResult,onAction,settings}){Object.assign(this,{frame,onPause,onResult,onAction,settings});this.promise=this.install();}
+ constructor(frame,{onPause,onLifecycle,onResult,onAction,settings}){Object.assign(this,{frame,onPause,onLifecycle,onResult,onAction,settings});this.promise=this.install();}
  ready(){return this.promise;}
  async install(){
   const game=await new Promise((resolve,reject)=>{let tries=0;const check=()=>{const g=this.frame.contentWindow?.snakeProductGame;if(g)return resolve(g);if(++tries>500)return reject(Error('Игровые ресурсы недоступны. Перезагрузите страницу.'));setTimeout(check,30);};check();});
@@ -18,13 +18,23 @@ export class ProductBridge {
   game.sessionFactory=options=>{this.metrics={maxCombo:0,bonusCount:0,activeTicks:0};this.progression.reset();const s=new TunnelSession({...options,seed:this.seed,progression:{model:'fit-world-v2',freeTrigger:15,startStage:this.previewStage||0,maxWorldStage:2}});s.startsKey=game.starts+1;return s;};
   const originalStart=game.start.bind(game),show=game.show.bind(game),pause=game.pause.bind(game),render=game.render.bind(game),tick=game.tick.bind(game);
   this.engineStart=originalStart;
+  this.enginePause=pause;
   this.engineResume=game.resume.bind(game);
   game.resume=()=>this.onAction('resume');
   // Keyboard R/Enter and HUD actions must route through product attempt policy.
   game.start=()=>this.onAction(game.session&&game.status!=='result'?'restart':'play');
-  game.action=action=>{if(action==='fullscreen')this.onAction('fullscreen');else if(action==='pause')game.status==='playing'?game.pause():this.onAction('resume');else this.onAction(action==='main'?'exit':action==='start'?'play':action);};
+  game.action=action=>{if(action==='fullscreen')this.onAction('fullscreen');else if(action==='pause')game.status==='playing'?game.pause('explicit-pause-button'):this.onAction('resume');else this.onAction(action==='main'?'exit':action==='start'?'play':action);};
   game.show=()=>{game.root.querySelector('#overlay').hidden=true;};
-  game.pause=()=>{const active=['playing','dying'].includes(game.status);pause();if(active)this.onPause();};
+  game.pause=(reason='product-route')=>{
+   if(['orientation-portrait','window-blur'].includes(reason)&&this.onLifecycle){this.onLifecycle(reason);return;}
+   const active=['playing','dying'].includes(game.status);pause();if(active)this.onPause(reason);
+  };
+  // Product-only touch isolation. The standalone Training controls are unchanged.
+  const pad=game.root.querySelector('#pad');
+  pad.classList.add('product-dpad');
+  const pointer=e=>{const b=e.target.closest('[data-dir]');if(!b)return;e.preventDefault();e.stopPropagation();try{b.setPointerCapture(e.pointerId);}catch{}b.classList.add('pressed');game.command(Number(b.dataset.dir));};
+  pad.addEventListener('pointerdown',pointer,true);
+  pad.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();},true);
   game.render=()=>{if(game.session){game.ribbonV4.setSession(game.session,{quality:this.settings.quality});this.progression.presentation.quality=this.settings.quality;}render();};
   game.tick=()=>{const active=game.status==='playing';tick();const s=game.session;if(!s)return;if(active)this.metrics.activeTicks++;this.metrics.maxCombo=Math.max(this.metrics.maxCombo,s.combo||0);this.metrics.bonusCount+=s.events.filter(e=>e.kind==='positive'||e.kind==='negative').length;if(game.status==='result'&&!this.completed){this.completed=true;void this.onResult(this.stats());}};
   game.fullscreen=()=>this.onAction('fullscreen');
@@ -36,6 +46,9 @@ export class ProductBridge {
  }
  start(seed){this.seed=seed;this.completed=false;this.game.portrait=this.frame.contentWindow.matchMedia('(orientation:portrait)').matches;this.engineStart();this.frame.contentWindow.focus();}
  pause(){this.game?.pause();}
+ pauseForLifecycle(reason){const active=['playing','dying'].includes(this.game?.status);this.enginePause?.();if(active)this.onPause(reason);}
+ suspendPresentation(){if(this.game?.status==='playing'){this.settleFraction=this.game.renderFraction();this.game.motion.freeze(this.game.session,this.settleFraction);this.game.stop();}}
+ continuePresentation(){if(this.game?.status==='playing'){this.game.motion.resume();this.game.run();this.game.clock.debt=(this.settleFraction||0)*this.game.clock.tickMs;this.game.audio.startMusic();}}
  resume(){
   // Product chrome can resize the nested viewport on resume. Settle its
   // presentation while the fixed clock is paused, never as gameplay debt.

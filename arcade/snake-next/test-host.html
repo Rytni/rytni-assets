@@ -18,6 +18,18 @@
 @media(max-width:700px){.ms-player-header{gap:10px;padding-inline:16px}.ms-player-profile{gap:8px}.ms-player-status{display:none}.ms-player-profile strong{max-width:100px}}
 @media(max-width:560px){.ms-next-cards{flex-direction:column}.ms-next-heading{display:block}.ms-next-heading p{margin-top:10px}.ms-next-copy{padding:14px}}
 @media(max-width:560px) and (orientation:portrait){.ms-next-stage{aspect-ratio:9/16}}
+/* Dedicated phone header. Wide/desktop ownership remains unchanged. */
+@media(max-width:560px) and (orientation:portrait){
+ .ms-player-header{gap:8px;padding:8px;min-height:60px;position:sticky;top:0;z-index:5;margin-bottom:6px}
+ .ms-player-back{padding:8px;min-width:0;font-size:12px}
+ .ms-player-profile{display:grid;grid-template-columns:28px minmax(0,1fr) auto;grid-template-rows:22px 18px;gap:0 5px;font-size:12px}
+ .ms-player-profile img{width:28px;height:28px;grid-row:1/3}
+ .ms-player-profile strong{max-width:none;min-width:0;grid-column:2;grid-row:1;font-size:13px}
+ .ms-player-profile .ms-player-level{grid-column:3;grid-row:1;padding:1px 3px;font-size:10px}
+ .ms-player-profile [data-player=points]{grid-column:2/4;grid-row:2;font-size:11px;white-space:nowrap}
+ .ms-player-profile .ms-player-status{display:none}.ms-player-test{padding:2px 3px;font-size:9px;letter-spacing:0}
+ .ms-next-stage{height:calc(100dvh - 86px);min-height:580px;aspect-ratio:auto}
+}
 </style>
 <script>
 (() => {
@@ -40,7 +52,7 @@
  let iframe=null,channel=null,runtimeOrigin=null,mounted=false,fullscreenEscapeEvent=null,savedOverflow='',pseudoAncestors=[];
  function pseudoFullscreen(active){const stage=$('msNextStage');if(!stage)return;if(active&&!stage.classList.contains('ms-next-full')){savedOverflow=document.documentElement.style.overflow;for(let node=stage.parentElement;node;node=node.parentElement){const css=getComputedStyle(node);for(const property of ['transform','filter','perspective','contain'])if(css[property]&&css[property]!=='none'){pseudoAncestors.push([node,property,node.style.getPropertyValue(property),node.style.getPropertyPriority(property)]);node.style.setProperty(property,'none','important');}}stage.classList.add('ms-next-full');document.documentElement.style.overflow='hidden';}else if(!active&&stage.classList.contains('ms-next-full')){stage.classList.remove('ms-next-full');for(const [node,property,value,priority]of pseudoAncestors){if(value)node.style.setProperty(property,value,priority);else node.style.removeProperty(property);}pseudoAncestors=[];document.documentElement.style.overflow=savedOverflow;}}
  const Snake={
-  activate(){const url=new URL(runtime,location.href);runtimeOrigin=url.origin;channel=crypto.randomUUID();url.searchParams.set('test','1');url.searchParams.set('host','1');url.searchParams.set('parent_origin',location.origin);url.searchParams.set('channel',channel);iframe=document.createElement('iframe');iframe.title='Mushroom Snake';iframe.allow='fullscreen; autoplay; clipboard-write';iframe.src=url.href;$('msNextStage').replaceChildren(iframe);$('msNextSnake').hidden=false;},
+  activate(){const url=new URL(runtime,location.href);runtimeOrigin=url.origin;channel=crypto.randomUUID();url.searchParams.set('test','1');url.searchParams.set('host','1');url.searchParams.set('parent_origin',location.origin);url.searchParams.set('channel',channel);if(new URLSearchParams(location.search).get('qa')==='1')url.searchParams.set('qa','1');iframe=document.createElement('iframe');iframe.title='Mushroom Snake';iframe.allow='fullscreen; autoplay; clipboard-write';iframe.src=url.href;$('msNextStage').replaceChildren(iframe);$('msNextSnake').hidden=false;},
   deactivate(){pseudoFullscreen(false);if(iframe){iframe.contentWindow?.postMessage({protocol,channel,type:'shutdown'},runtimeOrigin);iframe.remove();iframe=null;}channel=null;if($('msNextSnake'))$('msNextSnake').hidden=true;},
   best:()=>0
  };

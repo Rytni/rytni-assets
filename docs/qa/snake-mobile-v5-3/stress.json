@@ -1,0 +1,220 @@
+{
+  "checks": 21,
+  "failures": [],
+  "errors": [],
+  "stress": [
+    {
+      "width": 844,
+      "height": 390,
+      "presses": 600,
+      "unexpectedPauses": 0,
+      "inputQueued": 600,
+      "parity": {
+        "a": "cd39e890",
+        "b": "cd39e890",
+        "equal": true
+      },
+      "toolbarResizes": [
+        {
+          "height": 372,
+          "tick": 4,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 356,
+          "tick": 9,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 378,
+          "tick": 14,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 390,
+          "tick": 18,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 362,
+          "tick": 23,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 382,
+          "tick": 29,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 390,
+          "tick": 33,
+          "left": 12,
+          "bottomMargin": 12
+        }
+      ],
+      "rotate": {
+        "screen": "mobile-gate",
+        "reason": "orientation-portrait",
+        "tick": 34,
+        "clock": "paused"
+      },
+      "resumed": {
+        "tick": 35,
+        "debt": 6.43333335717519,
+        "screen": "playing"
+      },
+      "pauseCounts": {
+        "orientation-portrait": 1,
+        "explicit-pause-button": 1
+      }
+    },
+    {
+      "width": 873,
+      "height": 393,
+      "presses": 600,
+      "unexpectedPauses": 0,
+      "inputQueued": 600,
+      "parity": {
+        "a": "cd39e890",
+        "b": "cd39e890",
+        "equal": true
+      },
+      "toolbarResizes": [
+        {
+          "height": 375,
+          "tick": 4,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 359,
+          "tick": 9,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 381,
+          "tick": 13,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 393,
+          "tick": 18,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 365,
+          "tick": 23,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 385,
+          "tick": 28,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 393,
+          "tick": 32,
+          "left": 12,
+          "bottomMargin": 12
+        }
+      ],
+      "rotate": {
+        "screen": "mobile-gate",
+        "reason": "orientation-portrait",
+        "tick": 34,
+        "clock": "paused"
+      },
+      "resumed": {
+        "tick": 39,
+        "debt": 13.366666654745732,
+        "screen": "playing"
+      },
+      "pauseCounts": {
+        "orientation-portrait": 1,
+        "explicit-pause-button": 1
+      }
+    },
+    {
+      "width": 915,
+      "height": 412,
+      "presses": 600,
+      "unexpectedPauses": 0,
+      "inputQueued": 600,
+      "parity": {
+        "a": "cd39e890",
+        "b": "cd39e890",
+        "equal": true
+      },
+      "toolbarResizes": [
+        {
+          "height": 394,
+          "tick": 5,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 378,
+          "tick": 9,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 400,
+          "tick": 14,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 412,
+          "tick": 19,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 384,
+          "tick": 23,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 404,
+          "tick": 28,
+          "left": 12,
+          "bottomMargin": 12
+        },
+        {
+          "height": 412,
+          "tick": 33,
+          "left": 12,
+          "bottomMargin": 12
+        }
+      ],
+      "rotate": {
+        "screen": "mobile-gate",
+        "reason": "orientation-portrait",
+        "tick": 34,
+        "clock": "paused"
+      },
+      "resumed": {
+        "tick": 39,
+        "debt": 9.5666666428248,
+        "screen": "playing"
+      },
+      "pauseCounts": {
+        "orientation-portrait": 1,
+        "explicit-pause-button": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+async page=>{
+ const rows=[];for(const c of page.context().browser().contexts())for(const p of c.pages())if(p.url().includes('product/index.html?qa=1'))rows.push(await p.evaluate(()=>({url:location.href,width:innerWidth,height:innerHeight,layout:snakeProduct.controller.layout,screen:snakeProduct.controller.screen,game:snakeProduct.game.status,portrait:snakeProduct.game.portrait,gate:snakeProduct.gate.ready(),mode:snakeProduct.controller.gateMode,pending:snakeProduct.controller.pending,counts:snakePauseDiagnostics.counts,buttons:[...document.querySelectorAll('#menu [data-action]')].map(e=>e.dataset.action)})));return rows;
+}

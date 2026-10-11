@@ -24,7 +24,7 @@ export class TrainingGame {
       if(['Escape','Space','KeyF','KeyR','Enter'].includes(e.code)){
         e.preventDefault();if(e.repeat)return;
         if(e.code==='KeyF')this.fullscreen();else if(e.code==='KeyR')this.start();else if(e.code==='Enter'&&this.status==='result')this.start();
-        else if(this.status==='playing')this.pause();else if(this.status==='paused')this.resume();else if(this.status==='settings')this.action('back');
+        else if(this.status==='playing')this.pause(e.code==='Escape'?'escape':'explicit-pause-button');else if(this.status==='paused')this.resume();else if(this.status==='settings')this.action('back');
         return;
       }
       const command=keyboardCommand(e.code,{tick:1,sequence:++this.sequence,repeat:e.repeat});
@@ -34,7 +34,7 @@ export class TrainingGame {
     this.listen(pad,'pointerdown',e=>{const b=e.target.closest('[data-dir]');if(!b)return;e.preventDefault();b.setPointerCapture(e.pointerId);b.classList.add('pressed');this.command(Number(b.dataset.dir));});
     for(const event of ['pointerup','pointercancel','lostpointercapture'])this.listen(pad,event,()=>pad.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed')));
     this.listen(window,'resize',()=>this.resize());this.listen(document,'fullscreenchange',()=>this.resize());
-    this.listen(document,'visibilitychange',()=>{if(document.hidden)this.pause();});this.listen(window,'blur',()=>this.pause());
+    this.listen(document,'visibilitychange',()=>{if(document.hidden)this.pause('visibility-hidden');});this.listen(window,'blur',()=>this.pause('window-blur'));
     this.listen(window,'pagehide',()=>this.dispose());this.resize();this.show();this.render();
   }
   listen(target,type,fn){target.addEventListener(type,fn);this.listeners.push(()=>target.removeEventListener(type,fn));}
@@ -44,7 +44,7 @@ export class TrainingGame {
     this.audio.play('click');
     if(action==='start'||action==='restart')this.start();
     else if(action==='main')this.main();
-    else if(action==='pause')this.status==='playing'?this.pause():this.status==='paused'?this.resume():null;
+    else if(action==='pause')this.status==='playing'?this.pause('explicit-pause-button'):this.status==='paused'?this.resume():null;
     else if(action==='resume')this.resume();
     else if(action==='settings'){if(['playing','dying'].includes(this.status))this.pause();this.settingsFrom=this.status;this.status='settings';this.show();}
     else if(action==='help'){this.settingsFrom='main';this.status='help';this.show();}
@@ -66,7 +66,7 @@ export class TrainingGame {
     this.cancelTimer=startMainThreadClock(this.clock,{now:()=>performance.now(),schedule:setTimeout,cancel:clearTimeout});
     const frame=()=>{
       this.raf=0;if(!['playing','dying'].includes(this.status))return;
-      if(this.clock.status==='recovery'){this.pause();return;}
+      if(this.clock.status==='recovery'){this.pause('scheduler-recovery');return;}
       this.render();this.raf=requestAnimationFrame(frame);
     };this.raf=requestAnimationFrame(frame);this.render();
   }
@@ -94,7 +94,7 @@ export class TrainingGame {
     const w=Math.round(this.root.getBoundingClientRect().width);
     this.root.style.setProperty('--cabinet-height',cabinetSize(w,this.compact).h+'px');
     this.root.classList.toggle('compact',this.compact);
-    if(this.portrait)this.pause();const r=this.root.getBoundingClientRect();
+    if(this.portrait)this.pause('orientation-portrait');const r=this.root.getBoundingClientRect();
     this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();
   }
   render(){

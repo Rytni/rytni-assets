@@ -1,0 +1,103 @@
+{
+  "checks": 12,
+  "failures": [],
+  "rows": [
+    {
+      "width": 720,
+      "screen": "main",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 720,
+      "screen": "settings",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 720,
+      "screen": "rating",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 720,
+      "screen": "rules",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 1366,
+      "screen": "main",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 1366,
+      "screen": "settings",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 1366,
+      "screen": "rating",
+      "changedPixels": 120,
+      "maxChannelDelta": 1,
+      "pixelIdentical": false,
+      "pass": true
+    },
+    {
+      "width": 1366,
+      "screen": "rules",
+      "changedPixels": 118,
+      "maxChannelDelta": 1,
+      "pixelIdentical": false,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "screen": "main",
+      "changedPixels": 4,
+      "maxChannelDelta": 1,
+      "pixelIdentical": false,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "screen": "settings",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "screen": "rating",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "screen": "rules",
+      "changedPixels": 0,
+      "maxChannelDelta": 0,
+      "pixelIdentical": true,
+      "pass": true
+    }
+  ],
+  "criterion": "No visual/geometry change. <=1/255 channel rounding in <=0.05% pixels permitted; strict byte comparison retained in desktop.json."
+}

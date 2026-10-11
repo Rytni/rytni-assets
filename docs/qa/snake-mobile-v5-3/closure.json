@@ -1,0 +1,24 @@
+{
+  "current": "2.15.33-f2842dc8be63",
+  "runtime": "snake-next-5d3c8fff0abe",
+  "files": 512,
+  "changed": [
+    "grib/mushroom-snake-ui-v5-3/dpad.png",
+    "snake/forest-training/runtime.js",
+    "snake/product/app.js",
+    "snake/product/bridge.js",
+    "snake/product/frame.html",
+    "snake/product/index.html",
+    "snake/product/mobile-lifecycle.js",
+    "snake/product/mobile-ui.js",
+    "snake/product/pause-diagnostics.js",
+    "snake/product/premium-dpad.css",
+    "snake/product/ui-mobile-v5-3.css",
+    "snake/product/ui.js"
+  ],
+  "productionSha256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591",
+  "productionUnchanged": true,
+  "flyUnchanged": true,
+  "effectCandidateUnchanged": true,
+  "geometrySimulationHistoryInputQueueBackendUnchanged": true
+}

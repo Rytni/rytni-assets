@@ -1,4 +1,5 @@
 import {resultScene} from './premium.js';
+import {mobileView} from './mobile-ui.js';
 import {formatReset} from './controller.js';
 export const EFFECTS=[['harvest','УРОЖАЙ','harvest','Грибы приносят вдвое больше очков.'],['focus','ФОКУС','focus','Спокойнее движение. Комбо временно не гаснет.'],['spores','СПОРЫ','spores','Собирайте светящиеся споры рядом с путём.'],['guard','ЩИТ','guard','Один заряд защищает от столкновения.'],['portalPrize','ПОРТАЛ+','portal-plus','Заряжает проход и награду за портал.'],['rush','СПЕШКА','rush','Скорость растёт. Планируйте повороты раньше.'],['weak','ПОРЧА','corruption','Грибы дают меньше очков.'],['brambles','КОРНИ','roots','Трещины предупреждают о новых препятствиях.'],['mist','ТУМАН','mist','Следите за препятствиями в тумане.']];
 export const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -36,6 +37,7 @@ function manual(tab){
  return `<div class="manual-book">${bookPage(entries.slice(0,split).map(entry).join(''),'effect-page')}${bookPage(entries.slice(split).map(entry).join(''),'effect-page')}</div>`;
 }
 export function view(c,settings){
+ if(c.layout==='mobile-portrait'){const mobile=mobileView(c,settings,{button,image,title,tabs,manual,board,EFFECTS});if(mobile)return mobile;}
  if(c.screen==='result')return resultScene(c,{button,image,title});
  const h=c.hub,ranked=h?.success&&h.available!==false&&(h.attempts_remaining>0||h.sponsor_attempt_credits>0),sponsor=h?.sponsor_attempt_available===true;
  const notice=c.message?`<p class="notice ${c.screen==='error'?'error':''}">${escape(c.message)}</p>`:'';

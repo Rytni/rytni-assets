@@ -1,0 +1,8 @@
+{
+ "base":"e8b7c7e",
+ "viewport":[844,390],"mobile":true,"touch":true,"dpr":2,
+ "ordinary_dpad_pointerdown":{"screen":"playing","pauseEvents":0},
+ "synthetic_nested_window_blur":{"screen":"pause","reason":"window-blur","landscape":true,"pseudoFullscreen":true},
+ "resize_with_transient_missing_fullscreen":{"screen":"mobile-gate","reason":"viewport-resize","landscape":true},
+ "physicalAndroidYandexRootCause":"Not proven without physical trace. Two software mechanisms reproduced; ordinary D-pad event alone did not reproduce pause."
+}
