@@ -19,3 +19,11 @@ Historical test note: full `ribbon-live.test.mjs` additionally has an obsolete s
 Physical Android/Yandex cause and physical usability remain pending human review. The QA journal is available only at?qa=1, including on immutable TEST product URLs. No physical screenshot attachments were present in the latest request; prose references are not invented evidence.
 
 LIVE art inspection found a late-loaded Effect Playground selector restoring the old arrow text over the new authored D-pad. Product direction buttons now have no visible text (ARIA names remain), and product-specific two-ID CSS overrides isolate font/color/background from the late stylesheet. Standalone Training and Effect Playground art remain untouched.
+
+## Final publication verification
+
+Final TEST release `2.15.33-8ef02a9595f7`, runtime `snake-next-b24aac6a1150`, publication checkpoint `e97cbff`. Explicit TEST-only human authorization received after the final local gates. Bundle verifier and protected-path publication guard passed. S3 copied 514 files, manifest last.
+
+Final LIVE: 22/22 checks, zero new console/network errors. Three touch portrait viewports, desktop Main, landscape start/fullscreen gate, immediate D-pad queue delivery and four empty-text/64px hit regions checked without local request routing. Existing anonymous host `/auth/v1/health` 401 is separately recorded in `baseline`, not hidden. `live.json` includes the release/runtime identifiers and `live:true`; screenshots were refreshed from the final runtime. Canonical controller/lifecycle tests rerun:18/18.
+
+Both Pages and S3 passed the final visible release/runtime, app SHA/size, runtime manifest SHA and 12 changed-file hash checks. `public.json` (`pass:true`) is the authoritative dual-mirror acceptance evidence. Final local-host runner also passed22/22 checks after the added D-pad art assertions. No Production deployment, database mutation, Fly change or effect-art iteration performed. Physical phone root cause and thumb usability still require human review with the QA journal.

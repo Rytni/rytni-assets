@@ -1,7 +1,6 @@
 async (page,{live=false}={})=>{
- for(const c of page.context().browser().contexts())if(c!==page.context()&&c.pages().some(p=>p.url().startsWith('https://rytni.live/testpodari')&&p.url().includes('&qa=1')))await c.close();
  const failures=[],errors=[],baseline=[],rows=[];let checks=0;
- const origin='https://rytni.github.io/rytni-assets/',dir='docs/qa/snake-mobile-v5-3/',tag=live?'live':'host';
+ const dir='docs/qa/snake-mobile-v5-3/',tag=live?'live':'host';
  const expected=(await(await page.request.get('http://127.0.0.1:8776/giveaway-test/manifest.json')).json()).current;
  for(const [width,height] of [[390,844],[393,873],[412,915],[1366,768]]){
   const mobile=width<500,c=await page.context().browser().newContext({viewport:{width,height},isMobile:mobile,hasTouch:mobile,deviceScaleFactor:mobile?2:1}),p=await c.newPage();
@@ -23,9 +22,10 @@ async (page,{live=false}={})=>{
    await f.locator('[data-action=training]').first().click();await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='mobile-gate');await settle();checks++;if(await f.evaluate(()=>document.querySelector('#product').dataset.screen)!=='mobile-gate')failures.push({width,gate:'not shown'});
    await p.setViewportSize({width:height,height:width});await f.waitForFunction(()=>document.querySelector('#product').dataset.screen==='playing');await p.waitForFunction(()=>!!document.fullscreenElement||document.querySelector('#msNextStage').classList.contains('ms-next-full'));
    const game=p.frames().find(f=>f.url().includes('/product/frame.html'));await game.evaluate(()=>snakeProductGame.stop());await p.screenshot({path:dir+`${tag}-${height}-gameplay.png`,scale:'css'});
+   const art=await game.evaluate(()=>[...document.querySelectorAll('#pad button')].map(b=>({text:b.textContent.trim(),fontSize:getComputedStyle(b).fontSize,width:b.getBoundingClientRect().width,height:b.getBoundingClientRect().height})));checks++;if(art.length!==4||art.some(b=>b.text||b.fontSize!=='0px'||b.width<64||b.height<64))failures.push({width,art});rows.push({width,art});
    for(const d of [2,1,0,3,2,1,0,3])await game.locator(`[data-dir="${d}"]`).tap();const input=await game.evaluate(()=>({queued:snakeProductGame.commands.length,status:snakeProductGame.status,pad:document.querySelector('#pad').getBoundingClientRect().toJSON()}));const pause=await f.evaluate(()=>({screen:document.querySelector('#product').dataset.screen,counts:snakePauseDiagnostics.counts}));checks++;if(input.queued!==8||pause.screen!=='playing'||Object.keys(pause.counts).length)failures.push({width,input,pause});rows.push({width,input,pause});
   }
   await c.close();
  }
- return {checks,failures,errors,baseline,rows};
+ return {release:expected.id,runtime:expected.snake_runtime.id,live,checks,failures,errors,baseline,rows};
 }

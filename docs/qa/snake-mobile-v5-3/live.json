@@ -1,5 +1,8 @@
 {
-  "checks": 19,
+  "release": "2.15.33-8ef02a9595f7",
+  "runtime": "snake-next-b24aac6a1150",
+  "live": true,
+  "checks": 22,
   "failures": [],
   "errors": [],
   "baseline": [
@@ -25,6 +28,35 @@
         "menuScroll": false,
         "top3": false
       }
+    },
+    {
+      "width": 390,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
     },
     {
       "width": 390,
@@ -62,6 +94,35 @@
     },
     {
       "width": 393,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 393,
       "input": {
         "queued": 8,
         "status": "playing",
@@ -93,6 +154,35 @@
         "menuScroll": false,
         "top3": false
       }
+    },
+    {
+      "width": 412,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
     },
     {
       "width": 412,

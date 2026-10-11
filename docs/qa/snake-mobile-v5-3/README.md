@@ -41,4 +41,19 @@ Final runtime asset: `grib/mushroom-snake-ui-v5-3/dpad.png` (384×384, displayed
 
 See `mobile.json`, `stress.json`, `desktop.json`, `review.html`. Emulation is not physical Android/Yandex approval. Input burst isolates input at live status with clock held; toolbar/orientation tests run the real canonical clock. No invulnerability, collision patch, autoplay-fun claim, or score injection is used. Ranked preview uses existing memory-only backend; no production RPC/SQL.
 
-Publication remains blocked until every narrow automated and visual gate passes. Production, Fly, gameplay geometry, V5.2 effect candidate and backend contracts are outside this change.
+## Final TEST candidate / checkpoints
+
+- `8635618`: dedicated mobile implementation and targeted review package.
+- `395c847`: first TEST candidate; superseded after LIVE revealed a late stylesheet restoring D-pad arrow glyphs.
+- `ef28b98`: final D-pad isolation and refreshed local evidence.
+- `e97cbff`: final TEST publication, explicitly authorized by the human after local gates passed.
+
+Final release: `2.15.33-8ef02a9595f7`; runtime: `snake-next-b24aac6a1150`. Rollback: `2.15.33-f2842dc8be63`. Final LIVE host run has 22/22 checks with no new errors, including empty D-pad text and four 64px hit regions after late styles load. `live.json` names the exact release/runtime; LIVE captures in this review were refreshed from that final runtime, not the first candidate.
+
+Both Pages and S3 passed final acceptance: manifest IDs, bundle SHA/size, runtime manifest SHA and all 12 changed runtime files match. Evidence: `public.json` (`pass:true`).
+
+- Human TEST: https://rytni.live/testpodari?arcade_preview=1
+- Phone pause journal: https://rytni.live/testpodari?arcade_preview=1&qa=1
+- Local review: http://127.0.0.1:8776/docs/qa/snake-mobile-v5-3/review.html
+
+Production manifest SHA256 remains `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`. Production, Fly, gameplay geometry, V5.2 effect candidate and backend contracts are unchanged. STOP for physical Android/Yandex review; emulator success is not phone approval.
