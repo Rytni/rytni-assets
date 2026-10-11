@@ -1,0 +1,400 @@
+{
+  "release": "2.15.33-e56b72a011df",
+  "runtime": "snake-next-78436309631c",
+  "live": true,
+  "checks": 26,
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    "existing anonymous host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing anonymous host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing anonymous host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing anonymous host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()"
+  ],
+  "rows": [
+    {
+      "width": 1920,
+      "chooser": {
+        "overflow": false,
+        "background": "url(\"https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png\")",
+        "cards": [
+          {
+            "height": 371.125,
+            "imageHeight": 176.125,
+            "fit": "cover",
+            "buttonY": 296.125
+          },
+          {
+            "height": 371.125,
+            "imageHeight": 176.125,
+            "fit": "cover",
+            "buttonY": 296.125
+          }
+        ]
+      }
+    },
+    {
+      "width": 1920,
+      "fly": {
+        "header": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "snakeHeader": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "old": false,
+        "noteVisible": false,
+        "overflow": false,
+        "closeGap": 1124.75,
+        "unknown": [
+          {
+            "key": "avatar",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "name",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "level",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "points",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "status",
+            "hidden": true,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "width": 1920,
+      "tab": "sound",
+      "state": {
+        "ranges": [
+          {
+            "key": "master",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "music",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "sfx",
+            "height": 44,
+            "visible": true
+          }
+        ],
+        "quality": false,
+        "fullscreen": false,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1920,
+      "tab": "game",
+      "state": {
+        "ranges": [],
+        "quality": true,
+        "fullscreen": true,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1366,
+      "chooser": {
+        "overflow": false,
+        "background": "url(\"https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png\")",
+        "cards": [
+          {
+            "height": 371.125,
+            "imageHeight": 176.125,
+            "fit": "cover",
+            "buttonY": 296.125
+          },
+          {
+            "height": 371.125,
+            "imageHeight": 176.125,
+            "fit": "cover",
+            "buttonY": 296.125
+          }
+        ]
+      }
+    },
+    {
+      "width": 1366,
+      "fly": {
+        "header": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "snakeHeader": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "old": false,
+        "noteVisible": false,
+        "overflow": false,
+        "closeGap": 570.75,
+        "unknown": [
+          {
+            "key": "avatar",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "name",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "level",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "points",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "status",
+            "hidden": true,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "width": 1366,
+      "tab": "sound",
+      "state": {
+        "ranges": [
+          {
+            "key": "master",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "music",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "sfx",
+            "height": 44,
+            "visible": true
+          }
+        ],
+        "quality": false,
+        "fullscreen": false,
+        "overflow": false
+      }
+    },
+    {
+      "width": 1366,
+      "tab": "game",
+      "state": {
+        "ranges": [],
+        "quality": true,
+        "fullscreen": true,
+        "overflow": false
+      }
+    },
+    {
+      "width": 390,
+      "chooser": {
+        "overflow": false,
+        "background": "url(\"https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-mobile.png\")",
+        "cards": [
+          {
+            "height": 352.25,
+            "imageHeight": 173.25,
+            "fit": "cover",
+            "buttonY": 283.25
+          },
+          {
+            "height": 351.25,
+            "imageHeight": 173.25,
+            "fit": "cover",
+            "buttonY": 282.25
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "fly": {
+        "header": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "snakeHeader": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "old": false,
+        "noteVisible": false,
+        "overflow": false,
+        "closeGap": 16,
+        "unknown": [
+          {
+            "key": "avatar",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "name",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "level",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "points",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "status",
+            "hidden": true,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "tab": "sound",
+      "state": {
+        "ranges": [
+          {
+            "key": "master",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "music",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "sfx",
+            "height": 44,
+            "visible": true
+          }
+        ],
+        "quality": false,
+        "fullscreen": false,
+        "overflow": false
+      }
+    },
+    {
+      "width": 390,
+      "tab": "game",
+      "state": {
+        "ranges": [],
+        "quality": true,
+        "fullscreen": true,
+        "overflow": false
+      }
+    },
+    {
+      "width": 412,
+      "chooser": {
+        "overflow": false,
+        "background": "url(\"https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-mobile.png\")",
+        "cards": [
+          {
+            "height": 364.625,
+            "imageHeight": 185.625,
+            "fit": "cover",
+            "buttonY": 295.625
+          },
+          {
+            "height": 363.625,
+            "imageHeight": 185.625,
+            "fit": "cover",
+            "buttonY": 294.625
+          }
+        ]
+      }
+    },
+    {
+      "width": 412,
+      "fly": {
+        "header": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "snakeHeader": "<header class=\"ms-player-header\" aria-label=\"Игрок аркады\"><button type=\"button\" class=\"ms-next-btn ms-player-back\" data-ms-action=\"hub\">← Аркада</button><div class=\"ms-player-profile\"><img data-player=\"avatar\" hidden=\"\" alt=\"\"><strong data-player=\"name\" hidden=\"\"></strong><span class=\"ms-player-level\" data-player=\"level\" hidden=\"\"></span><span data-player=\"points\" hidden=\"\"></span><span class=\"ms-player-status\" data-player=\"status\" hidden=\"\"></span></div><span class=\"ms-player-test\">TEST</span></header>",
+        "old": false,
+        "noteVisible": false,
+        "overflow": false,
+        "closeGap": 16,
+        "unknown": [
+          {
+            "key": "avatar",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "name",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "level",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "points",
+            "hidden": true,
+            "text": ""
+          },
+          {
+            "key": "status",
+            "hidden": true,
+            "text": ""
+          }
+        ]
+      }
+    },
+    {
+      "width": 412,
+      "tab": "sound",
+      "state": {
+        "ranges": [
+          {
+            "key": "master",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "music",
+            "height": 44,
+            "visible": true
+          },
+          {
+            "key": "sfx",
+            "height": 44,
+            "visible": true
+          }
+        ],
+        "quality": false,
+        "fullscreen": false,
+        "overflow": false
+      }
+    },
+    {
+      "width": 412,
+      "tab": "game",
+      "state": {
+        "ranges": [],
+        "quality": true,
+        "fullscreen": true,
+        "overflow": false
+      }
+    }
+  ]
+}
