@@ -23,3 +23,5 @@ Fix scope: Fly-block CSS only, low-landscape selected Fly menu wrapper as viewpo
 - P9: six authored V2 PNGs need one bounded byte/dimension/load/decode audit; original untrimmed button is authoring source, not the preferred runtime button. Test opaque scene optimization only with native visual comparison.
 
 No runtime changed at this audit checkpoint. No backend/SQL/Production operations. Protected source/hash gate runs against this base before and after implementation.
+
+Later native LIVE finding: enlarging the Fly-only mobile wrapper to the full viewport moved its TEST badge beneath the existing external Tilda `applicationSearchClose`. Initial child-only header checks missed that external peer. Fix is a Fly-only 76px right-side presentation reservation at the same mobile media query; no header markup/logic/file changes and no Snake selector. Add explicit peer intersection QA. This is a consequence of the new Fly aperture, not a shared-header redesign.

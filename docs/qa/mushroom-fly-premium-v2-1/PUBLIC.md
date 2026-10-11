@@ -1,12 +1,12 @@
 # TEST candidate delivery gate
 
-Candidate prepared locally: `2.15.33-34c745c03987`; SHA256 `34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b`; 1,240,942 bytes. Intermediate `b69d50373f30` is superseded before public acceptance: a targeted sponsor-label polish and corrected avatar-fixture viewport gate followed native inspection.
+Selected local candidate: `2.15.33-009150675bbf`; SHA256 `009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8`; 1,241,055 bytes. Intermediate `b69d50373f30` and `34c745c03987` are superseded after native inspection refined sponsor ink, fixture viewport and the external Close peer reservation.
 
 Fly presentation: `premium-v2-1`. Snake unchanged: `snake-next-78436309631c`, descriptor SHA256 `420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855`, 521 immutable files. Rollback remains the previously published `2.15.33-3e5257288eb3`, not an unpublished local intermediate.
 
-TEST delivery verified: `public.json` has 20 exact byte/hash checks, zero failures. Pages and S3 agree on manifest, selected app, rollback, unchanged Snake descriptor and all six runtime assets. Manifest LF formatting was synchronized to committed bytes before acceptance; data unchanged. Six new runtime assets were uploaded before the release manifest. Pages deployment `38183596835` completed successfully.
+TEST delivery for the selected candidate must match `public.json` and the release URL checks in `live.json`. Prior 34c745c03987 delivery passed 20 exact byte/hash checks and 174 LIVE checks, but native peer inspection found the external Close collision. Re-run selected-candidate publication/peer gates before acceptance. Six runtime assets already match both mirrors; unchanged media is not re-uploaded.
 
-`live.json`: 174 checks, zero failures/new errors, four meaningful public viewports (1920×1080, 1366×768, 390×844, 844×390). No resource interception. Checks include actual selected release URL, decoded public scene assets, all menu/Guide/Settings/result/sponsor/error/orientation states, fixed ranking footer/last-row access, control containment, fullscreen, actual Training/HUD/Pause/Resume, nested Settings return and Arcade→Snake. Existing anonymous auth-health 401 is recorded separately. No real account balances/attempts claimed or changed.
+LIVE gate uses four public viewports (1920×1080, 1366×768, 390×844, 844×390), without resource interception: selected release URL, decoded public assets, all screens/tabs, ranking footer/last row, containment, external Close peer, fullscreen, actual Training/HUD/Pause/Resume, nested return and Arcade→Snake. Existing anonymous auth-health 401 remains separate; no real balances/attempts claimed or changed.
 
 Production manifest SHA256 remains `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`. Entire Production directory, Snake source/art, chooser, shared host and original Fly assets unchanged against `22624f2`. No backend/database/SQL operations. 114 protected named function hashes match.
 

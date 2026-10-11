@@ -10,7 +10,7 @@ Base `22624f2`; no human approval implied.
 | Current mocked contracts + mechanics/lifecycle | 33 | zero failures/errors |
 | Actual Training/HUD | 6 | zero failures; native ≥44px controls, actual pause |
 | Actual TEST-host candidate/Snake | 9 | zero failures; three viewports, immutable runtime + DOM/assets/fonts identity |
-| Actual host mobile/header gate | 15 | zero failures; no dead band, three realistic participant sets, fullscreen |
+| Actual host mobile/header gate | 17 | zero failures; no dead band, three realistic participant sets, fullscreen; external host Close included |
 | Sponsor label ink | 12 | zero failures; native embedded/fullscreen/portrait label stays inside the central button ink |
 | TEST mirror safety | 11 | zero failures; six exact candidate keys, default/Production/path traversal/immutable safeguards |
 
@@ -32,4 +32,4 @@ Remaining human/device checks: native OS Share sheet, physical-device browser ch
 
 TEST publication only after local and mirror safety gates; exact public evidence in `PUBLIC.md`. No Production/backend/SQL changes.
 
-Public acceptance evidence: 20 exact Pages/S3 checks + 174 fresh LIVE checks, zero failures/new errors. Four primary public viewports; the full nine-viewport matrix remains local. Source/runtime/asset hashes, real menu flows and actual Training are checked independently. No native-OS Share or physical-device safe-area guarantee is inferred from desktop emulation.
+Public acceptance evidence is recorded in `PUBLIC.md` and `live.json` for the selected release, including external Close peer checks. Four primary public viewports; the full nine-viewport matrix remains local. Source/runtime/asset hashes, real menu flows and actual Training are checked independently. No native-OS Share or physical-device safe-area guarantee is inferred from desktop emulation.

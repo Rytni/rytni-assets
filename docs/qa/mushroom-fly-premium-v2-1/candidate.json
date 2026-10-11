@@ -1,5 +1,5 @@
 {
-  "release": "2.15.33-b69d50373f30",
+  "release": "2.15.33-009150675bbf",
   "runtime": "snake-next-78436309631c",
   "checks": 9,
   "failures": [],
@@ -28,9 +28,9 @@
     {
       "w": 1920,
       "snakeRaster": {
-        "rawPngEqual": false,
-        "beforeBytes": 577014,
-        "afterBytes": 577011
+        "rawPngEqual": true,
+        "beforeBytes": 577009,
+        "afterBytes": 577009
       },
       "snakeGeometryIdentical": true
     },
@@ -50,8 +50,8 @@
       "w": 1366,
       "snakeRaster": {
         "rawPngEqual": false,
-        "beforeBytes": 577120,
-        "afterBytes": 577119
+        "beforeBytes": 577119,
+        "afterBytes": 577115
       },
       "snakeGeometryIdentical": true
     },
@@ -71,8 +71,8 @@
       "w": 390,
       "snakeRaster": {
         "rawPngEqual": false,
-        "beforeBytes": 455963,
-        "afterBytes": 455961
+        "beforeBytes": 455961,
+        "afterBytes": 455963
       },
       "snakeGeometryIdentical": true
     }
