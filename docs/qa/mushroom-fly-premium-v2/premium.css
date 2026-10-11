@@ -6,6 +6,7 @@
 .rytni-arcade.mf-premium .rytni-arcade-canvas{width:100%;height:100%;aspect-ratio:16/9;object-fit:contain}
 .rytni-arcade.mf-premium .rytni-arcade-menu-scene{background:var(--mf-sky) center / cover!important;opacity:1!important;filter:none!important;transform:none!important}
 .rytni-arcade.mf-premium .rytni-arcade-menu-scene:before,.rytni-arcade.mf-premium .rytni-arcade-menu-scene:after,.rytni-arcade.mf-premium .rytni-arcade-menu-scene i{display:none!important}
+.rytni-arcade.mf-premium .rytni-arcade-stage:not(.is-title-scene) .rytni-arcade-menu-scene{opacity:0!important;visibility:hidden!important;transition:none!important}
 .rytni-arcade.mf-premium .rytni-arcade-overlay{padding:clamp(8px,2cqw,24px);background:#38200c40;backdrop-filter:none}
 .rytni-arcade.mf-premium .is-title-scene .rytni-arcade-overlay{background:transparent}
 .rytni-arcade.mf-premium .rytni-arcade-overlay:has(#arcadeDialog:is([data-menu=main],[data-menu=result])){padding:0!important}
@@ -96,7 +97,7 @@
 }
 @container (max-width:600px){
  .rytni-arcade.mf-premium .rytni-arcade-stage:has(.has-menu){aspect-ratio:auto}
- .rytni-arcade.mf-premium .rytni-arcade-stage.has-menu:not(:fullscreen):not(.is-pseudo-fullscreen){aspect-ratio:auto;height:min(900px,calc(100svh - 95px));min-height:620px;container:mf-stage / size}
+ .rytni-arcade.mf-premium .rytni-arcade-stage.has-menu:not(:fullscreen):not(.is-pseudo-fullscreen){aspect-ratio:auto!important;height:min(900px,calc(100svh - 95px))!important;min-height:620px!important;container:mf-stage / size}
  .rytni-arcade.mf-premium .rytni-arcade-menu-scene{background-image:var(--mf-mobile-sky)!important}
  .rytni-arcade.mf-premium #arcadeDialog{width:100%!important;max-height:100%!important;height:100%!important;padding:28px 25px!important;gap:12px!important}
  .rytni-arcade.mf-premium #arcadeDialog h6{font-size:28px!important}.rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-modal-header{padding:0 25px!important}.rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-modal-header>p{font-size:13px!important}
@@ -110,4 +111,41 @@
  .rytni-arcade.mf-premium #arcadeDialog[data-menu=ranking]{height:100%!important;width:100%!important}.rytni-arcade.mf-premium #arcadeDialog[data-menu=ranking] .mf-ranking-row{min-height:44px!important}
  .rytni-arcade.mf-premium #arcadeDialog[data-menu=pause]{height:auto!important;width:100%!important}.rytni-arcade.mf-premium #arcadeDialog[data-menu=result]{padding:20px 14px!important}.rytni-arcade.mf-premium #arcadeResult .mf-result-score strong{font-size:44px!important}.rytni-arcade.mf-premium #arcadeResult .mf-result-details{gap:7px 12px}.rytni-arcade.mf-premium #arcadeDialog[data-menu=result] h6{font-size:30px!important}
 }
+/* Compact landscape keeps every control and every numeric glyph inside ink. */
+@container mf-stage (max-height:460px) and (min-width:600px){
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .rytni-arcade-menu-logo{max-width:140px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] h6{font-size:17px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .rytni-arcade-actions{grid-template-columns:44px minmax(0,1fr) minmax(0,1fr) 44px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .is-primary{grid-row:1!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] [data-menu-action=training]:not(.is-primary){grid-row:2!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] [data-menu-action=rules]{display:flex!important;grid-column:2!important;grid-row:3!important;background:#f8e5bddb!important;color:#664019!important;text-shadow:none!important;border:1px solid #b28343!important;border-radius:12px!important;font-size:11px!important;padding:4px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] [data-menu-action=mute]{grid-column:1!important;grid-row:3!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] [data-menu-action=settings]{grid-column:3!important;grid-row:3!important;padding:4px!important;font-size:11px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] [data-menu-action=fullscreen]{grid-column:4!important;grid-row:3!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .mf-status-console{padding:12px 24px!important;gap:4px}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .mf-tokens{display:none}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-volume{grid-template-columns:130px minmax(0,1fr) 40px!important;align-items:center;gap:8px!important;min-height:48px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-volume label{grid-column:1;grid-row:1}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-volume input{grid-column:2!important;grid-row:1!important;min-width:0}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-volume output{grid-column:3!important;grid-row:1!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-setting{min-height:48px!important;margin:4px 0!important}
+}
+@container mf-stage (max-height:460px) and (min-width:600px){
+ .rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-start.is-primary{height:60px!important;min-height:60px!important;padding:0 38px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .rytni-arcade-start.is-primary{min-height:60px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .mf-status-console{padding:18px 24px!important;min-height:68px}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=main] .mf-status-console:before{border-image-width:24px}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings]{height:94cqh!important;padding:20px 32px!important;gap:4px!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-setting{margin:2px 0!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=result] .rytni-arcade-start:not(.is-primary){align-self:center}
+}
+/* True horizontal 3-slice, alpha-trimmed source: fixed 450px end caps. */
+.rytni-arcade.mf-premium{--mf-amber:url('/grib/mushroom-fly-premium-v2/play-amber-trimmed-v2.png')}
+.rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-start.is-primary{--mf-cta-height:78px;--mf-cta-cap:74px;height:var(--mf-cta-height)!important;min-height:var(--mf-cta-height)!important;min-width:min(340px,100%)!important;border-width:0 var(--mf-cta-cap)!important;border-image-slice:0 450 0 450 fill!important;border-image-width:0 var(--mf-cta-cap)!important;padding:4px 10px!important}
+@container mf-stage (max-height:460px) and (min-width:600px){
+ .rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-start.is-primary{--mf-cta-height:60px;--mf-cta-cap:57px}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .mf-tabs{padding:0!important;border:0!important;background:none!important}
+ .rytni-arcade.mf-premium #arcadeDialog[data-menu=settings] .rytni-arcade-setting{padding:2px 8px!important}
+}
+@container mf-stage (max-width:600px){.rytni-arcade.mf-premium #arcadeDialog .rytni-arcade-start.is-primary{--mf-cta-height:66px;--mf-cta-cap:63px}}
 @media(prefers-reduced-motion:reduce){.rytni-arcade.mf-premium #arcadeDialog *{animation:none!important;transition:none!important}}

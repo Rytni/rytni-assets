@@ -1,5 +1,7 @@
 # Authored assets
 
+`play-amber-trimmed-v2.png` is the same independently generated button with transparent vertical padding removed offline: 2172×724, y=103…577 → 2172×475. The generator original stays intact. Runtime uses a true horizontal 3-slice (450px end caps), with cap width/height kept proportional; no decorated vertical compression. `prepare-button.ps1` records the reproducible operation. Journal uses fixed corner 9-slice; scene cover scaling preserves aspect ratio.
+
 Built-in ImageGen; original generated files preserved. Existing Fly gameplay sprites/logo/icons unchanged. No assets extracted from mockups.
 
 ## sky-desktop-v2.png
