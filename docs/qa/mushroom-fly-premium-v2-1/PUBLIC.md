@@ -1,6 +1,6 @@
 # TEST candidate delivery gate
 
-Selected local candidate: `2.15.33-009150675bbf`; SHA256 `009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8`; 1,241,055 bytes. Intermediate `b69d50373f30` and `34c745c03987` are superseded after native inspection refined sponsor ink, fixture viewport and the external Close peer reservation.
+Selected local candidate: `2.15.33-e7815dffe1c4`; SHA256 `e7815dffe1c41e817ecfffa98efd0ce8642bdbf9f212410e29eb1267bd8d41f5`; 1,241,163 bytes. Intermediate candidates are superseded after native inspection refined sponsor ink, fixture viewport, external Close reservation and genuinely adaptive few-row Ranking.
 
 Fly presentation: `premium-v2-1`. Snake unchanged: `snake-next-78436309631c`, descriptor SHA256 `420b7b96adaeb01fba79f7a53b209baf1479d402bf21ff61f2d31eab89668855`, 521 immutable files. Rollback remains the previously published `2.15.33-3e5257288eb3`, not an unpublished local intermediate.
 

@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-10-11T23:20:54.506Z",
-  "release": "2.15.33-34c745c03987",
+  "checkedAt": "2026-10-11T23:45:37.054Z",
+  "release": "2.15.33-009150675bbf",
   "runtime": "snake-next-78436309631c",
   "rollback": "2.15.33-3e5257288eb3",
   "checks": 20,
@@ -10,16 +10,16 @@
       "status": 200,
       "size": 1213,
       "sha256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
-      "expectedSHA256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
-      "ok": true
+      "expectedSHA256": "4e3bf56f058b6a2b359444b879ffe2bb4f4d671bed6376796a925f810bb323ac",
+      "ok": false
     },
     {
-      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-      "status": 200,
-      "size": 1240942,
-      "sha256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
-      "expectedSHA256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
-      "ok": true
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-009150675bbf/app.html",
+      "status": 404,
+      "size": 9379,
+      "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+      "expectedSHA256": "009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8",
+      "ok": false
     },
     {
       "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-3e5257288eb3/app.html",
@@ -89,16 +89,16 @@
       "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/manifest.json",
       "status": 200,
       "size": 1213,
-      "sha256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
-      "expectedSHA256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "sha256": "4e3bf56f058b6a2b359444b879ffe2bb4f4d671bed6376796a925f810bb323ac",
+      "expectedSHA256": "4e3bf56f058b6a2b359444b879ffe2bb4f4d671bed6376796a925f810bb323ac",
       "ok": true
     },
     {
-      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
+      "url": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-009150675bbf/app.html",
       "status": 200,
-      "size": 1240942,
-      "sha256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
-      "expectedSHA256": "34c745c039873a943d05501b947d613abdbec1eb91089d1a7b64fb3173f7294b",
+      "size": 1241055,
+      "sha256": "009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8",
+      "expectedSHA256": "009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8",
       "ok": true
     },
     {
@@ -166,6 +166,23 @@
       "ok": true
     }
   ],
-  "failures": [],
+  "failures": [
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/manifest.json",
+      "status": 200,
+      "size": 1213,
+      "sha256": "8c5a4de52e9d478c20834e0a55da6dbf212de38cd89a06756c95332b708781d8",
+      "expectedSHA256": "4e3bf56f058b6a2b359444b879ffe2bb4f4d671bed6376796a925f810bb323ac",
+      "ok": false
+    },
+    {
+      "url": "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-009150675bbf/app.html",
+      "status": 404,
+      "size": 9379,
+      "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+      "expectedSHA256": "009150675bbf096dbee34e255df36484c105471500602fca650fbe7bb180a7e8",
+      "ok": false
+    }
+  ],
   "productionSHA256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591"
 }

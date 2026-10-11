@@ -7,6 +7,7 @@ Base `22624f2`; no human approval implied.
 | Responsive matrix | 561 | zero failures/errors; 126 state/viewport combinations |
 | Participant fixture stress | 45 | zero failures; actual-size avatar + all required names/levels/points/titles; layout viewport explicitly equals requested viewport |
 | Long ranking stress | 25 | zero failures; 12 source rows → TOP-10, escaped names, own row, 99 999 999 / №9999, last row accessible |
+| Few-row/empty ranking | 25 | zero failures; intrinsic-height board for 0/1/3/6 rows, no invented rows, fixed accessible footer |
 | Current mocked contracts + mechanics/lifecycle | 33 | zero failures/errors |
 | Actual Training/HUD | 6 | zero failures; native ≥44px controls, actual pause |
 | Actual TEST-host candidate/Snake | 9 | zero failures; three viewports, immutable runtime + DOM/assets/fonts identity |
