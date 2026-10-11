@@ -1,0 +1,10 @@
+{
+  "checks": 3,
+  "failures": [],
+  "errors": [],
+  "board": {
+    "width": 740,
+    "columns": "175px 175px 175px 175px",
+    "scroll": false
+  }
+}

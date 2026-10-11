@@ -1,0 +1,53 @@
+[
+  {
+    "width": 712,
+    "scroll": 712,
+    "grid": "175px 175px 175px 175px",
+    "values": [
+      {
+        "text": "6 840",
+        "width": 63.484375,
+        "parent": 175
+      },
+      {
+        "text": "№7",
+        "width": 37.25,
+        "parent": 175
+      }
+    ]
+  },
+  {
+    "width": 412,
+    "scroll": 412,
+    "grid": "200px 200px",
+    "values": [
+      {
+        "text": "6 840",
+        "width": 52.90625,
+        "parent": 200
+      },
+      {
+        "text": "№7",
+        "width": 31.046875,
+        "parent": 200
+      }
+    ]
+  },
+  {
+    "width": 332,
+    "scroll": 332,
+    "grid": "160px 160px",
+    "values": [
+      {
+        "text": "99 999 999",
+        "width": 105.8125,
+        "parent": 160
+      },
+      {
+        "text": "№9999",
+        "width": 66.203125,
+        "parent": 160
+      }
+    ]
+  }
+]

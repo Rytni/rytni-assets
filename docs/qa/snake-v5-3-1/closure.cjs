@@ -1,0 +1,11 @@
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {prepareRuntime}=require('../../../arcade/assemble-snake-next.cjs');
+const old=JSON.parse(fs.readFileSync('giveaway-test/releases/snake-next-b24aac6a1150/runtime.json'));
+const next=prepareRuntime().manifest;
+const changed=next.files.filter(f=>old.files.find(o=>o.file===f.file)?.sha256!==f.sha256).map(f=>f.file),removed=old.files.filter(o=>!next.files.some(f=>f.file===o.file)).map(f=>f.file);
+const allowed=['grib/mushroom-snake-ui-v5-3-1/status-board.png','snake/forest-training/runtime.js','snake/product/app.js','snake/product/bridge.js','snake/product/clock-driver.js','snake/product/input-owner.js','snake/product/frame-runtime.js','snake/product/frame.html','snake/product/index.html','snake/product/pause-diagnostics.js','snake/product/status-board.js','snake/product/status-board.css','snake/product/ui.js'];
+assert.deepEqual(changed.sort(),allowed.sort());assert.deepEqual(removed,['snake/product/record-place-value.js']);
+const protectedPrefixes=['snake/simulation/','snake/smooth-v4-proof/','snake/gate-one/','snake/progressive-run/','snake/product/appearance/','snake/input/'];assert(!changed.some(p=>protectedPrefixes.some(prefix=>p.startsWith(prefix))));
+const sha=crypto.createHash('sha256').update(fs.readFileSync('giveaway/manifest.json')).digest('hex');assert.equal(sha,'0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591');
+for(const file of ['tilda-test/blocks/08_T123_BROWSER_ARCADE_2.15.34.html','arcade/snake-next/forest-training/motion.js','arcade/snake-next/product/controller.js','arcade/snake-next/product/backend.js','arcade/snake-next/product/mobile-ui.js','arcade/snake-next/product/ui-mobile-v5-3.css','arcade/snake-next/product/premium-dpad.css'])assert.equal(fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n'),cp.execFileSync('git',['show','89abbe0:'+file],{encoding:'utf8'}).replace(/\r\n/g,'\n'));
+const result={base:'89abbe0',runtime:next.id,changed,removed,productionSha256:sha,protectedGameplayGeometryBackendFlyMobileArtUnchanged:true};fs.writeFileSync(__dirname+'/closure.json',JSON.stringify(result,null,2)+'\n');console.log(result);

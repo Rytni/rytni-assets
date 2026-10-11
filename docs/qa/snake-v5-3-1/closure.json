@@ -1,0 +1,24 @@
+{
+  "base": "89abbe0",
+  "runtime": "snake-next-3efbc8cbe51b",
+  "changed": [
+    "grib/mushroom-snake-ui-v5-3-1/status-board.png",
+    "snake/forest-training/runtime.js",
+    "snake/product/app.js",
+    "snake/product/bridge.js",
+    "snake/product/clock-driver.js",
+    "snake/product/frame-runtime.js",
+    "snake/product/frame.html",
+    "snake/product/index.html",
+    "snake/product/input-owner.js",
+    "snake/product/pause-diagnostics.js",
+    "snake/product/status-board.css",
+    "snake/product/status-board.js",
+    "snake/product/ui.js"
+  ],
+  "removed": [
+    "snake/product/record-place-value.js"
+  ],
+  "productionSha256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591",
+  "protectedGameplayGeometryBackendFlyMobileArtUnchanged": true
+}

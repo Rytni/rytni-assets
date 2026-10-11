@@ -1,0 +1,64 @@
+{
+  "checks": 5,
+  "failures": [],
+  "errors": [],
+  "recovery": {
+    "type": "SCHEDULER_RECOVERY",
+    "timestamp": 1268.800000011921,
+    "timeOrigin": 1791737699532.7,
+    "screen": "playing",
+    "gameStatus": "playing",
+    "parentViewport": {
+      "width": 844,
+      "height": 390
+    },
+    "innerWidth": 844,
+    "innerHeight": 390,
+    "visualViewport": {
+      "width": 844,
+      "height": 390
+    },
+    "childViewport": {
+      "width": 844,
+      "height": 390,
+      "hidden": false,
+      "fullscreen": false
+    },
+    "hidden": false,
+    "orientation": "landscape",
+    "fullscreen": true,
+    "pseudoFullscreen": false,
+    "hostFullscreen": null,
+    "pointer": {
+      "type": "touch",
+      "target": "<button data-dir=\"2\" aria-label=\"Вниз\"></button>"
+    },
+    "recentDpadAt": 1112.800000011921,
+    "deltaFromDpadMs": 156,
+    "recentGameplayPointer": {
+      "timestamp": 1112.800000011921,
+      "direction": 2,
+      "pointerId": 2,
+      "pointerType": "touch"
+    },
+    "pauseReason": null,
+    "gapMs": 152.30000001192093,
+    "at": 1235
+  },
+  "counters": {
+    "dpadPointerDown": 2,
+    "directionCommandsEnqueued": 2,
+    "schedulerRecoveries": 1
+  },
+  "fallback": {
+    "inside": true,
+    "version": "V5.3.1",
+    "visible": true
+  },
+  "copy": {
+    "screen": "playing",
+    "inside": true,
+    "stored": 13,
+    "version": "V5.3.1"
+  }
+}

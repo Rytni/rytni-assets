@@ -1,0 +1,1807 @@
+{
+  "checks": 24,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "width": 720,
+      "height": 405,
+      "score": 6840,
+      "rank": 7,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "6 840",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№7",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "score": 0,
+      "rank": 1,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№1",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "score": 105596,
+      "rank": 99,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "105 596",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№99",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "score": 999999,
+      "rank": 999,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "999 999",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№999",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "score": 9999999,
+      "rank": 3000,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "9 999 999",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№3000",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "score": 99999999,
+      "rank": 9999,
+      "result": {
+        "board": {
+          "x": 28.796875,
+          "y": 307,
+          "width": 300,
+          "height": 84,
+          "top": 307,
+          "right": 328.796875,
+          "bottom": 391,
+          "left": 28.796875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0,
+          "width": 720,
+          "height": 405,
+          "top": 0,
+          "right": 720,
+          "bottom": 405,
+          "left": 0
+        },
+        "columns": "138px 138px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "99 999 999",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№9999",
+            "font": 18,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 6840,
+      "rank": 7,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "6 840",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№7",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 0,
+      "rank": 1,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№1",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 105596,
+      "rank": 99,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "105 596",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№99",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 999999,
+      "rank": 999,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 9999999,
+      "rank": 3000,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "9 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№3000",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1080,
+      "height": 608,
+      "score": 99999999,
+      "rank": 9999,
+      "result": {
+        "board": {
+          "x": 43.1875,
+          "y": 469.75,
+          "width": 432,
+          "height": 124,
+          "top": 469.75,
+          "right": 475.1875,
+          "bottom": 593.75,
+          "left": 43.1875
+        },
+        "cabinet": {
+          "x": 0,
+          "y": 0.25,
+          "width": 1080,
+          "height": 607.5,
+          "top": 0.25,
+          "right": 1080,
+          "bottom": 607.75,
+          "left": 0
+        },
+        "columns": "196px 196px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "99 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№9999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 6840,
+      "rank": 7,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "6 840",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№7",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 0,
+      "rank": 1,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№1",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 105596,
+      "rank": 99,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "105 596",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№99",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 999999,
+      "rank": 999,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 9999999,
+      "rank": 3000,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "9 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№3000",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "score": 99999999,
+      "rank": 9999,
+      "result": {
+        "board": {
+          "x": 54.9375,
+          "y": 629.984375,
+          "width": 546.125,
+          "height": 124,
+          "top": 629.984375,
+          "right": 601.0625,
+          "bottom": 753.984375,
+          "left": 54.9375
+        },
+        "cabinet": {
+          "x": 0.328125,
+          "y": 0,
+          "width": 1365.328125,
+          "height": 767.984375,
+          "top": 0,
+          "right": 1365.65625,
+          "bottom": 767.984375,
+          "left": 0.328125
+        },
+        "columns": "253.062px 253.062px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "99 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№9999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 6840,
+      "rank": 7,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "6 840",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№7",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 0,
+      "rank": 1,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№1",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 105596,
+      "rank": 99,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "105 596",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№99",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 999999,
+      "rank": 999,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 9999999,
+      "rank": 3000,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "9 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№3000",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "score": 99999999,
+      "rank": 9999,
+      "result": {
+        "board": {
+          "x": 279.1875,
+          "y": 818.25,
+          "width": 592,
+          "height": 124,
+          "top": 818.25,
+          "right": 871.1875,
+          "bottom": 942.25,
+          "left": 279.1875
+        },
+        "cabinet": {
+          "x": 220,
+          "y": 123.75,
+          "width": 1480,
+          "height": 832.5,
+          "top": 123.75,
+          "right": 1700,
+          "bottom": 956.25,
+          "left": 220
+        },
+        "columns": "276px 276px",
+        "text": [
+          {
+            "text": "ЕЖЕДНЕВНЫЕ",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "3 / 3",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "ОТ СПОНСОРА",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "0 / 2",
+            "font": 18,
+            "fits": true
+          },
+          {
+            "text": "РЕКОРД",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "99 999 999",
+            "font": 20,
+            "fits": true
+          },
+          {
+            "text": "МЕСТО",
+            "font": 12,
+            "fits": true
+          },
+          {
+            "text": "№9999",
+            "font": 20,
+            "fits": true
+          }
+        ],
+        "overflow": false,
+        "legacy": false,
+        "overlap": [],
+        "horizontal": false
+      }
+    }
+  ]
+}

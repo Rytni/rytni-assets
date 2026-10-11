@@ -1,0 +1,222 @@
+{
+  "release": "2.15.33-c77364482deb",
+  "runtime": "snake-next-3efbc8cbe51b",
+  "live": false,
+  "checks": 22,
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    "existing host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()",
+    "existing host auth health 401",
+    "Failed to load resource: the server responded with a status of 401 ()"
+  ],
+  "rows": [
+    {
+      "width": 390,
+      "height": 844,
+      "m": {
+        "width": 348,
+        "height": 758,
+        "layout": "cabinet layout-mobile-portrait",
+        "scrollWidth": 348,
+        "clientWidth": 348,
+        "menuScroll": false,
+        "top3": false
+      }
+    },
+    {
+      "width": 390,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "input": {
+        "queued": 8,
+        "status": "playing",
+        "pad": {
+          "x": 12,
+          "y": 198,
+          "width": 180,
+          "height": 180,
+          "top": 198,
+          "right": 192,
+          "bottom": 378,
+          "left": 12
+        }
+      },
+      "pause": {
+        "screen": "playing",
+        "counts": {}
+      }
+    },
+    {
+      "width": 393,
+      "height": 873,
+      "m": {
+        "width": 351,
+        "height": 787,
+        "layout": "cabinet layout-mobile-portrait",
+        "scrollWidth": 351,
+        "clientWidth": 351,
+        "menuScroll": false,
+        "top3": false
+      }
+    },
+    {
+      "width": 393,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 393,
+      "input": {
+        "queued": 8,
+        "status": "playing",
+        "pad": {
+          "x": 12,
+          "y": 201,
+          "width": 180,
+          "height": 180,
+          "top": 201,
+          "right": 192,
+          "bottom": 381,
+          "left": 12
+        }
+      },
+      "pause": {
+        "screen": "playing",
+        "counts": {}
+      }
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "m": {
+        "width": 370,
+        "height": 829,
+        "layout": "cabinet layout-mobile-portrait",
+        "scrollWidth": 370,
+        "clientWidth": 370,
+        "menuScroll": false,
+        "top3": false
+      }
+    },
+    {
+      "width": 412,
+      "art": [
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "text": "",
+          "fontSize": "0px",
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 412,
+      "input": {
+        "queued": 8,
+        "status": "playing",
+        "pad": {
+          "x": 12,
+          "y": 220,
+          "width": 180,
+          "height": 180,
+          "top": 220,
+          "right": 192,
+          "bottom": 400,
+          "left": 12
+        }
+      },
+      "pause": {
+        "screen": "playing",
+        "counts": {}
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "m": {
+        "width": 720,
+        "height": 405,
+        "layout": "cabinet",
+        "scrollWidth": 720,
+        "clientWidth": 720,
+        "menuScroll": false,
+        "top3": true
+      }
+    }
+  ]
+}

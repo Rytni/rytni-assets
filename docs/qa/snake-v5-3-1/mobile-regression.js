@@ -1,0 +1,1 @@
+async page=>{const source=(await(await page.request.get('http://127.0.0.1:8776/docs/qa/snake-mobile-v5-3/mobile.js')).text()).replaceAll('docs/qa/snake-mobile-v5-3/','docs/qa/snake-v5-3-1/');return await eval('('+source+')')(page);}

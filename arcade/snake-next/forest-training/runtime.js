@@ -9,13 +9,16 @@ import {ForestAudio} from './audio.js';
 import {SnakeMotion} from './motion.js';
 
 export class TrainingGame {
-  constructor(root,art,audio){
+  constructor(root,art,audio,{mode='standalone'}={}){
+    if(!['standalone','product'].includes(mode))throw Error('Invalid TrainingGame mode');
+    this.mode=mode;
     this.root=root;this.art=art;this.audio=audio;this.renderer=new ForestRenderer(root.querySelector('canvas'),art);
     const logo=art.images.get('logo');logo.className='logo';logo.alt='Mushroom Snake';root.querySelector('.logo').replaceWith(logo);
     this.sessionFactory=options=>new Session(options);
     this.smooth=true;this.motion=null;
     this.touch=matchMedia('(pointer:coarse)').matches;this.session=null;this.preview=new Session();this.status='main';this.sequence=0;
     this.raf=0;this.cancelTimer=null;this.commands=[];this.listeners=[];this.log=[];this.starts=0;this.effectKey='';this.settingsFrom='main';
+    if(this.mode==='standalone'){
     this.listen(root,'click',e=>{const action=e.target.closest('[data-action]')?.dataset.action;if(action)this.action(action);});
     this.listen(root,'input',e=>{if(e.target.dataset.volume){this.audio.volumes[e.target.dataset.volume]=Number(e.target.value);this.audio.apply();}});
     this.listen(window,'keydown',e=>{
@@ -33,9 +36,13 @@ export class TrainingGame {
     const pad=root.querySelector('#pad');
     this.listen(pad,'pointerdown',e=>{const b=e.target.closest('[data-dir]');if(!b)return;e.preventDefault();b.setPointerCapture(e.pointerId);b.classList.add('pressed');this.command(Number(b.dataset.dir));});
     for(const event of ['pointerup','pointercancel','lostpointercapture'])this.listen(pad,event,()=>pad.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed')));
+    }
     this.listen(window,'resize',()=>this.resize());this.listen(document,'fullscreenchange',()=>this.resize());
+    if(this.mode==='standalone'){
     this.listen(document,'visibilitychange',()=>{if(document.hidden)this.pause('visibility-hidden');});this.listen(window,'blur',()=>this.pause('window-blur'));
-    this.listen(window,'pagehide',()=>this.dispose());this.resize();this.show();this.render();
+    this.listen(window,'pagehide',()=>this.dispose());
+    }
+    this.resize();this.show();this.render();
   }
   listen(target,type,fn){target.addEventListener(type,fn);this.listeners.push(()=>target.removeEventListener(type,fn));}
   command(direction){if(this.status==='playing')this.commands.push({tick:1,sequence:++this.sequence,direction,repeat:false});}
@@ -52,7 +59,7 @@ export class TrainingGame {
     else if(action==='mute'){this.audio.muted=!this.audio.muted;this.audio.apply();this.show();}
   }
   start(){
-    if(this.portrait){this.show();return;}
+    if(this.mode==='standalone'&&this.portrait){this.show();return;}
     this.stop();this.session=this.sessionFactory({touch:this.touch});this.motion=new SnakeMotion(this.session);this.starts++;this.commands=[];this.sequence=0;this.log=[];this.status='playing';
     // Compile this viewport's initial presentation before starting the fixed
     // timer. Cold inverse-raster setup is not simulation time or clock debt.
@@ -63,10 +70,12 @@ export class TrainingGame {
   }
   run(){
     if(this.cancelTimer||this.raf)return;
-    this.cancelTimer=startMainThreadClock(this.clock,{now:()=>performance.now(),schedule:setTimeout,cancel:clearTimeout});
+    const driver=this.mode==='product'?this.productClockDriver:startMainThreadClock;
+    if(!driver)throw Error('Product clock owner not installed');
+    this.cancelTimer=driver(this.clock,{now:()=>performance.now(),schedule:setTimeout,cancel:clearTimeout});
     const frame=()=>{
       this.raf=0;if(!['playing','dying'].includes(this.status))return;
-      if(this.clock.status==='recovery'){this.pause('scheduler-recovery');return;}
+      if(this.mode==='standalone'&&this.clock.status==='recovery'){this.pause('scheduler-recovery');return;}
       this.render();this.raf=requestAnimationFrame(frame);
     };this.raf=requestAnimationFrame(frame);this.render();
   }
@@ -85,7 +94,7 @@ export class TrainingGame {
   }
   stop(){if(this.cancelTimer)this.cancelTimer();this.cancelTimer=null;if(this.clock)this.clock.pause();if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;this.audio.stopAll();}
   pause(){if(!['playing','dying'].includes(this.status))return;this.motion.freeze(this.session,this.renderFraction());this.stop();this.session.cancelPortal();this.commands=[];this.status='paused';this.show();this.render();}
-  resume(){if(!this.session||this.portrait||this.status!=='paused')return;this.motion.resume();this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
+  resume(){if(!this.session||this.mode==='standalone'&&this.portrait||this.status!=='paused')return;this.motion.resume();this.commands=[];this.status=this.session.status;this.audio.unlock().then(()=>{if(this.status==='playing')this.audio.startMusic();});this.run();this.show();}
   main(){this.stop();this.session=null;this.motion=null;this.clock=null;this.commands=[];this.log=[];this.status='main';this.settingsFrom='main';this.renderer.release();this.show();this.render();}
   renderFraction(now=performance.now()){return this.clock?.status==='running'?Math.max(0,Math.min(1,(this.clock.debt+Math.max(0,now-this.clock.last))/this.clock.tickMs)):0;}
   resize(){
@@ -94,7 +103,7 @@ export class TrainingGame {
     const w=Math.round(this.root.getBoundingClientRect().width);
     this.root.style.setProperty('--cabinet-height',cabinetSize(w,this.compact).h+'px');
     this.root.classList.toggle('compact',this.compact);
-    if(this.portrait)this.pause('orientation-portrait');const r=this.root.getBoundingClientRect();
+    if(this.mode==='standalone'&&this.portrait)this.pause('orientation-portrait');const r=this.root.getBoundingClientRect();
     this.renderer.resize(Math.round(r.width),Math.round(r.height),devicePixelRatio||1);this.show();this.render();
   }
   render(){
@@ -135,7 +144,8 @@ const root=document.querySelector('#game');
 try{
   const audio=new ForestAudio(),[art,board,objects]=await Promise.all([loadArt(),loadBoard(),loadObjects(),audio.load()]);art.board=board;art.objects=objects;art.bytes+=objects.bytes;
   root.hidden=false;document.querySelector('#loading').hidden=true;
-  const game=new TrainingGame(root,art,audio);
+  const mode=root.dataset.runtimeMode||'standalone';
+  const game=new TrainingGame(root,art,audio,{mode});
   trainingGame=game;
   if(new URLSearchParams(location.search).has('qa'))window.forestTraining=game;
 }catch(error){document.querySelector('#loading').textContent='Не удалось загрузить лес. Обновите страницу.';console.error(error);}

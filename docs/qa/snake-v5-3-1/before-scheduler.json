@@ -1,0 +1,9 @@
+{
+  "screen": "pause",
+  "reason": "scheduler-recovery",
+  "counts": {
+    "scheduler-recovery": 1
+  },
+  "clockStatus": "paused",
+  "physicalDeviceAttribution": "software witness only; physical cause not yet proven"
+}
