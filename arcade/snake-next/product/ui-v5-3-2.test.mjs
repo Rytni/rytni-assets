@@ -25,4 +25,5 @@ test('host uses one shared player-header component and hides technical note only
  const host=fs.readFileSync(new URL('../test-host.html',import.meta.url),'utf8');assert.equal((host.match(/innerHTML=playerHeader\(\)/g)||[]).length,2);
  assert(!host.includes('<small>Mushroom Fly</small>'));assert(host.includes('#msFlyWrap .rytni-arcade-note{display:none}'));
  assert(host.includes('arcade-backdrop-mobile.png'));assert(host.includes('object-fit:cover'));assert(host.includes('refreshPlayer();},'));
+ assert(host.includes('padding:8px 48px 8px 8px'),'shared portrait header reserves the parent popup close-button safe area');
 });

@@ -1,5 +1,5 @@
 {
-  "release": "2.15.33-91d7afeec517",
+  "release": "2.15.33-e56b72a011df",
   "runtime": "snake-next-78436309631c",
   "live": false,
   "checks": 26,
@@ -20,7 +20,7 @@
       "width": 1920,
       "chooser": {
         "overflow": false,
-        "background": "url(\"https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png\")",
+        "background": "url(\"https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/grib/arcade-v2/arcade-backdrop-desktop.png\")",
         "cards": [
           {
             "height": 371.125,
@@ -45,6 +45,7 @@
         "old": false,
         "noteVisible": false,
         "overflow": false,
+        "closeGap": 1124.75,
         "unknown": [
           {
             "key": "avatar",
@@ -139,6 +140,7 @@
         "old": false,
         "noteVisible": false,
         "overflow": false,
+        "closeGap": 570.75,
         "unknown": [
           {
             "key": "avatar",
@@ -233,6 +235,7 @@
         "old": false,
         "noteVisible": false,
         "overflow": false,
+        "closeGap": 16,
         "unknown": [
           {
             "key": "avatar",
@@ -327,6 +330,7 @@
         "old": false,
         "noteVisible": false,
         "overflow": false,
+        "closeGap": 16,
         "unknown": [
           {
             "key": "avatar",

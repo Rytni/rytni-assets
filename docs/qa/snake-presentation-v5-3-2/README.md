@@ -2,7 +2,7 @@
 
 Base `e750631`, published V5.3.1 release `2.15.33-c77364482deb`, runtime `snake-next-3efbc8cbe51b`.
 
-Candidate: `2.15.33-91d7afeec517` / `snake-next-78436309631c`. Publication evidence is recorded separately in PUBLIC.md after both mirrors and LIVE QA pass.
+Final candidate: `2.15.33-e56b72a011df` / `snake-next-78436309631c`. Publication evidence is recorded separately in PUBLIC.md after both mirrors and LIVE QA pass.
 
 [Visual review](review.html) · [Authored Arcade concepts, inventory and prompts](../arcade-premium-v2/README.md)
 
@@ -13,7 +13,7 @@ Candidate: `2.15.33-91d7afeec517` / `snake-next-78436309631c`. Publication evide
 - **Result artifact:** the settled live metrics wrapper and children are transparent, with no backing pseudo-element. Isolation capture `result-no-png.png` removes the unwanted plates, proving they are baked into the bottoms of `stat-food.png`, `stat-length.png`, `stat-combo.png`. Clip only their old number plaques: lower 20%, 17%, 20% respectively. Complete trophies/bronze pedestals and readable text shadows remain. Approved PNG source bytes and `premium.js` are unchanged. No hero, scene, score or routing redesign.
 - **Main duplicate:** remove only `mainRanking()`'s `.board-own` record/rank paragraph. Player Status Board remains authoritative; full Ranking retains its own summary.
 - **Arcade:** two independent authored PNG backgrounds, translucent navy cards, equal card/cover height and CTA alignment. Original Fly cover and `object-fit:cover` retained. [Art-first gate](../arcade-premium-v2/README.md).
-- **Fly header/footer:** Fly and Snake call the exact same `playerHeader()` component and `refreshPlayer()` data source, using currentApplication and profileAvatar. Refresh targets both mounted headers. Unknown values remain hidden; participant_number is not interpreted as rank. Old outer game-name bar removed. Technical accounting note hidden only by the TEST host's scoped selector; Fly source/gameplay remains byte-identical.
+- **Fly header/footer:** Fly and Snake call the exact same `playerHeader()` component and `refreshPlayer()` data source, using currentApplication and profileAvatar. Refresh targets both mounted headers. Unknown values remain hidden; participant_number is not interpreted as rank. Old outer game-name bar removed. Technical accounting note hidden only by the TEST host's scoped selector; Fly source/gameplay remains byte-identical. LIVE review exposed the parent popup close-button covering the portrait TEST badge; the shared header now reserves a 48px right inset, giving 16px measured clearance from that button for both 390/412 widths. No input/fullscreen/mobile game layout change.
 
 ## Responsive QA
 
