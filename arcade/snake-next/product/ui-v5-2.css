@@ -40,3 +40,27 @@
  .title-scene .attempt-tray{width:33%;gap:8px}
  .title-scene .record-plaque{left:37%;width:20%}
 }
+/* V5.2.1: one bounded lowerStatusDock. Spacious anchors reproduce V5.2;
+ * only the actual scene's compact layout reserves more readable space. */
+.title-scene .lower-status-dock{position:absolute;display:grid;left:6.51%;bottom:5.278%;width:37.49%;height:12.685%;grid-template-columns:minmax(0,21fr) minmax(0,15fr);gap:1.49cqw;min-width:0}
+.title-scene .lower-status-dock>.attempt-tray{position:relative;inset:auto;width:100%;height:94.89%;margin-top:.278cqh;min-width:0;align-self:start}
+.title-scene .lower-status-dock>.record-plaque{position:relative;inset:auto;width:100%;height:100%;min-width:0}
+.title-scene .lower-status-dock strong.attached-value{top:auto;bottom:0;max-width:100%;margin-top:0}
+/* CSS overlays were taller than the authored plinth and created dark
+ * spill below it. Keep the approved PNG glass; status needs text shadow only. */
+.result-scene .primary-stats b{background:none;text-shadow:0 1px 2px #000}
+.result-scene .result-note{background:none;padding:0;text-shadow:0 1px 2px #000,0 2px 3px #0008}
+/* The material-glass PNG includes its own metal rail, farther inward
+ * than the old 48px strip box (~58px at this capped panel width).
+ * Content starts at +71px; icon transparent padding adds ~3px clearance.
+ * Retain panel, icon sizes and the right control edge. */
+.panel-settings .settings-stack{padding-left:19px}
+@container snake-stage (max-width:1200px){
+ .title-scene .lower-status-dock{left:3%;bottom:10px;width:max(440px,44cqw);height:clamp(64px,18cqh,90px);grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+ .title-scene .lower-status-dock>.attempt-tray{height:100%;margin:0;padding:6px 10px;gap:8px}
+ .title-scene .lower-status-dock .value-box{padding-top:22%}
+}
+@container snake-stage (max-width:1000px){.panel-settings .settings-stack{padding-left:27px}}
+@container snake-stage (max-width:800px){
+ .title-scene .lower-status-dock{left:12px;width:430px;max-width:calc(100% - 24px);gap:8px}
+}

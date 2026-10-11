@@ -13,7 +13,15 @@ export class RecordPlaceValue {
    for(const size of [26,24,22,20,18,16].filter(n=>n<=preferred+.01)){
     e.style.fontSize=size+'px';if(range.getBoundingClientRect().width<=safe){fitted=true;break;}
    }
-   if(!fitted){e.style.fontSize=Math.max(16,Math.min(20,preferred))+'px';e.classList.add('attached-value');}
+   if(!fitted){
+    // The extension belongs to this grid cell, not to the forest scene.
+    // Reserve its border/padding before choosing readable typography.
+    e.classList.add('attached-value');
+    const plateSafe=box.getBoundingClientRect().width-18;
+    for(const size of [26,24,22,20,18,16].filter(n=>n<=preferred+.01)){
+     e.style.fontSize=size+'px';if(range.getBoundingClientRect().width<=plateSafe)break;
+    }
+   }
   }
  }
  disconnect(){this.observer.disconnect();}

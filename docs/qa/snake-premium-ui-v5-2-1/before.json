@@ -1,0 +1,3680 @@
+{
+  "checks": 0,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "name": "embedded-1118",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0008235681452788413,
+        "width": 1118,
+        "height": 629,
+        "top": 0.0008235681452788413,
+        "right": 1118,
+        "bottom": 629.0008235681453,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 72.78125,
+            "y": 517.7507934570312,
+            "width": 234.765625,
+            "height": 75.703125,
+            "top": 517.7507934570312,
+            "right": 307.546875,
+            "bottom": 593.4539184570312,
+            "left": 72.78125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 324.21875,
+            "y": 516.0007934570312,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0007934570312,
+            "right": 408.0625,
+            "bottom": 595.7820434570312,
+            "left": 324.21875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 408.0625,
+            "y": 516.0007934570312,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0007934570312,
+            "right": 491.90625,
+            "bottom": 595.7820434570312,
+            "left": 408.0625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 90.515625,
+            "y": 526.9070434570312,
+            "width": 94.796875,
+            "height": 16,
+            "top": 526.9070434570312,
+            "right": 185.3125,
+            "bottom": 542.9070434570312,
+            "left": 90.515625
+          },
+          "box": {
+            "x": 90.65625,
+            "y": 525.2976684570312,
+            "width": 94.5,
+            "height": 60.609375,
+            "top": 525.2976684570312,
+            "right": 185.15625,
+            "bottom": 585.9070434570312,
+            "left": 90.65625
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 194.40625,
+            "y": 526.9070434570312,
+            "width": 96.03125,
+            "height": 16,
+            "top": 526.9070434570312,
+            "right": 290.4375,
+            "bottom": 542.9070434570312,
+            "left": 194.40625
+          },
+          "box": {
+            "x": 195.15625,
+            "y": 525.2976684570312,
+            "width": 94.515625,
+            "height": 60.609375,
+            "top": 525.2976684570312,
+            "right": 289.671875,
+            "bottom": 585.9070434570312,
+            "left": 195.15625
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 347.890625,
+            "y": 564.0164184570312,
+            "width": 36.484375,
+            "height": 18,
+            "top": 564.0164184570312,
+            "right": 384.375,
+            "bottom": 582.0164184570312,
+            "left": 347.890625
+          },
+          "box": {
+            "x": 347.890625,
+            "y": 563.0164184570312,
+            "width": 36.484375,
+            "height": 20.796875,
+            "top": 563.0164184570312,
+            "right": 384.375,
+            "bottom": 583.8132934570312,
+            "left": 347.890625
+          },
+          "owner": {
+            "x": 324.21875,
+            "y": 516.0007934570312,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0007934570312,
+            "right": 408.0625,
+            "bottom": 595.7820434570312,
+            "left": 324.21875
+          }
+        },
+        {
+          "text": "№7",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 439.015625,
+            "y": 564.0164184570312,
+            "width": 21.921875,
+            "height": 18,
+            "top": 564.0164184570312,
+            "right": 460.9375,
+            "bottom": 582.0164184570312,
+            "left": 439.015625
+          },
+          "box": {
+            "x": 439.015625,
+            "y": 563.0164184570312,
+            "width": 21.921875,
+            "height": 20.796875,
+            "top": 563.0164184570312,
+            "right": 460.9375,
+            "bottom": 583.8132934570312,
+            "left": 439.015625
+          },
+          "owner": {
+            "x": 408.0625,
+            "y": 516.0007934570312,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0007934570312,
+            "right": 491.90625,
+            "bottom": 595.7820434570312,
+            "left": 408.0625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "embedded-1118",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0.0008431763853877783,
+        "width": 1118,
+        "height": 629,
+        "top": 0.0008431763853877783,
+        "right": 1118,
+        "bottom": 629.0008431763854,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 72.78125,
+            "y": 517.7508544921875,
+            "width": 234.765625,
+            "height": 75.703125,
+            "top": 517.7508544921875,
+            "right": 307.546875,
+            "bottom": 593.4539794921875,
+            "left": 72.78125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 324.21875,
+            "y": 516.0008544921875,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0008544921875,
+            "right": 408.0625,
+            "bottom": 595.7821044921875,
+            "left": 324.21875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 408.0625,
+            "y": 516.0008544921875,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0008544921875,
+            "right": 491.90625,
+            "bottom": 595.7821044921875,
+            "left": 408.0625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 90.515625,
+            "y": 526.9071044921875,
+            "width": 94.796875,
+            "height": 16,
+            "top": 526.9071044921875,
+            "right": 185.3125,
+            "bottom": 542.9071044921875,
+            "left": 90.515625
+          },
+          "box": {
+            "x": 90.65625,
+            "y": 525.2977294921875,
+            "width": 94.5,
+            "height": 60.609375,
+            "top": 525.2977294921875,
+            "right": 185.15625,
+            "bottom": 585.9071044921875,
+            "left": 90.65625
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 194.40625,
+            "y": 526.9071044921875,
+            "width": 96.03125,
+            "height": 16,
+            "top": 526.9071044921875,
+            "right": 290.4375,
+            "bottom": 542.9071044921875,
+            "left": 194.40625
+          },
+          "box": {
+            "x": 195.15625,
+            "y": 525.2977294921875,
+            "width": 94.515625,
+            "height": 60.609375,
+            "top": 525.2977294921875,
+            "right": 289.671875,
+            "bottom": 585.9071044921875,
+            "left": 195.15625
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 16,
+          "plate": true,
+          "ink": {
+            "x": 329.65625,
+            "y": 574.0477294921875,
+            "width": 72.96875,
+            "height": 18,
+            "top": 574.0477294921875,
+            "right": 402.625,
+            "bottom": 592.0477294921875,
+            "left": 329.65625
+          },
+          "box": {
+            "x": 320.65625,
+            "y": 569.0477294921875,
+            "width": 90.96875,
+            "height": 28.796875,
+            "top": 569.0477294921875,
+            "right": 411.625,
+            "bottom": 597.8446044921875,
+            "left": 320.65625
+          },
+          "owner": {
+            "x": 324.21875,
+            "y": 516.0008544921875,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0008544921875,
+            "right": 408.0625,
+            "bottom": 595.7821044921875,
+            "left": 324.21875
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 428.078125,
+            "y": 564.0164794921875,
+            "width": 43.8125,
+            "height": 18,
+            "top": 564.0164794921875,
+            "right": 471.890625,
+            "bottom": 582.0164794921875,
+            "left": 428.078125
+          },
+          "box": {
+            "x": 428.078125,
+            "y": 563.0164794921875,
+            "width": 43.8125,
+            "height": 20.796875,
+            "top": 563.0164794921875,
+            "right": 471.890625,
+            "bottom": 583.8133544921875,
+            "left": 428.078125
+          },
+          "owner": {
+            "x": 408.0625,
+            "y": 516.0008544921875,
+            "width": 83.84375,
+            "height": 79.78125,
+            "top": 516.0008544921875,
+            "right": 491.90625,
+            "bottom": 595.7821044921875,
+            "left": 408.0625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "embedded-1118",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1118,
+        "height": 629,
+        "top": 0,
+        "right": 1118,
+        "bottom": 629,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": [
+        {
+          "class": "primary-stats",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 582.28125,
+            "y": 306.3125,
+            "width": 361.015625,
+            "height": 122.640625,
+            "top": 306.3125,
+            "right": 943.296875,
+            "bottom": 428.953125,
+            "left": 582.28125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 582.28125,
+            "y": 306.3125,
+            "width": 120.328125,
+            "height": 122.640625,
+            "top": 306.3125,
+            "right": 702.609375,
+            "bottom": 428.953125,
+            "left": 582.28125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 625.671875,
+            "y": 410.09375,
+            "width": 33.53125,
+            "height": 20,
+            "top": 410.09375,
+            "right": 659.203125,
+            "bottom": 430.09375,
+            "left": 625.671875
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 702.609375,
+            "y": 306.3125,
+            "width": 120.34375,
+            "height": 122.640625,
+            "top": 306.3125,
+            "right": 822.953125,
+            "bottom": 428.953125,
+            "left": 702.609375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 746.015625,
+            "y": 410.09375,
+            "width": 33.53125,
+            "height": 20,
+            "top": 410.09375,
+            "right": 779.546875,
+            "bottom": 430.09375,
+            "left": 746.015625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 822.953125,
+            "y": 306.3141174316406,
+            "width": 120.328125,
+            "height": 122.64065551757812,
+            "top": 306.3141174316406,
+            "right": 943.28125,
+            "bottom": 428.95477294921875,
+            "left": 822.953125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 866.34375,
+            "y": 410.09539794921875,
+            "width": 33.53125,
+            "height": 20,
+            "top": 410.09539794921875,
+            "right": 899.875,
+            "bottom": 430.09539794921875,
+            "left": 866.34375
+          }
+        },
+        {
+          "class": "result-note",
+          "background": "rgba(0, 0, 0, 0) radial-gradient(rgba(0, 17, 14, 0.84), rgba(0, 0, 0, 0) 80%) repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 480.734375,
+            "y": 439.703125,
+            "width": 564.140625,
+            "height": 24.890625,
+            "top": 439.703125,
+            "right": 1044.875,
+            "bottom": 464.59375,
+            "left": 480.734375
+          }
+        }
+      ]
+    },
+    {
+      "name": "embedded-1118",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1118,
+        "height": 629,
+        "top": 0,
+        "right": 1118,
+        "bottom": 629,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 271,
+            "y": 216.93768310546875,
+            "width": 48,
+            "height": 48,
+            "top": 216.93768310546875,
+            "right": 319,
+            "bottom": 264.93768310546875,
+            "left": 271
+          },
+          "panel": {
+            "x": 219,
+            "y": 59.50018310546875,
+            "width": 680,
+            "height": 510,
+            "top": 59.50018310546875,
+            "right": 899,
+            "bottom": 569.5001831054688,
+            "left": 219
+          },
+          "frame": {
+            "x": 219,
+            "y": 107.50018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 107.50018310546875,
+            "right": 267,
+            "bottom": 521.5001831054688,
+            "left": 219
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 271,
+            "y": 287.93768310546875,
+            "width": 48,
+            "height": 48,
+            "top": 287.93768310546875,
+            "right": 319,
+            "bottom": 335.93768310546875,
+            "left": 271
+          },
+          "panel": {
+            "x": 219,
+            "y": 59.50018310546875,
+            "width": 680,
+            "height": 510,
+            "top": 59.50018310546875,
+            "right": 899,
+            "bottom": 569.5001831054688,
+            "left": 219
+          },
+          "frame": {
+            "x": 219,
+            "y": 107.50018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 107.50018310546875,
+            "right": 267,
+            "bottom": 521.5001831054688,
+            "left": 219
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 271,
+            "y": 358.93768310546875,
+            "width": 48,
+            "height": 48,
+            "top": 358.93768310546875,
+            "right": 319,
+            "bottom": 406.93768310546875,
+            "left": 271
+          },
+          "panel": {
+            "x": 219,
+            "y": 59.50018310546875,
+            "width": 680,
+            "height": 510,
+            "top": 59.50018310546875,
+            "right": 899,
+            "bottom": 569.5001831054688,
+            "left": 219
+          },
+          "frame": {
+            "x": 219,
+            "y": 107.50018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 107.50018310546875,
+            "right": 267,
+            "bottom": 521.5001831054688,
+            "left": 219
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "embedded-720",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0008203221950680017,
+        "width": 720,
+        "height": 405,
+        "top": 0.0008203221950680017,
+        "right": 720,
+        "bottom": 405.00082032219507,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 21.59375,
+            "y": 324.0008239746094,
+            "width": 237.59375,
+            "height": 72.890625,
+            "top": 324.0008239746094,
+            "right": 259.1875,
+            "bottom": 396.8914489746094,
+            "left": 21.59375
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 266.390625,
+            "y": 324.0008239746094,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.0008239746094,
+            "right": 338.390625,
+            "bottom": 396.8914489746094,
+            "left": 266.390625
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 338.390625,
+            "y": 324.0008239746094,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.0008239746094,
+            "right": 410.390625,
+            "bottom": 396.8914489746094,
+            "left": 338.390625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 36.59375,
+            "y": 331.7508239746094,
+            "width": 94.796875,
+            "height": 16,
+            "top": 331.7508239746094,
+            "right": 131.390625,
+            "bottom": 347.7508239746094,
+            "left": 36.59375
+          },
+          "box": {
+            "x": 31.59375,
+            "y": 330.7508239746094,
+            "width": 104.796875,
+            "height": 59.375,
+            "top": 330.7508239746094,
+            "right": 136.390625,
+            "bottom": 390.1258239746094,
+            "left": 31.59375
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 148.765625,
+            "y": 331.7508239746094,
+            "width": 96.03125,
+            "height": 16,
+            "top": 331.7508239746094,
+            "right": 244.796875,
+            "bottom": 347.7508239746094,
+            "left": 148.765625
+          },
+          "box": {
+            "x": 144.390625,
+            "y": 330.7508239746094,
+            "width": 104.796875,
+            "height": 59.375,
+            "top": 330.7508239746094,
+            "right": 249.1875,
+            "bottom": 390.1258239746094,
+            "left": 144.390625
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 284.140625,
+            "y": 361.0164489746094,
+            "width": 36.484375,
+            "height": 18,
+            "top": 361.0164489746094,
+            "right": 320.625,
+            "bottom": 379.0164489746094,
+            "left": 284.140625
+          },
+          "box": {
+            "x": 284.140625,
+            "y": 360.0164489746094,
+            "width": 36.484375,
+            "height": 20.796875,
+            "top": 360.0164489746094,
+            "right": 320.625,
+            "bottom": 380.8133239746094,
+            "left": 284.140625
+          },
+          "owner": {
+            "x": 266.390625,
+            "y": 324.0008239746094,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.0008239746094,
+            "right": 338.390625,
+            "bottom": 396.8914489746094,
+            "left": 266.390625
+          }
+        },
+        {
+          "text": "№7",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 363.421875,
+            "y": 361.0164489746094,
+            "width": 21.921875,
+            "height": 18,
+            "top": 361.0164489746094,
+            "right": 385.34375,
+            "bottom": 379.0164489746094,
+            "left": 363.421875
+          },
+          "box": {
+            "x": 363.421875,
+            "y": 360.0164489746094,
+            "width": 21.921875,
+            "height": 20.796875,
+            "top": 360.0164489746094,
+            "right": 385.34375,
+            "bottom": 380.8133239746094,
+            "left": 363.421875
+          },
+          "owner": {
+            "x": 338.390625,
+            "y": 324.0008239746094,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.0008239746094,
+            "right": 410.390625,
+            "bottom": 396.8914489746094,
+            "left": 338.390625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "embedded-720",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0.0007805997156538069,
+        "width": 720,
+        "height": 405,
+        "top": 0.0007805997156538069,
+        "right": 720,
+        "bottom": 405.00078059971565,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 21.59375,
+            "y": 324.00079345703125,
+            "width": 237.59375,
+            "height": 72.890625,
+            "top": 324.00079345703125,
+            "right": 259.1875,
+            "bottom": 396.89141845703125,
+            "left": 21.59375
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 266.390625,
+            "y": 324.00079345703125,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.00079345703125,
+            "right": 338.390625,
+            "bottom": 396.89141845703125,
+            "left": 266.390625
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 338.390625,
+            "y": 324.00079345703125,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.00079345703125,
+            "right": 410.390625,
+            "bottom": 396.89141845703125,
+            "left": 338.390625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 36.59375,
+            "y": 331.75079345703125,
+            "width": 94.796875,
+            "height": 16,
+            "top": 331.75079345703125,
+            "right": 131.390625,
+            "bottom": 347.75079345703125,
+            "left": 36.59375
+          },
+          "box": {
+            "x": 31.59375,
+            "y": 330.75079345703125,
+            "width": 104.796875,
+            "height": 59.375,
+            "top": 330.75079345703125,
+            "right": 136.390625,
+            "bottom": 390.12579345703125,
+            "left": 31.59375
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 148.765625,
+            "y": 331.75079345703125,
+            "width": 96.03125,
+            "height": 16,
+            "top": 331.75079345703125,
+            "right": 244.796875,
+            "bottom": 347.75079345703125,
+            "left": 148.765625
+          },
+          "box": {
+            "x": 144.390625,
+            "y": 330.75079345703125,
+            "width": 104.796875,
+            "height": 59.375,
+            "top": 330.75079345703125,
+            "right": 249.1875,
+            "bottom": 390.12579345703125,
+            "left": 144.390625
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 16,
+          "plate": true,
+          "ink": {
+            "x": 265.90625,
+            "y": 377.64141845703125,
+            "width": 72.96875,
+            "height": 18,
+            "top": 377.64141845703125,
+            "right": 338.875,
+            "bottom": 395.64141845703125,
+            "left": 265.90625
+          },
+          "box": {
+            "x": 256.90625,
+            "y": 372.64141845703125,
+            "width": 90.96875,
+            "height": 28.796875,
+            "top": 372.64141845703125,
+            "right": 347.875,
+            "bottom": 401.43829345703125,
+            "left": 256.90625
+          },
+          "owner": {
+            "x": 266.390625,
+            "y": 324.00079345703125,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.00079345703125,
+            "right": 338.390625,
+            "bottom": 396.89141845703125,
+            "left": 266.390625
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 352.484375,
+            "y": 361.01641845703125,
+            "width": 43.8125,
+            "height": 18,
+            "top": 361.01641845703125,
+            "right": 396.296875,
+            "bottom": 379.01641845703125,
+            "left": 352.484375
+          },
+          "box": {
+            "x": 352.484375,
+            "y": 360.01641845703125,
+            "width": 43.8125,
+            "height": 20.796875,
+            "top": 360.01641845703125,
+            "right": 396.296875,
+            "bottom": 380.81329345703125,
+            "left": 352.484375
+          },
+          "owner": {
+            "x": 338.390625,
+            "y": 324.00079345703125,
+            "width": 72,
+            "height": 72.890625,
+            "top": 324.00079345703125,
+            "right": 410.390625,
+            "bottom": 396.89141845703125,
+            "left": 338.390625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "embedded-720",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 405,
+        "top": 0,
+        "right": 720,
+        "bottom": 405,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": [
+        {
+          "class": "primary-stats",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 360,
+            "y": 190.03125,
+            "width": 273.59375,
+            "height": 101.765625,
+            "top": 190.03125,
+            "right": 633.59375,
+            "bottom": 291.796875,
+            "left": 360
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 360,
+            "y": 190.03125,
+            "width": 91.1875,
+            "height": 101.765625,
+            "top": 190.03125,
+            "right": 451.1875,
+            "bottom": 291.796875,
+            "left": 360
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 391.59375,
+            "y": 276.28125,
+            "width": 28,
+            "height": 20,
+            "top": 276.28125,
+            "right": 419.59375,
+            "bottom": 296.28125,
+            "left": 391.59375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 451.1875,
+            "y": 190.03125,
+            "width": 91.203125,
+            "height": 101.765625,
+            "top": 190.03125,
+            "right": 542.390625,
+            "bottom": 291.796875,
+            "left": 451.1875
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 482.78125,
+            "y": 276.28125,
+            "width": 28,
+            "height": 20,
+            "top": 276.28125,
+            "right": 510.78125,
+            "bottom": 296.28125,
+            "left": 482.78125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 542.390625,
+            "y": 190.03294372558594,
+            "width": 91.1875,
+            "height": 101.76564025878906,
+            "top": 190.03294372558594,
+            "right": 633.578125,
+            "bottom": 291.798583984375,
+            "left": 542.390625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 573.984375,
+            "y": 276.282958984375,
+            "width": 28,
+            "height": 20,
+            "top": 276.282958984375,
+            "right": 601.984375,
+            "bottom": 296.282958984375,
+            "left": 573.984375
+          }
+        },
+        {
+          "class": "result-note",
+          "background": "rgba(0, 0, 0, 0) radial-gradient(rgba(0, 17, 14, 0.84), rgba(0, 0, 0, 0) 80%) repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 14.390625,
+            "y": 360.4375,
+            "width": 280.796875,
+            "height": 24.890625,
+            "top": 360.4375,
+            "right": 295.1875,
+            "bottom": 385.328125,
+            "left": 14.390625
+          }
+        }
+      ]
+    },
+    {
+      "name": "embedded-720",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 405,
+        "top": 0,
+        "right": 720,
+        "bottom": 405,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 65.59375,
+            "y": 181.89080810546875,
+            "width": 40,
+            "height": 40,
+            "top": 181.89080810546875,
+            "right": 105.59375,
+            "bottom": 221.89080810546875,
+            "left": 65.59375
+          },
+          "panel": {
+            "x": 21.59375,
+            "y": 12.156438827514648,
+            "width": 676.796875,
+            "height": 380.6875,
+            "top": 12.156438827514648,
+            "right": 698.390625,
+            "bottom": 392.84393882751465,
+            "left": 21.59375
+          },
+          "frame": {
+            "x": 21.59375,
+            "y": 60.15644073486328,
+            "width": 48,
+            "height": 284.6875,
+            "top": 60.15644073486328,
+            "right": 69.59375,
+            "bottom": 344.8439407348633,
+            "left": 21.59375
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 65.59375,
+            "y": 252.89080810546875,
+            "width": 40,
+            "height": 40,
+            "top": 252.89080810546875,
+            "right": 105.59375,
+            "bottom": 292.89080810546875,
+            "left": 65.59375
+          },
+          "panel": {
+            "x": 21.59375,
+            "y": 12.156438827514648,
+            "width": 676.796875,
+            "height": 380.6875,
+            "top": 12.156438827514648,
+            "right": 698.390625,
+            "bottom": 392.84393882751465,
+            "left": 21.59375
+          },
+          "frame": {
+            "x": 21.59375,
+            "y": 60.15644073486328,
+            "width": 48,
+            "height": 284.6875,
+            "top": 60.15644073486328,
+            "right": 69.59375,
+            "bottom": 344.8439407348633,
+            "left": 21.59375
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 65.59375,
+            "y": 323.89080810546875,
+            "width": 40,
+            "height": 40,
+            "top": 323.89080810546875,
+            "right": 105.59375,
+            "bottom": 363.89080810546875,
+            "left": 65.59375
+          },
+          "panel": {
+            "x": 21.59375,
+            "y": 12.156438827514648,
+            "width": 676.796875,
+            "height": 380.6875,
+            "top": 12.156438827514648,
+            "right": 698.390625,
+            "bottom": 392.84393882751465,
+            "left": 21.59375
+          },
+          "frame": {
+            "x": 21.59375,
+            "y": 60.15644073486328,
+            "width": 48,
+            "height": 284.6875,
+            "top": 60.15644073486328,
+            "right": 69.59375,
+            "bottom": 344.8439407348633,
+            "left": 21.59375
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1920",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0008904904825612903,
+        "width": 1920,
+        "height": 1080,
+        "top": 0.0008904904825612903,
+        "right": 1920,
+        "bottom": 1080.0008904904826,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 124.984375,
+            "y": 889.0009155273438,
+            "width": 403.1875,
+            "height": 129.984375,
+            "top": 889.0009155273438,
+            "right": 528.171875,
+            "bottom": 1018.9852905273438,
+            "left": 124.984375
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 556.796875,
+            "y": 885.9852905273438,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9852905273438,
+            "right": 700.796875,
+            "bottom": 1022.9696655273438,
+            "left": 556.796875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 700.796875,
+            "y": 885.9852905273438,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9852905273438,
+            "right": 844.796875,
+            "bottom": 1022.9696655273438,
+            "left": 700.796875
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 191.234375,
+            "y": 913.2977905273438,
+            "width": 94.796875,
+            "height": 16,
+            "top": 913.2977905273438,
+            "right": 286.03125,
+            "bottom": 929.2977905273438,
+            "left": 191.234375
+          },
+          "box": {
+            "x": 155.703125,
+            "y": 901.9540405273438,
+            "width": 165.875,
+            "height": 104.078125,
+            "top": 901.9540405273438,
+            "right": 321.578125,
+            "bottom": 1006.0321655273438,
+            "left": 155.703125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 366.5,
+            "y": 913.2977905273438,
+            "width": 96.03125,
+            "height": 16,
+            "top": 913.2977905273438,
+            "right": 462.53125,
+            "bottom": 929.2977905273438,
+            "left": 366.5
+          },
+          "box": {
+            "x": 331.578125,
+            "y": 901.9540405273438,
+            "width": 165.875,
+            "height": 104.078125,
+            "top": 901.9540405273438,
+            "right": 497.453125,
+            "bottom": 1006.0321655273438,
+            "left": 331.578125
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 26,
+          "plate": false,
+          "ink": {
+            "x": 599.140625,
+            "y": 954.2509155273438,
+            "width": 59.296875,
+            "height": 29,
+            "top": 954.2509155273438,
+            "right": 658.4375,
+            "bottom": 983.2509155273438,
+            "left": 599.140625
+          },
+          "box": {
+            "x": 599.140625,
+            "y": 952.2509155273438,
+            "width": 59.296875,
+            "height": 33.796875,
+            "top": 952.2509155273438,
+            "right": 658.4375,
+            "bottom": 986.0477905273438,
+            "left": 599.140625
+          },
+          "owner": {
+            "x": 556.796875,
+            "y": 885.9852905273438,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9852905273438,
+            "right": 700.796875,
+            "bottom": 1022.9696655273438,
+            "left": 556.796875
+          }
+        },
+        {
+          "text": "№7",
+          "font": 26,
+          "plate": false,
+          "ink": {
+            "x": 754.984375,
+            "y": 954.2509155273438,
+            "width": 35.625,
+            "height": 29,
+            "top": 954.2509155273438,
+            "right": 790.609375,
+            "bottom": 983.2509155273438,
+            "left": 754.984375
+          },
+          "box": {
+            "x": 754.984375,
+            "y": 952.2509155273438,
+            "width": 35.625,
+            "height": 33.796875,
+            "top": 952.2509155273438,
+            "right": 790.609375,
+            "bottom": 986.0477905273438,
+            "left": 754.984375
+          },
+          "owner": {
+            "x": 700.796875,
+            "y": 885.9852905273438,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9852905273438,
+            "right": 844.796875,
+            "bottom": 1022.9696655273438,
+            "left": 700.796875
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1920",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0.0007818659069016576,
+        "width": 1920,
+        "height": 1080,
+        "top": 0.0007818659069016576,
+        "right": 1920,
+        "bottom": 1080.000781865907,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 124.984375,
+            "y": 889.0007934570312,
+            "width": 403.1875,
+            "height": 129.984375,
+            "top": 889.0007934570312,
+            "right": 528.171875,
+            "bottom": 1018.9851684570312,
+            "left": 124.984375
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 556.796875,
+            "y": 885.9851684570312,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9851684570312,
+            "right": 700.796875,
+            "bottom": 1022.9695434570312,
+            "left": 556.796875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 700.796875,
+            "y": 885.9851684570312,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9851684570312,
+            "right": 844.796875,
+            "bottom": 1022.9695434570312,
+            "left": 700.796875
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 191.234375,
+            "y": 913.2976684570312,
+            "width": 94.796875,
+            "height": 16,
+            "top": 913.2976684570312,
+            "right": 286.03125,
+            "bottom": 929.2976684570312,
+            "left": 191.234375
+          },
+          "box": {
+            "x": 155.703125,
+            "y": 901.9539184570312,
+            "width": 165.875,
+            "height": 104.078125,
+            "top": 901.9539184570312,
+            "right": 321.578125,
+            "bottom": 1006.0320434570312,
+            "left": 155.703125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 366.5,
+            "y": 913.2976684570312,
+            "width": 96.03125,
+            "height": 16,
+            "top": 913.2976684570312,
+            "right": 462.53125,
+            "bottom": 929.2976684570312,
+            "left": 366.5
+          },
+          "box": {
+            "x": 331.578125,
+            "y": 901.9539184570312,
+            "width": 165.875,
+            "height": 104.078125,
+            "top": 901.9539184570312,
+            "right": 497.453125,
+            "bottom": 1006.0320434570312,
+            "left": 331.578125
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 20,
+          "plate": false,
+          "ink": {
+            "x": 583.1875,
+            "y": 953.2507934570312,
+            "width": 91.21875,
+            "height": 23,
+            "top": 953.2507934570312,
+            "right": 674.40625,
+            "bottom": 976.2507934570312,
+            "left": 583.1875
+          },
+          "box": {
+            "x": 583.1875,
+            "y": 952.2507934570312,
+            "width": 91.21875,
+            "height": 26,
+            "top": 952.2507934570312,
+            "right": 674.40625,
+            "bottom": 978.2507934570312,
+            "left": 583.1875
+          },
+          "owner": {
+            "x": 556.796875,
+            "y": 885.9851684570312,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9851684570312,
+            "right": 700.796875,
+            "bottom": 1022.9695434570312,
+            "left": 556.796875
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 26,
+          "plate": false,
+          "ink": {
+            "x": 737.1875,
+            "y": 954.2507934570312,
+            "width": 71.203125,
+            "height": 29,
+            "top": 954.2507934570312,
+            "right": 808.390625,
+            "bottom": 983.2507934570312,
+            "left": 737.1875
+          },
+          "box": {
+            "x": 737.1875,
+            "y": 952.2507934570312,
+            "width": 71.203125,
+            "height": 33.796875,
+            "top": 952.2507934570312,
+            "right": 808.390625,
+            "bottom": 986.0476684570312,
+            "left": 737.1875
+          },
+          "owner": {
+            "x": 700.796875,
+            "y": 885.9851684570312,
+            "width": 144,
+            "height": 136.984375,
+            "top": 885.9851684570312,
+            "right": 844.796875,
+            "bottom": 1022.9695434570312,
+            "left": 700.796875
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1920",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080,
+        "top": 0,
+        "right": 1920,
+        "bottom": 1080,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": [
+        {
+          "class": "primary-stats",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 999.984375,
+            "y": 525.953125,
+            "width": 620,
+            "height": 210.59375,
+            "top": 525.953125,
+            "right": 1619.984375,
+            "bottom": 736.546875,
+            "left": 999.984375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 999.984375,
+            "y": 525.953125,
+            "width": 206.65625,
+            "height": 210.59375,
+            "top": 525.953125,
+            "right": 1206.640625,
+            "bottom": 736.546875,
+            "left": 999.984375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1074.515625,
+            "y": 704.140625,
+            "width": 57.59375,
+            "height": 32.5,
+            "top": 704.140625,
+            "right": 1132.109375,
+            "bottom": 736.640625,
+            "left": 1074.515625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1206.640625,
+            "y": 525.953125,
+            "width": 206.671875,
+            "height": 210.59375,
+            "top": 525.953125,
+            "right": 1413.3125,
+            "bottom": 736.546875,
+            "left": 1206.640625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1281.171875,
+            "y": 704.140625,
+            "width": 57.59375,
+            "height": 32.5,
+            "top": 704.140625,
+            "right": 1338.765625,
+            "bottom": 736.640625,
+            "left": 1281.171875
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1413.3125,
+            "y": 525.9547729492188,
+            "width": 206.671875,
+            "height": 210.59375,
+            "top": 525.9547729492188,
+            "right": 1619.984375,
+            "bottom": 736.5485229492188,
+            "left": 1413.3125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1487.84375,
+            "y": 704.1422729492188,
+            "width": 57.59375,
+            "height": 32.5,
+            "top": 704.1422729492188,
+            "right": 1545.4375,
+            "bottom": 736.6422729492188,
+            "left": 1487.84375
+          }
+        },
+        {
+          "class": "result-note",
+          "background": "rgba(0, 0, 0, 0) radial-gradient(rgba(0, 17, 14, 0.84), rgba(0, 0, 0, 0) 80%) repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 825.59375,
+            "y": 754.984375,
+            "width": 968.828125,
+            "height": 30.296875,
+            "top": 754.984375,
+            "right": 1794.421875,
+            "bottom": 785.28125,
+            "left": 825.59375
+          }
+        }
+      ]
+    },
+    {
+      "name": "fullscreen-1920",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080,
+        "top": 0,
+        "right": 1920,
+        "bottom": 1080,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 672,
+            "y": 466.3126525878906,
+            "width": 48,
+            "height": 47.999969482421875,
+            "top": 466.3126525878906,
+            "right": 720,
+            "bottom": 514.3126220703125,
+            "left": 672
+          },
+          "panel": {
+            "x": 620,
+            "y": 285.0001525878906,
+            "width": 680,
+            "height": 509.9999694824219,
+            "top": 285.0001525878906,
+            "right": 1300,
+            "bottom": 795.0001220703125,
+            "left": 620
+          },
+          "frame": {
+            "x": 620,
+            "y": 333.0001525878906,
+            "width": 48,
+            "height": 413.9999694824219,
+            "top": 333.0001525878906,
+            "right": 668,
+            "bottom": 747.0001220703125,
+            "left": 620
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 672,
+            "y": 542.3594970703125,
+            "width": 48,
+            "height": 48,
+            "top": 542.3594970703125,
+            "right": 720,
+            "bottom": 590.3594970703125,
+            "left": 672
+          },
+          "panel": {
+            "x": 620,
+            "y": 285.0001525878906,
+            "width": 680,
+            "height": 509.9999694824219,
+            "top": 285.0001525878906,
+            "right": 1300,
+            "bottom": 795.0001220703125,
+            "left": 620
+          },
+          "frame": {
+            "x": 620,
+            "y": 333.0001525878906,
+            "width": 48,
+            "height": 413.9999694824219,
+            "top": 333.0001525878906,
+            "right": 668,
+            "bottom": 747.0001220703125,
+            "left": 620
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 672,
+            "y": 618.4063720703125,
+            "width": 48,
+            "height": 48,
+            "top": 618.4063720703125,
+            "right": 720,
+            "bottom": 666.4063720703125,
+            "left": 672
+          },
+          "panel": {
+            "x": 620,
+            "y": 285.0001525878906,
+            "width": 680,
+            "height": 509.9999694824219,
+            "top": 285.0001525878906,
+            "right": 1300,
+            "bottom": 795.0001220703125,
+            "left": 620
+          },
+          "frame": {
+            "x": 620,
+            "y": 333.0001525878906,
+            "width": 48,
+            "height": 413.9999694824219,
+            "top": 333.0001525878906,
+            "right": 668,
+            "bottom": 747.0001220703125,
+            "left": 620
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1366",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0007964996038936079,
+        "width": 1366,
+        "height": 768,
+        "top": 0.0007964996038936079,
+        "right": 1366,
+        "bottom": 768.0007964996039,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 88.921875,
+            "y": 632.1726684570312,
+            "width": 286.859375,
+            "height": 92.4375,
+            "top": 632.1726684570312,
+            "right": 375.78125,
+            "bottom": 724.6101684570312,
+            "left": 88.921875
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 396.125,
+            "y": 630.0320434570312,
+            "width": 102.4375,
+            "height": 97.40625,
+            "top": 630.0320434570312,
+            "right": 498.5625,
+            "bottom": 727.4382934570312,
+            "left": 396.125
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 498.5625,
+            "y": 630.0320434570312,
+            "width": 102.453125,
+            "height": 97.40625,
+            "top": 630.0320434570312,
+            "right": 601.015625,
+            "bottom": 727.4382934570312,
+            "left": 498.5625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 121.65625,
+            "y": 646.5320434570312,
+            "width": 94.796875,
+            "height": 16,
+            "top": 646.5320434570312,
+            "right": 216.453125,
+            "bottom": 662.5320434570312,
+            "left": 121.65625
+          },
+          "box": {
+            "x": 110.765625,
+            "y": 641.3757934570312,
+            "width": 116.578125,
+            "height": 74.03125,
+            "top": 641.3757934570312,
+            "right": 227.34375,
+            "bottom": 715.4070434570312,
+            "left": 110.765625
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 247.625,
+            "y": 646.5320434570312,
+            "width": 96.03125,
+            "height": 16,
+            "top": 646.5320434570312,
+            "right": 343.65625,
+            "bottom": 662.5320434570312,
+            "left": 247.625
+          },
+          "box": {
+            "x": 237.34375,
+            "y": 641.3757934570312,
+            "width": 116.59375,
+            "height": 74.03125,
+            "top": 641.3757934570312,
+            "right": 353.9375,
+            "bottom": 715.4070434570312,
+            "left": 237.34375
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 18,
+          "plate": false,
+          "ink": {
+            "x": 426.8125,
+            "y": 683.9851684570312,
+            "width": 41.046875,
+            "height": 21,
+            "top": 683.9851684570312,
+            "right": 467.859375,
+            "bottom": 704.9851684570312,
+            "left": 426.8125
+          },
+          "box": {
+            "x": 426.8125,
+            "y": 682.9851684570312,
+            "width": 41.046875,
+            "height": 23.390625,
+            "top": 682.9851684570312,
+            "right": 467.859375,
+            "bottom": 706.3757934570312,
+            "left": 426.8125
+          },
+          "owner": {
+            "x": 396.125,
+            "y": 630.0320434570312,
+            "width": 102.4375,
+            "height": 97.40625,
+            "top": 630.0320434570312,
+            "right": 498.5625,
+            "bottom": 727.4382934570312,
+            "left": 396.125
+          }
+        },
+        {
+          "text": "№7",
+          "font": 18,
+          "plate": false,
+          "ink": {
+            "x": 537.453125,
+            "y": 684.0007934570312,
+            "width": 24.671875,
+            "height": 21,
+            "top": 684.0007934570312,
+            "right": 562.125,
+            "bottom": 705.0007934570312,
+            "left": 537.453125
+          },
+          "box": {
+            "x": 537.453125,
+            "y": 683.0007934570312,
+            "width": 24.671875,
+            "height": 23.390625,
+            "top": 683.0007934570312,
+            "right": 562.125,
+            "bottom": 706.3914184570312,
+            "left": 537.453125
+          },
+          "owner": {
+            "x": 498.5625,
+            "y": 630.0320434570312,
+            "width": 102.453125,
+            "height": 97.40625,
+            "top": 630.0320434570312,
+            "right": 601.015625,
+            "bottom": 727.4382934570312,
+            "left": 498.5625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1366",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0.0008379251812584698,
+        "width": 1366,
+        "height": 768,
+        "top": 0.0008379251812584698,
+        "right": 1366,
+        "bottom": 768.0008379251813,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 88.921875,
+            "y": 632.1727294921875,
+            "width": 286.859375,
+            "height": 92.4375,
+            "top": 632.1727294921875,
+            "right": 375.78125,
+            "bottom": 724.6102294921875,
+            "left": 88.921875
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 396.125,
+            "y": 630.0321044921875,
+            "width": 102.4375,
+            "height": 97.40625,
+            "top": 630.0321044921875,
+            "right": 498.5625,
+            "bottom": 727.4383544921875,
+            "left": 396.125
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 498.5625,
+            "y": 630.0321044921875,
+            "width": 102.453125,
+            "height": 97.40625,
+            "top": 630.0321044921875,
+            "right": 601.015625,
+            "bottom": 727.4383544921875,
+            "left": 498.5625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 121.65625,
+            "y": 646.5321044921875,
+            "width": 94.796875,
+            "height": 16,
+            "top": 646.5321044921875,
+            "right": 216.453125,
+            "bottom": 662.5321044921875,
+            "left": 121.65625
+          },
+          "box": {
+            "x": 110.765625,
+            "y": 641.3758544921875,
+            "width": 116.578125,
+            "height": 74.03125,
+            "top": 641.3758544921875,
+            "right": 227.34375,
+            "bottom": 715.4071044921875,
+            "left": 110.765625
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 247.625,
+            "y": 646.5321044921875,
+            "width": 96.03125,
+            "height": 16,
+            "top": 646.5321044921875,
+            "right": 343.65625,
+            "bottom": 662.5321044921875,
+            "left": 247.625
+          },
+          "box": {
+            "x": 237.34375,
+            "y": 641.3758544921875,
+            "width": 116.59375,
+            "height": 74.03125,
+            "top": 641.3758544921875,
+            "right": 353.9375,
+            "bottom": 715.4071044921875,
+            "left": 237.34375
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 18.4956,
+          "plate": true,
+          "ink": {
+            "x": 405.171875,
+            "y": 699.3602294921875,
+            "width": 84.328125,
+            "height": 21,
+            "top": 699.3602294921875,
+            "right": 489.5,
+            "bottom": 720.3602294921875,
+            "left": 405.171875
+          },
+          "box": {
+            "x": 396.171875,
+            "y": 694.3602294921875,
+            "width": 102.328125,
+            "height": 32.046875,
+            "top": 694.3602294921875,
+            "right": 498.5,
+            "bottom": 726.4071044921875,
+            "left": 396.171875
+          },
+          "owner": {
+            "x": 396.125,
+            "y": 630.0321044921875,
+            "width": 102.4375,
+            "height": 97.40625,
+            "top": 630.0321044921875,
+            "right": 498.5625,
+            "bottom": 727.4383544921875,
+            "left": 396.125
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 18,
+          "plate": false,
+          "ink": {
+            "x": 525.140625,
+            "y": 684.0008544921875,
+            "width": 49.296875,
+            "height": 21,
+            "top": 684.0008544921875,
+            "right": 574.4375,
+            "bottom": 705.0008544921875,
+            "left": 525.140625
+          },
+          "box": {
+            "x": 525.140625,
+            "y": 683.0008544921875,
+            "width": 49.296875,
+            "height": 23.390625,
+            "top": 683.0008544921875,
+            "right": 574.4375,
+            "bottom": 706.3914794921875,
+            "left": 525.140625
+          },
+          "owner": {
+            "x": 498.5625,
+            "y": 630.0321044921875,
+            "width": 102.453125,
+            "height": 97.40625,
+            "top": 630.0321044921875,
+            "right": 601.015625,
+            "bottom": 727.4383544921875,
+            "left": 498.5625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1366",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 768,
+        "top": 0,
+        "right": 1366,
+        "bottom": 768,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": [
+        {
+          "class": "primary-stats",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 711.453125,
+            "y": 374.015625,
+            "width": 441.09375,
+            "height": 149.75,
+            "top": 374.015625,
+            "right": 1152.546875,
+            "bottom": 523.765625,
+            "left": 711.453125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 711.453125,
+            "y": 374.015625,
+            "width": 147.03125,
+            "height": 149.75,
+            "top": 374.015625,
+            "right": 858.484375,
+            "bottom": 523.765625,
+            "left": 711.453125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 764.484375,
+            "y": 500.734375,
+            "width": 40.96875,
+            "height": 23.125,
+            "top": 500.734375,
+            "right": 805.453125,
+            "bottom": 523.859375,
+            "left": 764.484375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 858.484375,
+            "y": 374.015625,
+            "width": 147.03125,
+            "height": 149.75,
+            "top": 374.015625,
+            "right": 1005.515625,
+            "bottom": 523.765625,
+            "left": 858.484375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 911.515625,
+            "y": 500.734375,
+            "width": 40.96875,
+            "height": 23.125,
+            "top": 500.734375,
+            "right": 952.484375,
+            "bottom": 523.859375,
+            "left": 911.515625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1005.515625,
+            "y": 374.0173034667969,
+            "width": 147.03125,
+            "height": 149.74996948242188,
+            "top": 374.0173034667969,
+            "right": 1152.546875,
+            "bottom": 523.7672729492188,
+            "left": 1005.515625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 1058.546875,
+            "y": 500.7360534667969,
+            "width": 40.96875,
+            "height": 23.124969482421875,
+            "top": 500.7360534667969,
+            "right": 1099.515625,
+            "bottom": 523.8610229492188,
+            "left": 1058.546875
+          }
+        },
+        {
+          "class": "result-note",
+          "background": "rgba(0, 0, 0, 0) radial-gradient(rgba(0, 17, 14, 0.84), rgba(0, 0, 0, 0) 80%) repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 587.375,
+            "y": 536.875,
+            "width": 689.28125,
+            "height": 24.890625,
+            "top": 536.875,
+            "right": 1276.65625,
+            "bottom": 561.765625,
+            "left": 587.375
+          }
+        }
+      ]
+    },
+    {
+      "name": "fullscreen-1366",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 768,
+        "top": 0,
+        "right": 1366,
+        "bottom": 768,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 395,
+            "y": 292.6407775878906,
+            "width": 48,
+            "height": 48,
+            "top": 292.6407775878906,
+            "right": 443,
+            "bottom": 340.6407775878906,
+            "left": 395
+          },
+          "panel": {
+            "x": 343,
+            "y": 129.00015258789062,
+            "width": 680,
+            "height": 510.0000305175781,
+            "top": 129.00015258789062,
+            "right": 1023,
+            "bottom": 639.0001831054688,
+            "left": 343
+          },
+          "frame": {
+            "x": 343,
+            "y": 177.00015258789062,
+            "width": 48,
+            "height": 414.0000305175781,
+            "top": 177.00015258789062,
+            "right": 391,
+            "bottom": 591.0001831054688,
+            "left": 343
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 395,
+            "y": 363.6407775878906,
+            "width": 48,
+            "height": 48,
+            "top": 363.6407775878906,
+            "right": 443,
+            "bottom": 411.6407775878906,
+            "left": 395
+          },
+          "panel": {
+            "x": 343,
+            "y": 129.00015258789062,
+            "width": 680,
+            "height": 510.0000305175781,
+            "top": 129.00015258789062,
+            "right": 1023,
+            "bottom": 639.0001831054688,
+            "left": 343
+          },
+          "frame": {
+            "x": 343,
+            "y": 177.00015258789062,
+            "width": 48,
+            "height": 414.0000305175781,
+            "top": 177.00015258789062,
+            "right": 391,
+            "bottom": 591.0001831054688,
+            "left": 343
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 395,
+            "y": 434.6407775878906,
+            "width": 48,
+            "height": 48,
+            "top": 434.6407775878906,
+            "right": 443,
+            "bottom": 482.6407775878906,
+            "left": 395
+          },
+          "panel": {
+            "x": 343,
+            "y": 129.00015258789062,
+            "width": 680,
+            "height": 510.0000305175781,
+            "top": 129.00015258789062,
+            "right": 1023,
+            "bottom": 639.0001831054688,
+            "left": 343
+          },
+          "frame": {
+            "x": 343,
+            "y": 177.00015258789062,
+            "width": 48,
+            "height": 414.0000305175781,
+            "top": 177.00015258789062,
+            "right": 391,
+            "bottom": 591.0001831054688,
+            "left": 343
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1280",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0008750236593186855,
+        "width": 1280,
+        "height": 720,
+        "top": 0.0008750236593186855,
+        "right": 1280,
+        "bottom": 720.0008750236593,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 83.3125,
+            "y": 592.6571044921875,
+            "width": 268.796875,
+            "height": 86.65625,
+            "top": 592.6571044921875,
+            "right": 352.109375,
+            "bottom": 679.3133544921875,
+            "left": 83.3125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 371.1875,
+            "y": 590.6571044921875,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.6571044921875,
+            "right": 467.1875,
+            "bottom": 681.9852294921875,
+            "left": 371.1875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 467.1875,
+            "y": 590.6571044921875,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.6571044921875,
+            "right": 563.1875,
+            "bottom": 681.9852294921875,
+            "left": 467.1875
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 110.84375,
+            "y": 605.5008544921875,
+            "width": 94.796875,
+            "height": 16,
+            "top": 605.5008544921875,
+            "right": 205.640625,
+            "bottom": 621.5008544921875,
+            "left": 110.84375
+          },
+          "box": {
+            "x": 103.78125,
+            "y": 601.2821044921875,
+            "width": 108.921875,
+            "height": 69.40625,
+            "top": 601.2821044921875,
+            "right": 212.703125,
+            "bottom": 670.6883544921875,
+            "left": 103.78125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 229.15625,
+            "y": 605.5008544921875,
+            "width": 96.03125,
+            "height": 16,
+            "top": 605.5008544921875,
+            "right": 325.1875,
+            "bottom": 621.5008544921875,
+            "left": 229.15625
+          },
+          "box": {
+            "x": 222.703125,
+            "y": 601.2821044921875,
+            "width": 108.9375,
+            "height": 69.40625,
+            "top": 601.2821044921875,
+            "right": 331.640625,
+            "bottom": 670.6883544921875,
+            "left": 222.703125
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 400.9375,
+            "y": 642.5633544921875,
+            "width": 36.484375,
+            "height": 18,
+            "top": 642.5633544921875,
+            "right": 437.421875,
+            "bottom": 660.5633544921875,
+            "left": 400.9375
+          },
+          "box": {
+            "x": 400.9375,
+            "y": 641.5633544921875,
+            "width": 36.484375,
+            "height": 20.796875,
+            "top": 641.5633544921875,
+            "right": 437.421875,
+            "bottom": 662.3602294921875,
+            "left": 400.9375
+          },
+          "owner": {
+            "x": 371.1875,
+            "y": 590.6571044921875,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.6571044921875,
+            "right": 467.1875,
+            "bottom": 681.9852294921875,
+            "left": 371.1875
+          }
+        },
+        {
+          "text": "№7",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 504.21875,
+            "y": 642.5633544921875,
+            "width": 21.921875,
+            "height": 18,
+            "top": 642.5633544921875,
+            "right": 526.140625,
+            "bottom": 660.5633544921875,
+            "left": 504.21875
+          },
+          "box": {
+            "x": 504.21875,
+            "y": 641.5633544921875,
+            "width": 21.921875,
+            "height": 20.796875,
+            "top": 641.5633544921875,
+            "right": 526.140625,
+            "bottom": 662.3602294921875,
+            "left": 504.21875
+          },
+          "owner": {
+            "x": 467.1875,
+            "y": 590.6571044921875,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.6571044921875,
+            "right": 563.1875,
+            "bottom": 681.9852294921875,
+            "left": 467.1875
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1280",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 83.3125,
+            "y": 592.65625,
+            "width": 268.796875,
+            "height": 86.65625,
+            "top": 592.65625,
+            "right": 352.109375,
+            "bottom": 679.3125,
+            "left": 83.3125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 371.1875,
+            "y": 590.65625,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.65625,
+            "right": 467.1875,
+            "bottom": 681.984375,
+            "left": 371.1875
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 467.1875,
+            "y": 590.65625,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.65625,
+            "right": 563.1875,
+            "bottom": 681.984375,
+            "left": 467.1875
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 110.84375,
+            "y": 605.5,
+            "width": 94.796875,
+            "height": 16,
+            "top": 605.5,
+            "right": 205.640625,
+            "bottom": 621.5,
+            "left": 110.84375
+          },
+          "box": {
+            "x": 103.78125,
+            "y": 601.28125,
+            "width": 108.921875,
+            "height": 69.40625,
+            "top": 601.28125,
+            "right": 212.703125,
+            "bottom": 670.6875,
+            "left": 103.78125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 229.15625,
+            "y": 605.5,
+            "width": 96.03125,
+            "height": 16,
+            "top": 605.5,
+            "right": 325.1875,
+            "bottom": 621.5,
+            "left": 229.15625
+          },
+          "box": {
+            "x": 222.703125,
+            "y": 601.28125,
+            "width": 108.9375,
+            "height": 69.40625,
+            "top": 601.28125,
+            "right": 331.640625,
+            "bottom": 670.6875,
+            "left": 222.703125
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 17.3312,
+          "plate": true,
+          "ink": {
+            "x": 379.671875,
+            "y": 656.09375,
+            "width": 79.046875,
+            "height": 20,
+            "top": 656.09375,
+            "right": 458.71875,
+            "bottom": 676.09375,
+            "left": 379.671875
+          },
+          "box": {
+            "x": 370.671875,
+            "y": 651.09375,
+            "width": 97.046875,
+            "height": 30.515625,
+            "top": 651.09375,
+            "right": 467.71875,
+            "bottom": 681.609375,
+            "left": 370.671875
+          },
+          "owner": {
+            "x": 371.1875,
+            "y": 590.65625,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.65625,
+            "right": 467.1875,
+            "bottom": 681.984375,
+            "left": 371.1875
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 493.28125,
+            "y": 642.5625,
+            "width": 43.8125,
+            "height": 18,
+            "top": 642.5625,
+            "right": 537.09375,
+            "bottom": 660.5625,
+            "left": 493.28125
+          },
+          "box": {
+            "x": 493.28125,
+            "y": 641.5625,
+            "width": 43.8125,
+            "height": 20.796875,
+            "top": 641.5625,
+            "right": 537.09375,
+            "bottom": 662.359375,
+            "left": 493.28125
+          },
+          "owner": {
+            "x": 467.1875,
+            "y": 590.65625,
+            "width": 96,
+            "height": 91.328125,
+            "top": 590.65625,
+            "right": 563.1875,
+            "bottom": 681.984375,
+            "left": 467.1875
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "fullscreen-1280",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": [
+        {
+          "class": "primary-stats",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 666.65625,
+            "y": 350.625,
+            "width": 413.328125,
+            "height": 140.390625,
+            "top": 350.625,
+            "right": 1079.984375,
+            "bottom": 491.015625,
+            "left": 666.65625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 666.65625,
+            "y": 350.625,
+            "width": 137.765625,
+            "height": 140.390625,
+            "top": 350.625,
+            "right": 804.421875,
+            "bottom": 491.015625,
+            "left": 666.65625
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 716.328125,
+            "y": 469.421875,
+            "width": 38.390625,
+            "height": 21.65625,
+            "top": 469.421875,
+            "right": 754.71875,
+            "bottom": 491.078125,
+            "left": 716.328125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 804.421875,
+            "y": 350.625,
+            "width": 137.78125,
+            "height": 140.390625,
+            "top": 350.625,
+            "right": 942.203125,
+            "bottom": 491.015625,
+            "left": 804.421875
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 854.109375,
+            "y": 469.421875,
+            "width": 38.390625,
+            "height": 21.65625,
+            "top": 469.421875,
+            "right": 892.5,
+            "bottom": 491.078125,
+            "left": 854.109375
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 942.203125,
+            "y": 350.62664794921875,
+            "width": 137.78125,
+            "height": 140.390625,
+            "top": 350.62664794921875,
+            "right": 1079.984375,
+            "bottom": 491.01727294921875,
+            "left": 942.203125
+          }
+        },
+        {
+          "class": "",
+          "background": "rgba(4, 12, 11, 0.85) none repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 991.890625,
+            "y": 469.42352294921875,
+            "width": 38.390625,
+            "height": 21.65625,
+            "top": 469.42352294921875,
+            "right": 1030.28125,
+            "bottom": 491.07977294921875,
+            "left": 991.890625
+          }
+        },
+        {
+          "class": "result-note",
+          "background": "rgba(0, 0, 0, 0) radial-gradient(rgba(0, 17, 14, 0.84), rgba(0, 0, 0, 0) 80%) repeat scroll 0% 0% / auto padding-box border-box",
+          "shadow": "none",
+          "clip": "none",
+          "before": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+          "box": {
+            "x": 550.390625,
+            "y": 503.328125,
+            "width": 645.875,
+            "height": 24.890625,
+            "top": 503.328125,
+            "right": 1196.265625,
+            "bottom": 528.21875,
+            "left": 550.390625
+          }
+        }
+      ]
+    },
+    {
+      "name": "fullscreen-1280",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 352,
+            "y": 266.48455810546875,
+            "width": 48,
+            "height": 48,
+            "top": 266.48455810546875,
+            "right": 400,
+            "bottom": 314.48455810546875,
+            "left": 352
+          },
+          "panel": {
+            "x": 300,
+            "y": 105.00017547607422,
+            "width": 680,
+            "height": 510,
+            "top": 105.00017547607422,
+            "right": 980,
+            "bottom": 615.0001754760742,
+            "left": 300
+          },
+          "frame": {
+            "x": 300,
+            "y": 153.00018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 153.00018310546875,
+            "right": 348,
+            "bottom": 567.0001831054688,
+            "left": 300
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 352,
+            "y": 337.48455810546875,
+            "width": 48,
+            "height": 48,
+            "top": 337.48455810546875,
+            "right": 400,
+            "bottom": 385.48455810546875,
+            "left": 352
+          },
+          "panel": {
+            "x": 300,
+            "y": 105.00017547607422,
+            "width": 680,
+            "height": 510,
+            "top": 105.00017547607422,
+            "right": 980,
+            "bottom": 615.0001754760742,
+            "left": 300
+          },
+          "frame": {
+            "x": 300,
+            "y": 153.00018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 153.00018310546875,
+            "right": 348,
+            "bottom": 567.0001831054688,
+            "left": 300
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 352,
+            "y": 408.48455810546875,
+            "width": 48,
+            "height": 48,
+            "top": 408.48455810546875,
+            "right": 400,
+            "bottom": 456.48455810546875,
+            "left": 352
+          },
+          "panel": {
+            "x": 300,
+            "y": 105.00017547607422,
+            "width": 680,
+            "height": 510,
+            "top": 105.00017547607422,
+            "right": 980,
+            "bottom": 615.0001754760742,
+            "left": 300
+          },
+          "frame": {
+            "x": 300,
+            "y": 153.00018310546875,
+            "width": 48,
+            "height": 414,
+            "top": 153.00018310546875,
+            "right": 348,
+            "bottom": 567.0001831054688,
+            "left": 300
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    },
+    {
+      "name": "mobile-844",
+      "state": "normal",
+      "scene": {
+        "x": 0,
+        "y": 0.0009946420323103666,
+        "width": 844,
+        "height": 390,
+        "top": 0.0009946420323103666,
+        "right": 844,
+        "bottom": 390.0009946420323,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 25.3125,
+            "y": 312.0010070800781,
+            "width": 227.875,
+            "height": 70.1875,
+            "top": 312.0010070800781,
+            "right": 253.1875,
+            "bottom": 382.1885070800781,
+            "left": 25.3125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 261.625,
+            "y": 312.0010070800781,
+            "width": 84.390625,
+            "height": 70.1875,
+            "top": 312.0010070800781,
+            "right": 346.015625,
+            "bottom": 382.1885070800781,
+            "left": 261.625
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 346.015625,
+            "y": 312.0010070800781,
+            "width": 84.40625,
+            "height": 70.1875,
+            "top": 312.0010070800781,
+            "right": 430.421875,
+            "bottom": 382.1885070800781,
+            "left": 346.015625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 37.875,
+            "y": 319.0010070800781,
+            "width": 94.796875,
+            "height": 16,
+            "top": 319.0010070800781,
+            "right": 132.671875,
+            "bottom": 335.0010070800781,
+            "left": 37.875
+          },
+          "box": {
+            "x": 35.3125,
+            "y": 318.0010070800781,
+            "width": 99.9375,
+            "height": 59.375,
+            "top": 318.0010070800781,
+            "right": 135.25,
+            "bottom": 377.3760070800781,
+            "left": 35.3125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 145.203125,
+            "y": 319.0010070800781,
+            "width": 96.03125,
+            "height": 16,
+            "top": 319.0010070800781,
+            "right": 241.234375,
+            "bottom": 335.0010070800781,
+            "left": 145.203125
+          },
+          "box": {
+            "x": 143.25,
+            "y": 318.0010070800781,
+            "width": 99.9375,
+            "height": 59.375,
+            "top": 318.0010070800781,
+            "right": 243.1875,
+            "bottom": 377.3760070800781,
+            "left": 143.25
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "6 840",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 285.578125,
+            "y": 351.7510070800781,
+            "width": 36.484375,
+            "height": 18,
+            "top": 351.7510070800781,
+            "right": 322.0625,
+            "bottom": 369.7510070800781,
+            "left": 285.578125
+          },
+          "box": {
+            "x": 285.578125,
+            "y": 350.7510070800781,
+            "width": 36.484375,
+            "height": 20.796875,
+            "top": 350.7510070800781,
+            "right": 322.0625,
+            "bottom": 371.5478820800781,
+            "left": 285.578125
+          },
+          "owner": {
+            "x": 261.625,
+            "y": 312.0010070800781,
+            "width": 84.390625,
+            "height": 70.1875,
+            "top": 312.0010070800781,
+            "right": 346.015625,
+            "bottom": 382.1885070800781,
+            "left": 261.625
+          }
+        },
+        {
+          "text": "№7",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 377.25,
+            "y": 351.7510070800781,
+            "width": 21.921875,
+            "height": 18,
+            "top": 351.7510070800781,
+            "right": 399.171875,
+            "bottom": 369.7510070800781,
+            "left": 377.25
+          },
+          "box": {
+            "x": 377.25,
+            "y": 350.7510070800781,
+            "width": 21.921875,
+            "height": 20.796875,
+            "top": 350.7510070800781,
+            "right": 399.171875,
+            "bottom": 371.5478820800781,
+            "left": 377.25
+          },
+          "owner": {
+            "x": 346.015625,
+            "y": 312.0010070800781,
+            "width": 84.40625,
+            "height": 70.1875,
+            "top": 312.0010070800781,
+            "right": 430.421875,
+            "bottom": 382.1885070800781,
+            "left": 346.015625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "mobile-844",
+      "state": "stress",
+      "score": 99999999,
+      "rank": 9999,
+      "scene": {
+        "x": 0,
+        "y": 0.0008183777681551874,
+        "width": 844,
+        "height": 390,
+        "top": 0.0008183777681551874,
+        "right": 844,
+        "bottom": 390.00081837776816,
+        "left": 0
+      },
+      "dock": null,
+      "children": [
+        {
+          "class": "attempt-tray",
+          "box": {
+            "x": 25.3125,
+            "y": 312.0008239746094,
+            "width": 227.875,
+            "height": 70.1875,
+            "top": 312.0008239746094,
+            "right": 253.1875,
+            "bottom": 382.1883239746094,
+            "left": 25.3125
+          }
+        },
+        {
+          "class": "record-safe",
+          "box": {
+            "x": 261.625,
+            "y": 312.0008239746094,
+            "width": 84.390625,
+            "height": 70.1875,
+            "top": 312.0008239746094,
+            "right": 346.015625,
+            "bottom": 382.1883239746094,
+            "left": 261.625
+          }
+        },
+        {
+          "class": "rank-safe",
+          "box": {
+            "x": 346.015625,
+            "y": 312.0008239746094,
+            "width": 84.40625,
+            "height": 70.1875,
+            "top": 312.0008239746094,
+            "right": 430.421875,
+            "bottom": 382.1883239746094,
+            "left": 346.015625
+          }
+        }
+      ],
+      "headings": [
+        {
+          "text": "ЕЖЕДНЕВНЫЕ",
+          "ink": {
+            "x": 37.875,
+            "y": 319.0008239746094,
+            "width": 94.796875,
+            "height": 16,
+            "top": 319.0008239746094,
+            "right": 132.671875,
+            "bottom": 335.0008239746094,
+            "left": 37.875
+          },
+          "box": {
+            "x": 35.3125,
+            "y": 318.0008239746094,
+            "width": 99.9375,
+            "height": 59.375,
+            "top": 318.0008239746094,
+            "right": 135.25,
+            "bottom": 377.3758239746094,
+            "left": 35.3125
+          }
+        },
+        {
+          "text": "ОТ СПОНСОРА",
+          "ink": {
+            "x": 145.203125,
+            "y": 319.0008239746094,
+            "width": 96.03125,
+            "height": 16,
+            "top": 319.0008239746094,
+            "right": 241.234375,
+            "bottom": 335.0008239746094,
+            "left": 145.203125
+          },
+          "box": {
+            "x": 143.25,
+            "y": 318.0008239746094,
+            "width": 99.9375,
+            "height": 59.375,
+            "top": 318.0008239746094,
+            "right": 243.1875,
+            "bottom": 377.3758239746094,
+            "left": 143.25
+          }
+        }
+      ],
+      "values": [
+        {
+          "text": "99 999 999",
+          "font": 16,
+          "plate": true,
+          "ink": {
+            "x": 267.328125,
+            "y": 363.9070739746094,
+            "width": 72.96875,
+            "height": 18,
+            "top": 363.9070739746094,
+            "right": 340.296875,
+            "bottom": 381.9070739746094,
+            "left": 267.328125
+          },
+          "box": {
+            "x": 258.328125,
+            "y": 358.9070739746094,
+            "width": 90.96875,
+            "height": 28.796875,
+            "top": 358.9070739746094,
+            "right": 349.296875,
+            "bottom": 387.7039489746094,
+            "left": 258.328125
+          },
+          "owner": {
+            "x": 261.625,
+            "y": 312.0008239746094,
+            "width": 84.390625,
+            "height": 70.1875,
+            "top": 312.0008239746094,
+            "right": 346.015625,
+            "bottom": 382.1883239746094,
+            "left": 261.625
+          }
+        },
+        {
+          "text": "№9999",
+          "font": 16,
+          "plate": false,
+          "ink": {
+            "x": 366.3125,
+            "y": 351.7508239746094,
+            "width": 43.8125,
+            "height": 18,
+            "top": 351.7508239746094,
+            "right": 410.125,
+            "bottom": 369.7508239746094,
+            "left": 366.3125
+          },
+          "box": {
+            "x": 366.3125,
+            "y": 350.7508239746094,
+            "width": 43.8125,
+            "height": 20.796875,
+            "top": 350.7508239746094,
+            "right": 410.125,
+            "bottom": 371.5476989746094,
+            "left": 366.3125
+          },
+          "owner": {
+            "x": 346.015625,
+            "y": 312.0008239746094,
+            "width": 84.40625,
+            "height": 70.1875,
+            "top": 312.0008239746094,
+            "right": 430.421875,
+            "bottom": 382.1883239746094,
+            "left": 346.015625
+          }
+        }
+      ],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "mobile-844",
+      "state": "result-record",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 390,
+        "top": 0,
+        "right": 844,
+        "bottom": 390,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [],
+      "result": []
+    },
+    {
+      "name": "mobile-844",
+      "state": "settings",
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 390,
+        "top": 0,
+        "right": 844,
+        "bottom": 390,
+        "left": 0
+      },
+      "dock": null,
+      "children": [],
+      "headings": [],
+      "values": [],
+      "settings": [
+        {
+          "box": {
+            "x": 126,
+            "y": 185.4845428466797,
+            "width": 40,
+            "height": 40,
+            "top": 185.4845428466797,
+            "right": 166,
+            "bottom": 225.4845428466797,
+            "left": 126
+          },
+          "panel": {
+            "x": 82,
+            "y": 11.70329475402832,
+            "width": 680,
+            "height": 366.59375,
+            "top": 11.70329475402832,
+            "right": 762,
+            "bottom": 378.2970447540283,
+            "left": 82
+          },
+          "frame": {
+            "x": 82,
+            "y": 59.70329284667969,
+            "width": 48,
+            "height": 270.59375,
+            "top": 59.70329284667969,
+            "right": 130,
+            "bottom": 330.2970428466797,
+            "left": 82
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/sound-on.png"
+        },
+        {
+          "box": {
+            "x": 126,
+            "y": 256.48455810546875,
+            "width": 40,
+            "height": 40,
+            "top": 256.48455810546875,
+            "right": 166,
+            "bottom": 296.48455810546875,
+            "left": 126
+          },
+          "panel": {
+            "x": 82,
+            "y": 11.70329475402832,
+            "width": 680,
+            "height": 366.59375,
+            "top": 11.70329475402832,
+            "right": 762,
+            "bottom": 378.2970447540283,
+            "left": 82
+          },
+          "frame": {
+            "x": 82,
+            "y": 59.70329284667969,
+            "width": 48,
+            "height": 270.59375,
+            "top": 59.70329284667969,
+            "right": 130,
+            "bottom": 330.2970428466797,
+            "left": 82
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/settings.png"
+        },
+        {
+          "box": {
+            "x": 126,
+            "y": 327.48455810546875,
+            "width": 40,
+            "height": 40,
+            "top": 327.48455810546875,
+            "right": 166,
+            "bottom": 367.48455810546875,
+            "left": 126
+          },
+          "panel": {
+            "x": 82,
+            "y": 11.70329475402832,
+            "width": 680,
+            "height": 366.59375,
+            "top": 11.70329475402832,
+            "right": 762,
+            "bottom": 378.2970447540283,
+            "left": 82
+          },
+          "frame": {
+            "x": 82,
+            "y": 59.70329284667969,
+            "width": 48,
+            "height": 270.59375,
+            "top": 59.70329284667969,
+            "right": 130,
+            "bottom": 330.2970428466797,
+            "left": 82
+          },
+          "src": "http://127.0.0.1:8776/giveaway-test/releases/snake-next-8d3f1e254a4b/grib/mushroom-snake-ui-v5/fullscreen.png"
+        }
+      ],
+      "result": []
+    }
+  ]
+}

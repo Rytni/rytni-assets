@@ -1,0 +1,11 @@
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const current=JSON.parse(fs.readFileSync('giveaway-test/manifest.json')).current;
+const old=JSON.parse(fs.readFileSync('giveaway-test/releases/snake-next-8d3f1e254a4b/runtime.json'));
+const next=JSON.parse(fs.readFileSync('giveaway-test/'+current.snake_runtime.file));
+const changed=next.files.filter(f=>old.files.find(o=>o.file===f.file)?.sha256!==f.sha256).map(f=>f.file);
+assert.deepEqual(changed.sort(),['snake/product/record-place-value.js','snake/product/ui-v5-2.css','snake/product/ui.js'].sort());
+assert.equal(next.files.length,old.files.length);
+const production=fs.readFileSync('giveaway/manifest.json'),prior=cp.execFileSync('git',['show','23f2de3:giveaway/manifest.json']);
+assert.equal(production.toString().replace(/\r\n/g,'\n'),prior.toString().replace(/\r\n/g,'\n'));
+const result={current:current.id,runtime:next.id,files:next.files.length,changed,productionSha256:crypto.createHash('sha256').update(production).digest('hex'),productionUnchanged:true,artAndGameplayByteIdentical:true};
+fs.writeFileSync(__dirname+'/closure.json',JSON.stringify(result,null,2)+'\n');console.log(result);

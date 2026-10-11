@@ -1,0 +1,331 @@
+{
+  "settings": [
+    {
+      "tag": "before",
+      "case": "embedded-1118",
+      "icon": "sound-on.png",
+      "metal": 278.93,
+      "inkLeft": 274.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "embedded-1118",
+      "icon": "settings.png",
+      "metal": 278.93,
+      "inkLeft": 274.19,
+      "gap": -4.74,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "embedded-1118",
+      "icon": "fullscreen.png",
+      "metal": 278.93,
+      "inkLeft": 274.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "embedded-720",
+      "icon": "sound-on.png",
+      "metal": 81.29,
+      "inkLeft": 68.09,
+      "gap": -13.19,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "embedded-720",
+      "icon": "settings.png",
+      "metal": 81.29,
+      "inkLeft": 68.25,
+      "gap": -13.04,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "embedded-720",
+      "icon": "fullscreen.png",
+      "metal": 81.29,
+      "inkLeft": 68.09,
+      "gap": -13.19,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1920",
+      "icon": "sound-on.png",
+      "metal": 679.93,
+      "inkLeft": 675.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1920",
+      "icon": "settings.png",
+      "metal": 679.93,
+      "inkLeft": 675.19,
+      "gap": -4.74,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1920",
+      "icon": "fullscreen.png",
+      "metal": 679.93,
+      "inkLeft": 675.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1366",
+      "icon": "sound-on.png",
+      "metal": 402.93,
+      "inkLeft": 398.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1366",
+      "icon": "settings.png",
+      "metal": 402.93,
+      "inkLeft": 398.19,
+      "gap": -4.74,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1366",
+      "icon": "fullscreen.png",
+      "metal": 402.93,
+      "inkLeft": 398.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1280",
+      "icon": "sound-on.png",
+      "metal": 359.93,
+      "inkLeft": 355.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1280",
+      "icon": "settings.png",
+      "metal": 359.93,
+      "inkLeft": 355.19,
+      "gap": -4.74,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "fullscreen-1280",
+      "icon": "fullscreen.png",
+      "metal": 359.93,
+      "inkLeft": 355.0,
+      "gap": -4.93,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "mobile-844",
+      "icon": "sound-on.png",
+      "metal": 141.93,
+      "inkLeft": 128.5,
+      "gap": -13.43,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "mobile-844",
+      "icon": "settings.png",
+      "metal": 141.93,
+      "inkLeft": 128.66,
+      "gap": -13.27,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "before",
+      "case": "mobile-844",
+      "icon": "fullscreen.png",
+      "metal": 141.93,
+      "inkLeft": 128.5,
+      "gap": -13.43,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-1118",
+      "icon": "sound-on.png",
+      "metal": 278.93,
+      "inkLeft": 293.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-1118",
+      "icon": "settings.png",
+      "metal": 278.93,
+      "inkLeft": 293.19,
+      "gap": 14.26,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-1118",
+      "icon": "fullscreen.png",
+      "metal": 278.93,
+      "inkLeft": 293.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-720",
+      "icon": "sound-on.png",
+      "metal": 81.29,
+      "inkLeft": 95.09,
+      "gap": 13.81,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-720",
+      "icon": "settings.png",
+      "metal": 81.29,
+      "inkLeft": 95.25,
+      "gap": 13.96,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "embedded-720",
+      "icon": "fullscreen.png",
+      "metal": 81.29,
+      "inkLeft": 95.09,
+      "gap": 13.81,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1920",
+      "icon": "sound-on.png",
+      "metal": 679.93,
+      "inkLeft": 694.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1920",
+      "icon": "settings.png",
+      "metal": 679.93,
+      "inkLeft": 694.19,
+      "gap": 14.26,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1920",
+      "icon": "fullscreen.png",
+      "metal": 679.93,
+      "inkLeft": 694.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1366",
+      "icon": "sound-on.png",
+      "metal": 402.93,
+      "inkLeft": 417.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1366",
+      "icon": "settings.png",
+      "metal": 402.93,
+      "inkLeft": 417.19,
+      "gap": 14.26,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1366",
+      "icon": "fullscreen.png",
+      "metal": 402.93,
+      "inkLeft": 417.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1280",
+      "icon": "sound-on.png",
+      "metal": 359.93,
+      "inkLeft": 374.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1280",
+      "icon": "settings.png",
+      "metal": 359.93,
+      "inkLeft": 374.19,
+      "gap": 14.26,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "fullscreen-1280",
+      "icon": "fullscreen.png",
+      "metal": 359.93,
+      "inkLeft": 374.0,
+      "gap": 14.07,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "mobile-844",
+      "icon": "sound-on.png",
+      "metal": 141.93,
+      "inkLeft": 155.5,
+      "gap": 13.57,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "mobile-844",
+      "icon": "settings.png",
+      "metal": 141.93,
+      "inkLeft": 155.66,
+      "gap": 13.73,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    },
+    {
+      "tag": "after",
+      "case": "mobile-844",
+      "icon": "fullscreen.png",
+      "metal": 141.93,
+      "inkLeft": 155.5,
+      "gap": 13.57,
+      "method": "visually inspected source metal contour x32, cover mapping; >=128 alpha icon ink"
+    }
+  ],
+  "fullscreen1920MaxBoxDelta": 0.0312,
+  "fullscreen1920DiffOutsideDock": null,
+  "afterMinimumVisibleGap": 13.57
+}

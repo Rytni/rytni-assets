@@ -1,0 +1,23 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Snake Premium V5.2.1 · узкий визуальный gate</title>
+<style>body{margin:24px;background:#0a1517;color:#f4e3be;font:16px/1.5 system-ui}a{color:#8be5dd}nav{display:flex;flex-wrap:wrap;gap:16px;position:sticky;top:0;padding:12px;background:#0a1517ee;z-index:2}section{margin:40px 0;scroll-margin-top:80px}h1,h2{font-family:Georgia}figure{margin:0;min-width:0}img{display:block;max-width:100%;height:auto;background:#020809}figcaption{padding:8px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.overlay{max-width:1118px}pre{overflow:auto;padding:16px;background:#15272b}@media(max-width:850px){.pair{grid-template-columns:1fr}}button{padding:8px;background:#243b36;color:inherit;border:1px solid #a78651}</style>
+<h1>Premium V5.2.1 — только три исправления</h1>
+<p>Стили и PNG Premium V5 сохранены. Без изменения Snake, эффектов и игрового поведения. Нажмите изображение, чтобы открыть исходный PNG в нативном размере.</p>
+<p><a href="https://rytni.live/testpodari?arcade_preview=1">Открыть TEST</a> · <a href="README.md">Причины и измерения</a> · <a href="after.json">Матрица 150 проверок</a> · <a href="raster.json">Контур металла / fullscreen</a> · <a href="live.json">LIVE QA</a></p>
+<nav id="nav"></nav><main id="groups"></main>
+<script>
+const cases=[
+ ['embedded','1. Embedded Main — воспроизведение 1118×629','embedded-1118-main'],
+ ['embedded-stress','2. Embedded stress — 99 999 999 / №9999','embedded-1118-stress'],
+ ['fullscreen','3. Fullscreen 1920×1080 — нормальные значения','fullscreen-1920-main'],
+ ['fullscreen-stress','4. Fullscreen — длинные значения','fullscreen-1920-stress'],
+ ['mobile','5. Mobile 844×390 — нормальные значения','mobile-844-main'],
+ ['mobile-stress','6. Mobile — 99 999 999 / №9999','mobile-844-stress'],
+ ['result','7–8. Result — подложки BEFORE / AFTER','fullscreen-1920-result-record'],
+ ['settings','9–10. Settings — зазор иконок BEFORE / AFTER','embedded-1118-settings'],
+ ['site','Реальный TEST embedded 1366 (сцена 720×405)','host-1366-embedded-normal'],
+ ['site-stress','Реальный TEST embedded — stress','host-1366-embedded-stress']
+];
+const figure=(path,label)=>`<figure><a href="${path}" target="_blank" rel="noopener"><img loading="lazy" src="${path}" alt="${label}"></a><figcaption>${label} · <a href="${path}">Native PNG</a></figcaption></figure>`;
+for(const [id,title,name] of cases){document.querySelector('#nav').insertAdjacentHTML('beforeend',`<a href="#${id}">${id}</a>`);const source=name.startsWith('host-')?[`before-${name}.png`,`${name}.png`]:[`before-${name}.png`,`after-${name}.png`];document.querySelector('#groups').insertAdjacentHTML('beforeend',`<section id="${id}"><h2>${title}</h2><div class="pair">${figure(source[0],'BEFORE · V5.2')}${figure(source[1],'AFTER · V5.2.1')}</div></section>`);}
+document.querySelector('#groups').insertAdjacentHTML('beforeend',`<section id="geometry"><h2>Границы dock</h2><p>Розовый — единый dock; cyan — выделенные дочерние ячейки. Плашки не заходят в соседние ячейки.</p>${figure('overlay-embedded-1118.png','Embedded stress')}${figure('overlay-embedded-720.png','Реальный размер контейнера 720×405')}${figure('overlay-mobile-844.png','Mobile stress')}</section><section><h2>Result — увеличенные детали</h2><div class="pair">${figure('before-fullscreen-1920-result-detail.png','BEFORE ×2')}${figure('after-fullscreen-1920-result-detail.png','AFTER ×2')}</div></section><section><h2>Settings — видимый контур</h2><p>Красный — консервативный вручную проверенный контур металла source x=32 с текущим cover mapping. Cyan — первый существенный alpha-пиксель иконки. Это не измерение по прозрачной коробке PNG.</p><div class="pair">${figure('before-embedded-1118-settings-ink.png','BEFORE: пересечение')}${figure('after-embedded-1118-settings-ink.png','AFTER: безопасный зазор')}</div>${figure('after-mobile-844-settings-lower.png','Mobile: нижняя строка после штатной прокрутки Settings')}</section><section><h2>LIVE: embedded, fullscreen, mobile</h2>${figure('live-1366-embedded-stress.png','LIVE embedded')}${figure('live-1920-fullscreen-normal.png','LIVE desktop fullscreen')}${figure('live-844-fullscreen-stress.png','LIVE mobile fullscreen')}</section>`);
+</script></html>
