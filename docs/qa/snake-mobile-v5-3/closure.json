@@ -1,6 +1,6 @@
 {
-  "current": "2.15.33-f2842dc8be63",
-  "runtime": "snake-next-5d3c8fff0abe",
+  "current": "2.15.33-8ef02a9595f7",
+  "runtime": "snake-next-b24aac6a1150",
   "files": 512,
   "changed": [
     "grib/mushroom-snake-ui-v5-3/dpad.png",

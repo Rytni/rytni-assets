@@ -23,37 +23,37 @@
         },
         {
           "height": 356,
-          "tick": 9,
+          "tick": 8,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 378,
-          "tick": 14,
+          "tick": 11,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 390,
-          "tick": 18,
+          "tick": 16,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 362,
-          "tick": 23,
+          "tick": 20,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 382,
-          "tick": 29,
+          "tick": 24,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 390,
-          "tick": 33,
+          "tick": 29,
           "left": 12,
           "bottomMargin": 12
         }
@@ -61,12 +61,12 @@
       "rotate": {
         "screen": "mobile-gate",
         "reason": "orientation-portrait",
-        "tick": 34,
+        "tick": 30,
         "clock": "paused"
       },
       "resumed": {
-        "tick": 35,
-        "debt": 6.43333335717519,
+        "tick": 30,
+        "debt": 4.700000047683716,
         "screen": "playing"
       },
       "pauseCounts": {
@@ -94,37 +94,37 @@
         },
         {
           "height": 359,
-          "tick": 9,
+          "tick": 7,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 381,
-          "tick": 13,
+          "tick": 11,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 393,
-          "tick": 18,
+          "tick": 15,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 365,
-          "tick": 23,
+          "tick": 20,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 385,
-          "tick": 28,
+          "tick": 24,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 393,
-          "tick": 32,
+          "tick": 29,
           "left": 12,
           "bottomMargin": 12
         }
@@ -132,12 +132,12 @@
       "rotate": {
         "screen": "mobile-gate",
         "reason": "orientation-portrait",
-        "tick": 34,
+        "tick": 30,
         "clock": "paused"
       },
       "resumed": {
-        "tick": 39,
-        "debt": 13.366666654745732,
+        "tick": 30,
+        "debt": 7.300000011920929,
         "screen": "playing"
       },
       "pauseCounts": {
@@ -159,43 +159,43 @@
       "toolbarResizes": [
         {
           "height": 394,
-          "tick": 5,
+          "tick": 3,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 378,
-          "tick": 9,
+          "tick": 7,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 400,
-          "tick": 14,
+          "tick": 11,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 412,
-          "tick": 19,
+          "tick": 15,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 384,
-          "tick": 23,
+          "tick": 19,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 404,
-          "tick": 28,
+          "tick": 23,
           "left": 12,
           "bottomMargin": 12
         },
         {
           "height": 412,
-          "tick": 33,
+          "tick": 27,
           "left": 12,
           "bottomMargin": 12
         }
@@ -203,12 +203,12 @@
       "rotate": {
         "screen": "mobile-gate",
         "reason": "orientation-portrait",
-        "tick": 34,
+        "tick": 28,
         "clock": "paused"
       },
       "resumed": {
-        "tick": 39,
-        "debt": 9.5666666428248,
+        "tick": 28,
+        "debt": 10.399999976158142,
         "screen": "playing"
       },
       "pauseCounts": {

@@ -1,0 +1,73 @@
+{
+  "checks": 2,
+  "failures": [],
+  "errors": [],
+  "normal": [
+    {
+      "text": "",
+      "font": "0px",
+      "background": "none",
+      "hit": {
+        "x": 70,
+        "y": 198,
+        "width": 64,
+        "height": 64,
+        "top": 198,
+        "right": 134,
+        "bottom": 262,
+        "left": 70
+      }
+    },
+    {
+      "text": "",
+      "font": "0px",
+      "background": "none",
+      "hit": {
+        "x": 128,
+        "y": 256,
+        "width": 64,
+        "height": 64,
+        "top": 256,
+        "right": 192,
+        "bottom": 320,
+        "left": 128
+      }
+    },
+    {
+      "text": "",
+      "font": "0px",
+      "background": "none",
+      "hit": {
+        "x": 12,
+        "y": 256,
+        "width": 64,
+        "height": 64,
+        "top": 256,
+        "right": 76,
+        "bottom": 320,
+        "left": 12
+      }
+    },
+    {
+      "text": "",
+      "font": "0px",
+      "background": "none",
+      "hit": {
+        "x": 70,
+        "y": 314,
+        "width": 64,
+        "height": 64,
+        "top": 314,
+        "right": 134,
+        "bottom": 378,
+        "left": 70
+      }
+    }
+  ],
+  "pressed": {
+    "text": "",
+    "font": "0px",
+    "background": "none",
+    "opacity": "1"
+  }
+}

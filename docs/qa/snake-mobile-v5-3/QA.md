@@ -17,3 +17,5 @@ No new page errors/failed asset responses in local targeted captures. No benchma
 Historical test note: full `ribbon-live.test.mjs` additionally has an obsolete static comparison of motion.js to86379ba. Current HEAD already contains later approved retired-route/portal history changes; that assertion fails before this task, while4functional tests pass. motion.js is unchanged by V5.3. Do not "fix" locked geometry/history to satisfy this historical comparison.
 
 Physical Android/Yandex cause and physical usability remain pending human review. The QA journal is available only at?qa=1, including on immutable TEST product URLs. No physical screenshot attachments were present in the latest request; prose references are not invented evidence.
+
+LIVE art inspection found a late-loaded Effect Playground selector restoring the old arrow text over the new authored D-pad. Product direction buttons now have no visible text (ARIA names remain), and product-specific two-ID CSS overrides isolate font/color/background from the late stylesheet. Standalone Training and Effect Playground art remain untouched.
