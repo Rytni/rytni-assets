@@ -10,7 +10,7 @@ Scope: exactly two fixes, based on `89abbe0` / TEST `2.15.33-8ef02a9595f7` / run
 - [Targeted QA](QA.md)
 - [Status-board art provenance](ART.md)
 
-Final candidate: `2.15.33-c77364482deb`, runtime `snake-next-3efbc8cbe51b`. Publication and LIVE acceptance are recorded in `public.json` and `live.json` after verification. Source/publication checkpoints will be recorded below.
+Published and verified TEST: `2.15.33-c77364482deb`, runtime `snake-next-3efbc8cbe51b`. `public.json` confirms exact Pages/S3 manifest, rollback, app/runtime SHA256/size and all 13 changed runtime files; `live.json` confirms 22/22 LIVE host checks. Physical Android/Yandex approval remains pending.
 
 ## 1–4. Input/lifecycle architecture and recovery
 
@@ -35,9 +35,9 @@ The old immutable V5.3 software witness (`before-scheduler.json`) reproduces tou
 
 ## 8–10. Visual evidence
 
-- [Actual embedded host, 720 px cabinet](host-1366-main.png)
+- [Published LIVE embedded host, 720 px cabinet](live-1366-main.png)
 - [Same compact scale, 99 999 999 / №9999](desktop-720-stress.png)
-- [Mobile Main](390-main.png), [Settings](390-settings-sound.png), [Ranking](390-rating.png), [Guide](390-guide-basics.png)
+- [Published mobile Main](live-390-main.png), [Settings](live-390-settings.png), [Ranking](live-390-rating.png), [Guide](live-390-rules.png)
 - [Gameplay / physical trace button](mobile-trace.png)
 
 The desktop Main now has one specifically authored nine-slice board, four intrinsic Grid/Flex blocks, no internal absolute text or detached fallback plaques. It uses two rows when space is limited; four columns only when its own content width reaches 620 px. One permitted 10 px upward hero spacing correction applies only at cabinet ≤800 px wide and ≤480 px high; hero dimensions/art and other approved anchors are unchanged. Mobile V5.3 source/layout remains unchanged.
@@ -50,9 +50,14 @@ Open trace mode → Arcade → Snake → Training → landscape fullscreen. Tap 
 
 - Candidate release: `2.15.33-c77364482deb`.
 - Runtime: `snake-next-3efbc8cbe51b` (517 immutable files).
-- Source/publication/final report checkpoints: pending final publication steps.
+- Source checkpoint: `51384a8`.
+- TEST immutable closure checkpoint: `2b754aa`; corrected published rollback manifest checkpoint: `2de577e`.
 - Production manifest SHA256 remains `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`.
 
 `closure.json` verifies exactly 13 changed runtime files. Canonical simulation/input, Smooth V4, FIT WORLD, portal/history, progression/food, appearance V5.2, controller/backend, mobile UI/CSS/D-pad art and Fly are unchanged. No SQL or Production publication. Effect appearance V5.2 remains DEV-only. Old RecordPlaceValue source is retained but is no longer a runtime dependency.
 
-STOP for physical Android/Yandex human review after verified TEST publication.
+TEST publication is verified. STOP for physical Android/Yandex human review.
+
+## Publication safety note
+
+The first mirror attempt was rejected before S3 promotion: local repeated builds had selected an unpublished intermediate candidate as `previous`. The rollback link was corrected to the real published V5.3 `2.15.33-8ef02a9595f7` / `snake-next-b24aac6a1150`, validated, and committed as `2de577e`. S3 then uploaded 518 immutable objects and promoted the manifest last. No guard was bypassed and no existing immutable app was edited. Both public mirrors subsequently passed hash/size verification and LIVE passed 22 checks. Existing anonymous-host auth health 401 is baseline-only; no new Snake console/runtime-asset errors.

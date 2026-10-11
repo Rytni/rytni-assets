@@ -1,0 +1,51 @@
+{
+  "checks": 11,
+  "failures": [],
+  "errors": [],
+  "images": [
+    {
+      "src": "live-1366-main.png",
+      "loaded": true
+    },
+    {
+      "src": "desktop-720-stress.png",
+      "loaded": true
+    },
+    {
+      "src": "status-fullscreen.png",
+      "loaded": true
+    },
+    {
+      "src": "status-board-wide.png",
+      "loaded": true
+    },
+    {
+      "src": "status-board-medium.png",
+      "loaded": true
+    },
+    {
+      "src": "status-board-stress.png",
+      "loaded": true
+    },
+    {
+      "src": "390-main.png",
+      "loaded": true
+    },
+    {
+      "src": "390-settings-sound.png",
+      "loaded": true
+    },
+    {
+      "src": "390-rating.png",
+      "loaded": true
+    },
+    {
+      "src": "390-guide-basics.png",
+      "loaded": true
+    },
+    {
+      "src": "mobile-trace.png",
+      "loaded": true
+    }
+  ]
+}

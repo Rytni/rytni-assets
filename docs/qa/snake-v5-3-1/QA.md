@@ -17,7 +17,9 @@
 | Unit tests | 27/27 | Product clock 100/150/250 ms recovery/cancel, controller, lifecycle and board contracts |
 | `closure.json` | PASS | Runtime allowlist, protected hashes, Production/Fly/mobile unchanged |
 | Bundle validator | PASS | Release c77364482deb; 1,187,280 bytes; runtime 3efbc8cbe51b; 517 immutable files |
-| `public.json`, `live.json` | Pending final publication verification | Pages/S3 exact manifest/app/runtime/changed-file hashes, then real LIVE host |
+| `public.json` | PASS on Pages and S3 | Exact current/previous IDs, app/runtime SHA256/size and all 13 changed runtime files; rollback is approved V5.3 |
+| `live.json` | 22/22, 0 new errors | Published exact release c77364482deb / runtime 3efbc8cbe51b in real LIVE host; desktop + three mobile viewports, landscape fullscreen/input |
+| `review-check.json` | 11 review images load | Focused review package, not an art gallery acceptance claim |
 
 No new console errors or failed runtime assets. The actual anonymous Tilda host already emits `/auth/v1/health` 401; recorded separately as baseline, not falsely counted as a new Snake error. No production API writes are used in these preview tests.
 
