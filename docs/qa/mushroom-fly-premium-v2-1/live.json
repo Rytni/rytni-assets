@@ -1,5 +1,5 @@
 {
-  "checks": 174,
+  "checks": 176,
   "failures": [],
   "errors": [],
   "baseline": [
@@ -33,7 +33,322 @@
           "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
           "width": 1659,
           "height": 948,
-          "decodeCheckMs": 22.299999952316284
+          "decodeCheckMs": 22.899999976158142
+        },
+        {
+          "key": "--mf-mobile-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 42.30000001192093
+        },
+        {
+          "key": "--mf-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "width": 1672,
+          "height": 941,
+          "decodeCheckMs": 35.10000002384186
+        },
+        {
+          "key": "--mf-portrait-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 37.09999996423721
+        },
+        {
+          "key": "--mf-secondary",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "width": 1939,
+          "height": 349,
+          "decodeCheckMs": 0
+        }
+      ]
+    },
+    {
+      "w": 1920,
+      "appResources": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html"
+      ]
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "mobile": false,
+      "resources": [
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+          "initiator": "img",
+          "duration": 15.100000023841858,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "initiator": "css",
+          "duration": 32.90000003576279,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "initiator": "css",
+          "duration": 123.30000001192093,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "initiator": "img",
+          "duration": 21.80000001192093,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "initiator": "img",
+          "duration": 15.5,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "initiator": "img",
+          "duration": 16.900000035762787,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        }
+      ],
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=74a2f869-1b2a-4252-9cd6-854d22276e6c"
+    },
+    {
+      "w": 1366,
+      "decode": [
+        {
+          "key": "--mf-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "width": 1659,
+          "height": 948,
+          "decodeCheckMs": 23.099999964237213
+        },
+        {
+          "key": "--mf-mobile-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 40.39999997615814
+        },
+        {
+          "key": "--mf-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "width": 1672,
+          "height": 941,
+          "decodeCheckMs": 34.69999998807907
+        },
+        {
+          "key": "--mf-portrait-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 35.700000047683716
+        },
+        {
+          "key": "--mf-secondary",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "width": 1939,
+          "height": 349,
+          "decodeCheckMs": 0
+        }
+      ]
+    },
+    {
+      "w": 1366,
+      "appResources": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html"
+      ]
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "mobile": false,
+      "resources": [
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+          "initiator": "img",
+          "duration": 58.60000002384186,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "initiator": "css",
+          "duration": 23.19999998807907,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "initiator": "css",
+          "duration": 56.60000002384186,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "initiator": "img",
+          "duration": 19.399999976158142,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "initiator": "img",
+          "duration": 14.800000011920929,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "initiator": "img",
+          "duration": 15.5,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+          "initiator": "img",
+          "duration": 1,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        }
+      ],
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=baa0e903-2bc9-4f52-a103-8fdb3321bd14"
+    },
+    {
+      "w": 390,
+      "decode": [
+        {
+          "key": "--mf-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "width": 1659,
+          "height": 948,
+          "decodeCheckMs": 43.60000002384186
+        },
+        {
+          "key": "--mf-mobile-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 0.19999998807907104
+        },
+        {
+          "key": "--mf-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "width": 1672,
+          "height": 941,
+          "decodeCheckMs": 38.10000002384186
+        },
+        {
+          "key": "--mf-portrait-celebrate",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "width": 1024,
+          "height": 1536,
+          "decodeCheckMs": 34.5
+        },
+        {
+          "key": "--mf-secondary",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "width": 1939,
+          "height": 349,
+          "decodeCheckMs": 0.09999996423721313
+        }
+      ]
+    },
+    {
+      "w": 390,
+      "appResources": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html"
+      ]
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "mobile": true,
+      "resources": [
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+          "initiator": "img",
+          "duration": 35.80000001192093,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
+          "initiator": "css",
+          "duration": 21.899999976158142,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
+          "initiator": "css",
+          "duration": 63.69999998807907,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "initiator": "img",
+          "duration": 21.30000001192093,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
+          "initiator": "img",
+          "duration": 16.5,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "initiator": "img",
+          "duration": 14.099999964237213,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
+          "initiator": "css",
+          "duration": 0.3999999761581421,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        },
+        {
+          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
+          "initiator": "img",
+          "duration": 0.5,
+          "transferSize": 0,
+          "encodedBodySize": 0
+        }
+      ],
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=130cdf9a-5502-486b-bd56-865871a8ac2e"
+    },
+    {
+      "w": 844,
+      "decode": [
+        {
+          "key": "--mf-sky",
+          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
+          "width": 1659,
+          "height": 948,
+          "decodeCheckMs": 0.19999998807907104
         },
         {
           "key": "--mf-mobile-sky",
@@ -47,329 +362,14 @@
           "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
           "width": 1672,
           "height": 941,
-          "decodeCheckMs": 34.80000001192093
+          "decodeCheckMs": 38.5
         },
         {
           "key": "--mf-portrait-celebrate",
           "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
           "width": 1024,
           "height": 1536,
-          "decodeCheckMs": 33.40000003576279
-        },
-        {
-          "key": "--mf-secondary",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "width": 1939,
-          "height": 349,
-          "decodeCheckMs": 0.09999996423721313
-        }
-      ]
-    },
-    {
-      "w": 1920,
-      "appResources": [
-        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-34c745c03987/app.html"
-      ]
-    },
-    {
-      "w": 1920,
-      "h": 1080,
-      "mobile": false,
-      "resources": [
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 20.399999976158142,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "initiator": "css",
-          "duration": 13.900000035762787,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "initiator": "css",
-          "duration": 43.299999952316284,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "initiator": "img",
-          "duration": 21.399999976158142,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "initiator": "img",
-          "duration": 15.800000011920929,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "initiator": "img",
-          "duration": 12.399999976158142,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 0.800000011920929,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        }
-      ],
-      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=3f43c4f3-7e64-442c-8ffd-308e9a64af0d"
-    },
-    {
-      "w": 1366,
-      "decode": [
-        {
-          "key": "--mf-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "width": 1659,
-          "height": 948,
-          "decodeCheckMs": 22.700000047683716
-        },
-        {
-          "key": "--mf-mobile-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 42.80000001192093
-        },
-        {
-          "key": "--mf-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "width": 1672,
-          "height": 941,
-          "decodeCheckMs": 35
-        },
-        {
-          "key": "--mf-portrait-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 33.39999997615814
-        },
-        {
-          "key": "--mf-secondary",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "width": 1939,
-          "height": 349,
-          "decodeCheckMs": 0.10000002384185791
-        }
-      ]
-    },
-    {
-      "w": 1366,
-      "appResources": [
-        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-34c745c03987/app.html"
-      ]
-    },
-    {
-      "w": 1366,
-      "h": 768,
-      "mobile": false,
-      "resources": [
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 35.30000001192093,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "initiator": "css",
-          "duration": 20.30000001192093,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "initiator": "css",
-          "duration": 58,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "initiator": "img",
-          "duration": 21.5,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "initiator": "img",
-          "duration": 14.699999988079071,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "initiator": "img",
-          "duration": 12.900000035762787,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "initiator": "css",
-          "duration": 0.699999988079071,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 1.5999999642372131,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        }
-      ],
-      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=c3fcbf73-e900-484b-9a36-e35927510d04"
-    },
-    {
-      "w": 390,
-      "decode": [
-        {
-          "key": "--mf-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "width": 1659,
-          "height": 948,
-          "decodeCheckMs": 43
-        },
-        {
-          "key": "--mf-mobile-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 0.19999998807907104
-        },
-        {
-          "key": "--mf-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "width": 1672,
-          "height": 941,
-          "decodeCheckMs": 33.80000001192093
-        },
-        {
-          "key": "--mf-portrait-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 33.80000001192093
-        },
-        {
-          "key": "--mf-secondary",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "width": 1939,
-          "height": 349,
-          "decodeCheckMs": 0.6000000238418579
-        }
-      ]
-    },
-    {
-      "w": 390,
-      "appResources": [
-        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-34c745c03987/app.html"
-      ]
-    },
-    {
-      "w": 390,
-      "h": 844,
-      "mobile": true,
-      "resources": [
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 18.599999964237213,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "initiator": "css",
-          "duration": 26.099999964237213,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
-          "initiator": "css",
-          "duration": 64.69999998807907,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "initiator": "img",
-          "duration": 20.599999964237213,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "initiator": "img",
-          "duration": 13.199999988079071,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "initiator": "img",
-          "duration": 12.5,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        }
-      ],
-      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=fc25200d-34aa-4260-a6b1-fa44860f2702"
-    },
-    {
-      "w": 844,
-      "decode": [
-        {
-          "key": "--mf-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-desktop-v2-1.webp",
-          "width": 1659,
-          "height": 948,
-          "decodeCheckMs": 0.19999998807907104
-        },
-        {
-          "key": "--mf-mobile-sky",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 40.19999998807907
-        },
-        {
-          "key": "--mf-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
-          "width": 1672,
-          "height": 941,
-          "decodeCheckMs": 34
-        },
-        {
-          "key": "--mf-portrait-celebrate",
-          "src": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
-          "width": 1024,
-          "height": 1536,
-          "decodeCheckMs": 33.69999998807907
+          "decodeCheckMs": 38.19999998807907
         },
         {
           "key": "--mf-secondary",
@@ -383,9 +383,9 @@
     {
       "w": 844,
       "appResources": [
-        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-34c745c03987/app.html",
-        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-34c745c03987/app.html"
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-e7815dffe1c4/app.html"
       ]
     },
     {
@@ -396,7 +396,7 @@
         {
           "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
           "initiator": "img",
-          "duration": 30.900000035762787,
+          "duration": 26.30000001192093,
           "transferSize": 0,
           "encodedBodySize": 0
         },
@@ -410,40 +410,33 @@
         {
           "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/secondary-trimmed-v2-1.png",
           "initiator": "css",
-          "duration": 82.09999996423721,
+          "duration": 92.40000003576279,
           "transferSize": 0,
           "encodedBodySize": 0
         },
         {
           "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sky-mobile-v2-1.webp",
           "initiator": "img",
-          "duration": 20.80000001192093,
+          "duration": 23.100000023841858,
           "transferSize": 0,
           "encodedBodySize": 0
         },
         {
           "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-v2-1.webp",
           "initiator": "img",
-          "duration": 14.5,
+          "duration": 18.5,
           "transferSize": 0,
           "encodedBodySize": 0
         },
         {
           "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/celebration-portrait-v2-1.webp",
           "initiator": "img",
-          "duration": 13.699999988079071,
-          "transferSize": 0,
-          "encodedBodySize": 0
-        },
-        {
-          "url": "https://storage-1090.s3hoster.by/rytnistatictest/grib/mushroom-fly-premium-v2-1/sponsor-token-128-v2-1.png",
-          "initiator": "img",
-          "duration": 0.800000011920929,
+          "duration": 17.700000047683716,
           "transferSize": 0,
           "encodedBodySize": 0
         }
       ],
-      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=472ea512-fa08-4143-a856-a739900d9226"
+      "snake": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-78436309631c/snake/product/index.html?test=1&host=1&parent_origin=https%3A%2F%2Frytni.live&channel=d9aad634-077e-4be9-8ef9-11521ac46868"
     }
   ]
 }

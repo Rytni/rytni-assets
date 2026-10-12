@@ -20,3 +20,5 @@ Unused authoring sources: original untrimmed V2 button, V2.1 secondary source, l
 Actual public resource usage/first-use timings, repeat-entry counts and delivery hashes are recorded by the LIVE pass. Repeated resource timing entries do not automatically mean duplicate network bytes; cross-origin timing fields can be restricted. No benchmark marathon or unsupported weak-device FPS claim.
 
 `live.json` retains per-viewport public resource timing entries and scene decode checks (after initialization, potentially warm). These are not called cold decode timings. Shared URLs serve all repeated button/token bindings; large source PNGs and untrimmed button are absent from the candidate resource family. All six preferred files match public hashes on both mirrors.
+
+LIVE decode checks deliberately request all five scene/material variables, including ones not yet displayed. Their resource entries mix QA-driven requests and normal menu usage; they must not be presented as a production cold-start payload or duplicate-download benchmark. The single isolated cold/no-store pass is `assets.json`; transfer/decode and RGBA estimates are kept distinct.

@@ -34,3 +34,5 @@ Remaining human/device checks: native OS Share sheet, physical-device browser ch
 TEST publication only after local and mirror safety gates; exact public evidence in `PUBLIC.md`. No Production/backend/SQL changes.
 
 Public acceptance evidence is recorded in `PUBLIC.md` and `live.json` for the selected release, including external Close peer checks. Four primary public viewports; the full nine-viewport matrix remains local. Source/runtime/asset hashes, real menu flows and actual Training are checked independently. No native-OS Share or physical-device safe-area guarantee is inferred from desktop emulation.
+
+Selected-release totals: 744 local/mirror logical assertions (table above), 20 public byte/hash checks, 176 fresh LIVE assertions; zero failures/new errors. Baseline HUD and pixel-quality diagnostics are additional evidence, not silently included as new product acceptance assertions.
