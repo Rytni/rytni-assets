@@ -1,5 +1,8 @@
 import {MusicDirector,TRACKS,CHAPTER_SECONDS} from '../../../grib/arcade-music-v1/player.js';
 const $=id=>document.getElementById(id), players=[];
+if(!['localhost','127.0.0.1','[::1]'].includes(location.hostname)){
+ $('play-snake').href='https://rytni.live/testpodari';$('play-snake').textContent='Открыть обе игры на TEST';$('play-fly').hidden=true;
+}
 let context,bus,director,game='fly',chapter=0,seconds=0,paused=false;
 const stopFiles=()=>players.forEach(audio=>audio.pause());
 const remember=()=>{if(director?.current){const voice=director.current;seconds=director.origin+voice.offset+context.currentTime-voice.started;director.sync(voice.id,seconds);}};

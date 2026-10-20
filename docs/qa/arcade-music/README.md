@@ -92,3 +92,31 @@ Local candidate: `2.15.33-fc82639c1910`; Snake audio closure
 music module/assets change, not because simulation or ribbon geometry changes.
 TEST-only publication was explicitly authorized by the user. Production manifest
 baseline SHA-256 is `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`.
+
+## Published candidate / live gate
+
+Music TEST release: `2.15.33-6d93dbb4fa83`, 1,268,287 bytes; source checkpoint
+`5ee22ac`, publication `2d61a91`, rollback-pointer verification `5c0e1ae`.
+The final build retains concurrent repository commit `8b58ef6` (event-rules copy),
+which accounts for the difference from the earlier local candidate. No unrelated
+work was reverted. The real published rollback is `2.15.33-fada42efb84d`, not the
+unpublished intermediate local build; the mirror guard refused promotion until
+that reference was corrected and verified.
+
+LIVE PASS: 17 checks on desktop and mobile, actual public non-preview TEST,
+Fly + Snake Training startup, new soundtrack, fixed rate, pause/resume and Fly
+exit source teardown. Zero page/game-resource errors; anonymous auth health 401
+is an existing baseline, recorded separately. Zero ranked/sponsor mutations.
+Local protected-package gate verifies 516 old Snake files remain byte-identical
+(all geometry/gameplay/material/SFX except three explicit audio integration files).
+
+`node docs/qa/arcade-music/mirrors.cjs` additionally verifies identical manifest
+bytes and bundle hashes on Pages/S3, plus all nine shared music-module/MP3 files.
+Human listening approval is still outstanding; technical PASS is not a taste claim.
+
+During final verification a concurrent rules-only publication advanced TEST to
+`2.15.33-7efbc6a0edfe` (`39a754f`, following `b96c333`). It retains the identical
+`snake-next-a0f94eca2afc` soundtrack closure. Fast-forwarded to that published
+state without discarding either task's changes. Final mirror/live checks target
+the current committed channel; its valid previous release is the music build
+`2.15.33-6d93dbb4fa83`. No rollback of the concurrent rules update was performed.

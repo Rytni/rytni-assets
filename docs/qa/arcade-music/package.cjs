@@ -12,4 +12,10 @@ assert.ok(bundle.includes('giveaway-test/releases/'+manifest.id+'/grib/arcade-mu
 assert.ok(!bundle.includes('__ARCADE_MUSIC_URL__'));
 const paths=validateRuntime({root:process.cwd(),descriptor:channel.current.snake_runtime});
 assert.ok(paths.some(file=>file.endsWith('/grib/arcade-music-v1/snake-moss.mp3')));
-console.log(JSON.stringify({release:channel.current.id,runtime:manifest.id,musicFiles:music.length,immutableFiles:manifest.files.length,failures:[]},null,2));
+const old=JSON.parse(fs.readFileSync('giveaway-test/releases/snake-next-78436309631c/runtime.json'));
+const allowed=new Set(['snake/production/audio.js','snake/progressive-run/audio.js','snake/forest-training/runtime.js','snake/assets/audio/forest-theme-v1.ogg']);
+let protectedFiles=0;
+for(const file of old.files){if(allowed.has(file.file))continue;const next=manifest.files.find(f=>f.file===file.file);
+ assert.equal(next?.sha256,file.sha256,'Protected Snake file changed: '+file.file);protectedFiles++;}
+const result={release:channel.current.id,runtime:manifest.id,musicFiles:music.length,immutableFiles:manifest.files.length,protectedSnakeFiles:protectedFiles,failures:[]};
+fs.writeFileSync(__dirname+'/package-results.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

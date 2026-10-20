@@ -1,0 +1,106 @@
+{
+  "checks": 17,
+  "rows": [
+    {
+      "game": "fly",
+      "mobile": false,
+      "soundtrack": {
+        "version": "arcade-chill-v1",
+        "track": null,
+        "wanted": "fly-skyline",
+        "playing": false,
+        "seconds": 0.03333333333333333,
+        "origin": 0,
+        "voices": 0,
+        "decoded": 1,
+        "decodedBytes": 14178464,
+        "rates": [],
+        "history": [
+          "fly-skyline",
+          "fly-skyline"
+        ],
+        "error": ""
+      }
+    },
+    {
+      "game": "snake",
+      "mobile": false,
+      "soundtrack": {
+        "version": "arcade-chill-v1",
+        "track": "snake-moss",
+        "wanted": "snake-moss",
+        "playing": true,
+        "seconds": 0.3,
+        "origin": 0,
+        "voices": 1,
+        "decoded": 1,
+        "decodedBytes": 14178464,
+        "rates": [
+          1
+        ],
+        "history": [
+          "snake-moss"
+        ],
+        "error": ""
+      },
+      "frame": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-a0f94eca2afc/snake/product/frame.html?mode=product"
+    },
+    {
+      "game": "fly",
+      "mobile": true,
+      "soundtrack": {
+        "version": "arcade-chill-v1",
+        "track": null,
+        "wanted": "fly-skyline",
+        "playing": false,
+        "seconds": 0.09999999999999999,
+        "origin": 0,
+        "voices": 0,
+        "decoded": 1,
+        "decodedBytes": 14178464,
+        "rates": [],
+        "history": [
+          "fly-skyline",
+          "fly-skyline"
+        ],
+        "error": ""
+      }
+    },
+    {
+      "game": "snake",
+      "mobile": true,
+      "soundtrack": {
+        "version": "arcade-chill-v1",
+        "track": "snake-moss",
+        "wanted": "snake-moss",
+        "playing": true,
+        "seconds": 0.3,
+        "origin": 0,
+        "voices": 1,
+        "decoded": 1,
+        "decodedBytes": 14178464,
+        "rates": [
+          1
+        ],
+        "history": [
+          "snake-moss"
+        ],
+        "error": ""
+      },
+      "frame": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-a0f94eca2afc/snake/product/frame.html?mode=product"
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    },
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    }
+  ],
+  "mutations": []
+}
