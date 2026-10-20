@@ -1,0 +1,102 @@
+{
+  "version": "arcade-chill-v1",
+  "authorship": "Original offline composition and synthesis; no third-party samples.",
+  "tracks": [
+    {
+      "id": "fly-skyline",
+      "title": "Skyline Soda",
+      "game": "fly",
+      "file": "fly-skyline.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -5.0214806070798845,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "fly-cloudclub",
+      "title": "Cloud Club",
+      "game": "fly",
+      "file": "fly-cloudclub.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -4.854320670812964,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "fly-daydream",
+      "title": "Daydream Delivery",
+      "game": "fly",
+      "file": "fly-daydream.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -5.131802585404808,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "fly-aurora",
+      "title": "Aurora Avenue",
+      "game": "fly",
+      "file": "fly-aurora.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -4.751670195876975,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "snake-moss",
+      "title": "Moss Cassette",
+      "game": "snake",
+      "file": "snake-moss.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -4.952109416375476,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "snake-root",
+      "title": "Root Circuit",
+      "game": "snake",
+      "file": "snake-root.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -5.46933271100769,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "snake-crystal",
+      "title": "Crystal Pocket",
+      "game": "snake",
+      "file": "snake-crystal.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -5.231995417200505,
+      "rmsDb": -19.576214018601238
+    },
+    {
+      "id": "snake-spore",
+      "title": "Spore City",
+      "game": "snake",
+      "file": "snake-spore.mp3",
+      "bpm": 104,
+      "bars": 16,
+      "seconds": 36.9230625,
+      "bytes": 591873,
+      "peakDb": -4.82743984750832,
+      "rmsDb": -19.576214018601238
+    }
+  ]
+}

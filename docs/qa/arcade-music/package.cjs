@@ -1,0 +1,15 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {prepareRuntime,validateRuntime}=require('../../../arcade/assemble-snake-next.cjs');
+const {manifest,files}=prepareRuntime();
+assert.equal(files.has('snake/assets/audio/forest-theme-v1.ogg'),false);
+assert.ok(files.get('snake/production/audio.js').toString().includes("from '../../grib/arcade-music-v1/player.js'"));
+const music=[...files.keys()].filter(file=>file.startsWith('grib/arcade-music-v1/'));
+assert.equal(music.length,9);assert.equal(music.filter(file=>file.endsWith('.mp3')).length,8);
+const channel=JSON.parse(fs.readFileSync('giveaway-test/manifest.json'));
+assert.equal(channel.current.snake_runtime.id,manifest.id);
+const bundle=fs.readFileSync('giveaway-test/'+channel.current.file,'utf8');
+assert.ok(bundle.includes('giveaway-test/releases/'+manifest.id+'/grib/arcade-music-v1/player.js'));
+assert.ok(!bundle.includes('__ARCADE_MUSIC_URL__'));
+const paths=validateRuntime({root:process.cwd(),descriptor:channel.current.snake_runtime});
+assert.ok(paths.some(file=>file.endsWith('/grib/arcade-music-v1/snake-moss.mp3')));
+console.log(JSON.stringify({release:channel.current.id,runtime:manifest.id,musicFiles:music.length,immutableFiles:manifest.files.length,failures:[]},null,2));

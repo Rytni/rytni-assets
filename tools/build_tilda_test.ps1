@@ -41,6 +41,9 @@ $snakeCandidate = ($snakeCandidateJson -join "`n") | ConvertFrom-Json
 $snakeRuntime = $snakeCandidate.runtime
 $parts += ($snakeCandidate.bundle -replace "`r`n?", "`n").TrimEnd()
 $bundle = ($parts -join "`n`n") + "`n"
+# Both games use one immutable audio-only closure; no mutable global music URLs.
+$musicUrl = "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/$($snakeRuntime.id)/grib/arcade-music-v1/player.js"
+$bundle = $bundle.Replace('__ARCADE_MUSIC_URL__', $musicUrl)
 $utf8 = [System.Text.UTF8Encoding]::new($false)
 $bytes = $utf8.GetBytes($bundle)
 $sha = [System.Security.Cryptography.SHA256]::Create()

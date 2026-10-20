@@ -81,7 +81,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Snake Next runtime dependency/hash/source vali
 $runtimePaths = ($runtimePathsJson -join "`n") | ConvertFrom-Json
 $runtimeUrl = 'https://rytni.github.io/rytni-assets/giveaway-test/' + $manifest.current.snake_runtime.entry
 if ($bundle -notmatch [regex]::Escape($runtimeUrl)) { throw 'Snake Next host does not select the declared immutable runtime.' }
-if ($bundle -match '__SNAKE_NEXT_RUNTIME_URL__|window\.MushroomSnakeCore\.Engine') { throw 'TEST includes an unresolved Snake host token or legacy Snake engine.' }
+if ($bundle -match '__SNAKE_NEXT_RUNTIME_URL__|__ARCADE_MUSIC_URL__|window\.MushroomSnakeCore\.Engine') { throw 'TEST includes an unresolved runtime token or legacy Snake engine.' }
 if ($bundle -notmatch 'window\.RYTNI_RELEASE\s*=\s*"' + [regex]::Escape($manifest.current.version) + '"') {
   throw 'Версия пакета не совпала с манифестом.'
 }

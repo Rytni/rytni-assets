@@ -1,3 +1,4 @@
+import {MusicDirector,snakeMusicCue} from '/grib/arcade-music-v1/player.js';
 const CUES=['hover','click','pickup','combo','turn','death','result','pause','resume','arrival'];
 /** Isolated adapter for the shared Master / Music / SFX channel contract.
  * Host mixer injection is deferred to public integration, never importing Fly. */
@@ -7,8 +8,9 @@ export class Mixer {
     if(this.loading)return this.loading;
     this.context=new AudioContext();this.master=this.context.createGain();this.master.connect(this.context.destination);
     this.musicBus=this.context.createGain();this.musicBus.connect(this.master);this.sfxBus=this.context.createGain();this.sfxBus.connect(this.master);this.apply();
-    this.loading=Promise.all(['forest-theme',...CUES].map(async name=>{
-      const ext=name==='forest-theme'?'ogg':'wav',response=await fetch(new URL(`../assets/audio/${name}-v1.${ext}`,import.meta.url));
+    this.soundtrack=new MusicDirector(this.context,this.musicBus);
+    this.loading=Promise.all(CUES.map(async name=>{
+      const response=await fetch(new URL(`../assets/audio/${name}-v1.wav`,import.meta.url));
       if(!response.ok)throw Error('Audio unavailable: '+name);const data=await response.arrayBuffer(),buffer=await this.context.decodeAudioData(data);this.buffers.set(name,buffer);
     })).then(()=>this).catch(error=>{this.error=error.message;throw error;});return this.loading;
   }
@@ -21,8 +23,9 @@ export class Mixer {
     const source=this.context.createBufferSource();source.buffer=this.buffers.get(name);source.loop=loop;source.connect(loop?this.musicBus:this.sfxBus);this.sources.add(source);
     source.onended=()=>{this.sources.delete(source);source.disconnect();};source.start();return source;
   }
-  startMusic(){if(!this.music)this.music=this.play('forest-theme',true);}
-  stopAll(){for(const source of this.sources){source.onended=null;try{source.stop();}catch{}source.disconnect();}this.sources.clear();this.music=null;}
-  dispose(){this.stopAll();if(this.context){this.context.close();this.context=null;}}
-  summary(){return{sources:this.sources.size,music:Number(!!this.music),context:this.context?.state||'none',decoded:this.buffers.size,error:this.error};}
+  startMusic(){this.syncMusic(this.musicSession?.());}
+  syncMusic(session){this.soundtrack?.sync(snakeMusicCue(session),Math.max(0,session?.tick||0)/60);}
+  stopAll(){this.soundtrack?.pause();for(const source of this.sources){source.onended=null;try{source.stop();}catch{}source.disconnect();}this.sources.clear();this.music=null;}
+  dispose(){this.stopAll();this.soundtrack?.dispose();if(this.context){this.context.close();this.context=null;}}
+  summary(){const soundtrack=this.soundtrack?.summary();return{sources:this.sources.size+(soundtrack?.voices||0),music:soundtrack?.voices||0,context:this.context?.state||'none',decoded:this.buffers.size,error:this.error||soundtrack?.error||'',soundtrack};}
 }

@@ -145,7 +145,7 @@ try{
   const audio=new ForestAudio(),[art,board,objects]=await Promise.all([loadArt(),loadBoard(),loadObjects(),audio.load()]);art.board=board;art.objects=objects;art.bytes+=objects.bytes;
   root.hidden=false;document.querySelector('#loading').hidden=true;
   const mode=root.dataset.runtimeMode||'standalone';
-  const game=new TrainingGame(root,art,audio,{mode});
+  const game=new TrainingGame(root,art,audio,{mode});audio.musicSession=()=>game.session;
   trainingGame=game;
   if(new URLSearchParams(location.search).has('qa'))window.forestTraining=game;
 }catch(error){document.querySelector('#loading').textContent='Не удалось загрузить лес. Обновите страницу.';console.error(error);}

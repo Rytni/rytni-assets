@@ -34,6 +34,8 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
   }
   if(relative.endsWith('.css'))for(const match of text.matchAll(/@import\s+(?:url\()?['"]([^'"]+)['"]/g))dependencies.push(match[1]);
   for(const dependency of dependencies){
+   // One bounded, shared soundtrack module; frozen below with its exact audio closure.
+   if(dependency==='/grib/arcade-music-v1/player.js')continue;
    if(!dependency.startsWith('.'))throw Error('Nonlocal runtime dependency: '+dependency);
    visit(posix(path.join(path.dirname(relative),dependency)));
   }
@@ -68,10 +70,15 @@ function prepareRuntime({root=DEFAULT_ROOT}={}){
  const leader='grib/mushroom-fly-v2/ui/icons-recovery-v1/leader-first-v1.png';
  if(combined.includes('/'+leader))addAsset(leader);
  const audio=[
-  ['production/audio.js','assets/audio',['forest-theme-v1.ogg',...['hover','click','pickup','combo','turn','death','result','pause','resume','arrival'].map(n=>n+'-v1.wav')]],
+  ['production/audio.js','assets/audio',['hover','click','pickup','combo','turn','death','result','pause','resume','arrival'].map(n=>n+'-v1.wav')],
   ['forest-training/audio.js','forest-training/audio',['buff','debuff','portal-enter','portal-exit'].map(n=>n+'.wav')]
  ];
  for(const [owner,dir,names]of audio)if(sources.has(owner))for(const name of names)files.set('snake/'+dir+'/'+name,readSafe(snakeRoot,dir+'/'+name));
+ if(combined.includes('/grib/arcade-music-v1/player.js')){
+  const names=['player.js',...['fly-skyline','fly-cloudclub','fly-daydream','fly-aurora','snake-moss','snake-root','snake-crystal','snake-spore'].map(n=>n+'.mp3')];
+  for(const name of names){const file='grib/arcade-music-v1/'+name,bytes=readSafe(root,file);
+   files.set(file,name.endsWith('.js')?Buffer.from(bytes.toString('utf8').replace(/\r\n?/g,'\n')):bytes);}
+ }
  for(const [file,bytes]of files)if(file.endsWith('/inventory.json')){
   const inventory=JSON.parse(bytes);
   if(!Array.isArray(inventory.assets))throw Error('Invalid runtime asset inventory: '+file);
