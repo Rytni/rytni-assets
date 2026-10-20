@@ -17,7 +17,8 @@ $blocks = @(
   '05A_T123_JAVASCRIPT_ЧАСТЬ_1_2.12.html',
   '05B_T123_JAVASCRIPT_ЧАСТЬ_2_2.12.html',
   '07_T123_TIKTOK_КВЕСТ_2.12.html',
-  '08_T123_BROWSER_ARCADE_2.15.34.html'
+  '08_T123_BROWSER_ARCADE_2.15.34.html',
+  '10_T123_COMMUNITY_RANKING.html'
 )
 
 if (-not (Test-Path -LiteralPath (Join-Path $AssetsRepo '.git'))) {
