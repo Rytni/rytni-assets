@@ -1,5 +1,5 @@
 {
-  "version": "arcade-chill-v1",
+  "version": "arcade-chill-v1-snake-groove-v2",
   "authorship": "Original offline composition and synthesis; no third-party samples.",
   "tracks": [
     {
@@ -52,50 +52,50 @@
     },
     {
       "id": "snake-moss",
-      "title": "Moss Cassette",
+      "title": "Fern Arcade",
       "game": "snake",
       "file": "snake-moss.mp3",
       "bpm": 104,
       "bars": 16,
       "seconds": 36.9230625,
       "bytes": 591873,
-      "peakDb": -4.952109416375476,
+      "peakDb": -5.418242949274957,
       "rmsDb": -19.576214018601238
     },
     {
       "id": "snake-root",
-      "title": "Root Circuit",
+      "title": "Velvet Mycelium",
       "game": "snake",
       "file": "snake-root.mp3",
       "bpm": 104,
       "bars": 16,
       "seconds": 36.9230625,
       "bytes": 591873,
-      "peakDb": -5.46933271100769,
+      "peakDb": -5.392850260153815,
       "rmsDb": -19.576214018601238
     },
     {
       "id": "snake-crystal",
-      "title": "Crystal Pocket",
+      "title": "Moonlit Steps",
       "game": "snake",
       "file": "snake-crystal.mp3",
       "bpm": 104,
       "bars": 16,
       "seconds": 36.9230625,
       "bytes": 591873,
-      "peakDb": -5.231995417200505,
+      "peakDb": -5.25214352667462,
       "rmsDb": -19.576214018601238
     },
     {
       "id": "snake-spore",
-      "title": "Spore City",
+      "title": "Neon Canopy",
       "game": "snake",
       "file": "snake-spore.mp3",
       "bpm": 104,
       "bars": 16,
       "seconds": 36.9230625,
       "bytes": 591873,
-      "peakDb": -4.82743984750832,
+      "peakDb": -5.074560352363076,
       "rmsDb": -19.576214018601238
     }
   ]

@@ -1,0 +1,30 @@
+[
+  {
+    "verification": {
+      "anon_can_execute": false,
+      "authenticated_can_execute": true,
+      "authenticated_direct_table_access": false,
+      "closed_hub": {
+        "status": "season_closed",
+        "success": false
+      },
+      "fly_normal_limit": 1,
+      "rls_tables": 3,
+      "season": {
+        "ends_at": "2026-10-06T11:40:42+00:00",
+        "expired": true,
+        "status": "active"
+      },
+      "snake_attempt_rows": 0,
+      "snake_claim_rows": 0,
+      "snake_settings": {
+        "approved_releases": [
+          "snake-next-2fbc81ae44ef"
+        ],
+        "enabled": true,
+        "normal_limit": 1,
+        "sponsor_limit": 2
+      }
+    }
+  }
+]

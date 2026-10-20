@@ -1,4 +1,6 @@
-// This module has no network, storage, auth-client or Fly dependency.
+// No auth-client or Fly dependency: the parent owns authenticated transport.
+export const NORMAL_ATTEMPTS = 1;
+export const SPONSOR_ATTEMPTS = 2;
 export const SNAKE_SPONSOR_URL = 'https://t.me/astra_net_bot?start=ryt';
 const STATES = new Set(['ready', 'one-attempt-left', 'no-attempts', 'sponsor-available',
   'sponsor-credit', 'not-authenticated', 'arcade-paused', 'network-error',
@@ -10,7 +12,7 @@ const validText = value => typeof value === 'string' && value.length > 0 && valu
 /** Deterministic QA only: each instance owns its in-memory counters and leaderboard. */
 export function createMockBackend(state = 'ready') {
   if (!STATES.has(state)) throw new Error(`Unknown mock state: ${state}`);
-  let used = state === 'one-attempt-left' ? 2 : ['no-attempts', 'sponsor-available', 'sponsor-credit'].includes(state) ? 3 : 0;
+  let used = ['no-attempts', 'sponsor-available', 'sponsor-credit'].includes(state) ? NORMAL_ATTEMPTS : 0;
   let claims = state === 'no-attempts' ? 2 : state === 'sponsor-credit' ? 1 : 0;
   let credits = state === 'sponsor-credit' ? 1 : 0;
   let best = state === 'record-result' ? 900 : state === 'leaderboard-empty' ? 0 : 6840;
@@ -33,10 +35,10 @@ export function createMockBackend(state = 'ready') {
     if (blocked) return blocked.status === 'disabled' ? { success: true, status: 'disabled', available: false, reward_points: 0 } : blocked;
     const leaderboard = board();
     return { success: true, status: 'ready', available: true, game: 'snake', season_id: 'mock-season',
-      attempts_total: 3, attempts_used: used, attempts_remaining: 3 - used,
-      next_attempt_at: used >= 3 ? reset : null, cycle: 'rolling_24h',
+      attempts_total: NORMAL_ATTEMPTS, attempts_used: used, attempts_remaining: NORMAL_ATTEMPTS - used,
+      next_attempt_at: used >= NORMAL_ATTEMPTS ? reset : null, cycle: 'rolling_24h',
       sponsor_attempt_limit: 2, sponsor_attempts_used: claims, sponsor_attempt_credits: credits,
-      sponsor_attempt_available: used >= 3 && claims < 2,
+      sponsor_attempt_available: used >= NORMAL_ATTEMPTS && claims < SPONSOR_ATTEMPTS,
       next_sponsor_attempt_at: claims >= 2 ? reset : null,
       reward_points: 0, round_seconds: 0, best_score: best,
       my_rank: leaderboard.find(row => row.is_me)?.place ?? null, leaderboard };
@@ -54,13 +56,13 @@ export function createMockBackend(state = 'ready') {
       log('start', payload);
       const error = gate() || requestError(payload); if (error) return error;
       const old = replay(starts, payload); if (old) return old;
-      if (used >= 3 && credits === 0) return { ...failed('limit'), attempts_remaining: 0, next_attempt_at: reset };
-      const sponsor = used >= 3;
+      if (used >= NORMAL_ATTEMPTS && credits === 0) return { ...failed('limit'), attempts_remaining: 0, next_attempt_at: reset };
+      const sponsor = used >= NORMAL_ATTEMPTS;
       if (sponsor) credits--; else used++;
       const id = `mock-snake-${++sequence}`;
       const result = { success: true, status: 'started', attempt_id: id, seed: 76193 + sequence,
         started_at: '2030-01-01T12:00:00.000Z', expires_at: '2030-01-02T00:00:00.000Z',
-        sponsor_attempt: sponsor, sponsor_attempt_credits: credits, attempts_remaining: 3 - used,
+        sponsor_attempt: sponsor, sponsor_attempt_credits: credits, attempts_remaining: NORMAL_ATTEMPTS - used,
         reward_points: 0, round_seconds: 0 };
       attempts.set(id, { release: payload.release, result: null });
       starts.set(payload.requestId, { release: payload.release, result: copy(result) });
@@ -77,7 +79,7 @@ export function createMockBackend(state = 'ready') {
       const record = payload.score > best;
       best = Math.max(best, payload.score);
       attempt.result = { success: true, status: 'finished', score: payload.score, best_score: best,
-        record, points_awarded: 0, attempts_remaining: 3 - used, sponsor_attempt_credits: credits };
+        record, points_awarded: 0, attempts_remaining: NORMAL_ATTEMPTS - used, sponsor_attempt_credits: credits };
       attempt.result.my_rank = board().find(row => row.is_me)?.place ?? null;
       return copy(attempt.result);
     },
@@ -85,7 +87,7 @@ export function createMockBackend(state = 'ready') {
       log('claim', payload);
       const error = gate() || requestError(payload); if (error) return error;
       const old = replay(claimed, payload); if (old) return old;
-      if (used < 3) return failed('regular_attempts_available');
+      if (used < NORMAL_ATTEMPTS) return failed('regular_attempts_available');
       if (claims >= 2) return { ...failed('cooldown'), next_sponsor_attempt_at: reset };
       claims++; credits++;
       const result = { success: true, status: 'credited', sponsor_attempt_credits: credits,
@@ -94,6 +96,19 @@ export function createMockBackend(state = 'ready') {
       return result;
     }
   };
+}
+
+/** Real host RPC bridge. Absence/error is never disguised as a mock leaderboard. */
+export function createHostedBackend(host) {
+  const send = async (method, payload = {}) => {
+    if (typeof host?.ranked !== 'function') return failed('backend_unavailable');
+    try {
+      const result = await host.ranked(method, payload);
+      return typeof result?.success === 'boolean' ? result : failed('invalid_response');
+    } catch { return failed('network_error'); }
+  };
+  return {mode:'ranked',sponsorUrl:SNAKE_SPONSOR_URL,
+    hub:()=>send('hub'),start:p=>send('start',p),finish:p=>send('finish',p),claim:p=>send('claim',p)};
 }
 
 /** Opt-in only. The host owns authentication, transport timeout/retry and account lifecycle. */

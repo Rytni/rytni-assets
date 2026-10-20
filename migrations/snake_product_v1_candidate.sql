@@ -1,4 +1,5 @@
--- UNAPPLIED CANDIDATE. Do not run on a live project without a separate reviewed rollout.
+-- APPLIED 2026-10-20 after user authorization and rollback-only transactional QA.
+-- Historical filename retained. Fresh-schema migration, do not reapply to existing tables.
 -- Depends on audited Fly account/season helpers; modifies no Fly table/function.
 -- Ranked stays disabled until the aggregate-admission candidate is tested in isolation.
 -- Client counters are untrusted; this uses the current Fly aggregate admission model.
@@ -18,7 +19,7 @@ end $$;
 create table public.snake_product_settings (
   id smallint primary key default 1 check(id=1),
   enabled boolean not null default false,
-  normal_limit integer not null default 3 check(normal_limit=3),
+  normal_limit integer not null default 1 check(normal_limit=1),
   sponsor_limit integer not null default 2 check(sponsor_limit=2),
   reward_points integer not null default 0 check(reward_points=0),
   max_score integer not null default 10000000 check(max_score between 1 and 10000000),
@@ -96,6 +97,10 @@ declare
 begin
   if auth.uid() is null then return jsonb_build_object('success',false,'status','not_authenticated'); end if;
   select * into v_p from public.participants p where p.id=p_participant_id;
+  if v_p.user_id=auth.uid() and v_p.season_id=public.giveaway_active_season_id()
+    and exists(select 1 from public.giveaway_seasons s where s.id=v_p.season_id
+      and (s.status<>'active' or s.starts_at>now() or s.ends_at<now())) then
+    return jsonb_build_object('success',false,'status','season_closed'); end if;
   if v_p.id is null or not coalesce(public.snake_product_can_access_v1(v_p),false) then
     return jsonb_build_object('success',false,'status','forbidden'); end if;
   select * into v_s from public.snake_product_settings where id=1;
@@ -114,14 +119,14 @@ begin
   ), ranked as (
     select *,row_number() over(order by score desc,finished_at,participant_id)::integer place from best
   ) select coalesce(jsonb_agg(jsonb_build_object('place',r.place,'name',left(coalesce(nullif(btrim(p.name),''),'Игрок'),40),
-       'score',r.score,'is_me',r.participant_id=v_p.id) order by r.place) filter(where r.place<=20),'[]'::jsonb),
+       'score',r.score,'is_me',r.participant_id=v_p.id) order by r.place) filter(where r.place<=10),'[]'::jsonb),
        coalesce(max(r.score) filter(where r.participant_id=v_p.id),0),max(r.place) filter(where r.participant_id=v_p.id)
        into v_board,v_best,v_rank from ranked r join public.participants p on p.id=r.participant_id;
   return jsonb_build_object('success',true,'status','ready','available',true,'game','snake','season_id',v_p.season_id,
-    'cycle','rolling_24h','attempts_total',3,'attempts_used',least(v_used,3),'attempts_remaining',greatest(3-v_used,0),
-    'next_attempt_at',case when v_used>=3 then v_reset else null end,
+    'cycle','rolling_24h','attempts_total',1,'attempts_used',least(v_used,1),'attempts_remaining',greatest(1-v_used,0),
+    'next_attempt_at',case when v_used>=1 then v_reset else null end,
     'sponsor_attempt_limit',2,'sponsor_attempts_used',least(v_claims,2),'sponsor_attempt_credits',v_credits,
-    'sponsor_attempt_available',v_used>=3 and v_claims<2,
+    'sponsor_attempt_available',v_used>=1 and v_claims<2,
     'next_sponsor_attempt_at',case when v_claims>=2 then v_sponsor_reset else null end,
     'reward_points',0,'round_seconds',0,'best_score',v_best,'my_rank',v_rank,'leaderboard',v_board);
 end $$;
@@ -158,7 +163,7 @@ begin
   select count(*)::integer,min(started_at)+interval '24 hours' into v_used,v_reset
     from public.snake_product_attempts where game='snake' and season_id=v_p.season_id and participant_id=v_p.id
       and not is_sponsor and started_at>now()-interval '24 hours';
-  if v_used>=3 then
+  if v_used>=1 then
     select id into v_claim from public.snake_product_sponsor_claims where game='snake' and season_id=v_p.season_id
       and participant_id=v_p.id and attempt_id is null and claimed_at>now()-interval '24 hours' order by claimed_at,id limit 1 for update;
     if v_claim is null then return jsonb_build_object('success',false,'status','limit','attempts_remaining',0,'next_attempt_at',v_reset); end if;
@@ -172,7 +177,7 @@ begin
   v_result:=jsonb_build_object('success',true,'status','started','attempt_id',v_a.id,'seed',v_a.seed,
     'started_at',v_a.started_at,'expires_at',v_a.expires_at,'sponsor_attempt',v_a.is_sponsor,
     'sponsor_attempt_credits',v_credits,'reward_points',0,'round_seconds',0,
-    'attempts_remaining',greatest(3-v_used-case when v_a.is_sponsor then 0 else 1 end,0));
+    'attempts_remaining',greatest(1-v_used-case when v_a.is_sponsor then 0 else 1 end,0));
   update public.snake_product_attempts set start_result=v_result where id=v_a.id;
   return v_result;
 end $$;
@@ -206,7 +211,7 @@ begin
   if not (p_release=any(v_s.approved_releases)) then return jsonb_build_object('success',false,'status','release_not_approved'); end if;
   select count(*)::integer into v_used from public.snake_product_attempts where game='snake' and season_id=v_p.season_id
     and participant_id=v_p.id and not is_sponsor and started_at>now()-interval '24 hours';
-  if v_used<3 then return jsonb_build_object('success',false,'status','regular_attempts_available'); end if;
+  if v_used<1 then return jsonb_build_object('success',false,'status','regular_attempts_available'); end if;
   select count(*)::integer,count(*) filter(where attempt_id is null)::integer,min(claimed_at)+interval '24 hours'
     into v_claims,v_credits,v_reset from public.snake_product_sponsor_claims where game='snake'
       and season_id=v_p.season_id and participant_id=v_p.id and claimed_at>now()-interval '24 hours';

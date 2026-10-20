@@ -8,11 +8,11 @@
       "mobile": false,
       "tracks": [
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "fly-skyline",
           "wanted": "fly-skyline",
           "playing": true,
-          "seconds": 0.09999999999999999,
+          "seconds": 0.08333333333333333,
           "origin": 0,
           "voices": 1,
           "decoded": 1,
@@ -30,10 +30,10 @@
     {
       "game": "snake",
       "mobile": false,
-      "hash": "5f6fd0d3",
+      "hash": "1a8054c8",
       "tracks": [
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-moss",
           "wanted": "snake-moss",
           "playing": true,
@@ -52,7 +52,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-root",
           "wanted": "snake-root",
           "playing": true,
@@ -73,7 +73,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-crystal",
           "wanted": "snake-crystal",
           "playing": true,
@@ -95,7 +95,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-spore",
           "wanted": "snake-spore",
           "playing": true,
@@ -124,7 +124,7 @@
       "mobile": true,
       "tracks": [
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "fly-skyline",
           "wanted": "fly-skyline",
           "playing": true,
@@ -149,7 +149,7 @@
       "hash": "5f6fd0d3",
       "tracks": [
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-moss",
           "wanted": "snake-moss",
           "playing": true,
@@ -168,7 +168,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-root",
           "wanted": "snake-root",
           "playing": true,
@@ -189,7 +189,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-crystal",
           "wanted": "snake-crystal",
           "playing": true,
@@ -211,7 +211,7 @@
           "error": ""
         },
         {
-          "version": "arcade-chill-v1",
+          "version": "arcade-chill-v1-snake-groove-v2",
           "track": "snake-spore",
           "wanted": "snake-spore",
           "playing": true,

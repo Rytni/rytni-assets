@@ -1,6 +1,6 @@
 # Snake local product backend contract
 
-Status: local mock works; SQL is an **unapplied candidate**, ranked is disabled by default. No production RPC, database mutation, deployment or Fly source modification was performed. Audit date: 2026-10-06. This records local source evidence, not deployed database state.
+Current status (2026-10-20): separate Snake tables/RPCs are now applied with explicit user authorization. Hosted TEST uses authenticated parent transport, not mocks. Quota is **1 normal + 2 sponsor**, rolling 24h. The shared season expired October 6 and the user explicitly chose NOT to extend it: ranked stays closed until a valid season. Training remains unlimited. See [current rollout/QA](../arcade-ranked/README.md). The remaining October 6 audit below is historical, not current rollout status.
 
 ## Adapter
 

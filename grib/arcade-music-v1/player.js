@@ -1,13 +1,13 @@
 // Shared presentation-only soundtrack. Uses the caller's existing context/music bus.
-export const MUSIC_VERSION = 'arcade-chill-v1';
+export const MUSIC_VERSION = 'arcade-chill-v1-snake-groove-v2';
 export const BPM = 104;
 export const TRACK_SECONDS = 64 * 60 / BPM;
 export const CHAPTER_SECONDS = TRACK_SECONDS * 2;
 export const TRACKS = Object.freeze([
   ['fly-skyline','Skyline Soda','fly'], ['fly-cloudclub','Cloud Club','fly'],
   ['fly-daydream','Daydream Delivery','fly'], ['fly-aurora','Aurora Avenue','fly'],
-  ['snake-moss','Moss Cassette','snake'], ['snake-root','Root Circuit','snake'],
-  ['snake-crystal','Crystal Pocket','snake'], ['snake-spore','Spore City','snake']
+  ['snake-moss','Fern Arcade','snake'], ['snake-root','Velvet Mycelium','snake'],
+  ['snake-crystal','Moonlit Steps','snake'], ['snake-spore','Neon Canopy','snake']
 ].map(([id,title,game]) => Object.freeze({id,title,game,file:id+'.mp3',bpm:BPM,seconds:TRACK_SECONDS})));
 export function flyMusicCue(seconds=0, score=0) {
   const chapter = Math.max(Math.floor(Math.max(0,seconds)/CHAPTER_SECONDS), Math.floor(Math.max(0,score)/40000));

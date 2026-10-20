@@ -53,11 +53,36 @@
   if(available&&avatar.src!==src.src)avatar.src=src.src;if(avatar.hidden!==!available)avatar.hidden=!available;
   }
  }
- let iframe=null,channel=null,runtimeOrigin=null,mounted=false,fullscreenEscapeEvent=null,savedOverflow='',pseudoAncestors=[];
+ let iframe=null,channel=null,runtimeOrigin=null,mounted=false,fullscreenEscapeEvent=null,savedOverflow='',pseudoAncestors=[],snakeParticipant=null;
+ const player=()=>typeof currentApplication!=='undefined'?currentApplication:window.currentApplication;
+ const snakeRelease=()=>new URL(runtime,location.href).pathname.match(/\/(snake-next-[a-f0-9]{12})\//)?.[1]||String(window.RYTNI_RELEASE||'unknown');
+ // Narrow authenticated gateway, not an arbitrary RPC proxy. No token crosses the frame.
+ async function snakeRanked(method,payload={}){
+  if(!payload||typeof payload!=='object'||Array.isArray(payload))return {success:false,status:'invalid_request'};
+  const p=player(),release=snakeRelease();
+  if(!p?.id)return {success:false,status:'not_authenticated'};
+  if(p.id!==snakeParticipant)return {success:false,status:'account_changed'};
+  if(typeof callSupabaseRpc!=='function'||typeof getClientToken!=='function')return {success:false,status:'backend_unavailable'};
+  const names={hub:'get_snake_product_hub_v1',start:'start_snake_product_attempt_v1',claim:'claim_snake_product_sponsor_v1',finish:'finish_snake_product_attempt_v1'};
+  if(!Object.hasOwn(names,method))return {success:false,status:'invalid_request'};
+  const args={p_participant_id:p.id};
+  if(method!=='hub'){
+   if(payload.release!==release)return {success:false,status:'release_mismatch'};
+   Object.assign(args,{p_client_token:getClientToken(),p_release:release});
+   if(method==='start'||method==='claim')args.p_request_id=payload.requestId;
+   else{
+    const audit={};for(const key of ['foods','length','max_combo','portal_uses','expansions','stage','bonuses','seed','final_hash'])if(payload[key]!==undefined)audit[key]=payload[key];
+    Object.assign(args,{p_attempt_id:payload.attempt_id,p_score:payload.score,p_duration_ms:payload.duration_ms,p_ticks:payload.active_ticks??payload.ticks,p_audit:audit});
+   }
+  }
+  try{const result=await callSupabaseRpc(names[method],args,10000,true,'authenticated',method==='hub');
+   return player()?.id===p.id?result:{success:false,status:'account_changed'};
+  }catch{return {success:false,status:'network_error'};}
+ }
  function pseudoFullscreen(active){const stage=$('msNextStage');if(!stage)return;if(active&&!stage.classList.contains('ms-next-full')){savedOverflow=document.documentElement.style.overflow;for(let node=stage.parentElement;node;node=node.parentElement){const css=getComputedStyle(node);for(const property of ['transform','filter','perspective','contain'])if(css[property]&&css[property]!=='none'){pseudoAncestors.push([node,property,node.style.getPropertyValue(property),node.style.getPropertyPriority(property)]);node.style.setProperty(property,'none','important');}}stage.classList.add('ms-next-full');document.documentElement.style.overflow='hidden';}else if(!active&&stage.classList.contains('ms-next-full')){stage.classList.remove('ms-next-full');for(const [node,property,value,priority]of pseudoAncestors){if(value)node.style.setProperty(property,value,priority);else node.style.removeProperty(property);}pseudoAncestors=[];document.documentElement.style.overflow=savedOverflow;}}
  const Snake={
-  activate(){const url=new URL(runtime,location.href);runtimeOrigin=url.origin;channel=crypto.randomUUID();url.searchParams.set('test','1');url.searchParams.set('host','1');url.searchParams.set('parent_origin',location.origin);url.searchParams.set('channel',channel);if(new URLSearchParams(location.search).get('qa')==='1')url.searchParams.set('qa','1');iframe=document.createElement('iframe');iframe.title='Mushroom Snake';iframe.allow='fullscreen; autoplay; clipboard-write';iframe.src=url.href;$('msNextStage').replaceChildren(iframe);$('msNextSnake').hidden=false;},
-  deactivate(){pseudoFullscreen(false);if(iframe){iframe.contentWindow?.postMessage({protocol,channel,type:'shutdown'},runtimeOrigin);iframe.remove();iframe=null;}channel=null;if($('msNextSnake'))$('msNextSnake').hidden=true;},
+  activate(){const url=new URL(runtime,location.href);runtimeOrigin=url.origin;channel=crypto.randomUUID();snakeParticipant=player()?.id||null;url.searchParams.set('test','1');url.searchParams.set('host','1');url.searchParams.set('release',snakeRelease());url.searchParams.set('parent_origin',location.origin);url.searchParams.set('channel',channel);const query=new URLSearchParams(location.search);if(query.get('qa')==='1')url.searchParams.set('qa','1');if(query.get('arcade_preview')==='1')url.searchParams.set('mock','ready');iframe=document.createElement('iframe');iframe.title='Mushroom Snake';iframe.allow='fullscreen; autoplay; clipboard-write';iframe.src=url.href;$('msNextStage').replaceChildren(iframe);$('msNextSnake').hidden=false;},
+  deactivate(){pseudoFullscreen(false);if(iframe){iframe.contentWindow?.postMessage({protocol,channel,type:'shutdown'},runtimeOrigin);iframe.remove();iframe=null;}channel=null;snakeParticipant=null;if($('msNextSnake'))$('msNextSnake').hidden=true;},
   best:()=>0
  };
  const registry={fly:{name:'Mushroom Fly',description:'Парите над волшебной долиной. Монеты, разломы и новые высоты.',art:'https://rytni.github.io/rytni-assets/grib/mushroom-snake-ui-v4-1/fly-cover.png',activate:()=>window.RytniMushroomFly?.activate(),deactivate:()=>window.RytniMushroomFly?.deactivate(),best:()=>window.RytniMushroomFly?.best()||0},snake:{name:'Mushroom Snake',description:'Расти. Рискуй. Забирай первое место.',art:'https://rytni.github.io/rytni-assets/grib/mushroom-snake-ui-v4/snake-cover.png',activate:()=>Snake.activate(),deactivate:()=>Snake.deactivate(),best:Snake.best}};
@@ -76,7 +101,14 @@
   const snake=document.createElement('section');snake.id='msNextSnake';snake.hidden=true;snake.innerHTML=playerHeader()+`<div id="msNextStage" class="ms-next-stage"></div>`;panel.append(snake);Hub.render();window.RytniMushroomFly?.deactivate();refreshPlayer();
   panel.addEventListener('click',e=>{const action=e.target.closest('[data-ms-action]')?.dataset.msAction;if(action==='hub')Hub.leave();else if(action?.startsWith('game-'))Hub.select(action.slice(5));});
  }
- window.addEventListener('message',e=>{if(!iframe||Hub.selected!=='snake'||e.source!==iframe.contentWindow||e.origin!==runtimeOrigin||e.data?.protocol!==protocol||e.data?.channel!==channel)return;if(e.data.type==='leave')Hub.leave();else if(e.data.type==='state')Hub.snakeScreen=e.data.screen;else if(e.data.type==='ready')iframe.focus();else if(e.data.type==='fullscreen'){pseudoFullscreen(e.data.active===true);iframe.contentWindow.postMessage({protocol,channel,type:'fullscreen-ack',request:e.data.request,active:e.data.active===true},runtimeOrigin);}});
+ window.addEventListener('message',async e=>{
+  if(!iframe||Hub.selected!=='snake'||e.source!==iframe.contentWindow||e.origin!==runtimeOrigin||e.data?.protocol!==protocol||e.data?.channel!==channel)return;
+  if(e.data.type==='ranked'){
+   const target=iframe,session=channel,origin=runtimeOrigin;
+   const result=await snakeRanked(e.data.method,e.data.payload);
+   if(iframe===target&&channel===session)target.contentWindow.postMessage({protocol,channel,type:'ranked-result',request:e.data.request,result},origin);
+  }else if(e.data.type==='leave')Hub.leave();else if(e.data.type==='state')Hub.snakeScreen=e.data.screen;else if(e.data.type==='ready')iframe.focus();else if(e.data.type==='fullscreen'){pseudoFullscreen(e.data.active===true);iframe.contentWindow.postMessage({protocol,channel,type:'fullscreen-ack',request:e.data.request,active:e.data.active===true},runtimeOrigin);}
+ });
  window.addEventListener('keydown',e=>{if(e.key!=='Escape'){fullscreenEscapeEvent=null;return;}const stage=fullscreenStage();if(!stage||Hub.selected!=='fly')return;const native=document.fullscreenElement===stage,pseudo=stage.classList.contains('is-pseudo-fullscreen');if(!native&&!pseudo)return;fullscreenEscapeEvent=e;e.preventDefault();e.stopImmediatePropagation();Hub.fullscreenExitInProgress=true;Promise.resolve(native?document.exitFullscreen():window.RytniMushroomFly?.exitFullscreen?.()).finally(()=>Hub.fullscreenExitInProgress=false);},true);
  document.addEventListener('fullscreenchange',()=>{Hub.fullscreenExitInProgress=false;const diag=window.__RYTNI_ARCADE_DIAG__;if(diag)diag.host.fullscreenChanges++;});
  let queued=false;new MutationObserver(()=>{if(queued)return;queued=true;queueMicrotask(()=>{queued=false;mount();if(Hub.selected&&!Hub.visible())Hub.leave();else if(Hub.selected)refreshPlayer();});}).observe(document.body,{childList:true,attributes:true,subtree:true,attributeFilter:['hidden','class','style']});

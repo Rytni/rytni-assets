@@ -19,18 +19,18 @@ const scores = [
   {id:'fly-aurora', title:'Aurora Avenue', game:'fly', color:3,
     chords:[[45,49,52,56,59],[42,45,49,52,56],[50,54,57,61,64],[52,59,62,66,69]],
     lead:[80,83,78,null,76,73,76,null,78,81,85,83,80,null,78,76]},
-  {id:'snake-moss', title:'Moss Cassette', game:'snake', color:4,
-    chords:[[45,48,52,55,59],[50,53,57,60,64],[43,50,53,57,60],[48,52,55,59,62]],
-    lead:[76,79,74,null,72,76,null,71,69,72,76,74,null,72,71,null]},
-  {id:'snake-root', title:'Root Circuit', game:'snake', color:5,
-    chords:[[41,45,48,52,55],[48,52,55,59,62],[52,55,59,62,66],[45,48,52,55,59]],
-    lead:[77,null,76,72,69,72,76,null,79,74,71,null,72,76,69,null]},
-  {id:'snake-crystal', title:'Crystal Pocket', game:'snake', color:6,
-    chords:[[48,51,55,58,62],[44,48,51,55,58],[51,55,58,62,65],[46,53,56,60,63]],
-    lead:[79,74,75,null,72,70,74,null,79,82,77,74,null,75,72,null]},
-  {id:'snake-spore', title:'Spore City', game:'snake', color:7,
-    chords:[[50,53,57,60,64],[46,50,53,57,60],[41,45,48,52,55],[48,52,55,60,62]],
-    lead:[81,null,77,76,74,72,null,69,74,77,79,null,76,72,74,null]}
+  {id:'snake-moss', title:'Fern Arcade', game:'snake', color:4,
+    chords:[[48,52,55,59,62],[47,50,54,57,61],[45,48,52,55,59],[43,47,50,54,57]],
+    lead:[72,null,67,71,69,null,64,67,74,72,null,71,67,null,69,64]},
+  {id:'snake-root', title:'Velvet Mycelium', game:'snake', color:5,
+    chords:[[41,45,48,52,55],[43,47,50,53,57],[40,43,47,50,54],[45,48,52,55,59]],
+    lead:[69,72,null,67,71,null,74,69,67,64,null,71,72,null,67,64]},
+  {id:'snake-crystal', title:'Moonlit Steps', game:'snake', color:6,
+    chords:[[46,50,53,57,60],[45,48,52,55,59],[43,46,50,53,57],[48,52,55,58,62]],
+    lead:[77,null,72,74,76,72,null,69,70,null,74,77,79,null,76,72]},
+  {id:'snake-spore', title:'Neon Canopy', game:'snake', color:7,
+    chords:[[44,48,51,55,58],[43,46,50,53,57],[41,44,48,51,55],[46,50,53,56,60]],
+    lead:[75,72,null,70,74,77,null,72,68,72,75,null,77,74,null,70]}
 ];
 function random(seed) {return () => {seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed>>>15, 1|seed);t ^= t + Math.imul(t ^ t>>>7, 61|t);return ((t ^ t>>>14)>>>0)/4294967296;};}
 function compose(score) {
@@ -51,6 +51,10 @@ function compose(score) {
       if (instrument==='bass') return envelope*Math.exp(-t*3.2)*(Math.sin(w*t)+.19*Math.sin(2*w*t)*Math.exp(-t*5)+.045*Math.sin(3*w*t));
       if (instrument==='pad') return envelope*(Math.sin(w*t+phase)*.65+Math.sin(w*1.0018*t+phase)*.23+Math.sin(w*.998*t+phase)*.12)*.55;
       if (instrument==='pluck') return envelope*Math.exp(-t*6.5)*(Math.sin(w*t+1.2*Math.exp(-t*8)*Math.sin(2*w*t))+.12*Math.sin(w*3*t)*Math.exp(-t*10));
+      // Snake v2: muted string, round mallet and airy organ; no old Rhodes hook.
+      if (instrument==='string') return envelope*Math.exp(-t*4.8)*(Math.sin(w*t)+.32*Math.sin(w*2*t)*Math.exp(-t*5)+.14*Math.sin(w*3*t)*Math.exp(-t*9));
+      if (instrument==='mallet') return envelope*Math.exp(-t*3.6)*(Math.sin(w*t)+.18*Math.sin(w*4*t)*Math.exp(-t*12));
+      if (instrument==='organ') return envelope*(.75*Math.sin(w*t)+.12*Math.sin(w*2*t)+.06*Math.sin(w*3*t))*(.96+.04*Math.sin(TAU*2*t));
       // Round electric piano: soft tine attack, tremolo, no abrasive square wave.
       return envelope*Math.exp(-t*2.1)*(Math.sin(w*t+(.7+.12*(score.color%3))*Math.exp(-t*5)*Math.sin(2*w*t))+.12*Math.sin(3*w*t)*Math.exp(-t*9))*(.94+.06*Math.sin(TAU*4.5*t));
     }, gain);
@@ -65,6 +69,24 @@ function compose(score) {
     let last=0;
     add(at,strong?.085:.05,pan,t=>{const n=rnd()*2-1,high=n-last;last=n;return high*Math.exp(-t/(strong?.023:.014))*Math.min(1,t/.001);},strong?.017:.011);
   };
+  if(!fly)for(let bar=0;bar<BARS;bar++){
+    const at=bar*4*BEAT,chord=score.chords[Math.floor(bar/2)%4],b=bar>=8,space=bar===7||bar===15;
+    // Broken mellow house/funk, sparse lower-register melodic call and response.
+    for(const beat of [0,1.75,2.5])if(!space||beat===0)kick(at+beat*BEAT);
+    snare(at+BEAT);if(!space)snare(at+3*BEAT);
+    for(let j=0;j<8;j++)if(j%2||!space)hat(at+(j*.5+(j%2?.035:0))*BEAT,false,j%2?.28:-.28);
+    [0,.75,1.5,2.75,3.5].forEach((beat,i)=>note(at+beat*BEAT,(i%2?.32:.55)*BEAT,chord[0]-12+(i===3?7:i===4&&bar%2?12:0),.18,'bass'));
+    for(const beat of [.5,1.5,2.5,3.25])if(!space||beat<2)chord.slice(1).forEach((m,i)=>note(at+beat*BEAT+i*.006,.23*BEAT,m+12,.043,'string',(i-1.5)*.14));
+    if(bar%2===0)chord.slice(1,4).forEach((m,i)=>note(at,5.5*BEAT,m+12,.012,'organ',(i-1)*.38));
+    for(let j=0;j<2;j++){
+      const m=score.lead[(bar*2+j)%16];if(m==null||space)continue;
+      const time=at+(j?2.75:.25)*BEAT,pitch=m+(b&&bar%4===2?7:0);
+      note(time,.9*BEAT,pitch,.073,'mallet',j?.22:-.22);
+      note(time+.75*BEAT,.45*BEAT,pitch,.012,'string',j?-.4:.4);
+    }
+    if(b&&bar%2===1&&!space)for(let j=0;j<3;j++)note(at+(2+j*.5)*BEAT,.28*BEAT,chord[1+j]+12,.032,'string',(j-1)*.3);
+  }
+  if(fly)
   for (let bar=0; bar<BARS; bar++) {
     const at = bar*4*BEAT, chord = score.chords[Math.floor(bar/2)%4], variation = bar>=8;
     const light = bar===7 || bar===15, swing = fly?.025:.045;
@@ -129,9 +151,10 @@ function compose(score) {
     seconds:LENGTH/RATE,bytes:fs.statSync(out).size,peakDb:20*Math.log10(peak*level),rmsDb:20*Math.log10(rms*level)};
 }
 fs.mkdirSync(destination,{recursive:true});
-const tracks=[];
-for(const score of scores){tracks.push(compose(score));console.log('Rendered '+score.title);}
-fs.writeFileSync(path.join(destination,'score.json'),JSON.stringify({version:'arcade-chill-v1',
+const snakeOnly=process.argv.includes('--snake-only');
+const tracks=snakeOnly?JSON.parse(fs.readFileSync(path.join(destination,'score.json'))).tracks.filter(t=>t.game==='fly'):[];
+for(const score of scores.filter(s=>!snakeOnly||s.game==='snake')){tracks.push(compose(score));console.log('Rendered '+score.title);}
+fs.writeFileSync(path.join(destination,'score.json'),JSON.stringify({version:'arcade-chill-v1-snake-groove-v2',
   authorship:'Original offline composition and synthesis; no third-party samples.',tracks},null,2)+'\n');
 fs.rmdirSync(work);
 console.log(JSON.stringify({tracks:tracks.length,totalBytes:tracks.reduce((n,t)=>n+t.bytes,0)}));

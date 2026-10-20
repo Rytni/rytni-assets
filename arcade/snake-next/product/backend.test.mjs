@@ -10,7 +10,8 @@ test('local adapter supplies the ranked contract without a production transport'
   const backend = api.createMockBackend();
   const hub = await backend.hub();
   assert.equal(backend.mode, 'mock');
-  assert.equal(hub.attempts_remaining, 3);
+  assert.equal(hub.attempts_total, 1);
+  assert.equal(hub.attempts_remaining, 1);
   assert.equal(hub.reward_points, 0);
   assert.equal(hub.best_score, 6840);
   assert.equal(hub.my_rank, 7);
@@ -55,6 +56,7 @@ test('finish is bound to its attempt and release and retains a single best attem
   assert.equal(result.record, true);
   assert.equal(result.points_awarded, 0);
   assert.deepEqual(await backend.finish({ ...finish, score: 9999 }), result);
+  await backend.claim({ release: 'local-v1', requestId: 'claim-b' });
   const b = await backend.start({ release: 'local-v1', requestId: 'b' });
   await backend.finish({ attempt_id: b.attempt_id, release: 'local-v1', score: 600 });
   const hub = await backend.hub();
@@ -75,10 +77,10 @@ test('invalid local results never enter the board', async () => {
 
 test('QA states expose deterministic empty, auth, pause, limit and network outcomes', async () => {
   const fixtures = [
-    ['ready', 3, 0, true], ['one-attempt-left', 1, 0, true],
+    ['ready', 1, 0, true], ['one-attempt-left', 1, 0, true],
     ['no-attempts', 0, 0, false], ['sponsor-available', 0, 0, true],
-    ['sponsor-credit', 0, 1, true], ['leaderboard-empty', 3, 0, true],
-    ['record-result', 3, 0, true]
+    ['sponsor-credit', 0, 1, true], ['leaderboard-empty', 1, 0, true],
+    ['record-result', 1, 0, true]
   ];
   for (const [state, remaining, credits, sponsor] of fixtures) {
     const hub = await api.createMockBackend(state).hub();
@@ -101,9 +103,9 @@ test('returned hub and calls cannot alter counters or stored results', async () 
   hub.attempts_remaining = 100;
   hub.leaderboard[0].score = 99999;
   const next = await backend.hub();
-  assert.equal(next.attempts_remaining, 3);
+  assert.equal(next.attempts_remaining, 1);
   assert.equal(next.leaderboard[0].score, 12480);
-  assert.equal((await api.createMockBackend().hub()).attempts_remaining, 3);
+  assert.equal((await api.createMockBackend().hub()).attempts_remaining, 1);
 });
 
 test('ranked adapter requires explicit injected transport and filters audit payloads', async () => {
@@ -135,4 +137,13 @@ test('ranked finish admits the controller aggregate stats without requiring repl
   assert.deepEqual(submitted.p_audit, { foods: 24, length: 32, max_combo: 5, portal_uses: 2,
     expansions: 1, stage: 1, bonuses: 9, seed: 76194, final_hash: 'local-hash' });
   assert.equal(submitted.secret, undefined);
+});
+
+test('host adapter has no fake-success fallback and delegates only Snake methods',async()=>{
+  assert.deepEqual(await api.createHostedBackend().hub(),{success:false,status:'backend_unavailable'});
+  const sent=[],backend=api.createHostedBackend({ranked:async(method,payload)=>{sent.push({method,payload});return {success:true,status:'ready',attempts_total:1};}});
+  assert.equal(backend.mode,'ranked');assert.equal((await backend.hub()).attempts_total,1);
+  await backend.start({release:'test',requestId:'one'});await backend.claim({release:'test',requestId:'two'});await backend.finish({attempt_id:'one',score:1});
+  assert.deepEqual(sent.map(s=>s.method),['hub','start','claim','finish']);
+  assert.equal((await api.createHostedBackend({ranked:async()=>{throw Error('offline');}}).hub()).status,'network_error');
 });

@@ -1,0 +1,153 @@
+{
+  "checks": 23,
+  "failures": [],
+  "errors": [],
+  "rows": [
+    {
+      "mobile": false,
+      "initial": {
+        "mode": "ranked",
+        "hub": {
+          "success": true,
+          "status": "ready",
+          "available": true,
+          "game": "snake",
+          "season_id": "mock-season",
+          "attempts_total": 1,
+          "attempts_used": 0,
+          "attempts_remaining": 1,
+          "next_attempt_at": null,
+          "cycle": "rolling_24h",
+          "sponsor_attempt_limit": 2,
+          "sponsor_attempts_used": 0,
+          "sponsor_attempt_credits": 0,
+          "sponsor_attempt_available": false,
+          "next_sponsor_attempt_at": null,
+          "reward_points": 0,
+          "round_seconds": 0,
+          "best_score": 0,
+          "my_rank": null,
+          "leaderboard": []
+        },
+        "release": "snake-next-2fbc81ae44ef"
+      },
+      "result": {
+        "accepted": true,
+        "hub": {
+          "success": true,
+          "status": "ready",
+          "available": true,
+          "game": "snake",
+          "season_id": "mock-season",
+          "attempts_total": 1,
+          "attempts_used": 1,
+          "attempts_remaining": 0,
+          "next_attempt_at": "2030-01-02T12:00:00.000Z",
+          "cycle": "rolling_24h",
+          "sponsor_attempt_limit": 2,
+          "sponsor_attempts_used": 0,
+          "sponsor_attempt_credits": 0,
+          "sponsor_attempt_available": true,
+          "next_sponsor_attempt_at": null,
+          "reward_points": 0,
+          "round_seconds": 0,
+          "best_score": 950,
+          "my_rank": 1,
+          "leaderboard": [
+            {
+              "name": "Вы",
+              "score": 950,
+              "is_me": true,
+              "place": 1
+            }
+          ]
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_snake_product_hub_v1",
+        "start_snake_product_attempt_v1",
+        "get_snake_product_hub_v1",
+        "finish_snake_product_attempt_v1",
+        "get_snake_product_hub_v1",
+        "get_snake_product_hub_v1",
+        "claim_snake_product_sponsor_v1",
+        "get_snake_product_hub_v1",
+        "get_snake_product_hub_v1"
+      ]
+    },
+    {
+      "mobile": true,
+      "initial": {
+        "mode": "ranked",
+        "hub": {
+          "success": true,
+          "status": "ready",
+          "available": true,
+          "game": "snake",
+          "season_id": "mock-season",
+          "attempts_total": 1,
+          "attempts_used": 0,
+          "attempts_remaining": 1,
+          "next_attempt_at": null,
+          "cycle": "rolling_24h",
+          "sponsor_attempt_limit": 2,
+          "sponsor_attempts_used": 0,
+          "sponsor_attempt_credits": 0,
+          "sponsor_attempt_available": false,
+          "next_sponsor_attempt_at": null,
+          "reward_points": 0,
+          "round_seconds": 0,
+          "best_score": 0,
+          "my_rank": null,
+          "leaderboard": []
+        },
+        "release": "snake-next-2fbc81ae44ef"
+      },
+      "result": {
+        "accepted": true,
+        "hub": {
+          "success": true,
+          "status": "ready",
+          "available": true,
+          "game": "snake",
+          "season_id": "mock-season",
+          "attempts_total": 1,
+          "attempts_used": 1,
+          "attempts_remaining": 0,
+          "next_attempt_at": "2030-01-02T12:00:00.000Z",
+          "cycle": "rolling_24h",
+          "sponsor_attempt_limit": 2,
+          "sponsor_attempts_used": 0,
+          "sponsor_attempt_credits": 0,
+          "sponsor_attempt_available": true,
+          "next_sponsor_attempt_at": null,
+          "reward_points": 0,
+          "round_seconds": 0,
+          "best_score": 950,
+          "my_rank": 1,
+          "leaderboard": [
+            {
+              "name": "Вы",
+              "score": 950,
+              "is_me": true,
+              "place": 1
+            }
+          ]
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_snake_product_hub_v1",
+        "start_snake_product_attempt_v1",
+        "get_snake_product_hub_v1",
+        "finish_snake_product_attempt_v1",
+        "get_snake_product_hub_v1",
+        "get_snake_product_hub_v1",
+        "claim_snake_product_sponsor_v1",
+        "get_snake_product_hub_v1",
+        "get_snake_product_hub_v1"
+      ]
+    }
+  ]
+}

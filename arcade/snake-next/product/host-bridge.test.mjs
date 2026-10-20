@@ -14,3 +14,15 @@ test('standalone has no host routing or parent messages',()=>{const f=fixture(''
 test('host sends channel-scoped readiness and other-game routing to exact parent origin',()=>{const f=fixture();f.self.SnakeTestHost.bind(()=>{});f.self.RytniArcadeHub.leave();assert.deepEqual(f.messages.map(m=>m.message.type),['ready','leave']);assert.ok(f.messages.every(m=>m.origin==='https://rytni.live'&&m.message.channel==='qa-channel'));});
 test('forged messages cannot stop game; valid shutdown disposes once',()=>{const f=fixture();let disposed=0;f.self.SnakeTestHost.bind(()=>disposed++);const data={type:'shutdown',protocol:'snake-next-test-v1',channel:'qa-channel'};f.receive(data,'https://evil.invalid');f.receive(data,'https://rytni.live',{});f.receive({...data,channel:'bad'});assert.equal(disposed,0);f.receive(data);f.receive(data);assert.equal(disposed,1);});
 test('fullscreen gate resolves only after exact parent acknowledges matching request',async()=>{const f=fixture();const pending=f.self.SnakeTestHost.fullscreen(true);const request=f.messages.at(-1).message;let resolved=false;pending.then(()=>resolved=true);f.receive({...request,type:'fullscreen-ack'},'https://evil.invalid');await Promise.resolve();assert.equal(resolved,false);f.receive({...request,type:'fullscreen-ack'});assert.equal(await pending,true);});
+
+test('ranked results reject forged origins/channels and cross-type request confusion',async()=>{
+ const f=fixture(),pending=f.self.SnakeTestHost.ranked('hub'),request=f.messages.at(-1).message;let done=false;pending.then(()=>done=true);
+ const reply={...request,type:'ranked-result',result:{success:true,attempts_total:1}};
+ f.receive(reply,'https://evil.invalid');f.receive({...reply,channel:'bad'});f.receive({...reply,type:'fullscreen-ack'});await Promise.resolve();assert.equal(done,false);
+ f.receive(reply);assert.equal((await pending).attempts_total,1);
+});
+test('shutdown settles pending ranked request as failure, never false success',async()=>{
+ const f=fixture(),pending=f.self.SnakeTestHost.ranked('start',{release:'test',requestId:'one'});
+ f.receive({protocol:'snake-next-test-v1',channel:'qa-channel',type:'shutdown'});
+ assert.equal((await pending).success,false);
+});
