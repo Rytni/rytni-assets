@@ -4,6 +4,7 @@ const {validateRuntime}=require('../arcade/assemble-snake-next.cjs');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const FLY_PREMIUM_V2_KEYS=['sky-desktop-v2.png','sky-mobile-v2.png','celebration-v2.png','play-amber-v2.png','play-amber-trimmed-v2.png','sky-journal-v2.png'].map(n=>'grib/mushroom-fly-premium-v2/'+n);
 const FLY_PREMIUM_V21_KEYS=['sky-desktop-v2-1.webp','sky-mobile-v2-1.webp','celebration-v2-1.webp','celebration-portrait-v2-1.webp','secondary-trimmed-v2-1.png','sponsor-token-128-v2-1.png'].map(n=>'grib/mushroom-fly-premium-v2-1/'+n);
+const COMMUNITY_ART_KEYS=['web/2/media-comments.webp','web/2/media-likes.webp'];
 const MIME={html:'text/html; charset=utf-8',json:'application/json; charset=utf-8',js:'text/javascript; charset=utf-8',mjs:'text/javascript; charset=utf-8',css:'text/css; charset=utf-8',png:'image/png',webp:'image/webp',wav:'audio/wav',ogg:'audio/ogg',mp3:'audio/mpeg',woff2:'font/woff2'};
 function createPlan(root){
  const manifestBytes=fs.readFileSync(path.join(root,'giveaway-test/manifest.json')),m=JSON.parse(manifestBytes);
@@ -21,18 +22,18 @@ async function sync(root,request){
  const final=plan.at(-1),put=await request('PUT',final.key,final.body,{'Content-Type':final.type,'Cache-Control':final.cache});if(put.status<200||put.status>=300)throw Error('TEST manifest PUT failed');const read=await request('GET',final.key);if(read.status!==200||sha(content(read))!==sha(final.body))throw Error('TEST manifest verification mismatch');
  return {id:manifest.current.id,uploaded,unchanged,manifestLast:true};
 }
-function transport(env,{flyPremiumV2=false,flyPremiumV21=false}={}){
+function transport(env,{flyPremiumV2=false,flyPremiumV21=false,communityArt=false}={}){
  const endpoint=env.RYTNI_S3_ENDPOINT||'storage-1090.s3hoster.by',region=env.RYTNI_S3_REGION||'A1',bucket=env.RYTNI_S3_BUCKET||'rytnistatictest';
  if(endpoint!=='storage-1090.s3hoster.by'||bucket!=='rytnistatictest'||env.RYTNI_S3_CHANNEL&&env.RYTNI_S3_CHANNEL!=='giveaway-test')throw Error('Unexpected TEST mirror target');
  if(!env.RYTNI_S3_ACCESS_KEY||!env.RYTNI_S3_SECRET_KEY)throw Error('TEST mirror credentials unavailable');
  const hmac=(key,data)=>crypto.createHmac('sha256',key).update(data).digest();
  return (method,key,body=Buffer.alloc(0),headers={})=>{
-  if(!['GET','PUT'].includes(method)||!(key.startsWith('giveaway-test/')||flyPremiumV2&&FLY_PREMIUM_V2_KEYS.includes(key)||flyPremiumV21&&FLY_PREMIUM_V21_KEYS.includes(key))||key.split('/').some(p=>['','..','.'].includes(p)))throw Error('Protected S3 request');
+  if(!['GET','PUT'].includes(method)||!(key.startsWith('giveaway-test/')||flyPremiumV2&&FLY_PREMIUM_V2_KEYS.includes(key)||flyPremiumV21&&FLY_PREMIUM_V21_KEYS.includes(key)||communityArt&&COMMUNITY_ART_KEYS.includes(key))||key.split('/').some(p=>['','..','.'].includes(p)))throw Error('Protected S3 request');
   const date=new Date().toISOString().replace(/[:-]|\.\d{3}/g,''),day=date.slice(0,8),uri='/'+bucket+'/'+key.split('/').map(encodeURIComponent).join('/'),payload=sha(body),signed='host;x-amz-content-sha256;x-amz-date';
   const canonical=[method,uri,'',`host:${endpoint}\nx-amz-content-sha256:${payload}\nx-amz-date:${date}\n`,signed,payload].join('\n'),scope=`${day}/${region}/s3/aws4_request`,string=['AWS4-HMAC-SHA256',date,scope,sha(Buffer.from(canonical))].join('\n');
   const signing=hmac(hmac(hmac(hmac(Buffer.from('AWS4'+env.RYTNI_S3_SECRET_KEY),day),region),'s3'),'aws4_request'),signature=crypto.createHmac('sha256',signing).update(string).digest('hex');
   return new Promise((resolve,reject)=>{const req=https.request({hostname:endpoint,method,path:uri,timeout:20000,headers:{Host:endpoint,'x-amz-date':date,'x-amz-content-sha256':payload,Authorization:`AWS4-HMAC-SHA256 Credential=${env.RYTNI_S3_ACCESS_KEY}/${scope}, SignedHeaders=${signed}, Signature=${signature}`,'Content-Length':body.length,...headers}},res=>{const chunks=[];res.on('data',b=>chunks.push(b));res.on('end',()=>resolve({status:res.statusCode,headers:res.headers,body:Buffer.concat(chunks)}));});req.on('timeout',()=>req.destroy(Error('TEST mirror timeout')));req.on('error',reject);req.end(body);});
  };
 }
-module.exports={createPlan,sync,transport,FLY_PREMIUM_V2_KEYS,FLY_PREMIUM_V21_KEYS};
+module.exports={createPlan,sync,transport,FLY_PREMIUM_V2_KEYS,FLY_PREMIUM_V21_KEYS,COMMUNITY_ART_KEYS};
 if(require.main===module)sync(path.resolve(__dirname,'..'),transport(process.env)).then(result=>console.log(JSON.stringify(result))).catch(e=>{console.error(e.message);process.exitCode=1;});

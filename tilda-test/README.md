@@ -26,7 +26,9 @@ The build writes `giveaway-test/releases/<version>-<sha12>/app.html`, a local ca
 
 Both content-addressed outputs are generated; edit source blocks/product files, not releases. Rebuilding identical inputs reuses the existing runtime; conflicting existing bytes cause a hard failure. Local badges and automatic `qa=1` iframe flags are removed from the TEST snapshot. Building or changing the local manifest does **not** publish TEST. Publication requires a separate authorized deployment, exact hash-verified candidate staging, and live mirror verification. Production (`giveaway/`) is not an input or output of this build.
 
-The community ranking is an additive section mounted by block 04. Its three categories
-and channel/period filters read `giveaway_social_rankings_v1` from the existing backend.
+The community ranking is a separate popup mounted outside `main` by block 04 and
+opened by its hero button (or `#community-rating`). Its three categories read only
+the combined two-channel 30-day dataset from `giveaway_social_rankings_v1`; there
+are no channel/period filters. It shares the site's popup lifecycle and artwork.
 Subsequent one-button updates from RYTNI Studio publish validated data snapshots, not
 new HTML/Tilda files. See `docs/community-ranking.md` for the public-data boundary.

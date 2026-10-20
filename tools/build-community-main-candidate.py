@@ -15,13 +15,13 @@ def build(root, output):
     if hashlib.sha256(raw).hexdigest()!=base['sha256'] or len(raw)!=base['size']:raise ValueError('MAIN base hash mismatch')
     text=raw.decode('utf-8')
     if 'communityRankingMount' in text:raise ValueError('MAIN already includes community ranking')
-    anchor='<div class="card span-2 rules-card" id="rules">'
+    anchor='</main>'
     if text.count(anchor)!=1 or text.count('id="openRulesPopup"')!=1 or 'async function callSupabaseRpc(' not in text:raise ValueError('Unexpected MAIN source contract')
     source=(root/'tilda-test/blocks/10_T123_COMMUNITY_RANKING.html').read_text(encoding='utf-8')
-    prepared=text.replace(anchor,'<div class="span-2" id="communityRankingMount" data-channel="main"></div>\n\n    '+anchor,1)
+    prepared=text.replace(anchor,anchor+'\n<div id="communityRankingMount" data-channel="main"></div>',1)
     hero='<button class="ghost-btn" type="button" id="openRulesPopup">Правила</button>'
     if prepared.count(hero)!=1:raise ValueError('Unknown MAIN hero markup')
-    prepared=prepared.replace(hero,hero+'\n        <a class="ghost-btn" href="#community-rating">Рейтинг участников</a>',1)
+    prepared=prepared.replace(hero,hero+'\n        <button class="ghost-btn" type="button" id="openCommunityRanking" data-open-community-ranking>Рейтинг участников</button>',1)
     prepared+='\n'+source+'\n'
     content=prepared.encode('utf-8');digest=hashlib.sha256(content).hexdigest();release_id=base['version']+'-'+digest[:12]
     destination=Path(output)/release_id/'app.html'

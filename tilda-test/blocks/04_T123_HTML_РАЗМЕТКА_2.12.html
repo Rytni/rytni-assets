@@ -30,7 +30,7 @@
         <a class="btn" href="#participationCard" id="heroPrimaryAction">Участвовать</a>
         <button class="ghost-btn" type="button" data-open-application-tool data-tool-mode="card">Моя заявка</button>
         <button class="ghost-btn" type="button" id="openRulesPopup">Правила</button>
-        <a class="ghost-btn" href="#community-rating">Рейтинг участников</a>
+        <button class="ghost-btn" type="button" id="openCommunityRanking" data-open-community-ranking>Рейтинг участников</button>
       </div>
     </div>
   </section>
@@ -435,8 +435,6 @@
       </div>
     </div>
 
-    <div class="span-2" id="communityRankingMount" data-channel="test"></div>
-
     <div class="card span-2 rules-card" id="rules">
       <div class="card-inner">
         <div class="rules-head">
@@ -493,6 +491,8 @@
     </div>
   </section>
 </main>
+
+<div id="communityRankingMount" data-channel="test"></div>
 
 <div class="sticky-cta">
   <a class="btn" href="#participationCard">Участвовать</a>
