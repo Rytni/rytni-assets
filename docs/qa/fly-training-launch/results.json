@@ -1,0 +1,159 @@
+{
+  "rows": [
+    {
+      "state": "ready",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0.19999999999999998,
+        "worldClock": 0.19999999999999998,
+        "score": 8,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_browser_arcade_hub_v21533"
+      ],
+      "overlayHidden": true,
+      "text": "Покоряйте волшебное небо и получите +100 очков за рейтинговую попытку."
+    },
+    {
+      "state": "network-error",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0.19999999999999998,
+        "worldClock": 0.19999999999999998,
+        "score": 8,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_browser_arcade_hub_v21533"
+      ],
+      "overlayHidden": true,
+      "text": "Готовим трассу и данные сезона…"
+    },
+    {
+      "state": "not-authenticated",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0.19999999999999998,
+        "worldClock": 0.19999999999999998,
+        "score": 8,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_browser_arcade_hub_v21533"
+      ],
+      "overlayHidden": true,
+      "text": "Готовим трассу и данные сезона…"
+    },
+    {
+      "state": "paused",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0.2333333333333333,
+        "worldClock": 0.2333333333333333,
+        "score": 9,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_browser_arcade_hub_v21533"
+      ],
+      "overlayHidden": true,
+      "text": "Готовим трассу и данные сезона…"
+    },
+    {
+      "state": "no-profile",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0.21666666666666665,
+        "worldClock": 0.21666666666666665,
+        "score": 9,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [],
+      "overlayHidden": true,
+      "text": "Готовим трассу и данные сезона…"
+    },
+    {
+      "state": "mobile-network",
+      "runtime": {
+        "running": true,
+        "paused": false,
+        "elapsed": 0,
+        "worldClock": 0,
+        "score": 0,
+        "location": 0,
+        "objects": 0,
+        "particles": 0,
+        "runMode": "NORMAL",
+        "perfectStreak": 0,
+        "effects": {
+          "ghost": 0,
+          "ghostPending": 0,
+          "time": 0
+        }
+      },
+      "calls": [
+        "get_browser_arcade_hub_v21533",
+        "get_browser_arcade_hub_v21533"
+      ],
+      "overlayHidden": true,
+      "text": "Игра начнётся только в горизонтальном режиме. Попытка пока не тратится."
+    }
+  ],
+  "failures": [],
+  "errors": []
+}

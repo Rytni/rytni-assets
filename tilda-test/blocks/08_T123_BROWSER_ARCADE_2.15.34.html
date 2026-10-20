@@ -1235,7 +1235,8 @@
     if(model.running||!hostActive)return;
     const epoch=hostEpoch;
     if(requireMobileMode(forceTraining?"training":"play"))return;
-    if(!model.hub?.success||model.hub.available!==true||(!preview&&hubParticipant!==profile()?.id)){await loadHub();return;}
+    // Unlimited local Training must not depend on ranked hub/auth availability.
+    if(!forceTraining&&(!model.hub?.success||model.hub.available!==true||(!preview&&hubParticipant!==profile()?.id))){await loadHub();return;}
     const button=$("arcadeStart"),participant=profile();if(button){button.disabled=true;button.querySelector("span").textContent="Готовим трассу…";}await Promise.all([geometryReady,bonusReady]);if(epoch!==hostEpoch||!hostActive)return;
     model.training=forceTraining||((Number(model.hub?.attempts_remaining)||0)<=0&&(Number(model.hub?.sponsor_attempt_credits)||0)<=0);
     if(!mobileReady()){requireMobileMode(forceTraining?"training":"play");return;}
