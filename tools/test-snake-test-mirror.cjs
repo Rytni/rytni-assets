@@ -2,10 +2,14 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 test('mirror admits only validated TEST candidate bytes, JavaScript MIME, manifest last',async()=>{
  const api=require('./sync-snake-test-mirror.cjs'),root=path.resolve(__dirname,'..'),plan=api.createPlan(root),m=JSON.parse(fs.readFileSync(path.join(root,'giveaway-test/manifest.json')));
  assert.equal(plan.at(-1).key,'giveaway-test/manifest.json');
+ assert.ok(!plan.at(-1).body.toString().includes('\r\n'),'manifest uses the same canonical LF bytes as Pages');
+ const current=plan.find(f=>f.key==='giveaway-test/'+m.current.file);
+ assert.equal(require('node:crypto').createHash('sha256').update(current.body).digest('hex'),m.current.sha256);
+ assert.equal(current.body.length,m.current.size);
  assert.ok(plan.every(f=>f.key.startsWith('giveaway-test/')&&!f.key.split('/').includes('..')));
  assert.equal(plan.filter(f=>f.key.endsWith('.mjs')).length,2);
  assert.ok(plan.filter(f=>f.key.endsWith('.mjs')).every(f=>f.type.startsWith('text/javascript')));
- const objects=new Map(),events=[],previous=fs.readFileSync(path.join(root,'giveaway-test',m.previous.file));
+ const objects=new Map(),events=[],previous=Buffer.from(fs.readFileSync(path.join(root,'giveaway-test',m.previous.file),'utf8').replace(/\r\n/g,'\n'));
  objects.set('giveaway-test/'+m.previous.file,previous);
  const request=async(method,key,body)=>{events.push([method,key]);if(method==='PUT'){objects.set(key,body);return {status:200,body:Buffer.alloc(0),headers:{}};}return {status:objects.has(key)?200:404,body:objects.get(key)||Buffer.alloc(0),headers:{}};};
  await api.sync(root,request);assert.equal(events.filter(e=>e[0]==='PUT').at(-1)[1],'giveaway-test/manifest.json');

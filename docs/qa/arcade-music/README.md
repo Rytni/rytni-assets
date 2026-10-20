@@ -1,5 +1,7 @@
 # Fly + Snake — Chill Groove soundtrack v1
 
+2026-10-20 update: Snake's four compositions are replaced by Groove V2 (Fern Arcade, Velvet Mycelium, Moonlit Steps, Neon Canopy). Muted strings/mallet/organ arrangement; Fly files unchanged. Current quota/backend/music rollout evidence is in [arcade-ranked](../arcade-ranked/README.md). The original music-only audit below is historical; the interactive listening page and measurement/browser reports reflect the new Snake files.
+
 Base: `7cc66d4` / TEST `2.15.33-fada42efb84d`. Music-only change; no gameplay tuning.
 
 ## Sound direction

@@ -30,6 +30,16 @@ The user explicitly authorized shared Supabase changes, then explicitly chose **
 
 Candidate: `2.15.33-c8619dc04aea`, immutable runtime `snake-next-2fbc81ae44ef` (explicitly enabled/allowlisted in the backend, with season gate still closed). Source and immutable-runtime browser flows both passed the 23 assertions. [Read-only database evidence](database-results.json).
 
+## Published TEST acceptance
+
+- Source checkpoint `86a6573`; immutable publication checkpoint `5ed8d67`.
+- [Public TEST](https://rytni.live/testpodari): **21 live browser checks PASS** (desktop + mobile, both Training launches/music/pause/resume/exit, real hosted Snake adapter/release identity). No ranked/sponsor mutations attempted. No JS/game-resource errors; the pre-existing anonymous `/auth/v1/health` 401 remains a documented baseline.
+- [Mirror evidence](../arcade-music/mirrors.json): Pages and S3 agree byte-for-byte on manifest SHA `aece15702070f4ffab68814ccae678e45b599387dfdcd81ffab497e7bb8d4614`, bundle, rollback and all 9 immutable music files.
+- Production manifest SHA remains `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`. Shared database quota change was separately authorized; no Production frontend was published.
+- Publication initially stopped because Windows had CRLF-normalized the local OLD rollback bundle. Mirror now recovers LF bytes **in memory only**, and only accepts them if both pinned SHA and size match. No immutable artifact was edited. Manifest uses canonical LF so both delivery surfaces match. Three mirror safety tests PASS.
+- Live QA was rerun after Pages completed. Earlier rollout probes saw expected not-yet-published 404s; one subsequent cold mobile probe timed out without resource errors. The final fresh desktop/mobile run passed all 21 checks; no gameplay/audio workaround was introduced for the probe.
+- Read-only verification after live QA still shows 0 Snake attempts and 0 sponsor claims, season unchanged/expired, quotas 1/2, correct RLS/grants and approved immutable release.
+
 ## New Snake soundtrack
 
 **Fern Arcade → Velvet Mycelium → Moonlit Steps → Neon Canopy**. Different melodies, chords and instrumentation (muted strings, round mallets, airy organ, syncopated bass), not a speed/pitch change of the previous tracks. 104 BPM, stage/active-time chapters, 1.8s crossfade; simulation and Fly audio unchanged.

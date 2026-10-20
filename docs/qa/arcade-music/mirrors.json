@@ -2,18 +2,18 @@
   "rows": [
     {
       "base": "https://rytni.github.io/rytni-assets/giveaway-test/",
-      "id": "2.15.33-7efbc6a0edfe",
-      "manifestSha256": "99b304c30023e042a467ab8dace0e2f0b110117714098550451b222234a1eddb",
-      "bundleSha256": "7efbc6a0edfe588f583b8910f7fb2dba83d94b512afe97dd9464cc9a3fa4421d",
-      "runtime": "snake-next-a0f94eca2afc",
+      "id": "2.15.33-c8619dc04aea",
+      "manifestSha256": "aece15702070f4ffab68814ccae678e45b599387dfdcd81ffab497e7bb8d4614",
+      "bundleSha256": "c8619dc04aeabe26a28856dfea6a66f0c28bfe58dc542cd24615bf0efb28cbe3",
+      "runtime": "snake-next-2fbc81ae44ef",
       "verifiedMusicFiles": 9
     },
     {
       "base": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/",
-      "id": "2.15.33-7efbc6a0edfe",
-      "manifestSha256": "99b304c30023e042a467ab8dace0e2f0b110117714098550451b222234a1eddb",
-      "bundleSha256": "7efbc6a0edfe588f583b8910f7fb2dba83d94b512afe97dd9464cc9a3fa4421d",
-      "runtime": "snake-next-a0f94eca2afc",
+      "id": "2.15.33-c8619dc04aea",
+      "manifestSha256": "aece15702070f4ffab68814ccae678e45b599387dfdcd81ffab497e7bb8d4614",
+      "bundleSha256": "c8619dc04aeabe26a28856dfea6a66f0c28bfe58dc542cd24615bf0efb28cbe3",
+      "runtime": "snake-next-2fbc81ae44ef",
       "verifiedMusicFiles": 9
     }
   ],

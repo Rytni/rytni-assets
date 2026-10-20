@@ -1,22 +1,21 @@
 {
-  "checks": 17,
+  "checks": 21,
   "rows": [
     {
       "game": "fly",
       "mobile": false,
       "soundtrack": {
-        "version": "arcade-chill-v1",
+        "version": "arcade-chill-v1-snake-groove-v2",
         "track": null,
         "wanted": "fly-skyline",
         "playing": false,
-        "seconds": 0.03333333333333333,
+        "seconds": 0.3833333333333333,
         "origin": 0,
         "voices": 0,
         "decoded": 1,
         "decodedBytes": 14178464,
         "rates": [],
         "history": [
-          "fly-skyline",
           "fly-skyline"
         ],
         "error": ""
@@ -26,11 +25,11 @@
       "game": "snake",
       "mobile": false,
       "soundtrack": {
-        "version": "arcade-chill-v1",
+        "version": "arcade-chill-v1-snake-groove-v2",
         "track": "snake-moss",
         "wanted": "snake-moss",
         "playing": true,
-        "seconds": 0.31666666666666665,
+        "seconds": 0.38333333333333336,
         "origin": 0,
         "voices": 1,
         "decoded": 1,
@@ -43,24 +42,23 @@
         ],
         "error": ""
       },
-      "frame": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-a0f94eca2afc/snake/product/frame.html?mode=product"
+      "frame": "https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-2fbc81ae44ef/snake/product/frame.html?mode=product"
     },
     {
       "game": "fly",
       "mobile": true,
       "soundtrack": {
-        "version": "arcade-chill-v1",
+        "version": "arcade-chill-v1-snake-groove-v2",
         "track": null,
         "wanted": "fly-skyline",
         "playing": false,
-        "seconds": 0.05,
+        "seconds": 0.49999999999999994,
         "origin": 0,
         "voices": 0,
         "decoded": 1,
         "decodedBytes": 14178464,
         "rates": [],
         "history": [
-          "fly-skyline",
           "fly-skyline"
         ],
         "error": ""
@@ -70,7 +68,7 @@
       "game": "snake",
       "mobile": true,
       "soundtrack": {
-        "version": "arcade-chill-v1",
+        "version": "arcade-chill-v1-snake-groove-v2",
         "track": "snake-moss",
         "wanted": "snake-moss",
         "playing": true,
@@ -87,7 +85,7 @@
         ],
         "error": ""
       },
-      "frame": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/snake-next-a0f94eca2afc/snake/product/frame.html?mode=product"
+      "frame": "https://rytni.github.io/rytni-assets/giveaway-test/releases/snake-next-2fbc81ae44ef/snake/product/frame.html?mode=product"
     }
   ],
   "failures": [],

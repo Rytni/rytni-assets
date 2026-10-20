@@ -7,10 +7,21 @@ const FLY_PREMIUM_V21_KEYS=['sky-desktop-v2-1.webp','sky-mobile-v2-1.webp','cele
 const COMMUNITY_ART_KEYS=['web/2/media-comments.webp','web/2/media-likes.webp'];
 const MIME={html:'text/html; charset=utf-8',json:'application/json; charset=utf-8',js:'text/javascript; charset=utf-8',mjs:'text/javascript; charset=utf-8',css:'text/css; charset=utf-8',png:'image/png',webp:'image/webp',wav:'audio/wav',ogg:'audio/ogg',mp3:'audio/mpeg',woff2:'font/woff2'};
 function createPlan(root){
- const manifestBytes=fs.readFileSync(path.join(root,'giveaway-test/manifest.json')),m=JSON.parse(manifestBytes);
- for(const r of [m.current,m.previous]){if(!r||!/^releases\/[a-zA-Z0-9.-]+\/app\.html$/.test(r.file))throw Error('Unsafe TEST release');const b=fs.readFileSync(path.join(root,'giveaway-test',r.file));if(sha(b)!==r.sha256||b.length!==r.size)throw Error('TEST release hash/size mismatch');}
+ const manifestBytes=Buffer.from(fs.readFileSync(path.join(root,'giveaway-test/manifest.json'),'utf8').replace(/\r\n/g,'\n')),m=JSON.parse(manifestBytes),releases=new Map();
+ for(const r of [m.current,m.previous]){
+  if(!r||!/^releases\/[a-zA-Z0-9.-]+\/app\.html$/.test(r.file))throw Error('Unsafe TEST release');
+  let b=fs.readFileSync(path.join(root,'giveaway-test',r.file));
+  if(sha(b)!==r.sha256||b.length!==r.size){
+   // Windows checkout can add CRLF to a previously published LF artifact.
+   // Recover bytes in memory ONLY if they match the pinned SHA AND size exactly.
+   // Never rewrite the immutable file or accept arbitrary textual differences.
+   b=Buffer.from(b.toString('utf8').replace(/\r\n/g,'\n'));
+   if(sha(b)!==r.sha256||b.length!==r.size)throw Error('TEST release hash/size mismatch');
+  }
+  releases.set('giveaway-test/'+r.file,b);
+ }
  const paths=[...validateRuntime({root,descriptor:m.current.snake_runtime}),'giveaway-test/'+m.current.file,'giveaway-test/manifest.json'];
- return paths.map(key=>{if(!key.startsWith('giveaway-test/')||key.split('/').some(s=>s==='..'||s==='.'||!s))throw Error('Protected mirror path');const body=key==='giveaway-test/manifest.json'?manifestBytes:fs.readFileSync(path.join(root,key)),type=MIME[key.split('.').at(-1)];if(!type)throw Error('Unknown mirror MIME');return {key,body,type,cache:key.endsWith('/manifest.json')?'no-store, max-age=0':'public, max-age=31536000, immutable'};});
+ return paths.map(key=>{if(!key.startsWith('giveaway-test/')||key.split('/').some(s=>s==='..'||s==='.'||!s))throw Error('Protected mirror path');const body=key==='giveaway-test/manifest.json'?manifestBytes:releases.get(key)||fs.readFileSync(path.join(root,key)),type=MIME[key.split('.').at(-1)];if(!type)throw Error('Unknown mirror MIME');return {key,body,type,cache:key.endsWith('/manifest.json')?'no-store, max-age=0':'public, max-age=31536000, immutable'};});
 }
 function content(response){return response.headers?.['content-encoding']==='gzip'?zlib.gunzipSync(response.body):response.body;}
 async function sync(root,request){
