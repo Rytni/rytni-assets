@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "mobile": false,
+      "overlayHidden": true,
+      "menu": "main",
+      "text": "Готовим трассу и данные сезона…",
+      "releases": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-fada42efb84d/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-fada42efb84d/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-fada42efb84d/app.html"
+      ]
+    },
+    {
+      "mobile": true,
+      "overlayHidden": true,
+      "menu": "main",
+      "text": "Готовим трассу и данные сезона…",
+      "releases": [
+        "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/releases/2.15.33-fada42efb84d/app.html",
+        "https://rytni.github.io/rytni-assets/giveaway-test/releases/2.15.33-fada42efb84d/app.html",
+        "https://raw.githubusercontent.com/Rytni/rytni-assets/main/giveaway-test/releases/2.15.33-fada42efb84d/app.html"
+      ]
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "baseline": [
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    },
+    {
+      "url": "https://ltqnskxlqsddxdyazbss.supabase.co/auth/v1/health",
+      "status": 401
+    }
+  ],
+  "mutations": []
+}

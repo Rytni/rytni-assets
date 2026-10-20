@@ -36,7 +36,9 @@ async page => {
     await p.locator('[data-menu-action=training]').click();
     if (mobile && await p.locator('[data-menu-action=mobile-confirm]').isVisible())
       await p.locator('[data-menu-action=mobile-confirm]').click();
-    await p.waitForTimeout(250);
+    // First real load may still be warming collision/bonus assets after the button enables.
+    await p.waitForFunction(() => document.querySelector('#arcadeOverlay').hidden,
+      null, {timeout:20000}).catch(() => {});
     const row = {mobile, ...await p.evaluate(() => ({
       overlayHidden:document.querySelector('#arcadeOverlay').hidden,
       menu:document.querySelector('#arcadeDialog').dataset.menu,

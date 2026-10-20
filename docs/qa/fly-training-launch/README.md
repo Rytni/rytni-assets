@@ -40,3 +40,26 @@ Production manifest baseline SHA-256:
 `0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`.
 
 Snake runtime must remain `snake-next-78436309631c`.
+
+## Publication / live gate
+
+User explicitly authorized TEST-only publication. Source checkpoint `ab469d7`,
+publication `ddaeb6d`, release `2.15.33-fada42efb84d` (1,264,231 bytes).
+Build/loader/safety checks passed; all 521 Snake immutable dependencies reused.
+
+`node docs/qa/fly-training-launch/run.cjs live`: desktop 1366×768 and mobile
+844×390, actual public non-preview source, fresh anonymous contexts. Training
+starts, pauses/resumes and finishes correctly; zero page errors or game asset
+HTTP errors, zero ranked/sponsor mutation attempts. Both anonymous auth health
+401 responses are pre-existing and do not block Training. Native result captures
+were inspected. Live launch waits for asynchronous asset warm-up, not a fixed
+250 ms deadline.
+
+`node docs/qa/fly-training-launch/verify-mirrors.cjs` requires matching final
+GitHub Pages / S3 manifest bytes, matching bundle SHA-256 and size, the fix in the
+bundle, unchanged Snake identity, and unchanged Production manifest.
+
+Final mirror gate PASS: both publish `2.15.33-fada42efb84d`, manifest SHA-256
+`931b71f28bef1813ee754bd41c4adaffc8725aa4de86fa154c2928b47264086a`, bundle SHA-256
+`fada42efb84ddf1430529884610f0a2075030014c6c39b215c38e24234a12f75`.
+Production manifest and Snake runtime are unchanged. No database changes applied.
