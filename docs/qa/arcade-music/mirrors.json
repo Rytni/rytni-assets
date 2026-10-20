@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "base": "https://rytni.github.io/rytni-assets/giveaway-test/",
+      "id": "2.15.33-7efbc6a0edfe",
+      "manifestSha256": "99b304c30023e042a467ab8dace0e2f0b110117714098550451b222234a1eddb",
+      "bundleSha256": "7efbc6a0edfe588f583b8910f7fb2dba83d94b512afe97dd9464cc9a3fa4421d",
+      "runtime": "snake-next-a0f94eca2afc",
+      "verifiedMusicFiles": 9
+    },
+    {
+      "base": "https://storage-1090.s3hoster.by/rytnistatictest/giveaway-test/",
+      "id": "2.15.33-7efbc6a0edfe",
+      "manifestSha256": "99b304c30023e042a467ab8dace0e2f0b110117714098550451b222234a1eddb",
+      "bundleSha256": "7efbc6a0edfe588f583b8910f7fb2dba83d94b512afe97dd9464cc9a3fa4421d",
+      "runtime": "snake-next-a0f94eca2afc",
+      "verifiedMusicFiles": 9
+    }
+  ],
+  "productionSha256": "0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591",
+  "failures": []
+}

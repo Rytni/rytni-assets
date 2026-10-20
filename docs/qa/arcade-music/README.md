@@ -120,3 +120,16 @@ During final verification a concurrent rules-only publication advanced TEST to
 state without discarding either task's changes. Final mirror/live checks target
 the current committed channel; its valid previous release is the music build
 `2.15.33-6d93dbb4fa83`. No rollback of the concurrent rules update was performed.
+
+Final gate PASS on `2.15.33-7efbc6a0edfe`: Pages and S3 manifest bytes match
+(`99b304c30023e042a467ab8dace0e2f0b110117714098550451b222234a1eddb`), bundle SHA-256
+matches (`7efbc6a0edfe588f583b8910f7fb2dba83d94b512afe97dd9464cc9a3fa4421d`),
+all nine music files match the immutable descriptor on both hosts. The identical
+JSON manifest was normalized from CRLF to LF using an ETag-conditional TEST-only
+write, refusing any different concurrent channel. Production remains unchanged.
+The 17 LIVE checks were repeated after both hosts reached the current version.
+Public review smoke confirms eight native audio controls and the actual Fly
+Skyline → Cloud Club transition, with no page errors.
+
+Listen: <https://rytni.github.io/rytni-assets/docs/qa/arcade-music/review.html>.
+Play: <https://rytni.live/testpodari>.
