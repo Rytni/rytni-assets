@@ -660,6 +660,13 @@ function openRulesPopup(event){
 }
 document.getElementById("openRulesPopup")?.addEventListener("click",openRulesPopup);
 document.getElementById("rulesSummaryOpenBtn")?.addEventListener("click",openRulesPopup);
+
+// The rules menu wraps on small screens; keep anchor headings below it.
+document.querySelector("#rulesPopup .rules-popup-nav")?.addEventListener("click",event=>{
+  const link=event.target.closest?.('a[href^="#"]');
+  const section=link&&document.getElementById(link.hash.slice(1));
+  if(section?.closest("#rulesPopup"))section.style.scrollMarginTop=(event.currentTarget.getBoundingClientRect().height+12)+"px";
+});
 document.addEventListener("keydown",event=>{
   if(!activePopup)return;
   if(event.key==="Escape"){
