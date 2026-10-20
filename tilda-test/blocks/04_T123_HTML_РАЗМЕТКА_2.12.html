@@ -446,6 +446,7 @@
           <div class="trust-item"><span class="trust-icon">03</span><span><strong>Приз через Steam</strong>Подарок отправляется как Steam Gift с учетом региона.</span></div>
           <div class="trust-item"><span class="trust-icon">04</span><span><strong>Данные бережно</strong>Заявка нужна только для участия и связи с победителем.</span></div>
           <div class="trust-item"><span class="trust-icon">05</span><span><strong>Приватный прогресс</strong>Каждый участник видит только собственные очки и собственную историю начислений.</span></div>
+          <div class="trust-item"><span class="trust-icon">06</span><span><strong>Рейтинг сообщества</strong>Комментарии, лайки и общая активность в двух TikTok-каналах показываются вместе за последние 30 дней. Это отдельный рейтинг, а не баланс очков заявки.</span></div>
         </div>
         <button class="rules-summary-open" type="button" id="rulesSummaryOpenBtn"><i data-lucide="book-open" aria-hidden="true"></i>Открыть подробные правила</button>
       </div>
@@ -517,6 +518,7 @@
       <a href="#rulesEmail"><i data-lucide="mail-check" aria-hidden="true"></i><span>Email</span></a>
       <a href="#rulesTelegram"><i data-lucide="send" aria-hidden="true"></i><span>Telegram</span></a>
       <a href="#rulesSelection"><i data-lucide="user-check" aria-hidden="true"></i><span>Выбор</span></a>
+      <a href="#rulesCommunityRating"><i data-lucide="trophy" aria-hidden="true"></i><span>Рейтинг</span></a>
       <a href="#rulesMission"><i data-lucide="heart-handshake" aria-hidden="true"></i><span>О проекте</span></a>
     </nav>
 
@@ -613,7 +615,7 @@
         </div>
         <div class="rules-warning is-soft">
           <i data-lucide="info" aria-hidden="true"></i>
-          <p>Портал автоматически фиксирует только действия внутри события: вопросы, сундуки и подтверждённые просмотры. Лайки и содержательные комментарии Rytni оценивает вручную на своих каналах. Активные заявки, как правило, имеют заметно более высокий шанс, но ни отдельный лайк, ни комментарий, ни конкретная сумма очков сами по себе не гарантируют получение игры.</p>
+          <p>Портал фиксирует действия внутри события: вопросы, сундуки и подтверждённые просмотры. Комментарии и подтверждённые лайки роликов отдельно собираются для рейтинга TikTok. Содержательность комментариев и поведение участника Rytni оценивает лично: рейтинг считает действия, а не их качество. Ни отдельный лайк, ни комментарий, ни место в рейтинге TikTok сами по себе не гарантируют получение игры.</p>
         </div>
         <div class="rules-warning">
           <i data-lucide="triangle-alert" aria-hidden="true"></i>
@@ -621,10 +623,29 @@
         </div>
       </section>
 
+      <section class="rules-section" id="rulesCommunityRating">
+        <div class="rules-section-heading">
+          <span class="rules-section-icon is-gold" aria-hidden="true"><i data-lucide="trophy"></i></span>
+          <div><small>06 · СООБЩЕСТВО</small><h3>Рейтинг активности в TikTok</h3></div>
+        </div>
+        <p class="rules-copy">В рейтинге участвуют подходящие под правила заявки текущего сезона. Активность сопоставляется по TikTok-аккаунту, указанному при регистрации: указывайте свой корректный @username. Статистика собирается сразу с двух каналов — <a href="https://www.tiktok.com/@rytni.tv" target="_blank" rel="noopener noreferrer">@rytni.tv</a> и <a href="https://www.tiktok.com/@rytni.blic" target="_blank" rel="noopener noreferrer">@rytni.blic</a> — и показывается суммарно за последние 30 дней.</p>
+        <div class="rules-numbered-list">
+          <article><b>1</b><div><strong>Комментарии · «Обсуждают»</strong><p>Количество собранных комментариев участника под роликами обоих каналов.</p></div></article>
+          <article><b>2</b><div><strong>Лайки роликов · «Поддерживают»</strong><p>Количество разных роликов с подтверждённым лайком участника. Повторные уведомления об одном лайке не увеличивают результат.</p></div></article>
+          <article><b>3</b><div><strong>Общая активность · «Всегда рядом»</strong><p>Индекс: 3 за каждый отдельный ролик с комментарием, 1 за каждый ролик с подтверждённым лайком и 2 за каждый день активности. Повторные комментарии под одним роликом не увеличивают его вклад в этот индекс.</p></div></article>
+        </div>
+        <p class="rules-copy">Рейтинг отражает только собранную и подтверждённую часть активности. История лайков может быть неполной; для них учитывается дата первой фиксации программой, а не точное время нажатия. Репосты и последующая отмена лайка не учитываются. Отсутствие в топе не означает, что человек не проявлял активности.</p>
+        <p class="rules-copy">Обновление появляется после сбора и публикации данных организатором; дата указана в окне рейтинга. Публично отображаются TikTok-имя, место и суммарные показатели. Email, Steam-данные, баланс очков и история начислений остаются закрытыми.</p>
+        <div class="rules-warning is-soft">
+          <i data-lucide="info" aria-hidden="true"></i>
+          <p><b>Рейтинг TikTok и прокачка заявки — разные вещи.</b> Индекс активности не начисляет очки и не выбирает победителей автоматически. Гарантированные места по прокачке, описанные выше, относятся к рейтингу прокачки, а не к этому рейтингу TikTok. Накрутка, спам, чужие аккаунты и неоднозначные совпадения не дают права на место в рейтинге; тестовые и заблокированные заявки исключаются.</p>
+        </div>
+      </section>
+
       <section class="rules-section rules-mission" id="rulesMission">
         <div class="rules-section-heading">
           <span class="rules-section-icon is-pink" aria-hidden="true"><i data-lucide="heart-handshake"></i></span>
-          <div><small>06 · СМЫСЛ</small><h3>Зачем создан «Rytni Подари»</h3></div>
+          <div><small>07 · СМЫСЛ</small><h3>Зачем создан «Rytni Подари»</h3></div>
         </div>
         <p class="rules-mission-lead">Проект создан на личные средства Rytni не просто ради раздачи игр, а чтобы порадовать людей из сообщества — особенно тех, кто не может позволить себе желанную игру.</p>
         <div class="rules-boundary">
