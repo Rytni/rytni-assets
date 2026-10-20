@@ -42,13 +42,13 @@ async page => {
   // No invented data in empty/error/stale states; use local browser routes only.
   const endpoint='**/rest/v1/rpc/giveaway_social_rankings_v1';
   await page.route(endpoint,route=>route.fulfill({json:{status:'NOT_PUBLISHED'}}));
-  await page.reload();await page.waitForFunction(()=>document.querySelector('[data-empty] strong')?.textContent==='Рейтинг готовится');
+  await page.reload();await page.locator('#community-rating').scrollIntoViewIfNeeded();await page.waitForFunction(()=>document.querySelector('[data-empty] strong')?.textContent==='Рейтинг готовится');
   assert(await page.locator('.cr-person').count()===0,'Empty state leaked old rows');
   await page.unroute(endpoint);
   await page.route(endpoint,route=>route.fulfill({status:503,json:{message:'Test unavailable'}}));
-  await page.reload();await page.waitForFunction(()=>document.querySelector('[data-empty] strong')?.textContent==='Рейтинг временно недоступен');
+  await page.reload();await page.locator('#community-rating').scrollIntoViewIfNeeded();await page.waitForFunction(()=>document.querySelector('[data-empty] strong')?.textContent==='Рейтинг временно недоступен');
   assert(await page.locator('.cr-person').count()===0,'Error fabricated rows');
-  await page.unroute(endpoint);await page.reload();await page.waitForFunction(()=>document.querySelector('[data-podium] article'));
+  await page.unroute(endpoint);await page.reload();await page.locator('#community-rating').scrollIntoViewIfNeeded();await page.waitForFunction(()=>document.querySelector('[data-podium] article'));
   const result={pass:true,liveCombinations:combinations,viewports:sizes,top50:true,search:true,keyboard:true,empty:true,error:true};
   return result;
 }

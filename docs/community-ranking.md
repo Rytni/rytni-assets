@@ -45,3 +45,9 @@ account/period/score rejection checks PASS without changing last good data.
 
 Local screenshot and native evidence stays untracked. Existing live health-probe401
 is reproducible before this change. Public ranking code introduces no new API error.
+
+Final TEST deployment: `2.15.33-ca1cffcc40a4`; GitHub Pages and Hoster S3 agree,
+and the actual `https://rytni.live/testpodari` passes all 27 live combinations and
+responsive checks. The QA harness scrolls the lazily loaded block back into view
+after each asynchronous Tilda reload. MAIN manifest remains unchanged; its independent
+additive candidate is `2.15.32-ce1f6c8b1350`, prepared outside this checkout.
