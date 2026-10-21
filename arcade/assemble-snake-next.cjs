@@ -103,15 +103,20 @@ function publishRuntime(runtime,{root=DEFAULT_ROOT}={}){
 }
 function assembleCandidate({root=DEFAULT_ROOT}={}){
  const snapshot=prepareRuntime({root}),runtime=publishRuntime(snapshot,{root});
+ return {runtime,bundle:renderHost(snapshot,runtime,{root})};
+}
+// Pure rendering is also used by the offline MAIN candidate builder.
+function renderHost(snapshot,runtime,{root=DEFAULT_ROOT,channel='giveaway-test'}={}){
+ if(!['giveaway-test','giveaway'].includes(channel))throw Error('Invalid release channel');
  const host=readSafe(root,'arcade/snake-next/test-host.html').toString('utf8').replace(/\r\n?/g,'\n');
  const tokens=host.match(/__SNAKE_NEXT_RUNTIME_URL__/g)||[];
  if(tokens.length!==1)throw Error('Snake Next host needs exactly one immutable runtime URL token.');
- const base='https://rytni.github.io/rytni-assets/giveaway-test/releases/'+runtime.id+'/';
- const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/giveaway-test/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/(?:arcade-v2|mushroom-snake-(?:menu-v1|ui-v3|ui-v4|ui-v4-1))\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
+ const base='https://rytni.github.io/rytni-assets/'+channel+'/releases/'+runtime.id+'/';
+ const bundle=host.replace('__SNAKE_NEXT_RUNTIME_URL__','https://rytni.github.io/rytni-assets/'+channel+'/'+runtime.entry).replace(/https:\/\/rytni\.github\.io\/rytni-assets\/(grib\/(?:arcade-v2|mushroom-snake-(?:menu-v1|ui-v3|ui-v4|ui-v4-1))\/[A-Za-z0-9_-]+\.png)/g,(url,file)=>{
   if(!snapshot.files.has(file))throw Error('Host artwork missing from Snake snapshot: '+file);
   return base+file;
  });
- return {runtime,bundle};
+ return bundle;
 }
 function assemble(options){return assembleCandidate(options).bundle;}
 function validateRuntime({root=DEFAULT_ROOT,descriptor}={}){
@@ -133,7 +138,7 @@ function validateRuntime({root=DEFAULT_ROOT,descriptor}={}){
  if(JSON.stringify(expected.manifest)!==JSON.stringify(manifest))throw Error('Runtime snapshot does not match current Snake source closure');
  return [base+'runtime.json',...paths];
 }
-module.exports={prepareRuntime,publishRuntime,assembleCandidate,assemble,validateRuntime};
+module.exports={prepareRuntime,publishRuntime,assembleCandidate,assemble,validateRuntime,renderHost};
 if(require.main===module){
  try{if(process.argv.includes('--validate')){const file=process.argv[process.argv.indexOf('--validate')+1]||path.join(DEFAULT_ROOT,'giveaway-test/manifest.json'),manifest=JSON.parse(fs.readFileSync(file,'utf8'));console.log(JSON.stringify(validateRuntime({descriptor:manifest.current?.snake_runtime})));}else if(process.argv.includes('--candidate'))console.log(JSON.stringify(assembleCandidate()));else if(process.argv.includes('--runtime'))console.log(JSON.stringify(publishRuntime(prepareRuntime())));else if(process.argv.includes('--bundle'))process.stdout.write(assemble());else{const p=prepareRuntime();console.log('Snake Next package gate PASS: '+p.manifest.id+', '+p.manifest.files.length+' files');}}
  catch(error){console.error(error.message);process.exitCode=1;}

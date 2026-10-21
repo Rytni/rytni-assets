@@ -90,10 +90,14 @@ publication; stale loaded snapshots are labelled. No new browser/auth UI is adde
 
 Canonical frontend source is `tilda-test/blocks/10_T123_COMMUNITY_RANKING.html`, with
 the popup mount/hero button in block 04. `tools/build_tilda_test.ps1` includes the new block.
-The Snake runtime is unchanged. MAIN is prepared only from its own hash-verified
+Historical additive-only preparation: MAIN was prepared from its own hash-verified
 immutable release via `tools/build-community-main-candidate.py`, adding the mount,
 hero button and this block. No unrelated TEST game features are copied to MAIN.
-The candidate builder requires an external output directory and never changes a manifest.
+That legacy candidate builder requires an external output directory and never changes a manifest.
+For the complete Season 4 release, use `tools/build-main-candidate.cjs` instead;
+it composes all approved current blocks, routes rankings to MAIN, includes the
+immutable Snake closure and preserves the current MAIN as rollback, without publishing.
+See `docs/SEASON4_MAIN_CANDIDATE.md` for the prepared local package and checks.
 
 ## v2 verification, 2026-10-21
 
