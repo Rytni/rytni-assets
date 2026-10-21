@@ -4,7 +4,7 @@ const {validateRuntime}=require('../arcade/assemble-snake-next.cjs');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const FLY_PREMIUM_V2_KEYS=['sky-desktop-v2.png','sky-mobile-v2.png','celebration-v2.png','play-amber-v2.png','play-amber-trimmed-v2.png','sky-journal-v2.png'].map(n=>'grib/mushroom-fly-premium-v2/'+n);
 const FLY_PREMIUM_V21_KEYS=['sky-desktop-v2-1.webp','sky-mobile-v2-1.webp','celebration-v2-1.webp','celebration-portrait-v2-1.webp','secondary-trimmed-v2-1.png','sponsor-token-128-v2-1.png'].map(n=>'grib/mushroom-fly-premium-v2-1/'+n);
-const COMMUNITY_ART_KEYS=['web/2/media-comments.webp','web/2/media-likes.webp'];
+const COMMUNITY_ART_KEYS=['web/2/media-comments.webp','web/2/media-likes.webp','web/community-v2/always-nearby-v1.webp','web/community-v2/winner-emblem-v1.webp','ui-v213/boost-core-mobile.webp'];
 const MIME={html:'text/html; charset=utf-8',json:'application/json; charset=utf-8',js:'text/javascript; charset=utf-8',mjs:'text/javascript; charset=utf-8',css:'text/css; charset=utf-8',png:'image/png',webp:'image/webp',wav:'audio/wav',ogg:'audio/ogg',mp3:'audio/mpeg',woff2:'font/woff2'};
 function createPlan(root){
  const manifestBytes=Buffer.from(fs.readFileSync(path.join(root,'giveaway-test/manifest.json'),'utf8').replace(/\r\n/g,'\n')),m=JSON.parse(manifestBytes),releases=new Map();

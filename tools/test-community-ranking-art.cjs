@@ -2,14 +2,14 @@ const test=require('node:test'),assert=require('node:assert/strict'),path=requir
 const {sync,createPlan}=require('./sync-community-ranking-art.cjs');
 const {transport,COMMUNITY_ART_KEYS}=require('./sync-snake-test-mirror.cjs');
 const root=path.resolve(__dirname,'..');
-test('only the two existing committed icons are admitted',()=>assert.deepEqual(createPlan(root).map(r=>r.key),COMMUNITY_ART_KEYS));
+test('only the exact committed community icons are admitted',()=>assert.deepEqual(createPlan(root).map(r=>r.key),COMMUNITY_ART_KEYS));
 test('art upload verifies bytes and is idempotent',async()=>{
  const objects=new Map();const request=async(method,key,body,headers)=>{
   assert.ok(COMMUNITY_ART_KEYS.includes(key));
   if(method==='PUT'){assert.equal(headers['Content-Type'],'image/webp');objects.set(key,body);return {status:200};}
   return {status:objects.has(key)?200:404,body:objects.get(key)};
  };
- assert.equal((await sync(root,request)).uploaded,2);assert.equal((await sync(root,request)).unchanged,2);
+ assert.equal((await sync(root,request)).uploaded,COMMUNITY_ART_KEYS.length);assert.equal((await sync(root,request)).unchanged,COMMUNITY_ART_KEYS.length);
 });
 test('existing different art is not overwritten',async()=>{
  await assert.rejects(sync(root,async method=>{assert.equal(method,'GET');return {status:200,body:Buffer.from('other')};}),/differs/);

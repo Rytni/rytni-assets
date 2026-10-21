@@ -1,4 +1,4 @@
-// Reuse the existing TEST signer; admit only two existing committed site icons.
+// Reuse the TEST signer; admit only exact committed community icon paths.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
 const {transport,COMMUNITY_ART_KEYS}=require('./sync-snake-test-mirror.cjs');
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
