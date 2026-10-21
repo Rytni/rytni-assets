@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "published_at": "2026-10-21T12:50:28.7705771Z",
+  "published_at": "2026-10-21T13:24:43.809704Z",
   "current": {
-    "id": "2.15.33-574d26c31308",
+    "id": "2.15.33-d6729ad724fb",
     "version": "2.15.33",
     "loader_schema": 2,
-    "file": "releases/2.15.33-574d26c31308/app.html",
-    "sha256": "574d26c3130810c7e574774e97d5db55a7a4f1f9bf8d3c07944d101126fceb9c",
-    "size": 1277980,
+    "file": "releases/2.15.33-d6729ad724fb/app.html",
+    "sha256": "d6729ad724fbac79b3b0030c70b41f947dfd104112fdd131284d2717194d7954",
+    "size": 1279329,
     "snake_runtime": {
       "id": "snake-next-2fbc81ae44ef",
       "file": "releases/snake-next-2fbc81ae44ef/runtime.json",
@@ -17,12 +17,12 @@
     }
   },
   "previous": {
-    "id": "2.15.33-c8619dc04aea",
+    "id": "2.15.33-574d26c31308",
     "version": "2.15.33",
     "loader_schema": 2,
-    "file": "releases/2.15.33-c8619dc04aea/app.html",
-    "sha256": "c8619dc04aeabe26a28856dfea6a66f0c28bfe58dc542cd24615bf0efb28cbe3",
-    "size": 1271237,
+    "file": "releases/2.15.33-574d26c31308/app.html",
+    "sha256": "574d26c3130810c7e574774e97d5db55a7a4f1f9bf8d3c07944d101126fceb9c",
+    "size": 1277980,
     "snake_runtime": {
       "id": "snake-next-2fbc81ae44ef",
       "file": "releases/snake-next-2fbc81ae44ef/runtime.json",
