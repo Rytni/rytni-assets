@@ -20,12 +20,15 @@ async page => {
   const live=await page.evaluate(async()=>callSupabaseRpc('giveaway_social_rankings_v2',{p_channel:'test'},12000,false,'anonymous',true));
   assert(live.status==='READY','No live snapshot');
   const period=live.snapshot.periods.find(p=>p.days===30);
+  const waiting=await page.evaluate(async()=>callSupabaseRpc('giveaway_social_progression_pending_v2',{p_channel:'test'},12000,false,'anonymous',true));
+  assert(waiting.status==='READY'&&waiting.generated_at===live.snapshot.generated_at,'Matching waiting context');
+  assert(waiting.participants.every(r=>Object.keys(r).sort().join()==='handle,winner_selected'),'No private waiting amounts');
   assert(!JSON.stringify(live.snapshot).includes('points'),'Private progression amounts/timestamps never enter public JSON');
   assert(await root.locator('[data-kind="likes"]').count()===0,'Separate likes ranking removed');
   for(const kind of ['comments','progression','activity']){
     await root.locator(`[data-kind="${kind}"]`).click();
     const expected=period.scopes.all[kind];
-    const actual=await root.locator('.cr-person').evaluateAll(es=>es.map(e=>e.textContent.slice(1)));
+    const actual=await root.locator('[data-podium] .cr-person,[data-list] .cr-person').evaluateAll(es=>es.map(e=>e.textContent.slice(1)));
     assert(JSON.stringify(actual)===JSON.stringify(expected.slice(0,10).map(r=>r.handle)),'Wrong combined 30-day members/order');
     const field={comments:'comments',activity:'score'}[kind];
     const values=await root.locator('.cr-value').allTextContents();
@@ -33,13 +36,21 @@ async page => {
     const winners=expected.slice(0,10).filter(r=>r.winner_selected).map(r=>r.handle);
     const marked=await root.locator('[data-handle].cr-winner').evaluateAll(es=>es.map(e=>e.dataset.handle));
     assert(JSON.stringify(marked)===JSON.stringify(winners),'Winner highlights reflect selected winners only');
-    assert(await root.locator('.cr-winner-badge').count()===winners.length,'Branded winner badges');
+    assert(await root.locator('[data-podium] .cr-winner-badge,[data-list] .cr-winner-badge').count()===winners.length,'Branded winner badges');
     assert(await root.locator('[data-selection-note]').isVisible()===(kind==='progression'),'Progression eligibility explained');
     if(kind==='progression'){
       await root.locator('[data-selection-note] summary').click();
-      assert((await root.locator('[data-selection-note] p').innerText()).includes('8 дней'),'Readable selection conditions');
+      assert((await root.locator('[data-selection-note] p').innerText()).includes('регулярно взаимодействуют'),'Short selection explanation');
+      assert(!/12|топ-50|8 дней/i.test(await root.locator('[data-selection-note] p').innerText()),'Selection thresholds not exposed in copy');
       await root.locator('[data-selection-note] summary').click();
+      assert((await root.locator('[data-kind="progression"]').innerText()).includes('Очки заявки + активность'),'New category copy');
+      const inactive=await root.locator('.cr-pending-card').evaluateAll(es=>es.map(e=>({handle:e.dataset.handle,text:e.textContent,hasPlace:!!e.querySelector('.cr-place,.cr-rank,.cr-value')})));
+      assert(JSON.stringify(inactive.map(r=>r.handle))===JSON.stringify(waiting.participants.map(r=>r.handle)),'Correct waiting order');
+      assert(inactive.every(r=>r.text.includes('Нет активности на каналах')&&r.text.includes('Дисквалификация')&&!r.hasPlace),'Waiting cards are outside ranked places');
+      assert(inactive.every(r=>!expected.some(p=>p.handle===r.handle)),'No ranked/waiting duplication');
+      if(inactive.length){await root.locator('input').fill('@'+inactive[0].handle);await root.locator('[data-find]').evaluate(e=>e.requestSubmit());assert((await root.locator('[data-found]').innerText()).includes('Пока вне рейтинга'),'Waiting lookup does not assign a place');}
     }
+    else assert(!await root.locator('[data-pending]').isVisible(),'Waiting only in progression');
   }
   await root.locator('[data-kind="activity"]').click();
   await root.locator('[data-more]').click();assert(await root.locator('.cr-person').count()===50,'Top50');
@@ -54,6 +65,9 @@ async page => {
   const links=await root.locator('.cr-method a').evaluateAll(es=>es.map(e=>e.href));
   assert(links.includes('https://www.tiktok.com/@rytni.tv')&&links.includes('https://www.tiktok.com/@rytni.blic'),'Both channel links');
   assert((await root.locator('.cr-method').innerText()).includes('сразу с двух каналов'),'Both-channel collection explained');
+  const method=await root.locator('.cr-method').innerText();
+  assert(method.includes('Прокачивай заявку и активно взаимодействуй')&&method.includes('Ролики выходят каждый день'),'Creator message');
+  assert(!/топ-50|12 комментариев|UTC|3 за каждый/i.test(method),'No detailed calculation in public explanation');
   await root.locator('.cr-method summary').click();
   await page.keyboard.press('Escape');await page.waitForTimeout(40);
   assert(!await root.isVisible(),'Escape closes');
@@ -65,7 +79,7 @@ async page => {
   const sizes=[];
   for(const [width,height] of [[320,740],[390,844],[844,390],[1366,900]]){
     await page.setViewportSize({width,height});
-    await root.locator('[data-kind="activity"]').click();
+    await root.locator('[data-kind="progression"]').click();
     await root.locator('.cr-body').evaluate(e=>e.scrollTop=0);
     await page.waitForFunction(()=>[...document.querySelectorAll('#community-rating img')].every(e=>e.complete&&e.naturalWidth>0));
     const bounds=await root.evaluate(e=>{const body=e.querySelector('.cr-body'),r=e.getBoundingClientRect(),close=e.querySelector('.cr-close').getBoundingClientRect();return {w:e.clientWidth,scroll:e.scrollWidth,bw:body.clientWidth,bs:body.scrollWidth,top:r.top,bottom:r.bottom,closeBottom:close.bottom,viewport:innerHeight,font:parseFloat(getComputedStyle(e.querySelector('#communityRankingLead')).fontSize),background:getComputedStyle(e).backgroundImage};});
@@ -96,5 +110,5 @@ async page => {
     assert(await root.locator('.cr-person').count()===0,'Error state');
   }finally{await page.unroute(endpoint);}
   await reloadAndOpen();await page.waitForFunction(()=>document.querySelector('[data-podium] article'));
-  return {pass:true,combined30DayCategories:3,noFilters:true,viewports:sizes,modal:true,focus:true,keyboard:true,top50:true,search:true,channelLinks:true,empty:true,error:true,existingPersonalAccount:true,winnerBadges:true,privateProgression:true,noLikesTab:true};
+  return {pass:true,combined30DayCategories:3,noFilters:true,viewports:sizes,modal:true,focus:true,keyboard:true,top50:true,search:true,channelLinks:true,empty:true,error:true,existingPersonalAccount:true,winnerBadges:true,privateProgression:true,noLikesTab:true,waitingCards:waiting.participants.length,waitingNotRanked:true,briefCopy:true};
 }

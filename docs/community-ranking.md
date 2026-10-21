@@ -14,9 +14,36 @@ has been replaced; observed likes still contribute to the unchanged activity ind
 Active progression requires both social top50 lists, 12 comments on five distinct
 channel/posts, eight UTC comment dates and three ISO weeks within the rolling 30
 days. Private points determine order, with reached-at time then handle as tie-breaks.
-Neither amounts nor timestamps enter public JSON/HTML. Short eligible lists stay
-short. Current data yields three eligible participants. The site's existing
+Neither amounts nor timestamps enter public JSON/HTML. Short eligible lists retain
+only confirmed places. When fewer than ten are confirmed, separate muted waiting
+cards fill the presentation up to ten members. These have no place, medal or private
+amount and do not join the ranked board. Current data yields three eligible participants. The site's existing
 guaranteed-place rules and application balances are unchanged.
+
+The public category subtitle is «Очки заявки + активность». Public selection,
+calculation and rules copy is brief: upgrade the application and regularly engage
+with daily videos on both channels. Numeric thresholds, weights and tie-breaks
+are documented internally here, not repeated in visitor-facing explanatory text.
+
+`migrations/social_progression_pending_v2.sql` adds a separate anonymous-safe
+read-only projection. It selects up to `10 - confirmed_count` other valid current
+members in private-points order. Its only per-person fields are `handle` and
+`winner_selected`; no comments, balances, IDs or timestamps are projected.
+The existing v2 snapshot contract and Studio 1.5.0 publisher remain unchanged.
+Waiting cards say «Нет активности на каналах» / «Дисквалификация», with a clear
+note that regular activity is not yet confirmed. This is a reversible public-board
+state, not a ban, disqualification from the giveaway, or proof of no interaction.
+After normal one-button sync confirms eligibility, the same read excludes the
+member from waiting automatically. A failed/mismatched waiting response cannot
+replace or break the confirmed ranking. No update to the portable EXE is required.
+
+Waiting projection QA: three confirmed and seven waiting members, exact hidden
+points order and winner flags, anonymous read, disjoint boards, channel guards
+and unchanged snapshots pass. Rolled-back SQL tests cover promotion and capacities
+zero/ten; targeted browser fixtures cover promotion, private-field rejection and
+isolated waiting failures. Four viewport sizes and shared modal/search flows pass.
+Run the SQL fixture `migrations/tests/social_progression_pending_v2.sql` only after
+its migration; it requires an existing TEST publication and rolls back all writes.
 
 Gold highlighting and the branded badge reflect an actual organizer winner record,
 not local gift-sent status or presumed receipt. The public getter refreshes winner
@@ -80,7 +107,7 @@ top50 and one in progression. Archive-trigger capture and reassignment guards
 passed inside a rolled-back transaction. Anonymous registry access is denied;
 actual archive and selection records, and v1 data, remain unchanged.
 
-TEST release `2.15.33-574d26c31308` is published. Pages and S3 expose byte-identical
+Initial v2 TEST release `2.15.33-574d26c31308` was published with byte-identical Pages/S3
 manifests, app SHA-256 `574d26c3130810c7e574774e97d5db55a7a4f1f9bf8d3c07944d101126fceb9c`,
 1,277,980 bytes, and both committed art assets. Unmocked live TEST browser checks
 pass at widths 320/390/844/1366: modal lifecycle, top50/search/keyboard, winner marks,

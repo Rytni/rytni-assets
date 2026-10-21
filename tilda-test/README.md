@@ -33,3 +33,6 @@ are no channel/period filters. It shares the site's popup lifecycle and artwork.
 Subsequent one-button updates from RYTNI Studio publish validated data snapshots, not
 new HTML/Tilda files. Private progression amounts remain server-only; selected-winner
 badges are refreshed by the public getter. See `docs/community-ranking.md` for the public-data boundary.
+If confirmed progression members are few, a separate
+`giveaway_social_progression_pending_v2` projection supplies muted unranked waiting
+cards. It exposes no private amounts and needs no app/publisher contract change.

@@ -1,5 +1,17 @@
 # Community ranking v2 artwork
 
+## Active progression replacement, 2026-10-21
+
+Mode: built-in image_gen, new generation with transparent alpha; no input images.
+Original: `exec-669d2b1d-b49e-452c-bcbc-108183ea9fd9.png` in the task's Codex
+generated-images folder. Final workspace asset:
+`C:/GitHub/rytni-assets/web/community-v2/active-progression-v1.webp`.
+Mechanical Sharp resize to 192 px and WebP encoding preserve alpha.
+
+Final prompt:
+
+Create one premium 3D game UI icon for a dark cosmic purple Russian creator community website, category 'active application progression'. One compact chunky amethyst-purple gift box with polished rounded bevels and a vivid cyan ribbon. Rising from its lid is ONE bold upward chevron/arrow in luminous warm gold, communicating level-up. A small glossy cyan heart embedded on the front face communicates engagement. Clear friendly silhouette, legible at 52 pixels, large recognizable shapes, tasteful collectible videogame UI aesthetic, high-end stylized 3D render, slight three-quarter perspective, vibrant violet/cyan/gold palette harmonious with cosmic purple site. Center object in square with a small margin, isolated on TRUE transparent alpha background. No text, no numbers, no letters, no black rectangular backdrop, no border, no tiny clutter, no spiky crystals, no weapon, no generic flat vector. Soft self-contained rim lighting and restrained glow, no ground plane. Output a single final production icon.
+
 Generated with the built-in imagegen tool, with genuine transparent backgrounds.
 References: existing `ui-v213/room-key-mobile.webp` rendering style and
 `web/2/gift.webp` RYTNI brand mascot/palette. Original generated PNGs are retained
@@ -11,6 +23,7 @@ the installed Sharp runtime. No creative modifications were made after generatio
 |---|---|---:|---:|
 | Always nearby | `web/community-v2/always-nearby-v1.webp` | 192×192 | 13,148 |
 | Selected winner | `web/community-v2/winner-emblem-v1.webp` | 128×128 | 7,702 |
+| Active progression | `web/community-v2/active-progression-v1.webp` | 192×192 | 13,574 |
 
 ## Final activity prompt
 
