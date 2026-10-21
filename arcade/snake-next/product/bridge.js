@@ -61,7 +61,7 @@ export class ProductBridge {
   this.engineResume?.();this.frame.contentWindow.focus();
  }
  stop(){this.game?.stop();}
- stats(){const s=this.game?.session;if(!s)return null;return {score:s.score,foods:s.foods,length:s.state.length,max_combo:this.metrics.maxCombo,portal_uses:s.portalCompleted||s.portal.transfers||0,expansions:s.capacityExpansions?.length||0,stage:s.stage.index,world:[s.world.width,s.world.height],active_ticks:this.metrics.activeTicks,active_seconds:Math.round(this.metrics.activeTicks/60),bonuses:this.metrics.bonusCount,final_hash:s.hash()};}
+ stats(){const s=this.game?.session;if(!s)return null;return {score:s.score,foods:s.foods,length:s.state.length,max_combo:this.metrics.maxCombo,portal_uses:s.portalCompleted||s.portal.transfers||0,expansions:s.capacityExpansions?.length||0,stage:s.stage.index,world:[s.world.width,s.world.height],active_ticks:this.metrics.activeTicks,active_seconds:Math.round(this.metrics.activeTicks/60),bonuses:this.metrics.bonusCount,final_hash:s.hash(),proof:{version:'snake-proof-v1',ticks:s.tick,commands:s.replay.map(e=>[e.at,e.command.sequence,e.command.direction,e.command.repeat?1:0])}};}
  applySettings(){if(!this.game)return;Object.assign(this.game.audio.volumes,{master:this.settings.master,music:this.settings.music,sfx:this.settings.sfx});this.game.audio.muted=this.settings.muted;this.game.audio.apply();}
  sound(kind){this.game?.audio.unlock().then(()=>this.game.audio.play(kind==='back'?'turn':kind==='panel'?'arrival':'click')).catch(()=>{});}
  dispose(){this.inputOwner?.dispose();for(const remove of this.childOff||[])remove();this.game?.dispose();this.oldSprites?.release();this.progression?.presentation.release();}

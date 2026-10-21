@@ -16,6 +16,6 @@ test('V5.1 keeps one status and valid result actions; no debug-like telemetry or
 test('visible buttons and tabs share a label wrapper; settings disclosure owns three actual sliders',()=>{
  const html=view({screen:'settings',tab:'sound'}, {master:.5,music:.5,sfx:.5});
  assert.ok(!html.includes('Настроить громкость'));assert.equal((html.match(/type="range"/g)||[]).length,3);
- assert.ok(html.includes('Предупреждения и эффекты игры'));
+ for(const key of ['master','music','sfx']){assert.ok(html.includes(`for="volume-${key}"`));assert.ok(html.includes(`id="value-${key}"`));}
  for(const match of html.matchAll(/<button\b[^>]*>([\s\S]*?)<\/button>/g))if(!match[0].includes('panel-close'))assert.ok(match[1].includes('button-label'));
 });

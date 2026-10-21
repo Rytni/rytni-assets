@@ -1,0 +1,15 @@
+<script>
+// Auth stays in the parent. No service key or client-generated acceptance receipt.
+async function callArcadeVerifier(payload){
+  if(!authSession?.access_token)return {success:false,status:'not_authenticated'};
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);
+  try{
+    const response=await fetch(SUPABASE_URL+'/functions/v1/arcade-verifier',{
+      method:'POST',headers:supabaseHeaders(),body:JSON.stringify(payload),signal:controller.signal,cache:'no-store'
+    });
+    if(!response.ok)return {success:false,status:response.status===401?'not_authenticated':'verification_unavailable'};
+    return await response.json();
+  }catch{return {success:false,status:'verification_unavailable'};}
+  finally{clearTimeout(timer);}
+}
+</script>

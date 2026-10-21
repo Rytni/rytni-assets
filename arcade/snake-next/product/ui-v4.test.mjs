@@ -9,11 +9,11 @@ test('visible center and edge ink gates reject a transparent join even when aspe
 });
 test('Main has explicit identity, actions, information and leaderboard zones; UI controls keep handlers',()=>{
  const html=view({screen:'main',hub:{success:true,attempts_remaining:3},hostSwitch:true},{muted:false});
- for(const cls of ['main-identity','main-choices','main-info','tournament-board'])assert.ok(html.includes(cls));
+ for(const cls of ['main-identity','main-choices','player-status-board','tournament-board'])assert.ok(html.includes(cls));
  for(const action of ['play','training','rules','settings','rating','mute','fullscreen','other-game'])assert.ok(html.includes(`data-action="${action}"`));
  assert.ok(html.includes('mushroom-snake-ui-v4/hero.png'));
 });
-test('volume channels remain present behind a native accessible44px disclosure',()=>{
- const html=view({screen:'settings',tab:'sound'},{master:.7,music:.5,sfx:.6});assert.ok(html.includes('sound-mix'));for(const key of ['master','music','sfx'])assert.ok(html.includes(`data-setting="${key}"`));
+test('volume channels retain labeled sliders and their 44px input targets',()=>{
+ const html=view({screen:'settings',tab:'sound'},{master:.7,music:.5,sfx:.6});assert.ok(html.includes('sound-controls'));for(const key of ['master','music','sfx'])assert.ok(html.includes(`data-setting="${key}"`));
  assert.ok(readFileSync(new URL('./ui-v4.css',import.meta.url),'utf8').includes('.settings-row input{min-height:44px}'));
 });

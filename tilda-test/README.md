@@ -11,6 +11,7 @@
 7. `07_T123_TIKTOK_КВЕСТ_2.12.html`
 8. `08_T123_BROWSER_ARCADE_2.15.34.html` (Mushroom Fly and shared Arcade runtime)
 9. `10_T123_COMMUNITY_RANKING.html` (participant social rankings; independent TEST snapshot)
+10. `11_T123_ARCADE_SECURITY.html` (authenticated authoritative replay transport)
 
 It then appends the thin Snake Next TEST host from `arcade/assemble-snake-next.cjs` and `arcade/snake-next/test-host.html`. The assembler snapshots the static import closure rooted at `arcade/snake-next/product/index.html` and `frame.html`, plus the bounded artwork families and audio cues used by that product. Legacy Snake v2 source and releases remain available for rollback/reference; they are not appended to new TEST candidates. `blocks/00_T123_ТЕСТОВЫЙ_ЗАГРУЗЧИК.html` is read by loader verification, not included in the app bundle.
 
@@ -36,3 +37,5 @@ badges are refreshed by the public getter. See `docs/community-ranking.md` for t
 If confirmed progression members are few, a separate
 `giveaway_social_progression_pending_v2` projection supplies muted unranked waiting
 cards. It exposes no private amounts and needs no app/publisher contract change.
+
+Ranked Fly/Snake results require the deployed `arcade-verifier` Edge Function and the private verification receipts from `server/arcade-verifier/migration.sql`. Training stays local. See `docs/season4-security-fixes.md`; never restore an unverified legacy finish endpoint when rolling back the frontend.

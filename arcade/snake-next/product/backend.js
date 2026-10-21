@@ -128,16 +128,15 @@ export function createRankedBackend(config = {}) {
     hub: () => send('hub', 'get_snake_product_hub_v1', {}, {}),
     start: ({ release, requestId } = {}) => send('start', 'start_snake_product_attempt_v1', { release, requestId },
       { p_client_token: config.clientToken, p_release: release, p_request_id: requestId }),
-    finish: (payload = {}) => {
-      const { attempt_id, score, release, duration_ms } = payload;
-      const ticks = payload.ticks ?? payload.active_ticks;
-      const audit = { ...(payload.audit || {}) };
-      for (const key of ['foods', 'length', 'max_combo', 'portal_uses', 'expansions', 'stage', 'bonuses', 'seed', 'final_hash']) {
-        if (payload[key] !== undefined) audit[key] = payload[key];
-      }
-      return send('finish', 'finish_snake_product_attempt_v1', { attempt_id, score, release, duration_ms, ticks, audit },
-        { p_client_token: config.clientToken, p_attempt_id: attempt_id, p_score: score, p_release: release,
-          p_duration_ms: duration_ms, p_ticks: ticks, p_audit: audit });
+    finish: async (payload = {}) => {
+      if(typeof config.verifier!=='function')return failed('verification_unavailable');
+      if(!payload.proof)return failed('verification_required');
+      const {attempt_id,release,proof,score,active_ticks,final_hash}=payload;
+      const body={game:'snake',participant_id:config.participantId,client_token:config.clientToken,
+        attempt_id,release,proof,claimed:{score,active_ticks,final_hash}};
+      calls.push({method:'finish',payload:copy({attempt_id,release,proof,score,active_ticks,final_hash})});
+      try{const result=await config.verifier(body);return typeof result?.success==='boolean'?result:failed('invalid_response');}
+      catch{return failed('network_error');}
     },
     claim: ({ release, requestId } = {}) => send('claim', 'claim_snake_product_sponsor_v1', { release, requestId },
       { p_client_token: config.clientToken, p_release: release, p_request_id: requestId })

@@ -4,14 +4,14 @@ import {view,board} from './ui.js';
 import {createMockBackend} from './backend.js';
 
 // Catch mismatched availability: token ink must agree with authoritative counters.
-test('physical attempt tokens distinguish available, spent and credited attempts',async()=>{
- const one=view({screen:'main',hub:await createMockBackend('one-attempt-left').hub()},{});
- assert.equal((one.match(/class="token available"/g)||[]).length,1);
- assert.equal((one.match(/class="token spent"/g)||[]).length,2);
- const credited=view({screen:'main',hub:await createMockBackend('sponsor-credit').hub()},{});
- assert.equal((credited.match(/class="token gift credited"/g)||[]).length,1);
- assert.ok(credited.includes('data-action="play"'));
- assert.ok(!credited.includes('data-action="sponsor"'));
+test('attempt token ink matches the current one ordinary plus two sponsor limits',async()=>{
+ const tokens=html=>[...html.matchAll(/<span class="status-tokens">([\s\S]*?)<\/span>/g)].map(m=>m[1]);
+ const available=tokens(view({screen:'main',hub:await createMockBackend('one-attempt-left').hub()},{}));
+ assert.equal((available[0].match(/<img /g)||[]).length,1);assert.equal((available[0].match(/class="spent"/g)||[]).length,0);
+ const empty=tokens(view({screen:'main',hub:await createMockBackend('no-attempts').hub()},{}));assert.equal((empty[0].match(/class="spent"/g)||[]).length,1);
+ const credited=view({screen:'main',hub:await createMockBackend('sponsor-credit').hub()},{}),sponsor=tokens(credited)[1];
+ assert.equal((sponsor.match(/<img /g)||[]).length,2);assert.equal((sponsor.match(/class="spent"/g)||[]).length,1);
+ assert.ok(credited.includes('data-action="play"'));assert.ok(!credited.includes('data-action="sponsor"'));
 });
 
 // Catch wrong visual promotion/order without changing backend tie order.

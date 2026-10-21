@@ -108,35 +108,25 @@ test('returned hub and calls cannot alter counters or stored results', async () 
   assert.equal((await api.createMockBackend().hub()).attempts_remaining, 1);
 });
 
-test('ranked adapter requires explicit injected transport and filters audit payloads', async () => {
+test('ranked adapter fixes identity and requires explicit verified transport', async () => {
   assert.throws(() => api.createRankedBackend(), /transport/);
-  const sent = [];
-  const backend = api.createRankedBackend({
-    participantId: 'participant-local', clientToken: 'private-local-token',
-    transport: async (name, payload) => { sent.push({ name, payload }); return { success: true, status: 'ready' }; }
-  });
-  await backend.start({ release: 'v1', requestId: 'r1', p_participant_id: 'attacker' });
-  await backend.finish({ attempt_id: 'a1', score: 12, release: 'v1', ticks: 30, duration_ms: 3000, audit: { replay: [] }, secret: 'omit' });
-  assert.equal(sent[0].name, 'start_snake_product_attempt_v1');
-  assert.equal(sent[0].payload.p_participant_id, 'participant-local');
-  assert.equal(sent[0].payload.p_request_id, 'r1');
-  assert.equal(sent[1].payload.p_score, 12);
-  assert.deepEqual(sent[1].payload.p_audit, { replay: [] });
-  assert.equal(sent[1].payload.secret, undefined);
-  assert.equal(JSON.stringify(backend.calls).includes('private-local-token'), false);
+  const sent=[];const backend=api.createRankedBackend({participantId:'participant-local',clientToken:'private-local-token',
+    transport:async(name,payload)=>{sent.push({name,payload});return {success:true};},
+    verifier:async(payload)=>{sent.push({name:'verifier',payload});return {success:true};}});
+  await backend.start({release:'v1',requestId:'r1',p_participant_id:'attacker'});
+  const proof={version:'snake-proof-v1',ticks:60,commands:[]};
+  await backend.finish({attempt_id:'a1',score:12,release:'v1',active_ticks:60,final_hash:'h',proof,participant_id:'attacker',secret:'omit'});
+  assert.equal(sent[0].name,'start_snake_product_attempt_v1');assert.equal(sent[0].payload.p_participant_id,'participant-local');
+  assert.equal(sent[1].name,'verifier');assert.equal(sent[1].payload.participant_id,'participant-local');assert.deepEqual(sent[1].payload.proof,proof);assert.equal(sent[1].payload.secret,undefined);
+  assert.equal(JSON.stringify(backend.calls).includes('private-local-token'),false);
 });
 
-test('ranked finish admits the controller aggregate stats without requiring replay', async () => {
-  let submitted;
-  const backend = api.createRankedBackend({ participantId: 'local-player', clientToken: 'local-private-token',
-    transport: async (name, payload) => { submitted = payload; return { success: true, status: 'finished' }; } });
-  await backend.finish({ attempt_id: 'a', score: 2480, release: 'local', duration_ms: 114000,
-    active_ticks: 6840, foods: 24, length: 32, max_combo: 5, portal_uses: 2,
-    expansions: 1, stage: 1, bonuses: 9, seed: 76194, final_hash: 'local-hash', secret: 'omit' });
-  assert.equal(submitted.p_ticks, 6840);
-  assert.deepEqual(submitted.p_audit, { foods: 24, length: 32, max_combo: 5, portal_uses: 2,
-    expansions: 1, stage: 1, bonuses: 9, seed: 76194, final_hash: 'local-hash' });
-  assert.equal(submitted.secret, undefined);
+test('ranked finish cannot fall back to unverified aggregate counters',async()=>{
+  let rpcCalls=0;const transport=async()=>{rpcCalls++;return {success:true};};
+  const missing=api.createRankedBackend({participantId:'local-player',clientToken:'local-private-token',transport});
+  assert.equal((await missing.finish({score:2480})).status,'verification_unavailable');
+  const backend=api.createRankedBackend({participantId:'local-player',clientToken:'local-private-token',transport,verifier:transport});
+  assert.equal((await backend.finish({score:2480})).status,'verification_required');assert.equal(rpcCalls,0);
 });
 
 test('host adapter has no fake-success fallback and delegates only Snake methods',async()=>{

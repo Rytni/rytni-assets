@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {view} from './ui.js';
-test('V5.2 uses independent attempt headings and shared measured score/rank slots',()=>{
+test('current board keeps independent attempt headings and two record/rank values',()=>{
  const h=view({screen:'main',hub:{attempts_remaining:3,sponsor_attempts_used:0,sponsor_attempt_credits:0,best_score:99999999,my_rank:9999}},{});
- assert.ok(h.includes('ЕЖЕДНЕВНЫЕ'));assert.ok(h.includes('ОТ СПОНСОРА'));assert.equal((h.match(/data-record-place/g)||[]).length,2);assert.ok(!h.includes('value-wide'));
+ assert.ok(h.includes('ЕЖЕДНЕВНЫЕ'));assert.ok(h.includes('ОТ СПОНСОРА'));assert.equal((h.match(/<strong>/g)||[]).length,2);assert.ok(!h.includes('value-wide'));
  const component=readFileSync(new URL('./record-place-value.js',import.meta.url),'utf8');assert.ok(component.includes('document.fonts.ready'));assert.ok(component.includes('getBoundingClientRect().width'));assert.ok(component.includes('[26,24,22,20,18,16]'));assert.ok(!/fullscreenElement|pseudo-fullscreen/.test(component));
 });
 test('V5.2 typography has nonshrinking TOP3 and real frame-safe Settings grid',()=>{

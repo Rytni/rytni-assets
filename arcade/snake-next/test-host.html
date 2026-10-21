@@ -75,7 +75,7 @@
     Object.assign(args,{p_attempt_id:payload.attempt_id,p_score:payload.score,p_duration_ms:payload.duration_ms,p_ticks:payload.active_ticks??payload.ticks,p_audit:audit});
    }
   }
-  try{const result=await callSupabaseRpc(names[method],args,10000,true,'authenticated',method==='hub');
+  try{const result=method==='finish'?await callArcadeVerifier({game:'snake',participant_id:p.id,attempt_id:payload.attempt_id,client_token:getClientToken(),release,proof:payload.proof,claimed:{score:payload.score,active_ticks:payload.active_ticks,final_hash:payload.final_hash}}):await callSupabaseRpc(names[method],args,10000,true,'authenticated',method==='hub');
    return player()?.id===p.id?result:{success:false,status:'account_changed'};
   }catch{return {success:false,status:'network_error'};}
  }
