@@ -22,12 +22,15 @@
 @media (max-width:1024px),(pointer:coarse){.ttq-attention,.email-progression-gate{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.application-boost-panel.is-email-locked>:not(.email-progression-gate){filter:none!important;opacity:.2}.email-chain-art,.email-center-lock{filter:none}.email-lock-card:before{animation:none}.rytni-tiktok-quest,.ttq-player-wrap{box-shadow:0 12px 32px rgba(0,0,0,.32)}}
 </style>
 <script>
+// Season 4: keep the watch quest dormant; shared email progression gates remain active.
+window.RYTNI_VIDEO_QUEST_ENABLED=false;
 (() => {
   "use strict";
   const state={profile:null,hub:null,videos:[],index:0,iframe:null,sessionId:"",sessionVideoId:"",playing:false,lastHeartbeat:0,lastFinishAttempt:0,currentTime:0,duration:0,serverProgress:0,visible:false,attentionNonce:"",busy:false,startPromise:null,heartbeatPromise:null,finishPromise:null,finishRetryTimer:0,networkFailures:0,suppressStopUntil:0,playerReady:false,playerTimer:0,playerVideoId:"",playerLoadStartedAt:0,lastDiagnosticEvent:""};
   const $=(id)=>document.getElementById(id);
   const icon=(name)=>`<i data-lucide="${name}"></i>`;
   function ensureHub(){
+    if(!window.RYTNI_VIDEO_QUEST_ENABLED)return;
     if($("rytniTikTokQuest")) return;
     const panel=$("applicationBoostPanel"); if(!panel) return;
     const section=document.createElement("section"); section.id="rytniTikTokQuest"; section.className="rytni-tiktok-quest"; section.hidden=true;
@@ -101,6 +104,7 @@
     window.dispatchEvent(new CustomEvent("rytni:tiktok-state",{detail}));
   }
   async function open(profile){
+    if(!window.RYTNI_VIDEO_QUEST_ENABLED){const root=$("rytniTikTokQuest");if(root)root.hidden=true;return;}
     ensureHub(); const root=$("rytniTikTokQuest"); if(!root||!profile?.id)return; state.profile=profile; root.hidden=false; message("Загружаем видеоквест…");notifyTikTokState("loading");
     try{const hub=await rpc("get_giveaway_tiktok_hub_v21516",{p_participant_id:profile.id,p_timezone:getBrowserTimezone()}); if(!hub?.success)throw new Error(hub?.status||"hub"); state.hub=hub;state.videos=Array.isArray(hub.videos)?hub.videos:[];renderAccount();renderStreak();const first=state.videos.findIndex(v=>!v.watched);state.index=first>=0?first:0;render();}
     catch(error){notifyTikTokState("error");message(error?.message?.includes("email")?"Для видеоквеста привяжите Email к заявке и войдите в аккаунт.":"Не удалось загрузить видеоквест. Обновите страницу и попробуйте снова.","bad");}
@@ -142,7 +146,7 @@
   }
   async function confirmAttention(){if(!state.attentionNonce||state.busy)return;state.busy=true;try{const r=await rpc("confirm_giveaway_tiktok_attention_v28",{p_participant_id:state.profile.id,p_session_id:state.sessionId,p_attention_nonce:state.attentionNonce});if(!r?.success)throw new Error();state.attentionNonce="";$("ttqAttention").hidden=true;message("Спасибо! Продолжайте просмотр.","good");postPlayer("play");}catch(error){message("Время проверки истекло. Запустите ролик заново.","bad");state.sessionId="";$("ttqAttention").hidden=true;}finally{state.busy=false;}}
   const original=window.renderApplicationProfile; if(typeof original==="function")window.renderApplicationProfile=function(profile){const result=original.apply(this,arguments);window.setTimeout(()=>{applyEmailGate(profile);const quest=$("rytniTikTokQuest"),url=new URL(location.href),fixture=["localhost","127.0.0.1","::1"].includes(location.hostname)&&url.searchParams.get("ttq_preview")==="1";if(fixture){if(quest)quest.hidden=false;}else if(hasLinkedEmail(profile)&&applicationToolMode==="boost")open(profile);else{if(quest)quest.hidden=true;window.clearTimeout(state.playerTimer);postPlayer("pause");}},0);return result;};
-  function initTikTokQuest(){ensureHub();ensureEmailGate();const url=new URL(location.href);const previewAllowed=["localhost","127.0.0.1","::1"].includes(location.hostname);if(previewAllowed&&url.searchParams.get("ttq_preview")==="1"){state.profile={id:"preview",user_id:"preview-user",email_linked:true,points:1250,name:"Rytni Player",tiktok:"@rytni.viewer"};state.hub={linked:true,profile:{display_name:"@rytni.viewer"},streak:{days:3,active_today:true,next_milestone:7,next_bonus:100}};state.videos=[{id:"preview-1",tiktok_video_id:"6718335390845095173",title:"Самое свежее видео Rytni",reward_points:75,watched:false},{id:"preview-2",tiktok_video_id:"6718335390845095173",title:"Игровой момент недели",reward_points:50,watched:true},{id:"preview-3",tiktok_video_id:"6718335390845095173",title:"Что осталось за кадром",reward_points:50,watched:false}];applyEmailGate(state.profile);renderAccount();renderStreak();render();$("rytniTikTokQuest").hidden=false;$("applicationProfile").hidden=false;$("applicationBoostPanel").hidden=false;$("profileHeading").hidden=true;$("applicationPopup").style.display="flex";document.body.classList.add("popup-open");}}
+  function initTikTokQuest(){ensureHub();ensureEmailGate();const url=new URL(location.href);const previewAllowed=["localhost","127.0.0.1","::1"].includes(location.hostname);if(window.RYTNI_VIDEO_QUEST_ENABLED&&previewAllowed&&url.searchParams.get("ttq_preview")==="1"){state.profile={id:"preview",user_id:"preview-user",email_linked:true,points:1250,name:"Rytni Player",tiktok:"@rytni.viewer"};state.hub={linked:true,profile:{display_name:"@rytni.viewer"},streak:{days:3,active_today:true,next_milestone:7,next_bonus:100}};state.videos=[{id:"preview-1",tiktok_video_id:"6718335390845095173",title:"Самое свежее видео Rytni",reward_points:75,watched:false},{id:"preview-2",tiktok_video_id:"6718335390845095173",title:"Игровой момент недели",reward_points:50,watched:true},{id:"preview-3",tiktok_video_id:"6718335390845095173",title:"Что осталось за кадром",reward_points:50,watched:false}];applyEmailGate(state.profile);renderAccount();renderStreak();render();$("rytniTikTokQuest").hidden=false;$("applicationProfile").hidden=false;$("applicationBoostPanel").hidden=false;$("profileHeading").hidden=true;$("applicationPopup").style.display="flex";document.body.classList.add("popup-open");}}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initTikTokQuest,{once:true});else initTikTokQuest();
   /* 2.13.22: reliable completion without reloading the playing TikTok iframe. */
   function wait(ms){return new Promise(resolve=>window.setTimeout(resolve,ms));}
@@ -1632,11 +1636,12 @@
   const $=id=>document.getElementById(id);
   let latestProfile=null;
   let latestTikTokState=window.RYTNI_TIKTOK_STATE||null;
+  const availableTabs=window.RYTNI_VIDEO_QUEST_ENABLED?["chests","quiz","video","arcade"]:["chests","quiz","arcade"];
   let activeTab="chests";
   const tabScrollPositions={chests:null,quiz:null,video:null,arcade:null};
   let tabScrollFrame=0;
   try{activeTab=sessionStorage.getItem("rytni_progression_tab")||"chests";}catch(error){}
-  if(!["chests","quiz","video","arcade"].includes(activeTab))activeTab="chests";
+  if(!availableTabs.includes(activeTab))activeTab="chests";
 
   const statCard=(id,icon,label)=>`<div class="rytni-stat-card"><span class="rytni-stat-icon"><i data-lucide="${icon}"></i></span><span class="rytni-stat-copy"><strong id="${id}">0</strong><small>${label}</small></span></div>`;
   const tabAssets={
@@ -1660,7 +1665,7 @@
         <div class="rytni-progression-tabs" role="tablist" aria-label="Разделы прокачки">
           ${tabButton("chests","Сундуки","Ежедневный и спонсорский лут","chest")}
           ${tabButton("quiz","Игровые вопросы","Знания превращаются в очки","quiz")}
-          ${tabButton("video","Смотреть видео","Ролики TikTok и награды","video")}
+          ${window.RYTNI_VIDEO_QUEST_ENABLED?tabButton("video","Смотреть видео","Ролики TikTok и награды","video"):""}
           ${tabButton("arcade","Аркада","Играйте. Ставьте рекорды.","arcade")}
         </div>
         <div class="rytni-progression-panels">
@@ -1710,7 +1715,7 @@
               <div class="rytni-quiz-content" id="progressionQuizHost"></div>
             </div>
           </section>
-          <section class="rytni-progression-panel rytni-video-stage" id="progressionPanelVideo" role="tabpanel" aria-labelledby="progressionTabVideo">
+          <section class="rytni-progression-panel rytni-video-stage" id="progressionPanelVideo" hidden role="tabpanel" aria-labelledby="progressionTabVideo">
             <div class="rytni-tab-dashboard">
               <div class="rytni-tab-heading"><span class="rytni-tab-kicker">Watch quest · TikTok</span><h5>Смотреть видео</h5><p>Смотрите ролики до конца, сохраняйте серию и получайте очки.</p></div>
               ${statCard("progressionVideoWatched","play","просмотрено")}
@@ -1776,7 +1781,7 @@
 
   function selectTab(name,persist){
     const hub=$("rytniProgressionHub");
-    if(!hub||!["chests","quiz","video","arcade"].includes(name))return;
+    if(!hub||!availableTabs.includes(name))return;
     const scroller=hub.closest(".application-popup");
     const previousTab=activeTab;
     if(persist&&scroller&&previousTab!==name)tabScrollPositions[previousTab]=scroller.scrollTop;

@@ -39,3 +39,5 @@ If confirmed progression members are few, a separate
 cards. It exposes no private amounts and needs no app/publisher contract change.
 
 Ranked Fly/Snake results require the deployed `arcade-verifier` Edge Function and the private verification receipts from `server/arcade-verifier/migration.sql`. Training stays local. See `docs/season4-security-fixes.md`; never restore an unverified legacy finish endpoint when rolling back the frontend.
+
+Season 4: `RYTNI_VIDEO_QUEST_ENABLED=false` in block 07 hides the watch-quest tab and prevents its player/RPC initialization. Shared email progression gates stay active. Remembered video selections fall back to Chests; Chests, Quiz and Arcade remain available. Re-enable explicitly when a later season needs the video mechanic.
