@@ -96,3 +96,35 @@ credentials in this source. Apply SQL through the existing authenticated admin
 workflow, approve the exact immutable Snake runtime, then use the canonical TEST
 build/deployment/mirror checks. Keep the previous published frontend as rollback;
 never restore the vulnerable finish functions when rolling back HTML.
+
+## Real backup and portable verification
+
+The complete encrypted backup passed on the real database: **79 tables / 316,037
+rows / 1,904 participants / 17 Fly attempts**, including the previously omitted
+partner/contract/game data. Full decrypt/read-back and server receipt verification
+passed in 113.77 seconds. A new backup is always required at the actual rollover;
+later legitimate activity invalidates an older receipt.
+
+Portable 1.5.1 compiled self-check and archive privacy/hash scan passed (5,097
+manifest files; no private-data violations). The EXE's embedded backup module was
+checked for the final bounded recapture logic and heartbeat exception. The user's
+RYTNI Studio shortcut points to that verified build.
+
+TEST candidate: `2.15.33-bf7d83ae558e`; Snake: `snake-next-1fe6d7e9e37e`.
+Live desktop menus, rules, rankings, Training, pause/resume and exit passed for
+both games without asset failures or game exceptions. Community ranking passed
+at 320/390/844/1366 widths, including winner badges, hidden progression amounts,
+unranked waiting cards, search, keyboard and unavailable-data states.
+
+GitHub Pages deployment and the S3 mirror both expose the exact candidate manifest,
+SHA-256 and size. MAIN manifest SHA-256 remains
+`0c1de483bc275877e9c76b3ddcc187df1cf1eb9a42eb215fbea18d404d9a4591`.
+Final DB checks: 1,904 participants, 20 winners, 17 Fly attempts, no Snake or
+verification fixtures; the original season end is unchanged. No Season 4 launch
+or real participant purge was performed.
+
+Touch emulation additionally verified Snake portrait gating/cancel, landscape
+fullscreen Training, four real D-pad controls and the portrait `mobile-gate`
+orientation prompt with a frozen canonical tick counter. The initial harness
+expected a generic pause screen and was corrected to the actual orientation flow;
+no gameplay change was needed. This is browser emulation, not physical-phone QA.
