@@ -22,6 +22,13 @@ Gold highlighting and the branded badge reflect an actual organizer winner recor
 not local gift-sent status or presumed receipt. The public getter refreshes winner
 flags on every request; the open popup polls each minute. Cross-season linkage uses
 the same non-null authenticated user ID or the exact winning participant ID only.
+`migrations/social_winner_identity_v2.sql` preserves this private link on archive
+insertion, before compact rollover removes old participants. It uses an RLS-protected
+registry; no authenticated identity or archive ID enters the public response.
+Seven archived links were recovered from verified DPAPI-encrypted Manager backups;
+five of these users currently have applications. Seven older archive rows have no
+participant ID and cannot receive an inferred badge from a display-name match.
+Future winner selections and rollovers preserve exact identity automatically.
 New transparent 3D artwork and final prompts are documented in
 [community-ranking-v2-art.md](community-ranking-v2-art.md).
 
@@ -68,13 +75,24 @@ preserved the v1 TEST payload hash `33842a9707c40f10ce697706ff7ed828`; v2 MAIN
 remains unpublished. Server QA passes 12 negative/role checks, real private-order
 comparison, actual winner flags, anonymous public read and last-good preservation.
 Public boards contain 50 comments, 50 activity and three progression members;
-eight selected winners appear in each social top50 and one in progression.
-Local browser QA uses the real v2 backend and routes only the new, unpublished art
-bytes to local files. Desktop/mobile widths 320/390/844/1366, modal lifecycle,
-top50/search/keyboard, winner marks, hidden points, empty/error states and the
-existing personal account pass. Final publication additionally requires unmocked
-live Pages/S3 agreement and the same browser checks. Snake runtime remains
-`snake-next-2fbc81ae44ef` byte-identical; Production manifest remains protected.
+after archived identity recovery, nine selected winners appear in each social
+top50 and one in progression. Archive-trigger capture and reassignment guards
+passed inside a rolled-back transaction. Anonymous registry access is denied;
+actual archive and selection records, and v1 data, remain unchanged.
+
+TEST release `2.15.33-574d26c31308` is published. Pages and S3 expose byte-identical
+manifests, app SHA-256 `574d26c3130810c7e574774e97d5db55a7a4f1f9bf8d3c07944d101126fceb9c`,
+1,277,980 bytes, and both committed art assets. Unmocked live TEST browser checks
+pass at widths 320/390/844/1366: modal lifecycle, top50/search/keyboard, winner marks,
+hidden points, empty/error states and the existing personal account. Final positive
+checks report no page errors or ranking/art request failures. The existing unrelated
+auth health probe can return 401. Snake runtime remains `snake-next-2fbc81ae44ef`
+byte-identical; Production manifest remains protected.
+
+Studio 1.5.0 passed 202 affected Python/Qt/collector/publisher/privacy/portable tests,
+compiled self-check and a portable archive scan (5,097 hashed files, zero privacy or
+hash violations). The desktop shortcut opens the new EXE. Native shared-window
+Giveaway overview and activity page load 1,904 participants without a second window.
 
 ## Legacy v1 integration evidence
 
