@@ -33,13 +33,14 @@ async function sync(root,request){
  const final=plan.at(-1),put=await request('PUT',final.key,final.body,{'Content-Type':final.type,'Cache-Control':final.cache});if(put.status<200||put.status>=300)throw Error('TEST manifest PUT failed');const read=await request('GET',final.key);if(read.status!==200||sha(content(read))!==sha(final.body))throw Error('TEST manifest verification mismatch');
  return {id:manifest.current.id,uploaded,unchanged,manifestLast:true};
 }
-function transport(env,{flyPremiumV2=false,flyPremiumV21=false,communityArt=false}={}){
+function transport(env,{flyPremiumV2=false,flyPremiumV21=false,communityArt=false,main=false}={}){
  const endpoint=env.RYTNI_S3_ENDPOINT||'storage-1090.s3hoster.by',region=env.RYTNI_S3_REGION||'A1',bucket=env.RYTNI_S3_BUCKET||'rytnistatictest';
- if(endpoint!=='storage-1090.s3hoster.by'||bucket!=='rytnistatictest'||env.RYTNI_S3_CHANNEL&&env.RYTNI_S3_CHANNEL!=='giveaway-test')throw Error('Unexpected TEST mirror target');
+ const channel=main?'giveaway':'giveaway-test';
+ if(endpoint!=='storage-1090.s3hoster.by'||bucket!=='rytnistatictest'||env.RYTNI_S3_CHANNEL&&env.RYTNI_S3_CHANNEL!==channel)throw Error(main?'Unexpected MAIN mirror target':'Unexpected TEST mirror target');
  if(!env.RYTNI_S3_ACCESS_KEY||!env.RYTNI_S3_SECRET_KEY)throw Error('TEST mirror credentials unavailable');
  const hmac=(key,data)=>crypto.createHmac('sha256',key).update(data).digest();
  return (method,key,body=Buffer.alloc(0),headers={})=>{
-  if(!['GET','PUT'].includes(method)||!(key.startsWith('giveaway-test/')||flyPremiumV2&&FLY_PREMIUM_V2_KEYS.includes(key)||flyPremiumV21&&FLY_PREMIUM_V21_KEYS.includes(key)||communityArt&&COMMUNITY_ART_KEYS.includes(key))||key.split('/').some(p=>['','..','.'].includes(p)))throw Error('Protected S3 request');
+  if(!['GET','PUT'].includes(method)||!(key.startsWith(channel+'/')||flyPremiumV2&&FLY_PREMIUM_V2_KEYS.includes(key)||flyPremiumV21&&FLY_PREMIUM_V21_KEYS.includes(key)||communityArt&&COMMUNITY_ART_KEYS.includes(key))||key.split('/').some(p=>['','..','.'].includes(p)))throw Error('Protected S3 request');
   const date=new Date().toISOString().replace(/[:-]|\.\d{3}/g,''),day=date.slice(0,8),uri='/'+bucket+'/'+key.split('/').map(encodeURIComponent).join('/'),payload=sha(body),signed='host;x-amz-content-sha256;x-amz-date';
   const canonical=[method,uri,'',`host:${endpoint}\nx-amz-content-sha256:${payload}\nx-amz-date:${date}\n`,signed,payload].join('\n'),scope=`${day}/${region}/s3/aws4_request`,string=['AWS4-HMAC-SHA256',date,scope,sha(Buffer.from(canonical))].join('\n');
   const signing=hmac(hmac(hmac(hmac(Buffer.from('AWS4'+env.RYTNI_S3_SECRET_KEY),day),region),'s3'),'aws4_request'),signature=crypto.createHmac('sha256',signing).update(string).digest('hex');
