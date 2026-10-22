@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "approval": "Human V5 implementation approval; static checkpoint 95163e3",
+  "assets": [
+    {
+      "file": "attempts.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/attempts.png",
+      "width": 493,
+      "height": 172,
+      "size": 136086,
+      "sha256": "a22e2bf899514def8794915b65b8dbfe67cb81f5f36dc3edf1bf14a0b005f4d1"
+    },
+    {
+      "file": "back.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/back.png",
+      "width": 256,
+      "height": 256,
+      "size": 55056,
+      "sha256": "2900f84f68b160821992ecc343e041a0a34e56d1a8f7080e5701e459f76b150d"
+    },
+    {
+      "file": "close.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/close.png",
+      "width": 256,
+      "height": 256,
+      "size": 92977,
+      "sha256": "54c3dc3ed73c4c3c89d7abbed95c52c6d2f2e5fe8daaa966ba872581f8ad89c5"
+    },
+    {
+      "file": "control.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/control.png",
+      "width": 221,
+      "height": 225,
+      "size": 82441,
+      "sha256": "4874cc7d0bbbcaaa66a6317949aa08f0154bcfbe4458d9f1b287e5cb7e78aada"
+    },
+    {
+      "file": "exit-fullscreen.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/exit-fullscreen.png",
+      "width": 256,
+      "height": 256,
+      "size": 78612,
+      "sha256": "66487eea05006ff3982783da98a7b00adeb0b64710ca5bd367236462a9731dad"
+    },
+    {
+      "file": "fullscreen.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/fullscreen.png",
+      "width": 256,
+      "height": 256,
+      "size": 69131,
+      "sha256": "bfea5d5f3b0abb91cc7ca512b1c6c74140e401b646b1a7abfa8ae178cafd983a"
+    },
+    {
+      "file": "guide.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/guide.png",
+      "width": 256,
+      "height": 256,
+      "size": 97019,
+      "sha256": "172e8d77f626f57dff250694c815869373d1b84e4e27994676e1b06f50e6ca69"
+    },
+    {
+      "file": "home.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/home.png",
+      "width": 256,
+      "height": 256,
+      "size": 88586,
+      "sha256": "53d356a4259938668261a3bede84db73b31cbda9861e1c3afd566acb28ac421a"
+    },
+    {
+      "file": "material-brass.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-brass.png",
+      "width": 438,
+      "height": 330,
+      "size": 344662,
+      "sha256": "4a18d82f06b896ed222a28a81e0add73766d021ff853292b0d154b87b687ead8"
+    },
+    {
+      "file": "material-enamel.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-enamel.png",
+      "width": 438,
+      "height": 330,
+      "size": 279031,
+      "sha256": "74d888470bbf14870c33806debcc44257d409ead837bdfca368a98cd6a856b77"
+    },
+    {
+      "file": "material-glass.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-glass.png",
+      "width": 438,
+      "height": 330,
+      "size": 171134,
+      "sha256": "b418ce9b989926be2fa0587fc0605dd1861d6a565a6e357963831edd89ec2a3b"
+    },
+    {
+      "file": "material-parchment.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-parchment.png",
+      "width": 438,
+      "height": 330,
+      "size": 302467,
+      "sha256": "261cae787d864f7d41564234c7d735a5525779274b980d85a8b7025754ec313f"
+    },
+    {
+      "file": "material-resin.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-resin.png",
+      "width": 438,
+      "height": 330,
+      "size": 336033,
+      "sha256": "f5716a17401d71ef220c03b84a5d7b3b4637bb5ecb11e0eff95bd2e43beb7a6b"
+    },
+    {
+      "file": "material-wood.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/material-wood.png",
+      "width": 438,
+      "height": 330,
+      "size": 307436,
+      "sha256": "54bb12d3a5749b342e2063af400ba50f71c72fb5a566b0f0bb4ae02994e11503"
+    },
+    {
+      "file": "ranking-board.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/ranking-board.png",
+      "width": 1466,
+      "height": 680,
+      "size": 1149259,
+      "sha256": "9ef84579bf5d7d44365f2dc1deb072b685c45990e5eb9e130b0188197cc8844a"
+    },
+    {
+      "file": "ranking.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/ranking.png",
+      "width": 256,
+      "height": 256,
+      "size": 83231,
+      "sha256": "abb48b4fdc9607cc4bb7fc6517c731ad7a9cc8c902195d5d6144dfa4f5b84cca"
+    },
+    {
+      "file": "record-rank.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/record-rank.png",
+      "width": 455,
+      "height": 228,
+      "size": 180889,
+      "sha256": "b4e242a2eb3da19cff4748d4c585bccbb1381e16d4bd418e5b0e1c28fbbb8466"
+    },
+    {
+      "file": "restart.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/restart.png",
+      "width": 256,
+      "height": 256,
+      "size": 101763,
+      "sha256": "fb162fcd7f9e1b0bb85e765cab443df63a1a6a0a9c96f9446d94fe2bad9f8f93"
+    },
+    {
+      "file": "settings.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/settings.png",
+      "width": 256,
+      "height": 256,
+      "size": 98203,
+      "sha256": "64eb0765e4e8c72240e741d8c88a4bba3ecb509743bcae4dd9dde55aef12bc9d"
+    },
+    {
+      "file": "share.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/share.png",
+      "width": 256,
+      "height": 256,
+      "size": 80978,
+      "sha256": "67347d8ed4aecfd67dcd1316d2f0d73546fec45a92b2e17f4b363fd35a4950a1"
+    },
+    {
+      "file": "sound-off.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/sound-off.png",
+      "width": 256,
+      "height": 256,
+      "size": 93356,
+      "sha256": "ae5dde66f26a13a9dcfa08d83e30b56128785d8cd32ca639d54ee18f43eb7c0c"
+    },
+    {
+      "file": "sound-on.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/sound-on.png",
+      "width": 256,
+      "height": 256,
+      "size": 88267,
+      "sha256": "26ec577a46be1ad9ab4853244c6c76cd1833a501918d9def9ee2890cf48465c9"
+    },
+    {
+      "file": "stat-combo.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/stat-combo.png",
+      "width": 165,
+      "height": 322,
+      "size": 80749,
+      "sha256": "54298915cf7711534398ffd45e48841a825f7f18dd4822ee37859a18e79545ae"
+    },
+    {
+      "file": "stat-food.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/stat-food.png",
+      "width": 184,
+      "height": 298,
+      "size": 98187,
+      "sha256": "79ab19ef5ae9939b6502487122f2eca42a11050768dc931d4098bfa3fef90f1e"
+    },
+    {
+      "file": "stat-length.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/stat-length.png",
+      "width": 174,
+      "height": 363,
+      "size": 67930,
+      "sha256": "f3550476d7ec98eff9e7cf55346878082b42bb903aed530e4a1d714fb9eabfd7"
+    },
+    {
+      "file": "top-three.png",
+      "source": "docs/qa/snake-premium-ui-v5/masters/top-three.png",
+      "width": 353,
+      "height": 350,
+      "size": 207917,
+      "sha256": "ca04f7985def090bc0f49f83321a609ed57cbfa0a936a6bdc63eb404de1f9146"
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 # Season 4 security fixes — 2026-10-21
 
+Update 2026-10-22: the owner authorized MAIN promotion and the real season
+transition. Season 4 is active; real authenticated HTTP replay awards passed for
+Fly and Snake. See [launch and sponsor-link fix](SEASON4_LAUNCH.md).
+The remaining sections preserve pre-launch verification history.
+
 Scope: shared backend hardening and TEST frontend only. MAIN promotion and the
 actual Season 4 transition remain the owner's separate actions. TikTok ownership
 verification is intentionally deferred; handle disputes remain manual.

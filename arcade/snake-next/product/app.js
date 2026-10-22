@@ -1,3 +1,4 @@
+import {openSponsorForClaim} from './sponsor-link.js';
 import {createMockBackend,createHostedBackend} from './backend.js';
 import {ProductController} from './controller.js';
 import {ProductBridge} from './bridge.js';
@@ -44,6 +45,7 @@ function render(){
 }
 controller.subscribe(render);render();
 async function dispatch(action){
+ if(action==='sponsor')openSponsorForClaim(controller,backend,(...args)=>window.open(...args));
  // Request fullscreen synchronously from the actual activation, before audio,
  // assets or backend awaits. No attempt is spent in portrait.
  if(mobile()&&['play','play-again','training','retry-start'].includes(action)&&!controller.pending&&(!controller.run||controller.result)){
@@ -59,9 +61,9 @@ async function dispatch(action){
  if(action==='other-game'){controller.dispose();bridge.dispose();window.RytniArcadeHub?.leave();return;}
  if(action==='play'&&controller.run&&!controller.result){controller.pause();controller.show('confirm-restart');return;}
  await controller.action(action);
- // Credit first, then an explicit safe sponsor link. Mock never opens a real
- // sponsor destination automatically; it offers the same declared URL.
- if(action==='sponsor'&&controller.sponsorCredited){controller.sponsorCredited=false;const a=document.createElement('a');a.href=backend.sponsorUrl;a.target='_blank';a.rel='noopener noreferrer';a.className='notice';a.textContent='Открыть спонсора ↗';menu.querySelector('.actions')?.after(a);}
+ // Keep a manual retry link if the browser or Telegram did not open the target.
+ // Offline mock never opens a real sponsor automatically.
+ if(action==='sponsor'&&controller.sponsorCredited){controller.sponsorCredited=false;const a=document.createElement('a');a.href=backend.sponsorUrl;a.target='_blank';a.rel='noopener noreferrer';a.className='notice';a.textContent='Открыть спонсора ещё раз ↗';(menu.querySelector('.actions')||menu.querySelector('.mobile-primary'))?.after(a);}
 }
 menu.addEventListener('click',e=>{const tab=e.target.closest('[data-tab]');if(tab){controller.tab=tab.dataset.tab;bridge.sound('button');render();return;}const action=e.target.closest('[data-action]')?.dataset.action;if(action)void dispatch(action);});
 menu.addEventListener('input',e=>{const key=e.target.dataset.setting;if(!['master','music','sfx'].includes(key))return;settings[key]=Number(e.target.value);const output=menu.querySelector('#value-'+key)||e.target.nextElementSibling;output.textContent=Math.round(settings[key]*100)+'%';e.target.style.setProperty('--volume',settings[key]*100+'%');saveSettings();bridge.applySettings();});

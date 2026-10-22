@@ -37,7 +37,7 @@ export class ProductController {
  async claim(){
   if(this.pending||this.disposed||this.run&&!this.result)return;
   if(!this.hub?.sponsor_attempt_available){this.message='Попытки от спонсора восстановятся '+formatReset(this.hub?.next_sponsor_attempt_at)+'.';this.emit();return;}
-  if(!this.gate.ready()){this.gateMode='sponsor';this.show('mobile-gate');return;}
+  // Claiming a link bonus does not start gameplay or require fullscreen/orientation.
   this.pending='claim';this.emit();const epoch=this.epoch;
   try{this.claimRequest??=this.requestPrefix+'-sponsor-'+(++this.serial);const r=await this.backend.claim({release:this.release,requestId:this.claimRequest});if(epoch!==this.epoch||this.disposed)return;
    if(r.success){this.claimRequest=null;await this.refresh(true);this.message='Попытка от спонсора зачислена. Нажмите «Играть», когда будете готовы.';this.sponsorCredited=true;this.show('main');}

@@ -4,6 +4,14 @@ import {ProductController} from './controller.js';
 import {createMockBackend} from './backend.js';
 function fixture(state='ready',ready=true){const backend=createMockBackend(state),starts=[];const bridge={ready:async()=>{},start:seed=>starts.push(seed),pause(){},resume(){},stop(){},stats:()=>({score:9000,foods:6,length:14,max_combo:3,portal_uses:1,expansions:0,stage:0,world:[30,12],active_ticks:480,final_hash:'abcdef12'})};const gate={ready:()=>ready,request:async()=>ready};const c=new ProductController({backend,bridge,gate,release:'snake-local-v1'});return {c,backend,starts};}
 
+test('sponsor claim in portrait credits once without fullscreen or starting play',async()=>{
+ const {c,backend,starts}=fixture('sponsor-available',false);await c.refresh();
+ c.gate.request=()=>assert.fail('Sponsor does not request gameplay fullscreen');
+ await Promise.all([c.claim(),c.claim()]);
+ assert.equal(c.screen,'main');assert.equal(c.hub.sponsor_attempt_credits,1);assert.equal(c.hub.attempts_remaining,0);
+ assert.equal(backend.calls.filter(x=>x.method==='claim').length,1);assert.equal(c.run,null);assert.deepEqual(starts,[]);
+});
+
 test('closed real season is explicit and Training remains available without ranked writes',async()=>{
  const {c,backend}=fixture();backend.hub=async()=>({success:false,status:'season_closed'});
  await c.refresh();assert.equal(c.screen,'error');assert.match(c.message,/Сезон завершён/);
