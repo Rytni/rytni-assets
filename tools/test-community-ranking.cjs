@@ -4,6 +4,7 @@ async page => {
   const endpoint='**/rest/v1/rpc/giveaway_social_rankings_v2';
   await page.unroute(endpoint);
   const overlay=page.locator('#communityRankingPopup'),root=page.locator('#community-rating');
+  const channel=await page.locator('#communityRankingMount').getAttribute('data-channel')==='main'?'main':'test';
   const open=async()=>{
     if(await overlay.getAttribute('aria-hidden')!=='false')await page.locator('[data-open-community-ranking]').click();
     await page.waitForFunction(()=>document.querySelector('[data-podium] article'));
@@ -17,10 +18,10 @@ async page => {
   assert(await page.locator('body').evaluate(e=>e.classList.contains('popup-open')),'Page scroll lock');
   assert(await root.locator('[data-scope],[data-days]').count()===0,'No channel or period controls');
   assert((await root.locator('.cr-context').innerText()).includes('30 дней'),'Fixed 30 days');
-  const live=await page.evaluate(async()=>callSupabaseRpc('giveaway_social_rankings_v2',{p_channel:'test'},12000,false,'anonymous',true));
+  const live=await page.evaluate(async(channel)=>callSupabaseRpc('giveaway_social_rankings_v2',{p_channel:channel},12000,false,'anonymous',true),channel);
   assert(live.status==='READY','No live snapshot');
   const period=live.snapshot.periods.find(p=>p.days===30);
-  const waiting=await page.evaluate(async()=>callSupabaseRpc('giveaway_social_progression_pending_v2',{p_channel:'test'},12000,false,'anonymous',true));
+  const waiting=await page.evaluate(async(channel)=>callSupabaseRpc('giveaway_social_progression_pending_v2',{p_channel:channel},12000,false,'anonymous',true),channel);
   assert(waiting.status==='READY'&&waiting.generated_at===live.snapshot.generated_at,'Matching waiting context');
   assert(waiting.participants.every(r=>Object.keys(r).sort().join()==='handle,winner_selected'),'No private waiting amounts');
   assert(!JSON.stringify(live.snapshot).includes('points'),'Private progression amounts/timestamps never enter public JSON');
@@ -33,10 +34,11 @@ async page => {
     const field={comments:'comments',activity:'score'}[kind];
     const values=await root.locator('.cr-value').allTextContents();
     assert(values.every((v,i)=>kind==='progression'?v==='#'+(i+1):Number(v.replace(/\s/g,''))===expected[i][field]),'Wrong metric/hidden progression');
-    const winners=expected.slice(0,10).filter(r=>r.winner_selected).map(r=>r.handle);
+    const winners=expected.slice(0,10).filter(r=>live.winner_badges?.[r.handle]?.current_season).map(r=>r.handle);
     const marked=await root.locator('[data-handle].cr-winner').evaluateAll(es=>es.map(e=>e.dataset.handle));
     assert(JSON.stringify(marked)===JSON.stringify(winners),'Winner highlights reflect selected winners only');
-    assert(await root.locator('[data-podium] .cr-winner-badge,[data-list] .cr-winner-badge').count()===winners.length,'Branded winner badges');
+    assert(await root.locator('[data-podium] .cr-winner-badge-current,[data-list] .cr-winner-badge-current').count()===winners.length,'Current-season winner badges');
+    const past=expected.slice(0,10).filter(r=>live.winner_badges?.[r.handle]?.past_seasons);assert(await root.locator('[data-podium] .cr-winner-badge-past,[data-list] .cr-winner-badge-past').count()===past.length,'Past-season winner badges');
     assert(await root.locator('[data-selection-note]').isVisible()===(kind==='progression'),'Progression eligibility explained');
     if(kind==='progression'){
       await root.locator('[data-selection-note] summary').click();

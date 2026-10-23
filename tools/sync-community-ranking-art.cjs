@@ -16,7 +16,7 @@ async function sync(root,request){
     const old=await request('GET',key);
     if(old.status===200){if(hash(old.body)!==hash(body))throw Error('Existing community art differs');unchanged++;continue;}
     if(old.status!==404)throw Error('Unexpected community art status');
-    const put=await request('PUT',key,body,{'Content-Type':'image/webp','Cache-Control':'public, max-age=31536000, immutable'});
+    const put=await request('PUT',key,body,{'Content-Type':key.endsWith('.svg')?'image/svg+xml':'image/webp','Cache-Control':'public, max-age=31536000, immutable'});
     if(put.status<200||put.status>=300)throw Error('Community art upload failed');
     const verified=await request('GET',key);
     if(verified.status!==200||hash(verified.body)!==hash(body))throw Error('Community art verification failed');

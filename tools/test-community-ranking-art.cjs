@@ -6,7 +6,7 @@ test('only the exact committed community icons are admitted',()=>assert.deepEqua
 test('art upload verifies bytes and is idempotent',async()=>{
  const objects=new Map();const request=async(method,key,body,headers)=>{
   assert.ok(COMMUNITY_ART_KEYS.includes(key));
-  if(method==='PUT'){assert.equal(headers['Content-Type'],'image/webp');objects.set(key,body);return {status:200};}
+  if(method==='PUT'){assert.equal(headers['Content-Type'],key.endsWith('.svg')?'image/svg+xml':'image/webp');objects.set(key,body);return {status:200};}
   return {status:objects.has(key)?200:404,body:objects.get(key)};
  };
  assert.equal((await sync(root,request)).uploaded,COMMUNITY_ART_KEYS.length);assert.equal((await sync(root,request)).unchanged,COMMUNITY_ART_KEYS.length);
