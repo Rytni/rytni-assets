@@ -1,0 +1,8 @@
+{
+  "version": "arcade-premium-v2",
+  "purpose": "TEST chooser artwork only; no game or participant data baked in",
+  "assets": [
+    {"file":"arcade-backdrop-desktop.png","width":1672,"height":941,"alpha":false,"composition":"wide independent authored navy/violet portal environment"},
+    {"file":"arcade-backdrop-mobile.png","width":1024,"height":1536,"alpha":false,"composition":"independent portrait portal environment; not a stretched desktop image"}
+  ]
+}
