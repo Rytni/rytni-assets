@@ -1126,7 +1126,7 @@
     return `<div class="mf-status-console" id="arcadeStatusConsole"><div><small>ЕЖЕДНЕВНЫЕ</small>${tokens(total,remaining)}<span id="arcadeAttempts" hidden aria-hidden="true"></span><strong data-normal-attempts>${h?.success?`${remaining} / ${total}`:'—'}</strong></div><div><small>ОТ СПОНСОРА</small>${tokens(limit,credits,true)}<strong>${h?.success?`${used} / ${limit}`:'—'}</strong>${credits>0?`<small>Зачислено: ${credits}</small>`:''}</div><div><small>РЕКОРД</small><strong id="arcadeBest">${fmt(h?.best_score)}</strong></div><div><small>МЕСТО</small><strong id="arcadeRank">${h?.my_rank?`№${Number(h.my_rank)}`:'—'}</strong></div></div>`;
   }
   const audioSlider=(group,label,value)=>`<div class="rytni-arcade-volume"><span class="mf-volume-label">${gameIcon(group==="music"?"music":group==="sfx"?"sfx":"master")}<label for="arcadeAudio${group}">${label}</label></span><input id="arcadeAudio${group}" data-audio-volume="${group}" style="--mf-range:${Math.round(value*100)}%" type="range" min="0" max="100" step="1" value="${Math.round(value*100)}"><output>${Math.round(value*100)}%</output></div>`;
-  const SPONSOR_ATTEMPT_URL="https://t.me/astra_net_bot?start=ryt";
+  const SPONSOR_ATTEMPT_URL="https://www.ozon.ru/product/ajazz-igrovaya-mysh-besprovodnaya-cherno-seryy-3722839728/?sh=RGfK1lXW_g";
   function escapeHtml(value){return value.replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));}
   const guideDiagram=title=>{
     const diagrams={

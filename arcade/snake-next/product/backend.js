@@ -1,7 +1,7 @@
 // No auth-client or Fly dependency: the parent owns authenticated transport.
 export const NORMAL_ATTEMPTS = 1;
 export const SPONSOR_ATTEMPTS = 2;
-export const SNAKE_SPONSOR_URL = 'https://t.me/astra_net_bot?start=ryt';
+export const SNAKE_SPONSOR_URL = 'https://www.ozon.ru/product/ajazz-igrovaya-mysh-besprovodnaya-cherno-seryy-3722839728/?sh=RGfK1lXW_g';
 const STATES = new Set(['ready', 'one-attempt-left', 'no-attempts', 'sponsor-available',
   'sponsor-credit', 'not-authenticated', 'arcade-paused', 'network-error',
   'leaderboard-empty', 'record-result']);
