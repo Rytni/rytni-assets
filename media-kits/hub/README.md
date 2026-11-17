@@ -41,3 +41,8 @@ Verification: eight runtime contract tests; responsive desktop/mobile widths
 all four live aggregate streams; safe saved-state fallback on data failure.
 Local review evidence lives outside this repository at
 `O:/TikTokAgent/data/qa-media-hub/`.
+
+The cooperation tiles now use inline SVGs from `editorial-icons.json`, matching
+the 19-icon set in RYTNI Studio `web/media-kit/editorial-icons.json`. Official
+platform logos are retained. The four detailed Media Kits now share the accepted
+hub visual language; their canonical generators remain in `O:/TikTokAgent`.
