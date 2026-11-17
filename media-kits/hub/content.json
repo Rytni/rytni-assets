@@ -1,0 +1,30 @@
+{
+  "gaming": {
+    "platform": "tiktok", "platformLabel": "TikTok", "handle": "rytni.tv", "slug": "media-kit-rytnitv", "profile": "https://www.tiktok.com/@rytni.tv",
+    "title": "Игровой Rytni", "titleEn": "Gaming Rytni", "topic": "Игровая индустрия", "topicEn": "Gaming culture",
+    "description": "Игры, которые ждут. Релизы, о которых говорят. Новости и события через авторский взгляд.",
+    "descriptionEn": "Anticipated games, talked-about releases, industry news and events through a creator’s lens.",
+    "tags": ["Игры", "Релизы", "События"], "tagsEn": ["Games", "Releases", "Events"]
+  },
+  "tech": {
+    "platform": "tiktok", "platformLabel": "TikTok", "handle": "rytni.blic", "slug": "media-kit", "profile": "https://www.tiktok.com/@rytni.blic",
+    "title": "Rytni.exe", "titleEn": "Rytni.exe", "topic": "Технологии и гаджеты", "topicEn": "Tech & gadgets",
+    "description": "Гаджеты, технологии и цифровые продукты. Понятно о возможностях, интересно о впечатлениях.",
+    "descriptionEn": "Gadgets, technology and digital products. Clear about features, personal about the experience.",
+    "tags": ["Гаджеты", "Технологии", "Digital"], "tagsEn": ["Gadgets", "Technology", "Digital"]
+  },
+  "youtube": {
+    "platform": "youtube", "platformLabel": "YouTube", "handle": "Rytni", "slug": "media-kit-youtube", "profile": "https://www.youtube.com/@Rytni", "platformId": "UCGI_gHV-M39iPw7zmFABciw",
+    "title": "Rytni", "titleEn": "Rytni", "topic": "Видео и Shorts", "topicEn": "Videos & Shorts",
+    "description": "Авторские видео и Shorts об играх, новинках и технологиях. Ещё больше историй в привычном формате YouTube.",
+    "descriptionEn": "Creator-led videos and Shorts about games, new releases and technology, told in the familiar YouTube format.",
+    "tags": ["Видео", "Shorts", "Игры и технологии"], "tagsEn": ["Videos", "Shorts", "Games & tech"]
+  },
+  "instagram": {
+    "platform": "instagram", "platformLabel": "Instagram", "handle": "rytni_tv", "slug": "media-kit-instagram", "profile": "https://www.instagram.com/rytni_tv/", "platformId": "17841408533247172",
+    "title": "Rytni TV", "titleEn": "Rytni TV", "topic": "Reels и впечатления", "topicEn": "Reels & impressions",
+    "description": "Новинки, игровые истории и живые впечатления в Reels. Ещё одна площадка для знакомства с вашим продуктом.",
+    "descriptionEn": "New releases, gaming stories and personal impressions in Reels. Another place to introduce your product.",
+    "tags": ["Reels", "Новинки", "Истории"], "tagsEn": ["Reels", "New releases", "Stories"]
+  }
+}
