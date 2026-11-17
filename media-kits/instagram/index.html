@@ -1,1161 +1,93 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RYTNI · Instagram Media Kit</title><meta name="description" content="RYTNI: Instagram — статистика, аудитория и сотрудничество."><link rel="icon" href="https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet"><style>
-:root{
-  --text:#0f172a;
-  --muted:#5b6473;
-  --line:rgba(15,23,42,.1);
-  --panel:rgba(255,255,255,.84);
-  --blue:#2563eb;
-  --blue-dark:#1d4ed8;
-  --cyan:#38bdf8;
-  --green:#16a34a;
-  --orange:#f97316;
-  --violet:#7c3aed;
-  --shadow:0 24px 80px rgba(15,23,42,.14);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Manrope,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--text);
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.9)),
-    url("https://rytni.github.io/rytni-assets/phone2.webp") center/cover fixed;
-  min-height:100vh;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 10% 18%,rgba(56,189,248,.18),rgba(56,189,248,0) 18%),
-    radial-gradient(circle at 86% 14%,rgba(124,58,237,.16),rgba(124,58,237,0) 18%),
-    radial-gradient(circle at 82% 76%,rgba(22,163,74,.12),rgba(22,163,74,0) 20%);
-}
-.page{
-  position:relative;
-  z-index:1;
-  max-width:1200px;
-  margin:0 auto;
-  padding:76px 18px 60px;
-}
-.top-nav{
-  position:fixed;
-  z-index:50;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:7px;
-  max-width:calc(100% - 28px);
-  border:1px solid rgba(255,255,255,.48);
-  border-radius:999px;
-  background:rgba(255,255,255,.18);
-  box-shadow:0 10px 35px rgba(15,23,42,.14),0 0 30px rgba(56,189,248,.08);
-  backdrop-filter:blur(24px) saturate(140%);
-  -webkit-backdrop-filter:blur(24px) saturate(140%);
-  overflow-x:auto;
-  scrollbar-width:none;
-  white-space:nowrap;
-}
-.top-nav::-webkit-scrollbar{display:none}
-.top-nav a{
-  flex:0 0 auto;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:0 16px;
-  border-radius:999px;
-  color:#1f2937;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:800;
-  transition:background .2s ease,color .2s ease,transform .2s ease;
-}
-.top-nav a:hover{
-  background:rgba(255,255,255,.55);
-  transform:translateY(-1px);
-}
-.top-nav .donate{
-  color:#fff;
-  background:linear-gradient(135deg,#f59e0b,var(--orange));
-  box-shadow:0 12px 24px rgba(249,115,22,.24);
-}
-.top-nav .donate:hover{
-  background:linear-gradient(135deg,#fb923c,#ea580c);
-}
-.card{
-  border:1px solid rgba(255,255,255,.74);
-  border-radius:30px;
-  background:var(--panel);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-}
-.card-inner{padding:28px}
-.hero{
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
-  gap:24px;
-  align-items:stretch;
-}
-.hero-copy{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:20px;
-}
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  width:fit-content;
-  padding:8px 12px;
-  border:1px solid rgba(37,99,235,.12);
-  border-radius:999px;
-  background:rgba(255,255,255,.72);
-  color:var(--blue-dark);
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
-}
-h1{
-  margin:0;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:clamp(42px,8vw,72px);
-  line-height:1.04;
-}
-.accent{
-  display:inline;
-  color:var(--blue-dark);
-}
-.lead{
-  max-width:640px;
-  margin:0;
-  color:#445065;
-  font-size:18px;
-  line-height:1.65;
-}
-.hero-metrics{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-}
-.metric{
-  padding:16px 18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:rgba(255,255,255,.74);
-}
-.metric-value{
-  display:block;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:24px;
-  line-height:1.1;
-}
-.metric-label{
-  display:block;
-  margin-top:8px;
-  color:var(--muted);
-  font-size:13px;
-  font-weight:700;
-  line-height:1.45;
-}
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.btn,.ghost-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  padding:0 20px;
-  border:none;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:800;
-}
-.btn{
-  color:#fff;
-  background:linear-gradient(135deg,var(--cyan),var(--blue-dark));
-  box-shadow:0 16px 34px rgba(37,99,235,.26);
-}
-.ghost-btn{
-  border:1px solid rgba(37,99,235,.12);
-  background:rgba(255,255,255,.72);
-  color:var(--text);
-}
-.profile-card{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-.avatar-wrap{
-  display:grid;
-  place-items:center;
-  padding-top:4px;
-}
-.avatar{
-  width:min(240px,58vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  background:url("https://rytni.github.io/rytni-assets/oblozka-sinaa-512.webp") center/cover no-repeat;
-  box-shadow:0 0 0 14px rgba(255,255,255,.8),0 18px 48px rgba(37,99,235,.2);
-}
-.profile-note{
-  padding:16px 18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(239,246,255,.84));
-}
-.profile-note strong{
-  display:block;
-  margin-bottom:6px;
-  font-size:16px;
-}
-.profile-note p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.55;
-}
-.section{margin-top:24px}
-.section-title{
-  margin:0 0 16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:28px;
-  line-height:1.15;
-}
-.section-sub{
-  margin:0 0 18px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.6;
-}
-.section-sub.strong-note{
-  display:inline-flex;
-  align-items:center;
-  min-height:42px;
-  padding:10px 14px;
-  border:1px solid rgba(37,99,235,.12);
-  border-radius:999px;
-  background:linear-gradient(135deg,rgba(239,246,255,.96),rgba(255,255,255,.94));
-  color:var(--blue-dark);
-  font-size:14px;
-  font-weight:800;
-  line-height:1.35;
-  box-shadow:0 14px 28px rgba(37,99,235,.12);
-}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-.stat-card{padding:22px}
-.stat-head{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:16px;
-}
-.stat-icon{
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  border-radius:18px;
-  color:#fff;
-}
-.icon-svg{
-  width:24px;
-  height:24px;
-  display:block;
-}
-.black{background:linear-gradient(135deg,#111827,#374151)}
-.blue{background:linear-gradient(135deg,#38bdf8,#2563eb)}
-.red{background:linear-gradient(135deg,#fb7185,#ef4444)}
-.green{background:linear-gradient(135deg,#34d399,#16a34a)}
-.purple{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
-.orange{background:linear-gradient(135deg,#fb923c,#ea580c)}
-.stat-title{
-  color:var(--muted);
-  font-size:14px;
-  font-weight:800;
-}
-.stat-value{
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:32px;
-  line-height:1.1;
-}
-.stat-foot{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.45;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-.panel{padding:24px}
-.panel h3{
-  margin:0 0 14px;
-  font-size:22px;
-}
-.rows{
-  display:grid;
-  gap:12px;
-}
-.row{
-  display:grid;
-  grid-template-columns:minmax(110px,.8fr) minmax(0,1fr) auto;
-  gap:12px;
-  align-items:center;
-}
-.bar{
-  height:10px;
-  border-radius:999px;
-  background:rgba(15,23,42,.08);
-  overflow:hidden;
-}
-.bar > i{
-  display:block;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-}
-.list-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.mini-card{
-  padding:18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:rgba(255,255,255,.7);
-}
-.mini-card strong{
-  display:block;
-  margin-bottom:8px;
-  font-size:17px;
-}
-.mini-card p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.55;
-}
-.highlight{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:18px;
-}
-.quote{
-  padding:24px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:26px;
-  background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(239,246,255,.85));
-}
-.quote strong{
-  display:block;
-  margin-bottom:10px;
-  font-size:19px;
-}
-.quote p{
-  margin:0;
-  color:#41506a;
-  font-size:17px;
-  line-height:1.7;
-}
-.pill-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.pill{
-  display:inline-flex;
-  align-items:center;
-  min-height:38px;
-  padding:0 14px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:999px;
-  background:rgba(255,255,255,.76);
-  color:#1d4ed8;
-  font-size:13px;
-  font-weight:800;
-}
-.cta{
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 0 0,rgba(56,189,248,.18),rgba(56,189,248,0) 34%),
-    radial-gradient(circle at 100% 0,rgba(124,58,237,.18),rgba(124,58,237,0) 30%),
-    linear-gradient(135deg,rgba(255,255,255,.95),rgba(239,246,255,.9));
-}
-.cta-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:18px;
-  align-items:center;
-}
-.contact-list{
-  display:grid;
-  gap:12px;
-}
-.contact-item{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:18px;
-  background:rgba(255,255,255,.72);
-  color:inherit;
-  text-decoration:none;
-}
-.contact-badge{
-  display:grid;
-  place-items:center;
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#111827,#2563eb);
-  color:#fff;
-}
-.contact-badge .icon-svg{
-  width:20px;
-  height:20px;
-}
-.contact-copy strong{
-  display:block;
-  font-size:15px;
-}
-.contact-copy span{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:14px;
-}
-.footnote{
-  margin-top:16px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
-}
-.footer{
-  padding:20px 4px 0;
-  color:#64748b;
-  text-align:center;
-  font-size:13px;
-}
-@media (max-width:980px){
-  .hero,
-  .grid,
-  .highlight,
-  .cta-grid,
-  .stats-grid,
-  .list-grid,
-  .hero-metrics{
-    grid-template-columns:1fr;
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RYTNI · Instagram Media Kit</title><meta name="description" content="RYTNI на Instagram: просмотры, охват, аудитория, графики и форматы сотрудничества."><link rel="icon" href="https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet"><style>:root{color-scheme:dark;--ink:#f5f4ff;--muted:#b2b3d0;--dim:#8587a9;--line:rgba(166,155,244,.19);--violet:#a284ff;--cyan:#63d6ff;--pink:#ed9cdb;--gold:#f4c57e;--panel:rgba(15,16,43,.86)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:104px;background:#060816}body{margin:0;color:var(--ink);font:500 16px/1.6 Manrope,system-ui,sans-serif;background:#060816;isolation:isolate}body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(5,7,24,.28),rgba(5,7,24,.86)),url("https://rytni.github.io/rytni-assets/web/2/background.webp") center/cover no-repeat}body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 75% 8%,rgba(109,72,221,.2),transparent 45%)}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}a,button,input{touch-action:manipulation}a:focus-visible,button:focus-visible,summary:focus-visible,svg:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}button{border:0}p,h1,h2,h3{margin:0}svg{display:block}button:disabled{cursor:default}::selection{background:#7558bf;color:white}.wrap{width:min(1240px,calc(100% - 64px));margin:auto}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.masthead{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(7,9,25,.87);backdrop-filter:blur(20px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}.brand{display:flex;align-items:center;gap:10px;font:700 18px Unbounded,sans-serif;letter-spacing:-.04em}.brand img{width:40px;height:40px;border-radius:50%}.nav-links{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:700;color:#c0c1dc}.nav-links a:hover{color:white}.lang-switch{display:flex;padding:4px;border:1px solid var(--line);border-radius:40px;gap:3px}.lang-switch button{background:transparent;border-radius:30px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--muted)}.lang-switch button[aria-pressed=true]{color:white;background:#6d55c5}.nav-end{display:flex;align-items:center;gap:28px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--violet)}.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(116,85,203,.12);padding:7px 12px;border-radius:30px;font-size:11px;font-weight:800;letter-spacing:.1em}.tag svg{width:16px;height:16px}.tag .dot,.status-dot{width:6px;height:6px;border-radius:50%;background:#84e7c0;box-shadow:0 0 10px #84e7c055}.hero{position:relative;display:grid;grid-template-columns:1.35fr 1fr;align-items:center;gap:48px;padding:72px 0 64px}.hero h1{font:700 clamp(40px,5.8vw,76px)/1.1 Unbounded,sans-serif;letter-spacing:-.06em;margin:22px 0 16px}.hero h1 span{display:block;font:700 clamp(25px,3.2vw,42px)/1.24 Manrope,sans-serif;letter-spacing:-.035em;color:#dcd3ff;margin-top:14px;max-width:650px}.hero-copy>p{max-width:520px;color:var(--muted);font-size:16px;line-height:1.8}.topics{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 28px}.topics span{font-size:11px;font-weight:600;padding:4px 10px;border:1px solid var(--line);border-radius:6px;color:#bdbbd8}.actions{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:11px 20px;border-radius:11px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.button svg{width:17px;height:17px}.button.primary{background:linear-gradient(110deg,#7360e9,#9b58df);box-shadow:0 6px 28px #7751d52b}.button.secondary{border:1px solid rgba(159,151,229,.3);background:rgba(30,28,65,.55)}.button:hover{transform:translateY(-2px)}.portrait{position:relative;display:grid;place-items:center;min-height:390px}.portrait:before{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(166,143,255,.22);border-radius:50%;box-shadow:0 0 100px rgba(114,77,220,.16),inset 0 0 60px rgba(114,77,220,.1)}.portrait:after{content:"";position:absolute;width:400px;height:400px;border:1px dashed rgba(166,143,255,.13);border-radius:50%}.avatar{background-image:url("https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp");position:relative;width:286px;height:286px;background-size:cover;background-position:center;border-radius:50%;box-shadow:0 0 0 1px #c594ee66,0 0 60px #9c61e533}.portrait-note{position:absolute;z-index:1;bottom:20px;left:0;right:0;margin:auto;width:max-content;max-width:100%;display:flex;align-items:center;gap:12px;padding:12px 18px;background:rgba(17,17,47,.92);border:1px solid #8f79d644;border-radius:14px;box-shadow:0 12px 35px #0005}.portrait-note svg{width:27px;height:27px;color:var(--violet)}.portrait-note strong{display:block;font-size:14px}.portrait-note small{display:block;color:var(--muted);font-size:11px}.portrait-badge{position:absolute;top:45px;right:5px;z-index:2;width:62px;height:62px;border:1px solid #b4a0ff55;border-radius:19px;display:grid;place-items:center;background:linear-gradient(135deg,#27204d,#16132e);box-shadow:0 15px 25px #0004;transform:rotate(8deg)}.portrait-badge svg{width:32px;height:32px}
+.section{padding:34px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}.section-head h2{font:700 clamp(23px,2.7vw,32px)/1.28 Manrope,sans-serif;letter-spacing:-.04em;margin-top:7px}.section-head>p,.section-note{font-size:12px;color:var(--muted)}.source-meta{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:0 0 20px;font-size:11px;color:var(--dim)}.source-meta p{display:flex;align-items:center;gap:7px}.source-meta [data-state=READY]{color:#a4cabb}.source-meta [data-state=FALLBACK],.source-meta [data-state=STALE]{color:#ecc784}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.panel,.kpi{position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(23,24,55,.91),rgba(16,15,39,.94));border-radius:19px;box-shadow:inset 0 1px 0 #ffffff04,0 10px 30px #00000012}.kpi{padding:22px;overflow:hidden}.kpi:after{content:"";position:absolute;top:-35px;right:-25px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#a27bff12,transparent 70%);pointer-events:none}.kpi-title{display:flex;align-items:center;gap:8px;font-size:12px;color:#c0beda;font-weight:600}.kpi-title svg{width:17px;height:17px;color:var(--violet)}.kpi-value{font:700 clamp(24px,2.4vw,34px)/1.2 Unbounded,sans-serif;letter-spacing:-.055em;margin:18px 0 10px;white-space:nowrap}.kpi-foot{font-size:11px;color:var(--dim);line-height:1.5}.visual-grid{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(280px,1fr);gap:18px;margin-top:20px}.panel{padding:27px;min-width:0}.panel-heading{display:flex;justify-content:space-between;gap:14px;align-items:start;margin-bottom:24px}.panel-heading h3{font-size:17px;font-weight:800;letter-spacing:-.025em}.panel-heading p,.panel-sub{font-size:12px;line-height:1.65;color:var(--dim);margin-top:5px}.chart-badge{font-size:10px;font-weight:800;white-space:nowrap;padding:5px 9px;border:1px solid #a28aff33;border-radius:6px;color:#c6b9ff;background:#9780ed0a}.line-chart{width:100%;height:auto;overflow:visible}.chart-grid{stroke:#b3a5e91c;stroke-dasharray:3 5}.chart-axis{fill:#999bbd;font:11px Manrope,sans-serif}.chart-line{stroke:#a48aff;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}.chart-point{fill:#b6a1ff;stroke:#282044;stroke-width:2}.chart-plot{position:relative}.chart-tooltip{position:absolute;top:16px;right:16px;max-width:calc(100% - 32px);padding:10px 14px;border:1px solid #a28aff55;border-radius:9px;background:#1a1533;box-shadow:0 8px 30px #0006;font-size:12px;pointer-events:none;z-index:2}.chart-tooltip strong{display:block;font-size:17px;color:#ded1ff}.chart-crosshair{stroke:#cbb9ff88;stroke-dasharray:3 5;pointer-events:none}.chart-summary{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);padding-top:18px;margin-top:12px}.chart-summary strong{font-size:17px;font-weight:800;display:block}.chart-summary span{font-size:11px;color:var(--dim)}.chart-data{margin-top:14px;font-size:11px;color:var(--dim)}summary{cursor:pointer}.chart-data table{width:100%;border-collapse:collapse;margin-top:8px}.chart-data td,.chart-data th{text-align:left;padding:7px;border-bottom:1px solid var(--line)}.chart-data td:last-child{text-align:right}.donut-wrap{display:flex;align-items:center;gap:26px;min-width:0}.donut{width:190px;height:190px;flex:none;overflow:visible}.donut-track{stroke:#8476ba18;fill:none}.donut-center{fill:#f1ecff;font:800 29px Manrope,sans-serif;letter-spacing:-1px}.donut-caption{fill:#a9a5c5;font:11px Manrope,sans-serif}.donut-legend{flex:1;display:grid;gap:13px;min-width:0}.legend-row{display:flex;gap:9px;align-items:start;font-size:12px;color:#bcb9d2}.legend-row>i{display:block;flex:none;width:7px;height:7px;border-radius:2px;margin-top:7px;background:var(--swatch)}.legend-row span{flex:1}.legend-row strong{color:white;font-size:13px;font-weight:800;white-space:nowrap}.legend-row small{display:block;font-size:10px;color:var(--dim);margin-top:1px}.donut-panel .donut-wrap{flex-direction:column;gap:18px}.donut-panel .donut-legend{width:100%}.donut-panel .donut{width:175px;height:175px}.report-pair{display:grid;grid-template-columns:1fr 1fr;gap:15px;border-top:1px solid var(--line);padding-top:18px;margin-top:21px}.report-pair strong{display:block;font-size:18px;font-weight:800}.report-pair span{font-size:11px;color:var(--dim)}.audience-grid{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:18px}.audience-grid .panel{padding:25px}.audience-grid .donut-wrap{flex-direction:column;gap:18px}.audience-grid .donut-legend{width:100%}.audience-grid .donut{width:165px;height:165px}.bar-list{display:grid;gap:18px}.bar-row{display:grid;grid-template-columns:1fr auto;gap:9px 12px;align-items:center;font-size:12px}.bar-label{color:#c6c3d9;display:flex;align-items:center;gap:8px}.bar-label b{display:grid;place-items:center;border:1px solid #a28aff22;border-radius:4px;min-width:24px;height:21px;font-size:9px;letter-spacing:.04em;color:#a4a0bf}.bar-row strong{font-size:12px;font-weight:800}.bar-track{grid-column:1/-1;height:6px;background:#a79ab414;border-radius:8px;overflow:hidden}.bar-track i{display:block;height:100%;width:var(--share);background:linear-gradient(90deg,#6c6bd7,#ae89f7);border-radius:8px}.audience-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.insight-tag{padding:7px 12px;background:#a48aff0b;border:1px solid #a48aff20;border-radius:8px;font-size:11px;color:#bfb8d9}.insight-tag strong{color:#e4d9ff}.format-chart .bar-list{gap:24px}.format-chart .bar-row{font-size:13px}.format-chart .bar-track{height:10px}.format-chart .bar-row strong{font-size:15px}.format-chart .bar-row small{font-size:11px;color:var(--dim);font-weight:500;margin-left:8px}.reach-panel{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px}.reach-stat{border-left:1px solid var(--line);padding-left:28px;display:flex;flex-direction:column;justify-content:center}.reach-stat strong{font:700 43px/1.2 Unbounded,sans-serif;letter-spacing:-.05em;color:#d2b7ff}.reach-stat p{font-size:12px;color:var(--muted);margin-top:13px;max-width:320px}.support-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}.support-metrics .kpi-value{font-family:Manrope,sans-serif;letter-spacing:-.03em;font-size:28px;margin:10px 0}.definition{font-size:11px;color:var(--dim);line-height:1.6;margin-top:18px}.availability{font-size:11px;color:var(--dim);margin-top:18px;line-height:1.7}.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.format-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #a286f144;border-radius:12px;background:linear-gradient(135deg,#a48aff14,#8265c808);color:#bea0ff;margin-bottom:24px}.format-icon svg{width:22px;height:22px}.formats h3{font-size:17px;letter-spacing:-.03em}.formats p{color:var(--muted);font-size:13px;line-height:1.8;margin-top:10px}.format-number{position:absolute;right:23px;top:23px;font:700 10px Unbounded,sans-serif;color:#79738e}.contact{position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;gap:45px;align-items:center;background:radial-gradient(ellipse at 100% 0%,#8a57d329,transparent 60%),linear-gradient(120deg,#171b3d,#221636);padding:42px;border:1px solid #ad85eb44;border-radius:22px}.contact h2{font-size:31px;line-height:1.3;letter-spacing:-.045em;margin-top:8px}.contact p{font-size:13px;color:var(--muted);margin-top:13px}.contact-links{display:grid;gap:11px}.contact-links .button{justify-content:space-between}.methodology{padding:24px 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--dim);line-height:1.9}.methodology summary{font-size:12px;font-weight:700;color:#b9b4ce}.methodology p{margin-top:12px;max-width:950px}.footer{padding:25px 0 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--dim);font-size:11px}.footer .brand{font-size:13px;color:#c3bdd8}.footer .brand img{width:27px;height:27px}.skip{position:absolute;top:-100px;left:20px;z-index:100;background:#1d1938;padding:10px 18px}.skip:focus{top:15px}
+@media(min-width:1550px){.hero{padding-top:85px;padding-bottom:75px}}@media(max-width:1050px){.wrap{width:calc(100% - 40px)}.hero{gap:25px}.portrait:after{width:325px;height:325px}.portrait:before{width:285px;height:285px}.avatar{width:245px;height:245px}.portrait{min-height:350px}.portrait-badge{right:0}.kpi{padding:18px}.kpi-value{font-size:25px}.visual-grid{grid-template-columns:minmax(0,1.65fr) minmax(245px,1fr)}.panel{padding:22px}.audience-grid{grid-template-columns:1fr 1fr}.audience-grid .panel:last-child{grid-column:1/-1}.audience-grid .panel:last-child .bar-list{grid-template-columns:1fr 1fr;gap:20px 30px}.nav-links{gap:20px}}@media(max-width:760px){.wrap{width:calc(100% - 32px)}.nav{height:66px;gap:10px}.brand{font-size:15px;gap:7px}.brand img{width:32px;height:32px}.nav-end{gap:13px}.nav-links{gap:12px;font-size:11px}.nav-links a:nth-child(2){display:none}.lang-switch{padding:3px}.lang-switch button{padding:5px 6px;font-size:10px}.hero{grid-template-columns:1fr;padding:38px 0 25px;gap:20px}.hero h1{font-size:47px;margin-top:20px}.hero h1 span{font-size:31px;max-width:500px}.hero-copy>p{font-size:14px;line-height:1.8;max-width:600px}.portrait{min-height:290px;max-width:340px;width:100%;margin:auto}.avatar{width:220px;height:220px}.portrait:before{width:260px;height:260px}.portrait:after{width:300px;height:300px}.portrait-note{bottom:0;padding:10px 14px}.portrait-badge{top:25px;right:4px;width:51px;height:51px;border-radius:15px}.portrait-badge svg{width:25px;height:25px}.section{padding:27px 0}.section-head{align-items:start;flex-direction:column;gap:9px;margin-bottom:20px}.section-head h2{font-size:27px}.kpis{grid-template-columns:1fr 1fr;gap:11px}.kpi{padding:17px 14px;border-radius:14px}.kpi-title{font-size:11px;gap:6px}.kpi-title svg{width:15px;height:15px}.kpi-value{font-size:clamp(20px,4.5vw,30px);margin:14px 0 8px}.kpi-foot{font-size:10px}.visual-grid{grid-template-columns:1fr;gap:14px}.panel{padding:22px 18px;border-radius:16px}.donut-panel .donut-wrap{flex-direction:row;gap:22px}.donut-panel .donut{width:155px;height:155px}.donut-panel .donut-legend{width:auto}.audience-grid{grid-template-columns:1fr;gap:14px}.audience-grid .panel{padding:22px}.audience-grid .panel:last-child{grid-column:auto}.audience-grid .panel:last-child .bar-list{grid-template-columns:1fr}.audience-grid .donut-wrap{flex-direction:row;gap:25px}.audience-grid .donut-legend{width:auto}.audience-grid .donut{width:150px;height:150px}.reach-panel{grid-template-columns:1fr;gap:22px}.reach-stat{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.reach-stat strong{font-size:37px}.support-metrics{grid-template-columns:1fr;gap:11px}.support-metrics .kpi{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 15px}.support-metrics .kpi-value{grid-row:1/3;grid-column:2;font-size:26px}.support-metrics .kpi-foot{margin-top:5px}.formats{grid-template-columns:1fr;gap:12px}.formats .panel{display:grid;grid-template-columns:42px 1fr;column-gap:17px}.format-icon{grid-row:1/3;margin:0}.formats h3{padding-right:20px}.formats p{margin-top:6px;font-size:12px}.contact{grid-template-columns:1fr;gap:24px;padding:27px 22px}.contact h2{font-size:27px}.footer{font-size:10px}.source-meta{font-size:10px}.chart-axis{font-size:11px}}@media(max-width:370px){.wrap{width:calc(100% - 24px)}.nav-links{gap:9px}.nav-links a:first-child{display:none}.hero h1{font-size:40px}.hero h1 span{font-size:29px}.button{padding:11px 14px;font-size:12px}.kpi-value{font-size:20px}.kpi-title{font-size:10px}.donut-panel .donut-wrap,.audience-grid .donut-wrap{gap:15px}.donut-panel .donut,.audience-grid .donut{width:125px;height:125px}.legend-row{font-size:11px}.legend-row strong{font-size:11px}.panel-heading h3{font-size:16px}.chart-badge{font-size:9px}.footer{align-items:start;flex-direction:column;gap:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+.support-metrics:empty{display:none}.legend-row span{min-width:0;overflow-wrap:anywhere}.visual-grid>.panel:only-child{grid-column:1/-1}.kpi-title{min-height:2.8em}.support-metrics .kpi-title{min-height:0}@media(max-width:760px){.chart-axis{font-size:19px}}@media(max-width:370px){.audience-grid .donut-wrap,.donut-panel .donut-wrap{flex-direction:column}.donut-legend{width:100%!important}}
+.kpi-title{font-size:13px}.kpi-foot{font-size:12px}.source-meta,.section-head>p{font-size:12px}.chart-summary span,.report-pair span{font-size:12px}.legend-row{font-size:13px}.bar-row{font-size:13px}.support-metrics .kpi-foot{font-size:11px}@media(max-width:760px){.kpi-title{font-size:11px}.kpi-foot,.source-meta{font-size:10px}.portrait{position:absolute;top:78px;right:4px;min-height:92px;width:96px;max-width:96px;margin:0}.avatar{width:76px;height:76px}.portrait:before{width:88px;height:88px}.portrait:after{width:104px;height:104px}.portrait-note{display:none}.portrait-badge{width:29px;height:29px;border-radius:9px;top:0;right:0}.portrait-badge svg{width:17px;height:17px}.visual-grid>.panel:not(.donut-panel) .donut{width:160px;height:160px}.visual-grid>.panel:not(.donut-panel) .donut-wrap{gap:18px}.legend-row{font-size:12px}.kpi-value{letter-spacing:-.04em}.bar-row{font-size:12px}.chart-summary span{font-size:11px}}@media(max-width:370px){.donut-wrap{flex-direction:column!important}.donut-legend{width:100%!important}.portrait{top:75px;right:1px;width:83px;max-width:83px}.avatar{width:65px;height:65px}.portrait:before{width:77px;height:77px}.portrait:after{width:89px;height:89px}}
+</style></head>
+<body><a class="skip" href="#stats">К статистике</a><header class="masthead"><nav class="nav wrap" aria-label="Навигация"><a class="brand" href="https://rytni.live/"><img src="https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp" alt="" width="40" height="40">RYTNI</a><div class="nav-end"><div class="nav-links"><a href="#stats" data-ru="Статистика" data-en="Statistics">Статистика</a><a href="#audience" data-ru="Аудитория" data-en="Audience">Аудитория</a><a href="#contact" data-ru="Сотрудничество" data-en="Contact">Сотрудничество</a></div><div class="lang-switch"><button type="button" data-language="ru" aria-pressed="true">RU</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
+<main class="wrap" data-platform="instagram" data-presentation="2"><section class="hero"><div class="hero-copy"><div class="tag"><i class="dot"></i>INSTAGRAM · MEDIA KIT</div><h1>RYTNI<span data-ru="Контент, который находит свою аудиторию." data-en="Content that finds its audience.">Контент, который находит свою аудиторию.</span></h1><p data-ru="Игры, технологии и впечатления. Reels и истории с авторским характером." data-en="Gaming, technology and first-hand impressions. Original Reels and stories.">Игры, технологии и впечатления. Reels и истории с авторским характером.</p><div class="topics"><span data-ru="Игры" data-en="Gaming">Игры</span><span data-ru="Технологии" data-en="Technology">Технологии</span><span data-ru="ПК и гаджеты" data-en="PCs &amp; gadgets">ПК и гаджеты</span></div><div class="actions"><a class="button primary" href="#contact"><span data-ru="Обсудить сотрудничество" data-en="Let’s collaborate">Обсудить сотрудничество</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14 M13 6l6 6-6 6"/></svg></a><a class="button secondary" href="https://www.instagram.com/rytni_tv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M17.5 6.5h.01"/></svg><span>@rytni_tv</span></a></div></div><aside class="portrait"><div class="avatar" role="img" aria-label="RYTNI"></div><div class="portrait-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M17.5 6.5h.01"/></svg></div><div class="portrait-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M17.5 6.5h.01"/></svg><div><strong>Instagram · RYTNI</strong><small data-ru="Видео · авторский взгляд · сообщество" data-en="Video · original perspective · community">Видео · авторский взгляд · сообщество</small></div></div></aside></section>
+<div data-metrics><section class="section" id="stats"><div class="section-head"><div><p class="eyebrow" data-ru="01 / МАСШТАБ" data-en="01 / AT A GLANCE">01 / МАСШТАБ</p><h2 data-ru="В цифрах — за 30 дней." data-en="The last 30 days, in numbers.">В цифрах — за 30 дней.</h2></div><p data-period>2026-10-18 07:00 — 2026-11-17 06:59 UTC</p></div><div class="source-meta"><p><i class="status-dot"></i><span data-status data-state="STATIC" role="status">Сохранённый снимок · Instagram Insights</span></p><p data-updated>Обновлено 2026-11-17</p></div><div class="kpis" data-primary><article class="kpi" data-metric="views"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7Z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg><span class="" data-ru="Просмотры" data-en="Views">Просмотры</span></div><div class="kpi-value" data-value="1439321">1 439 321</div><p class="kpi-foot" data-ru="За выбранный период" data-en="During the report period">За выбранный период</p></article><article class="kpi" data-metric="reach"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3 M16 3h3a2 2 0 0 1 2 2v3 M21 16v3a2 2 0 0 1-2 2h-3 M8 21H5a2 2 0 0 1-2-2v-3 M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8"/></svg><span class="" data-ru="Охваченные аккаунты" data-en="Accounts reached">Охваченные аккаунты</span></div><div class="kpi-value" data-value="677456">677 456</div><p class="kpi-foot" data-ru="Аккаунты, увидевшие контент" data-en="Accounts that saw the content">Аккаунты, увидевшие контент</p></article><article class="kpi" data-metric="interactions"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span class="" data-ru="Взаимодействия" data-en="Interactions">Взаимодействия</span></div><div class="kpi-value" data-value="82697">82 697</div><p class="kpi-foot" data-ru="Действия с контентом" data-en="Actions on content">Действия с контентом</p></article><article class="kpi" data-metric="followers"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M20 8v6 M17 11h6"/></svg><span class="" data-ru="Подписчики" data-en="Followers">Подписчики</span></div><div class="kpi-value" data-value="1462">1 462</div><p class="kpi-foot" data-ru="На дату обновления" data-en="As of capture">На дату обновления</p></article></div><div class="visual-grid" data-visual><article class="panel"><div class="panel-heading"><div><h3 class="" data-ru="За пределами подписчиков" data-en="Beyond the follower base">За пределами подписчиков</h3><p class="" data-ru="Кто приносит просмотры контенту" data-en="Who contributes content views">Кто приносит просмотры контенту</p></div></div><div class="donut-wrap" data-chart="view-sources"><svg class="donut" viewBox="0 0 200 200" role="img" aria-label="не подписаны"><circle class="donut-track" cx="100" cy="100" r="78" stroke-width="17"/><circle cx="100" cy="100" r="78" fill="none" stroke="#a58aff" stroke-width="17" pathLength="100" stroke-dasharray="98.883709749 1.116290251" stroke-dashoffset="0.000000000" transform="rotate(-90 100 100)"/><circle cx="100" cy="100" r="78" fill="none" stroke="#65cfee" stroke-width="17" pathLength="100" stroke-dasharray="1.112607959 98.887392041" stroke-dashoffset="-98.883709749" transform="rotate(-90 100 100)"/><circle cx="100" cy="100" r="78" fill="none" stroke="#e4a4d8" stroke-width="17" pathLength="100" stroke-dasharray="0.003682292 99.996317708" stroke-dashoffset="-99.996317708" transform="rotate(-90 100 100)"/><text class="donut-center" x="100" y="98" text-anchor="middle">98,88%</text><text class="donut-caption" x="100" y="120" text-anchor="middle" data-ru="не подписаны" data-en="non-followers">не подписаны</text></svg><div class="donut-legend"><div class="legend-row" data-bucket="non_followers" data-count="1423254" style="--swatch:#a58aff"><i></i><span class="" data-ru="Не подписаны" data-en="Non-followers">Не подписаны</span><strong>98,88%</strong></div><div class="legend-row" data-bucket="followers" data-count="16014" style="--swatch:#65cfee"><i></i><span class="" data-ru="Подписчики" data-en="Followers">Подписчики</span><strong>1,11%</strong></div><div class="legend-row" data-bucket="unknown" data-count="53" style="--swatch:#e4a4d8"><i></i><span class="" data-ru="Не определено" data-en="Unknown">Не определено</span><strong>0,004%</strong></div></div></div><p class="definition" data-ru="Доли просмотров, а не доли людей. Один аккаунт может смотреть несколько раз." data-en="Shares of views, not shares of people. An account can watch more than once.">Доли просмотров, а не доли людей. Один аккаунт может смотреть несколько раз.</p></article><article class="panel format-chart"><div class="panel-heading"><div><h3 class="" data-ru="Что смотрят чаще" data-en="Content that gets watched">Что смотрят чаще</h3><p class="" data-ru="Просмотры по форматам" data-en="Views by content format">Просмотры по форматам</p></div></div><div class="bar-list" data-chart="content-views"><div class="bar-row" data-bucket="reels" data-count="1439070"><span class="bar-label"><span class="" data-ru="Reels" data-en="Reels">Reels</span></span><strong>1 439 070<small>99,98%</small></strong><div class="bar-track"><i style="--share:99.982561222%"></i></div></div><div class="bar-row" data-bucket="stories" data-count="245"><span class="bar-label"><span class="" data-ru="Истории" data-en="Stories">Истории</span></span><strong>245<small>0,017%</small></strong><div class="bar-track"><i style="--share:0.017021915%"></i></div></div><div class="bar-row" data-bucket="posts" data-count="4"><span class="bar-label"><span class="" data-ru="Публикации" data-en="Posts">Публикации</span></span><strong>4<small>0,0003%</small></strong><div class="bar-track"><i style="--share:0.000277909%"></i></div></div><div class="bar-row" data-bucket="other" data-count="2"><span class="bar-label"><span class="" data-ru="Другие форматы" data-en="Other formats">Другие форматы</span></span><strong>2<small>0,0001%</small></strong><div class="bar-track"><i style="--share:0.000138954%"></i></div></div></div></article></div><div class="support-metrics" data-support><article class="kpi" data-metric="viewers"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg><span class="" data-ru="Зрители" data-en="Viewers">Зрители</span></div><div class="kpi-value" data-value="688240">688 240</div><p class="kpi-foot" data-ru="Смотрели контент за период" data-en="Watched content during the period">Смотрели контент за период</p></article><article class="kpi" data-metric="engaged_accounts"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg><span class="" data-ru="Вовлечённые аккаунты" data-en="Accounts engaged">Вовлечённые аккаунты</span></div><div class="kpi-value" data-value="47061">47 061</div><p class="kpi-foot" data-ru="Аккаунты с взаимодействиями" data-en="Accounts that interacted">Аккаунты с взаимодействиями</p></article><article class="kpi" data-metric="profile_views"><div class="kpi-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg><span class="" data-ru="Посещения профиля" data-en="Profile visits">Посещения профиля</span></div><div class="kpi-value" data-value="1067">1 067</div><p class="kpi-foot" data-ru="Переходы к вашему профилю" data-en="Visits to the profile">Переходы к вашему профилю</p></article></div></section></div>
+<section class="section" id="audience"><div class="section-head"><div><p class="eyebrow" data-ru="02 / АУДИТОРИЯ" data-en="02 / AUDIENCE">02 / АУДИТОРИЯ</p><h2 data-ru="Не просто просмотры. Живой интерес." data-en="More than views. Real engagement.">Не просто просмотры. Живой интерес.</h2></div><p data-audience-note>Охват и вовлечение · тот же период</p></div><div class="engagement-section" data-audience-grid><article class="panel reach-panel"><div><div class="panel-heading"><div><h3 class="" data-ru="От охвата к взаимодействию" data-en="From reach to interaction">От охвата к взаимодействию</h3><p class="" data-ru="Аккаунты за один и тот же период" data-en="Accounts over the same reporting period">Аккаунты за один и тот же период</p></div></div><div class="bar-list" data-chart="reach-engagement"><div class="bar-row" data-bucket="Охвачено" data-count="677456"><span class="bar-label"><span class="" data-ru="Охвачено" data-en="Reached">Охвачено</span></span><strong>677 456<small>100%</small></strong><div class="bar-track"><i style="--share:100.000000000%"></i></div></div><div class="bar-row" data-bucket="Взаимодействовали" data-count="47061"><span class="bar-label"><span class="" data-ru="Взаимодействовали" data-en="Engaged">Взаимодействовали</span></span><strong>47 061<small>6,95%</small></strong><div class="bar-track"><i style="--share:6.946724215%"></i></div></div></div></div><div class="reach-stat"><strong>6,95%</strong><p class="" data-ru="Отношение вовлечённых аккаунтов к охваченным. Не доля лайков и не показатель по подписчикам." data-en="Engaged accounts divided by accounts reached. Not a like rate or a follower-based rate.">Отношение вовлечённых аккаунтов к охваченным. Не доля лайков и не показатель по подписчикам.</p></div></article><div data-audience="gender" hidden></div><div data-audience="age" hidden></div><div data-audience="geography" hidden></div></div><div class="audience-summary" data-audience-summary></div><p class="availability" data-ru="Пол, возраст и география зрителей не предоставлены в доступном отчёте Instagram. Данные подписчиков не подставляются вместо них." data-en="Viewer gender, age and geography are not provided in the available Instagram report. Follower demographics are not substituted.">Пол, возраст и география зрителей не предоставлены в доступном отчёте Instagram. Данные подписчиков не подставляются вместо них.</p></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow" data-ru="03 / СОТРУДНИЧЕСТВО" data-en="03 / COLLABORATION">03 / СОТРУДНИЧЕСТВО</p><h2 data-ru="Ваш продукт. Мой авторский взгляд." data-en="Your product. My original perspective.">Ваш продукт. Мой авторский взгляд.</h2></div><p data-ru="Формат подбираем под задачу бренда" data-en="The format follows your brand’s brief">Формат подбираем под задачу бренда</p></div><div class="formats"><article class="panel"><span class="format-number">01</span><div class="format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M17.5 6.5h.01"/></svg></div><h3 class="" data-ru="Нативный Reel" data-en="Native Reel">Нативный Reel</h3><p class="" data-ru="Продукт становится частью короткой авторской истории." data-en="Your product becomes part of an original short-form story.">Продукт становится частью короткой авторской истории.</p></article><article class="panel"><span class="format-number">02</span><div class="format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l11 7-11 7Z M3 4v16"/></svg></div><h3 class="" data-ru="Серия историй" data-en="Story series">Серия историй</h3><p class="" data-ru="Последовательное знакомство с продуктом и его возможностями." data-en="An introduction to your product and its possibilities.">Последовательное знакомство с продуктом и его возможностями.</p></article><article class="panel"><span class="format-number">03</span><div class="format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg></div><h3 class="" data-ru="Спецпроект" data-en="Custom project">Спецпроект</h3><p class="" data-ru="Идея и подача под задачи вашего бренда." data-en="An idea and execution tailored to your brand’s goals.">Идея и подача под задачи вашего бренда.</p></article></div></section>
+<section class="section" id="contact"><div class="contact"><div><p class="eyebrow" data-ru="ОБСУДИМ ВАШУ ИДЕЮ" data-en="LET’S TALK ABOUT YOUR IDEA">ОБСУДИМ ВАШУ ИДЕЮ</p><h2 data-ru="Давайте сделаем то, что захотят посмотреть." data-en="Let’s make something people want to watch.">Давайте сделаем то, что захотят посмотреть.</h2><p data-ru="Расскажите о продукте, сроках и цели. Предложим подходящий формат и обсудим условия лично." data-en="Tell us about your product, timing and goals. We’ll discuss a suitable format and the terms together.">Расскажите о продукте, сроках и цели. Предложим подходящий формат и обсудим условия лично.</p></div><div class="contact-links"><a class="button primary" href="mailto:rytnitv@gmail.com">rytnitv@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v14H3Z M3 5l9 8 9-8"/></svg></a><a class="button secondary" href="https://t.me/ermediapr" target="_blank" rel="noopener">Telegram · @ermediapr <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14 M13 6l6 6-6 6"/></svg></a></div></div></section>
+<details class="methodology"><summary data-ru="Об источнике и показателях" data-en="About the data and metrics">Об источнике и показателях</summary><p data-ru="Источник: профессиональная статистика Instagram. Период — фактический диапазон последних 30 дней; точные границы указаны в UTC. Доли подписчиков и неподписанных относятся к просмотрам, а не к людям. Просмотры, охват, зрители и взаимодействия — отдельные метрики и не суммируются. Вовлечённость аккаунтов рассчитана как вовлечённые аккаунты ÷ охват × 100%. Дневной ряд просмотров в доступном отчёте не предоставлен. Число подписчиков указано на дату обновления." data-en="Source: Instagram professional insights. The period is the actual last-30-day interval, with exact boundaries shown in UTC. Follower/non-follower shares refer to views, not people. Views, reach, viewers and interactions are separate metrics and are not added together. Account engagement share is engaged accounts ÷ reach × 100%. Daily views are not provided in the available report. Followers are current as of capture.">Источник: профессиональная статистика Instagram. Период — фактический диапазон последних 30 дней; точные границы указаны в UTC. Доли подписчиков и неподписанных относятся к просмотрам, а не к людям. Просмотры, охват, зрители и взаимодействия — отдельные метрики и не суммируются. Вовлечённость аккаунтов рассчитана как вовлечённые аккаунты ÷ охват × 100%. Дневной ряд просмотров в доступном отчёте не предоставлен. Число подписчиков указано на дату обновления.</p><p data-ru="Статистика описывает прошедший период и не гарантирует результаты будущих интеграций. Без JavaScript отображается последний сохранённый снимок с его датой." data-en="Statistics describe a past reporting period and do not guarantee future campaign results. Without JavaScript the last saved snapshot is shown with its capture date.">Статистика описывает прошедший период и не гарантирует результаты будущих интеграций. Без JavaScript отображается последний сохранённый снимок с его датой.</p></details>
+</main><footer class="footer wrap"><a class="brand" href="https://rytni.live/"><img src="https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp" alt="" width="27" height="27">RYTNI</a><p>Instagram Media Kit · <span data-ru="Данные из Instagram Insights" data-en="Data from Instagram Insights">Данные из Instagram Insights</span></p></footer><script id="platformSnapshot" type="application/json">{"account":{"handle":"rytni_tv","platform_id":"17841408533247172","url":"https://www.instagram.com/rytni_tv/"},"audience":{"age":[],"gender":[],"geography":[],"period":null,"scope":"UNAVAILABLE","unavailable_reason":"NOT_PROVIDED"},"captured_at":"2026-11-17T14:01:54.906838+00:00","insights":{"content_views":{"buckets":[{"key":"stories","value":245},{"key":"posts","value":4},{"key":"other","value":2},{"key":"reels","value":1439070}],"source_field":"account_insights_node.views_by_media_and_follow_types"},"timeline":null,"view_sources":{"buckets":[{"key":"followers","value":16014},{"key":"non_followers","value":1423254},{"key":"unknown","value":53}],"source_field":"account_insights_node.views_by_follow_type"}},"metrics":[{"key":"followers","scope":"CURRENT","source_field":"native.current_follower_count","unit":"count","value":1462},{"key":"views","scope":"PERIOD","source_field":"account_insights_node.views_current_period.results.0.value","unit":"count","value":1439321},{"key":"reach","scope":"PERIOD","source_field":"account_insights_node.reach_current_period.results.0.value","unit":"count","value":677456},{"key":"viewers","scope":"PERIOD","source_field":"account_insights_node.viewers_current_period.results.0.value","unit":"count","value":688240},{"key":"interactions","scope":"PERIOD","source_field":"account_insights_node.total_interactions.results.0.value","unit":"count","value":82697},{"key":"engaged_accounts","scope":"PERIOD","source_field":"account_insights_node.engaged_accounts.results.0.value","unit":"count","value":47061},{"key":"profile_views","scope":"PERIOD","source_field":"account_insights_node.profile_visits_count.results.0.value","unit":"count","value":1067}],"period":{"end":"2026-11-17","end_at":"2026-11-17T06:59:59+00:00","start":"2026-10-18","start_at":"2026-10-18T07:00:00+00:00","timezone":"UTC","type":"SOURCE_RANGE"},"platform":"instagram","schema_version":2,"source":{"method":"NATIVE_BROWSER","name":"Instagram Insights"}}</script><script>const PLATFORM_LABELS={"followers": ["Подписчики", "Followers"], "views": ["Просмотры", "Views"], "reach": ["Охваченные аккаунты", "Accounts reached"], "viewers": ["Зрители", "Viewers"], "likes": ["Лайки", "Likes"], "comments": ["Комментарии", "Comments"], "shares": ["Поделились", "Shares"], "watch_hours": ["Часы просмотра", "Watch hours"], "average_view_seconds": ["Средний просмотр · секунды", "Average view · seconds"], "engaged_accounts": ["Вовлечённые аккаунты", "Accounts engaged"], "saves": ["Сохранения", "Saves"], "profile_views": ["Посещения профиля", "Profile visits"], "videos": ["Публикации", "Uploads"], "subscribers_gained": ["Новые подписчики", "Subscribers gained"], "subscribers_lost": ["Отписки", "Subscribers lost"], "net_subscribers": ["Изменение подписчиков", "Net subscriber change"], "impressions": ["Показы значков видео", "Thumbnail impressions"], "thumbnail_ctr": ["CTR значков видео", "Thumbnail CTR"], "interactions": ["Взаимодействия", "Interactions"]};/* Native-data charts. SVG geometry contains no estimates or decorative trends. */
+(() => {
+ 'use strict';
+ const palette=['#a58aff','#65cfee','#e4a4d8','#efc587'];
+ const names={followers:['Подписчики','Followers'],non_followers:['Не подписаны','Non-followers'],unknown:['Не определено','Unknown'],reels:['Reels','Reels'],stories:['Истории','Stories'],posts:['Публикации','Posts'],other:['Другие форматы','Other formats']};
+ const translations={'Мужчины':'Male','Женщины':'Female','Указан пользователем':'User-specified','Россия':'Russia','Украина':'Ukraine','Беларусь':'Belarus','Казахстан':'Kazakhstan','Германия':'Germany','Другие страны и не определено':'Other / unknown'};
+ const paths={views:'M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7Z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6',followers:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M20 8v6 M17 11h6',watch_hours:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18 M12 7v5l3 2',net_subscribers:'M3 17l6-6 4 4 8-10 M15 5h6v6',reach:'M8 3H5a2 2 0 0 0-2 2v3 M16 3h3a2 2 0 0 1 2 2v3 M21 16v3a2 2 0 0 1-2 2h-3 M8 21H5a2 2 0 0 1-2-2v-3 M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8',interactions:'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z',spark:'m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z'};
+ const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const icon=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[k]||paths.spark}"/></svg>`;
+ function renderInto(snapshot,language){
+  const en=language==='en',t=(ru,eng)=>esc(en?eng:ru),n=(v,d=0)=>new Intl.NumberFormat(en?'en-US':'ru-RU',{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
+  const percent=v=>new Intl.NumberFormat(en?'en-US':'ru-RU',{maximumFractionDigits:v>0&&v<.001?4:v>0&&v<.1?3:2}).format(v)+'%';
+  const label=v=>en?(translations[v]||v.replace(' лет',' years').replace(' года',' years').replace('65 и старше','65 and over')):v;
+  const heading=(ru,eng,note='',enNote='')=>`<div class="panel-heading"><div><h3>${t(ru,eng)}</h3>${note?`<p>${t(note,enNote)}</p>`:''}</div></div>`;
+  const metrics=Object.fromEntries(snapshot.metrics.map(m=>[m.key,m])),v=Object.fromEntries(snapshot.metrics.map(m=>[m.key,m.value])),ins=snapshot.insights||{},youtube=snapshot.platform==='youtube';
+  const notes={views:['За выбранный период','During the report period'],watch_hours:['Часы внимания к контенту','Hours spent watching content'],followers:['На дату обновления','As of capture'],net_subscribers:['Подписки минус отписки','Subscribers gained minus lost'],reach:['Аккаунты, увидевшие контент','Accounts that saw the content'],interactions:['Действия с контентом','Actions on content'],viewers:['Смотрели контент за период','Watched content during the period'],engaged_accounts:['Аккаунты с взаимодействиями','Accounts that interacted'],profile_views:['Переходы к вашему профилю','Visits to the profile']};
+  const card=m=>`<article class="kpi" data-metric="${m.key}"><div class="kpi-title">${icon(m.key)}<span>${t(...(m.key==='followers'?['Подписчики',youtube?'Subscribers':'Followers']:PLATFORM_LABELS[m.key]))}</span></div><div class="kpi-value" data-value="${m.value}">${m.key==='net_subscribers'&&m.value>0?'+':''}${n(m.value,m.unit==='count'?0:1)}${m.unit==='percent'?'%':''}</div><p class="kpi-foot">${t(...(notes[m.key]||['За период','During the period']))}</p></article>`;
+  function donut(rows,center,caption,id){
+   const total=rows.reduce((s,r)=>s+r.value,0);let offset=0,segments='',legend='';
+   rows.forEach((r,i)=>{const share=total?r.value/total*100:0,color=palette[i%palette.length];segments+=`<circle cx="100" cy="100" r="78" fill="none" stroke="${color}" stroke-width="17" pathLength="100" stroke-dasharray="${share} ${100-share}" stroke-dashoffset="${-offset}" transform="rotate(-90 100 100)"/>`;offset+=share;
+    legend+=`<div class="legend-row" data-bucket="${esc(r.key||r.label)}" data-count="${r.value}" style="--swatch:${color}"><i></i><span>${esc(r.label)}</span><strong>${percent(r.percentage??share)}</strong>${r.percentage!==undefined?`<progress class="sr-only" max="100" value="${r.percentage}">${r.percentage}%</progress>`:''}</div>`;
+   });
+   return `<div class="donut-wrap" data-chart="${id}"><svg class="donut" viewBox="0 0 200 200" role="img" aria-label="${esc(caption)}"><circle class="donut-track" cx="100" cy="100" r="78" stroke-width="17"/>${segments}<text class="donut-center" x="100" y="98" text-anchor="middle">${esc(center)}</text><text class="donut-caption" x="100" y="120" text-anchor="middle">${esc(caption)}</text></svg><div class="donut-legend">${legend}</div></div>`;
   }
-  .row{
-    grid-template-columns:1fr;
-    gap:8px;
+  function bars(rows,id,percentages=false,countries=false,denominator=null){
+   const total=denominator??rows.reduce((s,r)=>s+r.value,0);return `<div class="bar-list" data-chart="${id}">`+rows.map(r=>{const share=percentages?r.value:total?r.value/total*100:0,code=({'Россия':'RU','Украина':'UA','Беларусь':'BY','Казахстан':'KZ','Германия':'DE'})[r.original]||'+';
+    return `<div class="bar-row" data-bucket="${esc(r.key||r.original||r.label)}" data-count="${r.value}"><span class="bar-label">${countries?`<b>${code}</b>`:''}${esc(r.label)}</span><strong>${percentages?percent(r.value):n(r.value)+`<small>${percent(share)}</small>`}</strong><div class="bar-track"><i style="--share:${share}%"></i></div>${percentages?`<progress class="sr-only" max="100" value="${r.value}">${r.value}%</progress>`:''}</div>`;
+   }).join('')+'</div>';
   }
-}
-@media (max-width:760px){
-  body{background-attachment:scroll}
-  .page{padding:74px 12px 42px}
-  .top-nav{
-    top:10px;
-    padding:5px;
-    gap:4px;
-    max-width:calc(100% - 16px);
+  function timeline(points){
+   const values=points.map(p=>p.value),peak=Math.max(...values),power=10**Math.floor(Math.log10((peak||1)/3)),maximum=Math.ceil((peak||1)/3/power)*power*3;
+   const coords=points.map((p,i)=>[52+612*i/Math.max(1,points.length-1),214-196*p.value/maximum]);let grid='',ticks='';
+   for(let i=0;i<4;i++){const value=maximum*i/3,y=214-196*i/3;grid+=`<line class="chart-grid" x1="52" x2="664" y1="${y}" y2="${y}"/><text class="chart-axis" x="42" y="${y+4}" text-anchor="end">${maximum>=1000?n(value/1000)+'k':n(value)}</text>`;}
+   const tickIds=new Set([0,Math.round((points.length-1)/3),Math.round((points.length-1)*2/3),points.length-1]);
+   points.forEach((p,i)=>{if(tickIds.has(i))ticks+=`<text class="chart-axis" x="${coords[i][0]}" y="242" text-anchor="middle">${p.date.slice(8)}.${p.date.slice(5,7)}</text>`;});
+   const path='M'+coords.map(c=>c.join(',')).join(' L'),best=points[values.indexOf(peak)];
+   const dots=points.map((p,i)=>`<circle class="chart-point" data-point="${i}" data-date="${p.date}" data-value="${p.value}" cx="${coords[i][0]}" cy="${coords[i][1]}" r="${p.value===peak?3:0}"><title>${p.date}: ${p.value}</title></circle>`).join('');
+   return `<div data-chart="daily-views" class="chart-plot"><svg class="line-chart" viewBox="0 0 680 255" tabindex="0" role="img" aria-label="${t('Просмотры по дням. Стрелки — выбрать день.','Daily views. Use arrow keys to select a day.')}" data-line-chart><defs><linearGradient id="views-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a48aff" stop-opacity=".28"/><stop offset="1" stop-color="#a48aff" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${path} L664,214 L52,214 Z" fill="url(#views-fill)"/><path class="chart-line" d="${path}"/>${dots}${ticks}</svg><div class="chart-tooltip" hidden></div></div><div class="chart-summary"><div><strong>${n(values.reduce((a,b)=>a+b,0)/values.length)}</strong><span>${t('В среднем просмотров в день','Average daily views')}</span></div><div><strong>${n(peak)}</strong><span>${t('Лучший день · '+best.date.slice(8)+'.'+best.date.slice(5,7),'Peak day · '+best.date)}</span></div></div><details class="chart-data"><summary>${t('Данные графика','Chart data')}</summary><table><thead><tr><th>${t('Дата','Date')}</th><th>${t('Просмотры','Views')}</th></tr></thead><tbody>${points.map(p=>`<tr><td>${p.date}</td><td>${n(p.value)}</td></tr>`).join('')}</tbody></table></details>`;
   }
-  .top-nav a{
-    min-height:38px;
-    padding:0 12px;
-    font-size:12px;
+  const primaryKeys=youtube?['views','watch_hours','followers','net_subscribers']:['views','reach','interactions','followers'];
+  document.querySelector('[data-primary]').innerHTML=primaryKeys.filter(k=>metrics[k]).map(k=>card(metrics[k])).join('');
+  document.querySelector('[data-support]').innerHTML=snapshot.metrics.filter(m=>!primaryKeys.includes(m.key)&&!(youtube&&['thumbnail_ctr','impressions'].includes(m.key))).map(card).join('');
+  let visual='',audience='',summary='';
+  if(youtube){
+   visual='<article class="panel">'+heading('Как смотрят канал','Channel viewing activity','Просмотры по дням · фактические данные','Daily views · actual reported data')+(ins.timeline?timeline(ins.timeline.points):`<p class="panel-sub">${t('Дневная динамика появится после обновления статистики.','Daily views will appear after the next analytics update.')}</p>`)+'</article>';
+   if(v.thumbnail_ctr!==undefined){const ctr=v.thumbnail_ctr,avg=v.views?(v.watch_hours||0)*3600/v.views:0;
+    visual+='<article class="panel donut-panel">'+heading('Первое впечатление','First impressions','Как обложки привлекают к просмотру','How thumbnails invite viewers')+`<div data-metric="thumbnail_ctr"><span class="sr-only" data-value="${ctr}">${ctr}</span>`+donut([{label:en?'Clicked to watch':'Перешли к просмотру',value:ctr},{label:en?'Other impressions':'Остальные показы',value:100-ctr}],percent(ctr),en?'Thumbnail CTR':'CTR обложек','thumbnail-ctr')+`</div><div class="report-pair">${metrics.impressions?`<div data-metric="impressions"><strong data-value="${v.impressions}">${n(v.impressions)}</strong><span>${t('Показы обложек','Thumbnail impressions')}</span></div>`:''}<div><strong>${n(avg,1)} ${t('сек','sec')}</strong><span>${t('Средний просмотр¹','Average view¹')}</span></div></div><p class="definition">${t('¹ Время просмотра ÷ просмотры. Все форматы вместе.','¹ Watch time ÷ views. All content formats.')}</p></article>`;
+   }
+   for(const group of ['gender','age','geography']){const titles={gender:['Кто смотрит','Who is watching'],age:['Возраст аудитории','Audience age'],geography:['География просмотров','Viewing geography']},rows=snapshot.audience[group].map(b=>({label:label(b.label),original:b.label,value:b.percentage,percentage:b.percentage}));
+    const dominant=rows.reduce((best,r)=>!best||r.value>best.value?r:best,null);
+    audience+='<article class="panel">'+heading(...titles[group])+`<div data-audience="${group}">`+(group==='gender'&&dominant?donut(rows,percent(dominant.value),dominant.label,'gender'):bars(rows,group,true,group==='geography'))+'</div></article>';
+   }
+   for(const group of ['age','geography']){const rows=snapshot.audience[group];if(!rows.length)continue;const best=rows.reduce((a,b)=>a.percentage>b.percentage?a:b);summary+=`<span class="insight-tag">${group==='age'?t('Самая большая возрастная группа: ','Largest age group: '):t('Первая страна по просмотрам: ','Top viewing country: ')}<strong>${esc(label(best.label))} · ${percent(best.percentage)}</strong></span>`;}
+  }else{
+   if(ins.view_sources){const rows=ins.view_sources.buckets.slice().sort((a,b)=>b.value-a.value).map(r=>({...r,label:names[r.key][en?1:0]})),total=rows.reduce((s,r)=>s+r.value,0),other=rows.find(r=>r.key==='non_followers')?.value||0;
+    visual='<article class="panel">'+heading('За пределами подписчиков','Beyond the follower base','Кто приносит просмотры контенту','Who contributes content views')+donut(rows,percent(total?other/total*100:0),en?'non-followers':'не подписаны','view-sources')+`<p class="definition">${t('Доли просмотров, а не доли людей. Один аккаунт может смотреть несколько раз.','Shares of views, not shares of people. An account can watch more than once.')}</p></article>`;
+   }
+   if(ins.content_views){const rows=ins.content_views.buckets.slice().sort((a,b)=>b.value-a.value).map(r=>({...r,label:names[r.key][en?1:0]}));visual+='<article class="panel format-chart">'+heading('Что смотрят чаще','Content that gets watched','Просмотры по форматам','Views by content format')+bars(rows,'content-views')+'</article>';}
+   const reached=v.reach||0,engaged=v.engaged_accounts||0,share=reached?engaged/reached*100:0;
+   audience='<article class="panel reach-panel"><div>'+heading('От охвата к взаимодействию','From reach to interaction','Аккаунты за один и тот же период','Accounts over the same reporting period')+bars([{label:en?'Reached':'Охвачено',value:reached},{label:en?'Engaged':'Взаимодействовали',value:engaged}],'reach-engagement',false,false,reached)+`</div><div class="reach-stat"><strong>${percent(share)}</strong><p>${t('Отношение вовлечённых аккаунтов к охваченным. Не доля лайков и не показатель по подписчикам.','Engaged accounts divided by accounts reached. Not a like rate or a follower-based rate.')}</p></div></article>`+['gender','age','geography'].map(g=>`<div data-audience="${g}" hidden></div>`).join('');
   }
-  .card{border-radius:24px}
-  .card-inner,.panel,.stat-card{padding:20px}
-  .section-title{font-size:23px}
-  .lead{font-size:16px}
-}
-@media (max-width:420px){
-  .top-nav a{padding:0 10px;font-size:11px}
-}
-/* RYTNI COSMIC DESIGN SYSTEM — Игровой Rytni */
-:root{--text:#f7f8ff;--muted:#abb3ce;--line:rgba(137,146,255,.18);--panel:rgba(15,18,40,.88);--panel-strong:rgba(23,27,57,.95);--blue:#697cff;--blue-dark:#8b86ff;--cyan:#55dcff;--orange:#ff8057;--pink:#ff5f8f;--shadow:0 24px 80px rgba(2,4,15,.48),inset 0 1px 0 rgba(255,255,255,.06)}
-body{color:var(--text);background:radial-gradient(circle at 48% -10%,rgba(255,91,113,.22),transparent 32%),radial-gradient(circle at 7% 34%,rgba(74,218,255,.1),transparent 26%),radial-gradient(circle at 92% 67%,rgba(255,151,67,.12),transparent 29%),linear-gradient(155deg,#070713,#0d0e20 48%,#090915)}
-body::before{opacity:.67;background-image:radial-gradient(circle,rgba(255,255,255,.4) 0 1px,transparent 1.4px),radial-gradient(circle,rgba(255,135,111,.2) 0 1px,transparent 1.4px);background-position:0 0,26px 31px;background-size:58px 58px,81px 81px}
-.top-nav{border-color:rgba(139,147,255,.22);background:rgba(10,12,29,.76);box-shadow:0 14px 42px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.06)}
-.top-nav a{color:#dce1f6}.top-nav a:hover{background:rgba(255,105,112,.13);color:#fff}.top-nav .donate{background:linear-gradient(135deg,#ffae45,#ff6950)}
-.page{padding-top:88px}.card{border-color:rgba(137,146,255,.18);background:linear-gradient(145deg,rgba(22,25,53,.94),rgba(11,13,31,.88));box-shadow:0 20px 62px rgba(2,4,15,.4),inset 0 1px 0 rgba(255,255,255,.055);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}.card:hover{border-color:rgba(255,122,107,.34);box-shadow:0 26px 72px rgba(2,4,15,.54),0 0 34px rgba(255,102,111,.08)}
-.hero>.card:first-child{background:radial-gradient(circle at 0 0,rgba(77,218,255,.1),transparent 34%),radial-gradient(circle at 100% 0,rgba(255,105,103,.15),transparent 34%),linear-gradient(145deg,rgba(24,28,60,.97),rgba(11,13,31,.9))}
-.eyebrow{border-color:rgba(255,128,103,.24);background:rgba(255,100,105,.11);color:#ffb092}.accent{color:#ff765f;text-shadow:0 0 28px rgba(255,104,88,.35)}
-h1,.section-title,.panel h3{color:#fff;letter-spacing:-.03em}.lead,.metric-label,.profile-note p,.section-sub,.stat-title,.stat-foot,.mini-card p,.footnote,.contact-copy span{color:var(--muted)}
-.metric,.profile-note,.mini-card,.quote,.ghost-btn,.pill,.contact-item{border-color:rgba(129,141,255,.18);background:rgba(24,28,59,.72)}
-.metric-value,.stat-value{color:#fff;text-shadow:0 0 24px rgba(255,113,93,.16)}
-.avatar{box-shadow:0 0 0 10px rgba(17,20,45,.94),0 0 0 12px rgba(255,117,91,.23),0 22px 72px rgba(255,79,103,.32)}
-.btn{background:linear-gradient(135deg,#ff9a4d,#ff536f);box-shadow:0 16px 36px rgba(255,86,103,.29)}.ghost-btn{color:#f5f7ff}.section-sub.strong-note{border-color:rgba(255,137,103,.25);background:linear-gradient(135deg,rgba(255,118,84,.13),rgba(103,90,255,.11));color:#ffc0a1;box-shadow:0 14px 30px rgba(2,4,15,.3)}
-.bar{background:rgba(255,255,255,.08)}.bar>i{background:linear-gradient(90deg,#ff9c4f,#ff5b74)}.pill{color:#ffd0bf}.cta{background:radial-gradient(circle at 0 0,rgba(83,215,255,.12),transparent 35%),radial-gradient(circle at 100% 0,rgba(255,99,101,.16),transparent 33%),linear-gradient(145deg,rgba(24,28,60,.97),rgba(11,13,31,.9))}.contact-badge{background:linear-gradient(135deg,#ff586f,#ff9a4d)}.footer{color:#747d9c}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-
-:root:where(:has(.rmk[data-account="tech"])){
-  --text:#0f172a;
-  --muted:#5b6473;
-  --line:rgba(15,23,42,.1);
-  --panel:rgba(255,255,255,.84);
-  --panel-strong:rgba(255,255,255,.92);
-  --blue:#2563eb;
-  --blue-dark:#1d4ed8;
-  --cyan:#38bdf8;
-  --orange:#f97316;
-  --pink:#ec4899;
-  --shadow:0 24px 80px rgba(15,23,42,.14);
-}
-:where(.rmk[data-account="tech"]) *{box-sizing:border-box}
-html:where(:has(.rmk[data-account="tech"])){scroll-behavior:smooth}
-body:where(:has(.rmk[data-account="tech"])){
-  margin:0;
-  font-family:Manrope,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--text);
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.9)),
-    url("https://rytni.github.io/rytni-assets/phone2.webp") center/cover fixed;
-  min-height:100vh;
-}
-body:where(:has(.rmk[data-account="tech"]))::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 12% 18%,rgba(56,189,248,.18),rgba(56,189,248,0) 18%),
-    radial-gradient(circle at 87% 14%,rgba(249,115,22,.16),rgba(249,115,22,0) 18%),
-    radial-gradient(circle at 82% 74%,rgba(37,99,235,.12),rgba(37,99,235,0) 22%);
-}
-:where(.rmk[data-account="tech"]) a{color:inherit}
-:where(.rmk[data-account="tech"]) .page{
-  position:relative;
-  z-index:1;
-  max-width:1200px;
-  margin:0 auto;
-  padding:76px 18px 60px;
-}
-:where(.rmk[data-account="tech"]) .top-nav{
-  position:fixed;
-  z-index:50;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:7px;
-  max-width:calc(100% - 28px);
-  border:1px solid rgba(255,255,255,.48);
-  border-radius:999px;
-  background:rgba(255,255,255,.18);
-  box-shadow:0 10px 35px rgba(15,23,42,.14),0 0 30px rgba(56,189,248,.08);
-  backdrop-filter:blur(24px) saturate(140%);
-  -webkit-backdrop-filter:blur(24px) saturate(140%);
-  overflow-x:auto;
-  scrollbar-width:none;
-  white-space:nowrap;
-}
-:where(.rmk[data-account="tech"]) .top-nav::-webkit-scrollbar{display:none}
-:where(.rmk[data-account="tech"]) .top-nav a{
-  flex:0 0 auto;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:42px;
-  padding:0 16px;
-  border-radius:999px;
-  color:#1f2937;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:800;
-  transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease;
-}
-:where(.rmk[data-account="tech"]) .top-nav a:hover{
-  background:rgba(255,255,255,.55);
-  transform:translateY(-1px);
-}
-:where(.rmk[data-account="tech"]) .top-nav .donate{
-  color:#fff;
-  background:linear-gradient(135deg,#f59e0b,var(--orange));
-  box-shadow:0 12px 24px rgba(249,115,22,.24);
-}
-:where(.rmk[data-account="tech"]) .top-nav .donate:hover{
-  background:linear-gradient(135deg,#fb923c,#ea580c);
-}
-:where(.rmk[data-account="tech"]) .hero{
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
-  gap:24px;
-  align-items:stretch;
-}
-:where(.rmk[data-account="tech"]) .card{
-  border:1px solid rgba(255,255,255,.74);
-  border-radius:30px;
-  background:var(--panel);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-}
-:where(.rmk[data-account="tech"]) .card-inner{padding:28px}
-:where(.rmk[data-account="tech"]) .hero-copy{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:20px;
-}
-:where(.rmk[data-account="tech"]) .eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  width:fit-content;
-  padding:8px 12px;
-  border:1px solid rgba(37,99,235,.12);
-  border-radius:999px;
-  background:rgba(255,255,255,.72);
-  color:var(--blue-dark);
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
-}
-:where(.rmk[data-account="tech"]) h1{
-  margin:0;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:clamp(42px,8vw,76px);
-  line-height:1.03;
-}
-:where(.rmk[data-account="tech"]) .accent{
-  display:inline;
-  color:var(--blue-dark);
-}
-:where(.rmk[data-account="tech"]) .lead{
-  max-width:620px;
-  margin:0;
-  color:#445065;
-  font-size:18px;
-  line-height:1.65;
-}
-:where(.rmk[data-account="tech"]) .hero-metrics{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-}
-:where(.rmk[data-account="tech"]) .metric{
-  padding:16px 18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:rgba(255,255,255,.74);
-}
-:where(.rmk[data-account="tech"]) .metric-value{
-  display:block;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:24px;
-  line-height:1.1;
-}
-:where(.rmk[data-account="tech"]) .metric-label{
-  display:block;
-  margin-top:8px;
-  color:var(--muted);
-  font-size:13px;
-  font-weight:700;
-  line-height:1.45;
-}
-:where(.rmk[data-account="tech"]) .hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-:where(.rmk[data-account="tech"]) .btn,:where(.rmk[data-account="tech"]) .ghost-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  padding:0 20px;
-  border:none;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:800;
-}
-:where(.rmk[data-account="tech"]) .btn{
-  color:#fff;
-  background:linear-gradient(135deg,var(--cyan),var(--blue-dark));
-  box-shadow:0 16px 34px rgba(37,99,235,.26);
-}
-:where(.rmk[data-account="tech"]) .ghost-btn{
-  border:1px solid rgba(37,99,235,.12);
-  background:rgba(255,255,255,.72);
-  color:var(--text);
-}
-:where(.rmk[data-account="tech"]) .profile-card{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-:where(.rmk[data-account="tech"]) .avatar-wrap{
-  display:grid;
-  place-items:center;
-  padding-top:4px;
-}
-:where(.rmk[data-account="tech"]) .avatar{
-  width:min(240px,58vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  background:url("https://rytni.github.io/rytni-assets/oblozka-sinaa-512.webp") center/cover no-repeat;
-  box-shadow:0 0 0 14px rgba(255,255,255,.8),0 18px 48px rgba(37,99,235,.2);
-}
-:where(.rmk[data-account="tech"]) .profile-note{
-  padding:16px 18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(239,246,255,.84));
-}
-:where(.rmk[data-account="tech"]) .profile-note strong{
-  display:block;
-  margin-bottom:6px;
-  font-size:16px;
-}
-:where(.rmk[data-account="tech"]) .profile-note p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.55;
-}
-:where(.rmk[data-account="tech"]) .section{
-  margin-top:24px;
-}
-:where(.rmk[data-account="tech"]) .section-title{
-  margin:0 0 16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:28px;
-  line-height:1.15;
-}
-:where(.rmk[data-account="tech"]) .section-sub{
-  margin:0 0 18px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.6;
-}
-:where(.rmk[data-account="tech"]) .section-sub.strong-note{
-  display:inline-flex;
-  align-items:center;
-  min-height:42px;
-  padding:10px 14px;
-  border:1px solid rgba(37,99,235,.12);
-  border-radius:999px;
-  background:linear-gradient(135deg,rgba(239,246,255,.96),rgba(255,255,255,.94));
-  color:var(--blue-dark);
-  font-size:14px;
-  font-weight:800;
-  line-height:1.35;
-  box-shadow:0 14px 28px rgba(37,99,235,.12);
-}
-:where(.rmk[data-account="tech"]) .stats-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-:where(.rmk[data-account="tech"]) .stat-card{
-  padding:22px;
-}
-:where(.rmk[data-account="tech"]) .stat-head{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:16px;
-}
-:where(.rmk[data-account="tech"]) .stat-icon{
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  border-radius:18px;
-  color:#fff;
-  font-size:22px;
-  font-weight:800;
-}
-:where(.rmk[data-account="tech"]) .icon-svg{
-  width:24px;
-  height:24px;
-  display:block;
-}
-:where(.rmk[data-account="tech"]) .black{background:linear-gradient(135deg,#111827,#374151)}
-:where(.rmk[data-account="tech"]) .blue{background:linear-gradient(135deg,#38bdf8,#2563eb)}
-:where(.rmk[data-account="tech"]) .red{background:linear-gradient(135deg,#fb7185,#ef4444)}
-:where(.rmk[data-account="tech"]) .green{background:linear-gradient(135deg,#34d399,#16a34a)}
-:where(.rmk[data-account="tech"]) .purple{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
-:where(.rmk[data-account="tech"]) .orange{background:linear-gradient(135deg,#fb923c,#ea580c)}
-:where(.rmk[data-account="tech"]) .stat-title{
-  color:var(--muted);
-  font-size:14px;
-  font-weight:800;
-}
-:where(.rmk[data-account="tech"]) .stat-value{
-  font-family:Unbounded,Manrope,system-ui,sans-serif;
-  font-size:32px;
-  line-height:1.1;
-}
-:where(.rmk[data-account="tech"]) .stat-foot{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.45;
-}
-:where(.rmk[data-account="tech"]) .grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-:where(.rmk[data-account="tech"]) .panel{
-  padding:24px;
-}
-:where(.rmk[data-account="tech"]) .panel h3{
-  margin:0 0 14px;
-  font-size:22px;
-}
-:where(.rmk[data-account="tech"]) .rows{
-  display:grid;
-  gap:12px;
-}
-:where(.rmk[data-account="tech"]) .row{
-  display:grid;
-  grid-template-columns:minmax(110px,.8fr) minmax(0,1fr) auto;
-  gap:12px;
-  align-items:center;
-}
-:where(.rmk[data-account="tech"]) .row span,:where(.rmk[data-account="tech"]) .row b{
-  min-width:0;
-}
-:where(.rmk[data-account="tech"]) .bar{
-  height:10px;
-  border-radius:999px;
-  background:rgba(15,23,42,.08);
-  overflow:hidden;
-}
-:where(.rmk[data-account="tech"]) .bar > i{
-  display:block;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-}
-:where(.rmk[data-account="tech"]) .list-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-:where(.rmk[data-account="tech"]) .mini-card{
-  padding:18px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:22px;
-  background:rgba(255,255,255,.7);
-}
-:where(.rmk[data-account="tech"]) .mini-card strong{
-  display:block;
-  margin-bottom:8px;
-  font-size:17px;
-}
-:where(.rmk[data-account="tech"]) .mini-card p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.55;
-}
-:where(.rmk[data-account="tech"]) .highlight{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:18px;
-}
-:where(.rmk[data-account="tech"]) .quote{
-  padding:24px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:26px;
-  background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(239,246,255,.85));
-}
-:where(.rmk[data-account="tech"]) .quote strong{
-  display:block;
-  margin-bottom:10px;
-  font-size:19px;
-}
-:where(.rmk[data-account="tech"]) .quote p{
-  margin:0;
-  color:#41506a;
-  font-size:17px;
-  line-height:1.7;
-}
-:where(.rmk[data-account="tech"]) .pill-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-:where(.rmk[data-account="tech"]) .pill{
-  display:inline-flex;
-  align-items:center;
-  min-height:38px;
-  padding:0 14px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:999px;
-  background:rgba(255,255,255,.76);
-  color:#1d4ed8;
-  font-size:13px;
-  font-weight:800;
-}
-:where(.rmk[data-account="tech"]) .cta{
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 0 0,rgba(56,189,248,.18),rgba(56,189,248,0) 34%),
-    radial-gradient(circle at 100% 0,rgba(249,115,22,.18),rgba(249,115,22,0) 30%),
-    linear-gradient(135deg,rgba(255,255,255,.95),rgba(239,246,255,.9));
-}
-:where(.rmk[data-account="tech"]) .cta-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:18px;
-  align-items:center;
-}
-:where(.rmk[data-account="tech"]) .contact-list{
-  display:grid;
-  gap:12px;
-}
-:where(.rmk[data-account="tech"]) .contact-item{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  border:1px solid rgba(37,99,235,.1);
-  border-radius:18px;
-  background:rgba(255,255,255,.72);
-}
-:where(.rmk[data-account="tech"]) .contact-badge{
-  display:grid;
-  place-items:center;
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#111827,#2563eb);
-  color:#fff;
-  font-size:16px;
-  font-weight:800;
-}
-:where(.rmk[data-account="tech"]) .contact-badge .icon-svg{
-  width:20px;
-  height:20px;
-}
-:where(.rmk[data-account="tech"]) .contact-copy strong{
-  display:block;
-  font-size:15px;
-}
-:where(.rmk[data-account="tech"]) .contact-copy span{
-  display:block;
-  margin-top:3px;
-  color:var(--muted);
-  font-size:14px;
-}
-:where(.rmk[data-account="tech"]) .footnote{
-  margin-top:16px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
-}
-:where(.rmk[data-account="tech"]) .footer{
-  padding:20px 4px 0;
-  color:#64748b;
-  text-align:center;
-  font-size:13px;
-}
-@media (max-width:980px){:where(.rmk[data-account="tech"]) .hero,:where(.rmk[data-account="tech"]) .grid,:where(.rmk[data-account="tech"]) .highlight,:where(.rmk[data-account="tech"]) .cta-grid,:where(.rmk[data-account="tech"]) .stats-grid,:where(.rmk[data-account="tech"]) .list-grid,:where(.rmk[data-account="tech"]) .hero-metrics{
-    grid-template-columns:1fr;
+  document.querySelector('[data-visual]').innerHTML=visual;document.querySelector('[data-audience-grid]').innerHTML=audience;document.querySelector('[data-audience-summary]').innerHTML=summary;
+  const chart=document.querySelector('[data-line-chart]');
+  if(chart){const points=[...chart.querySelectorAll('[data-point]')],tip=chart.parentElement.querySelector('.chart-tooltip');let index=points.length-1;
+   const hide=()=>{tip.hidden=true;points.forEach(p=>p.setAttribute('r',Number(p.dataset.value)===Math.max(...points.map(x=>Number(x.dataset.value)))?'3':'0'));chart.querySelector('.chart-crosshair')?.remove();};
+   const show=i=>{index=Math.max(0,Math.min(points.length-1,i));const p=points[index];hide();p.setAttribute('r','4');tip.replaceChildren();const date=document.createElement('span'),count=document.createElement('strong');date.textContent=new Intl.DateTimeFormat(en?'en-GB':'ru-RU',{day:'numeric',month:'long',timeZone:'UTC'}).format(new Date(p.dataset.date+'T00:00:00Z'));count.textContent=n(Number(p.dataset.value))+' '+(en?'views':'просмотров');tip.append(date,count);tip.hidden=false;const cross=document.createElementNS('http://www.w3.org/2000/svg','line');cross.setAttribute('class','chart-crosshair');cross.setAttribute('x1',p.getAttribute('cx'));cross.setAttribute('x2',p.getAttribute('cx'));cross.setAttribute('y1','18');cross.setAttribute('y2','214');chart.append(cross);};
+   chart.addEventListener('pointermove',event=>{const box=chart.getBoundingClientRect(),x=(event.clientX-box.left)*680/box.width;show(Math.round((x-52)/612*(points.length-1)));});
+   chart.addEventListener('pointerleave',hide);chart.addEventListener('focus',()=>show(index));chart.addEventListener('blur',hide);
+   chart.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End','Escape'].includes(event.key)){event.preventDefault();if(event.key==='Escape')hide();else show(event.key==='Home'?0:event.key==='End'?points.length-1:index+(event.key==='ArrowLeft'?-1:1));}});
   }
-:where(.rmk[data-account="tech"]) .row{
-    grid-template-columns:1fr;
-    gap:8px;
-  }}
-@media (max-width:760px){body:where(:has(.rmk[data-account="tech"])){background-attachment:scroll}
-:where(.rmk[data-account="tech"]) .page{padding:74px 12px 42px}
-:where(.rmk[data-account="tech"]) .top-nav{
-    top:10px;
-    padding:5px;
-    gap:4px;
-    max-width:calc(100% - 16px);
-  }
-:where(.rmk[data-account="tech"]) .top-nav a{
-    min-height:38px;
-    padding:0 12px;
-    font-size:12px;
-  }
-:where(.rmk[data-account="tech"]) .card{border-radius:24px}
-:where(.rmk[data-account="tech"]) .card-inner,:where(.rmk[data-account="tech"]) .panel,:where(.rmk[data-account="tech"]) .stat-card{padding:20px}
-:where(.rmk[data-account="tech"]) .section-title{font-size:23px}
-:where(.rmk[data-account="tech"]) .lead{font-size:16px}}
-@media (max-width:420px){:where(.rmk[data-account="tech"]) .top-nav a{padding:0 10px;font-size:11px}}
-:root:where(:has(.rmk[data-account="tech"])){--text:#f7f8ff;--muted:#abb3ce;--line:rgba(137,146,255,.18);--panel:rgba(15,18,40,.88);--panel-strong:rgba(23,27,57,.95);--blue:#6d7cff;--blue-dark:#a088ff;--cyan:#55dcff;--orange:#ff8754;--pink:#ff69b4;--shadow:0 24px 80px rgba(2,4,15,.48),inset 0 1px 0 rgba(255,255,255,.06)}
-body:where(:has(.rmk[data-account="tech"])){color:var(--text);background:radial-gradient(circle at 48% -10%,rgba(103,75,255,.25),transparent 32%),radial-gradient(circle at 7% 34%,rgba(74,218,255,.11),transparent 26%),radial-gradient(circle at 92% 67%,rgba(255,86,177,.12),transparent 29%),linear-gradient(155deg,#060713,#0c0e21 48%,#080916)}
-body:where(:has(.rmk[data-account="tech"]))::before{opacity:.67;background-image:radial-gradient(circle,rgba(255,255,255,.4) 0 1px,transparent 1.4px),radial-gradient(circle,rgba(114,152,255,.2) 0 1px,transparent 1.4px);background-position:0 0,26px 31px;background-size:58px 58px,81px 81px}
-:where(.rmk[data-account="tech"]) .top-nav{border-color:rgba(139,147,255,.22);background:rgba(10,12,29,.76);box-shadow:0 14px 42px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.06)}
-:where(.rmk[data-account="tech"]) .top-nav a{color:#dce1f6}
-:where(.rmk[data-account="tech"]) .top-nav a:hover{background:rgba(103,116,255,.16);color:#fff}
-:where(.rmk[data-account="tech"]) .top-nav .donate{background:linear-gradient(135deg,#ffae45,#ff6950)}
-:where(.rmk[data-account="tech"]) .page{padding-top:88px}
-:where(.rmk[data-account="tech"]) .card{border-color:rgba(137,146,255,.18);background:linear-gradient(145deg,rgba(22,25,53,.94),rgba(11,13,31,.88));box-shadow:0 20px 62px rgba(2,4,15,.4),inset 0 1px 0 rgba(255,255,255,.055);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
-:where(.rmk[data-account="tech"]) .card:hover{border-color:rgba(87,214,255,.34);box-shadow:0 26px 72px rgba(2,4,15,.54),0 0 34px rgba(104,111,255,.09)}
-:where(.rmk[data-account="tech"]) .hero>.card:first-child{background:radial-gradient(circle at 0 0,rgba(76,218,255,.11),transparent 34%),radial-gradient(circle at 100% 0,rgba(255,92,181,.11),transparent 32%),linear-gradient(145deg,rgba(24,28,60,.97),rgba(11,13,31,.9))}
-:where(.rmk[data-account="tech"]) .eyebrow{border-color:rgba(91,217,255,.22);background:rgba(75,194,255,.1);color:#8be7ff}
-:where(.rmk[data-account="tech"]) .accent{color:#ff7cc6;text-shadow:0 0 28px rgba(255,99,187,.34)}
-:where(.rmk[data-account="tech"]) h1,:where(.rmk[data-account="tech"]) .section-title,:where(.rmk[data-account="tech"]) .panel h3{color:#fff;letter-spacing:-.03em}
-:where(.rmk[data-account="tech"]) .lead,:where(.rmk[data-account="tech"]) .metric-label,:where(.rmk[data-account="tech"]) .profile-note p,:where(.rmk[data-account="tech"]) .section-sub,:where(.rmk[data-account="tech"]) .stat-title,:where(.rmk[data-account="tech"]) .stat-foot,:where(.rmk[data-account="tech"]) .mini-card p,:where(.rmk[data-account="tech"]) .footnote,:where(.rmk[data-account="tech"]) .contact-copy span{color:var(--muted)}
-:where(.rmk[data-account="tech"]) .metric,:where(.rmk[data-account="tech"]) .profile-note,:where(.rmk[data-account="tech"]) .mini-card,:where(.rmk[data-account="tech"]) .quote,:where(.rmk[data-account="tech"]) .ghost-btn,:where(.rmk[data-account="tech"]) .pill,:where(.rmk[data-account="tech"]) .contact-item{border-color:rgba(129,141,255,.18);background:rgba(24,28,59,.72)}
-:where(.rmk[data-account="tech"]) .metric-value,:where(.rmk[data-account="tech"]) .stat-value{color:#fff;text-shadow:0 0 24px rgba(88,214,255,.15)}
-:where(.rmk[data-account="tech"]) .avatar{box-shadow:0 0 0 10px rgba(17,20,45,.94),0 0 0 12px rgba(79,215,255,.2),0 22px 72px rgba(96,75,255,.38)}
-:where(.rmk[data-account="tech"]) .btn{background:linear-gradient(135deg,#4cdcff,#7464ff);box-shadow:0 16px 36px rgba(77,112,255,.32)}
-:where(.rmk[data-account="tech"]) .ghost-btn{color:#f5f7ff}
-:where(.rmk[data-account="tech"]) .section-sub.strong-note{border-color:rgba(94,215,255,.24);background:linear-gradient(135deg,rgba(73,210,255,.12),rgba(112,91,255,.13));color:#a9eaff;box-shadow:0 14px 30px rgba(2,4,15,.3)}
-:where(.rmk[data-account="tech"]) .bar{background:rgba(255,255,255,.08)}
-:where(.rmk[data-account="tech"]) .bar>i{background:linear-gradient(90deg,#50dcff,#8a70ff)}
-:where(.rmk[data-account="tech"]) .pill{color:#c9ceff}
-:where(.rmk[data-account="tech"]) .cta{background:radial-gradient(circle at 0 0,rgba(76,218,255,.15),transparent 35%),radial-gradient(circle at 100% 0,rgba(255,97,184,.14),transparent 32%),linear-gradient(145deg,rgba(24,28,60,.97),rgba(11,13,31,.9))}
-:where(.rmk[data-account="tech"]) .contact-badge{background:linear-gradient(135deg,#5667ff,#4bd8ff)}
-:where(.rmk[data-account="tech"]) .footer{color:#747d9c}
-@media (prefers-reduced-motion:reduce){:where(.rmk[data-account="tech"]) *,:where(.rmk[data-account="tech"]) *::before,:where(.rmk[data-account="tech"]) *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+ }
+ window.PlatformPresentation={renderInto};
+})();
 
-
-/* RYTNI 2026 unified redesign */
-:root{--rytni-text:#f8f8ff;--rytni-muted:#aeb5ce;--rytni-blue:#48a9ff;--rytni-purple:#a75bff;--rytni-orange:#ff8744;--rytni-panel:rgba(8,15,45,.86)}
-html{background:#020617!important;scroll-behavior:smooth}
-body{position:relative!important;isolation:isolate;margin:0!important;min-height:100vh;color:var(--rytni-text)!important;font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif!important;background:#020617!important}
-body::before{content:"";position:fixed;z-index:-2;inset:0;pointer-events:none;background:url("https://rytni.github.io/rytni-assets/web/2/background.webp") center top/100% 100% no-repeat;filter:saturate(1.04) contrast(.98) brightness(.92)}
-body::after{content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 22%,transparent 16%,rgba(2,5,24,.2) 58%,rgba(1,3,17,.58) 100%),linear-gradient(180deg,rgba(3,7,28,.06),rgba(3,6,25,.24))}
-.top-nav{position:fixed!important;z-index:100!important;top:14px!important;left:50%!important;transform:translateX(-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:24px!important;width:410px!important;height:48px!important;padding:5px 8px 5px 24px!important;border:1px solid rgba(150,143,255,.72)!important;border-radius:999px!important;background:linear-gradient(110deg,rgba(12,19,48,.9),rgba(31,15,49,.88))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 30px rgba(0,0,0,.4),0 0 23px rgba(91,62,255,.17)!important;backdrop-filter:blur(18px) saturate(130%)!important}
-.top-nav a{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:36px!important;color:#f8f7ff!important;text-decoration:none!important;font-size:11.5px!important;font-weight:800!important;white-space:nowrap!important}
-.top-nav .donate{min-width:72px!important;padding:0 16px!important;border:1px solid #ffc078!important;border-radius:999px!important;background:linear-gradient(135deg,#ff923e,#ff503b)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 0 14px rgba(255,132,56,.78),0 0 25px rgba(255,76,52,.38)!important}
-h1,h2,h3,.section-title{font-family:Unbounded,Manrope,system-ui,sans-serif!important;letter-spacing:-.035em}
-a,button,input,select{font-family:inherit}
-button,a{-webkit-tap-highlight-color:transparent}
-.suite-inline-icon{display:inline-block;width:34px;height:34px;margin-right:10px;vertical-align:middle;object-fit:contain;filter:drop-shadow(0 6px 9px rgba(0,0,0,.35))}
-.suite-card-icon{display:block;width:48px;height:48px;object-fit:contain}
-@media(max-width:760px){body::before{background-size:auto 100%;background-position:center top}.top-nav{top:8px!important;width:calc(100% - 18px)!important;max-width:390px!important;height:50px!important;gap:4px!important;padding:4px!important}.top-nav a{flex:1 1 auto!important;font-size:10px!important}.top-nav .donate{min-width:65px!important;padding:0 10px!important}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-
-.page{position:relative;z-index:1;width:min(1120px,calc(100% - 40px))!important;margin:0 auto!important;padding:92px 0 52px!important}
-.hero{position:relative!important;gap:20px!important}
-.hero>.card,.card,.panel,.mini-card,.stat-card,.profile-card,.kit-card{border:1px solid rgba(111,123,230,.58)!important;border-radius:24px!important;background:linear-gradient(125deg,rgba(7,20,54,.9),rgba(21,10,55,.86))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 14px 35px rgba(0,0,0,.28),0 0 24px rgba(71,85,255,.09)!important;backdrop-filter:blur(15px)}
-.hero>.card:first-child{background:radial-gradient(circle at 12% 25%,rgba(42,145,255,.2),transparent 38%),radial-gradient(circle at 94% 45%,rgba(170,75,255,.18),transparent 37%),linear-gradient(125deg,rgba(7,20,54,.93),rgba(21,10,55,.9))!important;border-color:rgba(130,128,255,.78)!important}
-.card-inner{padding:26px!important}
-.hero h1{font-size:clamp(42px,5vw,68px)!important;color:#fff!important;text-shadow:0 0 28px rgba(151,80,255,.26)}
-.lead,.section-sub,.profile-note,.footnote,.metric-label,.stat-foot{color:var(--rytni-muted)!important}
-.avatar{background-image:url("https://rytni.github.io/rytni-assets/web/2/avatar-purple.webp")!important;background-position:center!important;background-size:cover!important;border-radius:50%!important;box-shadow:0 0 0 2px rgba(218,144,255,.7),0 0 23px rgba(175,67,255,.64),0 0 45px rgba(73,106,255,.28)!important;animation:kitAvatarFloat 5.5s ease-in-out infinite}
-@keyframes kitAvatarFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.section{margin-top:28px!important}
-.section-title{font-size:24px!important;color:#fff!important}
-.stats-grid,.grid,.list-grid,.cta-grid,.info-grid{gap:16px!important}
-.stat-icon,.contact-badge,.icon-wrap{display:grid!important;place-items:center!important;border:1px solid rgba(142,130,255,.66)!important;border-radius:17px!important;background:linear-gradient(145deg,rgba(67,95,201,.88),rgba(42,27,126,.9))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 0 18px rgba(91,73,255,.2)!important}
-.icon-svg{color:#fff!important;stroke:#fff!important;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
-.btn,.ghost-btn,.back-link{min-height:44px!important;border:1px solid rgba(115,122,255,.65)!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(47,54,130,.84),rgba(23,26,79,.9))!important;color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 17px rgba(74,73,255,.2)!important}
-.kit-card{overflow:hidden!important;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease!important}
-.kit-card:hover{transform:translateY(-3px)!important;border-color:#8a91ff!important;box-shadow:0 0 28px rgba(82,80,255,.24)!important}
-.kit-cover{border-radius:20px!important;box-shadow:0 0 22px rgba(110,74,255,.22)!important}
-.kit-arrow{display:grid!important;width:42px!important;height:42px!important;place-items:center!important;border:1px solid rgba(113,139,255,.75)!important;border-radius:50%!important;background:linear-gradient(145deg,rgba(39,50,111,.9),rgba(11,16,50,.96))!important;box-shadow:0 0 17px rgba(69,98,255,.28)!important}
-@media(max-width:760px){.page{width:calc(100% - 18px)!important;padding-top:72px!important}.card-inner{padding:18px!important}.hero h1{font-size:clamp(32px,10vw,48px)!important}}
-
-
-
-.top-nav{box-sizing:border-box!important;width:500px!important;max-width:calc(100vw - 24px)!important;height:58px!important;padding:5px 7px!important;gap:8px!important;overflow:visible!important}
-.top-nav a{box-sizing:border-box!important;flex:1 1 auto!important;min-width:0!important;padding:0 12px!important;font-size:12px!important}
-.top-nav .donate{flex:0 0 82px!important;min-width:82px!important;padding:0 14px!important}
-.lead,.section-sub,.kit-desc,.profile-note,.profile-note p,.mini-card p,.metric-label,.stat-title,.stat-foot,.footnote,.contact-copy span,.note,.quote p,.card p{color:#b8c1dc!important}
-@media(max-width:560px){.top-nav{width:calc(100vw - 16px)!important;height:52px!important;padding:4px!important;gap:2px!important}.top-nav a{padding:0 3px!important;font-size:9.5px!important}.top-nav .donate{flex:0 0 64px!important;min-width:64px!important;padding:0 7px!important}}
-
-
-.media-cell-icon,.media-format-icon,.media-info-icon,.media-title-icon,.media-quote-icon,.media-menu-icon{display:block;flex:0 0 auto;object-fit:contain;filter:drop-shadow(0 7px 12px rgba(0,0,0,.34))}
-.media-cell-icon{width:58px;height:58px}
-.media-format-icon{grid-row:1/3;width:62px;height:62px}
-.media-info-icon{grid-row:1/3;width:58px;height:58px}
-.media-title-icon{display:inline-block;width:38px;height:38px;margin-right:10px;vertical-align:middle}
-.media-quote-icon{grid-row:1/3;width:68px;height:68px}
-.media-menu-icon{width:64px;height:64px;margin-bottom:12px}
-.profile-note{display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;column-gap:14px!important;align-items:center!important}
-.profile-note strong,.profile-note p{grid-column:2!important}
-.profile-note strong{align-self:end}
-.profile-note p{align-self:start;margin-top:5px!important}
-.mini-card{display:grid!important;grid-template-columns:62px minmax(0,1fr)!important;column-gap:14px!important;align-items:center!important}
-.mini-card strong,.mini-card p{grid-column:2!important}
-.quote{display:grid!important;grid-template-columns:68px minmax(0,1fr)!important;column-gap:16px!important;align-items:center!important}
-.quote strong,.quote p{grid-column:2!important}
-.kit-cover{width:112px!important;height:112px!important;object-fit:contain!important;border-radius:24px!important}
-.info-grid .card-inner>.media-menu-icon{float:left;margin-right:14px}
-.stat-foot,.mini-card p,.profile-note p,.footnote,.note{line-height:1.48!important}
-@media(max-width:560px){.media-cell-icon{width:52px;height:52px}.media-info-icon{width:50px;height:50px}.profile-note{grid-template-columns:50px minmax(0,1fr)!important;column-gap:11px!important}.media-format-icon{width:54px;height:54px}.mini-card{grid-template-columns:54px minmax(0,1fr)!important;column-gap:11px!important}.kit-cover{width:88px!important;height:88px!important}}
-
-/* Language selector */
-.lang-switch{
-  position:static;
-  z-index:auto;
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  gap:3px;
-  padding:2px;
-  border:1px solid rgba(150,143,255,.58);
-  border-radius:999px;
-  background:rgba(7,12,34,.58);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 14px rgba(91,62,255,.12);
-}
-.lang-switch button{
-  min-width:35px;
-  height:32px;
-  padding:0 7px;
-  border:0;
-  border-radius:999px;
-  color:#b8c1dc;
-  background:transparent;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.04em;
-  cursor:pointer;
-  transition:color .2s ease,background .2s ease,box-shadow .2s ease;
-}
-.lang-switch button:hover{color:#fff;background:rgba(103,116,255,.16)}
-.lang-switch button[aria-pressed="true"]{
-  color:#fff;
-  background:linear-gradient(135deg,#4caeff,#835dff);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 0 16px rgba(91,91,255,.4);
-}
-.lang-switch button:focus-visible{outline:2px solid #8be7ff;outline-offset:2px}
-@media(max-width:860px){.lang-switch button{min-width:32px;padding:0 5px;font-size:9.5px}}
-@media(max-width:560px){
-  .lang-switch{gap:1px;padding:1px}
-  .lang-switch button{min-width:27px;height:30px;padding:0 3px;font-size:8px}
-}
-
-[data-mk-status]{min-height:1.5em}.stat-value[data-mk],.metric-value[data-mk]{font-size:clamp(24px,3vw,36px);line-height:1.1}[data-mk-audience] .row span{min-width:0;overflow-wrap:anywhere}
-.skip{position:absolute;top:-100px;left:12px;z-index:100}.skip:focus{top:8px;background:#141942;color:#fff;padding:12px}a:focus-visible,button:focus-visible{outline:2px solid #8be7ff;outline-offset:3px}
-
-    .pm-platform{font-size:15px;font-weight:800;letter-spacing:.12em;color:#b5a5ff}.pm-lead{max-width:650px}.pm-audience{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pm-bucket{display:grid;grid-template-columns:1fr auto;gap:8px;margin:14px 0}.pm-bucket progress{grid-column:1/-1;width:100%;height:8px;accent-color:#ae71ff}.pm-source{font-size:14px;line-height:1.6;color:#b7b5cf}.pm-profile{gap:28px}.pm-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.pm-footer{padding:28px;text-align:center;color:#c5c1db}.top-nav{flex-wrap:wrap}.stat-title{min-height:2.6em}.pm-error{color:#ffd9a1!important}@media(max-width:760px){.pm-audience{grid-template-columns:1fr}.top-nav a{font-size:13px!important}.top-nav{position:relative!important;margin:14px!important;top:auto!important;left:auto!important;transform:none!important;width:auto!important}.page{padding-top:20px!important}}@media(prefers-reduced-motion:reduce){.avatar{animation:none!important}}</style></head>
-    <body><nav class="top-nav" aria-label="Навигация"><a href="https://rytni.live/">RYTNI</a><a href="#stats" data-ru="Статистика" data-en="Statistics">Статистика</a><a href="#audience" data-ru="Аудитория" data-en="Audience">Аудитория</a><a href="#contact" data-ru="Сотрудничество" data-en="Contact">Сотрудничество</a><div class="lang-switch"><button data-language="ru" aria-pressed="true">RU</button><button data-language="en" aria-pressed="false">EN</button></div></nav>
-    <main class="page" data-platform="instagram"><section class="hero"><article class="card"><div class="card-inner hero-copy"><div class="pm-platform">INSTAGRAM · MEDIA KIT</div><div><h1>RYTNI<br><span class="accent" data-ru="Ближе к аудитории." data-en="Closer to the audience.">Ближе к аудитории.</span></h1><p class="lead pm-lead" data-ru="Игры, технологии и истории, которыми хочется делиться. Reels и истории — в привычном стиле RYTNI." data-en="Gaming, technology and stories worth sharing. Original RYTNI content on Instagram.">Игры, технологии и истории, которыми хочется делиться. Reels и истории — в привычном стиле RYTNI.</p></div><p class="section-sub">Игры · Технологии · ПК · Гаджеты</p><div class="hero-actions"><a class="btn" href="mailto:rytnitv@gmail.com" data-ru="Обсудить сотрудничество" data-en="Let’s collaborate">Обсудить сотрудничество</a><a class="ghost-btn" href="https://www.instagram.com/rytni_tv/" target="_blank" rel="noopener">Instagram · @rytni_tv</a></div></div></article><aside class="card"><div class="card-inner profile-card pm-profile"><div class="avatar-wrap"><div class="avatar" role="img" aria-label="RYTNI"></div></div><div class="profile-note"><strong>Instagram · Rytni TV</strong><p data-ru="Нативные интеграции, демонстрации и спецпроекты — в контексте интересов аудитории." data-en="Native integrations, demonstrations and custom projects built around the audience’s interests.">Нативные интеграции, демонстрации и спецпроекты — в контексте интересов аудитории.</p></div></div></aside></section>
-    <section class="section" id="stats"><h2 class="section-title" data-ru="Внимание, которое получает ваш бренд." data-en="Attention your brand can be part of.">Внимание, которое получает ваш бренд.</h2><p class="section-sub" data-period>2026-10-18 07:00 — 2026-11-17 06:59 UTC</p><p class="section-sub" data-updated>Данные обновлены: 2026-11-17</p><p class="pm-source" data-status role="status" data-state="STATIC" data-ru="Последний сохранённый снимок. Дата обновления указана выше." data-en="Last saved snapshot. Capture date is shown above.">Последний сохранённый снимок. Дата обновления указана выше.</p><div class="stats-grid" data-metrics><article class="card stat-card" data-metric="followers"><div class="stat-title" data-ru="Подписчики" data-en="Subscribers / followers">Подписчики</div><div class="stat-value" data-value="1462">1 462</div><div class="stat-foot" data-ru="На дату обновления" data-en="As of capture">На дату обновления</div></article><article class="card stat-card" data-metric="views"><div class="stat-title" data-ru="Просмотры" data-en="Views">Просмотры</div><div class="stat-value" data-value="1439311">1 439 311</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article><article class="card stat-card" data-metric="reach"><div class="stat-title" data-ru="Охваченные аккаунты" data-en="Accounts reached">Охваченные аккаунты</div><div class="stat-value" data-value="677456">677 456</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article><article class="card stat-card" data-metric="viewers"><div class="stat-title" data-ru="Зрители" data-en="Viewers">Зрители</div><div class="stat-value" data-value="688240">688 240</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article><article class="card stat-card" data-metric="interactions"><div class="stat-title" data-ru="Взаимодействия" data-en="Interactions">Взаимодействия</div><div class="stat-value" data-value="82697">82 697</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article><article class="card stat-card" data-metric="engaged_accounts"><div class="stat-title" data-ru="Вовлечённые аккаунты" data-en="Accounts engaged">Вовлечённые аккаунты</div><div class="stat-value" data-value="47061">47 061</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article><article class="card stat-card" data-metric="profile_views"><div class="stat-title" data-ru="Посещения профиля" data-en="Profile visits">Посещения профиля</div><div class="stat-value" data-value="1067">1 067</div><div class="stat-foot" data-ru="2026-10-18 — 2026-11-17" data-en="2026-10-18 — 2026-11-17">2026-10-18 — 2026-11-17</div></article></div></section>
-    <section class="section" id="audience"><h2 class="section-title" data-ru="Люди по ту сторону экрана." data-en="The people behind the screen.">Люди по ту сторону экрана.</h2><p class="section-sub" data-audience-note>Демография зрителей пока не предоставлена платформой.</p><div class="pm-audience"><article class="card" style="grid-column:1/-1"><div class="card-inner"><p class="section-sub" data-ru="Показываем только подтверждённые данные о фактической аудитории. Демографические показатели появятся, когда платформа предоставит их в отчёте." data-en="Only verified data about the actual audience is shown. Demographics will appear when the platform provides them in its reports.">Показываем только подтверждённые данные о фактической аудитории. Демографические показатели появятся, когда платформа предоставит их в отчёте.</p><div data-audience="gender" hidden></div><div data-audience="age" hidden></div><div data-audience="geography" hidden></div></div></article></div></section>
-    <section class="section"><h2 class="section-title" data-ru="Найдём формат для вашей задачи." data-en="The right format for your brief.">Найдём формат для вашей задачи.</h2><div class="pm-audience"><article class="card"><div class="card-inner"><h3 data-ru="Нативная интеграция" data-en="Native integration">Нативная интеграция</h3><p class="section-sub" data-ru="Продукт становится частью подходящей истории." data-en="Your product joins a relevant story.">Продукт становится частью подходящей истории.</p></div></article><article class="card"><div class="card-inner"><h3 data-ru="Демонстрация" data-en="Demonstration">Демонстрация</h3><p class="section-sub" data-ru="Показываем возможности и реальные сценарии использования." data-en="Show features and real use cases.">Показываем возможности и реальные сценарии использования.</p></div></article><article class="card"><div class="card-inner"><h3 data-ru="Спецпроект" data-en="Custom project">Спецпроект</h3><p class="section-sub" data-ru="Разрабатываем идею под ваш бренд и задачу." data-en="An idea tailored to your brand and brief.">Разрабатываем идею под ваш бренд и задачу.</p></div></article></div></section>
-    <section class="section card" id="contact"><div class="card-inner"><h2 class="section-title" data-ru="Давайте сделаем что-то интересное." data-en="Let’s make something interesting.">Давайте сделаем что-то интересное.</h2><p class="section-sub" data-ru="Расскажите о продукте, сроках и задаче. Обсудим идею и подходящий формат лично." data-en="Tell us about your product, timing and brief. We’ll discuss the idea and format together.">Расскажите о продукте, сроках и задаче. Обсудим идею и подходящий формат лично.</p><div class="pm-links"><a class="btn" href="mailto:rytnitv@gmail.com">rytnitv@gmail.com</a><a class="ghost-btn" href="https://t.me/ermediapr" target="_blank" rel="noopener">Telegram · @ermediapr</a></div></div></section>
-    <footer class="pm-footer">RYTNI · Instagram Media Kit</footer></main><script id="platformSnapshot" type="application/json">{"account":{"handle":"rytni_tv","platform_id":"17841408533247172","url":"https://www.instagram.com/rytni_tv/"},"audience":{"age":[],"gender":[],"geography":[],"period":null,"scope":"UNAVAILABLE","unavailable_reason":"NOT_PROVIDED"},"captured_at":"2026-11-17T13:16:13.887690+00:00","metrics":[{"key":"followers","scope":"CURRENT","source_field":"native.current_follower_count","unit":"count","value":1462},{"key":"views","scope":"PERIOD","source_field":"account_insights_node.views_current_period.results.0.value","unit":"count","value":1439311},{"key":"reach","scope":"PERIOD","source_field":"account_insights_node.reach_current_period.results.0.value","unit":"count","value":677456},{"key":"viewers","scope":"PERIOD","source_field":"account_insights_node.viewers_current_period.results.0.value","unit":"count","value":688240},{"key":"interactions","scope":"PERIOD","source_field":"account_insights_node.total_interactions.results.0.value","unit":"count","value":82697},{"key":"engaged_accounts","scope":"PERIOD","source_field":"account_insights_node.engaged_accounts.results.0.value","unit":"count","value":47061},{"key":"profile_views","scope":"PERIOD","source_field":"account_insights_node.profile_visits_count.results.0.value","unit":"count","value":1067}],"period":{"end":"2026-11-17","end_at":"2026-11-17T06:59:59+00:00","start":"2026-10-18","start_at":"2026-10-18T07:00:00+00:00","timezone":"UTC","type":"SOURCE_RANGE"},"platform":"instagram","schema_version":1,"source":{"method":"NATIVE_BROWSER","name":"Instagram Insights"}}</script><script>const PLATFORM_LABELS={"followers": ["Подписчики", "Subscribers / followers"], "views": ["Просмотры", "Views"], "reach": ["Охваченные аккаунты", "Accounts reached"], "viewers": ["Зрители", "Viewers"], "likes": ["Лайки", "Likes"], "comments": ["Комментарии", "Comments"], "shares": ["Поделились", "Shares"], "watch_hours": ["Время просмотра · часы", "Watch time · hours"], "average_view_seconds": ["Средний просмотр · секунды", "Average view · seconds"], "engaged_accounts": ["Вовлечённые аккаунты", "Accounts engaged"], "saves": ["Сохранения", "Saves"], "profile_views": ["Посещения профиля", "Profile visits"], "videos": ["Публикации", "Uploads"], "subscribers_gained": ["Новые подписчики", "Subscribers gained"], "subscribers_lost": ["Отписки", "Subscribers lost"], "net_subscribers": ["Изменение числа подписчиков", "Net subscriber change"], "impressions": ["Показы значков видео", "Thumbnail impressions"], "thumbnail_ctr": ["CTR значков видео", "Thumbnail CTR"], "interactions": ["Взаимодействия", "Interactions"]};(() => {
+(() => {
  'use strict';
  const platform=document.querySelector('[data-platform]').dataset.platform;
  const base='https://rytni.github.io/rytni-assets/';
@@ -1167,7 +99,7 @@ button,a{-webkit-tap-highlight-color:transparent}
  const validPeriod=p=>exact(p,p?.type==='SOURCE_RANGE'?['start','end','type','timezone','start_at','end_at']:['start','end','type','timezone'])&&date(p.start)&&date(p.end)&&p.start<=p.end&&p.end<=new Date().toISOString().slice(0,10)&&['CALENDAR_WINDOW','CUSTOM','LIFETIME','SOURCE_RANGE'].includes(p.type)&&['UTC','America/Los_Angeles','SOURCE_TIMEZONE_UNKNOWN'].includes(p.timezone)&&(p.type!=='SOURCE_RANGE'||p.timezone==='UTC'&&Number.isFinite(Date.parse(p.start_at))&&Number.isFinite(Date.parse(p.end_at))&&p.start_at<=p.end_at&&p.start_at.slice(0,10)===p.start&&p.end_at.slice(0,10)===p.end);
  const range=p=>p.type==='SOURCE_RANGE'?p.start_at.slice(0,16).replace('T',' ')+' — '+p.end_at.slice(0,16).replace('T',' ')+' UTC':p.start+' — '+p.end;
  function validate(v){
-  if(!exact(v,['schema_version','platform','account','captured_at','period','metrics','audience','source'])||v.schema_version!==1||v.platform!==platform)throw Error('Wrong platform');
+  if(!exact(v,['schema_version','platform','account','captured_at','period','metrics','audience','source',...(v?.schema_version===2?['insights']:[])])||![1,2].includes(v.schema_version)||v.platform!==platform)throw Error('Wrong platform');
   if(!exact(v.account,['handle','url','platform_id'])||JSON.stringify(v.account)!==JSON.stringify(snapshot.account))throw Error('Wrong channel');
   if(!Number.isFinite(Date.parse(v.captured_at))||Date.parse(v.captured_at)>Date.now()+300000||!validPeriod(v.period))throw Error('Invalid dates');
   if(!exact(v.source,['name','method'])||v.source.name!==snapshot.source.name||v.source.method!=='NATIVE_BROWSER')throw Error('Wrong source');
@@ -1185,7 +117,26 @@ button,a{-webkit-tap-highlight-color:transparent}
    if(!Array.isArray(rows)||rows.length>60||rows.length&&(a.scope==='UNAVAILABLE'||a.period===null))throw Error('Unproven audience');
    for(const r of rows){if(!exact(r,['label','percentage','source_field'])||typeof r.label!=='string'||r.label.length>60||labels.has(r.label)||typeof r.percentage!=='number'||!Number.isFinite(r.percentage)||r.percentage<0||r.percentage>100||!provenance(r.source_field))throw Error('Invalid audience bucket');labels.add(r.label);total+=r.percentage;}
    if(total>101)throw Error('Overlapping buckets');
-  }return v;
+  }
+  if(v.schema_version===2)validateInsights(v);
+  return v;
+ }
+ function validateInsights(v){
+  if(!exact(v.insights,['timeline','view_sources','content_views']))throw Error('Invalid charts');
+  const views=v.metrics.find(m=>m.key==='views')?.value;
+  for(const [name,chart] of Object.entries(v.insights)){
+   if(chart===null)continue;
+   const daily=name==='timeline',dimension=daily?'date':'key',rowKey=daily?'points':'buckets';
+   if(!exact(chart,['source_field',rowKey])||!provenance(chart.source_field)||!Array.isArray(chart[rowKey])||!chart[rowKey].length||chart[rowKey].length>366||daily&&platform!=='youtube'||!daily&&platform!=='instagram')throw Error('Unproven chart');
+   const seen=new Set();let total=0;
+   chart[rowKey].forEach((r,i)=>{
+    if(!exact(r,[dimension,'value'])||!Number.isSafeInteger(r.value)||r.value<0||r.value>1e15||seen.has(r[dimension]))throw Error('Invalid chart count');
+    seen.add(r[dimension]);total+=r.value;
+    if(daily){const expected=new Date(Date.parse(v.period.start+'T00:00:00Z')+i*86400000).toISOString().slice(0,10);if(r.date!==expected||r.date>v.period.end)throw Error('Wrong chart date');}
+    else if(!(name==='view_sources'?['followers','non_followers','unknown']:['reels','stories','posts','other']).includes(r.key))throw Error('Wrong chart label');
+   });
+   if(daily&&chart.points.at(-1).date!==v.period.end||views===undefined||Math.abs(total-views)>(daily?chart.points.length:Math.max(100,views*.001)))throw Error('Chart/report mismatch');
+  }
  }
  function provenance(v){return typeof v==='string'&&/^[A-Za-z0-9_.:/-]{1,160}$/.test(v);}
  function el(tag,cls,content){const e=document.createElement(tag);if(cls)e.className=cls;if(content!==undefined)e.textContent=content;return e;}
@@ -1199,14 +150,9 @@ button,a{-webkit-tap-highlight-color:transparent}
   const status=document.querySelector('[data-status]');status.dataset.state=mode;
   status.classList.toggle('pm-error',mode!=='READY');
   status.textContent=(mode==='READY'?text('Проверенные данные · ','Verified data · '):mode==='STALE'?text('Снимок устарел. Дата обновления указана выше. · ','Snapshot is stale. Capture date is shown above. · '):text('Последний сохранённый снимок · ','Last saved snapshot · '))+current.source.name;
-  const cards=document.querySelector('[data-metrics]');cards.replaceChildren();
-  for(const m of current.metrics){const c=el('article','card stat-card');c.dataset.metric=m.key;const label=PLATFORM_LABELS[m.key][language==='ru'?0:1];const n=el('div','stat-value',number(m.value,m.unit));n.dataset.value=String(m.value);c.append(el('div','stat-title',label),n,el('div','stat-foot',m.scope==='CURRENT'?text('На дату обновления','As of capture'):current.period.start+' — '+current.period.end));cards.append(c);}
   const a=current.audience;
-  document.querySelector('[data-audience-note]').textContent=a.scope==='UNAVAILABLE'?text('Демография зрителей пока не предоставлена платформой.','Viewer demographics are not available from the platform.'):(text('Аудитория: ','Audience: ')+({VIEWERS:text('зрители','viewers'),REACHED:text('охваченные аккаунты','accounts reached'),ENGAGED:text('вовлечённые аккаунты','accounts engaged')}[a.scope])+' · '+a.period.start+' — '+a.period.end);
-  for(const name of ['gender','age','geography']){const target=document.querySelector('[data-audience='+name+']');target.replaceChildren();
-   if(!a[name].length){target.append(el('p','section-sub',text('Платформа не предоставила данные по зрителям за этот период.','Viewer data is not available for this period.')));continue;}
-   for(const b of a[name]){const row=el('div','pm-bucket');const bar=el('progress');bar.max=100;bar.value=b.percentage;row.append(el('span','',b.label),el('strong','',number(b.percentage,'percent')),bar);target.append(row);}
-  }
+  document.querySelector('[data-audience-note]').textContent=platform==='instagram'?text('Охват и вовлечение · тот же период','Reach and engagement · same period'):a.period?text('Зрители · ','Viewers · ')+a.period.start+' — '+a.period.end:text('Данные аудитории недоступны','Audience data unavailable');
+  window.PlatformPresentation.renderInto(current,language);
  }
  document.querySelectorAll('[data-language]').forEach(e=>e.addEventListener('click',()=>{language=e.dataset.language;render();}));
  validate(snapshot);render();
